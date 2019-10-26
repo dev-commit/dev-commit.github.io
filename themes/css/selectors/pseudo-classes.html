@@ -1,0 +1,61 @@
+<h2>Псевдоклассы</h2>
+
+<pre><code class="css">
+a:hover              - наведение на элемент
+a:not(:hover)        - увод с элемента
+a:active             - активный элемент
+a:focus              - элемент в фокусе
+a:visited            - посещеннае ссылки
+a:link               - не посещенные ссылки
+</code></pre>
+
+<pre><code class="css">
+p:empty             - все пустые элементы p
+p:not(:empty)       - все не пустые элементы p
+p:not(.myclass)     - если p не имеет класса myclass
+</code></pre>
+
+<pre><code class="css">
+p:first-child       - первый элемент (элементы должны быть в wrapper)
+p:last-child         - последний элемент (элементы должны быть в wrapper)
+p:nth-child(2)       - второй элемент
+p:nth-child(2n)      - каждый второй элемент
+p:nth-child(even)    - каждый четный элемент
+p:nth-child(odd)     - каждый нечетный элемент
+</code></pre>
+
+<pre><code class="css">
+div:nth-of-type(2n) - каждый второй элемент определенного типа
+div:only-child      - только дочерние div
+:nth-last-child     - добавление стиля к элементам на основе нумерации в дереве элементов (в отличие от :nth-child отсчёт ведётся от последнего элемента)
+:nth-last-of-type   - добавление стиля к элементам указанного типа на основе нумерации в дереве элементов (в отличие от :nth-of-type отсчёт ведётся от последнего элемента)
+</code></pre>
+
+<pre><code class="css">
+input:checked       - выбранный элемент для checkbox и radio
+input:enabled       - активные элементы
+input:disabled      - неактивные элементы
+input:invalid       - поля формы, содержимое которых не соответствует указанному типу, н-р: незаполненные input с required
+input:valid         - поля формы, содержимое которых соответствует указанному типу
+input:optional      - input без required
+input:required      - input с required
+input:out-of-range  - превышение лимита max в input number
+input:in-range      - в лимите min max в input number
+input:read-only     - input с атрибутом readonly
+input:read-write    - input доступные для изменения
+</code></pre>
+
+<pre><code class="css">
+div:target          - стилизация элемента target1 при нажатии на ссылку &lt;a href="#target1"&gt;Link 1&lt;/a&gt;
+p:first-of-type     - первый элемент определенного типа
+p:last-of-type      - последний элемент определенного типа
+:only-of-type       - применяется к дочернему элементу указанного типа, только если он единственный у родителя
+q:lang              - определяет язык, который используется в документе
+</code></pre>
+
+<pre><code class="css">
+:root               - корневой элемент документа
+:default            - элемент по умолчанию, н-р: есть 2 кнопки submit, 1 будет задана по умолчанию
+:fullscreen         - полноэкранный режим
+:indeterminate      - если переключатель находится в неопределенном состоянии
+</code></pre>

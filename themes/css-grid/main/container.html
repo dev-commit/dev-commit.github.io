@@ -1,0 +1,53 @@
+<h2>Grid Container</h2>
+
+<pre><code class="bash">
+<em>display: grid;</em> # объявление
+</code></pre>
+
+<pre><code class="bash">
+<em>grid-template-columns: 300px 300px 300px;</em>                     # столбцы (3 штуки)
+<em>grid-template-rows:    150px 150px 150px;</em>                     # строки (3 штуки), можно не задавать. адаптируются под высоту контента
+<em>grid-template:         150px 150px 150px / 300px 300px 300px;</em> # короткая запись строки / столбцы
+<em>grid-auto-columns:     200px;</em>                                 # размер по умолчанию для неявно заданных столбцов
+<em>grid-auto-rows:        200px;</em>                                 # размер по умолчанию для неявно заданных строк
+</code></pre>
+
+<pre><code class="bash">
+<em>grid-gap: 20px;</em>         # расстояние между строками и стобцами (толщина линии)
+<em>grid-column-gap: 20px;</em>  # расстояние между столбцами
+<em>grid-row-gap: 20px;</em>     # расстояние между строками
+</code></pre>
+
+<pre>
+<code class="bash">
+<em>grid-auto-flow: row;</em>    # порядок элементов по очереди по строкам (по умолчанию)
+<em>grid-auto-flow: column;</em> # порядок элементов по очереди по столбцам
+</code>
+</pre>
+
+<ul class="list-point">
+    <li>Для<u-code-text>grid-template-columns</u-code-text> и <u-code-text>grid-template-rows</u-code-text></li>
+</ul>
+<pre><code class="bash">
+<em>300px 300px 300px;</em>                     # 3 элемента (фиксированные величины)
+<em>1fr 1fr 1fr;</em>                           # 3 элемента (относительные величины) fr - фракция
+<em>500px 1fr 2fr;</em>                         # 3 элемента (смешанные величины)
+<em>500px auto 500px;</em>                      # 3 элемента (auto - занимает ширину контента)
+<em>repeat(3, 1fr);</em>                        # задать повторяющийся паттерн
+<em>minmax(150px, 250px) 1fr 1fr;</em>          # 3 элемента, первый с minmax
+<em>minmax(100px, auto);</em>                   # определяется автоматически по ширине элементов
+<em>repeat(auto-fill, 200px);</em>              # добавлять столько элементов фиксированых размеров, сколько поместится в контейнер
+<em>repeat(auto-fill, minmax(150px, 1fr));</em> # когда минимальное значение 150px перескакивают колонки (может остаться пустое пространство сбоку)
+<em>repeat(auto-fit, minmax(150px, 1fr));</em>  # когда минимальное значение 150px перескакивают колонки (пустое пространство не оставляет, блок заполняет всю ширину)
+</code></pre>
+
+<pre><code class="bash">
+<em>repeat()</em>    # задание повторяющегося паттерна
+<em>minmax()</em>    # задание минимального и максимального значения
+<em>auto-fill()</em> # растяжение дочерних grid элементов на всю ширину родителя, если хватает элементов
+<em>auto-fit()</em>  # растяжение дочерних grid элементов на всю ширину родителя
+</code></pre>
+
+<ul class="list-point">
+    <li><u-code-text>fr</u-code-text> можно применять к высоте, только если у родителя задана высота</li>
+</ul>

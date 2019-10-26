@@ -1,0 +1,26 @@
+<h2>Объект события eventObject()</h2>
+
+<pre><code class="js">
+eventObject(); передает параметр с информацией
+	screenX  - координаты щелчка по оси X (от края монитора)
+	screenY  - координаты щелчка по оси Y (по высоте)
+	pageX    - координаты щелчка по оси X (для браузера)
+	pageY    - координаты щелчка по оси Y (для браузера)
+	altKey   - была ли нажата клавиша ALT
+	ctrlKey  - была ли нажата клавиша CTRL
+	shiftKey - была ли нажата клавиша SHIFT
+	target   - какой объект отреагировал на событие
+</code></pre>
+
+<pre><code class="js">
+$('#box').click(function(eventObject) {
+    alert(eventObject.shiftKey);
+});
+</code></pre>
+
+<pre><code class="js">
+$('#box').click(function(eventObject) {
+    var myObject = eventObject.target; // сохранили объект
+    alert(myObject.id); // вывести значение атрибута ID для объекта
+});
+</code></pre>

@@ -1,0 +1,189 @@
+/*******************************************
+re-styled
+*******************************************/
+body {
+	font-size: 16px;
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0px;
+	background-color: #f7f7f7;
+}
+h2 {
+	font-size: 16px;
+	background-color: none;
+	margin-top: 12px;
+	margin-bottom: 7px;
+	padding: 0;
+	flex-shrink: 0;
+	border: none;
+	width: 100%;
+	flex-shrink: 0;
+}
+h1 {
+	flex-shrink: 0;
+	color: rgba(var(--color-js), 1);
+	font-size: 20px;
+	width: 100%;
+	flex-shrink: 0;
+}
+#content {
+	max-width: 100%;
+}
+#content > div:after {
+	content: '';
+	width: 0;
+	height: 0;
+	display: none;
+}
+
+/*******************************************
+map-header
+*******************************************/
+#map-header {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	padding: 10px 30px;
+	background-color: #fff;
+	box-shadow:
+		0 16px 24px 2px rgba(33,37,41,.02), 
+		0 6px 30px 5px rgba(33,37,41,.04), 
+		0 8px 10px -5px rgba(33,37,41,.1);
+}
+#map-header .map-header-menu {
+	color: rgba(var(--color-js), 1);
+    background-color: rgba(var(--color-js), 0.1);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 7px 15px;
+    margin: 5px;
+    font-family: FiraSans-Bold;
+    border-bottom: 2px solid transparent;
+    transition: 0.7s;
+    width: auto;
+    cursor: pointer;
+}
+#map-header .menu-html  { color: rgba(var(--color-html),  1);   background-color: rgba(var(--color-html),  0.2); }
+#map-header .menu-js    { color: rgba(var(--color-js),    1);   background-color: rgba(var(--color-js),    0.2); }
+#map-header .menu-php   { color: rgba(var(--color-php),   1);   background-color: rgba(var(--color-php),   0.2); }
+#map-header .menu-other { color: rgba(var(--color-other), 1);   background-color: rgba(var(--color-other), 0.2); }
+#map-header .menu-fw    { color: rgba(var(--color-fw),    0.55); background-color: rgba(var(--color-fw),    0.2); }
+
+/*******************************************
+map-themes
+*******************************************/
+#map-themes {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	max-width: 1000px;
+	overflow: auto;
+	padding: 10px 20px;
+	margin: auto;
+}
+#map-themes u-menu {
+	background-color: rgba(var(--color-other), 0.2);
+	color: rgba(var(--color-js), 1) !important;
+}
+
+#map-themes .map-themes-menu {
+	display: inline-block;
+	padding: 7px;
+	border: 1px solid rgba(var(--color-js), 0.3);
+	color: rgb(var(--color-js));
+	font-size: 14px;
+	cursor: pointer;
+	margin: 0px 2px 5px 2px;
+	background-color: #fff;
+	color: rgba(var(--color-js), 1);
+}
+.map-themes-content {
+	width: 250px !important;
+	padding: 5px !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	background-color: #fff;
+	align-content: flex-start;
+	padding: 0 !important;
+}
+.map-themes-content .map-themes-menu {
+	width: 250px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	color: #000 !important;
+    text-decoration: none;
+    font-size: 14px !important;
+    user-select: none;
+    border: none !important;
+    border-bottom: 1px solid rgba(var(--color-black), 0.2) !important;
+    padding: 5px 15px !important;
+    line-height: 1.7;
+    margin: 0 !important;
+}
+.map-themes-content-h1 {
+	text-align: left;
+}
+.map-themes-content h1 {
+	font-weight: bold;
+	cursor: default;
+	text-transform: uppercase;
+	color: rgba(var(--color-other), 1);
+	font-size: 14px;
+	margin: 0;
+	padding: 10px 15px 20px 15px;
+}
+.map-themes-content h2 {
+	font-weight: bold;
+	cursor: default;
+	text-transform: uppercase;
+	color: rgba(var(--color-js), 1);
+	font-size: 14px;
+	margin: 0;
+	padding: 10px 15px 20px 15px;
+}
+#map-themes.map-themes-content u-menu {
+	color: black !important;
+}
+
+/*******************************************
+map-content
+*******************************************/
+#map-content {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: calc(100vw - 250px);
+	background: #fff;
+	padding: 30px 60px 30px 30px;
+	overflow: auto;
+	height: 100vh;
+	box-shadow:
+		0 16px 24px 2px rgba(33,37,41,.02), 
+		0 6px 30px 5px rgba(33,37,41,.04), 
+		0 8px 10px -5px rgba(33,37,41,.1);
+}
+#map-content .map-content-close {
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	background-image: url(../img/app/close.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	cursor: pointer;
+	z-index: 100;
+}
+
+
+/*******************************************
+main
+*******************************************/
+.map-header-menu, .map-themes-menu {
+	user-select: none;
+}

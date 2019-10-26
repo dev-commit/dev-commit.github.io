@@ -1,0 +1,80 @@
+<h2>Добаление реактивных элементов</h2>
+
+<ul class="list-point">
+	<li>Vue не может отследить добавление или удаление свойства объекта. Чтобы поле стало реактивным, Vue превращает его в пару <u>геттер/сеттер</u> в ходе инициализации экземпляра. Поэтому все поля должны изначально быть заданы в объекте <u-code-text>data</u-code-text></li>
+</ul>
+
+<pre><code class="js">
+var vm = new Vue({
+	data: {
+		a: 1
+	}
+})
+// теперь `vm.a` — реактивное поле
+
+vm.b = 2
+// `vm.b` НЕ реактивно
+</code></pre>
+
+<ul class="list-point">
+	<li>Во Vue нельзя динамически добавлять новые корневые реактивные свойства в уже существующий экземпляр. Тем не менее, можно добавить реактивное свойство во вложенные объекты, используя метод <u-code-text>Vue.set(object, key, value)</u-code-text></li>
+</ul>
+
+<pre><code class="js">
+Vue.<u-code>set</u-code>(vm.someObject, 'b', 2);
+</code></pre>
+
+<ul class="list-point">
+	<li>Также можно использовать метод экземпляра <u-code-text>vm.$set</u-code-text>, который представляет собой псевдоним к глобальному <u-code-text>Vue.set</u-code-text></li>
+</ul>
+
+<pre><code class="js">
+this.<u-code>$set</u-code>(this.someObject, 'b', 2);
+</code></pre>
+
+<ul class="list-point">
+	<li>Иногда нужно добавить несколько свойств в существующий объект, например, с помощью <u-code-text>Object.assign()</u-code-text> или <u-code-text>_.extend()</u-code-text>. Если так поступить, добавленные свойства не станут реактивными. Для решения этой задачи придётся создать новый объект, содержащий поля как оригинального объекта, так и объекта-примеси</li>
+</ul>
+
+<pre><code class="js">
+// вместо `Object.assign(this.someObject, { a: 1, b: 2 })`
+this.someObject = Object.assign({}, this.someObject, { a: 1, b: 2 })
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ограничения, связанные с массивами</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<pre><code class="js">
+Vue.<u-code>set</u-code>(vm.items, indexOfItem, newValue)
+</code></pre>
+
+<h4>Массивы</h4>
+<pre><code class="js">
+var vm = new Vue({
+	data: {
+		items: ['a', 'b', 'c']
+	}
+})
+</code></pre>
+
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+vm.items[1] = 'x';   // не реактивно
+vm.items.length = 2; // не реактивно
+</code></pre></div><div class="container-half"><pre><code class="js">
+Vue.set(vm.items, indexOfItem, newValue); // реактивно
+vm.items.splice(newLength);               // реактивно
+</code></pre></div></div>
+
+<h4>Объекты</h4>
+<pre><code class="js">
+var vm = new Vue({
+	data: {
+		userProfile: {
+			name: 'Anika'
+		}
+	}
+})
+
+Vue.set(vm.userProfile, 'age', 27)
+</code></pre>

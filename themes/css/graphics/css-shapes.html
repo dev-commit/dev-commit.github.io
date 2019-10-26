@@ -1,0 +1,60 @@
+<h2>CSS Shapes</h2>
+
+<ul class="list-point">
+	<li><u-text-define>shape-outside</u-text-define> (module 1)</li>
+	<li><u-text-define>shape-inside</u-text-define> (module 2)</li>
+	<li>shape работают только для float элементов у которых определена ширина и высота</li>
+</ul>
+
+<!------------------------------------------------------>
+<h3>Syntax</h3>
+<!------------------------------------------------------>
+
+<h4>Function values</h4>
+<pre><code class="css">
+.item {
+	shape-outside:<u-code>circle</u-code>(50%);                              /* (radius at x y) - окружность */
+	shape-outside:<u-code>ellipse</u-code>(150px 300px at 50% 50%);          /* (radius radius at x y) - эллипс */
+	shape-outside:<u-code>inset</u-code>(100px 100px 100px 100px 10px);      /* (p1, p2, p3, p4 round 10px) - прямоугольник внутри shape */
+	shape-outside:<u-code>polygon</u-code>(10px 10px, 20px 20px, 30px 30px); /* (p1, p2, p3 ...) - полигон */
+}
+</code></pre>
+
+<h4>URL and gradient values</h4>
+<pre><code class="css">
+.item {
+	shape-outside: <u-code>url</u-code>(image.png);     /* по границе изображения */
+	shape-outside: <u-code>linear-gradient</u-code>(45deg, rgba(255, 255, 255, 0) 150px, red 150px);
+}
+</code></pre>
+
+<h4>Keyword values (reference-box)</h4>
+<pre><code class="css">
+.item {
+	shape-outside:<u-code>none</u-code>;
+	shape-outside:<u-code>margin-box</u-code>;
+	shape-outside:<u-code>content-box</u-code>;
+	shape-outside:<u-code>border-box</u-code>;
+	shape-outside:<u-code>padding-box</u-code>;
+}
+</code></pre>
+
+<h4>Global values</h4>
+<pre><code class="css">
+.item {
+	shape-outside: initial;
+	shape-outside: inherit;
+	shape-outside: unset;
+}
+</code></pre>
+
+<pre><code class="css">
+.item {
+	<u-code>shape-margin</u-code>: 10px;          /* margin от shape до контента */
+	<u-code>shape-image-threshold</u-code>: 0.7;  /* альфа канал для обрезки по изображению
+	/* closest-side - расстояние до ближайшей строны (circle, ellipse) */
+	/* fartest-side - расстояние до дальней стороны (circle, ellipse) */
+}
+</code></pre>
+
+

@@ -1,0 +1,42 @@
+<h2>AJAX</h2>
+
+<h4>Короткая запись</h4>
+<pre><code class="js">
+$.get("scripts/script.php", {name:name}, function(data) {
+	//
+});
+$.get("scripts/script.php", {name: "Tom", time: "2pm"}, function(data) {
+	//
+});
+</code></pre>
+
+<h4>Полная запись</h4>
+<pre><code class="js">
+$.ajax({
+	type: "GET",
+	url: "scripts/script.php",
+	data: { name:name, message:message },
+	async: true,
+	success: function (data, textStatus) {
+		console.log(data);
+	}
+});
+</code></pre>
+
+<h4>Передача JSON данных из PHP</h4>
+<pre><code class="php">
+&lt;?php
+	$name = 'Андрей';
+	$email = 'and@mail.ru';
+	$arr = array($name, $price);
+	echo json_encode($arr);
+?&gt;
+</code></pre>
+
+<h4>Прием JSON данных из PHP</h4>
+Выполняем код, который мы получили в виде строки / json объекта
+<pre><code class="js">
+var data = eval(data);
+var name = data[0];
+var price = data[1];
+</code></pre>

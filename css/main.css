@@ -1,0 +1,191 @@
+
+@import "../libraries/highlight/sawyer.css" screen;
+@import "../module/preloader/preloader.css" screen;
+
+@import "./basic.css" screen;
+@import "./custom-elements.css" screen;
+@import "./components.css" screen;
+@import "./tables.css" screen;
+
+@import "./test.css" screen;
+
+/***************************************************
+STRUCTURE
+/***************************************************/
+#container {
+	display: flex;
+	height: 100vh;
+}
+#menu-left {
+	width: 300px;
+	flex-shrink: 0;
+	overflow: auto;
+}
+#menu-top {
+	max-width: 1100px;
+	margin: auto;
+}
+#content-wrapper {
+	flex-grow: 1;
+	padding: 0px 25px;
+	overflow: auto;z-index: 
+}
+#content {
+	max-width: 1100px;
+	margin-left: 25px;
+	margin: auto;
+}
+#content > div:after {
+	content: '</>';
+	display: block;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	margin-top: 35px;
+	border-radius: 50%;
+	background: rgba(var(--color-js), 0.15);
+	border: 2px solid rgba(var(--color-js), 0.2);
+	color: rgba(var(--color-js), 1);
+}
+
+/***************************************************
+MENU-TOP
+/***************************************************/
+#menu-top {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	padding: 15px 0px;
+}
+#menu-top .menu {
+	text-decoration: none;
+	font-size: 18px;
+	padding: 7px 15px;
+	margin: 5px;
+	font-family: FiraSans-Bold;
+	border-bottom: 2px solid transparent;
+	transition: 0.7s;
+	width: auto;
+	cursor: pointer;
+}
+#menu-top .menu:hover {
+	opacity: 0.7;
+}
+
+#menu-top .menu-html  { color: rgba(var(--color-html),  1);   background: rgba(var(--color-html),  0.2); }
+#menu-top .menu-js    { color: rgba(var(--color-js),    1);   background: rgba(var(--color-js),    0.2); }
+#menu-top .menu-php   { color: rgba(var(--color-php),   1);   background: rgba(var(--color-php),   0.2); }
+#menu-top .menu-other { color: rgba(var(--color-other), 1);   background: rgba(var(--color-other), 0.2); }
+#menu-top .menu-fw    { color: rgba(var(--color-fw),    0.55); background: rgba(var(--color-fw),    0.2); }
+
+/***************************************************
+MENU-LEFT
+/***************************************************/
+#menu-build a {
+	color: black;
+	text-decoration: none;
+	display: block;
+	cursor: pointer;
+    font-size: 14px;
+    user-select: none;
+    border-bottom: 1px solid rgba(var(--color-black), 0.2);
+    padding: 5px 15px;
+    line-height: 1.7;
+}
+#menu-build a.active {
+	background: rgba(var(--color-html), 0.1);
+	color: #4aaf2d;
+	font-weight: bold;
+}
+#menu-left .theme, #menu-left .section, #menu-left > a {
+	color: black;
+	text-decoration: none;
+	display: block;
+	cursor: pointer;
+    font-size: 14px;
+    user-select: none;
+    border-bottom: 1px solid rgba(var(--color-black), 0.2);
+    padding: 5px 15px;
+    line-height: 1.7;
+}
+#menu-left a.active {
+	background: rgba(var(--color-html), 0.1);
+	color: #4aaf2d;
+	font-weight: bold;
+}
+#menu-left .theme {
+	font-weight: bold;
+	cursor: default;
+	text-transform: uppercase;
+	color: rgba(var(--color-js), 1);
+	background: rgba(var(--color-js), 0.2);
+}
+#menu-left .section {
+	font-weight: bold;
+	cursor: default;
+	text-transform: uppercase;
+	color: rgba(var(--color-other), 1);
+	background: rgba(var(--color-other), 0.2);
+}
+
+/***************************************************
+ELEMENTS
+/***************************************************/
+h1 {
+	text-align: center;
+	margin-top: 20px;
+	font-size: 25px;
+}
+h2 {
+	margin: 5px 0px 15px 0px;
+	padding: 15px;
+	margin-top: 20px;
+	font-size: 22px;
+	color: #2c3e50;
+	border-bottom: 1px solid #ddd;
+}
+h3 {
+	margin: 15px 0px 15px 0px;
+	padding: 10px;
+	color: #42b983;
+}
+h4 {
+	margin: 15px 0px 15px 0px;
+	padding-bottom: 5px;
+}
+img {
+	display: block;
+}
+img.center {
+	margin: auto;
+}
+img.inline {
+	display: inline-block;
+}
+pre {
+    tab-size: 4;
+    margin: 10px 0px;
+}
+code {
+	padding: 10px 25px 25px 25px !important;
+    line-height: 1.5em;
+    font-size: 15px;
+    position: relative;
+}
+
+
+/***************************************************
+LISTS
+/***************************************************/
+.list-point, .list-num {
+	line-height: 2;
+	margin-top: 5px;
+	font-size: 14px;
+}
+.list-point {
+	list-style-type: disc;
+}

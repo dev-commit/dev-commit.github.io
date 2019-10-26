@@ -1,0 +1,40 @@
+<h2>makeStyles and withStyles</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>makeStyles</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<pre><code class="js">
+import { <u-code>makeStyles</u-code> } from '@material-ui/core/styles';
+const useStyles = makeStyles(theme => ({
+	label: {
+		mardin: '10px',
+	},
+}));
+const MyComponent = () => {
+	const classes = useStyles();
+	return (&lt;label className={classes.label} /&gt;);
+}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>withStyles</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js"><u-code-title>MyComponent.js</u-code-title>
+import { <u-code>withStyles</u-code> } from '@material-ui/core/styles';
+import styles from './MyComponentStyles';
+const MyComponent = () => {
+	return (&lt;label className={classes.label} /&gt;);
+};
+export default withStyles(styles)(CRMRadio);
+</code></pre>
+
+<pre><code class="css"><u-code-title>MyComponentStyles.js</u-code-title>
+const MyComponentStyles = () => ({
+    label: {
+		mardin: '10px',
+    }
+});
+export default MyComponentStyles;
+</code></pre>
+

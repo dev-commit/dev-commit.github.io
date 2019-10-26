@@ -1,0 +1,134 @@
+<h2>prop-types</h2>
+
+<v-pre-npm>
+npm i --save <u-code-npm>prop-types</u-code-npm>
+</v-pre-npm>
+
+<ul class="list-point">
+	<li>Валидаторы необязательны</li>
+    <li>По соображениям производительности <u-code-text>propTypes</u-code-text> проверяются только в режиме разработки</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <b>Два варианты задания пропсов по умолчанию</b>
+    <li><u-code-text>defaultProps</u-code-text> как статическое свойство класса (для компонента-наследника от <u-code-text>React.Component</u-code-text>)</li>
+    <li><u-code-text>App.defaultProps</u-code-text></li>
+</ol>
+
+<ul class="list-point">
+    <li>Определение <u-code>defaultProps</u-code> гарантирует, что <u-code>this.props.name</u-code> будет иметь значение, даже если оно не было указано родительским компонентом. Сначала применяются значения по умолчанию, заданные в <u-code>defaultProps</u-code>. После запускается проверка типов с помощью <u-code>propTypes</u-code>. Так что проверка типов распространяется и на значения по умолчанию</li>
+</ul>
+
+<pre><code class="js">
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+<u-code>import PropTypes from 'prop-types';</u-code>
+
+export default class App extends Component {
+    <u-code>static defaultProps</u-code> = {
+        name: 'Jack'
+    }
+	render() {
+		return (this.props.name);
+	}
+}
+
+App.<u-code>propTypes</u-code>    = { name: <u-code>PropTypes.string</u-code> }; // проверка типа
+App.<u-code>defaultProps</u-code> = { name: 'Jack' };           // значение пропсов по умолчанию
+
+ReactDOM.render(&lt;App name="Tony" /&gt;, document.getElementById('root'));
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<pre><code class="js"><u-code-title>Подключение</u-code-title>
+import PropTypes from 'prop-types';
+</code></pre>
+
+<pre><code class="js"><u-code-title>Проверка типа</u-code-title>
+MyComponent.propTypes = {
+	propName: PropTypes.<u-code>array</u-code>,
+	propName: PropTypes.<u-code>bool</u-code>,
+	propName: PropTypes.<u-code>func</u-code>,
+	propName: PropTypes.<u-code>number</u-code>,
+	propName: PropTypes.<u-code>object</u-code>,
+	propName: PropTypes.<u-code>string</u-code>,
+	propName: PropTypes.<u-code>symbol</u-code>
+}
+</code></pre>
+
+<pre><code class="js"><u-code-title>Ограничение конкретными значениями</u-code-title>
+MyComponent.propTypes = {
+	propName: PropTypes.<u-code>oneOf</u-code>(['News', 'Photos'])
+}
+</code></pre>
+
+<pre><code class="js"><u-code-title>Required</u-code-title>
+MyComponent.propTypes = {
+	propName: PropTypes.<u-code>string.isRequired</u-code>, // обязательное типа "string"
+	propName: PropTypes.<u-code>any.isRequired</u-code>,    // обязательное любого типа
+}
+</code></pre>
+
+<pre><code class="js"><u-code-title></u-code-title>
+MyComponent.propTypes = {
+	propName: PropTypes.<u-code>node</u-code>, // все, что может быть отренедерено: числа, строки, элементы или массивы (или фрагменты) содержащие эти типы
+	propName: PropTypes.<u-code>element</u-code>,             // react-элемент
+	propName: PropTypes.<u-code>element.isRequired</u-code>,  // ограничение на один дочерний элемент
+	propName: PropTypes.<u-code>instanceOf</u-code>(Message), // экземпляр определенного класса
+}
+</code></pre>
+
+<pre><code class="js"><u-code-title>Объекты и массивы</u-code-title>
+MyComponent.propTypes = { 
+	// Объект, одного из нескольких типов
+	optionalUnion: PropTypes.<u-code>oneOfType</u-code>([
+		PropTypes.string,
+		PropTypes.number,
+		PropTypes.instanceOf(Message)
+	]),
+
+	// Массив объектов конкретного типа
+	optionalArrayOf: PropTypes.<u-code>arrayOf</u-code>(PropTypes.number),
+
+	// Объект со свойствами конкретного типа
+	optionalObjectOf: PropTypes.<u-code>objectOf</u-code>(PropTypes.number),
+
+	// Объект с определённой структурой
+	optionalObjectWithShape: PropTypes.<u-code>shape</u-code>({
+		color: PropTypes.string,
+		fontSize: PropTypes.number
+	}),
+}
+</code></pre>
+
+<ul class="list-point">
+    <li>Можно добавить собственный валидатор. Он должен возвращать объект <u-code-text>Error</u-code-text> при ошибке валидации. Не используйте <u-code-text>console.warn</u-code-text> или <u-code-text>throw</u-code-text> - это не будет работать внутри <u-code-text>oneOfType</u-code-text></li>
+    <li>Можно задать свой валидатор для <u-code-text>arrayOf</u-code-text> и <u-code-text>objectOf</u-code-text>. Он должен возвращать объект Error при ошибке валидации. Валидатор будет вызван для каждого элемента в массиве или для каждого свойства объекта. Первые два параметра валидатора - это массив или объект и ключ текущего элемента</li>
+</ul>
+<pre><code class="js"><u-code-title>Собственный валидатор</u-code-title>
+MyComponent.propTypes = {
+	customProp: function(props, propName, componentName) {
+		if (!/matchme/.test(props[propName])) {
+			return new Error(
+				'Проп `' + propName + '` компонента' +
+				' `' + componentName + '` имеет неправильное значение'
+			);
+		}
+	},
+	customArrayProp: PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) {
+		if (!/matchme/.test(propValue[key])) {
+			return new Error(
+				'Проп `' + propFullName + '` компонента' +
+				' `' + componentName + '` имеет неправильное значение'
+			);
+		}
+	})
+}
+</code></pre>
+

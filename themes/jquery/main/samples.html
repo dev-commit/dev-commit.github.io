@@ -1,0 +1,36 @@
+<h2>Примеры</h2>
+
+<h3>Сообщения, возвращаемые от php скриптов</h3>
+<pre>
+<code class="js">
+function echo(text) {
+    $('#echo').html(text);
+    $('#echo').slideDown(700);
+    setTimeout(function() { $('#echo').slideUp(700) }, 2700);
+}
+</code>
+</pre>
+
+<h3>Поиск по товарам</h3>
+<pre>
+<code class="js">
+$('#search').keyup(function() {             // search - input[text]
+    var value = $('#search').val();         // получаем вводимые символы
+    value = value.toLowerCase();            // переводим в нижний регистр
+    $('.container').css('display', 'none'); // container - содержит блоки с названиями товаров
+    $('.container:contains("'+value+'")').css('display', 'block'); // показываем блоки
+});
+</code>
+</pre>
+
+<h3>Закрытие формы</h3>
+<pre>
+<code class="js">
+$(document).ready(function(){
+    var formOut = true;
+    $('#box').mouseleave(function(){ formOut = true; });
+    $('#box').mouseenter(function(){ formOut = false; });
+    $('.bg').click( function() { if (formOut) { $('.bg').fadeOut(500); } });
+});
+</code>
+</pre>

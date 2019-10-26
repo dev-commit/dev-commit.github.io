@@ -1,0 +1,33 @@
+<h2>Селекторы</h2>
+
+<pre><code class="css">
+div                 - тег
+.class              - класс
+#id                 - идентификатор
+header, p           - несколько элементов
+*                   - все элементы
+div p               - вложенные селекторы (каскад)
+</code></pre>
+
+<pre><code class="css">
+ul li > span        - не все span, а только дочерние span
+ul li + li          - все последующие элементы li
+.class1 ~ div       - все div элементы после class1
+.class1 ~ *         - все элементы после class1
+</code></pre>
+
+<pre><code class="css">
+input[type="text"]  - все input у которых type="text"
+input[name="text"]  - все input у которых name="text"
+input[class="text"] - все input у которых class="text"
+</code></pre>
+
+<pre><code class="css">
+a[title]            - все a у которых есть атрибут title
+[checked]           - выбранный элемент для checkbox и radio
+[class|="yes"]      - все div у которых class начинается со слова yes, может содержать "-", н-р "yes-class"
+[class^="yes"]      - выбирает подстроку с начала названия класса, н-р "yesclass"
+[class$="yes"]      - выбирает подстроку с конца названия класса, н-р "classyes"
+[class*="yes"]      - выбирает подстроку в любом месте названия класса, н-р "classyesmy"
+[class~="yes"]      - когда задано несколько классов, н-р "yes tagname"
+</code></pre>

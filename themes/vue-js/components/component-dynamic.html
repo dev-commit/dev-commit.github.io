@@ -1,0 +1,121 @@
+<h2>Динамические компоненты</h2>
+
+<!------------------------------------------------------------->
+<h4>Создание компонента</h4>
+<!------------------------------------------------------------->
+<pre><code class="html">
+&lt;component <u-code>:is</u-code>="currentView"&gt;&lt;/component&gt;
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Кэширование компонента (сохранение состояния)</h4>
+<!------------------------------------------------------------->
+<pre><code class="html">
+<u-code>&lt;keep-alive&gt;</u-code>
+	&lt;component <u-code>:is</u-code>="currentView"&gt;&lt;/component&gt;
+<u-code>&lt;/keep-alive&gt;</u-code>
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Пример</h4>
+<!------------------------------------------------------------->
+<pre><code class="html">
+&lt;!-- если нужна анимация, component обернуть в transition --&gt;
+&lt;div id="app"&gt;
+	&lt;nav&gt;
+		&lt;a href="#" @click="changeView('orange')"&gt;orange&lt;/a&gt;
+		&lt;a href="#" @click="changeView('blue')"&gt;blue&lt;/a&gt;
+	&lt;/nav&gt;
+	<u-code>&lt;component :is="currentView"&gt;&lt;/component&gt;</u-code>
+&lt;/div&gt;
+
+&lt;template id="orange-template"&gt;
+	&lt;div class="orange-block"&gt;&lt;/div&gt;
+&lt;/template&gt;
+&lt;template id="blue-template"&gt;
+	&lt;div class="blue-block"&gt;&lt;/div&gt;
+&lt;/template&gt;
+</code>
+</code></pre>
+
+<pre><code class="js">
+var app = new Vue({
+	el: '#app',
+	data: {
+		currentView: 'orange'
+	},
+	components: {
+		orange: {
+			template: '#orange-template'
+		},
+		blue: {
+			template: '#blue-template'
+		}
+	},
+	methods: {
+		changeView(view) {
+			this.currentView = view
+		}
+	}
+})
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты import</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>require code 1</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+components: {
+	'app-icon': require('./icons/icon-shopping-cart.vue').default
+	'app-icon': () => import('./icons/icon-shopping-cart.vue')
+},
+beforeCreate() {
+	this.$options.components.TreeFolderContents = require('./icons/icon-shopping-cart.vue').default
+}
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>require code 2</h4>
+<!------------------------------------------------------------->
+<pre><code class="html">
+&lt;template&gt;
+	&lt;component :is="$options.components[name]"&gt;&lt;/component&gt;
+&lt;/template&gt;
+</code></pre>
+
+<pre><code class="js">
+&lt;script&gt;
+export default {
+	props: {
+		name: { type: String }
+	},
+	created() {
+		this.$options.components[this.name] = require('./icons/icon-'+this.name+'.vue').default;
+	}
+}
+&lt;/script&gt;
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Подшрузка компонента с данными из роутинга</h4>
+<!------------------------------------------------------------->
+<pre><code class="html">
+&lt;template&gt;
+    &lt;app-theme /&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+    components: {
+        'app-theme': null,
+    },
+    created() {
+        this.$options.components['app-theme'] = 
+            require(`../category/${this.$route.params.name}.vue`).default;
+    }
+}
+&lt;/script&gt;
+</code></pre>

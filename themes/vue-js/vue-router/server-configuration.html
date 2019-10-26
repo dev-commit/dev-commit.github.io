@@ -1,0 +1,17 @@
+<h3 id="vue-router-settings">Конфигурование сервера</h3>
+
+<u-link-wrapper>
+	<a href="https://router.vuejs.org/ru/guide/essentials/history-mode.html#примеры-конфигурирования-серверов" target="_blank">Примеры конфигурирования серверов</a>
+</u-link-wrapper>
+
+<h4>Apache (.htaccess)</h4>
+<pre><code class="bash">
+&lt;IfModule mod_rewrite.c&gt;
+	RewriteEngine On
+	RewriteBase /
+	RewriteRule ^index\.html$ - [L]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule . /index.html [L]
+&lt;/IfModule&gt;
+</code></pre>

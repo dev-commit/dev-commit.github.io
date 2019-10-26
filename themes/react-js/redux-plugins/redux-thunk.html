@@ -1,0 +1,48 @@
+<h2>redux-thunk</h2>
+
+<v-pre-npm>
+npm i --save <u-code-npm>redux-thunk</u-code-npm>              # асинхронные actions
+npm i --save <u-code-npm>redux-devtools-extension</u-code-npm> # для работы devtools
+</v-pre-npm>
+
+<pre><code class="js"><u-code-title>redux/reducers/store.js</u-code-title>
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from <u-code>'redux-thunk'</u-code>;
+import rootReducer from './reducers';
+
+export default createStore(rootReducer, <u-code>composeWithDevTools(applyMiddleware(thunk))</u-code>);
+</code></pre>
+
+<pre><code class="js"><u-code-title>redux/actions.js</u-code-title>
+import axios from 'axios';
+import { GET_REQUEST } from './actionTypes';
+
+export const getPhotos = function(year) {
+    return function(dispatch) {
+
+        axios.get('url')
+        .then(response => {
+            dispatch({
+                type: GET_REQUEST_AJAX,
+                payload: response.data,
+            })
+        })
+        .catch(error => console.log(error));
+
+        setTimeout(() => {
+            dispatch({
+                type: GET_REQUEST_TIMEOUT,
+                payload: [1, 2, 3, 4, 5],
+            })
+        }, 5000)
+
+
+    }
+}
+</code></pre>
+
+<ul class="list-point">
+    <li>Если action creator возвращает функцию - она выполняется. Если возвращает простой объект - передается дальше</li>
+    <li>В цепочке middleware есть доступный метод dispatch и getState</li>
+</ul>

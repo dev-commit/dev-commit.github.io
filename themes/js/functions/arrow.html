@@ -1,0 +1,186 @@
+<h2>Стрелочные функции (ES6)</h2>
+
+<ol class="list-num">
+	<b>Особенности</b>: this берется из контекста (окружения) в котором функция объявлена в независимости от того где эта функция будет выполнена
+	<li>Нет свойства prototype</li>
+	<li>Нельзя использовать как конструкторы объектов</li>
+	<li>Нельзя использовать <u-code-text>.bind()</u-code-text> <u-code-text>.call()</u-code-text> <u-code-text>.apply()</u-code-text>, т.к. нельзя изменить <u-code-text>this</u-code-text>, который берется из контекста</li>
+</ol>
+
+<ul class="list-point">
+	<li><a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank">MDN</a></li>
+	<li>Стрелка должна стразу идти после параметров (на этой же строке)</li>
+	<li>Стрелочные функции лексически привязаны к значению this. Стрелочные функции не содержат собственный контекст this, а используют значение this окружающего контекста</li>
+	<li>Так как значение this определяется лексикой, вызов стрелочных функций с помощью методов call() или apply(), даже если передать аргументы в эти методы, не влияет на значение this</li>
+	<li>Стрелочные функции не имеют собственного объекта arguments, поэтому в теле стрелочных функций arguments будет ссылаться на переменную в окружающей области</li>
+	<li>Стрелочные функции не могут быть использованы как конструктор и вызовут ошибку при использовании с new</li>
+	<li>Ключевое слово yield не может быть использовано в теле стрелочной функции. Как следствие стрелочные функции не могут быть использованы как генераторы</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>2 агрумента</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+var add = (x, y) => x + y;
+</template>
+<template v-slot:last>
+function add(x, y) {
+	return x + y;
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>1 агрумент</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Если функция принимает 1 параметр, не нужно заключать его в скобки</li>
+</ul>
+
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+var square = x => x*x;
+</template>
+<template v-slot:last>
+var square = function(x) {
+	return x*x;
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Без аргументов</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+var giveMeAnswer = () => 42;
+</template>
+<template v-slot:last>
+var giveMeAnswer = function() {
+	return 42;
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Не возвращает значение</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+var log = () => console.log('hi');
+</template>
+<template v-slot:last>
+var log = function() {
+	console.log('hi');
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Состоит из двух строк</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Если в стрелочной функции несколько строк, то используются фигурные скобки и <u-code-text>return</u-code-text></li>
+</ul>
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+var multiply = (x, y) => {
+	var result = x*y;
+	return result;
+}
+</template>
+<template v-slot:last>
+var multiply = function(x, y) {
+	var result = x*y;
+	return result;
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Возвращает объект</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Возвращаемый объект оборачивается в круглые скобки</li>
+</ul>
+
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+var getPerson = () => ({ name:'Jack' });
+</template>
+<template v-slot:last>
+var getPerson = function() {
+	return { name:'Jack' }
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Самовызывающаяся функция (IIFE)</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+(() => console.log('IIFE'))();
+</template>
+<template v-slot:last>
+(function(){
+	console.log('IIFE');
+})();
+</template>
+</v-two-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Перебор массива (forEach) и сумма элементов</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+var numbers = [1, 2, 3, 4, 5];
+var sum = 0;
+// numbers.forEach(function(num){
+// 	 sum += num;
+// });
+numbers.forEach(num => sum += num);
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Перебор каждого элемента массива (map) возведение в квадрат</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+var numbers = [1, 2, 3, 4, 5];
+var squared = numbers.map(n => n * n);
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Объекты</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+var person2 = {
+	name: 'Tony',
+	greet: () => {
+		console.log('Hello' + this.name);
+		console.log(this); // выведет объект из контекста (window)
+	}
+}
+person2.greet();
+</template>
+<template v-slot:last>
+var person1 = {
+	name: 'Tony',
+	greet: function() {
+		console.log('Hello' + this.name);
+		console.log(this); // выведет объект person
+	}
+}
+person1.greet();
+</template>
+</v-two-code>

@@ -1,0 +1,37 @@
+<h2>Response PHP</h2>
+
+<!------------------------------------------------------>
+<h3>Чтение данных в php</h3>
+<!------------------------------------------------------>
+<pre><code class="php">
+&lt;?php
+	$content = file_get_contents("php://input"); // чтение данных
+	$decoded = json_decode($content, true);      // если передан json
+	echo $decoded[name];                         // вывод значения "name"
+?&gt;
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Передача нескольких значений из php</h3>
+<!------------------------------------------------------>
+<div class="container-flex"><div class="container-half"><pre><code class="php">
+&lt;?php
+    $arr = array("Tony", 25);
+    $json = json_encode($arr);
+    echo $json
+?&gt;
+</code></pre></div><div class="container-half"><pre><code class="js">
+response.data; // ['Tony', 25]
+<br><br><br>
+</code></pre></div></div>
+
+<div class="container-flex"><div class="container-half"><pre><code class="php">
+&lt;?php
+    $arr = array("name" => "Tony", "age" => 25);
+    $json = json_encode($arr);
+    echo $json
+?&gt;
+</code></pre></div><div class="container-half"><pre><code class="js">
+response.data; // {name: "Tony", age: "25"}
+<br><br><br>
+</code></pre></div></div>

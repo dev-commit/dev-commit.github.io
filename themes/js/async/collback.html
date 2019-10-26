@@ -1,0 +1,27 @@
+<h2>Collback Function</h2>
+
+<ul class="list-point">
+	<li><u-text-define>callback function</u-text-define> - функция обратного вызова button.onclick = function() {}</li>
+</ul>
+
+<pre><code class="js">
+fade(this, 1000, function() {
+	this.style.display = 'none';
+})
+function fade(element, time, callbackFunction) {
+	// если callback не задан, создаем пустую функцию
+	var callback = callbackFunction || function() {};
+	// вызываем callback когда необходимо
+	callback.call(element); // передать новый контекст this
+}
+</code></pre>
+
+<pre><code class="js">
+var greeting = function(callback) {
+	var name = 'Tony';
+	return callback(name);
+}
+var a = greeting(function(name) {
+	return 'Hello ' + name;
+});
+</code></pre>

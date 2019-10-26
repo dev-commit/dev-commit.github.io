@@ -1,0 +1,53 @@
+<h2>Spread-оператор объектов</h2>
+
+<ul class="list-point">
+    <li>Работает как <u-code-text>Object.assign()</u-code-text></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+const defaults = {
+	host: 'localhost',
+	user: 'admin'
+};
+
+// более высокий приоритет
+const options = {
+	user: 'Tony',
+	password: 'qwerty'
+}
+</code></pre>
+
+<v-two-code type="js;js" comment="Spread;Object.assign">
+<template v-slot:first>
+const result = <u-code>{ ...defaults, ...options }</u-code>;
+</template>
+<template v-slot:last>
+const result = Object.assign({}, defaults, options);
+</template>
+</v-two-code>
+
+<pre><code class="js"><u-code-title>Result</u-code-title>
+// user из options перезапишет user из defaults
+// =>
+{
+	host: 'localhost',
+	user: 'Tony',
+	password: 'qwerty'
+}
+</code></pre>
+
+<pre><code class="js"><u-code-title>js</u-code-title>
+// комбинация свойств
+const port = 8080;
+const result = {
+	...defaults,
+	...options,
+	port, 
+	connect() {
+		//
+	}
+};
+</code></pre>

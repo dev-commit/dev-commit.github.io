@@ -1,0 +1,52 @@
+<h2>Примеры</h2>
+
+<h3>Exports функции 1</h3>
+things.js
+<pre>
+<code class="js">
+function things(name) {
+    return `Привет, ${name}`;
+}
+module.exports = things;
+</code>
+</pre>
+index.js
+<pre>
+<code class="js">
+var things = require('./things');
+var a = things('Tony');
+console.log(a);
+</code>
+</pre>
+
+<h3>Exports функции 2</h3>
+greet.js
+<pre>
+<code class="js">
+module.exports = function(greeting) {
+    return function(name) {
+        return `${greeting}, ${name}`;
+    }
+}
+</code>
+</pre>
+
+index.js
+<pre>
+<code class="js">
+const getGreet = require('./greet');
+const greet = getGreet('Привет');
+console.log(greet('Tony'));
+console.log(greet('Harvey'));
+console.log(greet('Andy'));
+</code>
+</pre>
+
+Результат
+<pre>
+<code>
+Привет, Tony
+Привет, Harvey
+Привет, Andy
+</code>
+</pre>

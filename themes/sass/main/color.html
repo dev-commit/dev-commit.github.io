@@ -1,0 +1,60 @@
+<h2>Операции над цветами</h2>
+
+<pre>
+<code class="plaintext">
+<em>lighten</em>($color,10%)         - осветляет исходный цвет
+<em>darken</em>($color,10%)          - затемняет исходный цвет
+<em>saturate</em>($color,70%)        - увеличивает насыщенность цвета от исходного
+<em>desaturate</em>($color,70%)      - уменьшает насыщенность цвета от исходного
+<em>transparentize</em>($color,0.2)  - добавляет к исходному цвету альфа-канал
+<em>opacify</em>($color, 0.1)        - задание менее прозрачного цвета
+<em>transparentize</em>($color, 0.4) - задание более прозрачного цвета
+<em>rgba</em>(#333, 0.75)            - перевод из hex в rgba
+</code>
+</pre>
+
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+$color: rgba(255, 0, 0, 0.7);
+#main {
+	color: opacify($color, 0.1);
+	color: transparentize($color, 0.5);
+}
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+#main {
+	color: rgba(255, 0, 0, 0.8);
+	color: rgba(255, 0, 0, 0.2);
+}<br>
+</code>
+</pre>
+</div>
+</div>
+
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+#main {
+	color: rgba(#333, 0.75);
+}
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+#main {
+	color: rgba(51, 51, 51, 0.75);
+}
+</code>
+</pre>
+</div>
+</div>
+

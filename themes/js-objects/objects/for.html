@@ -1,0 +1,27 @@
+<h2>Перебор объекта</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="for (variable" method=" in" after="object) {...}" arg="">
+    Проходит через перечисляемые свойства объекта и его цепочку прототипов. Он пройдёт по каждому отдельному элементу.
+    Порядок перебора соответствует порядку объявления для нечисловых ключей, а числовые или числовые строки сортируются
+    </v-method>
+
+	<v-method-arg arg="variable">Другое (очередное) имя свойства назначается переменной на каждой итерации</v-method-arg>
+	<v-method-arg arg="object">Объект, по чьим свойствам мы проходим</v-method-arg>
+</div>
+
+<pre><code class="js">
+for(let key <u-code>in</u-code> obj) {
+	console.log(key);      // ключи 
+	console.log(obj[key]); // значения
+} 
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Перечисление всех свойств объекта</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+var a = Object.<u-code>keys</u-code>(obj);                // возвращает массив со всеми собственными (те, что в цепочке прототипов, не войдут в массив) именами перечисляемых свойств объекта
+var a = Object.<u-code>keys</u-code>(obj).<u-code>length</u-code>;         // количество свойств
+var a = Object.<u-code>getOwnPropertyNames</u-code>(obj); // возвращает массив содержащий все имена своих свойств (перечисляемых и неперечисляемых) объекта
+</code></pre>

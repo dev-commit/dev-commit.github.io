@@ -1,0 +1,52 @@
+
+<h2>Анимация</h2>
+
+<img src="/img/vue/animation1.png" height="230px" class="center">
+
+<pre><code class="html">
+&lt;transition name="fade"&gt;&lt;/transition&gt;
+&lt;transition name="slide-down"&gt;&lt;/transition&gt;
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Примеры</h3>
+<!------------------------------------------------------>
+<h4>#1 - Плавное появление</h4>
+<pre><code class="css">
+.fade-enter-active, .fade-leave-active {
+	transition: opacity 0.4s;
+}
+.fade-enter, .fade-leave-to {
+	opacity: 0;
+}
+</code></pre>
+
+<h4>#2 - Всплытие снизу</h4>
+<pre><code class="css">
+.element {
+	position: fixed;
+    bottom: 25px;
+    left: 25px;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: 1s;
+}
+.fade-enter, .fade-leave-to {
+    transform: translateY(100px);
+}
+</code></pre>
+
+<h4>#3 - Keyframes</h4>
+<pre><code class="css">
+.fade-enter-active {
+	animation: fade 0.4s;
+}
+.fade-leave-active {
+	animation: fade 0.4s reverse;
+}
+@keyframes fade {
+	0%   { transform: scale(0); }
+	50%  { transform: scale(1.5); }
+	100% { transform: scale(1); }
+}
+</code></pre>

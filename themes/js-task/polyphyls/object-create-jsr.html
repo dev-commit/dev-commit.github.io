@@ -1,0 +1,39 @@
+<h2>Polyfill Object.create (JSR)</h2>
+
+<h4>Learn.Javascript.Ru</h4>
+
+<h4>Исходный Object.create()</h4>
+<pre><code class="js">
+var objFirst = {
+    name: 'Tony'
+};
+var objSecond = Object.create(objFirst); // => {} __proto__: name: "Tony"
+</code></pre>
+
+<h4>Полифил</h4>
+<pre><code class="js">
+var objFirst = {
+    name: 'Tony'
+};
+
+//if (!Object.create) Object.create = inherit; // проверка поддержки Object.create
+var objSecond = inherit(objFirst); // => {} __proto__: name: "Tony"
+
+function inherit(proto) {
+    function F() {}       // Создана новая функция F. Она ничего не делает с this, так что если вызвать new F, то получим пустой объект
+    F.prototype = proto;  // Свойство F.prototype устанавливается в будущий прототип proto
+    var object = new F(); // Результатом вызова new F будет пустой объект с __proto__ равным значению F.prototype
+    return object;        // Получили пустой объект с заданным прототипом. Возвратим его
+}
+</code></pre>
+
+<h4>Короткая запись</h4>
+<pre><code class="js">
+if (!Object.create) {
+	Object.create = function(proto) {
+		function F() {}
+		F.prototype = proto;
+		return new F;
+	};
+}
+</code></pre>

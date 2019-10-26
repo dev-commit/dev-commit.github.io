@@ -1,0 +1,65 @@
+<h2>CORS</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Cross-origin resource sharing</u-text-define> (CORS «совместное использование ресурсов между разными источниками») - технология современных браузеров, которая позволяет предоставить веб-странице доступ к ресурсам другого домена</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Кросс-доменные запросы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Запрос обязательно должен быть асинхронным</li>
+</ul>
+
+<ol class="list-num">
+	<li>1. В кросс-доменный запрос браузер автоматически добавляет заголовок <u>Origin</u>, содержащий домен, с которого осуществлён запрос</li>
+	<li>2. Если сервер разрешает кросс-доменный запрос с этого домена он должен добавить к ответу заголовок <u>Access-Control-Allow-Origin</u>, содержащий домен запроса или звёздочку <u>*</u>. Только при наличии такого заголовка в ответе – браузер сочтёт запрос успешным, а иначе JavaScript получит ошибку</li>
+	<li>3. Чтобы JavaScript мог прочитать HTTP-заголовок ответа, сервер должен указать его имя в <u>Access-Control-Expose-Headers</u></li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>Простой метод GET, POST, HEAD</h4>
+<!------------------------------------------------------------->
+<pre><code class="js"><u-code-title>Запрос с домена http://test1.ru</u-code-title>
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://test2.ru/script.php', true);
+xhr.onload = function() {
+    console.log(this.responseText);
+}
+xhr.onerror = function() {
+    console.log(this.status);
+}
+xhr.send();
+</code></pre>
+
+<pre><code class="js"><u-code-title>Сервер http://test2.ru</u-code-title>
+&lt;?php
+    header('<u-code>Access-Control-Allow-Origin</u-code>: http://test1.ru'); // разрешить доступ домену http://test1.ru
+    header('Access-Control-Allow-Origin: *');               // разрешить доступ любому домену
+?&gt;
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Чтение json файла</h4>
+<!------------------------------------------------------------->
+<pre><code class="json"><u-code-title>.htaccess</u-code-title>
+&lt;IfModule mod_rewrite.c&gt;
+	Header add Access-Control-Allow-Origin "*"
+	Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
+	AddType application/json .json
+&lt;/IfModule&gt;
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Передавать куки и HTTP-авторизацию</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+xhr.withCredentials = true;
+</code></pre>
+
+<pre><code class="js">
+&lt;?php
+	header('Access-Control-Allow-Origin: домен');    // Использование звёздочки * запрещено
+	header('<u-code>Access-Control-Allow-Credentials</u-code>: true');
+?&gt;
+</code></pre>

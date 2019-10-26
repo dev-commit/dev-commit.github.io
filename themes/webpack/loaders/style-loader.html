@@ -1,0 +1,34 @@
+<h2>style-loader</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>style-loader</u-code-npm>
+</v-pre-npm>
+
+<ul class="list-point">
+	<li><u-text-define>style-loader</u-text-define> - компилирует css в js файл (creates style nodes from JS strings)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>css-loader + style-loader</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js"><u-code-title>Component.js</u-code-title>
+import './style.css';
+</code></pre>
+
+<pre><code class="js"><u-code-title>webpack.config.js</u-code-title>
+module.exports = {
+	module: {
+		rules: [
+			{
+				test: /\.css$/,
+				use: [
+					<u-code-wrapper>
+					'style-loader',
+					</u-code-wrapper>
+					'css-loader'
+				],
+			},
+		],
+	},
+};
+</code></pre>

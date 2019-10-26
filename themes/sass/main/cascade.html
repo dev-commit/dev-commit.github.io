@@ -1,0 +1,114 @@
+<h2>Вложенности</h2>
+
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+#main {
+	width: 100px;
+	p, div {
+		color: black;
+	}
+}
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+#main {
+  width: 100px;
+}
+#main p, #main div {
+	color: black;
+}
+</code>
+</pre>
+</div>
+</div>
+
+<h3>Расширить родительский селектор</h3>
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+a {
+	color: blue;
+	&:hover {
+		color: green;
+	}
+}
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+a {
+	color: blue;
+}
+a:hover {
+	color: green;
+}
+</code>
+</pre>
+</div>
+</div>
+
+
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+#main {
+	color: black;
+	&-sidebar {
+		color: orange;
+	}
+}
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+#main {
+	color: black;
+}
+#main-sidebar {
+	color: orange;
+}
+</code>
+</pre>
+</div>
+</div>
+
+
+<h3>Свойства в пространстве имен</h3>
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+#main {
+	font:{
+		family: fantasy;
+		size: 28px;
+		weight:bold;
+	}
+}
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+#main {
+	font-family: fantasy;
+	font-size: 28px;
+	font-weight: bold;
+}
+<br>
+</code>
+</pre>
+</div>
+</div>

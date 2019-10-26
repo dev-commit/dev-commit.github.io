@@ -1,0 +1,23 @@
+<h2>Передаваемый параметр (Event)</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Event</u-text-define> - объект созданный перед запуском события</li>
+</ul>
+
+<pre><code class="js">
+var btn = document.getElementById('btn');
+
+btn.addEventListener('click', getButton);
+
+function getButton(e) {
+	console.log(e.type);          // название события
+	console.log(e.target);        // инициатор события
+	console.log(e.currentTarget); // элемент на котором висит обработчик
+	console.log(e.eventPhase);    // число, указывающее этап (Event.CAPTURING_PHASE=1, Event.AT_TARGET=2, Event.BUBBLING_PAGE=3)
+	console.log(e.timeStamp);     // объект Date, указывающий, когда произошло событие
+	console.log(e.bubbles);       // true если событие может всплывать по дереву элементов. события blur, focus, load, unload не всплывают
+	console.log(e.cancelable);    // true если с этим событием связано действие по умолчанию и его можно отменить preventDefault
+
+	e.preventDefault();           // отключение действия события по умолчанию
+}
+</code></pre>

@@ -1,0 +1,17 @@
+<h2>Всплытие</h2>
+
+<pre><code class="js">
+(function () {
+    f(); // 2
+    f = function () {
+    console.log(1);
+    };
+})();
+
+f(); // 1
+var f = 10;
+f(); // f is not a function
+function f () {
+    console.log(2);
+}
+</code></pre>

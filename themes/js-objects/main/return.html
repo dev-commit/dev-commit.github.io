@@ -1,0 +1,22 @@
+<h2>Правила обработки return</h2>
+
+<ul class="list-point">
+	<li>При вызове <u>return</u> с объектом, будет возвращён он, а не <u>this</u></li>
+	<li>При вызове <u>return</u> с примитивным значением, оно будет отброшено и возвращен <u>this</u></li>
+</ul>
+
+<pre><code class="js">
+function BigAnimal() {
+	this.name = "Мышь";
+	return { name: "Годзилла" };  // <-- возвратим объект
+}
+alert( new BigAnimal().name );  // Годзилла, получили объект вместо this
+</code></pre>
+
+<pre><code class="js">
+function BigAnimal() {
+	this.name = "Мышь";
+	return "Годзилла"; // <-- возвратим примитив
+}
+alert( new BigAnimal().name ); // Мышь, получили this (а Годзилла пропала)
+</code></pre>

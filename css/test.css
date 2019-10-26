@@ -1,0 +1,230 @@
+bg-methods, bg-arguments {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	display: inline;
+}
+bg-methods {
+	padding: 5px;
+	border: 1px solid rgba(var(--color-html), 0.25);
+	background: rgba(var(--color-html), 0.2);
+	border-radius: 3px 0px 0px 3px;
+}
+bg-arguments {
+	padding: 5px;
+	border: 1px solid rgba(var(--color-other), 0.3);
+	background: rgba(var(--color-other), 0.3);
+	border-radius: 0px 3px 3px 0px;
+}
+
+em {
+	color: #690;
+	font-style: normal;
+}
+i {
+	color: grey;
+}
+hr {
+    background-color: #ddd;
+    border: none;
+    height: 1px;
+}
+
+
+
+/***************************************************
+MENU-LEFT
+/***************************************************/
+#menu-left-show {
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-image: url(../img/app/show.svg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin: 10px;
+	flex-shrink: 0;
+}
+#menu-left-starter {
+	display: flex;
+    font-size: 14px;
+    user-select: none;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: white;
+    box-shadow: 0px 2px 5px 0px rgba(var(--color-black), 0.2);
+}
+#menu-left-starter a {
+	display: flex;
+	align-items: center;
+	flex-grow: 1;
+	padding-left: 10px;
+	color: black;
+	text-decoration: none;
+}
+
+/***************************************************
+MENU-LEFT-HIDE
+/***************************************************/
+#menu-left.hide {
+	width: 70px;
+}
+#menu-left.hide > .theme, #menu-left.hide > a {
+	display: none;
+}
+#menu-left.hide #menu-left-starter {
+	flex-direction: column;
+	align-items: center;
+}
+#menu-left.hide #menu-left-starter a {
+	padding: 10px 20px;
+}
+#menu-left.hide #menu-left-starter {
+	box-shadow: none;
+}
+
+
+/***************************************************
+CONTAINERS
+/***************************************************/
+.container-margin {
+	margin-left: 50px;
+}
+.container-flex {
+	display: flex;
+	margin: 10px 0px;
+}
+.container-half {
+	width: 50%;
+	margin: 0px 5px;
+}
+.container-calc {
+	width: calc(100% - 200px);
+	margin: 0px 5px;
+}
+.container-calc pre, .container-calc code {
+	height: 100%;
+}
+.container-calc pre {
+	margin: 0;
+}
+
+/***************************************************
+ELEMENTS
+/***************************************************/
+.map {
+	border-radius: 3px;
+	padding: 1px;
+	color: #fff;
+	background: yellowgreen;
+}
+code.border u-code {
+	background: rgba(var(--color-js), 0.4) !important;
+	text-shadow: 0px 0px 5px white;
+	border-radius: 3px;
+}
+.margin-top {
+	display: block;
+	margin-top: 10px;
+}
+h3 a {
+	font-size: inherit;
+	text-decoration: inherit;
+	color: inherit;
+}
+li a {
+	color: black;
+}
+h2.select {
+	border: none;
+	color: white;
+	background: #24c1f4;
+}
+code a, ul a {
+	text-decoration: none;
+	border-bottom: 1px solid #690;
+	color: #690 !important;
+}
+code.light {
+	line-height: 2em;
+	background: rgba(var(--color-other), 0.1);
+	border: 2px dashed rgba(var(--color-other), 0.2);
+}
+code.none {
+	background: none;
+	border: 1px solid rgba(var(--color-other), 0.2);
+}
+code.border {
+	border: 2px solid rgba(var(--color-js), 0.45);
+	background: rgba(var(--color-js), 0.1) !important;
+}
+pre.inline {
+	display: inline-block;
+}
+pre.inline > code {
+	margin: 0 !important;
+	padding: 0 10px !important;
+	line-height: inherit;
+}
+u.accent {
+	text-decoration: none;
+	border-bottom: 1px solid rgba(var(--color-fw), 1);
+	color: rgba(var(--color-fw), 0.8);
+	font-weight: bold;
+}
+table, tr, td {
+	margin: 0;
+	padding: 0;
+}
+code a:before {
+	display: inline-block;
+	vertical-align: middle;
+	content: '';
+	width: 16px;
+	height: 16px;
+	margin: 0px 5px;
+	background-image: url(../img/app/link.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+}
+code.color {
+	color: #e96900;
+	padding: 3px 5px !important;
+}
+p.center {
+	text-align: center;
+}
+.circle, .circle-menu  {
+	background: rgba(0, 161, 232, 0.7);
+	color: white;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 5px;
+	border-radius: 50%;
+}
+.circle {
+	width: 25px;
+	height: 25px;
+}
+.circle-menu {
+	width: 9px;
+	height: 9px;
+}
+.code-select {
+	background: rgba(var(--color-html), 0.2);
+}
+.container-flex img.svg {
+	width: 200px;
+	height: 200px;
+	object-fit: contain;
+}
+.red {
+	background: #efd7e2 !important;
+}
+.green {
+	background: #b5dfe2 !important;
+}

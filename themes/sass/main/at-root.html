@@ -1,0 +1,69 @@
+<h2>Директива @at-root</h2>
+
+<p>Изымает одно или несколько правил из родительского селектора в корневой уровень документа.
+Можно использовать с селекторами первого уровня вложенности.</p>
+<p>Поднимает содержимые в ней правила в корень, отменяя цепочку от родителя</p>
+
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+.parent {
+	color: red;
+		@at-root .child{
+			color: green;
+		}
+}
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+.parent {
+	color: red;
+}
+.child {
+	color: green;
+}
+</code>
+</pre>
+</div>
+</div>
+
+
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+.parent {
+	color: red;
+		@at-root {
+			.child1{
+				color: green;
+			}
+			.child2{
+				color: orange;
+			}
+		}
+}
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+.parent {
+	color: red;
+}
+.child1 {
+	color: green;
+}
+.child2 {
+	color: orange;
+}<br><br>
+</code>
+</pre>
+</div>
+</div>
+

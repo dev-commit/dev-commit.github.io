@@ -1,0 +1,77 @@
+<h2>Методы</h2>
+
+<h3>text(); html();</h3>
+<pre>
+<code class="js">
+var text = $('#box').text();        // получить текст
+var html = $('#box').html();        // получить html
+$('#box').text('Измененный текст'); // изменить текст
+$('#box').html('Измененный html');  // изменить html
+</code>
+</pre>
+
+<h3>before(); after(); prepend(); append();</h3>
+<pre>
+<code class="js">
+$('#box').before('content');  // добавляет контент до выбранного элемента
+$('#box').after('content');   // добавляет контент после выбранного элемента
+$('#box').prepend('content'); // добавляет контент внутрь выбранного элемента до остального кода
+$('#box').append('content');  // добавляет контент внутрь выбранного элемента после остального кода
+</code>
+</pre>
+
+<h3>each();</h3>
+<pre>
+<code class="js">
+$('img').each(function() {
+	if ($(this).width() < 400) {
+	    $(this).fadeOut(3000);
+	}
+});
+// $(this) - текущий элемент при переборе
+</code>
+</pre>
+
+<pre>
+<code class="js">
+// получить id всех блоков в box
+$('#box').each(function() {
+    var id = $(this).attr("id");
+})
+</code>
+</pre>
+
+
+<h3>size(); get();</h3>
+<pre>
+<code class="js">
+var a = $('div').size(); // возвращает кол-во элементов в выборке
+var a = $('div').get(0); // позволяет получить доступ к конкретному элементу в выборке
+                         // 0 - индекс 1 элемента
+</code>
+</pre>
+
+<h3>clone(); remove();</h3>
+<pre>
+<code class="js">
+var a = $('#box').clone(); // клонирует выбранный элемент
+var a = $('#box').remove(); // удаляет элемент из DOM дерева но позволяет сохранить его для дальнейшего использования
+</code>
+</pre>
+
+<h3>width(); height();</h3>
+<pre>
+<code class="js">
+var width = $('#box').width();   // получить ширину
+var height = $('#box').height(); // получить высоту
+$('#box').width(100);            // задать ширину
+$('#box').height(100);           // задать высоту
+</code>
+</pre>
+
+<h3>offset();</h3>
+<pre>
+<code class="js">
+$('.item').offset().top; // координаты объекта
+</code>
+</pre>

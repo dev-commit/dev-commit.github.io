@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" type="image/png" href="../img/favicon.png">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+<style>
+	body {
+		max-width: 1200px;
+		margin: auto;
+		padding: 20px 0px;
+	}
+	#content > div:after {
+		content: '';
+	    display: inline;
+	    width: 0px;
+	    height: 0px;
+	    border: none;
+	}
+	.margin-child > li {
+		margin: 2px;
+	}
+	#content {
+		display: grid;
+		grid-template-columns: 250px 700px;
+		grid-template-areas: 
+			"label   method"
+			"markers link"
+			".       link-page"
+			".       alert"
+			".       snippets";
+		grid-gap: 20px;
+	}
+	pre, code {
+		padding: 0 !important;
+		padding-top: 10px !important;
+		padding-bottom: 20px !important;
+		line-height: 1.2 !important;
+		overflow-y: hidden;
+	}
+</style>
+</head>
+<body>
+<div id="content">
+
+
+<!-- LABEL -->
+<ul class="list-point margin-child" style="grid-area: label">
+	<b>Text</b>
+	<li><u-text-underline>u-text-underline</u-text-underline></li>
+	<li><u-text-header>u-text-header</u-text-header></li>
+	<li><u-text-define>u-text-define</u-text-define></li>
+
+	<b>Menu</b>
+	<li><u-menu>u-menu</u-menu></li>
+	<li><u-menu-accent>u-menu-accent</u-menu-accent></li>
+	<li><u-menu-code>u-menu-code</u-menu-code></li>
+	<li><u-menu-border>u-menu-border</u-menu-border></li>
+
+	<b>Code</b>
+	<li><u-code-npm>u-code-npm</u-code-npm></li>
+	<li><u-code>u-code</u-code></li>
+	<li><u-code-accent>u-code-accent</u-code-accent></li>
+	<li><u-code-text>u-code-text</u-code-text></li>
+	<li><u-code-list>u-code-list</u-code-list></li>
+	<li><u-code-comment>u-code-comment</u-code-comment></li>
+
+	<pre><code class="bash"><u-code-title>u-code-title</u-code-title></code></pre>
+</ul>
+
+<!-- LINK -->
+<div style="grid-area: link">
+	<u-link-wrapper>
+		<a href="#" target="_blank">Тестовая ссылка</a>
+	</u-link-wrapper>
+
+	<pre><code class="html">
+	&lt;u-link-wrapper&gt;
+		&lt;a href=""&gt;&lt;/a&gt;
+	&lt;/u-link-wrapper&gt;</code></pre>
+</div>
+
+<!-- METHOD -->
+<div style="grid-area: method">
+	<div class="v-method-wrapper">
+	    <v-method before="element." method="method" after="" arg="(arg1, arg2)">
+	    описание метода
+	    </v-method>
+
+		<v-method-arg arg="arg1">описание arg1</v-method-arg>
+
+		<v-method-arg arg="arg2">описание arg2</v-method-arg>
+
+		<v-method-return>element.node</v-method-return>
+	</div>
+
+	<pre><code class="html">
+	&lt;div class="v-method-wrapper"&gt;
+	    &lt;v-method before="element" method="method" after="" arg="(arg1, arg2)"&gt;
+	    описание метода
+	    &lt;/v-method&gt;
+
+		&lt;v-method-arg arg="arg1"&gt;описание arg1&lt;/v-method-arg&gt;
+
+		&lt;v-method-return&gt;element.node&lt;/v-method-return&gt;
+	&lt;/div&gt;</code></pre>
+</div>
+
+<!-- ALERT -->
+<div style="grid-area: alert">
+	<b>Сообщения</b>
+	<u-message-ok><code>&lt;u-message-ok&gt;text&lt;/u-message-ok&gt;</code></u-message-ok>
+	<u-message-info><code>&lt;u-message-info&gt;text&lt;/u-message-info&gt;</code></u-message-info>
+	<u-message-warn><code>&lt;u-message-warn&gt;text&lt;/u-message-warn&gt;</code></u-message-warn>
+	<u-message-error><code>&lt;u-message-error&gt;text&lt;/u-message-error&gt;</code></u-message-error>
+</div>
+
+<!-- SNIPPETS -->
+<div style="grid-area: snippets">
+	<b>Сниппеты</b>
+	<pre><code class="bash">
+	=two-code    # two flex code
+	=two         # two flex
+	=list-point  # list-point без &lt;u-text-define&gt;
+	=list-define # list-point с &lt;u-text-define&gt;
+	=list-num    # list-num
+	=hr3         # h3
+	=hr4         # h4
+	=xhtml       # code html
+	=xcss        # code css
+	=xjs         # code js
+	=xbash       # code bash
+	</code></pre>
+</div>
+
+<!-- MARKERS -->
+<div style="grid-area: markers">
+	<b>Маркеры</b>
+	<pre><code class="bash">
+	&#8226;    # &amp;#8226;
+	&#9776;   # &amp;#9776;
+	&hellip;    # &amp;hellip;
+	&#10006;   # &amp;#10006;
+	</code></pre>
+</div>
+
+
+<!-- LINK-PAGE -->
+<div style="grid-area: link-page">
+	<b>Ссылки на разделы</b>
+	<ul class="link-page-wrapper">
+		<li><a href="#">Ссылка 1</a></li>
+		<li><a href="#">Ссылка 2</a></li>
+	</ul>
+	<pre><code class="html"><u-code-title>html</u-code-title>
+	&lt;ul class="link-page-wrapper"&gt;
+		&lt;li&gt;&lt;a href="#"&gt;Ссылка 1&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href="#"&gt;Ссылка 2&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+	</code></pre>
+</div>
+
+
+
+
+
+
+
+<!--
+&lt;v-pre-npm&gt;&lt;/v-pre-npm&gt;           NPM
+ -->
+
+
+</div>
+    <script src="libraries/jquery.js"></script>
+	<script src="libraries/highlight/highlight.pack.js"></script>
+
+	<script src="libraries/vue.js"></script>
+	<script src="js/custom-elements.js"></script>
+	<script src="js/vue-components.js"></script>
+	<script src="js/vue-pages.js"></script>
+
+	<script>
+		hljs.initHighlightingOnLoad();
+	</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<h2>Модули</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Модуль отслеживания событий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+// модуль отслеживания событий
+var events = require('events');
+</code></pre>
+
+<pre><code class="js">
+var my_emit = new events.EventEmitter();
+</code></pre>
+
+<pre><code class="js">
+// обработчик событий
+my_emit.on('some_event', function(text) {
+    console.log(text);
+});
+</code></pre>
+
+<pre><code class="js">
+// вызов события
+my_emit.emit('some_event', 'Обработчки событий');
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Модуль наследования событий для объекта</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+var events = require('events'); // модуль отслеживания событий
+var util = require('util');     // модуль наследования событий для объекта
+</code></pre>
+
+<pre><code class="js">
+// конструктор объектов
+var cars = function(model) {
+    this.model = model;
+}
+</code></pre>
+
+<pre><code class="js">
+// наследование событий для всех объектов, созданных на основе cars
+util.inherits(cars, events.EventEmitter);
+</code></pre>
+
+<pre><code class="js">
+var bmw   = new cars('BMW');
+var audi  = new cars('Audi');
+var volvo = new cars('Volvo');
+</code></pre>
+
+<pre><code class="js">
+// массив объектов
+var cars_arr = [bmw, audi, volvo];
+cars_arr.forEach(function(element) {
+    element.on('speed', function(text) {
+        console.log(element.model + ' speed is - ' + text);
+    });
+});
+</code></pre>
+
+<pre><code class="js">
+bmw.emit('speed', '254km');
+audi.emit('speed', '150km');
+</code></pre>

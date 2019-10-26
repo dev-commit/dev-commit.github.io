@@ -1,0 +1,63 @@
+<h2>Хук состояния useState</h2>
+
+<pre><code class="js border"><u-code-title>useState</u-code-title>
+import React, { useState } from 'react';
+
+const [show, setShow] = useState(false);
+setShow(true);
+</code></pre>
+
+
+<!-- ////////////////////////////////////////////////////// -->
+
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useState" after="" arg="(startState)">
+    для использования внутреннего состояния в функциональном компоненте. React будет хранить это состояние между рендерами
+    </v-method>
+
+	<v-method-arg arg="startState">начальное состояние. Используется только при первом рендере</v-method-arg>
+
+	<v-method-return>[currentState, setStateFunction] - возвращает текущее значение состояния и функцию для его обновления</v-method-return>
+</div>
+
+<ul class="list-point">
+    <li>Функцию <u-code-text>useState()</u-code-text> можно использовать где угодно, например, в обработчике событий. Она схожа с this.setState в классах, но не сливает новое и старое состояние вместе</li>
+    <li>В отличие от this.state, состояние может быть объектом</li>
+</ul>
+
+<pre><code class="js"><u-code-title>Счетчик</u-code-title>
+import React, { <u-code>useState</u-code> } from 'react';
+
+function Example() {
+
+	// Объявляем новую переменную состояния "count"
+	// useState(0) - начальное состоние "0", так как счётчик начинается с нуля
+	<u-code>const [count, setCount] = useState(0);</u-code>
+
+	return (
+		&lt;div&gt;
+			&lt;p&gt;Вы нажали {count} раз&lt;/p&gt;
+			&lt;button onClick={() =&gt; <u-code>setCount</u-code>(count + 1)}&gt;
+				Нажми на меня
+			&lt;/button&gt;
+		&lt;/div&gt;
+	);
+}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объявление нескольких переменных состояния</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+// Хук состояния можно использовать в компоненте более одного раза
+function ExampleWithManyStates() {
+	const [age, setAge] = <u-code>useState</u-code>(42);
+	const [fruit, setFruit] = <u-code>useState</u-code>('банан');
+	const [todos, setTodos] = <u-code>useState</u-code>([{ text: 'Изучить хуки' }]);
+}
+</code></pre>
+
+<ul class="list-point">
+    <li>Синтаксис деструктуризации массивов позволяет нам по разному называть переменные состояния, которые мы объявляем при вызове <u-code-text>useState</u-code-text>. Так как имён этих переменных нет в <u-code-text>API useState</u-code-text>, React предполагает, что если вы вызываете <u-code-text>useState</u-code-text> много раз, вы делаете это в одинаковой последовательности при каждом рендере</li>
+</ul>

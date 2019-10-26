@@ -1,0 +1,56 @@
+<h2>Экземпляр Vue</h2>
+
+<pre><code class="js">
+var app = new Vue({
+	<u-code>el</u-code>: '#app',             // элемент DOM дерева
+	<u-code>data</u-code>: {                 // состояние
+		name: 'Tony'
+	},
+	<u-code>template</u-code>:               // представление
+		`&lt;div&gt;{{ count }}&lt;/div&gt;`, 
+	<u-code>methods</u-code>: {              // действия
+		nameMethod() {
+			this.view = true;
+		}
+	},
+	<u-code>computed</u-code>: {             // вычисляемые свойства
+		doubleValue() {
+			return this.value * 2
+		}
+	},
+	<u-code>created()</u-code> {             // хук
+		console.log(this.name);
+	},
+	<u-code>watch</u-code>: {                // наблюдатель
+		name() {
+			console.log('name changed');
+		}
+	},
+	<u-code>mixins</u-code>: [mixin]         // миксин
+})
+</code></pre>
+
+<ul class="list-point">
+	<li><u-text-define>Состояние</u-text-define> - «источник истины», управляющий приложением</li>
+	<li><u-text-define>Представление</u-text-define> - отображение <u>состояния</u> заданное декларативно</li>
+	<li><u-text-define>Действия</u-text-define> - возможные пути изменения <u>состояния</u> приложения в ответ на взаимодействие пользователя с <u>представлением</u></li>
+	<li>Состояние -> Представление -> Действия -></li>
+</ul>
+
+
+
+
+<!------------------------------------------------------------->
+<h4>Переопределение свойства</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+app.messText = 'New Text';
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Неопределенные свойства</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+catalog: null  // для объектов
+products: []   // для массивов
+</code></pre>

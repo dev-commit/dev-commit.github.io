@@ -1,0 +1,51 @@
+<h2>Custom Properties</h2>
+
+<u-link-wrapper>
+    <a href="https://github.com/jhildenbiddle/css-vars-ponyfill" target="_blank">css-vars-ponyfill</a>
+</u-link-wrapper>
+
+<pre><code class="js">
+- уровень root и область видимости
+- резервное значение
+</code></pre>
+
+<h4>Root-level custom properties</h4>
+<pre><code class="css">
+:root {
+    --color:green;
+}
+body {
+    background: var(--color);
+}
+</code></pre>
+
+<h4>Custom properties referencing custom properties</h4>
+<pre><code class="css">
+:root {
+    --a: var(--b);
+    --b: var(--c);
+    --c: red;
+}
+p {
+    color: var(--a);
+}
+</code></pre>
+
+<h4>Complex values with custom properties</h4>
+<pre><code class="css">
+:root {
+    --a: 1em;
+    --b: 2;
+}
+p {
+    font-size: calc(var(--a) * var(--b));
+}
+</code></pre>
+
+<h4>Fallback values</h4>
+<pre><code class="css">
+p {
+    font-size: var(--a, 1rem);
+    color: var(--b, var(--c, var(--d, red)));
+}
+</code></pre>

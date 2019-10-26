@@ -1,0 +1,21 @@
+<h3>Статический путь</h3>
+
+<h4>Ссылка</h4>
+<pre><code class="html">
+&lt;router-link to="/contact"&gt;Контакты&lt;/router-link&gt;
+</code></pre>
+<pre><code class="js">
+const routes = [
+    { path: '/contact', component: Contact }
+]
+</code></pre>
+
+<h4>Именованный маршрут</h4>
+<pre><code class="html">
+&lt;router-link :to="{name: 'contact'}"&gt;Контакты&lt;/router-link&gt;
+</code></pre>
+<pre><code class="js">
+const routes = [
+    { path: '/contact', component: Contact, name: 'contact' }
+]
+</code></pre>

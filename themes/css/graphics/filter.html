@@ -1,0 +1,27 @@
+<h2>CSS Filters</h2>
+
+<pre><code class="css">
+div {
+	filter: blur(5px);          - размытие (напрямую к body применить нельзя)
+	filter: brightness(150%);   - яркость, 100% по умолчанию
+	filter: contrast(150%);     - контрастность, 100% по умолчанию
+	filter: grayscale(70%);     - черно-белое, 0% по умолчанию
+	filter: hue-rotate(90deg);  - поворот оттенка, определяет угол, 0deg по умолчанию
+	filter: invert(100%);       - инвертирование
+	filter: opacity(50%);       - прозрачность
+	filter: saturate(150%);     - изменение насыщенности
+	filter: sepia(100%);        - сепия
+	filter: drop-shadow(10px 10px 3px rgba(100,0,0,0.5));  - добавляет тень к изображениям, учитывая прозрачные участки
+}
+</code></pre>
+
+<ul class="list-point">
+	<li>Можно применять несколько фильтров</li>
+	<li>Первый фильтр применяется к исходному изображению, а остальные к предыдущему</li>
+</ul>
+
+<pre><code class="css">
+div {
+	filter: contrast(150%) sepia(100%);
+}
+</code></pre>

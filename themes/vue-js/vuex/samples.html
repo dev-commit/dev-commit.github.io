@@ -1,0 +1,63 @@
+<h2>Примеры</h2>
+
+<h3>Пример #1</h3>
+
+<h4>vuex.js</h4>
+<pre><code class="js" v-pre>
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+export const store = new Vuex.Store({
+    state: {
+        count: 0
+    },
+    getters: {
+        storeCount(state) {
+            return state.count;
+        }
+    },
+    mutations: {
+        changeCount(state, payload) {
+            state.count = payload.count;
+        }
+    },
+    actions: {
+        changeCount({ commit }, count) {
+            commit('changeCount', {count:count});
+        }
+    }
+});
+</code></pre>
+
+<h4>App.vue</h4>
+<pre><code class="html" v-pre>
+&lt;template&gt;
+    &lt;div id="app"&gt;
+        {{ storeCount }}
+        &lt;button @click="changeCount(77)"&gt;ChangeState&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+
+<pre><code class="js" v-pre>
+&lt;script&gt;
+import { mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
+import {store} from './vuex.js'
+
+export default {
+    computed: {
+        ...mapGetters([
+            'storeCount'
+        ])
+    },
+    methods: {
+        ...mapActions([
+            'changeCount'
+        ])
+    }
+}
+&lt;/script&gt;
+</code></pre>

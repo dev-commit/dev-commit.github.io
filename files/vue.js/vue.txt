@@ -1,0 +1,47 @@
+//--------------------------------------------
+// main.js
+//--------------------------------------------
+import { routes } from './constants/routes';
+const router = new VueRouter({
+    mode: 'history',
+    routes 
+});
+
+//--------------------------------------------
+// routes.js
+//--------------------------------------------
+import Theme from '@/components/Theme.vue';
+
+export const routes = [
+    { path: '/:theme/:dir/:file', component: Theme,    name: 'theme' },
+]
+
+//--------------------------------------------
+// Theme.vue
+//--------------------------------------------
+<script>
+export default {
+    created() {
+        const theme = this.$route.params.theme;
+        const dir   = this.$route.params.dir;
+        const file  = this.$route.params.file;
+
+        this.$options.components['app-theme'] = 
+            require(`../themes/${theme}/${dir}/${file}.vue`).default;
+    },
+    mounted() {
+        document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    },
+}
+</script>
+
+//--------------------------------------------
+// Category.vue
+//--------------------------------------------
+<router-link :to="{ name: 'theme', params: { theme: '', dir: '', file: ''}}">
+	{{item[3]}}
+</router-link>
+
+

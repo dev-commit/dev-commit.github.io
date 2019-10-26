@@ -1,0 +1,67 @@
+<h2>.then .catch .finally</h2>
+
+<ul class="list-point">
+	<li>.then и .catch подписка на изменение промиса</li>
+	<li>в .then и .catch передается функция-коллбэк</li>
+	<li>.then и .catch возвращают новый промис, поэтому их можно использовать по цепочке</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Аргументы .then</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Один аргумент</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+promise
+	<u-code>.then</u-code>(result => {
+        console.log(result);
+    })
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>2. Два аргумента</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Первый аргумент - в случае успеха</li>
+    <li>Второй аргумент - в случае ошибки</li>
+</ul>
+
+<v-two-code type="js;js" comment=".then;.then и .catch">
+<template v-slot:first>
+promise
+	.then((result) => { 
+		console.log(result); 
+	}, (error) => {
+		console.log(error);
+	})
+</template>
+<template v-slot:last>
+promise
+	.then((result) => { 
+		console.log(result); 
+	})
+	.catch((error) => { 
+		console.log(error);
+	})
+</template>
+</v-two-code>
+
+<pre><code class="js"><u-code-title>js</u-code-title>
+// передача null первым аргументом
+promise
+	.then(null, (error) => {
+		console.log(error);
+	})
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>3. Вызванная функция в аргументе</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Вызванная функция в аргументе пропускается</li>
+</ul>
+<pre><code class="js">
+promise<u-code>.then</u-code>(functionResolve())
+</code></pre>

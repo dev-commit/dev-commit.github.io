@@ -1,0 +1,104 @@
+<h2>Хук эффекта useEffect</h2>
+
+<pre><code class="js border">
+import React, { useEffect } from 'react';
+</code></pre>
+
+<pre><code class="js border">
+// <b><u-code-text>componentDidMount</u-code-text> и <u-code-text>componentDidUpdate</u-code-text></b>
+useEffect(() => {
+	document.title = 'Заголовок';
+});
+</code></pre>
+
+<pre><code class="js border">
+// <b><u-code-text>componentDidMount</u-code-text></b>
+useEffect(() => {
+	document.title = 'Заголовок';
+}, []);
+</code></pre>
+
+<pre><code class="js border">
+// <b><u-code-text>componentDidUpdate</u-code-text></b>
+// Выполнит эффект, только если count изменился при отрисовке
+useEffect(() => {
+	document.title = `Вы нажали ${this.state.count} раз`;
+}, [count]); 
+</code></pre>
+
+<pre><code class="js border">
+// <b><u-code-text>componentWillUnmount</u-code-text></b>
+useEffect(() => () => {
+	window.removeEventListener('resize', onResize);
+}, []);
+</code></pre>
+
+<pre><code class="js border">
+// <b><u-code-text>componentDidMount</u-code-text> и <u-code-text>componentWillUnmount</u-code-text></b>
+useEffect(() => {
+    // componentDidMount
+    window.addEventListener('resize', onResize, false);
+    // componentWillUnmount
+    return () => {
+		window.removeEventListener('resize', onResize);
+	}
+}, []);
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>async await</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="useEffect;componentDidMount">
+<template v-slot:first>
+useEffect(() => {
+    (async () => {
+        await myAsyncFunction();
+        myFunction();
+    })();
+}, []);
+</template>
+<template v-slot:last>
+async componentDidMount() {
+    await myAsyncFunction();
+    myFunction();
+}
+</template>
+</v-two-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Теория</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>Виды эффектов</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><b>1. Эффекты без сброса</b>. Иногда мы хотим выполнить дополнительный код после того, как React обновил DOM. Сетевые запросы, изменения DOM вручную, логирование — всё это примеры эффектов, которые не требуют сброса</li>
+    <li><b>2. Эффекты со сбросом</b>. Например, может потребоваться установить подписку на какой-нибудь внешний источник данных</li>
+</ul>
+
+<ul class="list-point">
+	<li>По умолчанию useEffect выполняется после каждого рендера и обновления</li>
+	<li>Если эффект возвращает функцию, React выполнит её, когда придет время для очистки. Функция указывает эффекту, как выполнить «сброс». React производит очистку, когда компонент демонтируется</li>
+    <li>Каждый раз, когда компонент перерисовывается, мы планируем новый эффект, заменяя предыдущий</li>
+    <li>В отличие от componentDidMount или componentDidUpdate, эффекты, запланированные с помощью useEffect, не блокируют браузер, чтобы обновить экран</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li><u-text-define>Побочные эффекты / Эффекты</u-text-define> - операции, которые могут влиять на работу других компонентов и их нельзя выполнить во время рендера. Н-р: запрашивать данные, делать подписки или вручную менять DOM из React-компонента</li>
+    <li>С помощью хука эффекта <u-text-define>useEffect</u-text-define> можно выполнять побочные эффекты из функционального компонента. Он выполняет ту же роль, что и <u-code-text>componentDidMount</u-code-text>, <u-code-text>componentDidUpdate</u-code-text> и <u-code-text>componentWillUnmount</u-code-text> в React-классах, объединив их в единый API</li>
+    <li>Можно использовать более одного эффекта в компоненте</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li>При вызове <u>useEffect</u>, React получает указание запустить вашу функцию с «эффектом» после того, как он отправил изменения в DOM. Поскольку эффекты объявляются внутри компонента, у них есть доступ к его <u>пропсам</u> и <u>состоянию</u>. По умолчанию, React запускает эффекты после каждого рендера, включая первый рендер</li>
+    <li>Хуки позволяют разделить код на основе того, что он делает, а не на основании имён методов жизненного цикла</li>
+    <li>Если вы хотите запустить эффект и очистить его только один раз (при монтировании и демонтировании), вы можете передать пустой массив [] в качестве второго аргумента. Это укажет React, что ваш эффект не зависит от каких-либо значений из props или state, поэтому его не нужно повторно выполнять</li>
+    <li>React будет сбрасывать эффект перед тем, как компонент размонтируется. Однако, как мы уже знаем, эффекты выполняются не один раз, а при каждом рендере. Вот почему React также сбрасывает эффект из предыдущего рендера, перед тем, как запустить следующий</li>
+    <li>React будет выполнять каждый используемый эффект в компоненте, согласно порядку их объявления</li>
+</ul>

@@ -1,0 +1,25 @@
+<h2>Polyfill Object.create</h2>
+
+<pre><code class="js">
+const myObj1= {
+    a: 1
+};
+const myObj2= {
+    p: {value: 20},
+    k: {value: 30}
+};
+
+function objectCreateobj(myObj1, myObj2) {
+    function getPrototype() {}
+    getPrototype.prototype = myObj1;
+
+    let myProto = new getPrototype();
+
+    for (key in myObj2) {
+        myProto[key] = myObj2[key].value;
+    }
+    return myProto;
+}
+
+objectCreateobj(myObj1, myObj2);
+</code></pre>

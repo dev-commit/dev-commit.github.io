@@ -1,0 +1,21 @@
+<h2>Пример #3. Отправка сообщения на почту</h2>
+
+<h3>Отправка сообщения на почту</h3>
+<pre>
+<code class="php">
+&lt;?php
+    $to = 'user@example.com, anotheruser@example.com'; // получатель / получатели
+    $subject = 'Письмо с сайта';                       // тема письма
+    $message = 'Текст письма';                         // сообщение
+    <span class="red">$headers  = 'MIME-Version: 1.0' . "\r\n";</span>
+    <span class="red">$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";</span>
+    $my  = mail($to, $subject, $message<span class="red">, $headers</span>);
+    if ($my) {
+        echo 'Письмо успешно отправлено!';
+    } else {
+        echo 'Письмо не отправлено!';
+    }
+?&gt;
+</code>
+</pre>
+

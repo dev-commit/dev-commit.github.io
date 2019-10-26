@@ -1,0 +1,104 @@
+<h2>Передача переменных между компонентами (props)</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты props (дочерний компонент)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+props: ['message', 'name']
+props: {
+	message: String
+}
+props: {
+    count: {
+        type: Number,    // задание типа
+        default: 77,     // значение по умолчанию
+        required: true   // обязательное значение
+    }
+}
+</code></pre>
+
+<ul class="list-point">
+	<li>Значением type может быть один из следующих нативных конструкторов:</li>
+	<li>
+		<u-code>String</u-code>
+		<u-code>Number</u-code>
+		<u-code>Boolean</u-code>
+		<u-code>Array</u-code>
+		<u-code>Object</u-code>
+		<u-code>Date</u-code>
+		<u-code>Function</u-code>
+		<u-code>Symbol</u-code>
+	</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h4>Родительский компонент</h4>
+<!------------------------------------------------------>
+<pre><code class="html">
+&lt;div id="app"&gt;
+	&lt;task message="Hello" :name="userName"&gt;&lt;/task&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code class="bash">
+message="Hello"   # передача текста из html
+:name="userName"  # передача переменной из app
+</code></pre>
+
+<!------------------------------------------------------>
+<h4>Дочерний компонент</h4>
+<!------------------------------------------------------>
+<pre><code class="js">
+Vue.component('task', {
+	template: '&lt;p&gt;{{ message + name }}&lt;/p&gt;',
+	props: ['message', 'name']
+})
+var app = new Vue({
+	el: '#app',
+    data: {
+        userName: 'Tony'
+    }
+})
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Валидация входных параметров</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+props: {
+	// Просто проверка типа (`null` и `undefined` проходят проверку для любого типа)
+	propA: Number,
+	// Несколько допустимых типов
+	propB: [String, Number],
+	// Обязательное значение строкового типа
+	propC: {
+		type: String,
+		required: true
+	},
+	// Число со значением по умолчанию
+	propD: {
+		type: Number,
+		default: 100
+	},
+	// Объект со значением по умолчанию
+	propE: {
+		type: Object,
+		// Для объектов или массивов значения по умолчанию
+		// должны возвращаться из функции
+		default: function () {
+			return { message: 'hello' }
+		}
+	},
+	// Пользовательская функция для валидации
+	propF: {
+		validator: function (value) {
+			// Значение должно соответствовать одной из этих строк
+			return ['success', 'warning', 'danger'].indexOf(value) !== -1
+		}
+	}
+}
+</code></pre>

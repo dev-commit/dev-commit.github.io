@@ -1,0 +1,109 @@
+<h2>Обращение по линиям</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обращение к линиям по номеру</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<span>Задано</span>
+<pre><code class="css">
+.cards {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr; // 3 столбца (4 линии)
+	grid-template-rows: 200px 200px;    // 2 строки (3 линии)
+}
+ _ _ _
+|_|_|_|
+|_|_|_|
+</code></pre>
+
+<p>Позиционирование первого дочернего элемента (объединение 2х столбцов и 2х строк)</p>
+<p>Объединяем столбцы от 2 линии до 4 линии</p>
+<p>Объединяем строки  от 1 линии до 3 линии</p>
+<pre><code class="css">
+// полная запись
+.card:nth-child(1) {
+	grid-column-start: 2;
+	grid-column-end: 4; // если написать -1 будет на всю ширину
+	grid-row-start: 1;
+	grid-row-end: 3;
+}
+</code></pre>
+
+<pre><code class="css">
+// короткая запись
+.card:nth-child(1) {
+	grid-column: 2 / 4;
+	grid-row: 1 / 3;
+}
+</code></pre>
+
+<pre>
+<code class="css">
+// сокращенная запись
+.card:nth-child(1) {
+	grid-area: 1 / 2 / 3 / 4;
+}
+</code>
+<code class="js">
+grid-area:
+- grid-row-start
+- grid-column-start
+- grid-row-end
+- grid-column-end
+</code>
+</pre>
+
+<span>Если элемент занимает 1 столбец или строку, то линию окончания указывать не нужно</span>
+<pre><code class="css">
+grid-column: 2 / 4;
+grid-row: 1;
+</code></pre>
+
+<span>span - количество ячеек, которые нужно захватить</span>
+<pre><code class="css">
+grid-column: 1 / span 2; от 1 до 3 линии (занять 2 ячейки)
+// аналогично
+grid-column: 1 / 3;      от 1 до 3 линии
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обращение к линиям по имени</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<span>(результат аналогичен)</span>
+<pre><code class="css">
+.cards {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: [side-start] 1fr
+                           [main-start] 1fr 1fr
+                           [main-end];
+	grid-template-rows:    [main-start] 200px 200px
+                           [main-end];
+}
+.card:nth-child(1) {
+ 	grid-column: main-start / main-end;
+ 	grid-row: main-start / main-end;
+}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование именованных линий, не заданных явно</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="css">
+.wrapper {
+	grid-column-gap: 2em;
+	grid-row-gap: 20px;
+	grid-template-columns: 2fr 4fr;
+	grid-template-areas:
+		"header  header"
+		"sidebar content"
+		"footer  footer";
+}
+// мы определили область content и автоматически появились линии content-start и content-end
+.test {
+	z-index: 100;
+	background-color: blue;
+	grid-column: content-start;
+	grid-row: content-start / footer-end;
+}
+</code></pre>

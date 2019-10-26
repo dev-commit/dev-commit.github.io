@@ -1,0 +1,14 @@
+<h2>Объявление</h2>
+
+<pre><code class="js">
+function User(name) {
+	this.name = name;
+	this.avatar = 'Photo';
+	<u-code>this.deleteAvatar</u-code> = function() {
+		this.avatar = null;
+	}
+}
+var user = new User('Jack'); // => User {name: "Jack", avatar: "Photo", deleteAvatar: ƒ}
+user.deleteAvatar();
+console.log(user);           // => User {name: "Jack", avatar: null, deleteAvatar: ƒ}
+</code></pre>

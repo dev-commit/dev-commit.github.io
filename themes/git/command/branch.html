@@ -1,0 +1,23 @@
+<div class="v-method-wrapper">
+    <v-method before="git " method="branch" after="" arg="">
+    Список веток с указанием текущей
+    </v-method>
+</div>
+
+<pre><code class="bash">
+<em>git <u-code-text>branch</u-code-text></em>                   # список веток с указанием текущей
+<em>git <u-code-text>branch -a</u-code-text></em>                # список веток с указанием remotes/origin
+<em>git <u-code-text>branch</u-code-text> features</em>          # создание новой ветки "features" (ответвиться от текущей)
+<em>git <u-code-text>branch --delete</u-code-text> features</em> # удаление ветки "features"
+<em>git <u-code-text>branch -d</u-code-text> features</em>       # удаление ветки "features" (после мерджа)
+<em>git <u-code-text>branch -D</u-code-text> features</em>       # удаление ветки "features" (тупиковая ветвь)
+</code></pre>
+
+<pre><code class="bash">
+<em>git <u-code-text>checkout -b</u-code-text> features</em>          # создание новой ветки "features" и переключение на нее
+</code></pre>
+
+<pre><code class="bash">
+<em>git <u-code-text>push origin --delete</u-code-text> features</em> # удаление ветки в удаленном репозитории
+<em>git <u-code-text>push origin</u-code-text> :features</em>         # удаление ветки в удаленном репозитории
+</code></pre>

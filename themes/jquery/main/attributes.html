@@ -1,0 +1,24 @@
+<h2>Атрибуты. Object this</h2>
+
+<pre>
+<code class="js">
+var name   = this.name;
+var id     = this.id;
+var name   = $(this).attr("name");
+var id     = $(this).attr("id");
+var class_ = $(this).attr("class");
+</code>
+</pre>
+
+<h3>attr(); removeAttr();</h3>
+<pre>
+<code class="js">
+var id = $('#box').attr("id"); // получить атрибут
+$('#box').attr('size', 4);     // изменить атрибут
+$('#box').removeAttr('title'); // удалить атрибут
+// Начиная с jQuery 1.6, метод .attr() возвращает undefined
+// для тех атрибутов, значение которых не было задано.
+// Для получения и выставления таких опций как checked, selected, или disabled
+// используйте метод .prop()
+</code>
+</pre>

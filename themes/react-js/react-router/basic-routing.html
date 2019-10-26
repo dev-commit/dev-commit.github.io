@@ -1,0 +1,67 @@
+<h2>Basic Routing</h2>
+
+<ul class="list-point">
+	<li><u-text-define>BrowserRouter</u-text-define> - router. Использует html5 history api и следит за тем чтобы UI был синхронизирован с тем что написано в адресной строке</li>
+	<li><u-text-define>Route</u-text-define> - отображение UI, слелит чтобы совпадали пути между компонентом и адресной строкой</li>
+	<li><u-text-define>Link</u-text-define> - видоизмененная ссылка под React для редиректа на нужную страницу. Предотвращает обновление страницы, в отличии от обычной ссылке</li>
+
+	<hr>
+	<li><u-code-text>exact</u-code-text> - компонент будет рендериться только по указанному адресу, а не по всем адресам, связанным с ним</li>
+	<li><u-code-text>Router</u-code-text> и <u-code-text>Route</u-code-text> технически они являются компонентами, но сами не создают DOM-элементов</li>
+</ul>
+
+<pre><code class="js">
+import React, {Component} from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
+const Home    = () =&gt; ( &lt;h2&gt;Home&lt;/h2&gt; )
+const About   = () =&gt; ( &lt;h2&gt;About&lt;/h2&gt; )
+const Contact = () =&gt; ( &lt;h2&gt;Contact&lt;/h2&gt; )
+
+export default class App extends Component {
+	render() {
+		return (
+			&lt;Router&gt;
+				&lt;div&gt;
+					&lt;Link to="/"&gt;Home&lt;/Link&gt;
+					&lt;Link to="/about/"&gt;About&lt;/Link&gt;
+					&lt;Link to="/contact/"&gt;Contact&lt;/Link&gt;
+
+					&lt;Route path="/" exact component={Home} /&gt;
+					&lt;Route path="/about" component={About} /&gt;
+					&lt;Route path="/contact" component={Contact} /&gt;
+				&lt;/div&gt;
+			&lt;/Router&gt;
+		);
+	}
+}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Настройка сервера Webpack</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>При переходе по <u-code-text>Link</u-code-text> изменяется url, но физически этой страницы нет. Поэтому нужно настроить сервер</li>
+</ul>
+
+<pre><code class="js"><u-code-title>webpack.config.js</u-code-title>
+module.exports = {
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'build'),
+		<u-code-wrapper>
+		publicPath: '/'
+		</u-code-wrapper>
+	},
+	devServer: {
+		contentBase: './dist',
+		<u-code-wrapper>
+		historyApiFallback: {
+			disableDotRule: true
+		},
+		</u-code-wrapper>
+		stats: 'errors-only',
+		port: 3000
+	}
+}
+</code></pre>

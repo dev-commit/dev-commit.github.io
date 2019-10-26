@@ -1,0 +1,25 @@
+<h2>Стилизация активной ссылки</h2>
+
+<ul class="list-point">
+	<li>Использование <u-code-text>NavLink</u-code-text> вместо <u-code-text>Link</u-code-text> добавляет к активной ссылке класс <u-code-text>active</u-code-text></li>
+</ul>
+
+<pre><code class="js">
+import { NavLink } from 'react-router-dom';
+
+...
+	&lt;NavLink to="/about/"&gt;About&lt;/NavLink&gt;
+...
+</code></pre>
+
+<ul class="list-point">
+	<li>При использовании <u>css-modules</u>, стилизовать ссылку нужно глобально</li>
+</ul>
+
+<pre><code class="js">
+:global {
+    a.active {
+        color: yellowgreen !important;
+    }
+}
+</code></pre>

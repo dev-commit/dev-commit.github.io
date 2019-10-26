@@ -1,0 +1,77 @@
+<h2>Назначение обработчиков событий</h2>
+
+<!------------------------------------------------------>
+<h3>1. Использование атрибута HTML</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+&lt;button onclick="alert('action')"&gt;Action&lt;/button&gt;
+&lt;button onclick="alert(&amp;quot;action&amp;quot;)"&gt;Использование двойных кавычек&lt;/button&gt;
+&lt;button onclick="alert(this.innerHTML)"&gt;Вывести содержимое&lt;/button&gt;
+&lt;button onclick="action()"&gt;Action&lt;/button&gt;
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>2. Использование свойства DOM-объекта</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Если обработчик задан через атрибут, то браузер читает HTML-разметку, создаёт новую функцию из содержимого атрибута и записывает в свойство <u>onclick</u></li>
+	<li>Обработчик хранится именно в <u>DOM-свойстве</u>, а атрибут – лишь один из способов его инициализации</li>
+	<li>Так как <u>DOM-свойство</u> <u>onclick</u>, в итоге, одно, то назначить более одного обработчика так нельзя</li>
+</ul>
+<pre><code class="html">
+&lt;button id="element"&gt;Action&lt;/button&gt;
+element.onclick = function() {
+	alert(1);
+}
+</code></pre>
+
+<pre><code class="html">
+&lt;button id="element"&gt;Action&lt;/button&gt;
+element.onclick = action;
+function action() {
+	alert(1);
+}
+</code></pre>
+
+<pre><code class="js">
+// удаление обработчика
+element.element = null;
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>3. addEventListener и removeEventListener</h3>
+<!------------------------------------------------------>
+<ul class="list-point">
+	<li>Метод addEventListener позволяет добавлять несколько обработчиков на одно событие одного элемента</li>
+	<li>Если функцию не сохранить где-либо, а просто передать в addEventListener, то потом получить её обратно, чтобы снять обработчик, будет невозможно</li>
+	<li>Нет метода, который позволяет считать обработчики событий, назначенные через addEventListener</li>
+</ul>
+
+<pre><code class="js light">
+<bg-methods>element.<em>addEventListener</em>(event, handler[, phase])
+ element.<em>removeEventListener</em>(event, handler[, phase])</bg-methods> 
+	<em>&#8226; event</em>   // имя события, например click
+	<em>&#8226; handler</em> // ссылка на функцию, которую нужно поставить обработчиком
+	<em>&#8226; phase</em>   // необязательный аргумент, «фаза», на которой обработчик должен сработать
+</code></pre>
+
+<pre><code class="html">
+&lt;button id="element"&gt;Action&lt;/button&gt;
+</code></pre>
+
+<pre><code class="js">
+function action() {
+	alert(1);
+}
+var element = document.querySelector('#element');
+element.<u-code>addEventListener</u-code>('click', action);
+element.<u-code>removeEventListener</u-code>('click', action);
+</code></pre>
+
+<pre><code class="js">
+// для удаления нужно передать именно ту функцию-обработчик которая была назначена
+// так removeEventListener не сработает
+// в removeEventListener передана не та же функция, а другая, с одинаковым кодом
+element.addEventListener('click' ,   function() {alert('ok')});
+element.removeEventListener('click', function() {alert('ok')});
+</code></pre>

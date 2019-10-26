@@ -1,0 +1,17 @@
+<h2>Сервер</h2>
+
+<pre><code class="bash">
+req # request (запрос)
+res # response (ответ)
+</code></pre>
+
+<pre><code class="js">
+var http = require('http');
+var server = http.createServer(function(req, res) {
+    console.log('url: ' + req.url);
+    res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
+    res.end('Привет мир');
+});
+server.listen(3000, '127.0.0.1');
+console.log('Отслеживаем порт 3000');
+</code></pre>

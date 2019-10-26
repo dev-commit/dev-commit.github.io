@@ -1,0 +1,29 @@
+<h2 id="each">Директива @each</h2>
+
+<p>Если требуемся пройтись по списку значений</p>
+<p>Устанавливает переменную в каждое из значений списка или карты и выводит содержащиеся в ней стили</p>
+
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+@each $animal in cat,dog,mouse,tiger,wolf {
+	.#{$animal}-icon {
+		background-image:url(/img/#{$animal}.png);
+	}
+}
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+.cat-icon   { background-image: url(/img/cat.png); }
+.dog-icon   { background-image: url(/img/dog.png); }
+.mouse-icon { background-image: url(/img/mouse.png); }
+.tiger-icon { background-image: url(/img/tiger.png); }
+.wolf-icon  { background-image: url(/img/wolf.png); }
+</code>
+</pre>
+</div>
+</div>

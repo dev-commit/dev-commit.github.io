@@ -1,0 +1,31 @@
+<h2>Middleware</h2>
+
+<ul class="list-point">
+    <li><u-text-define>middleware</u-text-define> - суть middleware функций, взять входные данные, добавить что-то и передать дальше. Middleware - это всегда функция, которые обычно возвращают функцию, если только целью middleware не является прервать цепочку вызовов</li>
+</ul>
+
+<pre><code class="js"><u-code-title>src/redux/store.js</u-code-title>
+import { createStore, <u-code>applyMiddleware</u-code> } from 'redux';
+import rootReducer from './reducers';
+import { ping } from './enhancers/ping';
+
+export default createStore(rootReducer, <u-code>applyMiddleware</u-code>(ping));
+</code></pre>
+
+<pre><code class="js"><u-code-title>src/redux/enhancers/ping.js</u-code-title>
+export const ping = function ping(store) {
+    return function (<u-code>next</u-code>) {
+        return function (<u-code>action</u-code>) {
+            console.log('Type: '+action.type);               // => Type: ADD_VALUE
+            console.log('Payload: '+action.payload.myValue); // => Payload: New Value
+            return next(action);
+        };
+    };
+};
+</code></pre>
+
+<ul class="list-point">
+    <li><u-code>store</u-code> - redux-store приложения</li>
+    <li><u-code>next</u-code> - функция-обертка, которая позволяет продолжить выполнение цепочки</li>
+    <li><u-code>action</u-code> - действие, которое было вызвано (это store.dispatch)</li>
+</ul>

@@ -1,0 +1,94 @@
+<h2>Миксины, примеси (@mixin)</h2>
+
+Позволяют сделать блок стилей, который может быть использован повторно в любом месте документа
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+@mixin large-text {
+	font:{
+		family: Arial;
+		size: 30px;
+		weight: bold;
+	}
+	color: red;
+}
+p {
+	@include large-text;
+}
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+p {
+	font-family: Arial;
+	font-size: 30px;
+	font-weight: bold;
+	color: red;
+}
+<br><br><br><br>
+</code>
+</pre>
+</div>
+</div>
+
+
+Миксины можно подключать друг в друга
+<pre>
+<code class="css">
+@mixin large-text {
+	...
+	@include small-text;
+}
+</code>
+</pre>
+
+Миксины могут принимать аргументы, которые передаются при подключении миксина
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+@mixin my-border($color, $width) {
+	border:{
+		color:$color;
+		width:$width;
+		style:dashed;
+	}
+}
+p {
+	@include my-border(red, 2px);
+}
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+p {
+	border-color: red;
+	border-width: 2px;
+	border-style: dashed;
+}<br><br><br><br><br>
+</code>
+</pre>
+</div>
+</div>
+
+
+Значение аргумента по умолчанию
+<pre>
+<code class="css">
+@mixin my-border($color, $width:10px) {
+	border:{
+		color:$color;
+		width:$width;
+		style:dashed;
+	}
+}
+p {
+	@include my-border(red);
+}
+</code>
+</pre>

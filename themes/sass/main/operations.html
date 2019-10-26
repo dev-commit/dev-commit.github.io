@@ -1,0 +1,109 @@
+<h2>Операции</h2>
+
+<pre>
+<code class="css">
++ - / %
+> < <= >= == !=
+</code>
+</pre>
+
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+$one: 50px;
+$two: 2;
+#main {
+	padding:{
+		top: $one + 200;
+		bottom: $one / $two;
+		left: $two + px;
+		right: 243px - 231px;
+	}
+	background: trans + parent;
+}
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+#main {
+	padding-top: 250px;
+	padding-bottom: 25px;
+	padding-left: 2px;
+	padding-right: 12px;
+	background: transparent;
+}
+<br><br><br>
+</code>
+</pre>
+</div>
+</div>
+
+<h3>Интерполяция</h3>
+использование переменных в селекторах и названиях свойств
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+$cn: content;
+#{$cn}: "con"+"tent";
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+content: "content";<br>
+</code>
+</pre>
+</div>
+</div>
+
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+$in: интер;
+.item {
+	content: "#{$in}поляция";
+}
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+.item {
+	content: "интерполяция";
+}<br>
+</code>
+</pre>
+</div>
+</div>
+
+
+<h3>Сложение цветов</h3>
+
+При сложении rgba значение прозрачности должно быть одинаковым
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+$color1: #440203 + #550506;
+$color2: #010203 * 2;
+$color3: rgba(180, 0, 0, 0.75) + rgba(20, 225, 0, 0.75);
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+background-color: #990709;
+background-color: #020406;
+background-color: rgba(200, 225, 0, 0.75);
+</code>
+</pre>
+</div>
+</div>

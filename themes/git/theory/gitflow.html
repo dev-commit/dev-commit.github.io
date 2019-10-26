@@ -1,0 +1,53 @@
+<h2>Gitflow</h2>
+
+<div id="ct-gitflow">
+<ul class="list-point">
+	<li><u-text-define>Gitflow</u-text-define> - модуль управления ветками. Есть две основные ветки: <u-code-text>master</u-code-text> и <u-code-text>develop</u-code-text></li>
+	<li><u-text-define>gitflow-avh</u-text-define> - инструмент для работы с Gitflow</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ветки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-code-list>master</u-code-list> - содержится тот же код, что и в рабочей (продакт) версии проекта</li>
+	<li><u-code-list>release</u-code-list> - подготовка к новому релизу проекта</li>
+	<li><u-code-list>beta</u-code-list> - beta</li>
+	<li><u-code-list>develop</u-code-list> - происходит вся работа</li>
+</ul>
+
+<ul class="list-point">
+	<li><u-code-list>feature</u-code-list> - создаются в процессе работы над develop, их может быть неограниченное количество</li>
+	<li><u-code-list>improvement</u-code-list> - улучшение</li>
+	<li><u-code-list>bug</u-code-list> - исправление багов</li>
+	<li><u-code-list>bugfix</u-code-list> - исправление багов</li>
+	<li><u-code-list>hotfix</u-code-list> - срочное исправление багов, найденных, например, на продакте</li>
+	<li><u-code-list>fix</u-code-list> - fix</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Рабочий процесс в Gitflow</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+	<li>Создается репозиторий</li>
+	<li>Репозиторий инициализируется</li>
+	<li>Начинается работа на ветке <u-code-text>develop</u-code-text></li>
+	<li>Возникает необходимость опробовать новую штуку – создается <u-code-text>feature-ветка</u-code-text> и делаются коммиты</li>
+	<li>Закончив работу на <u-code-text>feature-ветке</u-code-text>, вы сливаете ее с <u-code-text>develop</u-code-text></li>
+	<li>Если вы довольны текущей версией, но хотите продолжить работу, создается ветка <u-code-text>release</u-code-text>, куда перемещается текущая версия. Правка багов будет происходить на этой же ветке</li>
+	<li>Когда с веткой <u-code-text>release</u-code-text> покончено, время слить ее в master и продолжить работу с <u-code-text>develop</u-code-text></li>
+	<li>Кроме того, этот момент можно отметить на <u-code-text>master-ветке</u-code-text></li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Codereview GitHub</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+	<li>Создать репозиторий</li>
+	<li>Основная ветка разработки "dev"</li>
+	<li>Под каждую задачу создается ветка от "dev"</li>
+	<li>Создание PR (Pool Request) для слития ветки задачи с веткой "dev"</li>
+	<li>Ссылка на PR руководителю</li>
+	<li>Если всё ок, слитие веток, если нет, то исправление замечания</li>
+	<li>Если несколько задач и несколько веток, то вливать нужно не ветки полностью а только отдельные коммиты</li>
+</ol>

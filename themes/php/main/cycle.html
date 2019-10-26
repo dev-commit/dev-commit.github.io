@@ -1,0 +1,42 @@
+<h2>Циклы</h2>
+
+<h3>Цикл for</h3>
+<pre><code class="php">
+for ($i = 1; $i <= 10; $i++) {
+    echo $i;
+}
+</code></pre>
+
+<h3>Цикл while-do</h3>
+<pre><code class="php">
+$page = 1;
+while($page <= 20) {
+    echo "Читаю $page страницу";
+    $page++;
+}
+</code></pre>
+<pre><code class="php">
+$page = 1;
+do{
+    echo "Читаю $page страницу";
+    $page++;
+} while($page <= 20);
+</code></pre>
+
+<h3>Цикл foreach (работа с массивами)</h3>
+<pre><code class="php">
+$country = array ("Russia", "Latvia", "Germany", "France");
+// $item - переменная для получения доступа к элементам массива
+foreach($country as $item) {
+    echo "Страна: $item";
+}
+</code></pre>
+
+<h4>Указание ключей самостоятельно</h4>
+<pre><code class="php">
+// $key - доступ к ключу элемента
+// $item - доступ к самому элементу
+foreach($country as $key => $item) {
+    echo "Страна, где был $key раз - $item";
+}
+</code></pre>

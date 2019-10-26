@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/png" href="img/favicon.png">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+
+	<div id="content">
+		<div id="map-header">
+			<slot v-for="item in category">
+				<div
+					@click="buildThemes(item[1])" 
+					@mouseover="hoverHeaderMenu = item[1]" 
+					class="map-header-menu"
+					:class="item[2]"
+					v-html="item[0]"
+				></div>
+				<slot v-if="item[3] !== undefined">
+					<h1 style="margin: 0"></h1>
+				</slot>
+			</slot>
+		</div>
+
+		<div :class="{ 'map-themes-content':showContent }" id="map-themes">
+			<slot v-for="item in themesContent">
+				<h2 v-if="item[0]==1" v-html="item[1]"></h2>
+				<h1 v-else-if="item[0]==2" v-html="item[1]" :class="{ 'map-themes-content-h1':showContent }"></h1>
+				<div 
+					v-else 
+					@click="buildContent(item[0], item[1], item[2])" 
+					@mouseover="hoverThemesMenu = [item[0], item[1], item[2]]"
+					v-html="item[3]"
+					class="map-themes-menu" 
+				></div>
+			</slot>
+		</div>
+
+		<div id="map-content" v-show="pageBuild == true">
+			<div ref="questionContent" id="question-content"></div>
+			<div class="map-content-close" @click="closeContent"></div>
+		</div>
+	</div>
+
+	<script src="libraries/vue.js"></script>
+	<script src="libraries/jquery.js"></script>
+	<script src="libraries/highlight/highlight.pack.js"></script>
+	<script src="js/build.js"></script>
+
+	<script src="js/custom-elements.js"></script>
+	<script src="js/vue-components.js"></script>
+	<script src="js/vue-map.js"></script>	
+</body>
+</html>

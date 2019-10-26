@@ -1,0 +1,62 @@
+<h2>Создание класса</h2>
+
+<ul class="list-point">
+	<b><u-code-text>constructor()</u-code-text></b> - функция-конструктор
+</ul>
+
+<pre><code class="js">
+// создание класса
+class Task {
+	constructor(name = '', color = Task.getDefaultColor()) {
+		this.title = 'Выучить JS';
+		this.name = name;
+		this.color = color;
+		this._done = false;
+		Task.count += 1;
+		console.log('Создание задачи');
+		// сохранит лексический this конструктора
+		this.increment = () => {
+			this.count++;
+		}
+	}
+	// свойство get связывает свойство объекта с функцией, которая будет вызываться 
+	// при обращении к этому свойству
+	get done() {
+		return this._done === true ? 'Выполнена' : 'Не выполнена';
+	}
+	set done(value) {
+		if(value != undefined && typeof value === 'boolean') {
+			this._done = value;
+		} else {
+			console.error('Ошибка! Укажите значение true или false');
+		}
+	}
+	complete() {
+		this.done = true;
+		console.log(`Задача ${this.title} выполнена`);
+	}
+	// статический метод, позволяющий получить значение цвета по умолчанию,
+	// если цвет не был передан
+	static getDefaultColor() {
+		return 'Orange';
+	}
+}
+
+let task = new Task('Новая задача'); // создание экземпляра класса (объекта)
+
+Task.count = 0;                      // задание статического свойства
+console.log(task instanceof Task);   // является ли объект представителем класса
+console.log(task.title);             // обращение к свойству title
+console.log(task.name);              // обращение к свойству name
+console.log(task.color);             // обращение к свойству color, не передавая color
+console.log(Task.count);             // обращение к статическому свойству count
+task.complete();                     // обращение к методу complete
+console.log(task.done, task._done);
+</code></pre>
+
+<pre><code class="js">
+// переопределение стандартных методов
+Task.prototype.toString = function() {
+	return this.name;
+}
+</code></pre>

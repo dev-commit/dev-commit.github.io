@@ -1,0 +1,42 @@
+<h2>HTML Imports</h2>
+
+<u-message-error>HTML Imports => ES modules (устаревшая конструкция)</u-message-error>
+
+<ul class="list-point">
+	<li>Спецификация HTML Imports описывает, как вставить один документ в другой при помощи HTML-тега &lt;link rel="import"&gt;</li>
+	<li>HTML, загруженный через &lt;link rel="import"&gt; имеет отдельный DOM документа, но скрипты в нём выполняются в общем контексте страницы</li>
+	<li>Файл, загруженный через &lt;link rel="import"&gt;, обрабатывается, выполняются скрипты, строится DOM документа, но не показывается, а записывается в свойство link.import</li>
+</ul>
+
+<u-message-info>Запускать на сервере</u-message-info>
+
+<pre><code class="js light">
+<table>
+	<tr><td><bg-methods>link.import</bg-methods></td><td>  // доступ снаружи</td></tr>
+	<tr><td><bg-methods>document.currentScript.ownerDocument</bg-methods></td><td>  // доступ из внутреннего скрипта</td></tr>
+</table></code></pre>
+
+index.html
+<pre><code class="html">
+&lt;h1&gt;Main Document&lt;/h1&gt;
+
+&lt;script&gt;
+	function show() {
+		var element = page.<u-code>import</u-code>.querySelector('h1');
+		document.body.appendChild(element);
+	};
+&lt;/script&gt;
+
+&lt;link <u-code>rel="import"</u-code> href="page.html" id="page" onload="show()"&gt;
+</code></pre>
+
+page.html
+<pre><code class="html">
+&lt;h1&gt;Imported Document&lt;/h1&gt;
+
+&lt;script&gt;
+	// доступ к импортированному документу
+    var importedDocument = document.<u-code>currentScript.ownerDocument</u-code>; 
+    importedDocument.querySelector('h1').innerHTML = 'Changed Text';
+&lt;/script&gt;
+</code></pre>

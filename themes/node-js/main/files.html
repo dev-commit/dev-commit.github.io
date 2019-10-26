@@ -1,0 +1,55 @@
+<h2>Файлы и директории</h2>
+
+<h3>Чтение из файла</h3>
+Синхронно. Дальнейший код будет выполняться только после чтения файла (Sync)
+<pre>
+<code class="js">
+var fs = require('fs');
+var file_readed = fs.readFileSync('text.txt', 'utf8');
+console.log(file_readed);
+</code>
+</pre>
+Асинхронно
+<pre>
+<code class="js">
+var fs = require('fs');
+fs.readFile('text.txt', 'utf8', function(err, data) {
+    console.log(data);
+});
+</code>
+</pre>
+
+<h3>Запись в файл</h3>
+Синхронно
+<pre>
+<code class="js">
+var fs = require('fs');
+fs.writeFileSync('new_file.txt', 'Текст для \n файла');
+</code>
+</pre>
+Асинхронно
+<pre>
+<code class="js">
+var fs = require('fs');
+fs.writeFile('new_file.txt', 'Текст для \n файла', function(err, data) {});
+</code>
+</pre>
+
+<h3>Удаление файла</h3>
+<pre>
+<code class="js">
+var fs = require('fs');
+fs.unlinkSync('file.txt'); // синхронно
+fs.unlink('file.txt', function() {}); // асинхронно
+</code>
+</pre>
+
+<pre>
+<code class="js">
+// удаление сначала файла из папки
+fs.unlink('./test-folder/file.txt', function() {
+    // после этого удаление папки
+    fs.rmdir('test-folder', function() {});
+});
+</code>
+</pre>

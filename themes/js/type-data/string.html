@@ -1,0 +1,105 @@
+<h2>Строки</h2>
+
+<ul class="list-point">
+	<li>Строки в JavaScript имеют внутреннюю кодировку Юникод</li>
+</ul>
+
+<pre><code class="js">
+var a = str.<u-code>length</u-code>;       // длина строки 
+77.<u-code>toString()</u-code>;            // преобразование в строку
+var arr = str.<u-code>split</u-code>(';'); // преобразование строки с заданным разделителем в массив
+var str = str.<u-code>trim</u-code>();     // обрезает пробелы с начала и конца строки
+</code></pre>
+
+<pre><code class="js">
+var name = name.<u-code>toUpperCase</u-code>(); // верхний регистр
+var name = name.<u-code>toLowerCase</u-code>(); // нижний регистр
+</code></pre>
+
+<h4>Поиск в строке совпадений с образцом</h4>
+<pre><code class="js">
+var pos = str.<u-code>indexOf</u-code>('name');     // с начала (-1 не найдено)
+var pos = str.indexOf('name', 2);  // поиск начат с позиции 2
+var pos = str.<u-code>lastIndexOf</u-code>('name'); // с конца (-1 не найдено)
+</code></pre>
+
+<h4>Взятие подстроки: substring, substr, slice</h4>
+
+<u-code>slice</u-code>
+<ul class="list-point">
+	<li>Отрицательные значения отсчитываются от конца строки</li>
+</ul>
+<pre><code class="js">
+var root = str.<u-code>slice</u-code>(1, 7);        // вырезать с 1 позиции до 7 позиции не включая
+var root = 'testme'.slice(-2);     // 'me', от 2 позиции с конца
+var root = 'testme'.slice(1, -1);  // "estm", от 1 позиции до первой с конца 
+</code></pre>
+
+<u-code>substring</u-code>
+<ul class="list-point">
+	<li>Отрицательные аргументы интерпретируются как равные нулю</li>
+	<li>Слишком большие значения усекаются до длины строки</li>
+	<li>Если start > end, то аргументы меняются местами, т.е. возвращается участок строки между start и end</li>
+</ul>
+<pre><code class="js">
+var root = str.<u-code>substring</u-code>(1, 7);       // вырезать с 1 позиции до 7 позиции не включая
+var root = str.substring(1);          // вырезать с 1 позиции до конца строки
+var root = 'testme'.substring(-2);    // 'testme', -2 становится 0
+var root = 'testme'.substring(4, -1); // 'test', -1 становится 0 -> получили substring(4, 0), 4 > 0, так что аргументы меняются местами -> substring(0, 4) = "test"
+</code></pre>
+
+<u-code>substr</u-code>
+<pre><code class="js">
+var root = str.<u-code>substr</u-code>(1, 4);   // вырезать с 1 позиции 4 символа
+var root = str.substr(1);      // вырезать с 1 позиции до конца строки
+</code></pre>
+
+<h4>charAt, charCodeAt</h4>
+<pre><code class="js">
+var root = <u-code>charAt</u-code>(2);     // возвращает символ строки по индексу 
+var root = <u-code>charCodeAt</u-code>(2); // возвращает код символа строки по индексу (все русские буквы находятся в диапазоне от 1040 до 1103)
+</code></pre>
+
+<pre><code class="js">
+alert( "".charAt(0) ); // пустая строка
+alert( "" [0] );       // undefined
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Примеры</h3>
+<!------------------------------------------------------>
+
+<h4>Перебор строки</h4>
+<pre><code class="js">
+for (var i=0; i <= str.length-1; i++) {
+	console.log(str[i]);
+}
+</code></pre>
+
+<h4>Длина числа</h4>
+<pre><code class="js">
+var id = 100;
+var a = id.toString().length;
+</code></pre>
+
+<h4>Сложение</h4>
+<pre><code class="js">
+"Blink" + 181 + 1;   // "Blink1811"
+"Blink" + (181 + 1); // "Blink182"
+</code></pre>
+
+<h4>Экраснирвание кавычек</h4>
+<pre><code class="js">
+'\n'                     // перенос строки
+alert('привет \n мир');  // вывод переноса строки
+"call me \"ziggy\" now"; // экранирование кавычек
+</code></pre>
+
+<h4>Проверка на заполненное поле</h4>
+<pre><code class="js">
+var login = '';
+var password = '';
+isFormValid() {
+	return login.length > 0 && password.length > 0;
+}
+</code></pre>

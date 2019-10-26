@@ -1,0 +1,165 @@
+<h2>Компоненты высшего порядка</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Теория</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Компонент высшего порядка</u-text-define> (Higher-Order Component, HOC) - функция, расширяющая функционал компонента без изменение его исходного кода</li>
+    <li>HOC не наследует поведение оборачиваемого компонента</li>
+    <li>HOC является чистой функцией без побочных эффектов</li>
+	<li>Это один из продвинутых способов для повторного использования логики. HOC не являются частью API React, но часто применяются из-за композиционной природы компонентов</li>
+    <li>HOC часто встречаются в сторонних библиотеках, например <u-code-text>connect</u-code-text> в Redux и <u-code-text>createFragmentContainer</u-code-text> в Relay</li>
+    <li>Если обычный компонент преобразует <u>пропсы в UI</u>, то компонент высшего порядка преобразует <u>компонент в другой компонент</u></li>
+
+	<b>Действия</b>
+	<ol class="list-num">
+		<li>Принимает оборачиваемый компонент (оборачивает оригинальный компонент в контейнер посредством композиции)</li>
+		<li>Через пропсы передает ему новые данные</li>
+		<li>Возвращает новый компонент с расширенной логикой</li>
+	</ol>
+
+	<b>Предостережения</b>
+	<ol class="list-num">
+		<li>Не используйте HOC внутри рендер-метода. Происходит повторное монтирование компонента обнуляет его состояние, а также состояние его дочерних компонентов</li>
+		<li>Копируйте статические методы</li>
+		<li>Рефы не передаются. По соглашению компоненты высшего порядка передают оборачиваемому компоненту все пропсы, кроме рефов. ref на самом деле не проп, как, например, key, и поэтому иначе обрабатывается React. Реф элемента, созданного компонентом из HOC, будет указывать на экземпляр ближайшего в иерархии контейнера, а не на оборачиваемый компонент</li>
+	</ol>
+
+	<hr>
+	<li><b>Для чего:</b> Есть 2 или несколько компонентов, логика которых совпадает. Чтобы не дублировать логику, можно использовать HOC</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Структура</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+<pre><code class="js border">
+// WrappedComponent - оборачиваемый компонент
+// EnhancedComponent - компонент, обернутый в HOC 
+
+const hoc = (Wrapped) =&gt; {
+    return class extends Component {
+        render() {
+            return &lt;Wrapped {...this.props} /&gt;
+        } 
+    }
+}
+const EnhancedComponent = hoc(WrappedComponent);
+
+// SelectData - функция, которая извлекает нужные данные
+const EnhancedComponent = hoc(WrappedComponent, SelectData);
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Минимальный пример</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>withData</u-code-text> - функция, возвращающая компонент, оборачивающий основной компонент</li>
+    <li><u>withData</u> может содержать дополнительную логику</li>
+    <li><u>withData</u> - пустой компонент-обертка, который вызывает компонент App и передает все свойства, которые он получил сам</li>
+    <li><u>App</u> - отвечает за отображение. <u>withData</u> - отвечает за логику, можно вынести в отдельный файл и переиспользовать</li>
+</ul>
+
+<pre><code class="js">
+class App extends Component {
+    render() {
+      return &lt;h1&gt;Hello&lt;/h1&gt;
+    }
+}
+
+const withData = (Wrapped) =&gt; {
+    return class extends Component {
+        render() {
+            return &lt;Wrapped {...this.props} /&gt;
+        } 
+    }
+}
+export default withData(App);
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>2. Counter</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://www.youtube.com/watch?v=B6aNv8nkUSw&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=34" target="_blank">YouTube PlayList</a>
+</u-link-wrapper>
+
+<pre><code class="js">
+import React, { Component } from 'react';
+
+export default class App extends Component {
+	render() {
+		return (
+			&lt;div&gt;
+				&lt;EnhancedComponent <u-code>name="Tony"</u-code> /&gt;
+			&lt;/div&gt;
+		);
+	}
+}
+</code></pre>
+
+<pre><code class="js">
+class WrappedComponent extends Component {
+	render() {
+		return (
+			&lt;div&gt;
+				{this.props.count}
+				<u-code>{this.props.name}</u-code>
+				&lt;button onClick={this.props.increment}&gt;Ok&lt;/button&gt;
+			&lt;/div&gt;
+		);
+	}	
+}
+</code></pre>
+
+<pre><code class="js">
+const higherOrderComponent = (WrappedComponent, incrementNumber) =&gt; {
+	return class extends Component {
+		constructor(props) {
+			super(props);
+			this.state = {
+				count: 0
+			};
+		}
+		increment = () =&gt; {
+			this.setState(state =&gt; ({
+				count: state.count + incrementNumber
+			}));
+		}
+		render() {
+			//console.log(this.props.name);
+			return (
+				&lt;WrappedComponent 
+					count={this.state.count} 
+					increment={this.increment} 
+					<u-code>{ ...this.props }</u-code>
+				/&gt;
+			);
+		}		
+	}
+}
+</code></pre>
+
+<pre><code class="js">
+const EnhancedComponent = higherOrderComponent(WrappedComponent, 5);
+</code></pre>
+
+<hr>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Основано на паттерне "return function"</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+const func = (a) => {
+	return (b) => {
+		console.log(a + b); // 3
+	}
+}
+
+func(1)(2);
+</code></pre>

@@ -1,0 +1,117 @@
+<h2>SQLAlchemy</h2>
+
+<h3>Basic</h3>
+
+<u-link-wrapper>
+    <a href="http://wiki.python.su/Документации/SQLAlchemy" target="_blank">wiki.python.su</a>
+    <a href="https://ru.wikibooks.org/wiki/SQLAlchemy" target="_blank">wikibooks.org</a>
+    <a href="https://docs.sqlalchemy.org/en/latest/" target="_blank">docs.sqlalchemy.org</a>
+    <a href="https://docs.sqlalchemy.org/en/latest/orm/tutorial.html" target="_blank">docs.sqlalchemy.org tutorial</a>
+    <a href="https://docs.sqlalchemy.org/en/latest/dialects/mysql.html" target="_blank">docs.sqlalchemy.org mysql</a>
+    <a href="https://slides.com/kataev/sqlalchemy-pycon#/" target="_blank">slides.com</a>
+    <a href="https://stackoverflow.com/questions/22252397/importerror-no-module-named-mysqldb" target="_blank">stackoverflow.com mysqldb</a>
+</u-link-wrapper>
+
+<pre>
+<code class="js">
+<em>pip install SQLAlchemy</em>
+<em>pip install pymysql</em>
+<em>pip install --upgrade SQLAlchemy</em>
+</code>
+</pre>
+
+<h3>Тестирование</h3>
+<pre>
+<code class="python">
+import sqlalchemy
+print (sqlalchemy.__version__) # посмотреть версию SQLALchemy
+</code>
+</pre>
+
+<h3>Работа с БД</h3>
+
+<h4>Connect</h4>
+<pre>
+<code class="python">
+from sqlalchemy import create_engine
+engine = create_engine('mysql+pymysql://root:123@localhost/motmom')
+# root      - user
+# 123       - password
+# localhost - host
+# motmom    - db name
+</code>
+</pre>
+
+<h4>Declarative creation of a table, class</h4>
+<pre>
+<code class="js">
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+Base = declarative_base()
+
+class User(Base):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(50))
+    fullname = Column(String(50))
+    password = Column(String(50))
+
+    def __init__(self, name, fullname, password):
+        self.name = name
+        self.fullname = fullname
+        self.password = password
+    def __repr__(self):
+        return "&lt;User('%s','%s', '%s')&gt;" % (self.name, self.fullname, self.password)
+
+# users_table = User.__table__ # доступ к имени таблицы
+
+# create table
+Base.metadata.create_all(engine)
+</code>
+</pre>
+
+
+<h4>Session</h4>
+<pre>
+<code class="python">
+from sqlalchemy.orm import sessionmaker
+Session = sessionmaker(bind=engine)
+session = Session()
+
+# select query
+for instance in session.query(User).order_by(User.id):
+    print(instance.name, instance.fullname)
+
+# insert query
+insertRecord = User('Tony', 'Tony Stark', 'TonyFirst')
+session.add(insertRecord)
+session.commit()
+
+# update query
+updateRecord = session.query(User).filter_by(id=1).first()
+updateRecord.name = 'New Name'
+session.commit()
+
+# delete query
+deleteRecord = session.query(User).filter_by(id=1).first()
+session.delete(deleteRecord)
+session.commit()
+</code>
+</pre>
+
+<pre>
+<code class="python">
+session.close()
+</code>
+</pre>
+
+<h4>Select Query</h4>
+<pre>
+<code class="python">
+query1 = session.query(User).filter_by(name='Tony').first() # выбрать 1 запись по совпадению поля name
+query2 = session.query(User).filter(User.name=='Tony')      # выбрать 1 запись по совпадению поля name
+query3 = session.query(User).filter(User.name=='Tony').filter(User.fullname=='Stark') # выбрать 1 запись по совпадению поля name и fullname
+query4 = session.query(User).order_by(User.id)              # выбрать все записи, все поля, сортировка по ID
+query5 = session.query(User.name).order_by(User.id)         # выбрать все записи, поле name, сортирока по ID
+</code>
+</pre>

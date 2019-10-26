@@ -1,0 +1,82 @@
+<h2>css-loader</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>css-loader</u-code-npm>
+</v-pre-npm>
+
+<ul class="list-point">
+	<li><u-text-define>css-loader</u-text-define> - загрузка и объединение всех CSS файлов в один (translates CSS into CommonJS)</li>
+	<li>Если лоадера нет, то Webpack считает это js файлом, пытается его разобрать и видит ошибку</li>
+	<li>Webpack выполняет loaders в обратном порядке: с последнего до первого, то есть справа налево</li>
+</ul>
+
+<pre><code class="js"><u-code-title>webpack.config.js</u-code-title>
+module.exports = {
+	module: {
+		rules: [
+			{
+				test: /\.css$/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					<u-code-wrapper>
+					{
+						loader: 'css-loader',
+						options: {
+							sourceMap: true
+						}
+					}
+					</u-code-wrapper>
+				],
+			},
+		],
+	},
+};
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>CSS модули</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js"><u-code-title>webpack.config.js</u-code-title>
+{
+	test: /\.css$/,
+	use: [
+		MiniCssExtractPlugin.loader,
+		<u-code-wrapper>
+		{
+			loader: 'css-loader',
+			options: {
+				importLoaders: 1,
+				modules: true,
+				localIdentName: '[name]__[local]__[hash:base64:5]',
+				sourceMap: true
+			}
+		}
+		</u-code-wrapper>
+	]
+},
+</code></pre>
+
+<pre><code class="none">
+localIdentName: '[name]__[local]__[hash:base64:5]'
+	[name]           # название компонента
+	[local]          # название класса
+	[hash:base64:5]  # 5 символов hash
+</code></pre>
+
+<pre><code class="js"><u-code-title>Component.js (react.js)</u-code-title>
+import classes from './Component.css';
+
+render() {
+	return (&lt;div className={classes.headerItem}&gt;&lt;/div&gt;);
+}
+</code></pre>
+
+<pre><code class="css"><u-code-title>Component.css</u-code-title>
+.headerItem { background: orange; }
+</code></pre>
+
+<v-pre-npm>
+# дополнительные плагины
+<u-code-npm>react-css-modules</u-code-npm>              # возможно его заменил babel-plugin-react-css-modules
+<u-code-npm>babel-plugin-react-css-modules</u-code-npm>
+</v-pre-npm>

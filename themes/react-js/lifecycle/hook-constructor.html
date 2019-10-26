@@ -1,0 +1,21 @@
+<h2>React.Component.constructor()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="constructor" after="" arg="(props)">
+   	вызывается при создании компонента
+    </v-method>
+
+	<v-method-arg arg="props">props</v-method-arg>
+</div>
+
+<ul class="list-point">
+    <li>Вы можете <u>не использовать</u> конструктор в React-компоненте, если вы не определяете состояние или не привязываете методы</li>
+    <li>Конструктор компонента React вызывается до того, как компонент будет примонтирован. В начале конструктора необходимо вызывать <u-code-text>super(props)</u-code-text>. Если это не сделать, <u-code-text>this.props</u-code-text> не будет определён. Это может привести к багам</li>
+    <li><u>Не использовать</u> <u-code-text>setState()</u-code-text> в constructor(). Начальное состояние сразу присваивается в конструкторе. Конструктор - единственное место, где можно напрямую изменять <u-code-text>this.state</u-code-text>. В остальных методах необходимо использовать <u-code-text>this.setState()</u-code-text></li>
+    <li><u>Не использовать</u> побочные эффекты или подписки в конструкторе. Вместо этого используйте <u-code-text>componentDidMount()</u-code-text></li>
+</ul>
+<ul class="list-point">
+	<b>Обычно используют для двух целей:</b>
+    <li>Инициализация внутреннего состояния через присвоение объекта <u-code-text>this.state</u-code-text></li>
+    <li>Привязка обработчиков событий к экземпляру</li>
+</ul>

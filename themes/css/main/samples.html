@@ -1,0 +1,281 @@
+<h2>Примеры</h2>
+
+<h3>Выравнивание блоков по центру inline-block</h3>
+<pre>
+<code class="html">
+&lt;div class="container"&gt;
+	&lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+<pre>
+<code class="css">
+.container {
+	text-align: center;
+}
+.box {
+	display: inline-block;
+	vertical-align: middle;
+}
+</code>
+</pre>
+
+<h3>Выравнивание блока по центру (горизонталь, вертикаль) fixed</h3>
+<span>Обязательно задание width и  height</span>
+<pre>
+<code class="css">
+#box {
+	width: 400px;
+	height: 700px;
+	position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background: orange;
+}
+</code>
+</pre>
+
+<h3>Выравнивание блока по центру (горизонталь, вертикаль) transform</h3>
+<pre>
+<code class="html">
+&lt;div class="container"&gt;
+	&lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+<pre>
+<code class="css">
+Проценты считаются относительно самого элемента
+.box {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.container {
+	border: 2px solid blue;
+	height: 500px;
+}
+.box {
+	width: 200px;
+	height: 200px;
+	background: gray;
+	position: relative;
+}
+</code>
+</pre>
+
+
+<h3>Выравнивание текста по центру (горизонталь, вертикаль)</h3>
+<pre>
+<code class="html">
+&lt;div class="container"&gt;
+	&lt;div class="text"&gt;No result found&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+<pre>
+<code class="css">
+.container {
+	display: table;
+	width:100%;
+	background:orange;
+}
+.text {
+	height:500px;
+	width:100%;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle
+}
+</code>
+</pre>
+
+<h3>Треугольник</h3>
+<pre>
+<code class="css">
+div {
+	width: 0px;
+	height: 0px;
+	background: pink;
+	border-top:    100px solid transparent;
+	border-bottom: 100px solid transparent;
+	border-left:   100px solid blue;
+	border-right:  100px solid transparent;
+}
+</code>
+</pre>
+
+<h3>Меню</h3>
+<pre>
+<code class="html">
+&lt;header&gt;
+	&lt;nav class="header-menu"&gt;
+		&lt;ul&gt;
+			&lt;li&gt;&lt;a href="#portfolio"&gt;Портфолио&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#news"&gt;Новости&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#contacts"&gt;Контакты&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/nav&gt;
+&lt;/header&gt;
+</code>
+</pre>
+
+<span>inline-block</span>
+<pre>
+<code class="css">
+.header-menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background: orange;
+}
+.header-menu li {
+	display: inline-block;
+	vertical-align: middle;
+}
+.header-menu li a {
+	display: block;
+	color: black;
+	padding: 12px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: 0.7s;
+	background: gray;
+}
+.header-menu li a:hover {
+	background: white;
+}
+</code>
+</pre>
+
+<span>flexbox</span>
+<pre>
+<code class="css">
+.header-menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	background: orange;
+}
+.header-menu li a {
+	display: block;
+	color: black;
+	padding: 12px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: 0.7s;
+	background: gray;
+}
+.header-menu li a:hover {
+	background: white;
+}
+</code>
+</pre>
+
+<h3>Отключение обтекания float у родительского блока (clearfix)</h3>
+<pre>
+<code class="css">
+.parent:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+</code>
+</pre>
+
+<h3>Убрать float у блока</h3>
+<pre>
+<code class="css">
+.item {
+	float: none;
+}
+</code>
+</pre>
+
+
+<h3>Убрать пробелы у inline-block</h3>
+<span>Пробелы между блоками, это пробелы между словами в строке.<br>
+Ставим font-size:0 для родителя, а для дочерних элементов возвращаем обратно</span>
+<pre>
+<code class="html">
+&lt;div class="container"&gt;
+	&lt;div class="item"&gt;&lt;/div&gt;
+	&lt;div class="item"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code>
+</pre>
+
+<pre>
+<code class="css">
+.container {
+	font-size: 0;
+}
+.item {
+	font-size: 16px;
+}
+</code>
+</pre>
+
+
+<h3>resize у div</h3>
+<pre>
+<code class="css">
+div {
+	resize: both;
+	overflow: auto;
+}
+</code>
+</pre>
+
+
+<h3>Задание максимальной, минимальной ширины и выравнивание по центру</h3>
+<pre>
+<code class="css">
+.container {
+	width: 100%;
+	max-width: 960px;
+	min-width: 640px;
+	margin: 0 auto;
+}
+</code>
+</pre>
+
+
+
+<h3>Псевдоклассы. При наведении на .news показывается кнопка</h3>
+<pre>
+<code class="css">
+&lt;div class="news"&gt;&lt;/div&gt;
+&lt;div class="close"&gt;&lt;/div&gt;
+.news {
+	width: 100px;
+	height: 100px;
+	background: orange;
+}
+.close {
+	width: 100px;
+	height: 100px;
+	background: blue;
+	display: none;
+}
+.news:hover ~ .close {
+	display: block;
+}
+</code>
+</pre>
+
+
+<h3>Обращение к img по наведению на .item</h3>
+<pre>
+<code class="css">
+.item:hover img {}
+</code>
+</pre>

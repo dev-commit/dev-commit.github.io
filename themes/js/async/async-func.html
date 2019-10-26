@@ -1,0 +1,70 @@
+<h2>Async Function (ES2017)</h2>
+
+<ul class="list-point">
+	<li>Async Function - асинхронная функция (Promise + Generator)</li>
+	<li>Асинхронная функция возвращает обещение, для получения значения используется then</li>
+	<li>Если в асинхронной функции специально вернуть обещение, оно не оборачивается в другое обещание</li>
+</ul>
+
+<pre><code class="js">
+async function getUser(id) {
+    return { id:1 };   
+}
+getUser(1).then(user => console.log(user));
+</code></pre>
+
+<ul class="list-point">
+	<li>await дожидается выполнения обещания, вытаскивает значение и возвращает его</li>
+	<li>код после await выполнится только после выполнения функции</li>
+	<li>await можно использовать только внутри асинхронной функции</li>
+	<li>await необязательно ставить перед вызовом асинхронной фунцкии. это может быть любая функция, возвращающая обещание</li>
+</ul>
+<pre><code class="js">
+async function getUser(id) {
+    return { id:1 };   
+}
+async function main() {
+    let user = await getUser(1);
+    console.log(user);
+}
+main();
+</code></pre>
+
+<pre><code class="js">
+async function getUser(id) {
+    let response = await fetch('url');
+    let data = await response.json();
+    return data;
+}
+
+async function main() {
+    try {
+        let user = await getUser(1);
+        console.log(user);
+    } catch(error) {
+        console.log(error);
+    }
+}
+
+main();
+</code></pre>
+
+<h4>Варианты объявления</h4>
+<pre><code class="js">
+const getUser = async function(id) {}
+const getUser = async (id) => {}
+const dataService = {
+	getUser: async function(id) {}  // свойство
+	async getUserProp(id) {}        // метод
+}
+</code></pre>
+
+<pre><code class="js">
+(async function() {
+	//
+})();
+
+(async () => {
+	//
+})();
+</code></pre>

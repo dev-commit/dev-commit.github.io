@@ -1,0 +1,81 @@
+<h2>Наследование</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Прототипный стиль</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-text-define>Класс</u-text-define> - <u>функция-конструктор</u> вместе с её <u>prototype</u></li>
+</ul>
+
+<pre><code class="js"><u-code-title>Родитель</u-code-title>
+function User() {
+	this.userName = 'userName';
+}
+User.<u-code>prototype</u-code>.userFunc = function() {
+	alert('userFunc');
+}
+User.<u-code>prototype</u-code>.userProp = 'userProp';
+</code></pre>
+
+<pre><code class="js"><u-code-title>Наследник</u-code-title>
+function Admin() {
+	this.adminName = 'adminName';
+}
+</code></pre>
+
+<pre><code class="js"><u-code-title>В прототип Admin добавлили всё из прототипа User</u-code-title>
+Admin.prototype = <u-code>Object.create</u-code>(User.prototype);
+let admin = new Admin();
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функциональный стиль</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+function User(id, name) {
+	this.id = id;
+	this.name = name;
+}
+function Admin() {
+	User.apply(this, arguments);
+}
+let admin = new Admin(77, 'Tony'); // => Admin {id: 77, name: "Tony"}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Классы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Класс</u-text-define> - функция/шаблон, предназначенный для создания объектов и методов</li>
+    <li><u-text-define>Конструктор</u-text-define> - метод, который вызывается в момент создания объекта т.е. когда используется ключевое слово new он создает свойства и инициализирует, т.е. подготавливает объект к использованию. В классе может быть только 1 конструктор. Если не указать конструктор, то JS создаст пустой конструктор. Свойства указываются только в конструкторе</li>
+</ul>
+
+<ul class="list-point">
+    <li>Если у подкласса нет конструктора, он будет использовать конструктор родителя</li>
+    <li>Если подклассу указать конструктор, то он должен вызывать в начале конструктор родительского класса <u-code-text>super()</u-code-text></li>
+    <li>Метод <u-code-text>super()</u-code-text> позволяет наследовать свойства и методы из прототипа</li>
+</ul>
+
+<pre><code class="js">
+class Task {
+	constructor(name) {
+		this.name = name;
+		this.surname = 'Johnson';
+	}
+	getName() {
+		console.log(this.name);
+	}
+}
+
+class SubTask extends Task {
+	constructor(name, age) {
+		super(name);
+    	this.age = age;
+	}
+}
+
+let subtask = new SubTask('Jack', 25);
+console.log(subtask.name);    // => Jack
+console.log(subtask.surname); // => Johnson
+subtask.getName();            // => Jack
+</code></pre>

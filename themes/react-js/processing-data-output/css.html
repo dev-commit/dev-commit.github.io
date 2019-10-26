@@ -1,0 +1,58 @@
+<h2>Стилизация компонентов</h2>
+
+<u-link-wrapper>
+    <a href="https://medium.com/@stasonmars/руководство-по-трём-способам-стилизации-в-react-2ca5c0c7464b" target="_blank">Руководство по трём способам стилизации в React</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Методы стилизации</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li>Отдельный файл</li>
+    <li>Инлайновая стилизация</li>
+    <li><a href="https://github.com/css-modules/css-modules" target="_blank">CSS Modules</a></li>
+    <li><a href="https://www.styled-components.com/" target="_blank">Styled Components</a></li>
+    <li><a href="https://github.com/threepointone/glamor" target="_blank">Glamor</a></li>
+    <li><a href="https://cssinjs.org/" target="_blank">JSS</a></li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Отдельный CSS файл</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js"><u-code-title>js</u-code-title>
+import './index.css';
+
+render() {
+	return (&lt;div className="header"&gt;&lt;/div&gt;);
+}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Инлайновая стилизация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js"><u-code-title>js</u-code-title>
+const style = {
+	width: '200px',
+	height: '200px',
+	background: 'yellowgreen'
+}
+
+export default class App extends React.Component {
+	render() {
+		return (
+            &lt;div style={style}&gt;&lt;/div&gt;
+        );
+	}
+}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. CSS Modules</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js"><u-code-title>js</u-code-title>
+import classes from './Component.css';
+
+render() {
+	return (&lt;div className={classes.headerItem}&gt;&lt;/div&gt;);
+}
+</code></pre>

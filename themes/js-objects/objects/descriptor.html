@@ -1,0 +1,94 @@
+<h2>Дескрипторы свойств</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Свойства объекта</u-text-define> имеют: <u>имя</u>, <u>значение</u> (атрибут value), <u>атрибуты</u> (writable, enumerable, configurable)</li>
+</ul>
+
+<pre><code class="js">
+Object.<u-code>getOwnPropertyDescriptor</u-code>(obj, 'name');  // получение дескриптора свойств
+Object.<u-code>defineProperty</u-code>(obj, prop, descriptor);  // переопределение дескриптора свойств
+Object.<u-code>defineProperties</u-code>(obj, descriptors);     // позволяет объявить сразу несколько свойств
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Получение дескриптора свойств</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var person = {
+	name: 'Tony',
+	age: 20
+}
+var a = Object.<u-code>getOwnPropertyDescriptor</u-code>(person, 'name');
+// {value: "Tony", writable: true, enumerable: true, configurable: true } 
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Переопределение дескриптора свойств</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+Object.<u-code>defineProperty</u-code>(obj, prop, descriptor)
+	obj        // объект, в котором объявляется свойство
+	prop       // имя свойства, которое нужно объявить или модифицировать
+	descriptor // дескриптор - объект, который описывает поведение свойства
+</code></pre>
+
+<pre><code class="js">
+// 1-объект, 2-свойство, 3-дескриптор
+Object.<u-code>defineProperty</u-code>(person, 'name', {
+	<em>value</em>: 'Jack',       // значение свойства (по умолчанию undefined)
+	<em>writable</em>: false,     // значение свойства можно менять (по умолчанию false)
+	<em>configurable</em>: false, // возможность удаление свойства и изменения атрибутов свойства при помощи новых вызовов defineProperty (по умолчанию false)
+	<em>enumerable</em>: false,   // свойство просматривается в цикле for..in и методе Object.keys() (по умолчанию false)
+	<em>get()</em> {}             // функция, которая возвращает значение свойства (по умолчанию undefined)
+	<em>set()</em> {}             // функция, которая записывает значение свойства (по умолчанию undefined)
+});
+</code></pre>
+
+<h4>Объект с парами свойсво:дескриптор</h4>
+<pre><code class="js">
+// 1-объект, 2-объект с парами свойсво:дескриптор
+Object.<u-code>defineProperties</u-code>(person, {
+	name: {
+		value: 'Jack',
+		writable: false
+	}, 
+	age: {
+		value: 25,
+		writable: false
+	}
+});
+</code></pre>
+
+<h4>Обычное свойство</h4>
+<pre><code class="js">
+// оба вызова добавляют в объект user обычное (удаляемое, изменяемое, перечисляемое) свойство
+var user = {};
+user.name = 'Tony';
+Object.defineProperty(user, 'name', { value:'Tony', configurable:true, writable:true, enumerable:true });
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Геттеры и сеттеры</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var user = {
+	firstName: "Вася",
+	surname: "Петров"
+}
+
+Object.defineProperty(user, "fullName", {
+	get() {
+		return this.firstName + ' ' + this.surname;
+	},
+	set(value) {
+		var split = value.split(' ');
+		this.firstName = split[0];
+		this.surname = split[1];
+	}
+});
+
+user.fullName = "Петя Иванов";
+alert(user.fullName);   // Вася Петров
+alert(user.firstName ); // Петя
+alert(user.surname );   // Иванов
+</code></pre>

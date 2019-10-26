@@ -1,0 +1,106 @@
+<h2>Классы, ООП</h2>
+
+<pre><code class="js">
+# переменные - поля
+# функции    - методы
+# self обязательный аргумент в методе, содержащий в себе экземпляр класса, передающийся при вызове метода
+</code></pre>
+
+<pre><code class="js">
+# объявление класса
+class Person:
+	name = 'Tony'
+	age = 25
+	def set(self, name, age):
+		self.name = name
+		self.age = age
+
+superPerson = Person()       # создание объекта (экземпляра класса)
+print(superPerson.name)      # обращение к свойству объекта
+
+superPerson.set('Steve', 27) # изменение свойства объекта (свойство класса не изменяется)
+print(superPerson.name)      # обращение к свойству объекта
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Наследование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+# объявление нового класса, наследованого от Person
+class Student(Person):
+	course = 1
+
+superStudent = Student()
+superStudent.set('Jack', 19)
+print(superStudent.name)
+print(superStudent.course)
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Инкапсуляция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+# одно нижнее подчеркивание - рекомендация не использовать свойсво/метод
+# при использовании ошибка выдаваться не будет
+class Person:
+	_name = 'Tony'
+	_age = 25
+	def _set(self, name, age):
+		self._name = name
+		self._age = age
+
+superPerson = Person()
+print(superPerson._name)
+superPerson._set('Steve', 14)
+</code></pre>
+
+<pre><code class="js">
+# два нижних подчеркивания - более жесткая рекомендация не использовать свойсво/метод
+# при использовании ошибка выдаваться будет
+class Person:
+	__name = 'Tony'
+	__age = 25
+	def __set(self, name, age):
+		self.__name = name
+		self.__age = age
+
+# обход ошибки, обращение по классу
+superPerson = Person()
+print(superPerson._Person__name)
+superPerson._Person__set('Steve', 14)
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Полиморфизм</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="python">
+# Полиморфизм - использование одного метода по разному в разных классах
+print(2+2)     # для чисел сложение
+print('2'+'2') # для строк конкатенация
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Инициализация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+class Person:
+	def __init__(self, name, age):
+		self.name = name
+		self.age = age
+
+superPerson = Person('Tony', 25)
+print(superPerson.name, superPerson.age)
+</code></pre>
+
+<pre><code class="js">
+# age=None выставление значения по умолчанию
+class Person:
+	def __init__(self, name, age=None):
+		self.name = name
+		self.age = age
+
+superPerson = Person('Tony')
+print(superPerson.name, superPerson.age)
+</code></pre>
+
+

@@ -1,0 +1,107 @@
+<h2>Отрисовка списков: v-for</h2>
+
+<ul class="link-page-wrapper">
+	<li><a href="#v-for-arr">Отображение массива элементов</a></li>
+	<li><a href="#v-for-components">v-for на компонентах</a></li>
+</ul>
+
+<ul class="list-point">
+	<li>Когда присутствуют вместе на одном элементе, <u-code-text>v-for</u-code-text> имеет больший приоритет, чем <u-code-text>v-if</u-code-text>. Поэтому <u-code-text>v-if</u-code-text> будет выполняться для каждой итерации цикла</li>
+	<li><u-code-text>key</u-code-text> с <u-code-text>v-for</u-code-text> всегда обязателен для компонентов</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-for-arr">Отображение массива элементов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="html" v-pre><u-code-title>html</u-code-title>
+&lt;li <u-code>v-for</u-code>="item <u-code>in</u-code> items"&gt;{{ item.name }}&lt;/li&gt;
+&lt;li <u-code>v-for</u-code>="item <u-code>of</u-code> items"&gt;{{ item.name }}&lt;/li&gt;
+&lt;li <u-code>v-for</u-code>="(item, i) <u-code>in</u-code> items"&gt;{{i}}, {{ item.name }}&lt;/li&gt;
+&lt;li <u-code>v-for</u-code>="item <u-code>in</u-code> items" <u-code>:key</u-code>="item.id"&gt;{{ item.name }}&lt;/li&gt;
+</code></pre>
+
+<pre><code class="js"><u-code-title>js</u-code-title>
+items: [
+	{name: 'Tony',  age: 25},
+	{name: 'Tyler', age: 27},
+	{name: 'Tom',   age: 20}
+]
+</code></pre>
+
+<hr><hr>
+
+
+
+
+<pre><code class="html" v-pre>
+&lt;div id="app"&gt;
+	&lt;ul&gt;
+		&lt;!-- Без индексов --&gt;
+		&lt;li v-for="car in cars"&gt;{{ car.model }}, {{ car.speed }}&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;ul&gt;
+		&lt;!-- С индексами --&gt;
+		&lt;li v-for="(car, i) in cars"&gt;{{i}}, {{ car.model }}, {{ car.speed }}&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code class="html" v-pre>
+&lt;div id="app"&gt;
+    &lt;ul&gt;
+    	&lt;!-- Итерирование свойств объекта --&gt;
+        &lt;li v-for="value in user"&gt;{{ value }}&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul&gt;
+    	&lt;!-- Использование второго аргумента для получения ключей объекта --&gt;
+        &lt;li v-for="(value, key) in user"&gt;{{ key }}: {{ value }}&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul&gt;
+    	&lt;!-- Использование третьего аргумента для получения индексов объекта --&gt;
+        &lt;li v-for="(value, key, index) in user"&gt;{{ index }}. {{ key }}: {{ value }}&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+
+<pre><code class="js">
+var app = new Vue({
+	el: '#app', 
+	data: {
+		show: false,
+		cars: [
+			{model: 'Bmw',    speed: 250},
+			{model: 'Audi',   speed: 350},
+			{model: 'Nissan', speed: 270},
+			{model: 'Ford',   speed: 150}
+		],
+		user: {
+            name: 'Tony',
+            age: 25
+        }
+	}
+});
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-for-components">v-for на компонентах</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>При использовании <u-code-text>v-for</u-code-text> на компонентах обязательно требуется указывать <u-code-text>key</u-code-text></li>
+</ul>
+
+<pre><code class="html">
+&lt;my-component v-for="item in items" :key="item.id"&gt;&lt;/my-component&gt;
+</code></pre>
+
+<ul class="list-point">
+	<li>В компонент никакие данные не передаются автоматически, поскольку у компонентов изолированные области видимости. Для передачи итерируемых данных в компонент необходимо явно использовать входные параметры</li>
+</ul>
+
+<pre><code class="html">
+&lt;my-component
+	v-for="(item, index) in items"
+	v-bind:item="item"
+	v-bind:index="index"
+	v-bind:key="item.id"
+&gt;&lt;/my-component&gt;
+</code></pre>

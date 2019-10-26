@@ -1,0 +1,47 @@
+<h2>Input</h2>
+
+<h3>&lt;input type="text"&gt; и &lt;textarea&gt;&lt;/textarea&gt; (текстовое поле)</h3>
+
+<pre>
+<code>
+var text = $('#text').val();   // читаем value
+$('#text').val('new content'); // записываем value
+</code>
+</pre>
+
+<h3>&lt;input type="checkbox"&gt; (галочка)</h3>
+<pre>
+<code>
+var checkbox = $('#checkbox').prop('checked'); // читаем (true/false)
+$('#checkbox').prop('checked', true);          // устанавливаем значение checked (true/false)
+</code>
+</pre>
+
+<h3>&lt;input type="radio"&gt; (переключатель)</h3>
+<pre>
+<code>
+var radio = $('input[name=radio]:checked').prop('id'); // получаем id выбранного radio
+var radio = $('#radio1').prop('checked');        // проверяем по id выбран ли radio (true/false)
+$('#radio1').prop('checked', true);              // устанавливаем checked по id
+</code>
+</pre>
+
+<h3>&lt;select&gt;&lt;/select&gt; (выпадающий список)</h3>
+<pre>
+<code>
+var value = $('#select').val();                      // читаем выбранный value
+var text =  $('#select option:selected').text();     // читаем выбранный text
+var text =  $('#select [value=2]').text();           // читаем text по заданному value
+$('#select [value=3]').attr('selected', 'selected'); // устанавливаем заданный элемент в selected
+</code>
+</pre>
+
+<h3>Преобразование в checkbox</h3>
+<pre>
+<code class="red">
+// для checkbox сначала нужно перевести в число, а потому уже в булево значение
+var field = '1';
+var checkbox = Boolean(Number(field));
+$('.checkbox').prop('checked', checkbox);
+</code>
+</pre>

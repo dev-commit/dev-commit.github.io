@@ -1,0 +1,68 @@
+<h2>Состояние (state)</h2>
+
+<!------------------------------------------------------>
+<h3>state</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+const store = new Vuex.Store({
+    <u-code>state</u-code>: {
+        count: 0,
+        name: null
+    },
+    mutations: {
+        changeStore(state, payload) {
+            state.count = payload.count;
+            state.name = payload.name;
+        }
+    }
+})
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>HTML</h3>
+<!------------------------------------------------------>
+<pre><code class="html">
+&lt;div id="app"&gt;
+	{{count}} {{name}}
+	&lt;button @click="change"&gt;Изменить состояние&lt;/button&gt;
+	&lt;component-child&gt;&lt;/component-child&gt;
+&lt;/div&gt;
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Дочерний компонент</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+const ComponentChild = {
+    template: `&lt;div&gt;{{ count }}&lt;/div&gt;`,
+    computed: {
+        count() {
+            return <u-code>this.$store.state.count</u-code>; // получение доступа к объекту состояния из дочернего элемента
+        }
+    }
+}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>Родительский компонент</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+var app = new Vue({
+	el: '#app',
+    // указание хранилища в опции «store» обеспечивает
+    // доступ к нему также и во всех дочерних компонентах через this.$store
+	<u-code>store</u-code>,
+	components: { 
+        'component-child': ComponentChild 
+    },
+	methods: {
+		change() {
+			<u-code>store.commit</u-code>('changeStore', {count:77, name:'Tony'}); // изменение состояния
+		}
+	},
+	computed: {
+		count() { return <u-code>store.state.count</u-code>; }, // получение доступа к объекту состояния
+		name()  { return <u-code>store.state.name</u-code>; }   // получение доступа к объекту состояния
+	}
+});
+</code></pre>

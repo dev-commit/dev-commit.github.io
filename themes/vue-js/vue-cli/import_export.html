@@ -1,0 +1,35 @@
+<h2>Импорт и экспорт</h2>
+
+<h4>Переменная</h4>
+<pre><code class="js">
+export var a = 10                                  // App.vue
+import {a} from './App.vue'                        // main.js
+</code></pre>
+
+<h4>Функция</h4>
+<pre><code class="js">
+export function greet() {
+	console.log('Hello');
+}
+</code></pre>
+
+<h4>Компонент</h4>
+<pre><code class="js">
+export default {}                                  // Header.vue
+import Header from './components/Header.vue'       // App.vue
+</code></pre>
+
+<h4>JSON</h4>
+<pre><code class="js">
+import listJSON from '../assets/json/catalog.json' // json
+</code></pre>
+
+<h4>Варианты</h4>
+<pre><code class="js">
+export {multiply, divide};                         // экспорт нескольких элементов
+import { sum, multiply } from './utils.js'         // импорт нескольких избранных элементов
+import * as utils from './utils.js'                // импорт всего, что экспортирует модуль
+export {sum as add, multiply}                      // псевдоними для экспортируемых сущностей
+import { add, multiply as mult } from './utils.js' // псевдоними для импортируемых сущностей
+import './ui'                                      // если не указывать файл, то import index.js из "ui"
+</code></pre>

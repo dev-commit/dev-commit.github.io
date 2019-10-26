@@ -1,0 +1,54 @@
+<h2>Простой компонент</h2>
+
+<pre>
+<code class="html">
+&lt;div id="app"&gt;
+	&lt;task&gt;&lt;/task&gt;
+&lt;/div&gt;
+</code>
+<code class="js">
+Vue.component('task', {
+    data() {
+        return {
+            name: 'Tony',
+            age: 21
+        }
+    },
+    template: '&lt;p&gt;Hello {{name}} {{age}}&lt;/p&gt;',
+    methods: {
+        increment() {
+            this.age++;
+        }
+    }
+})
+var app = new Vue({
+	el: '#app'
+})
+</code>
+<code class="js">
+// Hello Tony 21
+</code>
+</pre>
+
+<ul class="list-point">
+	<li><u-text-define>data()</u-text-define> - Состояние. Управление приложением</li>
+	<li><u-text-define>template</u-text-define> - Представление. Отображение состояния заданное декларативно</li>
+	<li><u-text-define>methods</u-text-define> - Действия. Возможные пути изменения состояния приложения в ответ на взаимодействие пользователя с представлением</li>
+</ul>
+
+
+<p>Из template должен возвращаться только 1 родительский объект</p>
+<div class="container-flex"><div class="container-half"><pre><code class="js">
+// не сработает, выведет только первый span
+template: 
+	`&lt;span&gt;1&lt;/span&gt;
+	&lt;span&gt;2&lt;/span&gt;`
+<br>
+</code></pre></div><div class="container-half"><pre><code class="js">
+// сработает
+template: 
+	`&lt;div&gt;
+		&lt;span&gt;1&lt;/span&gt;
+		&lt;span&gt;2&lt;/span&gt;
+	&lt;/div&gt;`
+</code></pre></div></div>

@@ -1,0 +1,76 @@
+<h2>Promise Make Request</h2>
+
+<ul class="list-point">
+    <li>Написать функцию makeRequest, получающую на вход массив ссылок и число, указывающее максимальное количество одновременных запросов.</li>
+    <li>Oдновременно должно выполняться не более указанного числа запросов должен возвращаться массив результатов в той же последовательности, что и адреса запросов.</li>
+    <li>Нельзя делать повторные запросы на дублирующиеся адреса (при этом результат всё равно должен присутствовать в результирующем массиве).</li>
+</ul>
+
+<pre><code class="js">
+const urls = [
+	'https://jsonplaceholder.typicode.com/todos/1',
+	'https://jsonplaceholder.typicode.com/todos/2',
+	'https://jsonplaceholder.typicode.com/todos/3',
+	'https://jsonplaceholder.typicode.com/todos/3',
+	'https://jsonplaceholder.typicode.com/todos/5',
+	'https://jsonplaceholder.typicode.com/todos/6',
+	'https://jsonplaceholder.typicode.com/todos/7'
+];
+ 
+makeConcurrentCall(urls, 2).then(console.log);
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Решение 1</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+const makeConcurrentCall = (urls, total) => {
+	let indexCount = total;
+	const buff = [...new Set(urls)].map(url => ({
+		url
+	}));
+	return new Promise((resolve) => {
+		const makeRequest = (index) => {a
+			const {
+				url
+			} = buff[index];
+			return fetch(url).then(response => response.json()).then((data) => {
+				buff.find(e => e.url === url).data = data;
+				if (buff.every(response => response.data)) {
+					resolve(urls.map(url => buff.find(e => e.url === url).data));
+				};
+				if (!buff[indexCount]) return;
+				makeRequest(indexCount);
+				indexCount++;
+			})
+		};
+		for (let i = 0; i < total; i++) {
+			makeRequest(i)
+		}
+	})
+};
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Решение 2</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+function makeConcurrentCall(urls, total) {
+	let res = [];
+	let countIndex = total;
+	return new Promise((resolve) => {
+		function request(index) {
+			fetch(urls[index]).then(response => response.json()).then(response => {
+				res[index] = response;
+				if (res.length === urls.length) {
+					resolve(res);
+				}
+				request(countIndex++);
+			})
+		}
+		for (let i = 0; i < total; i++) {
+			request(i);
+		}
+	})
+}
+</code></pre>

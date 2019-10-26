@@ -1,0 +1,17 @@
+<h2>Promise</h2>
+
+<pre><code class="js">
+console.log(1);
+
+const promise = new Promise((res, rej) => {
+  console.log(2);
+  res(77);
+})
+console.log(3);
+
+promise
+	.then(value => console.log(value))
+	.then(value => console.log(value))
+
+// => 1, 2, 3, 77, undefined
+</code></pre>

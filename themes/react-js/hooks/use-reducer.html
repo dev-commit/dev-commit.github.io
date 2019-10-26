@@ -1,0 +1,22 @@
+<h2>Хук useReducer</h2>
+
+<pre><code class="js border">
+const [state, dispatch] = useReducer(reducer, initialArg, init);
+</code></pre>
+
+<ul class="list-point">
+    <li>Альтернатива для <u>useState</u>. Принимает редюсер типа <u-code-text>(state, action) => newState</u-code-text> и возвращает текущее состояние в паре с методом <u-code-text>dispatch</u-code-text></li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li><u-text-define>useReducer</u-text-define> - даёт возможность управлять внутренним состоянием более сложного компонента с помощью редюсера</li>
+</ul>
+
+<pre><code class="js">
+function Todos() {
+	const [todos, dispatch] = useReducer(todosReducer);
+	// ...
+}
+</code></pre>

@@ -1,0 +1,28 @@
+<h2>Шаблонные строки (ES6)</h2>
+
+<pre><code class="js">
+var a = `
+	первая строка
+	вторая строка
+`;
+</code></pre>
+
+<h3>Интерполяция</h3>
+<pre><code class="js">
+var a = 'text'; 
+var b = `строка текста ${a} строка текста`;
+</code></pre>
+
+<h3>Тегирование</h3>
+Изменение вида шаблонов при помощи функций
+
+<pre><code class="js">
+var name = 'Tony';
+console.log(upperName`Hello ${name}`);
+
+// literals - массив строковых литералов
+// name - значение вычисленных выражений
+function upperName(literals, value) {
+	return literals[0] + value.toUpperCase();
+}
+</code></pre>

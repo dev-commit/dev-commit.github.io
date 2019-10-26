@@ -1,0 +1,34 @@
+<h2>file-loader</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>file-loader</u-code-npm>
+</v-pre-npm>
+
+<pre><code class="js">
+module.exports = {
+	module: {
+		rules: [
+			{
+				<u-code-wrapper>
+				test: /\.(jpe?g|png|svg|gif|ico)$/i,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[path][name].[ext]',
+							//name:'[name].[ext]'
+							//outputPath: './'
+						}
+					},
+				],
+				</u-code-wrapper>
+			},
+		],
+	},
+};
+</code></pre>
+
+<pre><code class="none">
+name: '[path][name].[ext]'
+name: '[name].[ext]'
+</code></pre>

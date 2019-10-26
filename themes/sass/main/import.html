@@ -1,0 +1,78 @@
+<h2>Импорт других SASS файлов (@import)</h2>
+
+<h3>Сконвертируется в css как @import если</h3>
+<pre>
+<code class="js">
+1. Расширение css
+2. Media-параметры
+3. Присутствует http
+4. Присутствует url
+</code>
+</pre>
+
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="html">
+@import "main.css";
+@import "main" screen;
+@import "http://foo.com/main";
+@import url(main);
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="html">
+@import url(main.css);
+@import "main" screen;
+@import "http://foo.com/main";
+@import url(main);
+</code>
+</pre>
+</div>
+</div>
+
+<h3>Импортируется в sass файл если</h3>
+<pre>
+<code class="css">
+1. Расширение sass                           @import "main.sass";
+2. Расширение scss                           @import "main.scss";
+3. Файлы css (main.css)                      @import "main";
+4. Файлы-фрагмены (_main.sass / _main.scss)  @import "main";
+</code>
+</pre>
+
+<pre>
+<code class="css">
+@import "example.scss";
+@import "example1", "example2";
+</code>
+</pre>
+
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+/* файл example.scss */
+.example {
+	color: green;
+}
+/* файл style.scss */
+#main {
+	@import "example";
+}
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+/* файл style.css */
+#main .example {
+	color: green;
+}<br><br><br><br>
+</code>
+</pre>
+</div>
+</div>

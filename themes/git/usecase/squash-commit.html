@@ -1,0 +1,27 @@
+<h2>Squash Commit</h2>
+
+<ul class="list-point">
+    <li>Хорошая практика сквошить коммиты в один, чтобы на задачку был один коммит</li>
+    <li>Вообще засквошить можно когда угодно, потом форс-пушем долить, но после того как проверен PR этого уже делать не нужно будет, все правки после ревью доливаются отдельными коммитами</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Локальный репозиторий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="bash">
+<em>git checkout develop</em>                        # перейти в develop, если в ней есть обновления
+<em>git pull</em>                                    # обновить ветку develop
+<em>git checkout <u-code>ветка</u-code></em>                          # перейти в рабочую ветку
+<em>git merge-base develop HEAD</em>                 # номер коммита к которому нужно откатиться
+<em>git reset <u-code>номер_коммита</u-code></em>                     # откатывает всё что он сделал до того момента как откололся с develop
+<em>git add .</em>                                   # индексация изменений
+<em>git commit -m <u-code>'Номер_таски: название таски'</u-code></em> # commit
+<em>git push origin HEAD</em>                        # push
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Удаленный репозиторий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="bash">
+<em>git <u-code-text>push --force origin HEAD</u-code-text></em>
+</code></pre>

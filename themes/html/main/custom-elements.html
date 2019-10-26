@@ -1,0 +1,28 @@
+<h2>Custom Elements</h2>
+
+1. Normalize its attributes in your CSS Stylesheet (think css reset)
+<pre><code class="css">
+stack {
+	display: block;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	...
+}
+</code></pre>
+2. Make it work in old versions of Internet Explorer by appending this script to the head (Important!)
+<pre><code class="html">
+ &lt;!--[if lt IE 9]&gt;
+ &lt;script&gt; document.createElement("stack"); &lt;/script&gt;
+ &lt;![endif]--&gt;
+</code></pre>
+
+3. Used
+<pre><code class="html">
+&lt;stack&gt;Overflow&lt;/stack&gt;
+</code></pre>
+
+4. Set attributes
+<pre><code class="html">
+&lt;stack id="st2" class="nice"&gt;Overflow&lt;/stack&gt;
+</code></pre>

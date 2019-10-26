@@ -1,0 +1,25 @@
+<div class="v-method-wrapper">
+    <v-method before="git " method="push" after="" arg="">
+    Отправка изменений на удаленный git-репозиторий
+    </v-method>
+</div>
+
+<pre><code class="bash">
+<em>git <u-code-text>push origin HEAD</u-code-text></em>                                  # запушить текущую ветку, не вводя целиком ее название
+<em>git <u-code-text>push --force origin HEAD</u-code-text></em>                          # запушить текущую ветку и переписать историю на сервере
+
+<em>git <u-code-text>push origin</u-code-text></em>                                       # замерджить все ветки локального репозитория на удаленный репозиторий 
+<em>git <u-code-text>push origin</u-code-text> master</em>                                # аналогично предыдущему, но делается пуш только ветки master
+
+<em>git <u-code-text>push --set-upstream origin</u-code-text> master</em>                 # отправка изменений на удаленный git-репозиторий
+<em>git <u-code-text>push -u origin</u-code-text> master</em>                             # 
+<em>git <u-code-text>push -f</u-code-text></em>                                           # залить на сервер измененные коммиты
+<em>git <u-code-text>push</u-code-text> https://github.com/Eclerrr/readme.git master</em> # 
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Опции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>-f</u-code-text> <u-code-text>--force</u-code-text> Usually, the command refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it</li>
+</ul>

@@ -1,0 +1,34 @@
+<h2>Регистрация компонента</h2>
+
+<h4>Глобальная регистрация, работает для всех Vue объектов</h4>
+<pre><code class="js">
+Vue.component('component-a', {
+	template: 'content'
+});
+</code></pre>
+
+<h4>Локальная регистрация</h4>
+<pre><code class="js">
+var app = new Vue({
+	el: '#app',
+	components: { 
+        'component-a': {
+            template: 'content'
+        } 
+    }
+});
+</code></pre>
+
+<h4>Локальная регистрация из объекта</h4>
+<pre><code class="js">
+var ComponentA = {
+	template: 'content'
+}
+
+new Vue({
+	el: '#app',
+	components: {
+		'component-a': ComponentA
+	}
+})
+</code></pre>

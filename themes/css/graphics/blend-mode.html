@@ -1,0 +1,92 @@
+<h2>CSS Blend Modes</h2>
+
+<pre><code class="bash">
+<em>normal</em>      # обычный
+<em>multiply</em>    # умножение
+<em>screen</em>      # осветление
+<em>overlay</em>     # перекрытие
+<em>darken</em>      # замена тёмным
+<em>lighten</em>     # замена светлым
+<em>color-dodge</em> # осветление основы
+<em>color-burn</em>  # затемнение основы
+<em>hard-light</em>  # направленный свет
+<em>soft-light</em>  # рассеянный свет
+<em>difference</em>  # разница
+<em>exclusion</em>   # исключение
+<em>hue</em>         # тон
+<em>saturation</em>  # насыщенность
+<em>color</em>       # цвет
+<em>luminosity</em>  # яркость
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>background-blend-mode</h3>
+<!------------------------------------------------------>
+<u-link-wrapper>
+	<a href="https://webref.ru/css/background-blend-mode" target="_blank">background-blend-mode</a>
+	<a href="https://codepen.io/yoksel/pen/kGAsK" target="_blank">[codepen] background-blend-mode playground</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+	<li>Управляет режимами наложения слоев фона, заданного в CSS</li>
+	<li>Слои: backround-color, background-image (несколько), linear-gradient</li>
+</ul>
+
+<pre><code class="css">
+div {
+	background-color: blue;
+	background-image: url(...);
+	<u-code>background-blend-mode</u-code>: multiply;
+}
+</code></pre>
+
+<!------------------------------------------------------>
+<h3>mix-blend-mode</h3>
+<!------------------------------------------------------>
+<u-link-wrapper>
+	<a href="https://webref.ru/css/mix-blend-mode" target="_blank">mix-blend-mode</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+	<li>Определяет режим наложения исходного цвета на фоновый цвет или фоновое изображение</li>
+</ul>
+
+<div class="container-flex"><div class="container-half">
+<pre><code class="html">
+&lt;div&gt;
+	&lt;h1&gt;EVEN MORE CSS SECRETS&lt;/h1&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="css">
+h1 {
+	margin: auto;
+	background-color: black;
+	color: white;
+	<u-code>mix-blend-mode</u-code>: multiply;
+}
+div {
+	background-image: url(...);
+}
+</code></pre></div><div class="container-half">
+<img src="/img/blend-mode/blend-mode2.jpg" height="350px" style="margin-top: 10px;">
+</div></div>
+
+<div class="container-flex"><div class="container-half">
+<pre><code class="html">
+&lt;div&gt;
+	&lt;h1&gt;EVEN MORE CSS SECRETS&lt;/h1&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="css">
+h1 {
+	margin: auto;
+	background-color: white;
+	color: black;
+	<u-code>mix-blend-mode</u-code>: screen;
+}
+div {
+	background-image: url(...);
+}
+</code></pre></div><div class="container-half">
+<img src="/img/blend-mode/blend-mode1.jpg" height="350px"style="margin-top: 10px;">
+</div></div>

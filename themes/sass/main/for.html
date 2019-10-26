@@ -1,0 +1,73 @@
+<h2>Циклы For, While</h2>
+
+<pre>
+<code class="css">
+@for $i from through - диапазон включает значение начала и конца
+@for $i from to      - диапазон включает значение начала и не включает значение конца
+</code>
+</pre>
+
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+@for $i from 1 through 3 {
+	.item-#{$i} {
+		width: 2em * $i;
+		background-image: url(img/#{$i}.jpg);
+	}
+}<br><br><br><br><br><br>
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+.item-1 {
+	width: 2em;
+	background-image: url(img/1.jpg);
+}
+.item-2 {
+	width: 4em;
+	background-image: url(img/2.jpg);
+}
+.item-3 {
+	width: 6em;
+	background-image: url(img/3.jpg);
+}
+</code>
+</pre>
+</div>
+</div>
+
+
+<div class="container-flex">
+<div class="container-half">
+<pre>
+<code class="css">
+$i: 7;
+@while $i > 0 {
+	.item-#{$i} {
+		width: 1em * $i;
+	}
+	$i: $i - 3;
+}<br><br>
+</code>
+</pre>
+</div>
+<div class="container-half">
+<pre>
+<code class="css">
+.item-7 {
+	width: 7em;
+}
+.item-4 {
+	width: 4em;
+}
+.item-1 {
+	width: 1em;
+}
+</code>
+</pre>
+</div>
+</div>

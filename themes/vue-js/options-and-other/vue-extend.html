@@ -1,0 +1,31 @@
+<h2>Vue.extend(options)</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Vue.extend</u-text-define> - создаёт «подкласс» базового конструктора Vue. Принимает параметром объект с опциями нового компонента. Наследрвание от другого компонента API</li>
+	<li>У объекта, передаваемого в <u-code-text>Vue.extend()</u-code-text>, свойство <u-code-text>data</u-code-text> должно быть функцией</li>
+</ul>
+
+
+<pre><code class="html"><u-code-title>html</u-code-title>
+&lt;div id="mount-point"&gt;&lt;/div&gt;
+</code></pre>
+
+<pre><code class="js"><u-code-title>js</u-code-title>
+// Создание конструктора
+var Profile = Vue.extend({
+	template: '{{firstName}} {{lastName}}, также известный как {{alias}}',
+	data: function () {
+		return {
+			firstName: 'Уолтер',
+			lastName: 'Уайт',
+			alias: 'Гейзенберг'
+		}
+	}
+})
+// создаёт экземпляр Profile и монтирует его к элементу DOM
+new Profile().$mount('#mount-point')
+</code></pre>
+
+<pre><code class="html"><u-code-title>result</u-code-title>
+&lt;p&gt;Уолтер Уайт, также известный как Гейзенберг&lt;/p&gt;
+</code></pre>

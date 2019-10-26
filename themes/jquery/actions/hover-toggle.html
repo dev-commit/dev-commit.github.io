@@ -1,0 +1,27 @@
+<h2>События hover() и toggle()</h2>
+
+<h3>hover()</h3>
+<pre>
+<code class="js">
+// событие hover() - наведение мыши (объединяет в себе mouseover и mouseout)
+$('#box').hover(function() {
+    // наведение мыши
+},function() {
+    // увод мыши
+});
+</code>
+</pre>
+
+<h3>toggle()</h3>
+<pre>
+<code class="js">
+// переключатель (2 положения)
+$('#formHide').toggle(function() {
+    $('#form').fadeOut(1000);
+	$(this).text('Развернуть форму');
+}, function() {
+    $('#form').fadeIn(1000);
+	$(this).text('Свернуть форму');
+});
+</code>
+</pre>

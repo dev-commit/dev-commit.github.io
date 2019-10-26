@@ -1,0 +1,31 @@
+<h2>v-model</h2>
+
+<ul class="link-page-wrapper">
+	<li><a href="#v-model-mod">Модификаторы</a></li>
+</ul>
+
+<ul class="list-point">
+	<li><u-text-define>v-model</u-text-define> - двунаправленное связывание данных с элементами (н-р input и textarea)</li>
+</ul>
+
+<pre><code class="html">
+&lt;input type="text" <u-code>v-model</u-code>="messText"&gt;
+&lt;p&gt;{{ messText }}&lt;/p&gt;
+
+&lt;input type="checkbox" <u-code>v-model</u-code>="view"&gt;
+&lt;label&gt;{{ view }}&lt;/label&gt;
+</code></pre>
+
+<p>Аналогично</p>
+<pre><code class="html">
+&lt;input type="text" <u-code>@input="messText = $event.target.value"</u-code>&gt;
+&lt;p&gt;{{ messText }}&lt;/p&gt;
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-model-mod">Модификаторы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="html">
+&lt;!-- Удаление пробелов --&gt;
+&lt;input type="text" <u-code>v-model.trim</u-code>="messText"&gt;
+</code></pre>

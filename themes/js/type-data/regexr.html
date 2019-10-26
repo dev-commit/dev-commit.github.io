@@ -1,0 +1,140 @@
+<h2>Регулярные выражения</h2>
+
+<u-link-wrapper>
+	<a href="https://regexr.com/" target="_blank">https://regexr.com/</a>
+	<a href="https://regex101.com/" target="_blank">https://regex101.com/</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Expression Flags</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="html">
+<em>//g</em>          - global (все совпадения)
+<em>//i</em>          - case insensitive (регистронезависимый поиск)
+<em>//m</em>          - multiline
+<em>//u</em>          - unicode
+<em>//y</em>          - sticky
+</code></pre>
+
+<pre><code class="html">
+<em>[]</em>           - класс символов
+<em>/[a-zA-Z]/g</em>  - глобальный поиск
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Expressions</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="html">
+<em>a-zA-Z</em>               - строчные и заглавне буквы
+<em>0-9</em>                  - символы от 0-9
+<em>^0-9</em>                 - символы кроме чисел от 0-9 
+<em>\d</em>                   - символы от 0-9
+<em>\D</em>                   - символы кроме чисел от 0-9
+<em>\w</em>                   - символы, являющиеся буквами или цифрами
+<em>\W</em>                   - символы, не являющиеся буквами или цифрами
+<em>\s</em>                   - пустые символы (пробелы, табуляция, перенос строк)
+<em>\S</em>                   - все не пустые символы
+<em>\bar\b</em>               - граница слова. только слово "bar"
+<em>\bar\B</em>               - не должно быть границы слова. только символы "bar" в слове
+<em>grey|gray</em>            - или
+<em>.</em>                    - любой символ кроме переноса строк
+<em>\.</em>                   - точка (экранированно /)
+<em>a.{5}z</em>               - между буквами "a" и "z" 5 любых символов
+<em>a.{2,5}z</em>             - между буквами "a" и "z" от 2-5 любых символов
+<em>a.{2,}z</em>              - между буквами "a" и "z" от 2 и более любых символов
+<em>a.+z</em>                 - между буквами "a" и "z" от 1 и более любых символов
+<em>a.*z</em>                 - между буквами "a" и "z" от 0 и более любых символов
+<em>^edit</em>                - начало строки (установить multiline)
+<em>\.$</em>                  - конец строки (установить multiline)
+<em>and(?= hi)</em>           - слова "and" после которых есть пробел и слово "hi"
+<em>and(?! hi)</em>           - слова "and" после которых нет пробела и слова "hi"
+<em>(\b\w+)@(\w+\.\w+\b)</em> - запоминающая группа. поиск email
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Класс RegExp</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+var pattern = new RegExp('\w+', 'g'); // конструктор
+var pattern = /\w+/g;                 // литерал
+</code></pre>
+
+<h4>Свойства, доступные для чтение</h4>
+<pre><code class="js">
+pattern.global;
+pattern.ignoreCase;
+pattern.mutiline;
+pattern.lastIndex; // индекс последнего результата
+</code></pre>
+
+<h4>test() - проверка соответствия строки регулярному выражению (true/false)</h4>
+<pre><code class="js">
+var text = "О дивный новый мир";
+var pattern = /новый/;
+var result = pattern.test(text); 
+</code></pre>
+
+<h4>exec() - аналогичен match()</h4>
+<pre><code class="js">
+// если не установлен флаг global, результат аналогичен методу match
+// если установлен флаг global, получаем 1 первый match
+var text = "О дивный новый мир";
+var pattern = /новый/g;
+var result = pattern.exec(text); 
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Строки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>search() - возвращает позицию первого элемента</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+// игнорирует флаг global
+var text = "О дивный новый мир";
+var pattern = /мы/;
+var result = text.search(pattern); // 9
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>match() - возвращает само совпадение</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+// не игнорирует флаг global
+var text = "О дивный новый мир";
+var pattern = /новый/;
+var result = text.match(pattern); // ["новый", index: 9, input: "О дивный новый мир", groups: undefined]
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>split() - преобразование строки с заданным разделителем в массив </h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+var pattern = /[\s,]+/;
+var result = text.split(pattern); // разделитель пробел
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>replace() - ищет совпадение и заменяет</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+var text = 'привет мир';
+var pattern = /привет/;
+
+text = text.replace(pattern, function(match) {
+    return match.toUpperCase();
+});
+</code></pre>
+
+<pre><code class="js">
+str = str.replace(/'/g, '"');         // поменять одинарные кавычки на двойные
+str = str.replace(/«/g, '"');         // поменять « 
+str = str.replace(/»/g, '"');         // поменять »
+str = str.replace(/–/g, '-');         // поменять "–"
+str = str.replace(/\r|\n/g, '');      // убрать перенос строки
+str = str.replace(/<\/?[^>]+>/g, ''); // удалить html теги из текста
+</code></pre>
+
+
+

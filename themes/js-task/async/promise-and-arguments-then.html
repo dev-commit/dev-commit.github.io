@@ -1,0 +1,19 @@
+<h2>Promise</h2>
+
+<pre><code class="js">
+doSomething().then(function () {
+    return doSomethingElse();
+}).then(value =&gt; console.log(value)); // result doSomethingElse
+
+doSomething().then(function () {
+    doSomethingElse();
+}).then(value =&gt; console.log(value)) // undefined
+
+doSomething()
+    .then(doSomethingElse()) // пропускается
+    .then(value =&gt; console.log(value)); // result DoSomething
+
+doSomething()
+    .then(doSomethingElse)
+    .then(value =&gt; console.log(value)); // result doSomethingElse
+</code></pre>

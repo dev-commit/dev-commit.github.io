@@ -1,0 +1,67 @@
+<h2>Геттеры (getters)</h2>
+
+<h4>Установка геттера в Vuex.Store</h4>
+<pre><code class="js" v-pre>
+const store = new Vuex.Store({
+    state: {
+        count: 0
+    },
+    <u-code>getters</u-code>: {
+        storeCount(state) {
+            return state.count
+        }
+    }
+})
+</code></pre>
+
+<h4>Чтение геттера</h4>
+<pre><code class="html">
+&lt;template&gt;
+    &lt;div class="container"&gt;Корзина покупок {{ <u-code>count</u-code> }}&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+
+<pre><code class="js" v-pre>
+&lt;script&gt;
+export default {
+    computed: {
+        <u-code>count()</u-code> {
+            return <u-code>this.$store.getters.storeCount</u-code>
+        }
+    }
+}
+&lt;/script&gt;
+</code></pre>
+
+<h4>Чтение геттера (mapGetters)</h4>
+<pre><code class="html" v-pre>
+&lt;template&gt;
+    &lt;div class="container"&gt;Корзина покупок {{ <u-code>storeCount</u-code> }}&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+
+<pre><code class="js" v-pre>
+&lt;script&gt;
+import { <u-code>mapGetters</u-code> } from 'vuex'
+
+export default {
+    computed: {
+    	// смешиваем результат mapGetters с внешним объектом computed
+        <u-code>...mapGetters</u-code>([
+            <u-code>'storeCount'</u-code>
+        ])
+    }
+}
+&lt;/script&gt;
+</code></pre>
+
+<pre><code class="js" v-pre>
+// указание другого имени
+export default {
+    computed: {
+        ...mapGetters({
+            count: 'storeCount'
+        })
+    }
+}
+</code></pre>

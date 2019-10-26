@@ -1,0 +1,42 @@
+<h2>Axios</h2>
+
+<u-link-wrapper>
+	<a href="https://github.com/axios/axios" target="_blank">GitHub Axios</a>
+</u-link-wrapper>
+
+<pre><code class="bash">
+npm i --save axios
+</code></pre>
+
+<pre><code class="js">
+import axios from 'axios';
+// or
+const axios = require('axios');
+</code></pre>
+
+<!------------------------------------------------------>
+<h3 id="axios">GET</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+axios.get('url')
+.then(response => {
+	console.log(response.data);
+})
+.catch(error => console.log(error));
+</code></pre>
+
+<!------------------------------------------------------>
+<h3 id="axios-post">POST</h3>
+<!------------------------------------------------------>
+<pre><code class="js">
+axios.post('url', {
+		firstName: 'Fred',
+		lastName: 'Flintstone'
+	})
+	.then(function (response) {
+		console.log(response);
+	})
+	.catch(function (error) {
+		console.log(error);
+	});
+</code></pre>

@@ -1,0 +1,120 @@
+<h2>Объявление</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Function Declaration</u-text-define> - функция, объявленная в основном потоке кода, создаются интерпретатором до выполнения кода</li>
+	<li><u-text-define>Function Expression</u-text-define> - объявление функции в контексте какого-либо выражения, например присваивания. Создаются в процессе выполнения выражения, в котором созданы, в данном случае при операции присваивания</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Function Declaration</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+function func(num) {
+	console.log(num);
+}
+func(1);
+</code></pre>
+
+<pre><code class="js">
+// присвоили ссылку на функцию
+var a = func;
+function func(){
+	//
+}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Function Expression (выражения функции)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+var func = function(num) {
+	console.log(num);
+}
+func(2);
+</code></pre>
+
+<pre><code class="js">
+var Task = function Task() {
+	//
+}
+// создание нового объекта использую функцию Task
+var task = new Task();
+</code></pre>
+
+<h4>Функцию можно скопировать в другую переменную</h4>
+<pre><code class="js">
+function sayHi() {   // создать функцию и поместить её в переменную sayHi
+	alert( "Привет" );
+}
+
+var func = sayHi;    // копирование функции в новую переменную
+func(); // Привет    // функцию можно вызывать и как sayHi() и как func()
+
+sayHi = null;
+sayHi();             // ошибка
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. IIFE (анонинимная с немедленным вызовом - самовызывающаяся)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-text-define>Immediately-Invoked Functional Expression (IIFE)</u-text-define> немедленно вызываемое функциональное выражение</li>
+</ul>
+
+<ul class="list-point">
+	<li>Если браузер видит <u>function</u> в основном потоке кода – он считает, что это <u>Function Declaration</u></li>
+	<li>Если же <u>function</u> идёт в составе более сложного выражения, то он считает, что это <u>Function Expression</u></li>
+	<li>Скобки в анонимной функции нужны чтобы показать, что это <u>Function Expression</u>, который по правилам JavaScript можно вызвать «на месте»</li>
+</ul>
+
+<pre><code class="js">
+(function(num) {
+	console.log(num);
+})(3);
+</code></pre>
+
+<pre><code class="js">
+var count = (function(num) {
+	console.log(num);
+})(3);
+</code></pre>
+
+<h4>Анонимная функция</h4>
+<pre><code class="js">
+function ask(question, yes, no) {
+	if (confirm(question)) yes()
+	else no();
+}
+
+ask(
+	"Вы согласны?",
+	function() { alert("Вы согласились."); },
+	function() { alert("Вы отменили выполнение."); }
+);
+</code></pre>
+
+<h4>Возвращение функции</h4>
+<pre><code class="js">
+var func = function() {
+	return function() {
+		console.log('Hi');
+	}
+}
+func()();
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>4. new Function</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<b>new Function(params, code)</b>
+	<li><u>params</u> - параметры функции через запятую в виде строки</li>
+	<li><u>code</u> - код функции в виде строки</li>
+</ul>
+
+<pre><code class="js">
+// создание функции из строки
+var sum = new Function('a,b', 'return a+b;');
+var result = sum(1, 2);
+alert(result); // 3
+</code></pre>

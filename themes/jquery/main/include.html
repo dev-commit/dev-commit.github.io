@@ -1,0 +1,22 @@
+<h2>Подключение файлов</h2>
+
+<pre>
+<code class="js">
+// подключаемые файлы
+$('header').load('include/header.html');
+
+// показывам блоки только после загрузки html
+$('#filter').load('include/filter.html', function() {
+	//
+});
+</code>
+</pre>
+
+<pre>
+<code class="js">
+// загружаем html код из файла в блок
+$.get("include/header.html", {}, function(data) {
+	$('header').html(data);
+});
+</code>
+</pre>

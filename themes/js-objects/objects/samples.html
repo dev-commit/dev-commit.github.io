@@ -1,0 +1,45 @@
+<h2>Примеры</h2>
+
+<h4>Задание свойств объекта</h4>
+<pre><code class="js">
+const text = 'Some text';
+function getId() {
+	return 7;
+}
+let obj = {
+	text,
+	['prop_' + getId()]: 'some prop'
+}
+console.log(obj); // Object {text: 'Some text', prop_7: 'Some prop'}
+</code></pre>
+
+<h4>Метод для разных объектов</h4>
+<pre><code class="js">
+var speak = function() {
+	console.log(this.sound, this.name);
+}
+</code></pre>
+<pre><code class="js">
+var animal = {
+	sound: 'Mrr',
+	name: 'Cat',
+	speak: speak
+}
+
+animal.speak(); // Mrr, Cat
+</code></pre>
+
+<h4>Функция, возвращающая объект</h4>
+<pre><code class="js">
+function createCar(property, value) {
+	return {
+		[property]: value,
+		['_' + property]: value,
+		[property.toUpperCase()]: value,
+		['get' + property]() {
+			return this[property];
+		}
+	};
+}
+var a = createCar('vin', 1);
+</code></pre>

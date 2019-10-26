@@ -1,0 +1,17 @@
+<h2>Promise</h2>
+
+<pre><code class="js">
+Promise.reject(1)
+    .then(() => console.log(1))
+    .then(() => console.log(2), () => console.log(3))
+    .catch(() => console.log(4))
+    .then(
+        () => {
+            console.log(5);
+            return reject(6);
+        },
+        () => console.log(7)
+    )
+    .then(() => console.log(8), () => console.log(9));
+// => 3, 5, 9
+</code></pre>

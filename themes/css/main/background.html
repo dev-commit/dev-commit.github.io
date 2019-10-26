@@ -1,0 +1,35 @@
+<h2>Background</h2>
+
+<pre><code class="css">
+div {
+	background-image: url(img.png);                - путь к изображению
+	background-repeat: no-repeat;                  - повторение изображения
+	background-position: center center;            - позиционирование изображения (задние в px и %)
+	background-size: contain;                      - изображение полностью помещается в блок
+	background-size: cover;                        - изображение заполняет весь блок
+	background-size: 50%;                          - задание в %
+	background-color: #3b3b3b;                     - цвет фона
+	background-attachment: fixed;                  - будет ли прокручиваться фоновое изображение
+	background-origin: ...;
+	background-clip: ...;
+}
+</code></pre>
+
+Сокращенная запись
+<pre><code class="css">
+div {
+	background: color url no-repeat center center / cover;
+	background: url(img.png) no-repeat center 50%;
+	background: url no-repeat center;
+}
+</code></pre>
+
+Задание нескольких фонов
+<pre>
+<code class="css">
+div {
+	background: url(img.png) no-repeat,
+		#fff url(img.png) no-repeat 100% 0;
+}
+</code>
+</pre>

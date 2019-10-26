@@ -1,0 +1,24 @@
+<h2>html-loader</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>html-loader</u-code-npm>
+</v-pre-npm>
+
+<pre><code class="js">
+module.exports = {
+	module: {
+		rules: [
+			{
+				test: /\.html$/,
+				use: [ {
+					loader: 'html-loader'
+				}],
+			}
+		]
+	},
+}
+</code></pre>
+
+<pre><code class="js">
+import page from './page.html';
+</code></pre>

@@ -1,0 +1,26 @@
+<h3>Динамический путь</h3>
+
+<pre><code class="html" v-pre>
+&lt;router-link :to="'/catalog/'+i"&gt;Подробнее&lt;/router-link&gt;                      &lt;!-- неименованный путь --&gt;
+&lt;router-link :to="{name: 'product', params: {id: i}}"&gt;Подробнее&lt;/router-link&gt; &lt;!-- именованный путь --&gt;
+</code></pre>
+<pre><code class="js">
+const routes = [
+    { path: '/catalog/:id', component: Product }                  // неименованный путь
+    { path: '/catalog/:id', component: Product, name: 'product' } // именованный путь
+]
+</code></pre>
+
+<pre><code class="html" v-pre>
+&lt;template&gt;
+	&lt;span&gt;{{ $route.params.id }}&lt;/span&gt;
+&lt;/template&gt;
+</code></pre>
+
+<pre><code class="js" v-pre>
+export default {
+    created() {
+        console.log(this.$route.params.id);
+    }
+}
+</code></pre>

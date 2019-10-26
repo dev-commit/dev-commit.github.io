@@ -1,0 +1,127 @@
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2 id="objects">Объекты</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Rectangle</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="js">
+ctx.fillRect(0,0,100,100);   // fill
+ctx.strokeRect(0,0,100,100); // stroke
+</code>
+</pre>
+</div>
+<img src="/img/canvas/rectangle1.png" class="svg">
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Arc</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="js">
+ctx.beginPath();
+ctx.arc(100, 100, 50, 0, Math.PI*2, false);
+ctx.closePath();
+ctx.fill();   // fill
+ctx.stroke(); // stroke
+</code>
+</pre>
+</div>
+<img src="/img/canvas/arc1.png" class="svg">
+</div>
+
+<pre><code class="html">
+arc();
+1 - координаты центра окружности (x)
+2 - координаты центра окружности (y)
+3 - радиус
+4 - start angle (справа)
+5 - end angle (360deg = pi*2)
+6 - рисование по часовой (false) / против (true) часовой стрелки
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Line, Path</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="js">
+ctx.beginPath();
+
+ctx.moveTo(100, 100);
+ctx.lineTo(100, 50);
+ctx.lineTo(200, 100);
+ctx.closePath();
+
+ctx.moveTo(10, 10);
+ctx.lineTo(70, 10);
+ctx.lineTo(10, 70);
+
+ctx.fill();
+ctx.stroke();
+</code>
+</pre>
+</div>
+<img src="/img/canvas/path1.png" class="svg">
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Gradient</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="js">
+var grad = ctx.createLinearGradient(0, 100, 100, 0);
+grad.addColorStop(0, 'green');
+grad.addColorStop(1, 'blue');
+ctx.fillStyle = grad;
+ctx.fillRect(50, 50, 100, 100);
+</code>
+</pre>
+</div>
+<img src="/img/canvas/gradient1.png" class="svg">
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Text</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="js">
+ctx.textAlign = 'center';
+ctx.font = '22px Arial';
+ctx.fillText('Hello World', canvas.width/2, canvas.height/2); // по центру
+</code>
+</pre>
+</div>
+<img src="/img/canvas/text1.png" class="svg">
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Text Gradient</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="container-flex">
+<div class="container-calc">
+<pre>
+<code class="js">
+var grad = ctx.createLinearGradient(0, 0, 150, 0);
+grad.addColorStop(0, 'magenta');
+grad.addColorStop(0.5, 'blue');
+grad.addColorStop(1, 'red');
+ctx.fillStyle = grad;
+
+ctx.font = '22px Arial';
+ctx.fillText('Hello World', 20, 35);
+</code>
+</pre>
+</div>
+<img src="/img/canvas/text2.png" class="svg">
+</div>

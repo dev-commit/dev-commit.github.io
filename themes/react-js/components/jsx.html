@@ -1,0 +1,174 @@
+<h2>JSX</h2>
+
+<ul class="list-point">
+	<li>Каждый <u>JSX-элемент</u> - это просто синтаксический сахар для вызова <u-code-text>React.createElement(component, props, ...children)</u-code-text>. Так что всё, что вы можете сделать при помощи JSX, может быть сделано на чистом JavaScript</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Особенности</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u>null</u>, <u>undefined</u>, <u>true</u>, <u>false</u> игнорируются</li>
+    <li><u>object</u> нельзя использовать</li>
+</ul>
+
+<pre><code class="js"><u-code-title>js</u-code-title>
+const arr = [];
+{arr.length &amp;&amp; &lt;Component /&gt;} // =&gt; 0
+!!arr.length &amp;&amp; &lt;Component /&gt;
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка babel</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="bash">
+<em>npm init -y</em>                                                 # инициализация
+<em>npm i babel-cli@6 babel-preset-react-app@3</em>                  # babel
+<em>npx babel --watch src --out-dir . --presets react-app/prod</em>  # наблюдение за директорией src
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Render</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="html"><u-code-title>html</u-code-title>
+&lt;div id="root"&gt;&lt;/div&gt;
+</code></pre>
+
+<div class="container-flex"><div class="container-half"><pre><code class="js"><u-code-title>jsx</u-code-title>
+const element = &lt;h2&gt;Hi&lt;/h2&gt;;
+ReactDOM.render(
+	element, 
+	document.getElementById('root')
+);
+</code></pre></div><div class="container-half"><pre><code class="js"><u-code-title>js</u-code-title>
+var element = React.<u-code>createElement</u-code>('h2', null, 'Hi');
+ReactDOM.render(
+	element, 
+	document.getElementById('root')
+);
+</code></pre></div></div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>Переменные</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+// переменная
+const name = 'Tony';
+const element = &lt;h2&gt;Hi, {name}&lt;/h2&gt;;
+</code></pre>
+
+<pre><code class="js">
+// чтобы использовать строковый литерал в качестве атрибута, используются кавычки
+const element = &lt;div tabIndex="0"&gt;&lt;/div&gt;;
+</code></pre>
+
+<pre><code class="js">
+// чтобы указать JavaScript-выражение в качестве атрибута, используются фигурные скобки
+const path = '../img/1.png';
+const element = &lt;img src={path}&gt;&lt;/img&gt;;
+</code></pre>
+
+<ul class="list-point">
+	<li>Не ставьте кавычек вокруг фигурных скобок, когда используете JavaScript-выражение в атрибуте. Следует либо применить кавычки (для строковых литералов), либо фигурные скобки (для выражений), но не то и другое вместе</li>
+	<li>Поскольку <u>JSX</u> ближе к JavaScript чем к HTML, <u>React DOM</u> использует стиль именования <u>camelCase</u> для свойств вместо обычных имён HTML-атрибутов. Например, <u-code-text>class</u-code-text> становится <u-code-text>className</u-code-text> в JSX, а <u-code-text>tabindex</u-code-text> становится <u-code-text>tabIndex</u-code-text></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Результат вызова JavaScript-функции </h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+function getName() {
+	return 'Tony';
+}
+const element = &lt;h2&gt;Hi, {getName()}&lt;/h2&gt;;
+</code></pre>
+
+<ul class="list-point">
+	<li>При разбитии JSX на несколько строк рекомендуется заключать всё выражение целиком в круглые скобки, чтобы избежать проблем, связанных с автоматической вставкой точек с запятой</li>
+</ul>
+
+<pre><code class="js">
+const element = (
+	&lt;h2&gt;
+		Hi
+	&lt;/h2&gt;
+);
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Использование внутри выражений</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>После компиляции каждое JSX-выражение становится обычным вызовом JavaScript-функции, результат которого - объект JavaScript</li>
+	<li>Из этого следует, что JSX можно использовать внутри выражений if и циклов for, присваивать переменным, передавать функции в качестве аргумента и возвращать из функции</li>
+</ul>
+
+<pre><code class="js">
+function getGreeting(admin) {
+	if (admin) {
+		return &lt;h2&gt;Hello&lt;/h2&gt;;
+	}
+	return &lt;h2&gt;Bye&lt;/h2&gt;;
+}
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>JSX предотвращает атаки, основанные на инъекции кода</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Данные, введённые пользователем, можно безопасно использовать в JSX</li>
+	<li>По умолчанию React DOM экранирует все значения, включённые в JSX перед тем как отрендерить их. Это гарантирует, что вы никогда не внедрите чего-либо, что не было явно написано в вашем приложении. Всё преобразуется в строчки, перед тем как быть отрендеренным. Это помогает предотвращать атаки межсайтовым скриптингом (XSS).</li>
+</ul>
+
+<pre><code class="js">
+const title = response.potentiallyMaliciousInput;
+const element = &lt;h1&gt;{title}&lt;/h1&gt;; // этот код безопасен
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>JSX представляет собой объекты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Babel компилирует JSX в вызовы <u-code-text>React.createElement()</u-code-text></li>
+</ul>
+
+<div class="container-flex"><div class="container-half"><pre><code class="js"><u-code-title>js (babel)</u-code-title>
+const element = (
+	&lt;h1 className="greeting"&gt;
+		Hello, world!
+	&lt;/h1&gt;
+);
+</code></pre></div><div class="container-half"><pre><code class="js"><u-code-title>js</u-code-title>
+const element = React.createElement(
+	'h1',
+	{className: 'greeting'},
+	'Привет, мир!'
+);
+</code></pre></div></div>
+
+<ul class="list-point">
+	<li><u-code-text>React.createElement()</u-code-text> проводит некоторые проверки с целью выявить баги в коде, но главное — создаёт объект похожий на такой</li>
+	<li>Эти объекты называются React-элементами. Можно сказать, что они описывают результат, который мы хотим увидеть на экране. React читает эти объекты и использует их, чтобы конструировать и поддерживать DOM</li>
+</ul>
+
+<pre><code class="js">
+// этот код несколько упрощён
+const element = {
+	type: 'h1',
+	props: {
+		className: 'greeting',
+		children: 'Привет, мир!'
+	}
+};
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Особенности тегов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="html">
+&lt;input aria-label={} /&gt;    &lt;!-- aria-label --&gt;
+&lt;label htmlFor=""&gt;&lt;/label&gt; &lt;!-- for --&gt;
+</code></pre>

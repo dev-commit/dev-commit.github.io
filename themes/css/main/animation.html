@@ -1,0 +1,50 @@
+<h2 id="animation">Animation</h2>
+
+<pre>
+<code class="css">
+animation: none 0s ease 0s 1 normal none running;
+1. animation-name             - название анимации
+2. animation-duration         - как долго длится анимация
+3. animation-timing-function  - как вычисляются промежуточные состояния
+4. animation-delay            - анимация начинается спустя некоторое время
+5. animation-iteration-count  - сколько раз должна выполняться анимация
+6. animation-direction        - должно движение идти в обратную сторону или нет
+7. animation-fill-mode        - какие стили применяются до начала анимации и после её завершения
+8. animation-play-state       - проигрывать анимацию или поставить её на паузу
+</code>
+</pre>
+
+<pre>
+<code class="css">
+@keyframes move{
+    0%   { transform: translate(0px, 0px);     background: blue; }
+    25%  { transform: translate(300px, 0px);   background: red; }
+    50%  { transform: translate(300px, 300px); background: gray; }
+    75%  { transform: translate(0px, 300px);   background: green; }
+    100% { transform: translate(0px, 0px);     background: orange;}
+}
+</code>
+</pre>
+
+<pre>
+<code class="css">
+div {
+	animation-name: move;
+	animation-duration: 5s;
+	animation-timing-function: linear;
+	animation-delay: 0s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: none;
+	animation-play-state: running;
+}
+</code>
+</pre>
+
+<pre>
+<code class="css">
+div {
+	animation: move 2s ease infinite;
+}
+</code>
+</pre>

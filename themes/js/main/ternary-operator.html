@@ -1,0 +1,28 @@
+<h2>Тернарные операторы</h2>
+
+<ul class="list-point">
+    <li><u-code-text>условие ? значение1 : значение2</u-code-text> - Если условие верно - значение1, иначе – значение2</li>
+    <li><u-code-text>условие1 && условие2</u-code-text> - Возвращает expr1, если может быть преобразовано в false; иначе возвращает expr2. Причем, при использовании с логическими значениями (boolean), && вернет true, если оба значения true; иначе вернет false</li>
+</ul>
+
+<v-two-code type="js;js" comment="Тернарный оператор;if…else">
+<template v-slot:first>
+a = (age > 14) ? true : false;  // if-then-else
+a = isAdmin ? 'Admin' : 'User'; // if-then-else
+a = isAdmin ? 'Admin' : null;   // if-then
+a = isAdmin && 'Admin';         // if-then
+</template>
+<template v-slot:last>
+if (age > 14) {
+	access = true;
+} else {
+	access = false;
+}
+
+if (isAdmin) {
+	user = 'Admin';
+} else {
+	user = 'User';
+}
+</template>
+</v-two-code>

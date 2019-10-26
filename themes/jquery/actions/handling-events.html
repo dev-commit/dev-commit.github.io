@@ -1,0 +1,73 @@
+<h2>Обработчики событий</h2>
+
+<h3>Полная загрузка страницы</h3>
+<pre><code class="js">
+$(window).on('load', function () {
+	console.log("Window Loaded");
+});
+</code></pre>
+
+
+<h3>Обработчики событий</h3>
+
+<pre>
+<code class="js">
+// обработчик события щелчка мыши
+$('.item').on('click', function(){
+	//
+});
+</code>
+</pre>
+
+<pre>
+<code class="js">
+// обработчик события изменения значения input
+$('input').on('change', function(){
+	//
+});
+</code>
+</pre>
+
+<pre>
+<code class="js">
+// выполняется после загрузки всех элементов (если скрипт подключен в head)
+$(document).ready(function(){
+    // обработчик события щелчка мыши
+    $('.item').on('click', function(){
+		// id выбранного элемента
+		var id = this.id;
+    });
+});
+</code>
+</pre>
+
+
+<h3>Удаление обработчиков событий</h3>
+Метод <b>.off()</b> удаляет обработчики событий, назначенные методом <b>.on</b>
+<pre>
+<code class="js">
+$(document).off('scroll');
+</code>
+</pre>
+
+<h3>Делегирование обработчиков событий</h3>
+<p>Применяется при необходимости добавить обработчик события на динамически добавленный элемент</p>
+
+<pre>
+<code class="html">
+&lt;button&gt;Click me&lt;/button&gt;
+&lt;div class="container"&gt;&lt;/div&gt;
+</code>
+</pre>
+
+<pre>
+<code class="js">
+$('button').on('click',function(){
+    $('.container').append('&lt;div class="item" id="item-1"&gt;&lt;/div&gt;');
+    $('.container').append('&lt;div class="item" id="item-2"&gt;&lt;/div&gt;');
+});
+$('.container').on('click', '.item', function(){
+	console.log(this.id);
+});
+</code>
+</pre>

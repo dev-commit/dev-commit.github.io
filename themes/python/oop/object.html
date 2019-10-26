@@ -1,0 +1,48 @@
+<h2>Объекты (словари)</h2>
+
+<pre>
+<code class="python">
+dic = {
+	'name': 'Tony',
+	'age': 25,
+	'address': {
+		'town':'London',
+		'home':'255'
+	}
+}
+
+# если элемент не найден, вернет ошибку
+print(dic['name'])
+print(dic['address']['town'])
+
+# если элемент не найден, вернет None, если не задан 2 аргумент
+print(dic.get('name', 'Значение не найдено'))
+</code>
+</pre>
+
+<pre class="python">
+<code>
+# проверка существования ключа в словаре
+if ('name1') in dic:
+	print('exists')
+else:
+	print('not exists')
+</code>
+</pre>
+
+<h3>Перебор значений словаря (value)</h3>
+<pre class="python">
+<code class="python">
+for value in dic:
+	print(value)
+</code>
+</pre>
+
+<h3>Перебор значений словаря (value) и номера текущей итерации (index)</h3>
+<pre class="python">
+<code class="python">
+for index, value in enumerate(dic):
+	print(index)
+	print(value)
+</code>
+</pre>

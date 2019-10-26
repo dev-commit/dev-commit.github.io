@@ -1,0 +1,100 @@
+<h2>JSON</h2>
+
+<ul class="list-point">
+	<li><u-text-define>JSON</u-text-define> - JavaScript Object Notation</li>
+	<li><u-text-define>Сериализация объектов</u-text-define> - преобразование объектов в строки</li>
+	<li><u>В JSON можно хранить</u> - объекты, массивы, строки, числа true, false, null. Другие значения при сериализации превращаются в null</li>
+</ul>
+
+<pre><code class="js light">
+<bg-methods>JSON.parse(str, reviver)</bg-methods> // преобразует строку с данными в формате JSON в JavaScript-объект/массив/значение
+	<em>&#8226; str</em>     // строка с данными в формате JSON
+	<em>&#8226; reviver</em> // задание правила, функция function(key, value)
+<bg-methods>JSON.stringify(value, replacer, space)</bg-methods> // преобразует («сериализует») значение в JSON-строку
+	<em>&#8226; value</em>    // значение
+	<em>&#8226; replacer</em> // массив свойств, которые подлежат сериализации
+	<em>&#8226; space</em>    // форматирование. если число, то уровни вложенности в JSON оформляются указанным количеством пробелов, если строка, то вставляется эта строка
+</code></pre>
+
+<pre><code class="js">
+var user = {
+    name: 'Tony',
+    id: 25
+}
+var userData = <u-code>JSON.stringify</u-code>(user); // объект в JSON ("{"name":"Tony","id":25}")
+var userObj = <u-code>JSON.parse</u-code>(userData);  // JSON в строку
+</code></pre>
+
+<h4>Метод toJSON</h4>
+<pre><code class="js">
+// если в объекте есть метод toJSON при преобразовани stringify данные будут браться из него
+// если такого метода нет - перечисляются его свойства, кроме функций
+var user = {
+    name: 'Tony',
+    id: 25,
+    toJSON() {
+        return {
+            name: this.name
+        }
+    }
+}
+var userData = JSON.stringify(user); // объект в JSON ("{"name":"Tony"}")
+</code></pre>
+
+<h4>JSON.parse(str, reviver). Умный разбор</h4>
+<ul class="list-point">
+	<li>Для интеллектуального восстановления из строки у JSON.parse(str, reviver) есть второй параметр reviver, который является функцией <u-code-text>function(key, value)<u-code-text></li>
+	<li>Если она указана, то в процессе чтения объекта из строки JSON.parse передаёт ей по очереди все создаваемые пары ключ-значение и может возвратить либо преобразованное значение, либо undefined, если его нужно пропустить</li>
+</ul>
+<pre><code class="js">
+var str = '{"title":"Конференция","date":"2014-11-30T12:00:00.000Z"}';
+var event = JSON.parse(str, function(key, value) {
+	if (key == 'date') return new Date(value);
+	return value;
+});
+alert( event.date.getDate() );
+</code></pre>
+
+<h4>JSON.stringify. Исключение свойств</h4>
+<pre><code class="js">
+var user = {
+	name: "Вася",
+	age: 25,
+	window: window
+};
+alert( JSON.stringify(user, ["name", "age"]) ); // {"name":"Вася","age":25}
+</code></pre>
+
+<h4>JSON.stringify. Исключение свойств (передача функции)</h4>
+<ul class="list-point">
+	<li>Вторым параметром можно передать функцию <u>function(key, value)</u>, которая возвращает сериализованное <u>value</u> либо <u>undefined</u>, если его не нужно включать в результат</li>
+	<li>Функция replacer работает рекурсивно. Если объект содержит вложенные объекты, массивы и т.п., то все они пройдут через replacer</li>
+</ul>
+<pre><code class="js">
+var user = {
+	name: "Вася",
+	age: 25,
+	window: window
+};
+var str = JSON.stringify(user, function(key, value) {
+	if (key == 'window') return undefined;
+	return value;
+});
+alert( str ); // {"name":"Вася","age":25}
+// функция пропустит свойство с названием window
+// для остальных она возвращает значение, передавая его стандартному алгоритму
+</code></pre>
+
+<h4>JSON.stringify. Форматирование</h4>
+<pre><code class="js">
+var user = {
+	name: "Вася",
+	age: 25,
+	roles: {
+		isAdmin: false,
+		isEditor: true
+	}
+};
+
+var str = JSON.stringify(user, "", 4); // => отформатированный текст
+</code></pre>
