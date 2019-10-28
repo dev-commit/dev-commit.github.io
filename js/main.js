@@ -13,13 +13,13 @@ var menu =
     '<a href="/pages/js.html"                class="menu menu-js">JavaScript</a>'+
     '<a href="/pages/js-objects.html"        class="menu menu-js">Объекты</a>'+
     '<a href="/pages/js-function.html"       class="menu menu-js">Функции</a>'+
-    '<a href="/pages/js-promise.html"        class="menu menu-js">Promise</a>'+
+    '<a href="/pages/js-async.html"          class="menu menu-js">Асинхронность</a>'+
     '<a href="/pages/js-client-server.html"  class="menu menu-js">Клиент-сервер</a>'+
     '<a href="/pages/js-web-api.html"        class="menu menu-js">Web API</a>'+
     '<a href="/pages/js-web-components.html" class="menu menu-js">WebComponents</a>'+
 
     '<div style="width: 100%; flex-shrink: 0"></div>'+
-    '<a href="/pages/react-js.html"    class="menu menu-fw">React.js</a>'+
+    '<a href="/pages/react-js.html"       class="menu menu-fw">React.js</a>'+
     '<a href="/pages/redux.html"          class="menu menu-fw">Redux</a>'+
     '<a href="/pages/react-router.html"   class="menu menu-fw">React Router</a>'+
     '<a href="/pages/react-hooks.html"    class="menu menu-fw">React Hooks</a>'+

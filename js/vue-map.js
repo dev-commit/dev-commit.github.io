@@ -6,7 +6,7 @@ var app = new Vue({
 			['JavaScript',                arrJavaScript,      'menu-js'],
 			['JavaScript: Объекты',       arrJsObjects,       'menu-js'],
 			['JavaScript: Функции',       arrJsFunction,      'menu-js'],
-			['JavaScript: Promise',       arrJsPromise,       'menu-js'],
+			['JavaScript: Асинхронность', arrJsAsync,         'menu-js'],
 			['JavaScript: Клиент-сервер', arrJsClientServer,  'menu-js'],
 			['JavaScript: Web API',       arrJsWebApi,        'menu-js'],
 			['JavaScript: WebComponents', arrJsWebComponents, 'menu-js'],

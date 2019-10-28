@@ -48,14 +48,15 @@ var arrAssessment = [
     [1, 'JavaScript'],
     ['js',          'main',       'context',              setTheme(1, ['this', 'call', 'apply', 'bind'])],
     ['js-function', 'main',       'closures',             'Замыкания'],
-    ['theory',      'javascript', 'architecture-runtime', 'Event Loop'],
+    ['js-async',    'theory',     'event-loop',           'Event Loop'],
+    ['js-async',    'theory',     'event-loop-tasks',     'Event Loop: Tasks'],
     ['js',          'type-data',  'variables',            setTheme(1, ['var', 'let', 'const'])],
     ['js',          'array',      'array-cycle',          setTheme(1, ['map', 'forEach', '...'])],
     ['js',          'es6+',       'spread-array',         'Spread-оператор массивов (ES6)'],
     ['js',          'es6+',       'spread-obj',           'Spread-оператор объектов (ES-2018)'],
     ['js',          'es6+',       'destructive-array',    'Деструктуризация массивов (ES6)'],
     ['js',          'es6+',       'destructive-obj',      'Деструктуризация объектов (ES6)'],
-    ['js',          'async',      'async-func',           'Async Function'],
+    ['js-async',    'async',      'async-func',           ' Async Function (ES2017)'],
 
     [1, 'Парадигмы'],
     ['theory', 'programming-paradigms', 'oop',            setTheme(1, ['ООП'])],
@@ -264,12 +265,6 @@ var arrJavaScript = [
     ['js', 'es6+', 'symbol',            'Symbol'],
     ['js', 'es6+', 'iterators',         'Iterators'],
 
-    [1, 'Асинхронный код'],
-    ['js', 'async', 'collback',   setTheme(3, ['1'])+' Collback Function'],
-    ['js', 'async', 'generators', setTheme(3, ['2'])+' Generators (ES6)'],
-    ['js', 'async', 'async-func', setTheme(3, ['3'])+' Async Function (ES2017)'],
-    ['js', 'async', 'timeout',    setTheme(1, ['setTimeout', 'setInterval'])],
-
     [1, 'Клиентское хранилище'],
     ['js', 'client-storage', 'web-storage', setTheme(1, ['localStorage', 'sessionStorage'])],
     ['js', 'client-storage', 'indexed-db',  setTheme(1, ['IndexedDB'])],
@@ -311,19 +306,29 @@ var arrJsFunction = [
 
 
 //---------------------------------------------------------------------
-// JAVASCRIPT PROMISE
+// JAVASCRIPT ASYNC
 //---------------------------------------------------------------------
-var arrJsPromise = [
+var arrJsAsync = [
+    [1, 'Теория'],
+    ['js-async', 'theory', 'event-loop', 'Event Loop'],
+    ['js-async', 'theory', 'event-loop-tasks', 'Event Loop: Tasks'],
+
     [1, 'Promise'],
-    ['js-promise', 'main', 'info',                  'Информация'],
-    ['js-promise', 'main', 'methods',               'Методы'],
-    ['js-promise', 'main', 'method-new',            setTheme(1, ['new Promise'])],
-    ['js-promise', 'main', 'method-then-catch',     setTheme(1, ['.then', '.catch', '.finally'])],
-    ['js-promise', 'main', 'method-resolve-reject', setTheme(1, ['Promise.resolve', 'Promise.reject'])],
-    ['js-promise', 'main', 'method-all-rase',       setTheme(1, ['Promise.all', 'Promise.race'])],
-    ['js-promise', 'main', 'chaining',              'Цепочки промисов'],
-    ['js-promise', 'main', 'executor',              'Внутренние свойства new Promise'],
-    ['js-promise', 'main', 'samples',               'Примеры'],
+    ['js-async', 'promise', 'info',                  'Информация'],
+    ['js-async', 'promise', 'methods',               'Методы'],
+    ['js-async', 'promise', 'method-new',            setTheme(1, ['new Promise'])],
+    ['js-async', 'promise', 'method-then-catch',     setTheme(1, ['.then', '.catch', '.finally'])],
+    ['js-async', 'promise', 'method-resolve-reject', setTheme(1, ['Promise.resolve', 'Promise.reject'])],
+    ['js-async', 'promise', 'method-all-rase',       setTheme(1, ['Promise.all', 'Promise.race'])],
+    ['js-async', 'promise', 'chaining',              'Цепочки промисов'],
+    ['js-async', 'promise', 'executor',              'Внутренние свойства new Promise'],
+    ['js-async', 'promise', 'samples',               'Примеры'],
+
+    [1, 'Асинхронный код'],
+    ['js-async', 'async', 'collback',   setTheme(3, ['1'])+' Collback Function'],
+    ['js-async', 'async', 'generators', setTheme(3, ['2'])+' Generators (ES6)'],
+    ['js-async', 'async', 'async-func', setTheme(3, ['3'])+' Async Function (ES2017)'],
+    ['js-async', 'async', 'timeout',    setTheme(1, ['setTimeout', 'setInterval'])],
 ];
 
 
@@ -695,7 +700,6 @@ var arrVuejs = [
 //---------------------------------------------------------------------
 var arrTheory = [
     [1, 'JavaScript'],
-    ['theory', 'javascript', 'architecture-runtime', 'Event Loop'],
     ['theory', 'javascript', 'garbage-collection',   'Сборщик мусора'],
     ['theory', 'javascript', 'dictionary',           'Словарь'],
     ['theory', 'javascript', 'polyfill',             'Полифиллы'],
@@ -1154,7 +1158,7 @@ switch(pageName) {
     case 'js.html':                var arrCurrent = arrJavaScript;      break;
     case 'js-objects.html':        var arrCurrent = arrJsObjects;       break;
     case 'js-function.html':       var arrCurrent = arrJsFunction;      break;
-    case 'js-promise.html':        var arrCurrent = arrJsPromise;       break;
+    case 'js-async.html':          var arrCurrent = arrJsAsync;         break;
     case 'js-web-api.html':        var arrCurrent = arrJsWebApi;        break;
     case 'js-web-components.html': var arrCurrent = arrJsWebComponents; break;
     case 'js-client-server.html':  var arrCurrent = arrJsClientServer;  break;

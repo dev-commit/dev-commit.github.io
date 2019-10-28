@@ -2,9 +2,13 @@
 
 <u-link-wrapper>
     <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/EventLoop" target="_blank">MDN</a>
+    <a href="https://habr.com/ru/post/461401/" target="_blank">Habr</a>
+    <a href="https://medium.com/@stasonmars/полное-понимание-синхронного-и-асинхронного-javascript-с-async-await-ba5f47f4436" target="_blank">Medium</a>
 </u-link-wrapper>
 
-<h4>Определения</h4>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li>JS - однопоточная среда выполнения (<u>runtime</u>). <u>Call Stack</u> один и он может делать одну вещь в единицу времени. Одна инструкция за раз</li>
     <li>Используется очередь функций обратного вызова</li>
@@ -16,9 +20,11 @@
 </li>
 </ul>
 
-<img src="/img/js/event-loop1.png" height="500px" class="center">
+<img src="/img/js/event-loop/event-loop1.png" height="500px" class="center">
 
-<h4>Архитектура среды выполнения JS на примере движка <u>V8</u> (Chrome, Node.js)</h4>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Архитектура среды выполнения JS на примере движка <u>V8</u> (Chrome, Node.js)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li><u-text-define>1. Heap (куча)</u-text-define> - структура данных, с помощью которой реализована динамически распределяемая память приложения</li>
     <ul class="list-point">
@@ -53,35 +59,17 @@
 
 </ul>
 
-<h4>Event Loop</h4>
+<img src="/img/js/event-loop/event-loop3.png" height="550px" class="center">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 // queue.waitForMessage ожидает события если очередь пуста
 while(queue.waitForMessage()){ 
     queue.processNextMessage(); 
 }
 </code></pre>
-
-<h4>Event Loop (tasks, microtasks)</h4>
-<ul class="list-point">
-    <li><u-text-define>tasks (macrotask)</u-text-define> (очередь задач)</li>
-    <ul class="list-point">
-        <li>Задачи исполняются по порядку и браузер может рендерить в промежутках между ними</li>
-        <li><b>Примеры</b>: setTimeout, setInterval, setImmediate, requestAnimationFrame, I/O, рендеринг пользовательского интерфейса</li>
-    </ul>
-
-    <li><u-text-define>microtasks</u-text-define> (очередь микрозадач / задания "jobs")</li>
-    <ul class="list-point">
-        Микрозадачи исполняются по порядку:
-        <li>Каждый раз после таски</li>
-        <li>Каждый раз когда пустеет стек</li>
-        <li>Могут выполняться посередине таска, если очистился стек</li>
-        <li>Рекурсивный вызов блокирует Event Loop</li>
-        <li><b>Примеры</b>: process.nextTick, Promises, Object.observe, MutationObserver</li>
-        <li><u-code>Promise.then</u-code> - микротаск <u-code>then</u-code>. <u-code>Promise.then.then</u-code> - 2 микротаска</li>
-    </ul>
-
-    <li>Сначала выполняется <u>microtasks</u>, затем <u>tasks</u></li>
-</ul>
 
 <pre><code class="js">
 // Рекурсивный вызов микротаска повесит программу
@@ -90,12 +78,14 @@ function startMicrotask() {
 }
 </code></pre>
 
-<div class="container-flex"><div class="container-half"><pre><code class="js">
+<v-two><template v-slot:first>
+<pre><code class="js">
 console.log('Hi');
 setTimeout(function cb1() { 
     console.log('cb1');
 }, 5000);
 console.log('Bye');
-</code></pre></div><div class="container-half">
-<img src="/img/js/event-loop2.gif" height="300px" class="center">
-</div></div>
+</code></pre>
+</template><template v-slot:last>
+<img src="/img/js/event-loop/event-loop2.gif" height="300px" class="center">
+</template></v-two>
