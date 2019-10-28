@@ -58,12 +58,6 @@ var arrAssessment = [
     ['theory', 'programming-paradigms', 'composition',    'Композиция'],
     ['theory', 'programming-paradigms', 'currying',       'Каррирование / Частичное применение функций'],
 
-    [1, 'Клиент-сервер'],
-    ['theory', 'client-server', 'info',  'Клиент-сервер'],
-    ['theory', 'client-server', 'http',  'HTTP'],
-    ['theory', 'client-server', 'https', 'HTTPS'],
-    ['theory', 'client-server', 'rest',  'REST API'],
-
     [1, 'Теория'],
     ['theory', 'html', 'critical-rendering-path', 'Critical Rendering Path'],
 ];
@@ -112,10 +106,8 @@ var arrReactjs = [
     ['react-js', 'processing-data-output', 'css',                     emoji.cookie+'CSS'],
     ['react-js', 'processing-data-output', 'conditional-rendering',   emoji.cookie+'Условный рендеринг'],
     ['react-js', 'processing-data-output', 'lists-and-keys',          emoji.cookie+'Списки и ключи'],
+    ['react-js', 'processing-data-output', 'error-boundaries',        emoji.cookie+'Предохранители'],
 
-    //--------------------------------------------------------------------
-    [2, 'React-Жизненный цикл'],
-    //--------------------------------------------------------------------
     [1, 'Жизненный цикл компонентов'],
     ['react-js', 'lifecycle', 'info',                              emoji.theory+'Информация'],
     ['react-js', 'lifecycle', 'hook-render',                       emoji.pizza+setTheme(4, ['ReactDOM.render()'])],
@@ -128,22 +120,6 @@ var arrReactjs = [
     ['react-js', 'lifecycle', 'hook-get-snapshot-before-update',   emoji.pizza+setTheme(4, ['getSnapshotBeforeUpdate()'])],
     ['react-js', 'lifecycle', 'hook-get-derived-state-from-error', emoji.pizza+setTheme(4, ['getDerivedStateFromError()'])],
     ['react-js', 'lifecycle', 'hook-component-did-catch',          emoji.pizza+setTheme(4, ['componentDidCatch()'])],
-
-    //--------------------------------------------------------------------
-    [2, 'React-Hooks'],
-    //--------------------------------------------------------------------
-    ['react-js', 'hooks', 'info',                  emoji.theory+'Информация'],
-    ['react-js', 'hooks', 'use-state',             emoji.fire+setTheme(4, ['useState'])],
-    ['react-js', 'hooks', 'use-effect',            emoji.fire+setTheme(4, ['useEffect'])],
-    ['react-js', 'hooks', 'use-context',           emoji.fire+setTheme(4, ['useContext'])],
-    ['react-js', 'hooks', 'use-ref',               emoji.fire+setTheme(4, ['useRef'])],
-    ['react-js', 'hooks', 'use-memo',              emoji.fire+setTheme(4, ['useMemo'])],
-    ['react-js', 'hooks', 'use-callback',          emoji.fire+setTheme(4, ['useCallback'])],
-    ['react-js', 'hooks', 'use-reducer',           emoji.fire+setTheme(4, ['useReducer'])],
-    ['react-js', 'hooks', 'use-imperative-handle', emoji.fire+setTheme(4, ['useImperativeHandle'])],
-    ['react-js', 'hooks', 'use-layout-effect',     emoji.fire+setTheme(4, ['useLayoutEffect'])],
-    ['react-js', 'hooks', 'use-debug-value',       emoji.fire+setTheme(4, ['useDebugValue'])],
-    ['react-js', 'hooks', 'own-hooks',             emoji.theory+'Создание собственных хуков'],
 
     //--------------------------------------------------------------------
     [2, 'React.js-Остальное'],
@@ -159,47 +135,73 @@ var arrReactjs = [
     ['react-js', 'memoization', 'react-memo',              setTheme(1, ['React.memo'])],
 
     [1, 'Прочее'],
-    ['react-js', 'other',  'error-boundaries',             point+'Предохранители'],
     ['react-js', 'other',  'dangerously-set-inner-html',   setTheme(1, ['dangerouslySetInnerHTML'])],
 
     [1, 'Тестирование'],
     ['react-js', 'testing', 'react-developer-tools',       'React Developer Tools'],
     ['react-js', 'testing', 'redux-developer-tools',       'Redux DevTools'],
+];
 
-    //--------------------------------------------------------------------
-    [2, 'Redux'],
-    //--------------------------------------------------------------------
-    ['react-js', 'redux', 'info',                   'Информация'],
-    ['react-js', 'redux', 'functional-programming', 'Принципы FP'],
-    ['react-js', 'redux', 'methods',                'Методы'],
-    ['react-js', 'redux', 'structure',              code+'Структура'],
-    ['react-js', 'redux', 'connect',                setTheme(1, ['Connect'])],
-    ['react-js', 'redux', 'middleware',             setTheme(1, ['Middleware'])],
-    ['react-js', 'redux', 'info-flux',              'Flux'],
-    ['react-js', 'redux', 'info-redux',             'Redux'],
+
+//---------------------------------------------------------------------
+// REACT-HOOKS
+//---------------------------------------------------------------------
+var arrReactHooks = [
+    ['react-hooks', 'main', 'info',                   emoji.theory+'Информация'],
+    ['react-hooks', 'hooks', 'use-state',             emoji.fire+setTheme(4, ['useState'])],
+    ['react-hooks', 'hooks', 'use-effect',            emoji.fire+setTheme(4, ['useEffect'])],
+    ['react-hooks', 'hooks', 'use-context',           emoji.fire+setTheme(4, ['useContext'])],
+    ['react-hooks', 'hooks', 'use-ref',               emoji.fire+setTheme(4, ['useRef'])],
+    ['react-hooks', 'hooks', 'use-memo',              emoji.fire+setTheme(4, ['useMemo'])],
+    ['react-hooks', 'hooks', 'use-callback',          emoji.fire+setTheme(4, ['useCallback'])],
+    ['react-hooks', 'hooks', 'use-reducer',           emoji.fire+setTheme(4, ['useReducer'])],
+    ['react-hooks', 'hooks', 'use-imperative-handle', emoji.fire+setTheme(4, ['useImperativeHandle'])],
+    ['react-hooks', 'hooks', 'use-layout-effect',     emoji.fire+setTheme(4, ['useLayoutEffect'])],
+    ['react-hooks', 'hooks', 'use-debug-value',       emoji.fire+setTheme(4, ['useDebugValue'])],
+    ['react-hooks', 'hooks', 'own-hooks',             emoji.theory+'Создание собственных хуков'],
+];
+
+//---------------------------------------------------------------------
+// REDUX
+//---------------------------------------------------------------------
+var arrRedux = [
+    ['redux', 'main', 'info',                   'Информация'],
+    ['redux', 'main', 'functional-programming', 'Принципы FP'],
+    ['redux', 'main', 'methods',                'Методы'],
+    ['redux', 'main', 'structure',              code+'Структура'],
+    ['redux', 'main', 'connect',                setTheme(1, ['Connect'])],
+    ['redux', 'main', 'middleware',             setTheme(1, ['Middleware'])],
+    ['redux', 'main', 'info-flux',              'Flux'],
+    ['redux', 'main', 'info-redux',             'Redux'],
 
     [1, 'Redux Plugins'],
-    ['react-js', 'redux-plugins', 'redux-thunk',    setTheme(2, ['redux-thunk', 'redux-devtools-extension'])],
-    ['react-js', 'redux-plugins', 'redux-form',     setTheme(2, ['redux-form'])],
-    ['react-js', 'redux-plugins', 'redux-actions',  setTheme(2, ['redux-actions'])],
-    ['react-js', 'redux-plugins', 'redux-saga',     setTheme(2, ['redux-saga'])],
-    ['react-js', 'redux-plugins', 'redux-logger',   setTheme(2, ['redux-logger'])],
+    ['redux', 'plugins', 'redux-thunk',    setTheme(2, ['redux-thunk', 'redux-devtools-extension'])],
+    ['redux', 'plugins', 'redux-form',     setTheme(2, ['redux-form'])],
+    ['redux', 'plugins', 'redux-actions',  setTheme(2, ['redux-actions'])],
+    ['redux', 'plugins', 'redux-saga',     setTheme(2, ['redux-saga'])],
+    ['redux', 'plugins', 'redux-logger',   setTheme(2, ['redux-logger'])],
+];
 
-    //--------------------------------------------------------------------
-    [2, 'React Router'],
-    //--------------------------------------------------------------------
-    ['react-js', 'react-router', 'react-router',      setTheme(2, ['react-router', 'react-router-dom'])],
-    ['react-js', 'react-router', 'basic-routing',     point+'Basic Routing'],
-    ['react-js', 'react-router', 'style-active-link', point+'Style Active Link'],
-    ['react-js', 'react-router', 'url-parameters',    point+'URL Parameters'],
-    ['react-js', 'react-router', 'page-404',          'Page 404'],
 
-    //--------------------------------------------------------------------
-    [2, 'Material-UI'],
-    //--------------------------------------------------------------------
-    ['react-js', 'material-ui', 'spacing',     setTheme(1, ['spacing'])],
-    ['react-js', 'material-ui', 'with-styles', setTheme(1, ['makeStyles', 'withStyles'])],
-    ['react-js', 'material-ui', 'css-in-js',   'CSS in JS'],
+//---------------------------------------------------------------------
+// REACT-ROUTER
+//---------------------------------------------------------------------
+var arrReactRouter = [
+    ['react-router', 'main', 'react-router',      setTheme(2, ['react-router', 'react-router-dom'])],
+    ['react-router', 'main', 'basic-routing',     point+'Basic Routing'],
+    ['react-router', 'main', 'style-active-link', point+'Style Active Link'],
+    ['react-router', 'main', 'url-parameters',    point+'URL Parameters'],
+    ['react-router', 'main', 'page-404',          'Page 404'],
+];
+
+
+//---------------------------------------------------------------------
+// MATERIAL-UI
+//---------------------------------------------------------------------
+var arrMaterialUI = [
+    ['material-ui', 'main', 'spacing',     setTheme(1, ['spacing'])],
+    ['material-ui', 'main', 'with-styles', setTheme(1, ['makeStyles', 'withStyles'])],
+    ['material-ui', 'main', 'css-in-js',   'CSS in JS'],
 ];
 
 
@@ -285,18 +287,6 @@ var arrJavaScript = [
     ['js', 'async', 'async-func', setTheme(3, ['3'])+' Async Function (ES2017)'],
     ['js', 'async', 'timeout',    setTheme(1, ['setTimeout', 'setInterval'])],
 
-    [1, 'AJAX'],
-    ['js', 'ajax', 'info',           'Описание'],
-    ['js', 'ajax', 'xmlhttprequest', setTheme(3, ['1'])+' XMLHttpRequest'],
-    ['js', 'ajax', 'fetch',          setTheme(3, ['2'])+' Fetch'],
-    ['js', 'ajax', 'axios',          setTheme(3, ['3'])+' Axios'],
-    ['js', 'ajax', 'request-js',     'Request JS'],
-    ['js', 'ajax', 'response-php',   'Response PHP'],
-    ['js', 'ajax', 'jsonp',          'JSONP'],
-    ['js', 'ajax', 'cors',           'CORS'],
-    ['js', 'ajax', 'websocket',      'WebSocket'],
-    ['js', 'ajax', 'comet',          'Comet'],
-
     [1, 'Клиентское хранилище'],
     ['js', 'client-storage', 'web-storage', setTheme(1, ['localStorage', 'sessionStorage'])],
     ['js', 'client-storage', 'indexed-db',  setTheme(1, ['IndexedDB'])],
@@ -321,38 +311,6 @@ var arrJavaScript = [
     ['js', 'additional', 'strict-mode',            'Strict Mode'],
 
     //--------------------------------------------------------------------
-    [2, 'DOM'],
-    //--------------------------------------------------------------------
-    [1, 'Документ и объекты страницы'],
-    ['js', 'dom', 'info',            'Информация'],
-    ['js', 'dom', 'dom',             'DOM'],
-    ['js', 'dom', 'bom',             'BOM'],
-    ['js', 'dom', 'node',            setTheme(1, ['nodeType', 'nodeName', 'tagName'])],
-    ['js', 'dom', 'element-get',     setTheme(3, ['1'])+' Выборка элементов'],
-    ['js', 'dom', 'element-method',  setTheme(3, ['2'])+' Методы и свойства элементов'],
-    ['js', 'dom', 'element-create',  setTheme(3, ['3'])+' Добавление и удаление узлов'],
-    ['js', 'dom', 'multi-insert',    setTheme(3, ['3'])+' Мультивставка'],
-    ['js', 'dom', 'metrics',         setTheme(3, ['4'])+' Размеры и прокрутка элементов'],
-    ['js', 'dom', 'metrics-window',  setTheme(3, ['5'])+' Размеры и прокрутка страницы'],
-
-    ['js', 'dom', 'attribute',       setTheme(1, ['attributes'])],
-    ['js', 'dom', 'class-list',      setTheme(1, ['classList'])],
-    ['js', 'dom', 'css',             setTheme(1, ['style', 'getComputedStyle'])],
-    ['js', 'dom', 'input',           setTheme(1, ['input', 'select'])],
-    ['js', 'dom', 'contains',        setTheme(1, ['contains', 'compareDocumentPosition'])],
-    ['js', 'dom', 'media-queries',   setTheme(1, ['matchMedia'])],
-    ['js', 'dom', 'location',        setTheme(1, ['open', 'location'])],
-
-    [1, 'События'],
-    ['js', 'dom-events', 'propagation-model', 'Модель распространения событий'],
-    ['js', 'dom-events', 'handlers',          'Назначение обработчиков событий'],
-    ['js', 'dom-events', 'delegate',          'Делегирование событий'],
-    ['js', 'dom-events', 'params-event',      'Передаваемый параметр (Event)'],
-    ['js', 'dom-events', 'list-events',       'Список событий'],
-    ['js', 'dom-events', 'prevent',           'Отмена обычного поведения'],
-    ['js', 'dom-events', 'samples',           'Примеры'],
-
-    //--------------------------------------------------------------------
     [2, 'Веб-компоненты'],
     //--------------------------------------------------------------------
     
@@ -368,6 +326,70 @@ var arrJavaScript = [
     ['js', 'web-components', 'imports',         setTheme(3, ['4'])+' HTML Imports'],
 ];
 
+
+//---------------------------------------------------------------------
+// JAVASCRIPT CLIENT-SERVER
+//---------------------------------------------------------------------
+var arrJsClientServer = [
+    [1, 'Клиент-сервер'],
+    ['js-client-server', 'theory', 'info',          'Клиент-сервер'],
+    ['js-client-server', 'theory', 'http',          'HTTP'],
+    ['js-client-server', 'theory', 'https',         'HTTPS'],
+    ['js-client-server', 'theory', 'soap',          'SOAP'],
+    ['js-client-server', 'theory', 'rest',          '<u-menu>[1]</u-menu> REST API'],
+    ['js-client-server', 'theory', 'rest-json-api', '<u-menu>[2]</u-menu> REST JSON API'],
+    ['js-client-server', 'theory', 'graphql',       '<u-menu>[3]</u-menu> GraphQL'],
+
+    [1, 'AJAX'],
+    ['js-client-server', 'ajax', 'info',           'Описание'],
+    ['js-client-server', 'ajax', 'xmlhttprequest', setTheme(3, ['1'])+' XMLHttpRequest'],
+    ['js-client-server', 'ajax', 'fetch',          setTheme(3, ['2'])+' Fetch'],
+    ['js-client-server', 'ajax', 'axios',          setTheme(3, ['3'])+' Axios'],
+    ['js-client-server', 'ajax', 'request-js',     'Request JS'],
+    ['js-client-server', 'ajax', 'response-php',   'Response PHP'],
+    ['js-client-server', 'ajax', 'jsonp',          'JSONP'],
+    ['js-client-server', 'ajax', 'cors',           'CORS'],
+    ['js-client-server', 'ajax', 'websocket',      'WebSocket'],
+    ['js-client-server', 'ajax', 'comet',          'Comet'],
+];
+
+
+//---------------------------------------------------------------------
+// JAVASCRIPT WEB-API
+//---------------------------------------------------------------------
+var arrJsWebApi = [
+    //--------------------------------------------------------------------
+    [2, 'DOM'],
+    //--------------------------------------------------------------------
+    [1, 'Документ и объекты страницы'],
+    ['js-web-api', 'dom', 'info',            'Информация'],
+    ['js-web-api', 'dom', 'dom',             'DOM'],
+    ['js-web-api', 'dom', 'bom',             'BOM'],
+    ['js-web-api', 'dom', 'node',            setTheme(1, ['nodeType', 'nodeName', 'tagName'])],
+    ['js-web-api', 'dom', 'element-get',     setTheme(3, ['1'])+' Выборка элементов'],
+    ['js-web-api', 'dom', 'element-method',  setTheme(3, ['2'])+' Методы и свойства элементов'],
+    ['js-web-api', 'dom', 'element-create',  setTheme(3, ['3'])+' Добавление и удаление узлов'],
+    ['js-web-api', 'dom', 'multi-insert',    setTheme(3, ['3'])+' Мультивставка'],
+    ['js-web-api', 'dom', 'metrics',         setTheme(3, ['4'])+' Размеры и прокрутка элементов'],
+    ['js-web-api', 'dom', 'metrics-window',  setTheme(3, ['5'])+' Размеры и прокрутка страницы'],
+
+    ['js-web-api', 'dom', 'attribute',       setTheme(1, ['attributes'])],
+    ['js-web-api', 'dom', 'class-list',      setTheme(1, ['classList'])],
+    ['js-web-api', 'dom', 'css',             setTheme(1, ['style', 'getComputedStyle'])],
+    ['js-web-api', 'dom', 'input',           setTheme(1, ['input', 'select'])],
+    ['js-web-api', 'dom', 'contains',        setTheme(1, ['contains', 'compareDocumentPosition'])],
+    ['js-web-api', 'dom', 'media-queries',   setTheme(1, ['matchMedia'])],
+    ['js-web-api', 'dom', 'location',        setTheme(1, ['open', 'location'])],
+    
+    [1, 'События'],
+    ['js-web-api', 'dom-events', 'propagation-model', 'Модель распространения событий'],
+    ['js-web-api', 'dom-events', 'handlers',          'Назначение обработчиков событий'],
+    ['js-web-api', 'dom-events', 'delegate',          'Делегирование событий'],
+    ['js-web-api', 'dom-events', 'params-event',      'Передаваемый параметр (Event)'],
+    ['js-web-api', 'dom-events', 'list-events',       'Список событий'],
+    ['js-web-api', 'dom-events', 'prevent',           'Отмена обычного поведения'],
+    ['js-web-api', 'dom-events', 'samples',           'Примеры'],
+];
 
 //---------------------------------------------------------------------
 // JAVASCRIPT OBJECTS
@@ -662,15 +684,6 @@ var arrTheory = [
 
     [1, 'Верстка'],
     ['theory', 'html', 'critical-rendering-path', 'Critical Rendering Path'],
-
-    [1, 'Клиент-сервер'],
-    ['theory', 'client-server', 'info',          'Клиент-сервер'],
-    ['theory', 'client-server', 'http',          'HTTP'],
-    ['theory', 'client-server', 'https',         'HTTPS'],
-    ['theory', 'client-server', 'soap',          'SOAP'],
-    ['theory', 'client-server', 'rest',          '<u-menu>[1]</u-menu> REST API'],
-    ['theory', 'client-server', 'rest-json-api', '<u-menu>[2]</u-menu> REST JSON API'],
-    ['theory', 'client-server', 'graphql',       '<u-menu>[3]</u-menu> GraphQL'],
 
     [1, 'Паттерны проектирования'],
     ['theory', 'design-patterns', 'info',             'Паттерны проектирования'],
@@ -1117,10 +1130,18 @@ var page = window.location.pathname.split('/');
 var pageName = page[page.length-1];
 
 switch(pageName) {
-    case 'js.html':          var arrCurrent = arrJavaScript; break;
-    case 'js-objects.html':  var arrCurrent = arrJsObjects;  break;
+    case 'js.html':               var arrCurrent = arrJavaScript;     break;
+    case 'js-objects.html':       var arrCurrent = arrJsObjects;      break;
+    case 'js-web-api.html':       var arrCurrent = arrJsWebApi;       break;
+    case 'js-client-server.html': var arrCurrent = arrJsClientServer; break;
+
+    case 'react-js.html':      var arrCurrent = arrReactjs;     break;
+    case 'redux.html':         var arrCurrent = arrRedux;       break;
+    case 'react-hooks.html':   var arrCurrent = arrReactHooks;  break;
+    case 'react-router.html':  var arrCurrent = arrReactRouter; break;
+    case 'material-ui.html':   var arrCurrent = arrMaterialUI;  break;
+
     case 'vue-js.html':      var arrCurrent = arrVuejs;      break;
-    case 'react-js.html':    var arrCurrent = arrReactjs;    break;
     case 'webpack.html':     var arrCurrent = arrWebpack;    break;
     case 'npm.html':         var arrCurrent = arrNpm;        break;
     case 'theory.html':      var arrCurrent = arrTheory;     break;

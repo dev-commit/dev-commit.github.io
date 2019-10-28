@@ -3,11 +3,18 @@ var app = new Vue({
 	el: '#content',
 	data: {
 		category: [
-			['JavaScript',        arrJavaScript, 'menu-js'],
-			['JavaScript Object',  arrJsObjects, 'menu-js'],
-			['Canvas',            arrCanvas,     'menu-js'],
-			['React.js',          arrReactjs,    'menu-fw'],
-			['Vue.js',            arrVuejs,      'menu-fw'],
+			['JavaScript',                arrJavaScript,     'menu-js'],
+			['JavaScript: Объекты',       arrJsObjects,      'menu-js'],
+			['JavaScript: Клиент-сервер', arrJsClientServer, 'menu-js'],
+			['JavaScript: Web API',       arrJsWebApi,       'menu-js'],
+			
+			['React.js',      arrReactjs,     'menu-fw'],
+			['Redux',         arrRedux,       'menu-fw'],
+			['ReactHooks',    arrReactHooks,  'menu-fw'],
+			['ReactRouter',   arrReactRouter, 'menu-fw'],
+			['Material-UI',   arrMaterialUI,  'menu-fw'],
+
+			['Vue.js',              arrVuejs,      'menu-fw'],
 
 			['Git',               arrGit,        'menu-php'],
 			['Flow',              arrFlow,       'menu-php'],
@@ -23,6 +30,7 @@ var app = new Vue({
 			['CSS',               arrCSS,        'menu-html'],
 			['SVG',               arrSvg,        'menu-html'],
 			['Sass',              arrSass,       'menu-html', true],
+			['Canvas',            arrCanvas,     'menu-js'],
 
 			['Assessment',        arrAssessment, 'menu-fw'],
 			['Задачи',            arrJsTasks,    'menu-fw'],
