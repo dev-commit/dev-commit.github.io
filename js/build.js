@@ -655,7 +655,7 @@ var arrVuejs = [
 //---------------------------------------------------------------------
 var arrTheory = [
     [1, 'JavaScript'],
-    ['theory', 'javascript', 'architecture-runtime', 'Архитектура среды выполнения (Event Loop)'],
+    ['theory', 'javascript', 'architecture-runtime', 'Event Loop'],
     ['theory', 'javascript', 'garbage-collection',   'Сборщик мусора'],
     ['theory', 'javascript', 'dictionary',           'Словарь'],
     ['theory', 'javascript', 'polyfill',             'Полифиллы'],
