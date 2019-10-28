@@ -210,47 +210,25 @@ var arrMaterialUI = [
 //---------------------------------------------------------------------
 var arrJavaScript = [
     //--------------------------------------------------------------------
-    [2, 'Work'],
+    // [2, 'Work'],
     //--------------------------------------------------------------------
-    ['js', 'main',           'ternary-operator',  'Тернарные операторы'],
-    ['js', 'functions',      'arrow',             'Стрелочные функции (ES6)'],
-    ['js', 'modules',        'module-es6',        'Модули (ES6)'],
-    ['js', 'es6+',           'spread-array',      'Spread-оператор массивов (ES6)'],
-    ['js', 'es6+',           'spread-obj',        'Spread-оператор объектов (ES-2018)'],
-    ['js', 'es6+',           'destructive-array', 'Деструктуризация массивов (ES6)'],
-    ['js', 'es6+',           'destructive-obj',   'Деструктуризация объектов (ES6)'],
-    ['js', 'array',          'array-cycle',       setTheme(1, ['map', 'forEach', '...'])],
-    ['js', 'ajax',           'axios',             'Axios'],
-    ['js', 'async',          'async-func',        'Async Function'],
-    ['js', 'type-data',      'json',              'JSON'],
-    ['js', 'main',           'context',           setTheme(1, ['this', 'call', 'apply', 'bind'])],
-    ['js', 'client-storage', 'web-storage',       'WebStorage'],
-
+    // ['js', 'main',           'ternary-operator',  'Тернарные операторы'],
+    // ['js', 'functions',      'arrow',             'Стрелочные функции (ES6)'],
+    // ['js', 'modules',        'module-es6',        'Модули (ES6)'],
+    // ['js', 'es6+',           'spread-array',      'Spread-оператор массивов (ES6)'],
+    // ['js', 'es6+',           'spread-obj',        'Spread-оператор объектов (ES-2018)'],
+    // ['js', 'es6+',           'destructive-array', 'Деструктуризация массивов (ES6)'],
+    // ['js', 'es6+',           'destructive-obj',   'Деструктуризация объектов (ES6)'],
+    // ['js', 'array',          'array-cycle',       setTheme(1, ['map', 'forEach', '...'])],
+    // ['js', 'ajax',           'axios',             'Axios'],
+    // ['js', 'async',          'async-func',        'Async Function'],
+    // ['js', 'type-data',      'json',              'JSON'],
+    // ['js', 'main',           'context',           setTheme(1, ['this', 'call', 'apply', 'bind'])],
+    // ['js', 'client-storage', 'web-storage',       'WebStorage'],
 
     //--------------------------------------------------------------------
     [2, 'JavaScript'],
     //--------------------------------------------------------------------
-    [1, 'Promise'],
-    ['js', 'promise', 'info',                  'Информация'],
-    ['js', 'promise', 'methods',               'Методы'],
-    ['js', 'promise', 'method-new',            setTheme(1, ['new Promise'])],
-    ['js', 'promise', 'method-then-catch',     setTheme(1, ['.then', '.catch', '.finally'])],
-    ['js', 'promise', 'method-resolve-reject', setTheme(1, ['Promise.resolve', 'Promise.reject'])],
-    ['js', 'promise', 'method-all-rase',       setTheme(1, ['Promise.all', 'Promise.race'])],
-    ['js', 'promise', 'chaining',              'Цепочки промисов'],
-    ['js', 'promise', 'executor',              'Внутренние свойства new Promise'],
-    ['js', 'promise', 'samples',               'Примеры'],
-
-    [1, 'Функции'],
-    ['js', 'functions', 'info',                      'Информация'],
-    ['js', 'functions', 'announcement',              'Объявление'],
-    ['js', 'functions', 'arguments',                 'Псевдомассив аргументов arguments'],
-    ['js', 'functions', 'parameters',                'Параметры функции (ES6)'],
-    ['js', 'functions', 'arrow',                     'Стрелочные функции (ES6)'],
-    ['js', 'functions', 'closures',                  'Замыкания'],
-    ['js', 'functions', 'recursion',                 'Рекурсия'],
-    ['js', 'functions', 'named-function-expression', 'Named Function Expression'],
-
     [1, 'Типы данных'],
     ['js', 'type-data', 'type-data',         'Типы данных'],
     ['js', 'type-data', 'variables',         setTheme(1, ['var', 'let', 'const'])],
@@ -309,21 +287,38 @@ var arrJavaScript = [
     ['js', 'additional', 'ecmascript',             'ECMAScript'],
     ['js', 'additional', 'jsdoc',                  'Синтаксис JSDoc'],
     ['js', 'additional', 'strict-mode',            'Strict Mode'],
+];
 
-    //--------------------------------------------------------------------
-    [2, 'Веб-компоненты'],
-    //--------------------------------------------------------------------
-    
-    [1, 'Модули'],
-    ['js', 'modules', 'module-system', 'Модульная система'],
-    ['js', 'modules', 'module-es6',    'Модули (ES6)'],
 
-    [1, 'Веб-компоненты'],
-    ['js', 'web-components', 'info',            'Теория'],
-    ['js', 'web-components', 'shadow-dom',      setTheme(3, ['1'])+' Shadow DOM'],
-    ['js', 'web-components', 'template',        setTheme(3, ['2'])+' HTML Templates'],
-    ['js', 'web-components', 'custom-elements', setTheme(3, ['3'])+' Custom Elements'],
-    ['js', 'web-components', 'imports',         setTheme(3, ['4'])+' HTML Imports'],
+//---------------------------------------------------------------------
+// JAVASCRIPT FUNCTION
+//---------------------------------------------------------------------
+var arrJsFunction = [
+    ['js-function', 'main', 'info',                      'Информация'],
+    ['js-function', 'main', 'announcement',              'Объявление'],
+    ['js-function', 'main', 'arguments',                 'Псевдомассив аргументов arguments'],
+    ['js-function', 'main', 'parameters',                'Параметры функции (ES6)'],
+    ['js-function', 'main', 'arrow',                     'Стрелочные функции (ES6)'],
+    ['js-function', 'main', 'closures',                  'Замыкания'],
+    ['js-function', 'main', 'recursion',                 'Рекурсия'],
+    ['js-function', 'main', 'named-function-expression', 'Named Function Expression'],
+];
+
+
+//---------------------------------------------------------------------
+// JAVASCRIPT PROMISE
+//---------------------------------------------------------------------
+var arrJsPromise = [
+    [1, 'Promise'],
+    ['js-promise', 'main', 'info',                  'Информация'],
+    ['js-promise', 'main', 'methods',               'Методы'],
+    ['js-promise', 'main', 'method-new',            setTheme(1, ['new Promise'])],
+    ['js-promise', 'main', 'method-then-catch',     setTheme(1, ['.then', '.catch', '.finally'])],
+    ['js-promise', 'main', 'method-resolve-reject', setTheme(1, ['Promise.resolve', 'Promise.reject'])],
+    ['js-promise', 'main', 'method-all-rase',       setTheme(1, ['Promise.all', 'Promise.race'])],
+    ['js-promise', 'main', 'chaining',              'Цепочки промисов'],
+    ['js-promise', 'main', 'executor',              'Внутренние свойства new Promise'],
+    ['js-promise', 'main', 'samples',               'Примеры'],
 ];
 
 
@@ -390,6 +385,24 @@ var arrJsWebApi = [
     ['js-web-api', 'dom-events', 'prevent',           'Отмена обычного поведения'],
     ['js-web-api', 'dom-events', 'samples',           'Примеры'],
 ];
+
+
+//---------------------------------------------------------------------
+// JAVASCRIPT WEB-COMPONENTS
+//---------------------------------------------------------------------
+var arrJsWebComponents = [
+    [1, 'Модули'],
+    ['js-web-components', 'modules', 'module-system', 'Модульная система'],
+    ['js-web-components', 'modules', 'module-es6',    'Модули (ES6)'],
+
+    [1, 'Веб-компоненты'],
+    ['js-web-components', 'web-components', 'info',            'Теория'],
+    ['js-web-components', 'web-components', 'shadow-dom',      setTheme(3, ['1'])+' Shadow DOM'],
+    ['js-web-components', 'web-components', 'template',        setTheme(3, ['2'])+' HTML Templates'],
+    ['js-web-components', 'web-components', 'custom-elements', setTheme(3, ['3'])+' Custom Elements'],
+    ['js-web-components', 'web-components', 'imports',         setTheme(3, ['4'])+' HTML Imports'],
+];
+
 
 //---------------------------------------------------------------------
 // JAVASCRIPT OBJECTS
@@ -1133,10 +1146,13 @@ var page = window.location.pathname.split('/');
 var pageName = page[page.length-1];
 
 switch(pageName) {
-    case 'js.html':               var arrCurrent = arrJavaScript;     break;
-    case 'js-objects.html':       var arrCurrent = arrJsObjects;      break;
-    case 'js-web-api.html':       var arrCurrent = arrJsWebApi;       break;
-    case 'js-client-server.html': var arrCurrent = arrJsClientServer; break;
+    case 'js.html':                var arrCurrent = arrJavaScript;      break;
+    case 'js-objects.html':        var arrCurrent = arrJsObjects;       break;
+    case 'js-function.html':       var arrCurrent = arrJsFunction;      break;
+    case 'js-promise.html':        var arrCurrent = arrJsPromise;       break;
+    case 'js-web-api.html':        var arrCurrent = arrJsWebApi;        break;
+    case 'js-web-components.html': var arrCurrent = arrJsWebComponents; break;
+    case 'js-client-server.html':  var arrCurrent = arrJsClientServer;  break;
 
     case 'react-js.html':      var arrCurrent = arrReactjs;     break;
     case 'redux.html':         var arrCurrent = arrRedux;       break;

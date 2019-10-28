@@ -3,10 +3,13 @@ var app = new Vue({
 	el: '#content',
 	data: {
 		category: [
-			['JavaScript',                arrJavaScript,     'menu-js'],
-			['JavaScript: Объекты',       arrJsObjects,      'menu-js'],
-			['JavaScript: Клиент-сервер', arrJsClientServer, 'menu-js'],
-			['JavaScript: Web API',       arrJsWebApi,       'menu-js'],
+			['JavaScript',                arrJavaScript,      'menu-js'],
+			['JavaScript: Объекты',       arrJsObjects,       'menu-js'],
+			['JavaScript: Функции',       arrJsFunction,      'menu-js'],
+			['JavaScript: Promise',       arrJsPromise,       'menu-js'],
+			['JavaScript: Клиент-сервер', arrJsClientServer,  'menu-js'],
+			['JavaScript: Web API',       arrJsWebApi,        'menu-js'],
+			['JavaScript: WebComponents', arrJsWebComponents, 'menu-js'],
 			
 			['React.js',      arrReactjs,     'menu-fw'],
 			['Redux',         arrRedux,       'menu-fw'],

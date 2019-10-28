@@ -10,10 +10,13 @@ var menu =
     '<a href="/pages/git.html"         class="menu menu-other">Git</a>'+
 
     '<div style="width: 100%; flex-shrink: 0"></div>'+
-    '<a href="/pages/js.html"               class="menu menu-js">JavaScript</a>'+
-    '<a href="/pages/js-objects.html"       class="menu menu-js">Объекты</a>'+
-    '<a href="/pages/js-client-server.html" class="menu menu-js">Клиент-сервер</a>'+
-    '<a href="/pages/js-web-api.html"       class="menu menu-js">Web API</a>'+
+    '<a href="/pages/js.html"                class="menu menu-js">JavaScript</a>'+
+    '<a href="/pages/js-objects.html"        class="menu menu-js">Объекты</a>'+
+    '<a href="/pages/js-function.html"       class="menu menu-js">Функции</a>'+
+    '<a href="/pages/js-promise.html"        class="menu menu-js">Promise</a>'+
+    '<a href="/pages/js-client-server.html"  class="menu menu-js">Клиент-сервер</a>'+
+    '<a href="/pages/js-web-api.html"        class="menu menu-js">Web API</a>'+
+    '<a href="/pages/js-web-components.html" class="menu menu-js">WebComponents</a>'+
 
     '<div style="width: 100%; flex-shrink: 0"></div>'+
     '<a href="/pages/react-js.html"    class="menu menu-fw">React.js</a>'+
