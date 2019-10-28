@@ -664,10 +664,13 @@ var arrTheory = [
     ['theory', 'html', 'critical-rendering-path', 'Critical Rendering Path'],
 
     [1, 'Клиент-сервер'],
-    ['theory', 'client-server', 'info',  'Клиент-сервер'],
-    ['theory', 'client-server', 'http',  'HTTP'],
-    ['theory', 'client-server', 'https', 'HTTPS'],
-    ['theory', 'client-server', 'rest',  'REST API'],
+    ['theory', 'client-server', 'info',          'Клиент-сервер'],
+    ['theory', 'client-server', 'http',          'HTTP'],
+    ['theory', 'client-server', 'https',         'HTTPS'],
+    ['theory', 'client-server', 'soap',          'SOAP'],
+    ['theory', 'client-server', 'rest',          '<u-menu>[1]</u-menu> REST API'],
+    ['theory', 'client-server', 'rest-json-api', '<u-menu>[2]</u-menu> REST JSON API'],
+    ['theory', 'client-server', 'graphql',       '<u-menu>[3]</u-menu> GraphQL'],
 
     [1, 'Паттерны проектирования'],
     ['theory', 'design-patterns', 'info',             'Паттерны проектирования'],
