@@ -14,6 +14,8 @@ var app = new Vue({
 			['ReactRouter',   arrReactRouter, 'menu-fw'],
 			['Material-UI',   arrMaterialUI,  'menu-fw'],
 
+			['Тестирование',   arrTesting,  'menu-html'],
+
 			['Vue.js',              arrVuejs,      'menu-fw'],
 
 			['Git',               arrGit,        'menu-php'],

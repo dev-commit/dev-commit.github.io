@@ -3,12 +3,13 @@ hljs.initHighlightingOnLoad();
 
 var menu = 
     '<a href="/pages/assessment.html"  class="menu menu-other">Ассессмент</a>'+
-    '<a href="/pages/js-tasks.html"    class="menu menu-other">Задачи</a>'+
     '<a href="/pages/theory.html"      class="menu menu-other">Теория</a>'+
+    '<a href="/pages/testing.html"     class="menu menu-other">Тестирование</a>'+
+    '<a href="/pages/js-tasks.html"    class="menu menu-other">Задачи</a>'+
     '<a href="/pages/webpack.html"     class="menu menu-other">Webpack</a>'+
     '<a href="/pages/git.html"         class="menu menu-other">Git</a>'+
-    '<div style="width: 100%; flex-shrink: 0"></div>'+
 
+    '<div style="width: 100%; flex-shrink: 0"></div>'+
     '<a href="/pages/js.html"               class="menu menu-js">JavaScript</a>'+
     '<a href="/pages/js-objects.html"       class="menu menu-js">Объекты</a>'+
     '<a href="/pages/js-client-server.html" class="menu menu-js">Клиент-сервер</a>'+
@@ -19,7 +20,6 @@ var menu =
     '<a href="/pages/redux.html"          class="menu menu-fw">Redux</a>'+
     '<a href="/pages/react-router.html"   class="menu menu-fw">React Router</a>'+
     '<a href="/pages/react-hooks.html"    class="menu menu-fw">React Hooks</a>'+
-
 
     '<div style="width: 100%; flex-shrink: 0"></div>'+
     '<a href="/pages/html.html"        class="menu menu-php">HTML</a>'+

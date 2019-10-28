@@ -728,16 +728,6 @@ var arrTheory = [
     ['theory', 'deployment', 'continuous-deployment',  '3. Continuous Deployment'],
     ['theory', 'deployment', 'software-deployment',    'Software Deployment'],
 
-    [1, 'Тестирование'],
-    ['theory', 'testing', 'info',             'Тестирование'],
-    ['theory', 'testing', 'pyramid',          'Пирамида тестирования'],
-    ['theory', 'testing', 'unit-test',        '<u-menu>1</u-menu> Юнит-тесты'],
-    ['theory', 'testing', 'integration-test', '<u-menu>2</u-menu> Интеграционные тесты'],
-    ['theory', 'testing', 'e2e-test',         '<u-menu>3</u-menu> E2E-тесты'],
-    ['theory', 'testing', 'tdd',              'TDD'],
-    ['theory', 'testing', 'bdd',              'BDD'],
-    ['theory', 'testing', 'chrome-dev-tools', 'Chrome DevTools'],
-
     [1, 'Методологии разработки'],
     ['theory', 'development-methodologies', 'info',       'Методологии разработки'],
     ['theory', 'development-methodologies', 'waterfall',  'Waterfall'],
@@ -1113,9 +1103,8 @@ var arrRamda = [
 ];
 
 
-
 //---------------------------------------------------------------------
-// Ramda
+// TypeScript
 //---------------------------------------------------------------------
 var arrTypescript = [
     [1, 'Основное'],
@@ -1123,6 +1112,20 @@ var arrTypescript = [
     ['typescript', 'main', 'install', 'Установка и настройка'],
 ];
 
+
+//---------------------------------------------------------------------
+// ТЕСТИРОВАНИЕ
+//---------------------------------------------------------------------
+var arrTesting = [
+    ['testing', 'theory', 'info',             'Тестирование'],
+    ['testing', 'theory', 'pyramid',          'Пирамида тестирования'],
+    ['testing', 'theory', 'unit-test',        '<u-menu>1</u-menu> Юнит-тесты'],
+    ['testing', 'theory', 'integration-test', '<u-menu>2</u-menu> Интеграционные тесты'],
+    ['testing', 'theory', 'e2e-test',         '<u-menu>3</u-menu> E2E-тесты'],
+    ['testing', 'theory', 'tdd',              'TDD'],
+    ['testing', 'theory', 'bdd',              'BDD'],
+    ['testing', 'theory', 'chrome-dev-tools', 'Chrome DevTools'],
+];
 
 
 
@@ -1140,6 +1143,8 @@ switch(pageName) {
     case 'react-hooks.html':   var arrCurrent = arrReactHooks;  break;
     case 'react-router.html':  var arrCurrent = arrReactRouter; break;
     case 'material-ui.html':   var arrCurrent = arrMaterialUI;  break;
+
+    case 'testing.html':       var arrCurrent = arrTesting;  break;
 
     case 'vue-js.html':      var arrCurrent = arrVuejs;      break;
     case 'webpack.html':     var arrCurrent = arrWebpack;    break;
