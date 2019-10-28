@@ -80,6 +80,7 @@ var arrReactjs = [
     ['react-js', 'info',  'info',                                     emoji.theory+'Информация'],
     ['theory',   'other', 'virtual-dom',                              emoji.theory+'Virtual DOM'],
     ['react-js', 'info',  'reconciliation',                           emoji.theory+'Reconciliation Algorithm'],
+    ['react-js', 'info',  'fiber',                                    emoji.theory+'React Fiber'],
     ['react-js', 'info',  'structure',                                emoji.code+'Структура'],
 
     [1, 'Компоненты'],
