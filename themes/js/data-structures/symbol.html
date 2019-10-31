@@ -1,0 +1,91 @@
+<h2>Symbol (ES6)</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Символ</u-text-define> - уникальные и неизменные значения, позволяющие разработчикам языка добавлять новые идентификаторы или свойства объектов, не резервируя строковые названия для этих свойств</li>
+	<li>Нельзя использовать ключевое слово <u-code-text>new</u-code-text></li>
+	<li>Символы доступны ил любого места Scope в программе</li>
+</ul>
+
+<ul class="list-point">
+	<b>Вариант применения: Создание уникальных ключей для объекта</b>
+    <li>Ключи нельзя переопределить при добавлении нового свойства</li>
+    <li>Ключи не итерируются</li>
+    <li>Рассчитано на безопасность</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Методы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>Symbol.for(key)</u-code-text> - Ищет существующие символы по заданному ключу и возвращает его, если он найден. В противном случае создается новый символ для данного ключа в глобальном реестре символов</li>
+    <li><u-code-text>Symbol.keyFor(sym)</u-code-text> - Получает по разделямому символу его ключ из глобального реестра символов</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+// создание символа
+var symbol1 = Symbol();
+</code></pre>
+
+<pre><code class="js">
+// создание символа
+var symbol2 = Symbol.for('name');
+</code></pre>
+
+<pre><code class="js">
+// получить имя символа
+var name = Symbol.keyFor(symbol2);
+</code></pre>
+
+<pre><code class="js">
+// задание необязательного аргумента, в котором указывается имя для символа
+// имя можно использовать описания символа (полезно для отладки)
+var symbol3 = Symbol('name');
+</code></pre>
+
+<pre><code class="js">
+// задание свойства объекта
+var user = {
+	username: 'r2d2',
+	[Symbol.for('password')]: 'c3po'
+};
+var password = user[Symbol.for('password')];
+console.log(password);
+// просмотреть символы у объекта
+console.log(Object.getOwnPropertySymbols(user));
+</code></pre>
+
+<pre><code class="js">
+// встроенные символы
+// хорошо известные символы
+var obj = {
+	iterator: 0,
+	[Symbol.iterator]() {}
+}
+// Symbol.iterator используется конструкцией for...of
+// благодаря которой можно перебирать (итерировать) объект
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Встроенные символы в JavaScript</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<b>1. Итерационные символы</b>
+    <li><u-code-text>Symbol.iterator</u-code-text> - Метод, возвращающий итератор по умолчанию для объекта. Используется конструкцией for...of</li>
+
+	<b>2. Символы регулярных выражений</b>
+    <li><u-code-text>Symbol.match</u-code-text> - Метод для сопоставления объекта со строкой, также используемый для определения возможности объекта выступать в качестве регулярного выражения. Используется функцией String.prototype.match()</li>
+    <li><u-code-text>Symbol.replace</u-code-text> - Метод, заменяющий совпавшие подстроки в строке. Используется функцией String.prototype.replace()</li>
+    <li><u-code-text>Symbol.search</u-code-text> - Метод, возвращающий индекс вхождения подстроки, соответствующей регулярному выражению. Используется функцией String.prototype.search()</li>
+    <li><u-code-text>Symbol.split</u-code-text> - Метод, разбивающий строку на части в местах, соответствующих регулярному выражению. Используется функцией String.prototype.split()</li>
+
+    <b>3. Другие символы</b>
+    <li><u-code-text>Symbol.hasInstance</u-code-text> - Метод, определяющий, распознает ли конструктор некоторый объект как свой экземпляр. Используется оператором instanceof</li>
+    <li><u-code-text>Symbol.isConcatSpreadable</u-code-text> - Булево значение, показывающее, должен ли объект быть сведен к плоскому представлению (англ. flatten) в виде массива его элементов функцией Array.prototype.concat()</li>
+    <li><u-code-text>Symbol.unscopables</u-code-text> - Массив строковых имен свойств. Позволяет скрыть свойства от инструкции with (прежде всего для обратной совместимости)</li>
+    <li><u-code-text>Symbol.species</u-code-text> - Метод, определяющий конструктор для порождённых объектов</li>
+    <li><u-code-text>Symbol.toPrimitive</u-code-text> - Метод, преобразующий объект в примитив (примитивное значение)</li>
+    <li><u-code-text>Symbol.toStringTag</u-code-text> - Строковое значение, используемое в качестве описания объекта по умолчанию. Используется функцией Object.prototype.toString()</li>
+</ul>

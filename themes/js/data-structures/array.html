@@ -6,9 +6,9 @@
 	<li>Нет причин использовать массив как обычный объект, хотя технически это и возможно</li>
 </ul>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Объявление</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 var arr = [];                        // объявление пустого массива
 var arr = ['Tony', 'Anne'];          // объявление массива из заполненных элементов
@@ -17,9 +17,9 @@ var arr = new Array(5);              // объявление массива из
 var arr = new Array('Tony', 'Anne'); // объявление массива (конструктор)
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Методы</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <u-code>push</u-code> <u-code>pop</u-code> <u-code>unshift</u-code> <u-code>shift</u-code>
 <pre><code class="js">
 arr.<u-code>push</u-code>('Jack', 'Tony');            // добавляет элементы в конец
@@ -85,10 +85,60 @@ var a = Array.<u-code>isArray</u-code>([1,2,3]); // true
 var b = Array.<u-code>isArray</u-code>("not array"); // false
 </code></pre>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 arr['someIndex'] = 'someValue';       // использование строки в виде индекса
 arr.length = 10;                      // все элементы больше 10 индекса будут удалены
 delete arr[4];                        // присваивание элементу по индексу 4 undefined
 var a = Array.isArray(arr);           // проверка на массив
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Массивы обьектов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+var a = new Array(
+	{"name":"Андрей", "email":"andry@mail.ru"},
+	{"name":"Анна",   "email":"anna@mail.ru"}
+);
+
+console.log(a[0].name);  // "Андрей"
+console.log(a[1].email); // "anna@mail.ru"
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Примеры</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+// перебор массива
+for (var i=0; i<=arr.length-1; i++) {
+	console.log(arr[i]);
+}
+</code></pre>
+
+<pre><code class="js">
+// перебор массива и удаление выбранного элемента
+var id = 12;
+for (var i=0; i<=arr.length-1; i++) {
+	if (id == arr[i]) {
+		arr.splice(i, 1); 
+		break;
+	} 
+}
+</code></pre>
+
+<pre><code class="js">
+// добавление нового элемента в массив
+if (arr != '') {
+	arr[arr.length] = id;
+} else {
+	arr[0] = id;
+}
+</code></pre>
+
+<pre><code class="js">
+// удаление элемента массива
+arr.splice(arr.indexOf(String(id)), 1);
 </code></pre>
