@@ -235,12 +235,16 @@ var arrJavaScript = [
     //--------------------------------------------------------------------
     [2, 'JavaScript'],
     //--------------------------------------------------------------------
+    [1, 'Типизация'],
+    ['js', 'typing', 'typing',         'Типизация'],
+    ['js', 'typing', 'type-data',      'Типы данных'],
+    ['js', 'typing', 'type-casting',   'Приведение типов'],
+
     [1, 'Типы данных'],
-    ['js', 'type-data', 'type-data',         'Типы данных'],
     ['js', 'type-data', 'variables',         setTheme(1, ['var', 'let', 'const'])],
     ['js', 'type-data', 'typeof',            setTheme(1, ['typeof'])],
-    ['js', 'type-data', 'number',            'Числа'],
     ['js', 'type-data', 'math',              'Math'],
+    ['js', 'type-data', 'number',            'Числа'],
     ['js', 'type-data', 'string',            'Строки'],
     ['js', 'type-data', 'json',              'JSON'],
     ['js', 'type-data', 'date-time',         'Дата и время'],
@@ -833,7 +837,6 @@ var arrJsTasks = [
     ['js-task', 'async', 'settimeout-for-var',         'setTimeout в for без let'],
 
     [1, 'Прочее'],
-    ['js-task', 'other', 'type-casting',            'Приведение типов'],
     ['js-task', 'other', 'popup-func-and-variable', 'Всплытие функции и переменной'],
 ];
 

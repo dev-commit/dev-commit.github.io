@@ -3,11 +3,9 @@ hljs.initHighlightingOnLoad();
 
 var menu = 
     '<a href="/pages/assessment.html"  class="menu menu-other">Ассессмент</a>'+
+    '<a href="/pages/js-tasks.html"    class="menu menu-other">Задачи</a>'+
     '<a href="/pages/theory.html"      class="menu menu-other">Теория</a>'+
     '<a href="/pages/testing.html"     class="menu menu-other">Тестирование</a>'+
-    '<a href="/pages/js-tasks.html"    class="menu menu-other">Задачи</a>'+
-    '<a href="/pages/webpack.html"     class="menu menu-other">Webpack</a>'+
-    '<a href="/pages/git.html"         class="menu menu-other">Git</a>'+
 
     '<div style="width: 100%; flex-shrink: 0"></div>'+
     '<a href="/pages/js.html"                class="menu menu-js">JavaScript</a>'+
@@ -29,7 +27,8 @@ var menu =
     '<a href="/pages/css.html"         class="menu menu-php">CSS</a>'+
     '<a href="/pages/css-flexbox.html" class="menu menu-php">Flexbox</a>'+
     '<a href="/pages/css-grid.html"    class="menu menu-php">CSS Grid</a>'+
-
+    '<a href="/pages/webpack.html"     class="menu menu-other">Webpack</a>'+
+    '<a href="/pages/git.html"         class="menu menu-other">Git</a>'+
 
     // '<a href="/pages/material-ui.html"    class="menu menu-fw">Material-UI</a>'+
     // '<a href="/pages/svg.html"         class="menu menu-php">SVG</a>'+

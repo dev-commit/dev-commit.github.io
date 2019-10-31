@@ -1,0 +1,20 @@
+<h2>Приведение типов</h2>
+
+<pre><code class="js">
+// && - первое значение
+// || - последнее значение
+
+false && ''         // false
+false || ''         // ''
+'' || 'Yes'         // 'Yes'
+{} && 'Some'        // 'Some'
+{} || 'Some'        // Object {}
+{a: 10} && 'Some'   // 'Some'
+{a: 10} || 'Some'   // Object { a: 10}
+0 || true           // true
+null || 0           // 0
+undefined && 0      // undefined
+'' || 0 && true     // 0
+{} || 0 && true     // Object {}
+false || {} && true // true
+</code></pre>
