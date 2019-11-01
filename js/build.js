@@ -341,6 +341,15 @@ var arrJsClientServer = [
 // JAVASCRIPT WEB-API
 //---------------------------------------------------------------------
 var arrJsWebApi = [
+    [1, 'События'],
+    ['js-web-api', 'dom-events', 'propagation-model', 'Модель распространения событий'],
+    ['js-web-api', 'dom-events', 'handlers',          'Назначение обработчиков событий'],
+    ['js-web-api', 'dom-events', 'delegate',          'Делегирование событий'],
+    ['js-web-api', 'dom-events', 'params-event',      'Передаваемый параметр (Event)'],
+    ['js-web-api', 'dom-events', 'list-events',       'Список событий'],
+    ['js-web-api', 'dom-events', 'prevent',           'Отмена обычного поведения'],
+    ['js-web-api', 'dom-events', 'samples',           'Примеры'],
+
     //--------------------------------------------------------------------
     [2, 'DOM'],
     //--------------------------------------------------------------------
@@ -363,15 +372,6 @@ var arrJsWebApi = [
     ['js-web-api', 'dom', 'contains',        setTheme(1, ['contains', 'compareDocumentPosition'])],
     ['js-web-api', 'dom', 'media-queries',   setTheme(1, ['matchMedia'])],
     ['js-web-api', 'dom', 'location',        setTheme(1, ['open', 'location'])],
-    
-    [1, 'События'],
-    ['js-web-api', 'dom-events', 'propagation-model', 'Модель распространения событий'],
-    ['js-web-api', 'dom-events', 'handlers',          'Назначение обработчиков событий'],
-    ['js-web-api', 'dom-events', 'delegate',          'Делегирование событий'],
-    ['js-web-api', 'dom-events', 'params-event',      'Передаваемый параметр (Event)'],
-    ['js-web-api', 'dom-events', 'list-events',       'Список событий'],
-    ['js-web-api', 'dom-events', 'prevent',           'Отмена обычного поведения'],
-    ['js-web-api', 'dom-events', 'samples',           'Примеры'],
 ];
 
 
