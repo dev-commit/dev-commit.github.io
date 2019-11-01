@@ -342,11 +342,12 @@ var arrJsClientServer = [
 //---------------------------------------------------------------------
 var arrJsWebApi = [
     [1, 'События'],
+    ['js-web-api', 'dom-events', 'handlers',          emoji.panda+'Назначение обработчиков событий'],
+    ['js-web-api', 'dom-events', 'list-events',       emoji.panda+'Список событий'],
+    ['js-web-api', 'dom-events', 'params-event',      emoji.panda+'Передаваемый параметр (Event)'],
+
     ['js-web-api', 'dom-events', 'propagation-model', 'Модель распространения событий'],
-    ['js-web-api', 'dom-events', 'handlers',          'Назначение обработчиков событий'],
     ['js-web-api', 'dom-events', 'delegate',          'Делегирование событий'],
-    ['js-web-api', 'dom-events', 'params-event',      'Передаваемый параметр (Event)'],
-    ['js-web-api', 'dom-events', 'list-events',       'Список событий'],
     ['js-web-api', 'dom-events', 'prevent',           'Отмена обычного поведения'],
     ['js-web-api', 'dom-events', 'samples',           'Примеры'],
 
