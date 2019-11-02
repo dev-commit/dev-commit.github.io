@@ -84,14 +84,17 @@ element.onclick = function() { alert(2); }
     </v-method>
 
 	<v-method-arg arg="type*">имя события, например click</v-method-arg>
-	<v-method-arg arg="listener*">ссылка на функцию, которую нужно поставить обработчиком</v-method-arg>
+	<v-method-arg arg="listener*">ссылка на функцию-обработчик</v-method-arg>
 	<v-method-arg arg="options">
 		Объект options, который определяет характеристики объекта, прослушивающего событие
 		<ul class="list-point">
-			<li><u-code-text>capture</u-code-text> - Boolean указывает, что события этого типа будут отправлены зарегистрированному слушателю listener перед отправкой на EventTarget, расположенный ниже в дереве DOM</li>
-			<li><u-code-text>once</u-code-text> - Boolean указывает, что слушатель должен быть вызван не более одного раза после добавления. Если true, слушатель автоматически удаляется при вызове</li>
-			<li><u-code-text>passive</u-code-text> - Boolean указывает, что слушатель никогда не вызовет preventDefault(). Если все же вызов будет произведен, браузер должен игнорировать его и генерировать консольное предупреждение. Пример Улучшение производительности прокрутки с помощью passive true</li>
-			<li><u-code-text>mozSystemGroup</u-code-text> - не стандартизировано) Boolean указывает, что слушатель должен быть добавлен в системную группу. Доступно только в коде, запущенном в XBL или в расширении Chrome</li>
+			<li><u-code-text>capture (bool)</u-code-text> - фаза, на которой должен сработать обработчик. Указывает, что события этого типа будут отправлены зарегистрированному слушателю listener перед отправкой на EventTarget, расположенный ниже в дереве DOM</li>
+
+			<li><u-code-text>once (bool)</u-code-text> - указывает, что слушатель должен быть вызван не более одного раза после добавления. Если true, слушатель (обработчик) автоматически удаляется при вызове</li>
+			
+			<li><u-code-text>passive (bool)</u-code-text> - true указывает, что слушатель никогда не вызовет preventDefault(). Если все же вызов будет произведен, браузер должен игнорировать его и генерировать консольное предупреждение. Пример Улучшение производительности прокрутки с помощью passive true</li>
+			
+			<li><u-code-text>mozSystemGroup (bool)</u-code-text> - (не стандартизировано) указывает, что слушатель должен быть добавлен в системную группу. Доступно только в коде, запущенном в XBL или в расширении Chrome</li>
 		</ul>
 	</v-method-arg>
 
@@ -120,4 +123,28 @@ element.<u-code>removeEventListener</u-code>('click', action);
 // в removeEventListener передана не та же функция, а другая, с одинаковым кодом
 element.addEventListener('click', function() {alert('ok')});
 element.removeEventListener('click', function() {alert('ok')});
+</code></pre>
+
+<pre><code class="js"><u-code-title>js</u-code-title>
+// добавление нескольких обработчков на одно событие
+element.onclick = () => alert('Привет из onclick');
+element.addEventListener('click', () => alert('Привет'));
+element.addEventListener('click', () => alert('Привет Мир'));
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Обработчики некоторых событий можно назначать только через addEventListener</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>transitionend</li>
+</ul>
+
+<pre><code class="js"><u-code-title>js</u-code-title>
+elem.ontransitionend = function() {
+	alert('DOM property'); // не сработает
+};
+
+elem.addEventListener("transitionend", function() {
+	alert('addEventListener'); // сработает по окончании анимации
+});
 </code></pre>
