@@ -353,9 +353,8 @@ var arrJsWebApi = [
     ['js-web-api', 'dom-events', 'propagation-bubbling',  emoji.clover+'3. Фаза всплытия'],
 
     ['js-web-api', 'dom-events', 'propagation-delegate',  emoji.fire+'Делегирование событий'],
-
-    ['js-web-api', 'dom-events', 'prevent',           'Отмена обычного поведения'],
-    ['js-web-api', 'dom-events', 'samples',           'Примеры'],
+    ['js-web-api', 'dom-events', 'prevent',               setTheme(1, ['event.preventDefault()'])],
+    ['js-web-api', 'dom-events', 'samples',               'Примеры'],
 
     //--------------------------------------------------------------------
     [2, 'DOM'],
