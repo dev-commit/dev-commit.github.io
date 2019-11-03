@@ -6,22 +6,26 @@
     <li>Всплытие идёт с «целевого» элемента наверх. По умолчанию событие будет всплывать до элемента html, а затем до объекта document, а иногда даже до window, вызывая все обработчики на своём пути</li>
 </ul>
 
+<hr>
+
 <pre><code class="html">
 &lt;!-- 3 вложенных элемента FORM > DIV > P с обработчиком на каждом --&gt;
-&lt;!-- Клик по внутреннему &lt;p&gt; вызовет обработчик onclick --&gt;
-&lt;!-- 1. Сначала на самом &lt;p&gt; --&gt;
-&lt;!-- 2. Потом на внешнем &lt;div&gt; --&gt;
-&lt;!-- 3. Затем на внешнем &lt;form&gt; --&gt;
-&lt;!-- 4. И так далее вверх по цепочке до самого document --&gt;
-
 &lt;form onclick="alert('form')"&gt;FORM
 	&lt;div onclick="alert('div')"&gt;DIV
 		&lt;p onclick="alert('p')"&gt;P&lt;/p&gt;
 	&lt;/div&gt;
 &lt;/form&gt;
-
-&lt;!-- Если кликнуть на &lt;p&gt;, будет три оповещения: p → div → form --&gt;
 </code></pre>
+
+<ol class="list-num">
+    <b>Клик на &lt;p&gt; вызовет обработчик onclick</b>
+    <li>1. Сначала на самом &lt;p&gt;</li>
+    <li>2. Потом на внешнем &lt;div&gt;</li>
+    <li>3. Затем на внешнем &lt;form&gt;</li>
+    <li>4. И так далее вверх по цепочке до самого <u>document</u></li>
+</ol>
+
+<hr>
 
 <img src="/img/dom/propagation/bubbling1.png" width="350px">
 

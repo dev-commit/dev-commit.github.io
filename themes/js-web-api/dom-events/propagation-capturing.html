@@ -11,3 +11,10 @@
 elem.addEventListener('click', () => alert('Привет'), <u-code>{capture: true}</u-code>)
 elem.addEventListener('click', () => alert('Привет'), <u-code>true</u-code>)
 </code></pre>
+
+<hr>
+
+<ul class="list-point">
+    <b>Чтобы убрать обработчик removeEventListener, нужна та же фаза</b>
+    <li>Если мы добавили обработчик <u-code-text>addEventListener(..., true)</u-code-text>, то мы должны передать то же значение аргумента capture в <u-code-text>removeEventListener(..., true)</u-code-text>, когда снимаем обработчик</li>
+</ul>

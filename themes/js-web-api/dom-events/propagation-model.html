@@ -25,18 +25,33 @@
 	</li>
 </ol>
 
-<hr>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм работы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При наступлении события – самый глубоко вложенный элемент, на котором оно произошло, помечается как «целевой» <u-code-text>event.target</u-code-text></li>
+    <li>Затем событие сначала двигается вниз от корня документа к event.target, по пути вызывая обработчики, поставленные через <u-code-text>addEventListener(...., {capture: true})</u-code-text></li>
+    <li>Далее обработчики вызываются на целевом элементе</li>
+    <li>Далее событие двигается от event.target вверх к корню документа, по пути вызывая обработчики, поставленные через on&lt;event&gt; и addEventListener без третьего аргумента или с третьим аргументом равным false</li>
+</ul>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Схема работы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li>На картинке клик по ячейке <u>td</u>, расположенной внутри таблицы</li>
     <li>При клике на <u>td</u> событие перемещается по цепочке родителей сначала вниз к элементу (погружается), затем оно достигает целевой элемент (фаза цели), а потом идёт наверх (всплытие), вызывая по пути обработчики</li>
 </ul>
 
+<v-two><template v-slot:first>
 <img src="/img/dom/propagation/capturing1.png" width="400px">
+</template><template v-slot:last>
 <img src="/img/js/event.jpg" width="350px">
+</template></v-two>
 
-<hr>
-
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="html">
 &lt;form&gt;FORM
 	&lt;div&gt;DIV
@@ -58,3 +73,16 @@
     <li><u>P</u> (фаза цели, срабатывают обработчики, установленные и на погружение и на всплытие, так что выведется два раза)</li>
     <li><u>DIV → FORM → BODY → HTML</u> (фаза всплытия, второй обработчик)</li>
 </ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Прочее</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>На каждой фазе разные обработчики на одном элементе срабатывают в порядке назначения</li>
+    <li>Если несколько обработчиков одного события, назначенных addEventListener на один элемент, в рамках одной фазы, то их порядок срабатывания – тот же, в котором они установлены</li>
+</ul>
+
+<pre><code class="js">
+element.addEventListener("click", e => alert(1)); // всегда сработает перед следующим
+element.addEventListener("click", e => alert(2));
+</code></pre>
