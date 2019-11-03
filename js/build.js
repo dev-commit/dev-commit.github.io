@@ -14,6 +14,7 @@ const emoji = {
     fire:      '🔥 ',
     donut:     '🍩 ',
     pizza:     '🍕 ',
+    clover:    '🍀 ',
 }
 
 function setTheme(tag, arr) {
@@ -342,12 +343,17 @@ var arrJsClientServer = [
 //---------------------------------------------------------------------
 var arrJsWebApi = [
     [1, 'События'],
-    ['js-web-api', 'dom-events', 'handlers',          emoji.panda+'Назначение обработчиков событий'],
-    ['js-web-api', 'dom-events', 'list-events',       emoji.panda+'Список событий'],
-    ['js-web-api', 'dom-events', 'params-event',      emoji.panda+'Передаваемый параметр (Event)'],
+    ['js-web-api', 'dom-events', 'handlers',          emoji.pizza+'Обработчики событий'],
+    ['js-web-api', 'dom-events', 'list-events',       emoji.pizza+'Список событий'],
+    ['js-web-api', 'dom-events', 'params-event',      emoji.pizza+'Объект события (Event)'],
 
-    ['js-web-api', 'dom-events', 'propagation-model', 'Модель распространения событий'],
-    ['js-web-api', 'dom-events', 'delegate',          'Делегирование событий'],
+    ['js-web-api', 'dom-events', 'propagation-model',     emoji.clover+'Модель распространения событий'],
+    ['js-web-api', 'dom-events', 'propagation-capturing', emoji.clover+'1. Фаза погружения'],
+    ['js-web-api', 'dom-events', 'propagation-target',    emoji.clover+'2. Фаза цели'],
+    ['js-web-api', 'dom-events', 'propagation-bubbling',  emoji.clover+'3. Фаза всплытия'],
+
+    ['js-web-api', 'dom-events', 'propagation-delegate',  emoji.fire+'Делегирование событий'],
+
     ['js-web-api', 'dom-events', 'prevent',           'Отмена обычного поведения'],
     ['js-web-api', 'dom-events', 'samples',           'Примеры'],
 

@@ -1,9 +1,60 @@
 <h2>Модель распространения событий</h2>
 
-<img src="/img/js/event.jpg" width="450px" class="center">
+<u-link-wrapper>
+	<a href="https://www.w3.org/TR/DOM-Level-3-Events/" target="_blank">UI Events</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>DOM Events - модель распространения событий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+	<li>
+		<u-text-underline>Фаза погружения/перехвата (capturing phase)</u-text-underline>
+		<u-code-text>Event.CAPTURING_PHASE=1</u-code-text>
+		идет от родительского элемента (<u>document</u> или <u>window</u> в зависимости от события) до целевого
+	</li>
+	<li>
+		<u-text-underline>Фаза цели (target phase)</u-text-underline>
+		<u-code-text>Event.AT_TARGET=2</u-code-text>
+		событие достигло целевого (исходного) элемента
+	</li>
+	<li>
+		<u-text-underline>Фаза всплытия (bubbling stage)</u-text-underline>
+		<u-code-text>Event.BUBBLING_PAGE=3</u-code-text>
+		идёт от целевого элемента до родительского (<u>document</u> или <u>window</u>)
+	</li>
+</ol>
+
+<hr>
+
 <ul class="list-point">
-	<b>Стандартная модель событий (Распространение событий)</b>
-	<li><u-text-header>1. Event.CAPTURING_PHASE=1</u-text-header> (перехват) - идет от родительского до целевого (html -> body -> button). Выполняется сразу после того, как происходит событие. Событие начинается на самом верхнем уровне, которым является либо объект <u>document</u>, либо объект <u>window</u> в зависимости от события. Отсюда оно опускается, проходя через тег <u>html</u> и через то, что находится в этом теге, до тех пор, пока не достигнет элемента, в пределах которого оно возникло</li>
-	<li><u-text-header>2. Event.AT_TARGET=2</u-text-header> (целевой элемент захвата)</li>
-	<li><u-text-header>3. Event.BUBBLING_PAGE=3</u-text-header> (всплытие). В её ходе повторяется тот же процесс, но наоборот. Всё начинается с элемента, который вызвал событие, оно «всплывает» до корневого элемента <u>html</u></li>
+    <li>На картинке клик по ячейке <u>td</u>, расположенной внутри таблицы</li>
+    <li>При клике на <u>td</u> событие перемещается по цепочке родителей сначала вниз к элементу (погружается), затем оно достигает целевой элемент (фаза цели), а потом идёт наверх (всплытие), вызывая по пути обработчики</li>
 </ul>
+
+<img src="/img/dom/propagation/capturing1.png" width="400px">
+<img src="/img/js/event.jpg" width="350px">
+
+<hr>
+
+<pre><code class="html">
+&lt;form&gt;FORM
+	&lt;div&gt;DIV
+		&lt;p&gt;P&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+	for(let elem of document.querySelectorAll('*')) {
+		elem.addEventListener("click", e =&gt; alert(`Погружение: ${elem.tagName}`), true);
+		elem.addEventListener("click", e =&gt; alert(`Всплытие: ${elem.tagName}`));
+	}
+&lt;/script&gt;
+</code></pre>
+
+<ol class="list-num">
+    <b>Клик на &lt;p&gt;</b>
+    <li><u>HTML → BODY → FORM → DIV</u> (фаза погружения, первый обработчик)</li>
+    <li><u>P</u> (фаза цели, срабатывают обработчики, установленные и на погружение и на всплытие, так что выведется два раза)</li>
+    <li><u>DIV → FORM → BODY → HTML</u> (фаза всплытия, второй обработчик)</li>
+</ol>

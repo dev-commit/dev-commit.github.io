@@ -1,7 +1,7 @@
 <h2>Назначение обработчиков событий</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>1. Использование атрибута HTML</h3>
+<h3>1. Атрибут HTML</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="html">
 &lt;button onclick="alert('action')"&gt;Action&lt;/button&gt;
@@ -21,7 +21,7 @@ button.onclick = function() {
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>2. Использование свойства DOM-объекта</h3>
+<h3>2. DOM-свойство</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li>Если обработчик задан через атрибут, то браузер читает HTML-разметку, создаёт новую функцию из содержимого атрибута и записывает в свойство <u>onclick</u></li>
@@ -84,7 +84,7 @@ element.onclick = function() { alert(2); }
     </v-method>
 
 	<v-method-arg arg="type*">имя события, например click</v-method-arg>
-	<v-method-arg arg="listener*">ссылка на функцию-обработчик</v-method-arg>
+	<v-method-arg arg="listener*">ссылка на функцию-обработчик или объект, содержащий метод handleEvent</v-method-arg>
 	<v-method-arg arg="options">
 		Объект options, который определяет характеристики объекта, прослушивающего событие
 		<ul class="list-point">
@@ -137,14 +137,42 @@ element.addEventListener('click', () => alert('Привет Мир'));
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li>transitionend</li>
+    <li>DOMContentLoaded</li>
 </ul>
 
 <pre><code class="js"><u-code-title>js</u-code-title>
-elem.ontransitionend = function() {
+element.ontransitionend = function() {
 	alert('DOM property'); // не сработает
 };
 
-elem.addEventListener("transitionend", function() {
+element.addEventListener("transitionend", function() {
 	alert('addEventListener'); // сработает по окончании анимации
 });
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объект-обработчик: handleEvent в addEventListener</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>В addEventListener можно назначать обработчиком не только функцию, но и объект с методом handleEvent</li>
+    <li>Если addEventListener получает объект в качестве обработчика, он вызывает <u-code-text>object.handleEvent(event)</u-code-text>, когда происходит событие</li>
+</ul>
+
+<pre><code class="js"><u-code-title>Использование объекта</u-code-title>
+element.addEventListener('click', {
+	handleEvent(event) {
+		//
+	}
+});
+</code></pre>
+
+<pre><code class="js"><u-code-title>Использование класса</u-code-title>
+class Listener {
+	handleEvent(event) {
+		//
+	}
+}
+
+const listener = new Listener();
+element.addEventListener('click', listener);
 </code></pre>
