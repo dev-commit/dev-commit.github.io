@@ -7,6 +7,13 @@
 	<li>Н-р, атрибут этого параметра data может хранить идентификатор для доступа к свойствам объекта</li>
 </ul>
 
+<ol class="list-num">
+	<b>Алгоритм</b>
+	<li>Вешаем обработчик на контейнер</li>
+	<li>В обработчике проверяем исходный элемент <u-code-text>event.target</u-code-text></li>
+	<li>Если событие произошло внутри нужного нам элемента, то обрабатываем его</li>
+</ol>
+
 <pre><code class="js">
 parentEl.addEventListener('click', function(e) {
 	if(e.target && e.target.nodeName == 'BUTTON') {
