@@ -15,38 +15,41 @@ var menu =
     '<a href="/pages/js-client-server.html"  class="menu menu-js">Клиент-сервер</a>'+
     '<a href="/pages/js-web-api.html"        class="menu menu-js">Web API</a>'+
     '<a href="/pages/js-web-components.html" class="menu menu-js">WebComponents</a>'+
+    '<a href="/pages/canvas.html"            class="menu menu-js">Canvas</a>'+
 
     '<div style="width: 100%; flex-shrink: 0"></div>'+
     '<a href="/pages/react-js.html"       class="menu menu-fw">React.js</a>'+
     '<a href="/pages/redux.html"          class="menu menu-fw">Redux</a>'+
     '<a href="/pages/react-router.html"   class="menu menu-fw">React Router</a>'+
     '<a href="/pages/react-hooks.html"    class="menu menu-fw">React Hooks</a>'+
+    '<a href="/pages/vue-js.html"         class="menu menu-fw">Vue.js</a>'+
 
     '<div style="width: 100%; flex-shrink: 0"></div>'+
-    '<a href="/pages/html.html"        class="menu menu-php">HTML</a>'+
-    '<a href="/pages/css.html"         class="menu menu-php">CSS</a>'+
-    '<a href="/pages/css-flexbox.html" class="menu menu-php">Flexbox</a>'+
-    '<a href="/pages/css-grid.html"    class="menu menu-php">CSS Grid</a>'+
+    '<a href="/pages/html.html"        class="menu menu-html">HTML</a>'+
+    '<a href="/pages/css.html"         class="menu menu-html">CSS</a>'+
+    '<a href="/pages/css-flexbox.html" class="menu menu-html">Flexbox</a>'+
+    '<a href="/pages/css-grid.html"    class="menu menu-html">CSS Grid</a>'+
+    '<a href="/pages/svg.html"         class="menu menu-html">SVG</a>'+
+    '<a href="/pages/sass.html"        class="menu menu-html">Sass</a>'+
+    '<a href="/pages/bootstrap.html"   class="menu menu-html">Bootstrap</a>'+
+
+    '<div style="width: 100%; flex-shrink: 0"></div>'+
     '<a href="/pages/webpack.html"     class="menu menu-other">Webpack</a>'+
     '<a href="/pages/git.html"         class="menu menu-other">Git</a>'+
+    '<a href="/pages/material-ui.html" class="menu menu-other">Material-UI</a>'+
+    '<a href="/pages/flow.html"        class="menu menu-other">Flow</a>'+
+    '<a href="/pages/typescript.html"  class="menu menu-other">TypeScript</a>'+
+    '<a href="/pages/npm.html"         class="menu menu-other">NPM</a>'+
+    '<a href="/pages/ramda.html"       class="menu menu-other">Ramda</a>'+
 
-    // '<a href="/pages/material-ui.html"    class="menu menu-fw">Material-UI</a>'+
-    // '<a href="/pages/svg.html"         class="menu menu-php">SVG</a>'+
-    // '<a href="/pages/vue-js.html"      class="menu menu-js">vue.js</a>'+
-    // '<a href="/pages/jquery.html"      class="menu menu-js">jquery</a>'+
-    // '<a href="/pages/canvas.html"      class="menu menu-js">canvas</a>'+
-    // '<a href="/pages/flow.html"        class="menu menu-other">flow</a>'+
-    // '<a href="/pages/typescript.html"  class="menu menu-other">typescript</a>'+
-    // '<a href="/pages/npm.html"         class="menu menu-other">npm</a>'+
-    // '<a href="/pages/ramda.html"       class="menu menu-other">ramda</a>'+
-    // '<a href="/pages/linux.html"       class="menu menu-other">linux</a>'+
-    // '<a href="/pages/other.html"       class="menu menu-other">other</a>'+
-    // '<a href="/pages/sass.html"        class="menu menu-html">sass</a>'+
-    // '<a href="/pages/bootstrap.html"   class="menu menu-html">bootstrap</a>'+
-    // '<a href="/pages/node-js.html"     class="menu menu-php">node.js</a>'+
-    // '<a href="/pages/php.html"         class="menu menu-php">php</a>'+
-    // '<a href="/pages/python.html"      class="menu menu-php">python</a>'+
-    // '<a href="/pages/mysql.html"       class="menu menu-php">mysql</a>'+
+    '<div style="width: 100%; flex-shrink: 0"></div>'+
+    '<a href="/pages/linux.html"       class="menu menu-php">Linux</a>'+
+    '<a href="/pages/other.html"       class="menu menu-php">Other</a>'+
+    '<a href="/pages/jquery.html"      class="menu menu-php">jQuery</a>'+
+    '<a href="/pages/node-js.html"     class="menu menu-php">Node.js</a>'+
+    '<a href="/pages/php.html"         class="menu menu-php">PHP</a>'+
+    '<a href="/pages/python.html"      class="menu menu-php">Python</a>'+
+    '<a href="/pages/mysql.html"       class="menu menu-php">mySql</a>'+
     ''
 ;
 

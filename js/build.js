@@ -883,6 +883,16 @@ var arrCSS = [
     ['css', 'selectors', 'pseudo-classes',  'Псевдоклассы'],
     ['css', 'selectors', 'pseudo-elements', 'Псевдоэлементы'],
 
+    [1, 'Адаптивность'],
+    ['css', 'adaptive', 'html',          'HTML'],
+    ['css', 'adaptive', 'media-queries', 'CSS Media queries'],
+
+    [1, 'Layout'],
+    ['css', 'layout', 'info',               emoji.theory+'Информация'],
+    ['css', 'layout', 'css-multi-columns',  emoji.pizza+'CSS Multi Columns'],
+    ['css', 'layout', 'css-writing-models', emoji.pizza+'CSS Writing Models'],
+    ['css', 'layout', 'css-exclusions',     emoji.pizza+'CSS Exclusions (IE)'],
+
     [1, 'Основное'],
     ['css', 'main', 'info',              'Информация'],
     ['css', 'main', 'custom-properties', 'Custom Properties'],
@@ -903,9 +913,7 @@ var arrCSS = [
     ['css', 'main', 'lists',             'Списки'],
     ['css', 'main', 'samples',           'Примеры'],
 
-    [1, 'Адаптивность'],
-    ['css', 'adaptive', 'html',          'HTML'],
-    ['css', 'adaptive', 'media-queries', 'CSS Media queries'],
+
 
     [1, 'Графика'],
     ['css', 'graphics', 'blend-mode',      'CSS Blend Modes'],
