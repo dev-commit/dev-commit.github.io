@@ -1,74 +1,7 @@
 <h2>Назначение обработчиков событий</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>1. Атрибут HTML</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="html">
-&lt;button onclick="alert('action')"&gt;Action&lt;/button&gt;
-&lt;button onclick="alert(&amp;quot;action&amp;quot;)"&gt;Использование двойных кавычек&lt;/button&gt;
-&lt;button onclick="alert(this.innerHTML)"&gt;Вывести содержимое&lt;/button&gt;
-&lt;button onclick="action()"&gt;Action&lt;/button&gt;
-</code></pre>
-
-<ul class="list-point">
-    <li>При создании обработчика браузером из атрибута, он автоматически создаёт функцию с телом из значения атрибута: action(). Разметка генерирует такое свойство:</li>
-</ul>
-
-<pre><code class="js">
-button.onclick = function() {
-	action(); // содержимое атрибута
-};
-</code></pre>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>2. DOM-свойство</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-	<li>Если обработчик задан через атрибут, то браузер читает HTML-разметку, создаёт новую функцию из содержимого атрибута и записывает в свойство <u>onclick</u></li>
-	<li>Обработчик хранится именно в <u>DOM-свойстве</u>, а атрибут – лишь один из способов его инициализации</li>
-	<li>Так как <u>DOM-свойство</u> <u>onclick</u>, в итоге, одно, то назначить более одного обработчика так нельзя</li>
-	<li>DOM-свойства чувствительны к регистру, поэтому необходимо использовать <u>elem.onclick</u> вместо <u>elem.ONCLICK</u></li>
-</ul>
-
-<pre><code class="html">
-&lt;button id="element"&gt;Action&lt;/button&gt;
-</code></pre>
-
-<pre><code class="js"><u-code-title>Назначение новой функции</u-code-title>
-element.onclick = function() {
-	alert(1);
-}
-</code></pre>
-
-<pre><code class="js"><u-code-title>Назначение существующей функции</u-code-title>
-element.onclick = action;
-
-function action() {
-	alert(1);
-}
-</code></pre>
-
-<pre><code class="js"><u-code-title>Удаление обработчика</u-code-title>
-element.onclick = null;
-</code></pre>
-
-<!------------------------------------------------------------->
-<h4>Особенности</h4>
-<!------------------------------------------------------------->
-<pre><code class="js">
-// при нажатии на body будут ошибки,
-// атрибуты всегда строки, и функция станет строкой
-document.body.setAttribute('onclick', function() { alert(1) });
-</code></pre>
-
-<pre><code class="js">
-element.onclick = function() { alert(1); }
-// заменит предыдущий обработчик
-element.onclick = function() { alert(2); }
-</code></pre>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>3. addEventListener и removeEventListener</h3>
+<h3>1. addEventListener и removeEventListener</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li>Если функцию не сохранить где-либо, а просто передать в addEventListener, то потом получить её обратно, чтобы снять обработчик, будет невозможно</li>
@@ -150,6 +83,10 @@ element.addEventListener("transitionend", function() {
 });
 </code></pre>
 
+<u-message-info>
+	Когда мы устанавливаем обработчик событий на объект <u-code-text>document</u-code-text>, мы всегда должны использовать метод <u-code-text>addEventListener</u-code-text>, а не <u>document.on&lt;событие&gt;</u>, т.к. в случае последнего могут возникать конфликты: новые обработчики будут перезаписывать уже существующие
+</u-message-info>
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Объект-обработчик: handleEvent в addEventListener</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -175,4 +112,73 @@ class Listener {
 
 const listener = new Listener();
 element.addEventListener('click', listener);
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Атрибут HTML</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="html">
+&lt;button onclick="alert('action')"&gt;Action&lt;/button&gt;
+&lt;button onclick="alert(&amp;quot;action&amp;quot;)"&gt;Использование двойных кавычек&lt;/button&gt;
+&lt;button onclick="alert(this.innerHTML)"&gt;Вывести содержимое&lt;/button&gt;
+&lt;button onclick="action()"&gt;Action&lt;/button&gt;
+</code></pre>
+
+<ul class="list-point">
+    <li>При создании обработчика браузером из атрибута, он автоматически создаёт функцию с телом из значения атрибута: action(). Разметка генерирует такое свойство:</li>
+</ul>
+
+<pre><code class="js">
+button.onclick = function() {
+	action(); // содержимое атрибута
+};
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. DOM-свойство</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Если обработчик задан через атрибут, то браузер читает HTML-разметку, создаёт новую функцию из содержимого атрибута и записывает в свойство <u>onclick</u></li>
+	<li>Обработчик хранится именно в <u>DOM-свойстве</u>, а атрибут – лишь один из способов его инициализации</li>
+	<li>Так как <u>DOM-свойство</u> <u>onclick</u>, в итоге, одно, то назначить более одного обработчика так нельзя</li>
+	<li>DOM-свойства чувствительны к регистру, поэтому необходимо использовать <u>elem.onclick</u> вместо <u>elem.ONCLICK</u></li>
+</ul>
+
+<pre><code class="html">
+&lt;button id="element"&gt;Action&lt;/button&gt;
+</code></pre>
+
+<pre><code class="js"><u-code-title>Назначение новой функции</u-code-title>
+element.onclick = function() {
+	alert(1);
+}
+</code></pre>
+
+<pre><code class="js"><u-code-title>Назначение существующей функции</u-code-title>
+element.onclick = action;
+
+function action() {
+	alert(1);
+}
+</code></pre>
+
+<pre><code class="js"><u-code-title>Удаление обработчика</u-code-title>
+element.onclick = null;
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>Особенности</h4>
+<!------------------------------------------------------------->
+<pre><code class="js">
+// при нажатии на body будут ошибки,
+// атрибуты всегда строки, и функция станет строкой
+document.body.setAttribute('onclick', function() { alert(1) });
+</code></pre>
+
+<pre><code class="js">
+element.onclick = function() { alert(1); }
+// заменит предыдущий обработчик
+element.onclick = function() { alert(2); }
 </code></pre>

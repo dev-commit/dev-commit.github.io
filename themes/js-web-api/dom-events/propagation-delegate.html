@@ -7,15 +7,6 @@
 	<li>Н-р, атрибут этого параметра data может хранить идентификатор для доступа к свойствам объекта</li>
 </ul>
 
-<iframe 
-	height="346"
-	style="width: 100%;" scrolling="no"
-	src="https://codepen.io/Sergeenkov/embed/BaaJXGz?height=346&theme-id=0&default-tab=js,result"
-	frameborder="no"
-	allowtransparency="true"
-	allowfullscreen="true">
-</iframe>
-
 <pre><code class="js">
 parentEl.addEventListener('click', function(e) {
 	if(e.target && e.target.nodeName == 'BUTTON') {
@@ -25,3 +16,79 @@ parentEl.addEventListener('click', function(e) {
 </code></pre>
 
 <img src="/img/dom/propagation/delegate1.png" width="350px">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример: Простое делегирование</h4>
+<!------------------------------------------------------------->
+<iframe 
+	height="346"
+	style="width: 100%;" scrolling="no"
+	src="https://codepen.io/Sergeenkov/embed/BaaJXGz?height=346&theme-id=0&default-tab=js,result"
+	frameborder="no"
+	allowtransparency="true"
+	allowfullscreen="true">
+</iframe>
+
+<!------------------------------------------------------------->
+<h4>Пример: Использование класса и data-attr</h4>
+<!------------------------------------------------------------->
+<iframe
+	height="423"
+	style="width: 100%;"
+	scrolling="no"
+	src="https://codepen.io/Sergeenkov/embed/bGGvpwg?height=423&theme-id=0&default-tab=js,result"
+	frameborder="no"
+	allowtransparency="true"
+	allowfullscreen="true">
+</iframe>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Приём проектирования «Поведение»</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Делегирование событий можно использовать для добавления элементам «поведения» (behavior), декларативно задавая хитрые обработчики установкой специальных HTML-атрибутов и классов</li>
+</ul>
+
+<ol class="list-num">
+	<b>Приём проектирования «поведение» состоит из двух частей:</b>
+	<li>Элементу ставится пользовательский атрибут, описывающий его поведение</li>
+	<li>При помощи делегирования ставится обработчик на документ, который ловит все клики (или другие события) и, если элемент имеет нужный атрибут – производит соответствующее действие</li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>Поведение: «Счётчик»</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Здесь HTML-атрибут data-counter добавляет кнопкам поведение: «увеличить значение при клике»</li>
+</ul>
+
+<iframe
+	height="245"
+	style="width: 100%;"
+	scrolling="no"
+	src="https://codepen.io/Sergeenkov/embed/mddxPxP?height=254&theme-id=0&default-tab=js,result"
+	frameborder="no"
+	allowtransparency="true"
+	allowfullscreen="true">
+</iframe>
+
+<!------------------------------------------------------------->
+<h4>Поведение: «Переключатель» (Toggler)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>При клике на элемент с атрибутом data-toggle-id будет скрываться/показываться элемент с заданным id</li>
+</ul>
+
+<iframe
+	height="277"
+	style="width: 100%;"
+	scrolling="no"
+	src="https://codepen.io/Sergeenkov/embed/LYYdNXY?height=277&theme-id=0&default-tab=js,result"
+	frameborder="no"
+	allowtransparency="true"
+	allowfullscreen="true">
+</iframe>
