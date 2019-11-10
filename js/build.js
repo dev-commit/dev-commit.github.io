@@ -403,11 +403,12 @@ var arrJsWebComponents = [
 //---------------------------------------------------------------------
 var arrJsObjects = [
     [1, 'Основное'],
-    ['js-objects', 'main', 'inheritance',   'Наследование'],
-    ['js-objects', 'main', 'new',           setTheme(1, ['new'])],
-    ['js-objects', 'main', 'prototype',     setTheme(1, ['__proto__', 'prototype'])],
-    ['js-objects', 'main', 'constructor',   setTheme(1, ['constructor'])],
-    ['js-objects', 'main', 'return',        setTheme(1, ['return'])],
+    ['js-objects', 'main', 'inheritance',   emoji.fire+'Наследование'],
+    ['js-objects', 'main', 'new',           emoji.clover+setTheme(1, ['new'])],
+    ['js-objects', 'main', 'new-target',    emoji.clover+setTheme(1, ['new.target'])],
+    ['js-objects', 'main', 'return',        emoji.clover+setTheme(1, ['return'])],
+    ['js-objects', 'main', 'prototype',     emoji.donut+setTheme(1, ['__proto__', 'prototype'])],
+    ['js-objects', 'main', 'constructor',   emoji.donut+setTheme(1, ['constructor'])],
 
     [1, 'Методы Objects'],
     ['js-objects', 'objects-methods', 'object-create',      setTheme(1, ['Object.create'])+' __proto__'],
@@ -423,32 +424,32 @@ var arrJsObjects = [
     ['js-objects', 'objects',         'extends',            'Расширяемость объектов'],
 
     [1, 'Объекты ES6+'],
-    ['js-objects', 'objects', 'info',             'Теория'],
-    ['js-objects', 'objects', 'literal-notation', 'Литеральная нотация'],
+    ['js-objects', 'objects', 'info',             emoji.theory+'Теория'],
+    ['js-objects', 'objects', 'literal-notation', emoji.boom+'Литеральная нотация'],
     ['js-objects', 'objects', 'constructor',      'Конструктор создания объекта'],
     ['js-objects', 'objects', 'prototype',        'Прототип'],
     ['js-objects', 'objects', 'conversion',       '<u-menu>toString</u-menu> <u-menu>valueOf</u-menu>'],
     ['js-objects', 'objects', 'samples',          'Примеры'],
 
     [1, 'Классы ES6+'],
-    ['js-objects', 'class-es6', 'info',             'Теория'],
-    ['js-objects', 'class-es6', 'create',           'Объявление'],
-    ['js-objects', 'class-es6', 'inherit',          'Наследование'],
+    ['js-objects', 'class-es6', 'info',             emoji.theory+'Теория'],
+    ['js-objects', 'class-es6', 'create',           emoji.fire+'Объявление'],
+    ['js-objects', 'class-es6', 'inherit',          emoji.fire+'Наследование'],
     ['js-objects', 'class-es6', 'class-properties', 'Свойства классов'],
     ['js-objects', 'class-es6', 'expression',       'Выражения классов'],
 
     [1, 'Классы ES5 «Функциональный стиль»'],
-    ['js-objects', 'class-es5-functional', 'info',                'Теория'],
-    ['js-objects', 'class-es5-functional', 'create',              'Объявление'],
-    ['js-objects', 'class-es5-functional', 'methods-private',     'Приватный метод'],
-    ['js-objects', 'class-es5-functional', 'getters-and-setters', 'Геттеры и сеттеры'],
-    ['js-objects', 'class-es5-functional', 'inherit',             'Наследование'],
+    ['js-objects', 'class-es5-functional', 'info',                emoji.theory+'Теория'],
+    ['js-objects', 'class-es5-functional', 'create',              emoji.pizza+'Объявление'],
+    ['js-objects', 'class-es5-functional', 'methods-private',     emoji.pizza+'Приватный метод'],
+    ['js-objects', 'class-es5-functional', 'getters-and-setters', emoji.pizza+'Геттеры и сеттеры'],
+    ['js-objects', 'class-es5-functional', 'inherit',             emoji.pizza+'Наследование'],
 
     [1, 'Классы ES5 «Прототипный стиль»'],
-    ['js-objects', 'class-es5-prototype', 'info',        'Теория'],
-    ['js-objects', 'class-es5-prototype', 'methods',     'Добавление методов'],
-    ['js-objects', 'class-es5-prototype', 'inherit',     'Наследование классов'],
-    ['js-objects', 'class-es5-prototype', 'mixins',      'Примеси'],
+    ['js-objects', 'class-es5-prototype', 'info',        emoji.theory+'Теория'],
+    ['js-objects', 'class-es5-prototype', 'methods',     emoji.cookie+'Добавление методов'],
+    ['js-objects', 'class-es5-prototype', 'inherit',     emoji.cookie+'Наследование классов'],
+    ['js-objects', 'class-es5-prototype', 'mixins',      emoji.cookie+'Примеси'],
 ];
 
 
@@ -895,6 +896,7 @@ var arrCSS = [
 
     [1, 'Основное'],
     ['css', 'main', 'info',              'Информация'],
+    ['css', 'main', 'rrggbbaa',           'rrggbbaa'],
     ['css', 'main', 'custom-properties', 'Custom Properties'],
     ['css', 'main', 'mixins',            'Native CSS Mixins'],
     ['css', 'main', 'import',            '@import'],
@@ -912,8 +914,6 @@ var arrCSS = [
     ['css', 'main', 'background',        'Background'],
     ['css', 'main', 'lists',             'Списки'],
     ['css', 'main', 'samples',           'Примеры'],
-
-
 
     [1, 'Графика'],
     ['css', 'graphics', 'blend-mode',      'CSS Blend Modes'],

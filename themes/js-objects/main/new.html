@@ -41,3 +41,53 @@ return constructorReturns instanceof Object ? constructorReturns : instance;
 
 </ol>
 
+
+<hr>
+<hr>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функция-конструктор</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js"><u-code-title>js</u-code-title>
+function User(name) {
+	this.name = name;
+	this.isAdmin = false;
+}
+
+let user = new User("Вася");
+
+alert(user.name); // Вася
+alert(user.isAdmin); // false
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Вызов через функции через new User(...)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+	<li>Создаётся новый пустой объект, и он присваивается <u-code-text>this</u-code-text></li>
+	<li>Выполняется код функции. Обычно он модифицирует <u-code-text>this</u-code-text>, добавляет туда новые свойства</li>
+	<li>Возвращается значение <u-code-text>this</u-code-text></li>
+</ol>
+
+<pre><code class="js">
+function User(name) {
+	// this = {};  (неявно)
+
+	// добавляет свойства к this
+	this.name = name;
+	this.isAdmin = false;
+
+	// return this;  (неявно)
+}
+</code></pre>
+
+<pre><code class="js">
+// То есть, результат вызова new User("Вася") – это тот же объект, что и:
+let user = {
+	name: "Вася",
+	isAdmin: false
+};
+</code></pre>
+
