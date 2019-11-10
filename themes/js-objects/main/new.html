@@ -46,6 +46,26 @@ return constructorReturns instanceof Object ? constructorReturns : instance;
 <hr>
 
 
+<ul class="list-point">
+    <li>1. Прототип нового объекта, порождаемого конструктором <u-code-text>Constr</u-code-text> — это <u-code-text>Constr.prototype</u-code-text></li>
+    <li>2. В реализации конструктора можно переопределить стандартное поведение, когда оператор <u-code-text>new</u-code-text> возвращает <u-code-text>this</u-code-text>, возвращая объект. Это может быть полезным, когда конструктор должен вернуть инстанс суб-конструктора</li>
+</ul>
+
+<pre><code class="js">
+function newOperator(Constr, args) {
+	var thisValue = Object.create(Constr.prototype); // (1)
+	var result = Constr.apply(thisValue, args);
+	if (typeof result === 'object' && result !== null) {
+		return result; // (2)
+	}
+	return thisValue;
+}
+</code></pre>
+
+
+<hr>
+<hr>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Функция-конструктор</h3>
@@ -63,7 +83,7 @@ alert(user.isAdmin); // false
 </code></pre>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Вызов через функции через new User(...)</h3>
+<h3>Вызов функции через new User(...)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ol class="list-num">
 	<li>Создаётся новый пустой объект, и он присваивается <u-code-text>this</u-code-text></li>
@@ -91,3 +111,14 @@ let user = {
 };
 </code></pre>
 
+<hr>
+<hr>
+
+<pre><code class="js">
+// new
+1. {} создание пустого объекта
+2. .apply({}) -> this.apply
+3. берет .prototype и добавляет как прототип к новому объекту
+__proto__ = superFunc.prototype
+4. (typeof result != Object) ? {} : result 
+</code></pre>
