@@ -46,14 +46,19 @@ useEffect(() => {
 </code></pre>
 
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>async await</h3>
+<h3>Переписывание на Хуки</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>async await</h4>
+<!------------------------------------------------------------->
 <v-two-code type="js;js" comment="useEffect;componentDidMount">
 <template v-slot:first>
 useEffect(() => {
     (async () => {
-        const sourcesData = await getSources();
+        await myAsyncFunction();
         myFunction();
     })();
 }, []);
@@ -62,6 +67,63 @@ useEffect(() => {
 async componentDidMount() {
     await myAsyncFunction();
     myFunction();
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>getDerivedStateFromProps</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="useEffect;getDerivedStateFromProps">
+<template v-slot:first>
+const CompanySelect = ({ company }: Props) => {
+    const [value, setValue] = useState(null);
+
+    useEffect(() => {
+        if (company && isNil(value)) {
+            setValue(company);
+        }
+    });
+};
+</template>
+<template v-slot:last>
+type State = { value: ?string }
+type Props = { company: string }
+
+class CompanySelect extends PureComponent&lt;Props, State&gt; {
+    state = { value: null };
+
+    static getDerivedStateFromProps(nextProps: Props, prevState: State) {
+        if (nextProps.company && isNil(prevState.value)) {
+            return {
+                value: nextProps.company,
+            };
+        }
+
+        return null;
+    }
+}
+</template>
+</v-two-code>
+
+<hr>
+
+<v-two-code type="js;js" comment="useEffect;getDerivedStateFromProps">
+<template v-slot:first>
+useEffect(() => {
+    if (!isEditRow) {
+        setTypesActivityState(typesActivity);
+    }
+});
+</template>
+<template v-slot:last>
+static getDerivedStateFromProps(nextProps, prevState) {
+    if (!prevState.isEditRow) {
+        return {
+            typesActivity: nextProps.typesActivity,
+        };
+    }
+    return null;
 }
 </template>
 </v-two-code>
