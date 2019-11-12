@@ -39,3 +39,14 @@ function my(x: '1' | '2') {}       // может передаваться '1' и
 function my(x: number | string) {} // может передаваться number или string
 </code></pre>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Несколько типов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js">
+type PropsOne = {
+	values: Object,
+}
+type PropsTwo = {
+	valuesNew: Object,
+} & PropsOne;
+</code></pre>
