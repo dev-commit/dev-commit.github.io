@@ -95,6 +95,30 @@ const Child = <u-code>React.forwardRef</u-code>((props, ref) =&gt; (
 </v-two-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример на useRef</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="js red">
+const Component = () =&gt; {
+    const valueRef = useRef(null);
+
+    const handleClick = () =&gt; {
+		// flow будет ругаться на несоответствие типов null и dom-узел
+		const value = valueRef.current.querySelector('input').value;
+    };
+
+    return (
+		&lt;&gt;
+			&lt;div ref={valueRef}&gt;
+				&lt;input type='text' value='Some message' /&gt;
+			&lt;/div&gt;
+
+			&lt;button onClick={handleClick}&gt;Click&lt;/button&gt;
+		&lt;/&gt;
+    );
+};
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Перенаправление рефов</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
