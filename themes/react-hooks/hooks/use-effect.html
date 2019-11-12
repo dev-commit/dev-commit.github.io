@@ -53,7 +53,7 @@ useEffect(() => {
 <template v-slot:first>
 useEffect(() => {
     (async () => {
-        await myAsyncFunction();
+        const sourcesData = await getSources();
         myFunction();
     })();
 }, []);
