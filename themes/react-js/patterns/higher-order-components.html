@@ -30,28 +30,6 @@
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Структура</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-
-<pre><code class="js border">
-// WrappedComponent - оборачиваемый компонент
-// EnhancedComponent - компонент, обернутый в HOC 
-
-const hoc = (Wrapped) =&gt; {
-    return class extends Component {
-        render() {
-            return &lt;Wrapped {...this.props} /&gt;
-        } 
-    }
-}
-const EnhancedComponent = hoc(WrappedComponent);
-
-// SelectData - функция, которая извлекает нужные данные
-const EnhancedComponent = hoc(WrappedComponent, SelectData);
-</code></pre>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
@@ -65,13 +43,15 @@ const EnhancedComponent = hoc(WrappedComponent, SelectData);
     <li><u>App</u> - отвечает за отображение. <u>withData</u> - отвечает за логику, можно вынести в отдельный файл и переиспользовать</li>
 </ul>
 
-<pre><code class="js">
+<pre><code class="js border">
+// Оборачиваемый компонент
 class App extends Component {
     render() {
       return &lt;h1&gt;Hello&lt;/h1&gt;
     }
 }
 
+// Higher-Order Component
 const withData = (Wrapped) =&gt; {
     return class extends Component {
         render() {
@@ -79,6 +59,11 @@ const withData = (Wrapped) =&gt; {
         } 
     }
 }
+
+// Компонент, обернутый в HOC
+const EnhancedComponent = withData(App);
+
+// Компонент, обернутый в HOC (на экспорт)
 export default withData(App);
 </code></pre>
 
