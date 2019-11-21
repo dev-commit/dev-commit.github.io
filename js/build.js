@@ -515,7 +515,6 @@ var arrGit = [
     ['git', 'usecase', 'squash-commit',     'Squash Commit'],
     ['git', 'usecase', 'resolve-conflists', 'Разрешение конфликтов merge'],
     ['git', 'usecase', 'reset-changes',     'Отмена изменений'],
-    ['git', 'usecase', 'checkout-branch',   'Сменить ветку без коммита'],
 
     [1, 'Команды Основные'],
     ['git', 'command',  'init',         setTheme(1, ['init'])],
@@ -529,6 +528,7 @@ var arrGit = [
     ['git', 'command',  'checkout',     setTheme(1, ['checkout'])],
     ['git', 'command',  'merge',        setTheme(1, ['merge'])],
     ['git', 'command',  'rebase',       setTheme(1, ['rebase'])],
+    ['git', 'command',  'stash',        setTheme(1, ['stash'])],
     ['git', 'command',  'cherry-pick',  setTheme(1, ['cherry-pick'])],
     ['git', 'command',  'revert',       setTheme(1, ['revert'])],
 
