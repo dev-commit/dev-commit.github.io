@@ -113,21 +113,3 @@ let a = document.body.style.color; // rgb(170, 187, 204)
     <li>getComputedStyle не дает доступ к этой информации, чтобы произвольная страница не могла определить, посещал ли пользователь ту или иную ссылку</li>
     <li>Кроме того, большинство браузеров запрещают применять к :visited CSS-стили, которые могут изменить геометрию элемента, чтобы даже окольным путем нельзя было это понять. В целях безопасности</li>
 </ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Custom Properties JS</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="css">
-:root {
-	--color: #ffeead;
-}
-</code></pre>
-
-<pre><code class="js">
-var root = document.querySelector(':root');
-var rootStyles = <u-code>getComputedStyle</u-code>(root);
-var color = rootStyles.<u-code>getPropertyValue</u-code>('--color');
-console.log(color); // '#ffeead'
-
-root.style.<u-code>setProperty</u-code>('--color', '#88d8b0');
-</code></pre>

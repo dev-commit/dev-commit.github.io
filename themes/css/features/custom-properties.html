@@ -4,6 +4,10 @@
     <a href="https://github.com/jhildenbiddle/css-vars-ponyfill" target="_blank">css-vars-ponyfill</a>
 </u-link-wrapper>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
 <!------------------------------------------------------------->
 <h4>1. Определение переменных</h4>
 <!------------------------------------------------------------->
@@ -71,3 +75,66 @@ body {
     :root { --color: yellowgreen; }
 }
 </code></pre>
+
+<!------------------------------------------------------------->
+<h4>6. Переменные в SVG</h4>
+<!------------------------------------------------------------->
+<pre><code class="html"><u-code-title>html</u-code-title>
+&lt;svg height="100" width="100"&gt;
+    &lt;circle cx="50" cy="50" r="50" fill="var(--color)" /&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<pre><code class="css"><u-code-title>css</u-code-title>
+:root {
+    --color: yellowgreen;
+}
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Custom Properties JS</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="css"><u-code-title>css</u-code-title>
+:root {
+    --color: #ffeead;
+}
+</code></pre>
+
+<pre><code class="js"><u-code-title>js</u-code-title>
+var root = document.querySelector(':root');
+var rootStyles = <u-code>getComputedStyle</u-code>(root);
+var color = rootStyles.<u-code>getPropertyValue</u-code>('--color');
+console.log(color); // '#ffeead'
+
+root.style.<u-code>setProperty</u-code>('--color', '#88d8b0');
+</code></pre>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Проверка поддержки переменных</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. CSS</h4>
+<!------------------------------------------------------------->
+<pre><code class="css"><u-code-title>css</u-code-title>
+@supports ( (--a: 0) ) {
+    /* стили с поддержкой переменных */
+}
+@supports ( not (--a: 0) ) {
+    /* стили без поддержки переменных */
+}
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>2. JavaScript</h4>
+<!------------------------------------------------------------->
+<pre><code class="js"><u-code-title>js</u-code-title>
+if (window.CSS && window.CSS.supports && window.CSS.supports('--a', 0)) {
+    // сценарии с поддержкой переменных
+} else {
+    // сценарии без поддержки переменных
+}
+</code></pre>
+
