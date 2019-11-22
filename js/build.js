@@ -914,6 +914,7 @@ var arrCSS = [
     ['css', 'graphics', 'css-masking',        emoji.donut+'CSS Masking'],
 
     [1, 'Основное'],
+    ['css', 'main', 'viewport',               setTheme(1, ['vw', 'vh', 'vmin', 'vmax'])],
     ['css', 'main', 'import',                 setTheme(1, ['@import'])],
     ['css', 'main', 'supports',               setTheme(1, ['@supports'])],
     ['css', 'main', 'shadow',                 setTheme(1, ['box-shadow', 'text-shadow'])],
@@ -925,8 +926,7 @@ var arrCSS = [
 
     ['css', 'main', 'info',                   'Информация'],
     ['css', 'main', 'px',                     'Единицы измерения'],
-    ['css', 'main', 'font',                   'Font / Text'],
-    ['css', 'main', 'viewport',               'Viewport width / height'],
+    ['css', 'main', 'font',                   'Текст'],
     ['css', 'main', 'samples',                'Примеры'],
 ];
 

@@ -5,19 +5,19 @@
 </u-link-wrapper>
 
 <!------------------------------------------------------------->
-<h4>Root-level custom properties</h4>
+<h4>1. Определение переменных</h4>
 <!------------------------------------------------------------->
 <pre><code class="css">
 :root {
-    --color:green;
+    --color: green;
 }
 body {
-    background: var(--color);
+    background-color: var(--color);
 }
 </code></pre>
 
 <!------------------------------------------------------------->
-<h4>Custom properties referencing custom properties</h4>
+<h4>2. Привязка переменных</h4>
 <!------------------------------------------------------------->
 <pre><code class="css">
 :root {
@@ -25,30 +25,49 @@ body {
     --b: var(--c);
     --c: red;
 }
-p {
-    color: var(--a);
+body {
+    background-color: var(--a);
 }
 </code></pre>
 
 <!------------------------------------------------------------->
-<h4>Complex values with custom properties</h4>
+<h4>3. Локальный fallback</h4>
+<!------------------------------------------------------------->
+<pre><code class="css">
+:root {
+    --color: blue;
+}
+body {
+    background-color: var(--color, green);
+    font-size: var(--a, 1rem);
+    color: var(--b, var(--c, var(--d, red)));
+}
+</code></pre>
+
+<!------------------------------------------------------------->
+<h4>4. Переменные в calc()</h4>
 <!------------------------------------------------------------->
 <pre><code class="css">
 :root {
     --a: 1em;
     --b: 2;
 }
-p {
+body {
     font-size: calc(var(--a) * var(--b));
 }
 </code></pre>
 
 <!------------------------------------------------------------->
-<h4>Fallback values</h4>
+<h4>5. Переопределение переменной в @media</h4>
 <!------------------------------------------------------------->
 <pre><code class="css">
-p {
-    font-size: var(--a, 1rem);
-    color: var(--b, var(--c, var(--d, red)));
+:root {
+    --color: blue;
+}
+body {
+    background-color: var(--color);
+}
+@media (max-width: 700px) {
+    :root { --color: yellowgreen; }
 }
 </code></pre>
