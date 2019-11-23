@@ -891,7 +891,8 @@ var arrCSS = [
 
     [1, 'Features'],
     ['css', 'features', 'custom-properties',  emoji.fire+'Custom Properties'],
-    ['css', 'features', 'mixins',             emoji.fire+'Native CSS Mixins'],
+    ['css', 'features', 'mixins',             emoji.fire+'@apply'],
+    ['css', 'features', 'custom-selector',    emoji.fire+'@custom-selector'],
     ['css', 'features', 'rrggbbaa',           emoji.fire+'RR-GG-BB-AA'],
 
     [1, 'Layout'],

@@ -93,21 +93,24 @@ body {
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Custom Properties JS</h3>
+<h3>API CSS Style Declaration</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="css"><u-code-title>css</u-code-title>
 :root {
     --color: #ffeead;
+    --anotherColor: orange;
 }
 </code></pre>
 
 <pre><code class="js"><u-code-title>js</u-code-title>
-var root = document.querySelector(':root');
-var rootStyles = <u-code>getComputedStyle</u-code>(root);
-var color = rootStyles.<u-code>getPropertyValue</u-code>('--color');
-console.log(color); // '#ffeead'
+const root = document.querySelector(':root');
+
+const rootStyles = <u-code>getComputedStyle</u-code>(root);
+const color = rootStyles.<u-code>getPropertyValue</u-code>('--color'); // => '#ffeead'
 
 root.style.<u-code>setProperty</u-code>('--color', '#88d8b0');
+root.style.<u-code>setProperty</u-code>('--color', 'var(--anotherColor, blue)');
+root.style.<u-code>removeProperty</u-code>('--color');
 </code></pre>
 
 
@@ -138,3 +141,23 @@ if (window.CSS && window.CSS.supports && window.CSS.supports('--a', 0)) {
 }
 </code></pre>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ограничения переменных</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><b>Нельзя использовать:</b></li>
+    <ul class="list-point">
+        <li>В именах обычных свойств CSS: <u>var(--side): 10px</u></li>
+        <li>В значениях медиа-запросов: <u>@media screen and (min-width: var(--desktop)) {}</u></li>
+        <li>В подстановке URL: <u>url(var(--image))</u></li>
+    </ul>
+    <hr>
+    <li><b>Быть осторожным с вычислениями <u>calc()</u></b></li>
+    <ul class="list-point">
+        <li>Со сложными вычислениями</li>
+        <li>В Chrome с уможением/делением дробных значений</li>
+        <li>В Firefox с вычислениями внутри функции rgba()</li>
+    </ul>
+    <hr>
+    <li>Нельзя одномоментно сбрасывать значения всех переменных <u>--: initial</u></li>
+</ul>
