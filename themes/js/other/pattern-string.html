@@ -1,5 +1,8 @@
 <h2>Шаблонные строки (ES6)</h2>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 var a = `
 	первая строка
@@ -7,14 +10,20 @@ var a = `
 `;
 </code></pre>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Интерполяция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 var a = 'text'; 
 var b = `строка текста ${a} строка текста`;
 </code></pre>
 
-<h3>Тегирование</h3>
-Изменение вида шаблонов при помощи функций
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Tagged Templates</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Тегирование - изменение вида шаблонов при помощи функций</li>
+</ul>
 
 <pre><code class="js">
 var name = 'Tony';
@@ -26,3 +35,16 @@ function upperName(literals, value) {
 	return literals[0] + value.toUpperCase();
 }
 </code></pre>
+
+<pre><code class="js">
+const template = (strings, ...values) =&gt; {
+	console.log(strings);
+	console.log(values);
+};
+
+const text = 'abc';
+template `&lt;div&gt;${text}&lt;/div&gt;`;
+// =&gt; ["&lt;div&gt;", "&lt;/div&gt;"]
+// =&gt; ["abc"]
+</code></pre>
+
