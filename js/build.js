@@ -924,10 +924,15 @@ var arrCSS = [
     ['css', 'main', 'position',               setTheme(1, ['position'])],,
     ['css', 'main', 'background',             setTheme(1, ['background'])],
     ['css', 'main', 'lists',                  setTheme(1, ['ul', 'ol'])],
+    ['css', 'main', 'calc',                   setTheme(1, ['calc()'])],
+    ['css', 'main', 'linear-gradient',        setTheme(1, ['linear-gradient'])],
+    ['css', 'main', 'scrollbar',              setTheme(1, ['::-webkit-scrollbar'])],
 
     ['css', 'main', 'info',                   'Информация'],
+    ['css', 'main', 'actions',                'События браузера'],
     ['css', 'main', 'px',                     'Единицы измерения'],
     ['css', 'main', 'font',                   'Текст'],
+    ['css', 'main', 'pixel-perfect',          'Pixel Perfect'],
     ['css', 'main', 'samples',                'Примеры'],
 ];
 
