@@ -862,6 +862,7 @@ var arrCanvas = [
 var arrHTML = [
     [1, 'Основное'],
     ['html', 'main', 'info',            'Информация'],
+    ['html', 'main', 'semantics',       'Семантика'],
     ['html', 'main', 'content-model',   'Content Model'],
     ['html', 'main', 'custom-elements', 'Custom Elements'],
     ['html', 'main', 'html5-layout',    'Теги HTML5 Layout'],
