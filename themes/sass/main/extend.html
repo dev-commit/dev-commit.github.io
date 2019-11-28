@@ -1,9 +1,7 @@
 <h2>Наследование (@extend)</h2>
 
-<div class="container-flex">
-<div class="container-half">
-<pre>
-<code class="css">
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
 .error {
 	border: 1px solid #f00;
 	background-color: #fdd;
@@ -12,55 +10,39 @@
 	@extend .error;
 	border-width: 3px;
 }
-</code>
-</pre>
-</div>
-<div class="container-half">
-<pre>
-<code class="css">
+</template>
+<template v-slot:last>
 .error, .criticalError {
 	border: 1px solid #f00;
 	background-color: #fdd;
 }
 .criticalError {
 	border-width: 3px;
-}<br>
-</code>
-</pre>
-</div>
-</div>
+}
+</template>
+</v-two-code>
 
-
-<div class="container-flex">
-<div class="container-half">
-<pre>
-<code class="css">
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
 .hoverlink {
 	@extend a:hover;
 }
 a:hover {
 	text-decoration: underline;
 }
-</code>
-</pre>
-</div>
-<div class="container-half">
-<pre>
-<code class="css">
+</template>
+<template v-slot:last>
 a:hover, .hoverlink {
 	text-decoration: underline;
-}<br><br><br>
-</code>
-</pre>
-</div>
-</div>
+}
+</template>
+</v-two-code>
 
-
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Селекторы-шаблоны</h3>
-<div class="container-flex">
-<div class="container-half">
-<pre>
-<code class="css">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
 %item-base {
 	color: green;
 }
@@ -72,12 +54,8 @@ a:hover, .hoverlink {
 	@extend %item-base;
 	margin: 20px;
 }
-</code>
-</pre>
-</div>
-<div class="container-half">
-<pre>
-<code class="css">
+</template>
+<template v-slot:last>
 .item1, .item2 {
 	color: green;
 }
@@ -86,8 +64,6 @@ a:hover, .hoverlink {
 }
 .item2 {
 	margin: 20px;
-}<br><br>
-</code>
-</pre>
-</div>
-</div>
+}
+</template>
+</v-two-code>

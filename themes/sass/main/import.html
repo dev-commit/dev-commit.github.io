@@ -1,59 +1,47 @@
 <h2>Импорт других SASS файлов (@import)</h2>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Сконвертируется в css как @import если</h3>
-<pre>
-<code class="js">
-1. Расширение css
-2. Media-параметры
-3. Присутствует http
-4. Присутствует url
-</code>
-</pre>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Расширение css</li>
+    <li>Media-параметры</li>
+    <li>Присутствует http</li>
+    <li>Присутствует url</li>
+</ul>
 
-<div class="container-flex">
-<div class="container-half">
-<pre>
-<code class="html">
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
 @import "main.css";
 @import "main" screen;
 @import "http://foo.com/main";
 @import url(main);
-</code>
-</pre>
-</div>
-<div class="container-half">
-<pre>
-<code class="html">
+</template>
+<template v-slot:last>
 @import url(main.css);
 @import "main" screen;
 @import "http://foo.com/main";
 @import url(main);
-</code>
-</pre>
-</div>
-</div>
+</template>
+</v-two-code>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Импортируется в sass файл если</h3>
-<pre>
-<code class="css">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="css">
 1. Расширение sass                           @import "main.sass";
 2. Расширение scss                           @import "main.scss";
 3. Файлы css (main.css)                      @import "main";
 4. Файлы-фрагмены (_main.sass / _main.scss)  @import "main";
-</code>
-</pre>
+</code></pre>
 
-<pre>
-<code class="css">
+<pre><code class="css">
 @import "example.scss";
 @import "example1", "example2";
-</code>
-</pre>
+</code></pre>
 
-<div class="container-flex">
-<div class="container-half">
-<pre>
-<code class="css">
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
 /* файл example.scss */
 .example {
 	color: green;
@@ -62,17 +50,12 @@
 #main {
 	@import "example";
 }
-</code>
-</pre>
-</div>
-<div class="container-half">
-<pre>
-<code class="css">
+</template>
+<template v-slot:last>
 /* файл style.css */
 #main .example {
 	color: green;
-}<br><br><br><br>
-</code>
-</pre>
-</div>
-</div>
+}
+</template>
+</v-two-code>
+

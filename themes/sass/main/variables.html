@@ -1,38 +1,31 @@
 <h2>Переменные (SassScript)</h2>
 
-<div class="container-flex">
-<div class="container-half">
-
-<pre>
-<code class="css">
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
 $width: 1000px;
 $bg-color: green;
 #main {
 	width: $width;
 	background-color: $bg-color;
 }
-</code>
-</pre>
-
-</div>
-<div class="container-half">
-<pre>
-<code class="css">
+</template>
+<template v-slot:last>
 #main {
 	width: 1000px;
 	background-color: green;
 }
-<br>
-</code>
-</pre>
-</div>
-</div>
+</template>
+</v-two-code>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Вложенность переменных</h3>
-Переменная доступна только на текущем уровне вложенности,
-чтобы была видна везде, дописать !global
-<pre>
-<code class="js">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Переменная доступна только на текущем уровне вложенности, чтобы была видна везде, дописать <u-code-text>!global</u-code-text></li>
+</ul>
+
+<pre><code class="js">
 $bg-color: green !global;
-</code>
-</pre>
+</code></pre>
+
+

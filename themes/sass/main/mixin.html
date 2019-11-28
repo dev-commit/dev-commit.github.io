@@ -1,10 +1,11 @@
 <h2>Миксины, примеси (@mixin)</h2>
 
-Позволяют сделать блок стилей, который может быть использован повторно в любом месте документа
-<div class="container-flex">
-<div class="container-half">
-<pre>
-<code class="css">
+<ul class="list-point">
+    <li><u>Миксины</u> - позволяют сделать блок стилей, который может быть использован повторно в любом месте документа</li>
+</ul>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
 @mixin large-text {
 	font:{
 		family: Arial;
@@ -16,40 +17,32 @@
 p {
 	@include large-text;
 }
-</code>
-</pre>
-</div>
-<div class="container-half">
-<pre>
-<code class="css">
+</template>
+<template v-slot:last>
 p {
 	font-family: Arial;
 	font-size: 30px;
 	font-weight: bold;
 	color: red;
 }
-<br><br><br><br>
-</code>
-</pre>
-</div>
-</div>
+</template>
+</v-two-code>
 
-
-Миксины можно подключать друг в друга
-<pre>
-<code class="css">
+<!------------------------------------------------------------->
+<h4>Миксины можно подключать друг в друга</h4>
+<!------------------------------------------------------------->
+<pre><code class="css">
 @mixin large-text {
 	...
 	@include small-text;
 }
-</code>
-</pre>
+</code></pre>
 
-Миксины могут принимать аргументы, которые передаются при подключении миксина
-<div class="container-flex">
-<div class="container-half">
-<pre>
-<code class="css">
+<!------------------------------------------------------------->
+<h4>Миксины могут принимать аргументы, которые передаются при подключении миксина</h4>
+<!------------------------------------------------------------->
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
 @mixin my-border($color, $width) {
 	border:{
 		color:$color;
@@ -60,26 +53,20 @@ p {
 p {
 	@include my-border(red, 2px);
 }
-</code>
-</pre>
-</div>
-<div class="container-half">
-<pre>
-<code class="css">
+</template>
+<template v-slot:last>
 p {
 	border-color: red;
 	border-width: 2px;
 	border-style: dashed;
-}<br><br><br><br><br>
-</code>
-</pre>
-</div>
-</div>
+}
+</template>
+</v-two-code>
 
-
-Значение аргумента по умолчанию
-<pre>
-<code class="css">
+<!------------------------------------------------------------->
+<h4>Значение аргумента по умолчанию</h4>
+<!------------------------------------------------------------->
+<pre><code class="css">
 @mixin my-border($color, $width:10px) {
 	border:{
 		color:$color;
@@ -90,5 +77,5 @@ p {
 p {
 	@include my-border(red);
 }
-</code>
-</pre>
+</code></pre>
+

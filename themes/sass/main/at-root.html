@@ -1,41 +1,31 @@
 <h2>Директива @at-root</h2>
 
-<p>Изымает одно или несколько правил из родительского селектора в корневой уровень документа.
-Можно использовать с селекторами первого уровня вложенности.</p>
-<p>Поднимает содержимые в ней правила в корень, отменяя цепочку от родителя</p>
+<ul class="list-point">
+    <li>Изымает одно или несколько правил из родительского селектора в корневой уровень документа. Можно использовать с селекторами первого уровня вложенности</li>
+    <li>Поднимает содержимые в ней правила в корень, отменяя цепочку от родителя</li>
+</ul>
 
-<div class="container-flex">
-<div class="container-half">
-<pre>
-<code class="css">
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
 .parent {
 	color: red;
 		@at-root .child{
 			color: green;
 		}
 }
-</code>
-</pre>
-</div>
-<div class="container-half">
-<pre>
-<code class="css">
+</template>
+<template v-slot:last>
 .parent {
 	color: red;
 }
 .child {
 	color: green;
 }
-</code>
-</pre>
-</div>
-</div>
+</template>
+</v-two-code>
 
-
-<div class="container-flex">
-<div class="container-half">
-<pre>
-<code class="css">
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
 .parent {
 	color: red;
 		@at-root {
@@ -47,12 +37,8 @@
 			}
 		}
 }
-</code>
-</pre>
-</div>
-<div class="container-half">
-<pre>
-<code class="css">
+</template>
+<template v-slot:last>
 .parent {
 	color: red;
 }
@@ -61,9 +47,6 @@
 }
 .child2 {
 	color: orange;
-}<br><br>
-</code>
-</pre>
-</div>
-</div>
-
+}
+</template>
+</v-two-code>
