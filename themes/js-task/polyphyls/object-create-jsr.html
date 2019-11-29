@@ -1,8 +1,12 @@
 <h2>Polyfill Object.create (JSR)</h2>
 
-<h4>Learn.Javascript.Ru</h4>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Learn.Javascript.Ru</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<!------------------------------------------------------------->
 <h4>Исходный Object.create()</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 var objFirst = {
     name: 'Tony'
@@ -10,7 +14,9 @@ var objFirst = {
 var objSecond = Object.create(objFirst); // => {} __proto__: name: "Tony"
 </code></pre>
 
+<!------------------------------------------------------------->
 <h4>Полифил</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 var objFirst = {
     name: 'Tony'
@@ -27,7 +33,9 @@ function inherit(proto) {
 }
 </code></pre>
 
+<!------------------------------------------------------------->
 <h4>Короткая запись</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 if (!Object.create) {
 	Object.create = function(proto) {

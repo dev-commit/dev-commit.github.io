@@ -3,7 +3,10 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Пример наследования</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
 <h4>1. Задание классов и прототипов</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 function User() {
 	this.userName = 'userName';
@@ -19,18 +22,24 @@ function Admin() {
 }
 </code></pre>
 
+<!------------------------------------------------------------->
 <h4>2. Наследование. В прототип Admin добавлили всё из прототипа User</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 <u-code>Admin.prototype = Object.create(User.prototype);</u-code>
 var admin = new Admin();
 </code></pre>
 
+<!------------------------------------------------------------->
 <h4>2. Наследование. Без добавления в прототип Admin (результат аналогичен)</h4>
+<!------------------------------------------------------------->
 <pre><code class="js red">
 var admin = Object.setPrototypeOf(new Admin(), User.prototype);
 </code></pre>
 
+<!------------------------------------------------------------->
 <h4>3. Добавление методов к Admin.prototype (при необходимости)</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 // добавлять после <u-code>Admin.prototype = Object.create(User.prototype)</u-code> чтобы не перетерло
 Admin.prototype.adminFunc = function() {
@@ -38,14 +47,18 @@ Admin.prototype.adminFunc = function() {
 }
 </code></pre>
 
+<!------------------------------------------------------------->
 <h4>4. Переопределение метода родителя (при необходимости)</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 Admin.prototype.userFunc = function() {
 	alert('not userFunc');
 }
 </code></pre>
 
+<!------------------------------------------------------------->
 <h4>5. Вызов метода родителя внутри своего (при необходимости)</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 Admin.prototype.adminUserFunc = function() {
 	// вызвать метод родителя передав ему текущие аргументы
@@ -54,7 +67,9 @@ Admin.prototype.adminUserFunc = function() {
 }
 </code></pre>
 
+<!------------------------------------------------------------->
 <h4>6. Обращение к методам и свойствам</h4>
+<!------------------------------------------------------------->
 <pre><code class="js">
 admin.userFunc(); // => alert('userFunc')
 admin.userProp;   // => 'userProp'

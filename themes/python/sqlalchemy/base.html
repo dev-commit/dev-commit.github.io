@@ -35,7 +35,9 @@ print (sqlalchemy.__version__) # посмотреть версию SQLALchemy
 <h3>Работа с БД</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<!------------------------------------------------------------->
 <h4>Connect</h4>
+<!------------------------------------------------------------->
 <pre>
 <code class="python">
 from sqlalchemy import create_engine
@@ -47,7 +49,9 @@ engine = create_engine('mysql+pymysql://root:123@localhost/motmom')
 </code>
 </pre>
 
+<!------------------------------------------------------------->
 <h4>Declarative creation of a table, class</h4>
+<!------------------------------------------------------------->
 <pre>
 <code class="js">
 from sqlalchemy import Column, Integer, String
@@ -75,8 +79,9 @@ Base.metadata.create_all(engine)
 </code>
 </pre>
 
-
+<!------------------------------------------------------------->
 <h4>Session</h4>
+<!------------------------------------------------------------->
 <pre>
 <code class="python">
 from sqlalchemy.orm import sessionmaker
@@ -110,13 +115,13 @@ session.close()
 </code>
 </pre>
 
+<!------------------------------------------------------------->
 <h4>Select Query</h4>
-<pre>
-<code class="python">
+<!------------------------------------------------------------->
+<pre><code class="python">
 query1 = session.query(User).filter_by(name='Tony').first() # выбрать 1 запись по совпадению поля name
 query2 = session.query(User).filter(User.name=='Tony')      # выбрать 1 запись по совпадению поля name
 query3 = session.query(User).filter(User.name=='Tony').filter(User.fullname=='Stark') # выбрать 1 запись по совпадению поля name и fullname
 query4 = session.query(User).order_by(User.id)              # выбрать все записи, все поля, сортировка по ID
 query5 = session.query(User.name).order_by(User.id)         # выбрать все записи, поле name, сортирока по ID
-</code>
-</pre>
+</code></pre>
