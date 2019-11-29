@@ -15,9 +15,9 @@
 	<li>Если на объект, который хранится в WeakSet, нет ни одной внешней ссылки, то сборщик мусора удалит этот объект</li>
 </ul>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Объявление</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 const set = <u-code>new Set()</u-code>; // Set(0) {}
 </code></pre>
@@ -43,9 +43,9 @@ const set1 = new Set(['button']); // Set(1) {"button"}
 const set2 = new Set(set1);       // Set(1) {"button"}
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Добавление нового элемента</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 const set = new Set();
 set.<u-code>add</u-code>('button');
@@ -60,9 +60,9 @@ set
     .add('active');
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Методы</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 var a = set.<u-code>size</u-code>;          // кол-во элементо в set
 var a = set.<u-code>has</u-code>('button'); // проверка наличия значения
@@ -70,9 +70,9 @@ set.<u-code>delete</u-code>('active');      // удаление элемента
 set.<u-code>clear</u-code>();               // очистка set
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Set и Объекты</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 const set = new Set();
 set.add({className: 'button'}); 
@@ -86,9 +86,9 @@ set.add(buttonRef);
 var a = set.has(buttonRef); // true
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>values, keys, entries</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 // нет метода для получения доступа к конкретному элементу
 // нет понятия как индекс, поэтому keys возвращает values
@@ -107,9 +107,9 @@ console.log(...set.entries()); // (2) ["button", "button"] (2) ["active", "act
 const [element1, element2] = set; // получить первый и второй элемент set
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Перебор set</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 for (let item of set) {
     console.log(item);
@@ -124,9 +124,9 @@ set.forEach((item, item2, set) => console.log(item, item2, set));
 // active active Set(2) {"button", "active"}
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Операции над множествами</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li>Нет встроенных методов</li>
 </ul>

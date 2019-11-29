@@ -9,9 +9,9 @@
     <li>Каррирование и преобразования функций реализуются в JavaScript благодаря замыканиям и тому, что функции в JS являются объектами первого класса (их можно передавать в качестве аргументов другим функциям, возвращать из них, присваивать переменным)</li>
 </ul>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Каррирование</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h4>Пример 1</h4>
 <div class="container-flex"><div class="container-half"><pre><code class="js">
 // исходная функция
@@ -49,9 +49,9 @@ console.log(inc(15));   // 16
 console.log(add(8)(7)); // 15
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Частичное применение функций</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 function volume(l) {
     return (w, h) => {
@@ -73,9 +73,9 @@ volume(70)(390,320);
 volume(70)(940,340);
 </code></pre></div></div>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Частичная функция через bind</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li>Вызов <u>bind</u> позволяет фиксировать первые аргументы функции («каррировать» её), и таким образом из общей функции получить её «частные» варианты – чтобы использовать их многократно без повтора одних и тех же аргументов каждый раз</li>
     <li>Если в bind указаны аргументы - они будут прибавлены к каждому вызову новой функции, причем встанут перед теми, которые указаны при вызове</li>

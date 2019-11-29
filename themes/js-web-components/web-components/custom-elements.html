@@ -22,9 +22,9 @@
 	<tr><td><em>	&#8226; прототип</em></td><td>  // объект-прототип для нового элемента, он должен наследовать от HTMLElement, чтобы у элемента были стандартные свойства и методы</td></tr>
 </table></code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Регистрация элемента</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div class="container-flex"><div class="container-half"><pre><code class="js">
 var element = <u-code>Object.create(HTMLElement.prototype)</u-code>;
 element.action = function(content) {
@@ -53,9 +53,9 @@ var a = document.querySelector('my-element').value;
 &lt;my-element&gt;Hello&lt;/my-element&gt;
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Расширение встроенных элементов</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js">
 var element = <u-code>Object.create(HTMLButtonElement.prototype)</u-code>;
 element.action = function(content) {
@@ -71,9 +71,9 @@ document.querySelector('button').action('zzz');
 &lt;button <u-code>is="my-element"</u-code>&gt;&lt;/button&gt;
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Жизненный цикл</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="bash">
 <em>createdCallback</em>                                     # элемент создан
 <em>attachedCallback</em>                                    # элемент добавлен в документ
@@ -87,9 +87,9 @@ element.createdCallback = function() {
 }
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!--__________________________________________________-->
 <h4>#1 - Элемент таймер</h4>

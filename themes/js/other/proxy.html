@@ -14,9 +14,9 @@
 	<tr><td><em>	&#8226; handler</em></td><td>  // объект с «ловушками»: функциями-перехватчиками для операций к target</td></tr>
 </table></code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>get/set</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <pre><code class="js light">
 <table>
 	<tr><td><bg-methods>get</bg-methods><bg-arguments>(target, property, receiver)</bg-arguments></td><td> // срабатывает при чтении свойства из прокси</td></tr>
@@ -58,9 +58,9 @@ proxy.firstName;             // чтение
 console.log(user.firstName); // => 'Tony'
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>has</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li>Ловушка has срабатывает в операторе in и некоторых других случаях, когда проверяется наличие свойства</li>
 </ul>
@@ -79,9 +79,9 @@ dictionary = new Proxy(dictionary, {
 alert("BlaBlaBla" in dictionary); // true
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>deleteProperty</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li>Ловушка deleteProperty по синтаксису аналогична get/has. Срабатывает при операции delete, должна вернуть true, если удаление было успешным</li>
 </ul>
@@ -108,9 +108,9 @@ alert("Hello" in dictionary); // true
 alert("Hello" in proxy); // true
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>apply</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li>Если аргумент target прокси – функция, то становится доступна ловушка apply для её вызова</li>	
 </ul>
@@ -142,9 +142,9 @@ let proxy = new Proxy(sum, {
 alert( proxy(1, 2) );
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>construct</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li>Ловушка construct(target, argumentsList) перехватывает вызовы при помощи new. Она получает исходный объект target и список аргументов argumentsList</li>	
 </ul>
@@ -170,9 +170,9 @@ let user = new UserProxy('Tony', 'Smith');
 alert( user.name ); // Tony
 </code></pre>
 
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Полный список возможных функций-перехватчиков, которые может задавать handler</h3>
-<!------------------------------------------------------>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/getPrototypeOf" target="_blank">getPrototypeOf</a> - перехватывает обращение к методу <u-code>getPrototypeOf</u-code></li>
 	<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/handler/setPrototypeOf" target="_blank">setPrototypeOf</a> - перехватывает обращение к методу <u-code>setPrototypeOf</u-code></li>
