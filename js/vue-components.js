@@ -96,3 +96,9 @@ Vue.component('v-iframe', {
 		>
 		</iframe>`,
 })
+
+Vue.component('v-code', {
+	props: ['lang', 'title'],
+    template: `<pre><code :class="lang"><u-code-title v-text="title" />
+<slot></slot></code></pre>`
+})
