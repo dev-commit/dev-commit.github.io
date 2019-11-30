@@ -11,17 +11,17 @@
 <!------------------------------------------------------------->
 <h4>Открыть соединеиние</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 // создание объекта WebSocket с указанием протокола ws
 var socket = new WebSocket("<u-code>ws</u-code>://javascript.ru/ws");  // протокол "ws" над "http"
 var socket = new WebSocket("<u-code>wss</u-code>://javascript.ru/ws"); // протокол "wss" над "https"
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Коллбэки у socket</h4>
 <!------------------------------------------------------------->
 <p>Один получение данных и три при изменениях в состоянии соединения</p>
-<pre><code class="js">
+<v-code lang="js" title="">
 <u-code>socket.onopen</u-code> = function() {
 	alert("Соединение установлено.");
 };
@@ -39,12 +39,12 @@ var socket = new WebSocket("<u-code>wss</u-code>://javascript.ru/ws"); // про
 <u-code>socket.onerror</u-code> = function(error) {
 	alert("Ошибка " + error.message);
 };
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Посылка данных</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 socket.send("Привет");              // строка
 socket.send(form.elements[0].file); // файл из формы
-</code></pre>
+</v-code>

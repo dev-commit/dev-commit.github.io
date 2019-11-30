@@ -64,28 +64,28 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 // queue.waitForMessage ожидает события если очередь пуста
 while(queue.waitForMessage()){ 
     queue.processNextMessage(); 
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // Рекурсивный вызов микротаска повесит программу
 function startMicrotask() {
     return Promise.resolve().then(startMicrotask);
 }
-</code></pre>
+</v-code>
 
 <v-two><template v-slot:first>
-<pre><code class="js">
+    <v-code lang="js" title="">
 console.log('Hi');
 setTimeout(function cb1() { 
     console.log('cb1');
 }, 5000);
 console.log('Bye');
-</code></pre>
+</v-code>
 </template><template v-slot:last>
 <img src="/img/js/event-loop/event-loop2.gif" height="300px" class="center">
 </template></v-two>

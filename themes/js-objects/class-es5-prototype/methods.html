@@ -3,7 +3,7 @@
 <!------------------------------------------------------------->
 <h4>Добавление метода в прототип класса</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 function User(name) {
 	this.name = name;
 	this.avatar = 'Photo';
@@ -14,15 +14,15 @@ function User(name) {
 var user = new User('Jack'); // => User {name: "Jack", avatar: "Photo", __proto__: deleteAvatar: ƒ () }
 user.deleteAvatar();
 console.log(user);           // => User {name: "Jack", avatar: null, __proto__: deleteAvatar: ƒ ()}
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Изменение встроенных прототипов</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 <u-code>Object.prototype.myFunc</u-code> = function() {
     alert('myFunc');
 }
 let obj = {}
 obj.myFunc(); // => 'myFunc'
-</code></pre>
+</v-code>

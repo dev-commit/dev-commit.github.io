@@ -3,7 +3,7 @@
 <!------------------------------------------------------------->
 <h4>Без аргументов</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 // Admin вызывает функцию User, передавая ей в качестве контекста this текущий объект
 // User, в процессе выполнения, записывает в this свойства и методы, в данном случае this.name
 function User() {
@@ -14,12 +14,12 @@ function Admin() {
     this.id = 77;
 }
 var admin = new Admin(); // => Admin {name: "Tony", id: 77}
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Передача аргументов</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 function User(id, name) {
 	this.id = id;
 	this.name = name;
@@ -28,12 +28,12 @@ function Admin() {
 	<u-code>User.apply(this, arguments);</u-code>
 }
 var admin = new Admin(77, 'Tony'); // => Admin {id: 77, name: "Tony"}
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Переопределение наследованных методов</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 function User() {
     this.name = 'Tony';
     this.getName = function() {
@@ -50,4 +50,4 @@ function Admin() {
 }
 var admin = new Admin();
 admin.getName(); // => 'Tony', 'Jack'
-</code></pre>
+</v-code>

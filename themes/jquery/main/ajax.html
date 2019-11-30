@@ -3,19 +3,19 @@
 <!------------------------------------------------------------->
 <h4>Короткая запись</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 $.get("scripts/script.php", {name:name}, function(data) {
 	//
 });
 $.get("scripts/script.php", {name: "Tom", time: "2pm"}, function(data) {
 	//
 });
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Полная запись</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 $.ajax({
 	type: "GET",
 	url: "scripts/script.php",
@@ -25,26 +25,26 @@ $.ajax({
 		console.log(data);
 	}
 });
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Передача JSON данных из PHP</h4>
 <!------------------------------------------------------------->
-<pre><code class="php">
+<v-code lang="js" title="">
 &lt;?php
 	$name = 'Андрей';
 	$email = 'and@mail.ru';
 	$arr = array($name, $price);
 	echo json_encode($arr);
 ?&gt;
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Прием JSON данных из PHP</h4>
 <!------------------------------------------------------------->
 Выполняем код, который мы получили в виде строки / json объекта
-<pre><code class="js">
+<v-code lang="js" title="">
 var data = eval(data);
 var name = data[0];
 var price = data[1];
-</code></pre>
+</v-code>

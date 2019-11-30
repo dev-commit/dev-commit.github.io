@@ -7,12 +7,12 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div class="container-flex">
 <div class="container-calc">
-<pre>
-<code class="js">
+
+<v-code lang="js" title="">
 ctx.fillRect(0,0,100,100);   // fill
 ctx.strokeRect(0,0,100,100); // stroke
-</code>
-</pre>
+</v-code>
+
 </div>
 <img src="/img/canvas/rectangle1.png" class="svg">
 </div>
@@ -22,20 +22,20 @@ ctx.strokeRect(0,0,100,100); // stroke
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div class="container-flex">
 <div class="container-calc">
-<pre>
-<code class="js">
+
+<v-code lang="js" title="">
 ctx.beginPath();
 ctx.arc(100, 100, 50, 0, Math.PI*2, false);
 ctx.closePath();
 ctx.fill();   // fill
 ctx.stroke(); // stroke
-</code>
-</pre>
+</v-code>
+
 </div>
 <img src="/img/canvas/arc1.png" class="svg">
 </div>
 
-<pre><code class="html">
+<v-code lang="js" title="">
 arc();
 1 - координаты центра окружности (x)
 2 - координаты центра окружности (y)
@@ -43,15 +43,15 @@ arc();
 4 - start angle (справа)
 5 - end angle (360deg = pi*2)
 6 - рисование по часовой (false) / против (true) часовой стрелки
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Line, Path</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div class="container-flex">
 <div class="container-calc">
-<pre>
-<code class="js">
+
+<v-code lang="js" title="">
 ctx.beginPath();
 
 ctx.moveTo(100, 100);
@@ -65,8 +65,8 @@ ctx.lineTo(10, 70);
 
 ctx.fill();
 ctx.stroke();
-</code>
-</pre>
+</v-code>
+
 </div>
 <img src="/img/canvas/path1.png" class="svg">
 </div>
@@ -76,15 +76,15 @@ ctx.stroke();
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div class="container-flex">
 <div class="container-calc">
-<pre>
-<code class="js">
+
+<v-code lang="js" title="">
 var grad = ctx.createLinearGradient(0, 100, 100, 0);
 grad.addColorStop(0, 'green');
 grad.addColorStop(1, 'blue');
 ctx.fillStyle = grad;
 ctx.fillRect(50, 50, 100, 100);
-</code>
-</pre>
+</v-code>
+
 </div>
 <img src="/img/canvas/gradient1.png" class="svg">
 </div>
@@ -94,13 +94,13 @@ ctx.fillRect(50, 50, 100, 100);
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div class="container-flex">
 <div class="container-calc">
-<pre>
-<code class="js">
+
+<v-code lang="js" title="">
 ctx.textAlign = 'center';
 ctx.font = '22px Arial';
 ctx.fillText('Hello World', canvas.width/2, canvas.height/2); // по центру
-</code>
-</pre>
+</v-code>
+
 </div>
 <img src="/img/canvas/text1.png" class="svg">
 </div>
@@ -110,8 +110,8 @@ ctx.fillText('Hello World', canvas.width/2, canvas.height/2); // по центр
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div class="container-flex">
 <div class="container-calc">
-<pre>
-<code class="js">
+
+<v-code lang="js" title="">
 var grad = ctx.createLinearGradient(0, 0, 150, 0);
 grad.addColorStop(0, 'magenta');
 grad.addColorStop(0.5, 'blue');
@@ -120,8 +120,8 @@ ctx.fillStyle = grad;
 
 ctx.font = '22px Arial';
 ctx.fillText('Hello World', 20, 35);
-</code>
-</pre>
+</v-code>
+
 </div>
 <img src="/img/canvas/text2.png" class="svg">
 </div>

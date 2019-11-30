@@ -7,15 +7,15 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>setTimeout</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js light">
+<v-code lang="js light" title="">
 <bg-methods>setTimeout(func/code, delay, [arg1, arg2...])</bg-methods> // однократное выполнение кода через некоторое время
 	<em>&#8226; func/code</em>   // функция или строка кода для исполнения
 	<em>&#8226; delay</em>       // задержка в миллисекундах, 1000 миллисекунд равны 1 секунде
 	<em>&#8226; arg1, arg2…</em> // aргументы, которые нужно передать функции
 <bg-methods>clearTimeout</bg-methods>(timerId); // останавливает исполнение setTimeout (timerId - числовой идентификатор таймера)
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // если первый аргумент является строкой, то интерпретатор создаёт анонимную функцию из этой строки
 var timer = <u-code>setTimeout</u-code>("console.log('go');", 1000);
 // анонимная функция
@@ -28,40 +28,40 @@ function func() {
 }
 
 <u-code>clearTimeout</u-code>(timer);
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Передача аргументов</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 setTimeout(func, 1000, 'Привет', 'Tony'); // Привет Tony
 function func(phrase, who) {
 	console.log(phrase + ' ' + who);
 }
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Рекурсивный setTimeout (альтернатива setInterval)</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 var timerId = setTimeout(function tick() {
 	console.log( "тик" );
 	timerId = setTimeout(tick, 2000);
 }, 2000);
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>setInterval</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js light">
+<v-code lang="js light" title="">
 <bg-methods>setInterval(func/code, delay, [arg1, arg2...])</bg-methods> // повторение выполнения кода через определенное время
 	<em>&#8226; func/code</em>   // функция или строка кода для исполнения
 	<em>&#8226; delay</em>       // задержка в миллисекундах, 1000 миллисекунд равны 1 секунде
 	<em>&#8226; arg1, arg2…</em> // aргументы, которые нужно передать функции
 <bg-methods>clearInterval(timerId)</bg-methods> // останавливает исполнение setInterval (timerId - числовой идентификатор таймера)
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var timer = <u-code>setInterval</u-code>("console.log('go');", 1000);
 <u-code>clearInterval</u-code>(timer);
-</code></pre>
+</v-code>

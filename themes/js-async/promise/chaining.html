@@ -7,7 +7,7 @@
 	<li>Каждая последующая функция будет вызвана, когда предыдущий промис «зарезолвится», и вызвана она будет с результатом работы предыдущего промиса</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 function functionAsync1() {
 	var promise = new Promise(function(resolve, reject) {
 	    resolve('promise1');
@@ -24,4 +24,4 @@ functionAsync1()
     <u-code>.then</u-code>(res => console.log(res)) // promise1
     <u-code>.then</u-code>(functionAsync2)
     <u-code>.then</u-code>(res => console.log(res)) // promise2
-</code></pre>
+</v-code>

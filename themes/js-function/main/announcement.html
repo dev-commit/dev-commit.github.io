@@ -8,43 +8,43 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>1. Function Declaration</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 function func(num) {
 	console.log(num);
 }
 func(1);
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // присвоили ссылку на функцию
 var a = func;
 function func(){
 	//
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>2. Function Expression (выражения функции)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var func = function(num) {
 	console.log(num);
 }
 func(2);
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var Task = function Task() {
 	//
 }
 // создание нового объекта использую функцию Task
 var task = new Task();
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Функцию можно скопировать в другую переменную</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 function sayHi() {   // создать функцию и поместить её в переменную sayHi
 	alert( "Привет" );
 }
@@ -54,7 +54,7 @@ func(); // Привет    // функцию можно вызывать и ка
 
 sayHi = null;
 sayHi();             // ошибка
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>3. IIFE (анонинимная с немедленным вызовом - самовызывающаяся)</h3>
@@ -69,22 +69,22 @@ sayHi();             // ошибка
 	<li>Скобки в анонимной функции нужны чтобы показать, что это <u>Function Expression</u>, который по правилам JavaScript можно вызвать «на месте»</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 (function(num) {
 	console.log(num);
 })(3);
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var count = (function(num) {
 	console.log(num);
 })(3);
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Анонимная функция</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 function ask(question, yes, no) {
 	if (confirm(question)) yes()
 	else no();
@@ -95,18 +95,18 @@ ask(
 	function() { alert("Вы согласились."); },
 	function() { alert("Вы отменили выполнение."); }
 );
-</code></pre>
+</v-code>
 <!------------------------------------------------------------->
 <h4>Возвращение функции</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 var func = function() {
 	return function() {
 		console.log('Hi');
 	}
 }
 func()();
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>4. new Function</h3>
@@ -117,9 +117,9 @@ func()();
 	<li><u>code</u> - код функции в виде строки</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // создание функции из строки
 var sum = new Function('a,b', 'return a+b;');
 var result = sum(1, 2);
 alert(result); // 3
-</code></pre>
+</v-code>

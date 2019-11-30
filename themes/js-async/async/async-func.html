@@ -6,12 +6,12 @@
 	<li>Если в асинхронной функции специально вернуть обещение, оно не оборачивается в другое обещание</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 async function getUser(id) {
     return { id:1 };   
 }
 getUser(1).then(user => console.log(user));
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<li>await дожидается выполнения обещания, вытаскивает значение и возвращает его</li>
@@ -19,7 +19,7 @@ getUser(1).then(user => console.log(user));
 	<li>await можно использовать только внутри асинхронной функции</li>
 	<li>await необязательно ставить перед вызовом асинхронной фунцкии. это может быть любая функция, возвращающая обещание</li>
 </ul>
-<pre><code class="js">
+<v-code lang="js" title="">
 async function getUser(id) {
     return { id:1 };   
 }
@@ -28,9 +28,9 @@ async function main() {
     console.log(user);
 }
 main();
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 async function getUser(id) {
     let response = await fetch('url');
     let data = await response.json();
@@ -47,21 +47,21 @@ async function main() {
 }
 
 main();
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Варианты объявления</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 const getUser = async function(id) {}
 const getUser = async (id) => {}
 const dataService = {
 	getUser: async function(id) {}  // свойство
 	async getUserProp(id) {}        // метод
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 (async function() {
 	//
 })();
@@ -69,4 +69,4 @@ const dataService = {
 (async () => {
 	//
 })();
-</code></pre>
+</v-code>

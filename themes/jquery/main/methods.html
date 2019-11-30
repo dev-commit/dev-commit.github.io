@@ -3,88 +3,72 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>text(); html();</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var text = $('#box').text();        // получить текст
 var html = $('#box').html();        // получить html
 $('#box').text('Измененный текст'); // изменить текст
 $('#box').html('Измененный html');  // изменить html
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>before(); after(); prepend(); append();</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 $('#box').before('content');  // добавляет контент до выбранного элемента
 $('#box').after('content');   // добавляет контент после выбранного элемента
 $('#box').prepend('content'); // добавляет контент внутрь выбранного элемента до остального кода
 $('#box').append('content');  // добавляет контент внутрь выбранного элемента после остального кода
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>each();</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 $('img').each(function() {
 	if ($(this).width() < 400) {
 	    $(this).fadeOut(3000);
 	}
 });
 // $(this) - текущий элемент при переборе
-</code>
-</pre>
+</v-code>
 
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 // получить id всех блоков в box
 $('#box').each(function() {
     var id = $(this).attr("id");
 })
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>size(); get();</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var a = $('div').size(); // возвращает кол-во элементов в выборке
 var a = $('div').get(0); // позволяет получить доступ к конкретному элементу в выборке
                          // 0 - индекс 1 элемента
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>clone(); remove();</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var a = $('#box').clone(); // клонирует выбранный элемент
 var a = $('#box').remove(); // удаляет элемент из DOM дерева но позволяет сохранить его для дальнейшего использования
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>width(); height();</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var width = $('#box').width();   // получить ширину
 var height = $('#box').height(); // получить высоту
 $('#box').width(100);            // задать ширину
 $('#box').height(100);           // задать высоту
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>offset();</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 $('.item').offset().top; // координаты объекта
-</code>
-</pre>
+</v-code>

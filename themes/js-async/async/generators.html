@@ -8,7 +8,7 @@
 <!------------------------------------------------------------->
 <h4>Объявление генератора</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 function* genetare()  {} 
 function * genetare() {} 
 function *genetare()  {} 
@@ -25,7 +25,7 @@ var obj = {
 class SomeClass {
     *generator(start, end) {}
 }
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<li>При вызове Генератора возвращается объект Итератор, позволяющий приостанавливать и возобновлять процесс выполнения функции</li>
@@ -38,18 +38,18 @@ class SomeClass {
 <!------------------------------------------------------------->
 <h4>Использование с Fetch</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 function getApi() {
 	let response = yield fetch('url');
 	let data = yield response.json();
 	return data;
 }
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Пример #1. Передать значение</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 function* generate() {
     console.log('Start');
     yield 1;
@@ -59,12 +59,12 @@ var iterator = generate();
 console.log(iterator.next()); // Object { value: undefined, done: false } Start
 console.log(iterator.next()); // Object { value: undefined, done: true  } Finish
 console.log(iterator.next()); // Object { value: undefined, done: true  }        
-</pre></code>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Пример #2. Получить значение</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 function* generator() {
     var result = yield;
     console.log(result); // 1
@@ -75,12 +75,12 @@ console.log(iterator.next(1)); // передаваемое значение
 
 iterator.return(); // остановить генератор
 iterator.throw();  // остановить с ошибкой
-</pre></code>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Пример #3. Генаратор</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 function* range(start, end) {
     let current = start;
     while (current <= end) {
@@ -90,4 +90,4 @@ function* range(start, end) {
 for (let num of range(1, 10)) {
     console.log(num);
 }
-</pre></code>
+</v-code>

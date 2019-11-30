@@ -1,6 +1,6 @@
 <h2>CSS Blend Modes</h2>
 
-<pre><code class="bash">
+<v-code lang="bash" title="">
 <em>normal</em>      # обычный
 <em>multiply</em>    # умножение
 <em>screen</em>      # осветление
@@ -17,7 +17,7 @@
 <em>saturation</em>  # насыщенность
 <em>color</em>       # цвет
 <em>luminosity</em>  # яркость
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>background-blend-mode</h3>
@@ -32,13 +32,13 @@
 	<li>Слои: backround-color, background-image (несколько), linear-gradient</li>
 </ul>
 
-<pre><code class="css">
+<v-code lang="css" title="">
 div {
 	background-color: blue;
 	background-image: url(...);
 	<u-code>background-blend-mode</u-code>: multiply;
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>mix-blend-mode</h3>
@@ -51,13 +51,14 @@ div {
 	<li>Определяет режим наложения исходного цвета на фоновый цвет или фоновое изображение</li>
 </ul>
 
-<div class="container-flex"><div class="container-half">
-<pre><code class="html">
+<v-two><template v-slot:first>
+<v-code lang="html" title="">
 &lt;div&gt;
 	&lt;h1&gt;EVEN MORE CSS SECRETS&lt;/h1&gt;
 &lt;/div&gt;
-</code></pre>
-<pre><code class="css">
+</v-code>
+
+<v-code lang="css" title="">
 h1 {
 	margin: auto;
 	background-color: black;
@@ -67,17 +68,20 @@ h1 {
 div {
 	background-image: url(...);
 }
-</code></pre></div><div class="container-half">
+</v-code>
+</template><template v-slot:last>
 <img src="/img/blend-mode/blend-mode2.jpg" height="350px" style="margin-top: 10px;">
-</div></div>
+</template></v-two>
 
-<div class="container-flex"><div class="container-half">
-<pre><code class="html">
+
+<v-two><template v-slot:first>
+<v-code lang="html" title="">
 &lt;div&gt;
 	&lt;h1&gt;EVEN MORE CSS SECRETS&lt;/h1&gt;
 &lt;/div&gt;
-</code></pre>
-<pre><code class="css">
+</v-code>
+
+<v-code lang="css" title="">
 h1 {
 	margin: auto;
 	background-color: white;
@@ -87,6 +91,7 @@ h1 {
 div {
 	background-image: url(...);
 }
-</code></pre></div><div class="container-half">
+</v-code>
+</template><template v-slot:last>
 <img src="/img/blend-mode/blend-mode1.jpg" height="350px"style="margin-top: 10px;">
-</div></div>
+</template></v-two>

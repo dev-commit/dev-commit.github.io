@@ -1,16 +1,19 @@
 <h2>Примеры</h2>
 
-<h3>Выравнивание блоков по центру inline-block</h3>
-<pre>
-<code class="html">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Выравнивание блоков по центру</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>inline-block</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
 &lt;div class="container"&gt;
 	&lt;div class="box"&gt;&lt;/div&gt;
 &lt;/div&gt;
-</code>
-</pre>
+</v-code>
 
-<pre>
-<code class="css">
+<v-code lang="css" title="">
 .container {
 	text-align: center;
 }
@@ -18,13 +21,13 @@
 	display: inline-block;
 	vertical-align: middle;
 }
-</code>
-</pre>
+</v-code>
 
-<h3>Выравнивание блока по центру (горизонталь, вертикаль) fixed</h3>
+<!------------------------------------------------------------->
+<h4>Горизонталь, вертикаль. Fixed</h4>
+<!------------------------------------------------------------->
 <span>Обязательно задание width и  height</span>
-<pre>
-<code class="css">
+<v-code lang="css" title="">
 #box {
 	width: 400px;
 	height: 700px;
@@ -36,20 +39,18 @@
     margin: auto;
     background: orange;
 }
-</code>
-</pre>
+</v-code>
 
-<h3>Выравнивание блока по центру (горизонталь, вертикаль) transform</h3>
-<pre>
-<code class="html">
+<!------------------------------------------------------------->
+<h4>Горизонталь, вертикаль. Transform</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
 &lt;div class="container"&gt;
 	&lt;div class="box"&gt;&lt;/div&gt;
 &lt;/div&gt;
-</code>
-</pre>
+</v-code>
 
-<pre>
-<code class="css">
+<v-code lang="css" title="">
 Проценты считаются относительно самого элемента
 .box {
 	top: 50%;
@@ -66,21 +67,18 @@
 	background: gray;
 	position: relative;
 }
-</code>
-</pre>
+</v-code>
 
-
-<h3>Выравнивание текста по центру (горизонталь, вертикаль)</h3>
-<pre>
-<code class="html">
+<!------------------------------------------------------------->
+<h4>Горизонталь, вертикаль. Table</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
 &lt;div class="container"&gt;
 	&lt;div class="text"&gt;No result found&lt;/div&gt;
 &lt;/div&gt;
-</code>
-</pre>
+</v-code>
 
-<pre>
-<code class="css">
+<v-code lang="css" title="">
 .container {
 	display: table;
 	width:100%;
@@ -93,12 +91,12 @@
 	display: table-cell;
 	vertical-align: middle
 }
-</code>
-</pre>
+</v-code>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Треугольник</h3>
-<pre>
-<code class="css">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
 div {
 	width: 0px;
 	height: 0px;
@@ -108,12 +106,13 @@ div {
 	border-left:   100px solid blue;
 	border-right:  100px solid transparent;
 }
-</code>
-</pre>
+</v-code>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Меню</h3>
-<pre>
-<code class="html">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="html" title="">
 &lt;header&gt;
 	&lt;nav class="header-menu"&gt;
 		&lt;ul&gt;
@@ -123,12 +122,12 @@ div {
 		&lt;/ul&gt;
 	&lt;/nav&gt;
 &lt;/header&gt;
-</code>
-</pre>
+</v-code>
 
-<span>inline-block</span>
-<pre>
-<code class="css">
+<!------------------------------------------------------------->
+<h4>inline-block</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
 .header-menu ul {
 	margin: 0;
 	padding: 0;
@@ -151,12 +150,12 @@ div {
 .header-menu li a:hover {
 	background: white;
 }
-</code>
-</pre>
+</v-code>
 
-<span>flexbox</span>
-<pre>
-<code class="css">
+<!------------------------------------------------------------->
+<h4>flexbox</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
 .header-menu ul {
 	margin: 0;
 	padding: 0;
@@ -177,84 +176,79 @@ div {
 .header-menu li a:hover {
 	background: white;
 }
-</code>
-</pre>
+</v-code>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Отключение обтекания float у родительского блока (clearfix)</h3>
-<pre>
-<code class="css">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
 .parent:after{
 	content: "";
 	display: block;
 	clear: both;
 }
-</code>
-</pre>
+</v-code>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Убрать float у блока</h3>
-<pre>
-<code class="css">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
 .item {
 	float: none;
 }
-</code>
-</pre>
+</v-code>
 
-
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Убрать пробелы у inline-block</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <span>Пробелы между блоками, это пробелы между словами в строке.<br>
 Ставим font-size:0 для родителя, а для дочерних элементов возвращаем обратно</span>
-<pre>
-<code class="html">
+<v-code lang="html" title="">
 &lt;div class="container"&gt;
 	&lt;div class="item"&gt;&lt;/div&gt;
 	&lt;div class="item"&gt;&lt;/div&gt;
 &lt;/div&gt;
-</code>
-</pre>
+</v-code>
 
-<pre>
-<code class="css">
+<v-code lang="css" title="">
 .container {
 	font-size: 0;
 }
 .item {
 	font-size: 16px;
 }
-</code>
-</pre>
+</v-code>
 
-
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>resize у div</h3>
-<pre>
-<code class="css">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
 div {
 	resize: both;
 	overflow: auto;
 }
-</code>
-</pre>
+</v-code>
 
-
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Задание максимальной, минимальной ширины и выравнивание по центру</h3>
-<pre>
-<code class="css">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
 .container {
 	width: 100%;
 	max-width: 960px;
 	min-width: 640px;
 	margin: 0 auto;
 }
-</code>
-</pre>
+</v-code>
 
-
-
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Псевдоклассы. При наведении на .news показывается кнопка</h3>
-<pre>
-<code class="css">
+<v-code lang="html" title="">
 &lt;div class="news"&gt;&lt;/div&gt;
 &lt;div class="close"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="css" title="">
 .news {
 	width: 100px;
 	height: 100px;
@@ -269,13 +263,11 @@ div {
 .news:hover ~ .close {
 	display: block;
 }
-</code>
-</pre>
+</v-code>
 
-
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Обращение к img по наведению на .item</h3>
-<pre>
-<code class="css">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
 .item:hover img {}
-</code>
-</pre>
+</v-code>

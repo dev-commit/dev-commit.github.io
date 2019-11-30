@@ -19,7 +19,7 @@
 <!------------------------------------------------------------->
 <h4>Пример #1</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 var promise1 = new Promise(function(resolve, reject) {
 	setTimeout(() => resolve('promise-1-2000'), 2000);
 })
@@ -35,12 +35,12 @@ Promise.<u-code>all</u-code>([promise1, promise2])
 Promise.<u-code>race</u-code>([promise2, promise1])
 	.then(value => console.log(value));
     // => "promise-2-1000"
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Пример #2</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 function go(num) {
 	return new Promise(function(resolve, reject) {
 		setTimeout(() => resolve(num), 1000);
@@ -59,4 +59,4 @@ Promise.all([p1, p2, p3])
 // получить результат от первого
 Promise.race([p1, p2, p3])
 	.then(value => console.log(value));
-</code></pre>
+</v-code>

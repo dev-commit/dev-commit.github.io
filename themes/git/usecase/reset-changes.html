@@ -1,31 +1,31 @@
 <h2>Отмена изменений</h2>
 
-<pre><code class="bash">
+<v-code lang="bash" title="">
 # отменить все изменения
 # убрать из индексации все файлы и директории, 
 # которые возможно уже были проиндексировалы с помощью git add
 <em>git reset --hard HEAD</em>
-</code></pre>
+</v-code>
 
-<pre><code class="bash">
+<v-code lang="bash" title="">
 <em>git checkout -- file.txt</em> # Отмена изменений файла
 <em>git reset HEAD file.txt</em>  # Отмена индексации файла
 <em>git commit --amend</em>       # Изменение последнего коммита
-</code></pre>
+</v-code>
 
-<pre><code class="bash">
+<v-code lang="bash" title="">
 # Все три команды вместе дают один коммит - второй коммит заменяет результат первого
 <em>git commit -m 'initial commit'</em>
 <em>git add forgotten_file</em>
 <em>git commit --amend</em>
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="bash" title="">
 <em>git checkout .</em>             # восстановить все
 <em>git checkout "код коммита"</em> # вернуть до состояния этого коммита
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="bash" title="">
 # Просмотреть, а затем удалить непроиндексированные файлы и папки:
 <em>git clean -nd</em>
 <em>git clean -fd</em>
@@ -33,7 +33,7 @@
 # Просмотреть, а затем удалить ВСЕ непроиндексированные файлы и папки, включая игнорируемые Git-ом
 <em>git clean -ndx</em>
 <em>git clean -fdx</em>
-</code></pre>
+</v-code>
 
 
 
