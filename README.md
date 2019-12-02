@@ -2,7 +2,16 @@
 Клиент-сервер
 >> Unknown custom element: <u-code-define>
 
-Rect.js - end
+react.js -> info -> structure
+сбились обертки
+
+react.js ->  patterns -> render-props
+Реализация
+
+react.js ->  processing-data-output -> controlled-components
+Значение null управляемого компонента
+
+Redux - end
 
 
 ### DELETE
