@@ -7,31 +7,26 @@
 	<a href="https://www.w3schools.com/python/python_mysql_getstarted.asp" target="_blank">w3schools</a>
 </u-link-wrapper>
 
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 <em>pip install mysql-connector</em>
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>encoding_content.py</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="python">
+<v-code lang="python" title="">
 # кодировка utf-8
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 
 # вывод html
 print("Content-Type: text/html\n")
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>db_сonnect.py</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="python">
+<v-code lang="python" title="">
 import mysql.connector
 mydb = mysql.connector.connect(
 	host="localhost",
@@ -39,14 +34,12 @@ mydb = mysql.connector.connect(
 	passwd="",
 	database="motmom"
 )
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>db_select.py</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="python">
+<v-code lang="python" title="">
 #!C:/Users/Sawyer/AppData/Local/Programs/Python/Python37-32/python.exe
 import encoding_content
 import db_сonnect
@@ -59,14 +52,12 @@ arr = []
 for x in myresult:
 	arr.append([x[0], x[1], str(x[2])])
 print(arr)
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>db_insert.py</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="python">
+<v-code lang="python" title="">
 #!C:/Users/Sawyer/AppData/Local/Programs/Python/Python37-32/python.exe
 import encoding_content
 import db_сonnect
@@ -77,14 +68,12 @@ val = ("TestName", "12:12:12")
 mycursor.execute(sql, val)
 db_сonnect.mydb.commit()
 print(mycursor.rowcount, "record inserted.")
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>db_update.py</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="python">
+<v-code lang="python" title="">
 #!C:/Users/Sawyer/AppData/Local/Programs/Python/Python37-32/python.exe
 import encoding_content
 import db_сonnect
@@ -94,14 +83,12 @@ sql = "UPDATE event SET NAME='UpdateName', TIME='01.01.01' WHERE ID=7"
 mycursor.execute(sql)
 db_сonnect.mydb.commit()
 print(mycursor.rowcount, "record(s) affected")
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>db_delete.py</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="python">
+<v-code lang="python" title="">
 #!C:/Users/Sawyer/AppData/Local/Programs/Python/Python37-32/python.exe
 import encoding_content
 import db_сonnect
@@ -111,11 +98,9 @@ sql = "DELETE FROM event WHERE ID=7"
 mycursor.execute(sql)
 db_сonnect.mydb.commit()
 print(mycursor.rowcount, "record(s) deleted")
-</code>
-</pre>
+</v-code>
 
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 // JavaScript Code (SELECT)
 $.get('python/db_select.py', {}, function(data) {
 	var arr = eval(data);
@@ -128,5 +113,4 @@ $.get('python/db_select.py', {}, function(data) {
 	}
 	$('body').append(result);
 })
-</code>
-</pre>
+</v-code>

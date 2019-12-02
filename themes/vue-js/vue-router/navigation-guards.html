@@ -28,41 +28,41 @@
 <!------------------------------------------------------------->
 <h4>Регистрация: beforeEach</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 // регистрация глобального хука
 const router = new VueRouter({ ... })
 router.<u-code>beforeEach</u-code>((to, from, next) => {
 	// ...
 })
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Разрешения перехода: beforeResolve</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 router.<u-code>beforeResolve</u-code>() => {
 	// ...
 }
 // похож на router.beforeEach, с той разницей, что разрешающий хук будет вызван 
 // непосредственно перед подтверждением навигации, 
 // после того, как будут разрешены все хуки компонента и асинхронные компоненты для маршрута
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Завершения перехода: afterEach</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 router.<u-code>afterEach</u-code>((to, from) => {
 	// ...
 })
 // в отличие от сторожевых хуков, в них не передаётся функция next, 
 // и на навигацию они повлиять не могут
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>2. Для конкретных маршрутов</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 const router = new VueRouter({
 	routes: [
 		{
@@ -75,13 +75,12 @@ const router = new VueRouter({
 	]
 })
 // можно указать напрямую для конкретного маршрута в его конфигурации
-</code></pre>
-
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>3. Для конкретных компонентов</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 const Foo = {
 	template: `...`,
 	<u-code>beforeRouteEnter</u-code>(to, from, next) {
@@ -102,7 +101,7 @@ const Foo = {
 		// имеет доступ к контексту экземпляра компонента `this`.
 	}
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Полная цепочка обработки навигации</h3>

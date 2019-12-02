@@ -6,7 +6,7 @@
     <li>Нельзя делать повторные запросы на дублирующиеся адреса (при этом результат всё равно должен присутствовать в результирующем массиве).</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 const urls = [
 	'https://jsonplaceholder.typicode.com/todos/1',
 	'https://jsonplaceholder.typicode.com/todos/2',
@@ -18,12 +18,12 @@ const urls = [
 ];
  
 makeConcurrentCall(urls, 2).then(console.log);
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Решение 1</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 const makeConcurrentCall = (urls, total) => {
 	let indexCount = total;
 	const buff = [...new Set(urls)].map(url => ({
@@ -49,12 +49,12 @@ const makeConcurrentCall = (urls, total) => {
 		}
 	})
 };
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Решение 2</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 function makeConcurrentCall(urls, total) {
 	let res = [];
 	let countIndex = total;
@@ -73,4 +73,4 @@ function makeConcurrentCall(urls, total) {
 		}
 	})
 }
-</code></pre>
+</v-code>

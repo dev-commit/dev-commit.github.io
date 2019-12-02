@@ -4,7 +4,7 @@
 	<a href="https://codesandbox.io/s/v8n57owly0" target="_blank">Пример из документации</a>
 </u-link-wrapper>
 
-<pre><code class="bash"><em>
+<v-code lang="bash" title=""><em>
 &#10006; redux
 	&#10006; reducers
 		&#8226; index.js
@@ -14,14 +14,14 @@
 	&#8226; actionTypes.js
 &#8226; App.js
 &#8226; index.js
-</em></code></pre>
+</em></v-code>
 
 <img src="/img/redux/react-redux-structure.png" width="800px">
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>1. PROVIDER</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js border"><u-code-title>index.js</u-code-title>
+<v-code lang="js border" title="index.js">
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -36,12 +36,12 @@ ReactDOM.render(
     &lt;/<u-code>Provider</u-code>&gt;,
     document.getElementById('root')
 );
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>2. STORE</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js border"><u-code-title>redux/store.js</u-code-title>
+<v-code lang="js border" title="redux/store.js">
 import { <u-code>createStore</u-code> } from 'redux';
 import rootReducer from './reducers';
 
@@ -49,21 +49,21 @@ const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
 const devtoolMiddleware = ext && ext();
 
 export default <u-code>createStore</u-code>(rootReducer, devtoolMiddleware);
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>3. REDUCERS</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js border"><u-code-title>redux/reducers/index.js</u-code-title>
+<v-code lang="js border" title="redux/reducers/index.js">
 import { <u-code>combineReducers</u-code> } from 'redux';
 import myReducer from './my-reducer';
 
 export default <u-code>combineReducers</u-code>({
     myReducer
 });
-</code></pre>
+</v-code>
 
-<pre><code class="js border"><u-code-title>redux/reducers/my-reducer.js</u-code-title>
+<v-code lang="js border" title="redux/reducers/my-reducer.js">
 import { ADD_VALUE } from '../actionTypes';
 
 const initialState = ['Default Value 1', 'Default Value 2'];
@@ -80,24 +80,24 @@ const myReducer = (state = initialState, action) => {
 };
 
 export default myReducer;
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>4. ACTIONS (ACTIONS CREATOR)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js border"><u-code-title>redux/actions.js</u-code-title>
+<v-code lang="js border" title="redux/actions.js">
 import { ADD_VALUE } from './actionTypes';
 
 export const addMyValue = myValue => ({
     <u-code>type</u-code>: ADD_VALUE,
     <u-code>payload</u-code>: { myValue }
 })
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>5. COMPONENT</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js border"><u-code-title>App.js</u-code-title>
+<v-code lang="js border" title="App.js">
 import React, {Component} from 'react';
 import { <u-code>connect</u-code> } from 'react-redux';
 import { addMyValue } from './redux/actions';
@@ -125,11 +125,11 @@ export default <u-code>connect</u-code>(
 	mapStateToProps,
 	mapDispatchToProps
 )(App);
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>6. CONST</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js border"><u-code-title>redux/actionTypes.js</u-code-title>
+<v-code lang="js border" title="redux/actionTypes.js">
 export const ADD_VALUE = 'ADD_VALUE';
-</code></pre>
+</v-code>

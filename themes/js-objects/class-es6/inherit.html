@@ -8,7 +8,7 @@
     <li><u>super()</u> должен вызываться первым объявлением <u>this</u></li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // создание супер-класса
 class Task {
 	constructor(title, comment) {
@@ -33,9 +33,9 @@ class Task {
 	}
 }
 Task.count = 0; // общее кол-во задач
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // наследование между двумя классами
 class SubTask extends Task {
 	constructor(title, comment, parent) {
@@ -52,9 +52,9 @@ class SubTask extends Task {
 		console.log(`Подзадача ${this.title} выполнена`);	
 	}
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 let task = new Task('Изучить JavaScript', 'Comment Task');
 let subtask = new SubTask('Изучить ES6', 'Comment SubTask', task);
 
@@ -63,4 +63,4 @@ subtask.complete();
 
 console.log(SubTask.getDefaultComment());
 console.log(SubTask.count);
-</code></pre>
+</v-code>

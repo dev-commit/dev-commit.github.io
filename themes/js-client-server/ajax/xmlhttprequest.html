@@ -8,7 +8,7 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Методы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js light">
+<v-code lang="js light" title="">
 <bg-methods>xhr.open</bg-methods><bg-arguments>(method, URL, async, user, password)</bg-arguments> // вызов open не открывает соединение. Он лишь настраивает запрос, а коммуникация инициируется методом send
 	<em>&#8226; method</em>      // HTTP-метод. GET / POST / TRACE / DELETE / PUT и т.д.
 	<em>&#8226; URL</em>         // адрес запроса. Можно использовать не только http/https, но и другие протоколы, например ftp:// и file://. При этом есть ограничения безопасности, называемые «Same Origin Policy»: запрос со страницы можно отправлять только на тот же протокол://домен:порт
@@ -28,30 +28,30 @@
 	// Content-Length: 4260
 	// Content-Type: image/png
 	// Date: Sat, 08 Sep 2012 16:53:16 GMT
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Свойства XMLHttpRequest</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js light">
+<v-code lang="js light" title="">
 <em>&#8226; xhr.status</em>       // HTTP-код ответа: 200, 404, 403 и так далее. Может быть также равен 0, если сервер не ответил или при запросе на другой домен
 <em>&#8226; xhr.statusText</em>   // Текстовое описание статуса от сервера: OK, Not Found, Forbidden и т.д.
 <em>&#8226; xhr.responseText</em> // Текст ответа сервера. Для json JSON.parse(xhr.responseText)
 <em>&#8226; xhr.responseXML</em>  // Если сервер вернул XML, снабдив его правильным заголовком Content-type: text/xml, то браузер создаст из него XML-документ. По нему можно будет делать запросы xhr.responseXml.querySelector("...") и другие
 <em>&#8226; xhr.timeout</em>      // Максимальная продолжительность асинхронного запроса. При превышении этого времени запрос будет оборван и сгенерировано событие ontimeout
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 xhr.timeout = 30000; // 30 секунд (в миллисекундах)
 xhr.ontimeout = function() {
 	alert( 'Извините, запрос превысил максимальное время' );
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>События</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js light">
+<v-code lang="js light" title="">
 <em>&#8226; onreadystatechange</em> // можно посмотреть «текущее состояние запроса» в свойстве xhr.readyState
 <em>&#8226; onloadstart</em>        // запрос начат
 <em>&#8226; onprogress</em>         // браузер получил очередной пакет данных, можно прочитать текущие полученные данные в responseText
@@ -60,7 +60,7 @@ xhr.ontimeout = function() {
 <em>&#8226; onload</em>             // запрос был успешно (без ошибок) завершён
 <em>&#8226; ontimeout</em>          // запрос был прекращён по таймауту
 <em>&#8226; onloadend</em>          // запрос был завершён (успешно или неуспешно)
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Свойство xhr.readyState для текущего состояния запроса</h3>
@@ -70,18 +70,18 @@ xhr.ontimeout = function() {
 	<li>Запрос проходит их в порядке 0 → 1 → 2 → 3 → … → 3 → 4, состояние 3 повторяется при каждом получении очередного пакета данных по сети</li>
 </ul>
 
-<pre><code class="js light">
-const unsigned short UNSENT           = 0; // начальное состояние
-const unsigned short OPENED           = 1; // вызван open
-const unsigned short HEADERS_RECEIVED = 2; // получены заголовки
-const unsigned short LOADING          = 3; // загружается тело (получен очередной пакет данных)
-const unsigned short DONE             = 4; // запрос завершён
-</code></pre>
+<v-code lang="bash" title="">
+const unsigned short UNSENT           = 0;   # начальное состояние
+const unsigned short OPENED           = 1;   # вызван open
+const unsigned short HEADERS_RECEIVED = 2;   # получены заголовки
+const unsigned short LOADING          = 3;   # загружается тело (получен очередной пакет данных)
+const unsigned short DONE             = 4;   # запрос завершён
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Асинхронный</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var xhr = new XMLHttpRequest();
 xhr.open('GET', 'script.php', true);
 xhr.send(); // отправляем запрос, результат придёт в обработчик onreadystatechange
@@ -103,7 +103,7 @@ xhr.onreadystatechange = function() {
     // получить результат из this.responseText или this.responseXML
     console.log(xhr.responseText);
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Синхронный</h3>
@@ -111,7 +111,8 @@ xhr.onreadystatechange = function() {
 <ul class="list-point">
 	<li>Возможность делать запросы на другой домен и указывать таймаут, в синхронном режиме не работают</li>
 </ul>
-<pre><code class="js">
+
+<v-code lang="js" title="">
 var xhr = new XMLHttpRequest();       // создаём новый объект XMLHttpRequest
 xhr.open('GET', 'script.php', false); // конфигурируем его: GET-запрос на URL 'script.php'
 xhr.send();                           // отсылаем запрос
@@ -124,4 +125,4 @@ if (xhr.status != 200) {
 	// вывести результат (responseText -- текст ответа)
     console.log(xhr.responseText);
 } 
-</code></pre>
+</v-code>

@@ -22,7 +22,7 @@ npm i --save <u-code-npm>prop-types</u-code-npm>
     <li>Определение <u-code>defaultProps</u-code> гарантирует, что <u-code>this.props.name</u-code> будет иметь значение, даже если оно не было указано родительским компонентом. Сначала применяются значения по умолчанию, заданные в <u-code>defaultProps</u-code>. После запускается проверка типов с помощью <u-code>propTypes</u-code>. Так что проверка типов распространяется и на значения по умолчанию</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 <u-code>import PropTypes from 'prop-types';</u-code>
@@ -40,17 +40,17 @@ App.<u-code>propTypes</u-code>    = { name: <u-code>PropTypes.string</u-code> };
 App.<u-code>defaultProps</u-code> = { name: 'Jack' };           // значение пропсов по умолчанию
 
 ReactDOM.render(&lt;App name="Tony" /&gt;, document.getElementById('root'));
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Варианты</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<pre><code class="js"><u-code-title>Подключение</u-code-title>
+<v-code lang="js" title="Подключение">
 import PropTypes from 'prop-types';
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>Проверка типа</u-code-title>
+<v-code lang="js" title="Проверка типа">
 MyComponent.propTypes = {
 	propName: PropTypes.<u-code>array</u-code>,
 	propName: PropTypes.<u-code>bool</u-code>,
@@ -60,31 +60,31 @@ MyComponent.propTypes = {
 	propName: PropTypes.<u-code>string</u-code>,
 	propName: PropTypes.<u-code>symbol</u-code>
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>Ограничение конкретными значениями</u-code-title>
+<v-code lang="js" title="Ограничение конкретными значениями">
 MyComponent.propTypes = {
 	propName: PropTypes.<u-code>oneOf</u-code>(['News', 'Photos'])
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>Required</u-code-title>
+<v-code lang="js" title="Required">
 MyComponent.propTypes = {
 	propName: PropTypes.<u-code>string.isRequired</u-code>, // обязательное типа "string"
 	propName: PropTypes.<u-code>any.isRequired</u-code>,    // обязательное любого типа
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title></u-code-title>
+<v-code lang="js" title="">
 MyComponent.propTypes = {
 	propName: PropTypes.<u-code>node</u-code>, // все, что может быть отренедерено: числа, строки, элементы или массивы (или фрагменты) содержащие эти типы
 	propName: PropTypes.<u-code>element</u-code>,             // react-элемент
 	propName: PropTypes.<u-code>element.isRequired</u-code>,  // ограничение на один дочерний элемент
 	propName: PropTypes.<u-code>instanceOf</u-code>(Message), // экземпляр определенного класса
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>Объекты и массивы</u-code-title>
+<v-code lang="js" title="Объекты и массивы">
 MyComponent.propTypes = { 
 	// Объект, одного из нескольких типов
 	optionalUnion: PropTypes.<u-code>oneOfType</u-code>([
@@ -105,13 +105,13 @@ MyComponent.propTypes = {
 		fontSize: PropTypes.number
 	}),
 }
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <li>Можно добавить собственный валидатор. Он должен возвращать объект <u-code-text>Error</u-code-text> при ошибке валидации. Не используйте <u-code-text>console.warn</u-code-text> или <u-code-text>throw</u-code-text> - это не будет работать внутри <u-code-text>oneOfType</u-code-text></li>
     <li>Можно задать свой валидатор для <u-code-text>arrayOf</u-code-text> и <u-code-text>objectOf</u-code-text>. Он должен возвращать объект Error при ошибке валидации. Валидатор будет вызван для каждого элемента в массиве или для каждого свойства объекта. Первые два параметра валидатора - это массив или объект и ключ текущего элемента</li>
 </ul>
-<pre><code class="js"><u-code-title>Собственный валидатор</u-code-title>
+<v-code lang="js" title="Собственный валидатор">
 MyComponent.propTypes = {
 	customProp: function(props, propName, componentName) {
 		if (!/matchme/.test(props[propName])) {
@@ -130,5 +130,4 @@ MyComponent.propTypes = {
 		}
 	})
 }
-</code></pre>
-
+</v-code>

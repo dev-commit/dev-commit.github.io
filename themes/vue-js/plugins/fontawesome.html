@@ -7,36 +7,39 @@
 <!------------------------------------------------------------->
 <h4>NPM</h4>
 <!------------------------------------------------------------->
-<pre><code class="bash">
+<v-code lang="bash" title="">
 npm i --save @fortawesome/fontawesome-svg-core
 npm i --save @fortawesome/vue-fontawesome
-</code></pre>
-<pre><code class="bash">
+</v-code>
+
+<v-code lang="bash" title="">
 npm i --save @fortawesome/free-solid-svg-icons
 npm i --save @fortawesome/free-regular-svg-icons
 npm i --save @fortawesome/free-brands-svg-icons
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>main.js</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 import { library }                 from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon }         from '@fortawesome/vue-fontawesome'
-</code></pre>
-<pre><code class="js">
+</v-code>
+
+<v-code lang="js" title="">
 import { faComment as fasComment } from '@fortawesome/free-solid-svg-icons'
 import { faComment as farComment } from '@fortawesome/free-regular-svg-icons'
 library.add(fasComment, farComment)
-</code></pre>
-<pre><code class="js">
+</v-code>
+
+<v-code lang="js" title="">
 Vue.component('font-awesome-icon', FontAwesomeIcon)
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>component.vue</h4>
 <!------------------------------------------------------------->
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;font-awesome-icon :icon="['fas', 'comment']" /&gt;
 &lt;font-awesome-icon :icon="['far', 'comment']" /&gt;
-</code></pre>
+</v-code>

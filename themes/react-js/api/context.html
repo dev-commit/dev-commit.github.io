@@ -14,9 +14,9 @@
 <!------------------------------------------------------------->
 <h4>1. React.createContext</h4>
 <!------------------------------------------------------------->
-<pre><code class="js none">
+<v-code lang="js none" title="">
 const MyContext = React.createContext(defaultValue);
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <li><u-menu-code>React.createContext</u-menu-code> - создание объекта Context. Когда React рендерит компонент, который подписан на этот объект, React получит текущее значение контекста из ближайшего подходящего <u>Provider</u> выше в дереве компонентов</li>
@@ -28,9 +28,9 @@ const MyContext = React.createContext(defaultValue);
 <!------------------------------------------------------------->
 <h4>2. Context.Provider</h4>
 <!------------------------------------------------------------->
-<pre><code class="js none">
+<v-code lang="js none" title="">
 &lt;MyContext.Provider value={/* некоторое значение */}&gt;
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <li><u-menu-code>Context.Provider</u-menu-code> - компонент используется для передачи текущего значения по дереву. Любой дочерний компонент может использовать этот контекст</li>
@@ -44,14 +44,14 @@ const MyContext = React.createContext(defaultValue);
 <!------------------------------------------------------------->
 <h4>3. Class.contextType</h4>
 <!------------------------------------------------------------->
-<pre><code class="js none">
+<v-code lang="js none" title="">
 class MyClass extends React.Component {
 	static contextType = MyContext;
 	render() {
 		{this.context}
 	}
 }
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <li><u-menu-code>Class.contextType</u-menu-code> - определяет <u>contextType</u>, чтобы получить значение контекста. React найдёт (выше по дереву) ближайший <u>Provider-компонент</u>, предоставляющий этот контекст, и использует его значение</li>
@@ -62,11 +62,11 @@ class MyClass extends React.Component {
 <!------------------------------------------------------------->
 <h4>4. Context.Consumer</h4>
 <!------------------------------------------------------------->
-<pre><code class="html none">
+<v-code lang="html none" title="">
 &lt;MyContext.Consumer&gt;
 	{value =&gt; /* отрендерить что-то, используя значение контекста */}
 &lt;/MyContext.Consumer&gt;
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <li><u-menu-code>MyContext.Consumer</u-menu-code> - React-компонент, который подписывается на изменения контекста. В свою очередь, это позволяет вам подписаться на контекст в функциональном компоненте</li>
@@ -77,7 +77,7 @@ class MyClass extends React.Component {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Пример</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 import React, { Component } from 'react';
 
 const ThemeContext = <u-code>React.createContext</u-code>('light');
@@ -91,9 +91,9 @@ export default class App extends Component {
 		);
 	}
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // Компонент, который находится в середине,
 // теперь не должен явно передавать UI-тему вниз
 class Toolbar extends Component {
@@ -105,9 +105,9 @@ class Toolbar extends Component {
 		);
 	}
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // 1. Используя contextType
 class ThemedButton extends Component {
 	<u-code>static contextType = ThemeContext;</u-code>
@@ -134,7 +134,7 @@ class ThemedButton extends Component {
 		);
 	}
 }
-</code></pre>
+</v-code>
 
 
 

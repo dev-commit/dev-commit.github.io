@@ -4,53 +4,43 @@
 <h3>Exports функции 1</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 things.js
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 function things(name) {
     return `Привет, ${name}`;
 }
 module.exports = things;
-</code>
-</pre>
+</v-code>
 index.js
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var things = require('./things');
 var a = things('Tony');
 console.log(a);
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Exports функции 2</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 greet.js
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 module.exports = function(greeting) {
     return function(name) {
         return `${greeting}, ${name}`;
     }
 }
-</code>
-</pre>
+</v-code>
 
 index.js
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 const getGreet = require('./greet');
 const greet = getGreet('Привет');
 console.log(greet('Tony'));
 console.log(greet('Harvey'));
 console.log(greet('Andy'));
-</code>
-</pre>
+</v-code>
 
 Результат
-<pre>
-<code>
-Привет, Tony
-Привет, Harvey
-Привет, Andy
-</code>
-</pre>
+<v-code lang="js" title="">
+// => Привет, Tony
+// => Привет, Harvey
+// => Привет, Andy
+</v-code>

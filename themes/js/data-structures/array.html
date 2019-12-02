@@ -9,66 +9,66 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Объявление</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var arr = [];                        // объявление пустого массива
 var arr = ['Tony', 'Anne'];          // объявление массива из заполненных элементов
 var arr = [,,'Tony'];                // пропуск элементов
 var arr = new Array(5);              // объявление массива из пустых элементов с длиной 5 (конструктор)
 var arr = new Array('Tony', 'Anne'); // объявление массива (конструктор)
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Методы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <u-code>push</u-code> <u-code>pop</u-code> <u-code>unshift</u-code> <u-code>shift</u-code>
-<pre><code class="js">
+<v-code lang="js" title="">
 arr.<u-code>push</u-code>('Jack', 'Tony');            // добавляет элементы в конец
 arr.<u-code>unshift</u-code>('Jack', 'Tony');         // добавляет элементы в начало
 arr.<u-code>pop</u-code>();                           // удаляет и возвращает последний элемент
 arr.<u-code>shift</u-code>();                         // удаляет и возвращает первый элемент
-</code></pre>
+</v-code>
 
 <u-code>indexOf</u-code> <u-code>lastIndexOf</u-code>
-<pre><code class="js">
+<v-code lang="js" title="">
 var a = colors.<u-code>indexOf</u-code>('white');     // возвращает первый индекс, по которому элемент может быть найден в массиве или -1, если индекса нет
 var a = colors.<u-code>lastIndexOf</u-code>('white'); // возвращает последний индекс, по которому данный элемент может быть найден в массиве или -1, если такого индекса нет
-</code></pre>
+</v-code>
 
 <u-code>join</u-code> <u-code>split</u-code>
-<pre><code class="js">
+<v-code lang="js" title="">
 var a = arr.<u-code>join</u-code>('.');               // преобразование массива в строку с заданным разделителем
 var arr = str.<u-code>split</u-code>(';');            // преобразование строки с заданным разделителем в массив 
-</code></pre>
+</v-code>
 
 <u-code>slice</u-code>
-<pre><code class="js">
+<v-code lang="js" title="">
 var arr2 = arr1.<u-code>slice</u-code>(1, 7);         // копировать с 1 до 7 не включая, если не указан второй аргумент, то до конца
 var arr2 = arr1.<u-code>slice</u-code>(1);            // копировать с 1 до конца
 var arr2 = arr.<u-code>slice</u-code>(-2);            // копировать c 2 элемента с конца и дальше
 var arr2 = arr.<u-code>slice</u-code>();              // копировать весь массив
-</code></pre>
+</v-code>
 
 <u-code>splice</u-code>
-<pre><code class="js">                
+<v-code lang="js" title="">               
 arr.<u-code>splice</u-code>(3, 2);                     // удалить с 3 индекса 2 элемента
 arr.<u-code>splice</u-code>(2, 0, 'Алина', 'Марина');  // добавление элементов
 arr.<u-code>splice</u-code>(1, 2, 'Алексей", "Билл');  // замена элементов (заменить 2 удаленных элемента на Алексей, Билл)
 arr.<u-code>splice</u-code>(-1, 1);                    // удалить с последнего индекса-1 1 элемент (отрицательная позиция отсчитывается с конца)
-</code></pre>
+</v-code>
 
 <u-code>length</u-code> <u-code>reverse</u-code> <u-code>concat</u-code>
-<pre><code class="js">
+<v-code lang="js" title="">
 var a = arr.<u-code>length</u-code>;                  // длина массива (индекс последнего элемента)
 arr.<u-code>reverse</u-code>();                       // меняет порядок элементов в массиве на обратный
 var arr = arr1.<u-code>concat</u-code>(arr2, arr3);   // создаёт новый массив, в который копируются элементы из массивов
-</code></pre>
+</v-code>
 
 <u-code>sort</u-code>
-<pre><code class="js">
+<v-code lang="js" title="">
 arr.<u-code>sort</u-code>();                          // сортировка по алфавиту, преобразуя элементы к строке
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // свой порядок сортировки (сортировка чисел)
 var arr = [1, 12, 2];
 arr.sort(function(a, b) {
@@ -76,29 +76,29 @@ arr.sort(function(a, b) {
   if (a < b) return -1;	
 });
 console.log(arr);  // 1, 2, 15
-</code></pre>
+</v-code>
 
 <u-code>Array.isArray()</u-code>
-<pre><code class="js">
+<v-code lang="js" title="">
 // проверка на массив
 var a = Array.<u-code>isArray</u-code>([1,2,3]); // true
 var b = Array.<u-code>isArray</u-code>("not array"); // false
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 arr['someIndex'] = 'someValue';       // использование строки в виде индекса
 arr.length = 10;                      // все элементы больше 10 индекса будут удалены
 delete arr[4];                        // присваивание элементу по индексу 4 undefined
 var a = Array.isArray(arr);           // проверка на массив
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Массивы обьектов</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var a = new Array(
 	{"name":"Андрей", "email":"andry@mail.ru"},
 	{"name":"Анна",   "email":"anna@mail.ru"}
@@ -106,19 +106,19 @@ var a = new Array(
 
 console.log(a[0].name);  // "Андрей"
 console.log(a[1].email); // "anna@mail.ru"
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Примеры</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 // перебор массива
 for (var i=0; i<=arr.length-1; i++) {
 	console.log(arr[i]);
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // перебор массива и удаление выбранного элемента
 var id = 12;
 for (var i=0; i<=arr.length-1; i++) {
@@ -127,18 +127,18 @@ for (var i=0; i<=arr.length-1; i++) {
 		break;
 	} 
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // добавление нового элемента в массив
 if (arr != '') {
 	arr[arr.length] = id;
 } else {
 	arr[0] = id;
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // удаление элемента массива
 arr.splice(arr.indexOf(String(id)), 1);
-</code></pre>
+</v-code>

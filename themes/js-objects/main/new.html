@@ -11,33 +11,33 @@
 
 <!-- 1 -->
 <li>Создаётся новый пустой объект через <u-code-text>Object.create</u-code-text>, который является <u-code-text>this</u-code-text></li>
-<pre><code class="js">
+<v-code lang="js" title="">
 var instance = {};
-</code></pre>
+</v-code>
 
 <!-- 2 -->
 <li>Устанавливает <u-code-text>__proto__</u-code-text> этому объекту в которое записывается ссылка из <u-code-text>prototype</u-code-text> функции-конструктора <i>(устанавливается прототип)</i></li>
-<pre><code class="js">
+<v-code lang="js" title="">
 instance.__proto__ = FnClass.prototype;
-</code></pre>
+</v-code>
 
 <!-- 3 -->
 <li>
 	<u-code-text>this</u-code-text> получает ссылку на этот объект. Модифицируется <u-code-text>this</u-code-text> (т.е. этот новый объект) и инициализируются методы и свойства. <br>
 	<i>Применяет функцию-класс к нашему новосозданному объекту (т.е. исполняет функцию FnClass, передавая ей instance в качестве this и аргументы в виде массива arguments)</i>
 </li>
-<pre><code class="js">
+<v-code lang="js" title="">
 constructorReturns = FnClass.apply(instance, arguments);
-</code></pre>
+</v-code>
 
 <!-- 4 -->
 <li>
 	Неявно возвращается <u-code-text>this</u-code-text> без вызова <u-code-text>return</u-code-text><br>
 	<i>Возвращает экземпляр функции-класса, но если FnClass нам вернул обьект, тогда его</i>
 </li>
-<pre><code class="js">
+<v-code lang="js" title="">
 return constructorReturns instanceof Object ? constructorReturns : instance;
-</code></pre>
+</v-code>
 
 </ol>
 
@@ -51,7 +51,7 @@ return constructorReturns instanceof Object ? constructorReturns : instance;
     <li>2. В реализации конструктора можно переопределить стандартное поведение, когда оператор <u-code-text>new</u-code-text> возвращает <u-code-text>this</u-code-text>, возвращая объект. Это может быть полезным, когда конструктор должен вернуть инстанс суб-конструктора</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 function newOperator(Constr, args) {
 	var thisValue = Object.create(Constr.prototype); // (1)
 	var result = Constr.apply(thisValue, args);
@@ -60,7 +60,7 @@ function newOperator(Constr, args) {
 	}
 	return thisValue;
 }
-</code></pre>
+</v-code>
 
 
 <hr>
@@ -70,7 +70,7 @@ function newOperator(Constr, args) {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Функция-конструктор</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js"><u-code-title>js</u-code-title>
+<v-code lang="js" title="">
 function User(name) {
 	this.name = name;
 	this.isAdmin = false;
@@ -80,7 +80,7 @@ let user = new User("Вася");
 
 alert(user.name); // Вася
 alert(user.isAdmin); // false
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Вызов функции через new User(...)</h3>
@@ -91,7 +91,7 @@ alert(user.isAdmin); // false
 	<li>Возвращается значение <u-code-text>this</u-code-text></li>
 </ol>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 function User(name) {
 	// this = {};  (неявно)
 
@@ -101,24 +101,24 @@ function User(name) {
 
 	// return this;  (неявно)
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // То есть, результат вызова new User("Вася") – это тот же объект, что и:
 let user = {
 	name: "Вася",
 	isAdmin: false
 };
-</code></pre>
+</v-code>
 
 <hr>
 <hr>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // new
 1. {} создание пустого объекта
 2. .apply({}) -> this.apply
 3. берет .prototype и добавляет как прототип к новому объекту
 __proto__ = superFunc.prototype
 4. (typeof result != Object) ? {} : result 
-</code></pre>
+</v-code>

@@ -1,25 +1,20 @@
 <h2>express</h2>
 
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 npm i express          - установка пакета
 npm uninstall express  - удаление пакета
 npm i                  - установка всех пакетов из package.json
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Маршрутизация на Express</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var express = require('express');
 var app = express();
-</code>
-</pre>
+</v-code>
 
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 // статическая ссылка (главная)
 app.get('/', function(req, res) {
     res.send('This is home');
@@ -39,11 +34,9 @@ app.get('/news/:name', function(req, res) {
 app.get('/news/:name/:id', function(req, res) {
     res.send('id=' + req.params.name + req.params.id);
 });
-</code>
-</pre>
+</v-code>
 
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 // отображение html файла
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
@@ -51,14 +44,11 @@ app.get('/', function(req, res) {
 app.get('/about', function(req, res) {
     res.sendFile(__dirname + '/about.html');
 });
-</code>
-</pre>
+</v-code>
 
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 app.listen(3000);
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Шаблонизатор на Expres</h3>
@@ -67,17 +57,14 @@ app.listen(3000);
 <!------------------------------------------------------------->
 <h4>Установка шаблонизатора ejs</h4>
 <!------------------------------------------------------------->
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 npm i ejs
-</code>
-</pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>index.js</h4>
 <!------------------------------------------------------------->
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var express = require('express');
 var app = express();
 // указание шаблонизатора, который будем использовать
@@ -96,8 +83,7 @@ app.get('/about', function(req, res) {
     res.render('about');
 });
 app.listen(3000);
-</code>
-</pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>public/css/style.css</h4>
@@ -108,39 +94,33 @@ public - все статические файлы (css, img, doc и т.д.)
 <h4>views/about.ejs</h4>
 <!------------------------------------------------------------->
 подключение статического файла
-<pre>
-<code class="html">
+<v-code lang="html" title="">
 &lt;link rel="stylesheet" href="/public/css/style.css"&gt;
-</code>
-</pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>views/news.ejs</h4>
 <!------------------------------------------------------------->
-<pre>
-<code class="html">
+<v-code lang="html" title="">
 <% include blocks/header.ejs %>    - подключение файла-заголовка
 <%= newsId %>                      - вывод переменной
 <%= newsObj.id %>                  - вывод переменной объекта
-</code>
-</pre>
-<pre>
-<code class="html">
+</v-code>
+<v-code lang="html" title="">
 &lt;ul&gt;
     &lt;% newsObj.paragraphs.forEach(function(item) { %&gt;
         &lt;li&gt;&lt;%= item %&gt;&lt;/li&gt;
     &lt;% }); %&gt;
 &lt;/ul&gt;
-</code>
-</pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>views/blocks/header.ejs</h4>
 <!------------------------------------------------------------->
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;ul&gt;
     &lt;li&gt;&lt;a href="/"&gt;main&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="/about"&gt;about&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="/news/новости"&gt;news&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</code></pre>
+</v-code>

@@ -8,40 +8,40 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Простой пример task</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var gulp = require('gulp');
 gulp.task('mytask', function() {
 	console.log('Привет, я таск!');
 });
 gulp mytask - запуск из консоли
-</code></pre>	
+</v-code>	
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Структура task</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var gulp = require('gulp');         // подключение пакета 
 gulp.task('mytask', function() {    // инструкция
 	gulp.src('source-files') // взяли файлы
 	.pipe(plugin())                 // выполнили действие над ними (вызов команды, плагина)
 	.pipe(gulp.dest('folder'))      // выгрузили результат работы плагина (только папка)
 });
-</code></pre>	
+</v-code>	
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Аргументы task</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 task
 	'' - название таска
 	[] - таски, которые необходимо выполнить до запуска таска
 	function - функция
-</code></pre>	
+</v-code>	
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Выбор файлов по шаблону</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 return gulp.src();
 	'app/sass/main.scss'                           - выбрать конкретный файл
 	'app/sass/*.scss'                              - выбрать все файлы из директории
@@ -49,12 +49,12 @@ return gulp.src();
 	'!app/sass/main.scss'                          - файл исключится из выборки
 	['!app/sass/main.scss', 'app/sass/**/*.scss']) - указание нескольких условий
 	'app/sass/*.+(scss|sass)'                      - выбрать все файлы scss и sass из директории
-</code></pre>	
+</v-code>	
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Дефолтный таск</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 gulp.task('default', ['watch']);
 gulp - запуск из консоли
-</code></pre>
+</v-code>

@@ -6,7 +6,7 @@
     <li>Неуправляемые компоненты опираются на DOM в качестве источника данных и могут быть удобны при интеграции React с кодом, не связанным с React. Количество кода может уменьшиться, правда, за счёт потери в его чистоте. Поэтому в обычных ситуациях рекомендуется использовать управляемые компоненты</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -24,7 +24,7 @@ class App extends Component {
 		);
 	}
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Значения по умолчанию</h3>
@@ -34,13 +34,13 @@ class App extends Component {
     <li>Аналогично, <u-code-text>&lt;input type="checkbox"&gt;</u-code-text> и <u-code-text>&lt;input type="radio"&gt;</u-code-text> используют <u-code-text>defaultChecked</u-code-text>, а <u-code-text>&lt;select&gt;</u-code-text> и <u-code-text>&lt;textarea&gt;</u-code-text> - <u-code-text>defaultValue</u-code-text></li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 render() {
 	return (
 		&lt;input <u-code>defaultValue</u-code>="Tony" type="text" ref={this.input} /&gt;
 	);
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Тег поля загрузки файла</h3>
@@ -50,7 +50,7 @@ render() {
     <li>Для взаимодействия с файлами следует использовать File API. В примере показано, как создать реф на DOM-узел, чтобы затем получить доступ к файлам в обработчике отправки формы</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 class FileInput extends React.Component {
 	constructor(props) {
 		super(props);
@@ -70,5 +70,5 @@ class FileInput extends React.Component {
 		);
 	}
 }
-</code></pre>
+</v-code>
 

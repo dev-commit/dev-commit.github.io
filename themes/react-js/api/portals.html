@@ -21,7 +21,7 @@
     <li>Обычно, когда вы возвращаете элемент из рендер-метода компонента, он монтируется в DOM как дочерний элемент ближайшего родительского узла</li>
     <li>Но иногда требуется поместить потомка в другое место в DOM</li>
 </ul>
-<pre><code class="js">
+<v-code lang="js" title="">
 render() {
 	// React *не* создаёт новый div. Он рендерит дочерние элементы в `domNode`.
 	// `domNode` — это любой валидный DOM-узел, находящийся в любом месте в DOM.
@@ -30,12 +30,12 @@ render() {
 		domNode
 	);
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Пример</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js"><u-code-title>component</u-code-title>
+<v-code lang="js" title="component">
 import React, {Component} from 'react';
 <u-code>import ReactDOM from 'react-dom';</u-code>
 
@@ -57,9 +57,9 @@ class Child extends Component {
 }
 
 <u-code>ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));</u-code>
-</code></pre>
+</v-code>
 
-<pre><code class="html"><u-code-title>index.html</u-code-title>
+<v-code lang="html" title="index.html">
 &lt;div id="root"&gt;&lt;/div&gt;
 &lt;div id="portal"&gt;&lt;/div&gt;
-</code></pre>
+</v-code>

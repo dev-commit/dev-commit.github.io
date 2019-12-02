@@ -16,14 +16,14 @@
 <!------------------------------------------------------------->
 <h4>Глобальная переменная</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 var db = null;
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Создание / открытие БД и обработчки событий</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 function dbCreate() {
 	// Создание базы данных
 	const request = <u-code>window.indexedDB.open</u-code>('dbName', 77); //create DB: name,version 
@@ -43,12 +43,12 @@ function dbCreate() {
 	    console.error(event.target.errorCode);
 	};
 }
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Добавление записи</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 function dbInsert() {
     const note = {
         title: 'My note',
@@ -58,12 +58,12 @@ function dbInsert() {
     const notes = tx.<u-code>objectStore</u-code>('notes');
     notes.add(note);
 }
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Выборка всех записей</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 function dbSelect() {
     const tx = db.<u-code>transaction</u-code>('notes', 'readonly');
     const notes = tx.<u-code>objectStore</u-code>('notes');
@@ -77,4 +77,4 @@ function dbSelect() {
         }
     };
 }
-</code></pre>
+</v-code>

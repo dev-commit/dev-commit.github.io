@@ -12,27 +12,29 @@
 	<li>3. Если не совпадает, тогда заменить obj на obj.__proto__ и повторить проверку на шаге 2 до тех пор, пока либо не найдется совпадение (результат true), либо цепочка прототипов не закончится (результат false)</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 function ClassParent() {}
 var parent = new ClassParent();
 var a = parent instanceof ClassParent; // true
 // parent.__proto__ == ClassParent.prototype;
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // массив arr принадлежит классу Array
 // но также и является объектом Object
 var arr = [];
 var a = arr instanceof Array; // true
 var a = arr instanceof Object; // true
 // arr.__proto__.__proto__ == Object.prototype
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // сама функция-конструктор не участвует в процессе проверки, важна только цепочка прототипов для проверяемого объекта
 // это может приводить к ошибкам в проверке при изменении prototype
 function Rabbit() {}
 var rabbit = new Rabbit();
 Rabbit.prototype = {}; // изменили prototype...
 var a = rabbit instanceof Rabbit; // false
-</code></pre>
+</v-code>
+
+

@@ -7,34 +7,34 @@
     <li>Параметры по умолчанию будут срабатывать если параметр <u>не передан</u> или параметр равен <u>undefined</u></li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 function greet(greeting='Hello', name='Friend') {
 	console.log(greeting + ' ' + name);
 }
 greet();
-</code></pre>
+</v-code>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Псевдомассив аргументов arguments (ES5)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 // arguments в ES5 - псевдо-массив, содержащий переданные агрументы
 [object Arguments] {
 	0: arg1,
 	1: arg2, 
 	2: arg3
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 function my() {
 	// конвертация в обычный массив
 	let arr = Array.prototype.slice.call(arguments);
 	console.log(arr); // => [1, 2, 3]
 }
 my(1, 2, 3);
-</code></pre>
+</v-code>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -46,18 +46,18 @@ my(1, 2, 3);
     <li><b>Ограничение 2: </b>Нельзя иметь больше одного rest-параметра</li>
 </ul>
 
-<pre><code class="js"><u-code-title>Только rest-параметры</u-code-title>
+<v-code lang="js" title="Только rest-параметры">
 function my(...numbers) {
 	console.log(numbers); // => [1, 2, 3]
 }
 my(1, 2, 3);
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>rest с обычными параметрами</u-code-title>
+<v-code lang="js" title="rest с обычными параметрами">
 function my(a, b, ...numbers) {
 	console.log(a);       // => 1
 	console.log(b);       // => 2
 	console.log(numbers); // => [3, 4]
 }
 my(1, 2, 3, 4);
-</code></pre>
+</v-code>

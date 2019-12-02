@@ -1,10 +1,10 @@
 <h2>Хук контекста useContext</h2>
 
-<pre><code class="js border">
+<v-code lang="js border" title="">
 import React, { useContext } from 'react';
 
 const value = <u-code>useContext</u-code>(MyContext);
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <li>Принимает объект контекста (значение, возвращённое из <u-code-text>React.createContext</u-code-text>) и возвращает текущее значение контекста для этого контекста. Текущее значение контекста определяется пропом value ближайшего <u-code-text>&lt;MyContext.Provider&gt;</u-code-text> над вызывающим компонентом в дереве</li>
@@ -16,19 +16,19 @@ const value = <u-code>useContext</u-code>(MyContext);
     <li><u-text-define>useContext</u-text-define> - можно подписаться на контекст React без использования каких-либо вложений</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 function Example() {
 	const locale = useContext(LocaleContext);
 	const theme = useContext(ThemeContext);
 	// ...
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Пример: установка языка</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<pre><code class="js"><u-code-title>index.js</u-code-title>
+<v-code lang="js" title="index.js">
 import React from 'react';
 import ReactDOM from "react-dom";
 
@@ -52,9 +52,9 @@ const Component = (props) =&gt; {
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(&lt;App /&gt;, rootElement);
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>LanguageContextProvider.jsx</u-code-title>
+<v-code lang="js" title="LanguageContextProvider.jsx">
 import React, { <u-code>useContext</u-code> } from 'react';
 
 const IsLanguageContext = <u-code>React.createContext('ru')</u-code>;
@@ -67,4 +67,4 @@ const LanguageContextProvider = ({children, ...props}) =&gt; (
 
 export default LanguageContextProvider;
 export const useLanguage = () =&gt; <u-code>useContext(IsLanguageContext)</u-code>;
-</code></pre>
+</v-code>

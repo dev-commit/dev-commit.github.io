@@ -8,29 +8,24 @@
 	<a href="https://insomnia.rest/" target="_blank">Insomnia REST Client</a>
 </u-link-wrapper>
 
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 <em>pip install falcon</em>
 <em>pip install waitress</em>
 <em>pip install [gunicorn|uwsgi|waitress]</em>
-</code>
-</pre>
+</v-code>
 
-<pre>
-<code>
+<v-code lang="bash" title="">
 <em>Falcon</em> является фреймворком <em>WSGI</em>, потому для работы веб-приложения потребуется сервер приложений WSGI
 
 1. <em>Gunicorn</em>. Gunicorn для <em>UNIX-среды</em> несовместим с Windows. UNIX - семейство операционных систем (Mac OS X, GNU/Linux).
 2. <em>uWSGI</em>
 3. <em>Waitress</em>
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Simple Text</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 import falcon
 from waitress import serve
 
@@ -42,18 +37,17 @@ class ObjRes(object):
 api = falcon.API()
 api.add_route('/', ObjRes())
 serve(api, host="127.0.0.1", port=8001)
-</code>
-<code class="python">
+</v-code>
+
+<v-code lang="js" title="">
 python app.py
 http://127.0.0.1:8001/
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>HTML</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 import falcon
 from waitress import serve
 
@@ -66,18 +60,17 @@ class ObjRes(object):
 api = falcon.API()
 api.add_route('/', ObjRes())
 serve(api, host="127.0.0.1", port=8001)
-</code>
-<code class="python">
+</v-code>
+
+<v-code lang="js" title="">
 python app.py
 http://127.0.0.1:8001/
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Json (Object)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 import falcon, json
 from waitress import serve
 
@@ -94,18 +87,17 @@ class ObjRes(object):
 api = falcon.API()
 api.add_route('/', ObjRes())
 serve(api, host="127.0.0.1", port=8001)
-</code>
-<code class="python">
+</v-code>
+
+<v-code lang="python" title="">
 http://127.0.0.1:8001/
 {"name": "Tony", "age": "25", "country": "Russia"}
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Json (read URL)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 import falcon, json
 from waitress import serve
 
@@ -131,21 +123,20 @@ class ObjRes(object):
 api = falcon.API()
 api.add_route('/', ObjRes())
 serve(api, host="127.0.0.1", port=8001)
-</code>
-<code class="python">
+</v-code>
+
+<v-code lang="python" title="">
 http://127.0.0.1:8001/
 {"error": "You need name in your params"}
 
 http://127.0.0.1:8001/?name=Tony
 {"name": "Tony"}
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Read Params</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code>
+<v-code lang="python" title="">
 # read url params http://127.0.0.1:8001/?name=Tony
 name = req.params['name']
 # req.host
@@ -155,14 +146,12 @@ name = req.params['name']
 # read json params {"name" : "Tony"}
 data = json.loads(req.stream.read())
 a = data['name']
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>HTTP-методы GET/POST/PUT/DELETE</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<v-code lang="python" title="">
 import falcon, json
 from waitress import serve
 
@@ -201,8 +190,9 @@ class ObjRes(object):
 api = falcon.API()
 api.add_route('/', ObjRes())
 serve(api, host="127.0.0.1", port=8001)
-</code>
-<code class="js">
+</v-code>
+
+<v-code lang="python" title="">
 # GET
 # JSON { "name": "Tony" }
 # Result { "msg": "Hello Tony" }
@@ -210,14 +200,12 @@ serve(api, host="127.0.0.1", port=8001)
 # POST
 # JSON { "x": "100", "y": "200" }
 # Result { "msg": "x: 100 + y: 200 is equel to 300" }
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Validated JSON input</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<v-code lang="python" title="">
 import falcon, json
 from waitress import serve
 
@@ -258,14 +246,12 @@ class ObjRes(object):
 api = falcon.API()
 api.add_route('/', ObjRes())
 serve(api, host="127.0.0.1", port=8001)
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Hooks</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<v-code lang="python" title="">
 import falcon
 from waitress import serve
 
@@ -302,14 +288,12 @@ class ObjRes(object):
 api = falcon.API()
 api.add_route('/', ObjRes())
 serve(api, host="127.0.0.1", port=8001)
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Basic Auth</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<v-code lang="python" title="">
 import falcon
 import base64
 from waitress import serve
@@ -352,9 +336,8 @@ class ObjRes(object):
 api = falcon.API()
 api.add_route('/', ObjRes())
 serve(api, host="127.0.0.1", port=8001)
-</code>
-</pre>
+</v-code>
 
-<pre><code>
+<v-code lang="bash" title="">
 Insomnia -> Basic Auth
-</code></pre>
+</v-code>

@@ -13,23 +13,19 @@
     <a href="https://stackoverflow.com/questions/22252397/importerror-no-module-named-mysqldb" target="_blank">stackoverflow.com mysqldb</a>
 </u-link-wrapper>
 
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 <em>pip install SQLAlchemy</em>
 <em>pip install pymysql</em>
 <em>pip install --upgrade SQLAlchemy</em>
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Тестирование</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="python">
+<v-code lang="python" title="">
 import sqlalchemy
 print (sqlalchemy.__version__) # посмотреть версию SQLALchemy
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Работа с БД</h3>
@@ -38,22 +34,19 @@ print (sqlalchemy.__version__) # посмотреть версию SQLALchemy
 <!------------------------------------------------------------->
 <h4>Connect</h4>
 <!------------------------------------------------------------->
-<pre>
-<code class="python">
+<v-code lang="python" title="">
 from sqlalchemy import create_engine
 engine = create_engine('mysql+pymysql://root:123@localhost/motmom')
 # root      - user
 # 123       - password
 # localhost - host
 # motmom    - db name
-</code>
-</pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Declarative creation of a table, class</h4>
 <!------------------------------------------------------------->
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
@@ -76,14 +69,12 @@ class User(Base):
 
 # create table
 Base.metadata.create_all(engine)
-</code>
-</pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Session</h4>
 <!------------------------------------------------------------->
-<pre>
-<code class="python">
+<v-code lang="python" title="">
 from sqlalchemy.orm import sessionmaker
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -106,22 +97,19 @@ session.commit()
 deleteRecord = session.query(User).filter_by(id=1).first()
 session.delete(deleteRecord)
 session.commit()
-</code>
-</pre>
+</v-code>
 
-<pre>
-<code class="python">
+<v-code lang="python" title="">
 session.close()
-</code>
-</pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Select Query</h4>
 <!------------------------------------------------------------->
-<pre><code class="python">
+<v-code lang="python" title="">
 query1 = session.query(User).filter_by(name='Tony').first() # выбрать 1 запись по совпадению поля name
 query2 = session.query(User).filter(User.name=='Tony')      # выбрать 1 запись по совпадению поля name
 query3 = session.query(User).filter(User.name=='Tony').filter(User.fullname=='Stark') # выбрать 1 запись по совпадению поля name и fullname
 query4 = session.query(User).order_by(User.id)              # выбрать все записи, все поля, сортировка по ID
 query5 = session.query(User.name).order_by(User.id)         # выбрать все записи, поле name, сортирока по ID
-</code></pre>
+</v-code>

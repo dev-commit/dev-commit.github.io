@@ -51,7 +51,7 @@ function ActionLink() {
 	<li>При обращении к <u-code-text>this</u-code-text> в JSX-колбэках необходимо учитывать, что методы класса в JavaScript по умолчанию не привязаны к контексту. Если вы забудете привязать метод <u-code-text>this.handleClick</u-code-text> и передать его в <u-code-text>onClick</u-code-text>, значение <u-code-text>this</u-code-text> будет undefined в момент вызова функции. Это часть того, как работают функции в JavaScript. Обычно, если ссылаться на метод без <u-code-text>()</u-code-text> после него, например, <u-code-text>onClick={this.handleClick}</u-code-text>, этот метод нужно привязать</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -71,7 +71,7 @@ class App extends React.Component {
 		);
 	}
 }
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>2. Эспериментальный синтаксис общедоступных полей классов</h4>
@@ -83,7 +83,7 @@ class App extends React.Component {
 	<li><u>Не воссоздает функцию каждый раз</u>, но связывает контекст с компонентом один раз при создании экземпляра класса. Передает ссылку на уже существующий экземпляр</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -100,7 +100,7 @@ class App extends React.Component {
 		);
 	}
 }
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>3. Стрелочные функции в колбэке</h4>
@@ -111,7 +111,7 @@ class App extends React.Component {
 	<li>Рекомендуется делать привязку в конструкторе или использовать синтаксис полей классов, чтобы избежать <u>проблем с производительностью</u></li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -128,7 +128,7 @@ class App extends React.Component {
 		);
 	}
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Передача аргументов в обработчики событий</h3>
@@ -137,9 +137,9 @@ class App extends React.Component {
 	<li>В обоих случаях аргумент <u-code-text>e</u-code-text>, представляющий событие React, будет передан как второй аргумент после идентификатора. Используя стрелочную функцию, необходимо передавать аргумент явно, но с <u-code-text>bind</u-code-text> любые последующие аргументы передаются автоматически</li>
 </ul>
 
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;!-- стрелочные функции --&gt;
 &lt;button onClick={(e) =&gt; this.deleteRow(id, e)}&gt;Удалить строку&lt;/button&gt;
 &lt;!-- Function.prototype.bind --&gt;
 &lt;button onClick={this.deleteRow.bind(this, id)}&gt;Удалить строку&lt;/button&gt;
-</code></pre>
+</v-code>

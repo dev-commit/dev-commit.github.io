@@ -5,16 +5,16 @@ npm i --save <u-code-npm>redux-thunk</u-code-npm>              # асинхро�
 npm i --save <u-code-npm>redux-devtools-extension</u-code-npm> # для работы devtools
 </v-pre-npm>
 
-<pre><code class="js"><u-code-title>redux/reducers/store.js</u-code-title>
+<v-code lang="js" title="redux/reducers/store.js">
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from <u-code>'redux-thunk'</u-code>;
 import rootReducer from './reducers';
 
 export default createStore(rootReducer, <u-code>composeWithDevTools(applyMiddleware(thunk))</u-code>);
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>redux/actions.js</u-code-title>
+<v-code lang="js" title="redux/actions.js">
 import axios from 'axios';
 import { GET_REQUEST } from './actionTypes';
 
@@ -40,7 +40,7 @@ export const getPhotos = function(year) {
 
     }
 }
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <li>Если action creator возвращает функцию - она выполняется. Если возвращает простой объект - передается дальше</li>

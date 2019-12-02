@@ -1,6 +1,6 @@
 <h2>React.memo</h2>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 import React, { memo } from 'react';
 
 const MyComponent = React.memo(function MyComponent(props) {
@@ -8,7 +8,7 @@ const MyComponent = React.memo(function MyComponent(props) {
 });
 
 // export default memo(MyComponent);
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <li><u-text-define>React.memo</u-text-define> - компонент высшего порядка. Он похож на <u-code-text>React.PureComponent</u-code-text>, но предназначен для функциональных компонентов</li>
@@ -17,7 +17,7 @@ const MyComponent = React.memo(function MyComponent(props) {
     <li>Этот метод предназначен только для <u>оптимизации производительности</u>. Не полагайтесь на него, чтобы «предотвратить» рендер, так как это может привести к ошибкам</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 function MyComponent(props) {
 	// рендер с использованием пропсов
 }
@@ -26,7 +26,7 @@ function areEqual(prevProps, nextProps) {
 	// тот же результат что и prevProps, иначе возвращает false
 }
 export default React.memo(MyComponent, areEqual);
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <li>В отличие от метода <u-text-underline>shouldComponentUpdate()</u-text-underline> для классовых компонентов, функция <u-code-text>areEqual</u-code-text> возвращает <u-code-text>true</u-code-text>, если пропсы равны, и значение <u-code-text>false</u-code-text>, если пропсы не равны</li>

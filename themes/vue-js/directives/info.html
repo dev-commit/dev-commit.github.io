@@ -26,9 +26,9 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3 id="directives-info-dynamic-arguments">Динамические аргументы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;a v-bind:[attributeName]="url"&gt; ... &lt;/a&gt;
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<li><u-code-text>attributeName</u-code-text> будет выполняться как выражение JavaScript, а его вычисленное значение использоваться в качестве финального значения аргумента. Например, если экземпляр Vue имеет в данных свойство <u-code-text>attributeName</u-code-text>, значение которого равно <u-code-text>"href"</u-code-text>, то это будет эквивалентно привязке <u-code-text>v-bind:href</u-code-text></li>
@@ -37,12 +37,12 @@
 	<li>Динамические выражения аргументов имеют синтаксические ограничения, потому что некоторые символы недопустимы в именах атрибутов HTML, такие как пробелы и кавычки. Также стоит избегать верхнего регистра если указываете шаблоны в DOM</li>
 </ul>
 
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;!-- Подобное вызовет предупреждение компилятора. --&gt;
 &lt;a v-bind:['foo' + bar]="value"&gt; ... &lt;/a&gt;
-</code></pre>
+</v-code>
 
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;!-- Будет преобразовано в v-bind:[someattr] при указании в шаблоне в DOM. --&gt;
 &lt;a v-bind:[someAttr]="value"&gt; ... &lt;/a&gt;
-</code></pre>
+</v-code>

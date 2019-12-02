@@ -3,20 +3,20 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Использование</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var a = `
 	первая строка
 	вторая строка
 `;
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Интерполяция</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var a = 'text'; 
 var b = `строка текста ${a} строка текста`;
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Tagged Templates</h3>
@@ -25,7 +25,7 @@ var b = `строка текста ${a} строка текста`;
     <li>Тегирование - изменение вида шаблонов при помощи функций</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var name = 'Tony';
 console.log(upperName`Hello ${name}`);
 
@@ -34,9 +34,9 @@ console.log(upperName`Hello ${name}`);
 function upperName(literals, value) {
 	return literals[0] + value.toUpperCase();
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 const template = (strings, ...values) =&gt; {
 	console.log(strings);
 	console.log(values);
@@ -46,5 +46,5 @@ const text = 'abc';
 template `&lt;div&gt;${text}&lt;/div&gt;`;
 // =&gt; ["&lt;div&gt;", "&lt;/div&gt;"]
 // =&gt; ["abc"]
-</code></pre>
+</v-code>
 

@@ -14,7 +14,7 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3 id="composition-mixins-basic">Основы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var mixin = {
     data() {
         return {
@@ -28,7 +28,7 @@ export default {
         console.log(<u-code>this.$data</u-code>); // => { mixinData: "This is Mixin Data" }
     }
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3 id="composition-mixins-merge">Слияние опций</h3>
@@ -37,7 +37,7 @@ export default {
 	<li>Если примесь и компонент содержат пересекающиеся опции, ожидающие значения в форме объектов, такие как <u-code-text>methods</u-code-text>, <u-code-text>components</u-code-text> и <u-code-text>directives</u-code-text> будут объединены. В случае конфликта, приоритет имеют опции компонента</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var mixin = {
     data() {
         return {
@@ -56,13 +56,13 @@ export default {
         console.log(this.$data); // => { text: "This is Component Text" }
     }
 }
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<li>Функции <u-code-text>хуков</u-code-text> с одинаковыми именами объединяются в массив, чтобы все они вызывались. Хуки примеси будут вызываться <u>перед</u> собственными хуками компонента</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var mixin = {
 	created: function () {
 		console.log('Вызван хук примеси')
@@ -76,7 +76,7 @@ export default {
 })
 // => "Вызван хук примеси"
 // => "Вызван хук компонента"
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3 id="composition-mixins-global">Глобальные примеси</h3>
@@ -87,7 +87,7 @@ export default {
 	<li>Неплохой идеей будет их оформление в виде <u>плагинов</u>, что позволит избежать дублирования кода</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // добавляем обработчик для пользовательской опции `myOption`
 Vue.mixin({
 	created: function () {
@@ -101,7 +101,7 @@ new Vue({
 	myOption: 'hello!'
 })
 // => "hello!"
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3 id="composition-mixins-user-merge">Пользовательские стратегии слияния опций</h3>
@@ -110,26 +110,26 @@ new Vue({
 	<li>При слиянии пользовательских опций применяется стратегия по умолчанию, которая просто заменяет одни значения другими. Если вы хотите использовать пользовательскую логику при слиянии пользовательских опций, добавьте функцию в <u-code-text>Vue.config.optionMergeStrategies</u-code-text></li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 Vue.config.optionMergeStrategies.myOption = function (toVal, fromVal) {
 	// return mergedVal
 }
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<li>Для большей части опций-объектов можно просто использовать стратегию, применяемую по умолчанию для опции <u-code-text>methods</u-code-text></li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var strategies = Vue.config.optionMergeStrategies
 strategies.myOption = strategies.methods
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<li>Более сложным примером может послужить стратегия слияния из Vuex 1.x:</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 const merge = Vue.config.optionMergeStrategies.computed
 Vue.config.optionMergeStrategies.vuex = function (toVal, fromVal) {
 	if (!toVal) return fromVal
@@ -140,4 +140,4 @@ Vue.config.optionMergeStrategies.vuex = function (toVal, fromVal) {
 		actions: merge(toVal.actions, fromVal.actions)
 	}
 }
-</code></pre>
+</v-code>

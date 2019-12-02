@@ -20,7 +20,7 @@
 <!------------------------------------------------------------->
 <h4>Простой метод GET, POST, HEAD</h4>
 <!------------------------------------------------------------->
-<pre><code class="js"><u-code-title>Запрос с домена http://test1.ru</u-code-title>
+<v-code lang="js" title="Запрос с домена http://test1.ru">
 var xhr = new XMLHttpRequest();
 xhr.open('GET', 'http://test2.ru/script.php', true);
 xhr.onload = function() {
@@ -30,36 +30,36 @@ xhr.onerror = function() {
     console.log(this.status);
 }
 xhr.send();
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>Сервер http://test2.ru</u-code-title>
+<v-code lang="php" title="Сервер http://test2.ru">
 &lt;?php
     header('<u-code>Access-Control-Allow-Origin</u-code>: http://test1.ru'); // разрешить доступ домену http://test1.ru
     header('Access-Control-Allow-Origin: *');               // разрешить доступ любому домену
 ?&gt;
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Чтение json файла</h4>
 <!------------------------------------------------------------->
-<pre><code class="json"><u-code-title>.htaccess</u-code-title>
+<v-code lang="json" title=".htaccess">
 &lt;IfModule mod_rewrite.c&gt;
 	Header add Access-Control-Allow-Origin "*"
 	Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
 	AddType application/json .json
 &lt;/IfModule&gt;
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Передавать куки и HTTP-авторизацию</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 xhr.withCredentials = true;
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="php" title="">
 &lt;?php
 	header('Access-Control-Allow-Origin: домен');    // Использование звёздочки * запрещено
 	header('<u-code>Access-Control-Allow-Credentials</u-code>: true');
 ?&gt;
-</code></pre>
+</v-code>

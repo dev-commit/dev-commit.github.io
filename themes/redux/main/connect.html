@@ -18,7 +18,7 @@
     </ul>
 </ul>
 
-<pre><code class="js"><u-code-title>Component</u-code-title>
+<v-code lang="js" title="Component">
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
@@ -31,7 +31,7 @@ export default connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(Component);
-</code></pre>
+</v-code>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -59,29 +59,29 @@ const mapDispatchToProps = function(<u-code>dispatch</u-code>) {
 <h3>Варианты</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-two><template v-slot:first>
-<pre><code class="js">
+<v-code lang="js" title="">
 export default connect(
 	null,              // subscribe = false
 	null               // action = false
 )(Component);
-</code></pre>
-<pre><code class="js">
+</v-code>
+<v-code lang="js" title="">
 export default connect(
 	mapStateToProps,   // subscribe = true
 	null               // action = false
 )(Component)
-</code></pre>
+</v-code>
 </template><template v-slot:last>
-<pre><code class="js">
+<v-code lang="js" title="">
 export default connect(
 	null,              // subscribe = false
 	mapDispatchToProps // action = true
 )(Component)
-</code></pre>
-<pre><code class="js">
+</v-code>
+<v-code lang="js" title="">
 export default connect(
 	mapStateToProps,   // subscribe = true
 	mapDispatchToProps // action = true
 )(Component)
-</code></pre>
+</v-code>
 </template></v-two>

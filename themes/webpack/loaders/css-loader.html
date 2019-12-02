@@ -10,7 +10,7 @@ npm i --save-dev <u-code-npm>css-loader</u-code-npm>
 	<li>Webpack выполняет loaders в обратном порядке: с последнего до первого, то есть справа налево</li>
 </ul>
 
-<pre><code class="js"><u-code-title>webpack.config.js</u-code-title>
+<v-code lang="js" title="webpack.config.js">
 module.exports = {
 	module: {
 		rules: [
@@ -31,12 +31,12 @@ module.exports = {
 		],
 	},
 };
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>CSS модули</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js"><u-code-title>webpack.config.js</u-code-title>
+<v-code lang="js" title="webpack.config.js">
 {
 	test: /\.css$/,
 	use: [
@@ -54,26 +54,26 @@ module.exports = {
 		</u-code-wrapper>
 	]
 },
-</code></pre>
+</v-code>
 
-<pre><code class="none">
+<v-code lang="bash" title="">
 localIdentName: '[name]__[local]__[hash:base64:5]'
 	[name]           # название компонента
 	[local]          # название класса
 	[hash:base64:5]  # 5 символов hash
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>Component.js (react.js)</u-code-title>
+<v-code lang="js" title="Component.js (react.js)">
 import classes from './Component.css';
 
 render() {
 	return (&lt;div className={classes.headerItem}&gt;&lt;/div&gt;);
 }
-</code></pre>
+</v-code>
 
-<pre><code class="css"><u-code-title>Component.css</u-code-title>
+<v-code lang="css" title="Component.css">
 .headerItem { background: orange; }
-</code></pre>
+</v-code>
 
 <v-pre-npm>
 # дополнительные плагины

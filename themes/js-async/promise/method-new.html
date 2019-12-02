@@ -3,7 +3,7 @@
 <!------------------------------------------------------------->
 <h4>Promise</h4>
 <!------------------------------------------------------------->
-<pre><code class="js"><u-code-title>Объявление</u-code-title>
+<v-code lang="js" title="Объявление">
 let promise = new <u-code>Promise</u-code>((resolve, reject) => {
     if (...) {
     	// onResolved()
@@ -14,9 +14,9 @@ let promise = new <u-code>Promise</u-code>((resolve, reject) => {
         throw new Error('Api error');   // аналогично с reject
     }
 });
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>Использование</u-code-title>
+<v-code lang="js" title="Использование">
 promise
     <u-code>.then</u-code>(result => {
         console.log(result);
@@ -25,22 +25,22 @@ promise
         console.error(error);
         console.error(error.message); 
     })
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Функция</h4>
 <!------------------------------------------------------------->
-<pre><code class="js"><u-code-title>Объявление</u-code-title>
+<v-code lang="js" title="Объявление">
 function asyncFunc() {
 	let promise = new Promise((resolve, reject) => {
 		//
 	});
 	return promise;
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>Использование</u-code-title>
+<v-code lang="js" title="Использование">
 asyncFunc()
     .then(result => { ... })
     .catch(result => { ... })
-</code></pre>
+</v-code>

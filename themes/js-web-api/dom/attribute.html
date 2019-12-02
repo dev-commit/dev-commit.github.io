@@ -9,20 +9,20 @@
     <li>Стандартные свойства и атрибуты <u>синхронизируются</u>: установка атрибута автоматически ставит свойство DOM. Некоторые свойства синхронизируются в обе стороны</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 let a = element.<u-code>attributes</u-code>;         // псевдо-массив объектов-атрибутов типа Attr со свойствами name и value
 let a = element.<u-code>hasAttribute</u-code>('id'); // проверить наличие атрибута
 let a = element.<u-code>getAttribute</u-code>('id'); // получить значение атрибута
 element.<u-code>setAttribute</u-code>('id', 'new');  // установить атрибут
 element.<u-code>removeAttribute</u-code>('id');      // удалить атрибут
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>Перебор атрибутов</u-code-title>
+<v-code lang="js" title="Перебор атрибутов">
 let attrs = document.querySelector('#element').attributes;
 for (var i = 0; i < attrs.length; i++) {
     console.log( attrs[i].name + " = " + attrs[i].value );
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Пользовательские атрибуты</h3>
@@ -34,11 +34,11 @@ for (var i = 0; i < attrs.length; i++) {
     <li>Стандарт HTML5 специально разрешает атрибуты <u-code-text>data-*</u-code-text> и резервирует их для пользовательских данных. К таким атрибутам можно обратиться не только как к атрибутам, но и как к свойствам, при помощи специального свойства <u-code-text>dataset</u-code-text></li>
 </ul>
 
-<pre><code class="html">
+<v-code lang="html" title="Перебор атрибутов">
 &lt;div id="elem" data-about="Elephant" data-user-location="street"&gt;&lt;/div&gt;
 &lt;script&gt;
 	// Название data-user-location трансформировалось в dataset.userLocation. Дефис превращается в большую букву
 	let a = elem.<u-code>dataset</u-code>.about; // => Elephant
 	let a = elem.<u-code>dataset</u-code>.userLocation; // => street
 &lt;/script&gt;
-</code></pre>
+</v-code>

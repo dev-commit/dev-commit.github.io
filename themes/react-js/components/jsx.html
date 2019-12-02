@@ -12,41 +12,44 @@
     <li><u>object</u> нельзя использовать</li>
 </ul>
 
-<pre><code class="js"><u-code-title>js</u-code-title>
+<v-code lang="js" title="">
 const arr = [];
 {arr.length &amp;&amp; &lt;Component /&gt;} // =&gt; 0
 !!arr.length &amp;&amp; &lt;Component /&gt;
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Установка babel</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="bash">
+<v-code lang="bash" title="">
 <em>npm init -y</em>                                                 # инициализация
 <em>npm i babel-cli@6 babel-preset-react-app@3</em>                  # babel
 <em>npx babel --watch src --out-dir . --presets react-app/prod</em>  # наблюдение за директорией src
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Render</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="html"><u-code-title>html</u-code-title>
+<v-code lang="html" title="html">
 &lt;div id="root"&gt;&lt;/div&gt;
-</code></pre>
+</v-code>
 
-<div class="container-flex"><div class="container-half"><pre><code class="js"><u-code-title>jsx</u-code-title>
+<v-two-code type="js;js" comment="jsx;js">
+<template v-slot:first>
 const element = &lt;h2&gt;Hi&lt;/h2&gt;;
 ReactDOM.render(
 	element, 
 	document.getElementById('root')
 );
-</code></pre></div><div class="container-half"><pre><code class="js"><u-code-title>js</u-code-title>
+</template>
+<template v-slot:last>
 var element = React.<u-code>createElement</u-code>('h2', null, 'Hi');
 ReactDOM.render(
 	element, 
 	document.getElementById('root')
 );
-</code></pre></div></div>
+</template>
+</v-two-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Варианты</h3>
@@ -54,22 +57,22 @@ ReactDOM.render(
 <!------------------------------------------------------------->
 <h4>Переменные</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 // переменная
 const name = 'Tony';
 const element = &lt;h2&gt;Hi, {name}&lt;/h2&gt;;
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // чтобы использовать строковый литерал в качестве атрибута, используются кавычки
 const element = &lt;div tabIndex="0"&gt;&lt;/div&gt;;
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // чтобы указать JavaScript-выражение в качестве атрибута, используются фигурные скобки
 const path = '../img/1.png';
 const element = &lt;img src={path}&gt;&lt;/img&gt;;
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<li>Не ставьте кавычек вокруг фигурных скобок, когда используете JavaScript-выражение в атрибуте. Следует либо применить кавычки (для строковых литералов), либо фигурные скобки (для выражений), но не то и другое вместе</li>
@@ -79,24 +82,24 @@ const element = &lt;img src={path}&gt;&lt;/img&gt;;
 <!------------------------------------------------------------->
 <h4>Результат вызова JavaScript-функции </h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 function getName() {
 	return 'Tony';
 }
 const element = &lt;h2&gt;Hi, {getName()}&lt;/h2&gt;;
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<li>При разбитии JSX на несколько строк рекомендуется заключать всё выражение целиком в круглые скобки, чтобы избежать проблем, связанных с автоматической вставкой точек с запятой</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 const element = (
 	&lt;h2&gt;
 		Hi
 	&lt;/h2&gt;
 );
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Использование внутри выражений</h4>
@@ -106,14 +109,14 @@ const element = (
 	<li>Из этого следует, что JSX можно использовать внутри выражений if и циклов for, присваивать переменным, передавать функции в качестве аргумента и возвращать из функции</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 function getGreeting(admin) {
 	if (admin) {
 		return &lt;h2&gt;Hello&lt;/h2&gt;;
 	}
 	return &lt;h2&gt;Bye&lt;/h2&gt;;
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>JSX предотвращает атаки, основанные на инъекции кода</h3>
@@ -123,10 +126,10 @@ function getGreeting(admin) {
 	<li>По умолчанию React DOM экранирует все значения, включённые в JSX перед тем как отрендерить их. Это гарантирует, что вы никогда не внедрите чего-либо, что не было явно написано в вашем приложении. Всё преобразуется в строчки, перед тем как быть отрендеренным. Это помогает предотвращать атаки межсайтовым скриптингом (XSS).</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 const title = response.potentiallyMaliciousInput;
 const element = &lt;h1&gt;{title}&lt;/h1&gt;; // этот код безопасен
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>JSX представляет собой объекты</h3>
@@ -135,26 +138,30 @@ const element = &lt;h1&gt;{title}&lt;/h1&gt;; // этот код безопас�
 	<li>Babel компилирует JSX в вызовы <u-code-text>React.createElement()</u-code-text></li>
 </ul>
 
-<div class="container-flex"><div class="container-half"><pre><code class="js"><u-code-title>js (babel)</u-code-title>
+
+<v-two-code type="js;js" comment="js (babel);js">
+<template v-slot:first>
 const element = (
 	&lt;h1 className="greeting"&gt;
 		Hello, world!
 	&lt;/h1&gt;
 );
-</code></pre></div><div class="container-half"><pre><code class="js"><u-code-title>js</u-code-title>
+</template>
+<template v-slot:last>
 const element = React.createElement(
 	'h1',
 	{className: 'greeting'},
 	'Привет, мир!'
 );
-</code></pre></div></div>
+</template>
+</v-two-code>
 
 <ul class="list-point">
 	<li><u-code-text>React.createElement()</u-code-text> проводит некоторые проверки с целью выявить баги в коде, но главное — создаёт объект похожий на такой</li>
 	<li>Эти объекты называются React-элементами. Можно сказать, что они описывают результат, который мы хотим увидеть на экране. React читает эти объекты и использует их, чтобы конструировать и поддерживать DOM</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // этот код несколько упрощён
 const element = {
 	type: 'h1',
@@ -163,12 +170,12 @@ const element = {
 		children: 'Привет, мир!'
 	}
 };
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Особенности тегов</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;input aria-label={} /&gt;    &lt;!-- aria-label --&gt;
 &lt;label htmlFor=""&gt;&lt;/label&gt; &lt;!-- for --&gt;
-</code></pre>
+</v-code>

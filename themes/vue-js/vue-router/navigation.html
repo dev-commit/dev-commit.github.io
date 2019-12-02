@@ -1,9 +1,9 @@
 <h2>Программная навигация</h2>
 
 <ul class="list-point">
-	<li><u-code-text>router.<u-code>push</u-code>(location, onComplete?, onAbort?)</u-code-text> (аналог: <code class="color">window.history.pushState</code>) - для перехода к новому URL. Метод добавляет новую запись в историю навигации, что позволяет клику пользователя по кнопке "назад" в браузере сработать привычным образом. В качестве аргумента можно передать строку или объект, описывающий маршрут</li>
-	<li><u-code-text>router.<u-code>replace</u-code>(location, onComplete?, onAbort?)</u-code-text> (аналог: <code class="color">window.history.replaceState</code>) - действует как router.push, с той лишь разницей, что переход осуществляется без добавления новой записи в историю навигации, а заменяет текущую запись в нём</li>
-	<li><u-code-text>router.<u-code>go</u-code>(n)</u-code-text> (аналог: <code class="color">window.history.go</code>) - метод принимает параметром целое число, которое указывает на сколько шагов необходимо перейти по истории навигации</li>
+	<li><u-code-text>router.<u-code>push</u-code>(location, onComplete?, onAbort?)</u-code-text> (аналог: <u-code-text>window.history.pushState</u-code-text>) - для перехода к новому URL. Метод добавляет новую запись в историю навигации, что позволяет клику пользователя по кнопке "назад" в браузере сработать привычным образом. В качестве аргумента можно передать строку или объект, описывающий маршрут</li>
+	<li><u-code-text>router.<u-code>replace</u-code>(location, onComplete?, onAbort?)</u-code-text> (аналог: <u-code-text>window.history.replaceState</u-code-text>) - действует как router.push, с той лишь разницей, что переход осуществляется без добавления новой записи в историю навигации, а заменяет текущую запись в нём</li>
+	<li><u-code-text>router.<u-code>go</u-code>(n)</u-code-text> (аналог: <u-code-text>window.history.go</u-code-text>) - метод принимает параметром целое число, которое указывает на сколько шагов необходимо перейти по истории навигации</li>
 </ul>
 
 <ul class="list-point">
@@ -13,12 +13,12 @@
 <!------------------------------------------------------------->
 <h4>push</h4>
 <!------------------------------------------------------------->
-<pre><code class="bash">
+<v-code lang="bash" title="">
 &lt;router-link :to="..."&gt;	# декларативная запись
 router.push(...)        # программная запись
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // строка
 router.push('home')
 
@@ -30,20 +30,20 @@ router.push({ name: 'user', params: { userId: '123' } })
 
 // со строкой запроса, получится /register?plan=private
 router.push({ path: 'register', query: { plan: 'private' } })
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>replace</h4>
 <!------------------------------------------------------------->
-<pre><code class="bash">
+<v-code lang="bash" title="">
 &lt;router-link :to="..." replace&gt; # декларативная запись
 router.replace(...)             # программная запись
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>go</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 // перейти на одну запись вперёд, эквивалентно history.forward()
 router.go(1)
 
@@ -56,4 +56,4 @@ router.go(3)
 // если записей в истории недостаточно много, переход просто не произойдёт
 router.go(-100)
 router.go(100)
-</code></pre>
+</v-code>

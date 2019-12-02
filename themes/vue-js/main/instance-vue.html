@@ -1,13 +1,13 @@
 <h2>Экземпляр Vue</h2>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var app = new Vue({
 	<u-code>el</u-code>: '#app',             // элемент DOM дерева
 	<u-code>data</u-code>: {                 // состояние
 		name: 'Tony'
 	},
 	<u-code>template</u-code>:               // представление
-		`&lt;div&gt;{{ count }}&lt;/div&gt;`, 
+		`&lt;div&gt;<span v-pre>{{ count }}</span>&lt;/div&gt;`, 
 	<u-code>methods</u-code>: {              // действия
 		nameMethod() {
 			this.view = true;
@@ -28,7 +28,7 @@ var app = new Vue({
 	},
 	<u-code>mixins</u-code>: [mixin]         // миксин
 })
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<li><u-text-define>Состояние</u-text-define> - «источник истины», управляющий приложением</li>
@@ -40,14 +40,14 @@ var app = new Vue({
 <!------------------------------------------------------------->
 <h4>Переопределение свойства</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 app.messText = 'New Text';
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Неопределенные свойства</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 catalog: null  // для объектов
 products: []   // для массивов
-</code></pre>
+</v-code>

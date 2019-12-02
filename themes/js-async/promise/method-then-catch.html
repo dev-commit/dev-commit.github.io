@@ -13,12 +13,12 @@
 <!------------------------------------------------------------->
 <h4>1. Один аргумент</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 promise
 	<u-code>.then</u-code>(result => {
         console.log(result);
     })
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>2. Два аргумента</h4>
@@ -48,13 +48,13 @@ promise
 </template>
 </v-two-code>
 
-<pre><code class="js"><u-code-title>js</u-code-title>
+<v-code lang="js" title="">
 // передача null первым аргументом
 promise
 	.then(null, (error) => {
 		console.log(error);
 	})
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>3. Вызванная функция в аргументе</h4>
@@ -62,6 +62,7 @@ promise
 <ul class="list-point">
     <li>Вызванная функция в аргументе пропускается</li>
 </ul>
-<pre><code class="js">
+
+<v-code lang="js" title="">
 promise<u-code>.then</u-code>(functionResolve())
-</code></pre>
+</v-code>

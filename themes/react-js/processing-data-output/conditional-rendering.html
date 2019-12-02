@@ -3,7 +3,7 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Переменные-элементы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -22,7 +22,7 @@ class App extends React.Component {
 		</u-code-wrapper>
 	}
 };
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Встроенные условия if с логическим оператором &&</h3>
@@ -32,7 +32,7 @@ class App extends React.Component {
 	<li>В JavaScript выражение <u-code-text>true && expression</u-code-text> всегда вычисляется как <u-code-text>expression</u-code-text>, а выражение <u-code-text>false && expression</u-code-text> - как <u-code-text>false</u-code-text></li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 render() {
 	return (
 		&lt;div&gt;
@@ -40,7 +40,7 @@ render() {
 		&lt;/div&gt;
 	);
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Встроенные условия if-else с тернарным оператором</h3>
@@ -52,7 +52,7 @@ render() {
 <!------------------------------------------------------------->
 <h4>Вариант 1</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 render() {
 	return (
 		&lt;div&gt;
@@ -60,12 +60,12 @@ render() {
 		&lt;/div&gt;
 	);
 }
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Вариант 2</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 render() {
 	return (
 		&lt;div&gt;
@@ -77,7 +77,7 @@ render() {
 		&lt;/div&gt;
 	);
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Предотвращение рендеринга компонента</h3>
@@ -87,11 +87,11 @@ render() {
 	<li>Сам факт возврата <u-code-text>null</u-code-text> из метода <u-code-text>render</u-code-text> компонента никак не влияет на срабатывание методов жизненного цикла компонента. Например, <u-code-text>componentDidUpdate</u-code-text> будет всё равно вызван</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 render() {
 	if (!this.state.status) {
 		return null;
 	}
 	return (&lt;h2&gt;Yes&lt;/h2&gt;);
 }
-</code></pre>
+</v-code>

@@ -10,7 +10,7 @@
 	<li><u-code-text>Router</u-code-text> и <u-code-text>Route</u-code-text> технически они являются компонентами, но сами не создают DOM-элементов</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
@@ -35,7 +35,7 @@ export default class App extends Component {
 		);
 	}
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Настройка сервера Webpack</h3>
@@ -44,7 +44,7 @@ export default class App extends Component {
 	<li>При переходе по <u-code-text>Link</u-code-text> изменяется url, но физически этой страницы нет. Поэтому нужно настроить сервер</li>
 </ul>
 
-<pre><code class="js"><u-code-title>webpack.config.js</u-code-title>
+<v-code lang="js" title="webpack.config.js">
 module.exports = {
     output: {
         filename: 'bundle.js',
@@ -64,4 +64,4 @@ module.exports = {
 		port: 3000
 	}
 }
-</code></pre>
+</v-code>

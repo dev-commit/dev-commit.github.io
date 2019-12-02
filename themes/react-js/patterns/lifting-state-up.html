@@ -8,7 +8,7 @@
 	<li>Создания «управляемого» компонента. Точно так же, как DOM-элемент <u-code-text>&lt;input&gt;</u-code-text> принимает атрибуты <u-code-text>value</u-code-text> и <u-code-text>onChange</u-code-text>, так и пользовательский <u-code-text>ComponentChild</u-code-text> принимает <u-code-text>emitHandleParent</u-code-text> от своего родителя <u-code-text>ComponentParent</u-code-text></li>
 </ul>
 
-<pre><code class="js"><u-code-title>child js</u-code-title>
+<v-code lang="js" title="child js">
 class ComponentChild extends React.Component {
 	handleChild = () =&gt; {
 		<u-code>this.props.emitHandleParent('Jack');</u-code>
@@ -19,9 +19,9 @@ class ComponentChild extends React.Component {
 		);
 	}
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>parent js</u-code-title>
+<v-code lang="js" title="parent js">
 class ComponentParent extends React.Component {
 	constructor(props) {
 		super(props);
@@ -39,5 +39,5 @@ class ComponentParent extends React.Component {
 		);
 	}
 }
-</code></pre>
+</v-code>
 

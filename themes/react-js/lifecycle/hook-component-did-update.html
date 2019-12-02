@@ -14,14 +14,14 @@
     <li>Необходимо делать сравнение пропсов: если не сделать - будет бесконечный цикл: <u-code-text>render -> componentDidUpdate -> render ...</u-code-text></li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 componentDidUpdate(prevProps) {
 	// сравнение пропсов
 	if (<u-code>this.props.userID</u-code> !== <u-code>prevProps.userID</u-code>) {
 		this.fetchData(this.props.userID);
 	}
 }
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <li>Метод подходит для выполнения таких сетевых запросов, которые выполняются на основании результата сравнения текущих пропсов с предыдущими. Если пропсы не изменились, новый запрос может и не требоваться</li>

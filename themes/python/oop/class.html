@@ -1,12 +1,12 @@
 <h2>Классы, ООП</h2>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 # переменные - поля
 # функции    - методы
 # self обязательный аргумент в методе, содержащий в себе экземпляр класса, передающийся при вызове метода
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 # объявление класса
 class Person:
 	name = 'Tony'
@@ -20,12 +20,12 @@ print(superPerson.name)      # обращение к свойству объек
 
 superPerson.set('Steve', 27) # изменение свойства объекта (свойство класса не изменяется)
 print(superPerson.name)      # обращение к свойству объекта
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Наследование</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 # объявление нового класса, наследованого от Person
 class Student(Person):
 	course = 1
@@ -34,12 +34,12 @@ superStudent = Student()
 superStudent.set('Jack', 19)
 print(superStudent.name)
 print(superStudent.course)
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Инкапсуляция</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 # одно нижнее подчеркивание - рекомендация не использовать свойсво/метод
 # при использовании ошибка выдаваться не будет
 class Person:
@@ -52,9 +52,9 @@ class Person:
 superPerson = Person()
 print(superPerson._name)
 superPerson._set('Steve', 14)
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 # два нижних подчеркивания - более жесткая рекомендация не использовать свойсво/метод
 # при использовании ошибка выдаваться будет
 class Person:
@@ -68,21 +68,21 @@ class Person:
 superPerson = Person()
 print(superPerson._Person__name)
 superPerson._Person__set('Steve', 14)
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Полиморфизм</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="python">
+<v-code lang="python" title="">
 # Полиморфизм - использование одного метода по разному в разных классах
 print(2+2)     # для чисел сложение
 print('2'+'2') # для строк конкатенация
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Инициализация</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 class Person:
 	def __init__(self, name, age):
 		self.name = name
@@ -90,9 +90,9 @@ class Person:
 
 superPerson = Person('Tony', 25)
 print(superPerson.name, superPerson.age)
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 # age=None выставление значения по умолчанию
 class Person:
 	def __init__(self, name, age=None):
@@ -101,6 +101,6 @@ class Person:
 
 superPerson = Person('Tony')
 print(superPerson.name, superPerson.age)
-</code></pre>
+</v-code>
 
 

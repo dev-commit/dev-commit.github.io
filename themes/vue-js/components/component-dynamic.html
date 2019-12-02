@@ -3,23 +3,23 @@
 <!------------------------------------------------------------->
 <h4>Создание компонента</h4>
 <!------------------------------------------------------------->
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;component <u-code>:is</u-code>="currentView"&gt;&lt;/component&gt;
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Кэширование компонента (сохранение состояния)</h4>
 <!------------------------------------------------------------->
-<pre><code class="html">
+<v-code lang="html" title="">
 <u-code>&lt;keep-alive&gt;</u-code>
 	&lt;component <u-code>:is</u-code>="currentView"&gt;&lt;/component&gt;
 <u-code>&lt;/keep-alive&gt;</u-code>
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Пример</h4>
 <!------------------------------------------------------------->
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;!-- если нужна анимация, component обернуть в transition --&gt;
 &lt;div id="app"&gt;
 	&lt;nav&gt;
@@ -28,17 +28,18 @@
 	&lt;/nav&gt;
 	<u-code>&lt;component :is="currentView"&gt;&lt;/component&gt;</u-code>
 &lt;/div&gt;
+</v-code>
 
+<v-code lang="html" title="">
 &lt;template id="orange-template"&gt;
 	&lt;div class="orange-block"&gt;&lt;/div&gt;
 &lt;/template&gt;
 &lt;template id="blue-template"&gt;
 	&lt;div class="blue-block"&gt;&lt;/div&gt;
 &lt;/template&gt;
-</code>
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var app = new Vue({
 	el: '#app',
 	data: {
@@ -58,7 +59,7 @@ var app = new Vue({
 		}
 	}
 })
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Варианты import</h3>
@@ -67,7 +68,7 @@ var app = new Vue({
 <!------------------------------------------------------------->
 <h4>require code 1</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 components: {
 	'app-icon': require('./icons/icon-shopping-cart.vue').default
 	'app-icon': () => import('./icons/icon-shopping-cart.vue')
@@ -75,18 +76,18 @@ components: {
 beforeCreate() {
 	this.$options.components.TreeFolderContents = require('./icons/icon-shopping-cart.vue').default
 }
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>require code 2</h4>
 <!------------------------------------------------------------->
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;template&gt;
 	&lt;component :is="$options.components[name]"&gt;&lt;/component&gt;
 &lt;/template&gt;
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 &lt;script&gt;
 export default {
 	props: {
@@ -97,12 +98,12 @@ export default {
 	}
 }
 &lt;/script&gt;
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Подшрузка компонента с данными из роутинга</h4>
 <!------------------------------------------------------------->
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;template&gt;
     &lt;app-theme /&gt;
 &lt;/template&gt;
@@ -118,4 +119,4 @@ export default {
     }
 }
 &lt;/script&gt;
-</code></pre>
+</v-code>

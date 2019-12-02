@@ -7,27 +7,28 @@
 <!------------------------------------------------------------->
 <h4>Пример 1</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 element.appendChild(template.<u-code>content.cloneNode(true)</u-code>); // => Hi Template
-</code></pre>
-<pre><code class="html">
+</v-code>
+
+<v-code lang="html" title="">
 &lt;div id="element"&gt;Hi&lt;/div&gt;
 &lt;template id="template"&gt;Template&lt;/template&gt;
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Пример 2</h4>
 <!------------------------------------------------------------->
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;div class="main"&gt;
 	&lt;div class="main-header"&gt;Main Header&lt;/div&gt;
 &lt;/div&gt;
 &lt;template id="template"&gt;
 	&lt;div class="template-header"&gt;Template Header&lt;/div&gt;
 &lt;/template&gt;
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 const template = document.getElementById('template');
 const instance = document.<u-code>importNode</u-code>(<u-code>template.content</u-code>, true);
 
@@ -39,4 +40,4 @@ if (header !== null) {
 
 main.innerHTML = '';
 main.appendChild(instance);
-</code></pre>
+</v-code>

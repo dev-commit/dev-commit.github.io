@@ -9,25 +9,25 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Логическое преобразование</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 // любой объект в логическом контексте – true, даже если это пустой массив [] или объект {}.
 if ({} && []) {
 	alert( "Все объекты - true!" ); // alert сработает
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Строковое преобразование</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var user = {
 	name: 'Tony'
 };
 
 alert( user ); // [object Object]
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // eсли в объекте присутствует метод toString, который возвращает примитив, то он используется для преобразования
 var obj = {
 	name: 'Tony',
@@ -37,12 +37,12 @@ var obj = {
 };
 
 alert( obj ); // Tony
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Численное преобразование</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 // для численного преобразования объекта используется метод valueOf, а если его нет – то toString
 var room = {
 	number: 777,
@@ -53,4 +53,4 @@ var room = {
 alert( +room );      // 777, вызвался valueOf
 delete room.valueOf; // valueOf удалён
 alert( +room );      // 777, вызвался toString
-</code></pre>
+</v-code>

@@ -1,39 +1,39 @@
 <h2>Хук эффекта useEffect</h2>
 
-<pre><code class="js border">
+<v-code lang="js border" title="">
 import React, { useEffect } from 'react';
-</code></pre>
+</v-code>
 
-<pre><code class="js border">
+<v-code lang="js border" title="">
 // <b><u-code-text>componentDidMount</u-code-text> и <u-code-text>componentDidUpdate</u-code-text></b>
 useEffect(() => {
 	document.title = 'Заголовок';
 });
-</code></pre>
+</v-code>
 
-<pre><code class="js border">
+<v-code lang="js border" title="">
 // <b><u-code-text>componentDidMount</u-code-text></b>
 useEffect(() => {
 	document.title = 'Заголовок';
 }, []);
-</code></pre>
+</v-code>
 
-<pre><code class="js border">
+<v-code lang="js border" title="">
 // <b><u-code-text>componentDidUpdate</u-code-text></b>
 // Выполнит эффект, только если count изменился при отрисовке
 useEffect(() => {
 	document.title = `Вы нажали ${this.state.count} раз`;
 }, [count]); 
-</code></pre>
+</v-code>
 
-<pre><code class="js border">
+<v-code lang="js border" title="">
 // <b><u-code-text>componentWillUnmount</u-code-text></b>
 useEffect(() => () => {
 	window.removeEventListener('resize', onResize);
 }, []);
-</code></pre>
+</v-code>
 
-<pre><code class="js border">
+<v-code lang="js border" title="">
 // <b><u-code-text>componentDidMount</u-code-text> и <u-code-text>componentWillUnmount</u-code-text></b>
 useEffect(() => {
     // componentDidMount
@@ -43,7 +43,7 @@ useEffect(() => {
 		window.removeEventListener('resize', onResize);
 	}
 }, []);
-</code></pre>
+</v-code>
 
 
 

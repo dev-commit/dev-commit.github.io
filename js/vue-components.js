@@ -97,8 +97,8 @@ Vue.component('v-iframe', {
 		</iframe>`,
 })
 
+// v-pre
 Vue.component('v-code', {
 	props: ['lang', 'title'],
-    template: `<pre><code :class="lang"><u-code-title v-text="title" />
-<slot></slot></code></pre>`
+    template: `<pre><code :class="lang"><u-code-title v-text="title" /><slot></slot></code></pre>`
 })

@@ -16,14 +16,15 @@
 <!------------------------------------------------------------->
 <h4>Пример 1</h4>
 <!------------------------------------------------------------->
-<div class="container-flex"><div class="container-half"><pre><code class="js">
+<v-two-code type="js;js" comment=";">
+<template v-slot:first>
 // исходная функция
 function multiply(a, b, c) {
     return a * b * c;
 }
 multiply(1,2,3); // 6
-<br><br><br><br><br><br><br><br>
-</code></pre></div><div class="container-half"><pre><code class="js">
+</template>
+<template v-slot:last>
 // каррирование
 function multiply(a) {
     return (b) => {
@@ -38,10 +39,11 @@ log(multiply(1)(2)(3)) // 6
 //const mul2 = mul1(2);
 //const result = mul2(3);
 //log(result); // 6
-</code></pre></div></div>
+</template>
+</v-two-code>
 
 <h4>Пример 2</h4>
-<pre><code class="js">
+<v-code lang="js" title="">
 function add(x){
     return function() {
         return x + y;
@@ -50,31 +52,34 @@ function add(x){
 inc = add(1);
 console.log(inc(15));   // 16
 console.log(add(8)(7)); // 15
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Частичное применение функций</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 function volume(l) {
     return (w, h) => {
         return l * w * h
     }
 }
-</code></pre>
+</v-code>
 
-<div class="container-flex"><div class="container-half"><pre><code class="js">
+<v-two-code type="js;js" comment=";">
+<template v-slot:first>
 // вариант использования 1
 const hV = volume(70);
 hV(203,142);
 hV(220,122);
 hV(120,123);
-</code></pre></div><div class="container-half"><pre><code class="js">
+</template>
+<template v-slot:last>
 // вариант использования 2
 volume(70)(90,30);
 volume(70)(390,320);
 volume(70)(940,340);
-</code></pre></div></div>
+</template>
+</v-two-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Частичная функция через bind</h3>
@@ -88,7 +93,7 @@ volume(70)(940,340);
     <a href="js.html#methods-this-bind" target="_blank">[Local] bind()</a>
 </u-link-wrapper>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 function mul(a, b) {
     return a * b;
 };
@@ -99,7 +104,7 @@ var double = mul.bind(null, 2); // контекст фиксируем null, о�
 console.log( double(3) ); // = mul(2, 3) = 6
 console.log( double(4) ); // = mul(2, 4) = 8
 console.log( double(5) ); // = mul(2, 5) = 10
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <li>При вызове double будет передавать свои аргументы исходной функции mul после тех, которые указаны в bind, то есть в данном случае после зафиксированного первого аргумента 2</li>

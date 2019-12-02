@@ -28,7 +28,7 @@
 	<v-method-return>массив / null / undefined</v-method-return>
 </div>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 const App = () =&gt; (
 	&lt;Child color="blue"&gt;
 		&lt;span&gt;item-1&lt;/span&gt;
@@ -50,12 +50,12 @@ const Child = (props) =&gt; (
 		})}
 	&lt;/&gt;
 );
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Передача в child массива</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 const App = () =&gt; (
 	&lt;Child color="blue"&gt;
 		{['First', 'Second', 'Third']}
@@ -67,12 +67,12 @@ const Child = (props) =&gt; (
 		{props.children}
 	&lt;/&gt;
 );
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Передача в child функции (Render Props)</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 const App = () =&gt; (
 	&lt;Child color="blue"&gt;
 		{(element) =&gt; {
@@ -88,4 +88,4 @@ const Child = (props) =&gt; {
 		&lt;/&gt;
 	);
 };
-</code></pre>
+</v-code>

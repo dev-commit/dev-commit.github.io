@@ -17,17 +17,17 @@
 <ul class="list-point">
     <li>Компонент с рендер-пропом берёт функцию, которая возвращает React-элемент, и вызывает её вместо реализации собственного рендера</li>
 </ul>
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;DataProvider <u-code>render</u-code>={data =&gt; (
 	&lt;h1&gt;Привет, {data.target}&lt;/h1&gt;
 )}/&gt;
-</code></pre>
+</v-code>
 
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;Mouse <u-code>render</u-code>={mouse =&gt; (
 	&lt;Component {...this.props} mouse={mouse} /&gt;
 )}/&gt;
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
@@ -36,30 +36,30 @@
 <!------------------------------------------------------------->
 <h4>1. В проп можно передать функцию</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 class App extends Component {
 	render() {
 		return &lt;Child <u-code>name={arg =&gt; "Hello " + arg}</u-code> /&gt;;
 	}
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 class Child extends Component {
 	render() {
 		return &lt;div&gt;{<u-code>this.props.name("Tony")</u-code>}&lt;/div&gt;;
 	}
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // => Hello Tony
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>2. Реализация</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 // 1. App вызывает AppContainer и передает функцию с аргументом "name"
 const App = (props) =&gt; (
 	&lt;AppContainer 
@@ -84,4 +84,4 @@ const AppNames = (props) =&gt; (
 );
 
 // =&gt; Tony
-</code></pre>
+</v-code>

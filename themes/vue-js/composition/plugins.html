@@ -20,39 +20,39 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <ul class="list-point">
-	<li>Для использования плагина необходимо вызвать глобальный метод <u-code-text>Vue.use()</code>. Его нужно вызывать перед new <u-code-text>Vue()</code></li>
+	<li>Для использования плагина необходимо вызвать глобальный метод <u-code-text>Vue.use()</u-code-text>. Его нужно вызывать перед new <u-code-text>Vue()</u-code-text></li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // вызывает `MyPlugin.install(Vue)`
 Vue.use(MyPlugin)
 
 new Vue({
 	//... настройки
 })
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<li>Можно передавать дополнительные параметры в плагин</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 Vue.use(MyPlugin, { someOption: true })
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<li><u-code-text>Vue.use</u-code-text> автоматически предотвращает многократную регистрацию плагина. Несколько вызовов <u-code-text>Vue.use</u-code-text> для одного плагина установит его лишь один раз</li>
 	<li>Некоторые официальные плагины <u-code-text>Vue.js</u-code-text>, такие как <u>vue-router</u>, автоматически вызывают <u-code-text>Vue.use()</u-code-text>, если обнаружат глобальную переменную <u-code-text>Vue</u-code-text>. Однако при использовании инструментов модульного окружения, например <u>CommonJS</u>, необходимо всегда вызывать <u-code-text>Vue.use()</u-code-text> явно</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // При использовании CommonJS посредством Browserify или Webpack
 var Vue = require('vue')
 var VueRouter = require('vue-router')
 
 // Не забудьте этот вызов!
 Vue.use(VueRouter)
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Создание плагина</h3>
@@ -61,7 +61,7 @@ Vue.use(VueRouter)
 	<li>Плагин <u-code-text>Vue.js</u-code-text> должен содержать метод <u-code-text>install</u-code-text>. Этот метод будет вызываться с конструктором <u-code-text>Vue</u-code-text> в качестве первого аргумента, и с дополнительными опциями плагина в качестве второго (если передавались)</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 MyPlugin.install = function (Vue, options) {
 	// 1. добавление глобального метода или свойства
 	Vue.myGlobalMethod = function () {
@@ -89,4 +89,4 @@ MyPlugin.install = function (Vue, options) {
 		// некоторая логика ...
 	}
 }
-</code></pre>
+</v-code>

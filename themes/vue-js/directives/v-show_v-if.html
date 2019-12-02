@@ -20,25 +20,25 @@
 	<li><u-code-text>v-show</u-code-text> не работает с псевдоэлементом <u-code-text>&lt;template&gt;</u-code-text> и с <u-code-text>v-else</u-code-text></li>
 	
 	<hr>
-	<li>Для <u-code-text>v-if</u-code-text> выше затраты на переключения, а у <u-code-text>v-show</u-code-text> больше затрат на первичную отрисовку. Если вы предполагаете, что переключения будут частыми, используйте <u-code-text>v-show</code>, если же редкими или маловероятными - <u-code-text>v-if</u-code-text></li>
+	<li>Для <u-code-text>v-if</u-code-text> выше затраты на переключения, а у <u-code-text>v-show</u-code-text> больше затрат на первичную отрисовку. Если вы предполагаете, что переключения будут частыми, используйте <u-code-text>v-show</u-code-text>, если же редкими или маловероятными - <u-code-text>v-if</u-code-text></li>
 	<li>Совместное использование <u-code-text>v-if</u-code-text> и <u-code-text>v-for</u-code-text> не рекомендуется. При совместном использовании <u-code-text>v-if</u-code-text> и <u-code-text>v-for</u-code-text>, директива <u-code-text>v-for</u-code-text> имеет более высокий приоритет</li>
 </ul>
 
-<pre><code class="html">
-&lt;p <u-code>v-show</u-code>="view"&gt;text&lt;/p&gt;  <u-code-title># устанавливается display: none/block</u-code-title>
-&lt;p <u-code>v-if</u-code>="view"&gt;text&lt;/p&gt;    <u-code-title># условие if. удаляется/добавляется в DOM дерево</u-code-title>
-&lt;p <u-code>v-else</u-code>&gt;text&lt;/p&gt;         <u-code-title># условие else при невыполнении if</u-code-title>
-</code></pre>
+<v-code lang="html" title="">
+&lt;p <u-code>v-show</u-code>="view"&gt;text&lt;/p&gt;  <u-code-comment># устанавливается display: none/block</u-code-comment>
+&lt;p <u-code>v-if</u-code>="view"&gt;text&lt;/p&gt;    <u-code-comment># условие if. удаляется/добавляется в DOM дерево</u-code-comment>
+&lt;p <u-code>v-else</u-code>&gt;text&lt;/p&gt;         <u-code-comment># условие else при невыполнении if</u-code-comment>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3 id="v-show-elseif">v-else-if</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;div v-if="type === 'A'"&gt;A&lt;/div&gt;
 &lt;div v-else-if="type === 'B'"&gt;B&lt;/div&gt;
 &lt;div v-else-if="type === 'C'"&gt;C&lt;/div&gt;
 &lt;div v-else&gt;Не A/B/C&lt;/div&gt;
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3 id="v-show-vif-template">v-if и &lt;template&gt;</h3>
@@ -47,12 +47,12 @@
 	<li><u-code-text>v-if</u-code-text> - директива, она должна быть указана в одном конкретном теге. Eсли нужно указать отображение для нескольких элементов можно применить <u-code-text>v-if</u-code-text> к псевдоэлементу <u-code-text>&lt;template&gt;</u-code-text>, который служит невидимой обёрткой и сам в результатах отрисовки не появляется</li>
 </ul>
 
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;template v-if="ok"&gt;
 	&lt;h1&gt;Заголовок&lt;/h1&gt;
 	&lt;p&gt;Абзац 1&lt;/p&gt;
 &lt;/template&gt;
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3 id="v-show-vif-slot">v-if и &lt;slot&gt;</h3>
@@ -61,39 +61,40 @@
 	<li><u-code-text>&lt;slot&gt;</u-code-text> невидимая обёртка - не появляется в результатах отрисовки</li>
 </ul>
 
-<div class="container-flex"><div class="container-half"><pre><code class="html"><u-code-title>html</u-code-title>
+<v-two-code type="html;html" comment="html;result">
+<template v-slot:first>
 &lt;div&gt;
     &lt;slot v-if="view"&gt;text&lt;/p&gt;
 &lt;/div&gt;
-</code></pre></div><div class="container-half"><pre><code class="html"><u-code-title>result</u-code-title>
+</template>
+<template v-slot:last>
 &lt;div&gt;
     text
 &lt;/div&gt;
-</code></pre></div></div>
+</template>
+</v-two-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3 id="v-show-key">Управление повторным использованием элементов при помощи key</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div class="container-flex"><div class="container-half">
-<pre><code class="html">
+<v-two><template v-slot:first>
+<v-code lang="html" title="">
 &lt;input v-if="loginType==='admin'"&gt;
 &lt;input v-else&gt;
-</code></pre>
+</v-code>
 <ul class="list-point">
 	<li>Vue старается эффективно управлять элементами DOM настолько, зачастую переиспользуя их вместо того чтобы создавать заново</li>
 	<li>Пример: переключение между типами логина</li>
 	<li>Изменение <u-code-text>loginType</u-code-text> не сотрёт то, что пользователь ввёл в поле. Оба шаблона используют одни и те же элементы, поэтому <u-code-text>&lt;input&gt;</u-code-text> не заменяется</li>
 </ul>
-
-</div><div class="container-half">
-
-<pre><code class="html">
+</template><template v-slot:last>
+<v-code lang="html" title="">
 &lt;input v-if="loginType==='admin'" <u-code>key</u-code>="name"&gt;
 &lt;input v-else <u-code>key</u-code>="email"&gt;
-</code></pre>
+</v-code>
 <ul class="list-point">
 	<li>Иногда такое поведение нежелательно, поэтому Vue можно явно указать, что элементы должны быть полностью независимы и их не нужно переиспользовать</li>
 	<li>Для этого нужно указать уникальное значение ключа <u-code-text>key</u-code-text></li>
 	<li>Теперь эти поля ввода будут отрисовываться заново при каждом переключении</li>
 </ul>
-</div></div>
+</template></v-two>

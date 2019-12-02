@@ -1,12 +1,12 @@
 <h2>Простой компонент</h2>
 
-<pre>
-<code class="html">
+<v-code lang="html" title="">
 &lt;div id="app"&gt;
 	&lt;task&gt;&lt;/task&gt;
 &lt;/div&gt;
-</code>
-<code class="js">
+</v-code>
+
+<v-code lang="html" title="">
 Vue.component('task', {
     data() {
         return {
@@ -14,7 +14,7 @@ Vue.component('task', {
             age: 21
         }
     },
-    template: '&lt;p&gt;Hello {{name}} {{age}}&lt;/p&gt;',
+    template: '&lt;p&gt;Hello <span v-pre>{{name}} {{age}}</span>&lt;/p&gt;',
     methods: {
         increment() {
             this.age++;
@@ -24,11 +24,11 @@ Vue.component('task', {
 var app = new Vue({
 	el: '#app'
 })
-</code>
-<code class="js">
+</v-code>
+
+<v-code lang="js" title="">
 // Hello Tony 21
-</code>
-</pre>
+</v-code>
 
 <ul class="list-point">
 	<li><u-text-define>data()</u-text-define> - Состояние. Управление приложением</li>
@@ -38,17 +38,19 @@ var app = new Vue({
 
 
 <p>Из template должен возвращаться только 1 родительский объект</p>
-<div class="container-flex"><div class="container-half"><pre><code class="js">
+<v-two-code type="js;js" comment=";">
+<template v-slot:first>
 // не сработает, выведет только первый span
 template: 
 	`&lt;span&gt;1&lt;/span&gt;
 	&lt;span&gt;2&lt;/span&gt;`
-<br>
-</code></pre></div><div class="container-half"><pre><code class="js">
+</template>
+<template v-slot:last>
 // сработает
 template: 
 	`&lt;div&gt;
 		&lt;span&gt;1&lt;/span&gt;
 		&lt;span&gt;2&lt;/span&gt;
 	&lt;/div&gt;`
-</code></pre></div></div>
+</template>
+</v-two-code>

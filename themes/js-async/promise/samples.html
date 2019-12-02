@@ -3,35 +3,35 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Пример #1</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js"><u-code-title>Объявление</u-code-title>
+<v-code lang="js" title="Объявление">
 const sleep = ms => {
     return new Promise(resolve => {
         setTimeout(() => resolve(), ms)
     })
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>Обычный вызов</u-code-title>
+<v-code lang="js" title="Обычный вызов">
 sleep(2000).then(() => console.log('After 2 sec'));
 sleep(3000).then(() => console.log('After 3 sec'));
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>Promise.all</u-code-title>
+<v-code lang="js" title="Promise.all">
 Promise.all([sleep(2000), sleep(5000)]).then(() => {
 	console.log('All promises');
 })
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>Promise.race</u-code-title>
+<v-code lang="js" title="Promise.race">
 Promise.race([sleep(2000), sleep(5000)]).then(() => {
     console.log('Race promises');
 })
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Пример #2</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 function applyForVisa(document) {
 	console.log('Обработка заявления...');
 	let promise = new Promise(function(resolve, reject) {
@@ -63,6 +63,4 @@ applyForVisa({})
 	.then(buyTickets)
 	.catch(error => console.error(error))
 	.then(() => console.log('Выведется в любом случае'));
-</code></pre>
-
-
+</v-code>

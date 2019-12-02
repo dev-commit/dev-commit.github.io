@@ -7,34 +7,34 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Создание</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 new <u-code>Date</u-code>(year, month, date, hours, minutes, seconds, ms)
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var selectDate = new Date(2012,0,1,0,0,0); // объявление для заданной даты
 var nowDate = new Date();                  // текущее дата и время на компьютере пользователя
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Установка значений</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var selectDate = new Date(2012,0,1,0,0,0);
-</code></pre>
-<pre><code class="js">
+</v-code>
+<v-code lang="js" title="">
 selectDate.<u-code>setMinutes</u-code>(25);                 // установка минут
 setSeconds.<u-code>setSeconds</u-code>(25);                 // установка секунд
 ...
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Получение значений</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var nowDate = new Date();
-</code></pre>
-<pre><code class="js">
+</v-code>
+<v-code lang="js" title="">
 var yearFull = nowDate.<u-code>getFullYear()</u-code>;      // год (4 цифры)
 var month    = nowDate.<u-code>getMonth()</u-code>;         // месяц (от 0 до 1)
 var day      = nowDate.<u-code>getDate()</u-code>;          // число месяца (от 1 до 31)
@@ -43,7 +43,7 @@ var hour     = nowDate.<u-code>getHours()</u-code>;         // час
 var minutes  = nowDate.<u-code>getMinutes()</u-code>;       // минуты
 var seconds  = nowDate.<u-code>getSeconds()</u-code>;       // секунды
 var mseconds = nowDate.<u-code>getMilliseconds()</u-code>;  // миллисекунды
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Date.parse</h3>
@@ -61,26 +61,26 @@ var mseconds = nowDate.<u-code>getMilliseconds()</u-code>;  // миллисек�
 	<li>Метод <u-code>Date.parse(str)</u-code> разбирает строку str в таком формате и возвращает соответствующее ей количество миллисекунд. Если это невозможно, <u-code>Date.parse</u-code> возвращает NaN</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var msUTC = Date.parse('2012-01-26T13:51:50.417Z'); // зона UTC
 alert( msUTC ); // 1327571510417 (число миллисекунд)
 
 var ms = Date.parse('2012-01-26T13:51:50.417-07:00'); // С таймзоной -07:00 GMT
 alert( ms ); // 1327611110417 (число миллисекунд)
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Строковое и численное преобразование</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 alert( new Date() );  // toString: Дата в виде читаемой строки
 alert( +new Date() ); // valueOf: кол-во миллисекунд, прошедших с 01.01.1970
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>toLocaleString</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var date = new Date(2014, 11, 31, 12, 30, 0);
 
 var options = {
@@ -97,20 +97,20 @@ var options = {
 
 alert( date.<u-code>toLocaleString</u-code>("ru", options) );    // среда, 31 декабря 2014 г. н.э. 12:30:00
 alert( date.<u-code>toLocaleString</u-code>("en-US", options) ); // Wednesday, December 31, 2014 Anno Domini 12:30:00 PM
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var a = nowDate.<u-code>toLocaleTimeString()</u-code>; // время с учетом локализации
 var a = nowDate.<u-code>toLocaleDateString()</u-code>; // дата с учетом локализации
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // вывод зависит от браузера
 var d = new Date();
 var a = d.<u-code>toString()</u-code>;     // возвращает дату целиком 'Wed Jan 26 2011 16:40:50 GMT+0300'
 var a = d.<u-code>toDateString()</u-code>; // возвращает только дату
 var a = d.<u-code>toTimeString()</u-code>; // возвращает только время
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>GMT и UTC</h3>
@@ -119,28 +119,28 @@ var a = d.<u-code>toTimeString()</u-code>; // возвращает только 
 	<li>Все методы, указанные выше, возвращают результат для местной временной зоны</li>
 	<li>Существуют также UTC-варианты этих методов, возвращающие день, месяц, год и т.п. для зоны GMT+0 (UTC): getUTCFullYear(), getUTCMonth(), getUTCDay() и т.д.</li>
 </ul>
-<pre><code class="js">
+<v-code lang="js" title="">
 var a = nowDate.getHours();          // время по гринвичу (GMT)
 var a = nowDate.<u-code>getUTCHours()</u-code>;       // время в формате UTC
 var a = nowDate.<u-code>getTimezoneOffset()</u-code>; // возвращает разницу между местным и UTC-временем, в минутах.
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Другие методы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var a = nowDate.<u-code>toTimeString()</u-code>; // вывод времени в виде строки
 var a = nowDate.<u-code>toDateString()</u-code>; // вывод даты в виде строки
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var selectDate = new Date(2012,0,1,0,0,0);
 var a = selectDate.<u-code>getTime()</u-code>;  // возвращает число миллисекунд, прошедших с 1 января 1970 года GMT+0
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var timeInMs = <u-code>Date.now</u-code>();     // возвращает количество миллисекунд, прошедших с 1 января 1970 года 00:00:00 по UTC.
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
@@ -149,19 +149,19 @@ var timeInMs = <u-code>Date.now</u-code>();     // возвращает коли
 <!------------------------------------------------------------->
 <h4>Вывод текщей даты</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 var weekday = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
 var month = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
 var nowDate = new Date();
 var nowDay   = weekday[nowDate.getDay()];
 var nowDate  = nowDate.getDate();
 var nowMonth = month[nowDate.getMonth()];
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Разность дат</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 var start = new Date; // засекли время
 
 // что-то сделать
@@ -171,4 +171,4 @@ for (var i = 0; i < 100000; i++) {
 
 var end = new Date; // конец измерения
 console.log( "Цикл занял " + (end - start) + " ms" );
-</code></pre>
+</v-code>

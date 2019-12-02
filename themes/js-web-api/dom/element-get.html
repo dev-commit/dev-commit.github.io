@@ -11,11 +11,11 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Корневые элементы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 document.documentElement; // элемент HTML
 document.body;            // элемент BODY
 document.head;            // элемент HEAD
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Родственные элементы</h3>
@@ -28,36 +28,36 @@ document.head;            // элемент HEAD
 <!------------------------------------------------------------->
 <h4>Все узлы, включая текстовые и комментарии / Только узлы-элементы</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 elem.<u-code>parentNode</u-code>;      elem.<u-code>parentElement</u-code>;          // родитель 
 elem.<u-code>childNodes</u-code>;      elem.<u-code>children</u-code>;               // дочерние элементы
 elem.<u-code>firstChild</u-code>;      elem.<u-code>firstElementChild</u-code>;      // первый ребенок
 elem.<u-code>lastChild</u-code>;       elem.<u-code>lastElementChild</u-code>;       // последний ребенок
 elem.<u-code>nextSibling</u-code>;     elem.<u-code>nextElementSibling</u-code>;     // следующий сосед (брат)
 elem.<u-code>previousSibling</u-code>; elem.<u-code>previousElementSibling</u-code>; // предыдущий сосед (брат)
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // всегда
 elem.parentNode == elem.parentElement
 // кроме исключения
 document.documentElement.parentNode;    // document
 document.documentElement.parentElement; // null
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 let a = document.childNodes;                       // дети с DOCTYPE и комментариями
 let a = document.children;                         // дети
 let a = document.children[0].children[1].children; // все элементы из BODY
 let a = document.body.childNodes[0];               // первый элемент
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Поиск элементов DOM (6 основных методов)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <img src="/img/dom/element-get.jpg" width="450px">
 
-<pre><code class="js">
+<v-code lang="js" title="">
 let a = document.<u-code>getElementById</u-code>('item');      // по id
 // браузер поддерживает у себя внутреннее соответствие id -> элемент, поэтому нужный элемент возвращается сразу
 
@@ -75,7 +75,7 @@ let a = document.<u-code>querySelector</u-code>('.nav.bar'); // возвраща
 let a = document.<u-code>querySelectorAll</u-code>('.nav'); // возвращает список элементов в пределах документа
 let a = elem.querySelectorAll(css)[0];                      // сначала ищутся все элементы, а потом берётся первый
 let a = document.querySelectorAll(':hover');                // вернёт список, в порядке вложенности, из текущих элементов под курсором мыши    
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <li><u-code-list>getElementsBy*(...)</u-code-list> и т.д. вызывают не обычные массивы, а живые коллекции. При изменении документа - изменяется и результат запроса</li>
@@ -103,14 +103,14 @@ let a = document.querySelectorAll(':hover');                // вернёт сп
     <v-method-return>true либо false</v-method-return>
 </div>
 
-<pre><code class="html"><u-code-title>html</u-code-title>
+<v-code lang="html" title="html">
 &lt;div id="links">
 	&lt;a href="item.zip"&gt;item.zip&lt;/a&gt;
 	&lt;a href="item.doc"&gt;item.doc&lt;/a&gt;
 	&lt;a href="element.doc"&gt;element.doc&lt;/a&gt;
 &lt;/div&gt;
-</code></pre>
-<pre><code class="js"><u-code-title>js</u-code-title>
+</v-code>
+<v-code lang="js" title="js">
 let elems = document.querySelectorAll('#links a');
 for (var i = 0; i < elems.length; i++) {
     if (elems[i].<u-code>matches</u-code>('a[href$="zip"]')) {
@@ -118,7 +118,7 @@ for (var i = 0; i < elems.length; i++) {
     }
 }
 // => file:///C:/Users/serge/Desktop/js/item.zip
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>elem.closest(css)</h4>
@@ -134,7 +134,7 @@ for (var i = 0; i < elems.length; i++) {
     </v-method-arg>
 </div>
 
-<pre><code class="html"><u-code-title>html</u-code-title>
+<v-code lang="html" title="html">
 &lt;ul&gt;
 	&lt;li class="chapter"&gt;Глава I
 		&lt;ul&gt;
@@ -143,8 +143,8 @@ for (var i = 0; i < elems.length; i++) {
 		&lt;/ul&gt;
 	&lt;/li&gt;
 &lt;/ul&gt;
-</code></pre>
-<pre><code class="js"><u-code-title>js</u-code-title>
+</v-code>
+<v-code lang="js" title="js">
 var numberSpan = document.querySelector('.num');
 
 // ближайший элемент сверху подходящий под селектор li
@@ -156,7 +156,7 @@ alert(numberSpan.<u-code>closest</u-code>('.chapter').tagName) // LI
 // ближайший элемент сверху, подходящий под селектор span
 // это сам numberSpan, так как поиск включает в себя сам элемент
 alert(numberSpan.<u-code>closest</u-code>('span') === numberSpan) // true
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>XPath</h4>
@@ -166,7 +166,7 @@ alert(numberSpan.<u-code>closest</u-code>('span') === numberSpan) // true
     <li>Так как XPath сложнее и длиннее CSS, то используют его очень редко</li>
 </ul>
 
-<pre><code class="js"><u-code-title>js</u-code-title>
+<v-code lang="js" title="">
 // запрос для поиска элементов H2, содержащих текст "XPath"
 var result = document.evaluate(
     "//h2[contains(., 'XPath')]", 
@@ -179,47 +179,47 @@ var result = document.evaluate(
 for (var i = 0; i < result.snapshotLength; i++) {
     alert( result.snapshotItem(i).outerHTML );
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Формы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 let a = document.<u-code>forms[0]</u-code>;                       // первая форма на странице
 let a = document.myform;                         // форма с name=myform (если name уникальный)
 let a = document.forms[0].elements[0];           // первый элемент в форме
 let a = document.forms[0].element;               // элемент в форме с name=element
 let a = document.forms['nameForm']['nameField']; // поле формы
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Изображения</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 let a = document.<u-code>images</u-code>.logo;    // img с name=logo
 let a = document.images['logo']; // img с name=logo
 let a = document.logo;           // img с name=logo (если name уникальный)
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Таблицы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js"><u-code-title>TABLE</u-code-title>
+<v-code lang="js" title="TABLE">
 <u-code>table.rows;</u-code>               // коллекция строк TR таблицы
 <u-code>table.caption/tHead/tFoot</u-code> // ссылки на элементы таблицы CAPTION, THEAD, TFOOT
 <u-code>table.tBodies</u-code>             // коллекция элементов таблицы TBODY, по спецификации их может быть несколько
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>THEAD/TFOOT/TBODY</u-code-title>
+<v-code lang="js" title="THEAD/TFOOT/TBODY">
 <u-code>tbody.rows</u-code> // коллекция строк TR секции
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>TR</u-code-title>
+<v-code lang="js" title="TR">
 <u-code>tr.cells</u-code>           // коллекция ячеек TD/TH
 <u-code>tr.sectionRowIndex</u-code> // номер строки в текущей секции THEAD/TBODY
 <u-code>tr.rowIndex</u-code>        // номер строки в таблице
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>TD/TH</u-code-title>
+<v-code lang="js" title="TD/TH">
 <u-code>td.cellIndex</u-code> // номер ячейки в строке
-</code></pre>
+</v-code>

@@ -9,28 +9,28 @@
 <!------------------------------------------------------------->
 <h4>Жесткая связь с $route</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 const User = {
-	template: 'Пользователь {{ <u-code>$route.params.id</u-code> }}'
+	template: 'Пользователь <span v-pre>{{ <u-code>$route.params.id</u-code> }}</span>'
 }
 const router = new VueRouter({
 	routes: [
 		{ path: '/user/:<u-code>id</u-code>', component: User }
 	]
 })
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Разделение с помощью входных параметров</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 const User = {
 	<u-code>props</u-code>: ['id'],
-	template: 'Пользователь {{ <u-code>id</u-code> }}'
+	template: 'Пользователь <span v-pre>{{ <u-code>id</u-code> }}</span>'
 }
 const router = new VueRouter({
 	routes: [
 		{ path: '/user/:<u-code>id</u-code>', component: User, <u-code>props</u-code>: true },
 	]
 })
-</code></pre>
+</v-code>

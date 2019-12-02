@@ -15,18 +15,18 @@
 npm i --save <u-code-npm>redux-devtools-extension</u-code-npm> # для работы devtools
 </v-pre-npm>
 
-<pre><code class="js"><u-code-title>redux/reducers/store.js</u-code-title>
+<v-code lang="js" title="redux/reducers/store.js">
 import { createStore, <u-code>applyMiddleware</u-code> } from 'redux';
 import { <u-code>composeWithDevTools</u-code> } from 'redux-devtools-extension';
 import rootReducer from './reducers';
 
 export default createStore(rootReducer, <u-code>composeWithDevTools()</u-code>);
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>2 способ: Вынести в переменную</h4>
 <!------------------------------------------------------------->
-<pre><code class="js"><u-code-title>js</u-code-title>
+<v-code lang="js" title="">
 import { createStore } from 'redux';
 import rootReducer from './reducers'
 
@@ -34,7 +34,7 @@ const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
 const devtoolMiddleware = ext && ext();
 
 export default createStore(rootReducer, devtoolMiddleware);
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>1 способ: Второй аргумент</h4>
@@ -42,9 +42,9 @@ export default createStore(rootReducer, devtoolMiddleware);
 <ul class="list-point">
     <li>Если найдено расширение, то мы применяем его во второй аргумент <u-code-text>createStore</u-code-text>, в другом случае он будет <u-code-text>undefined</u-code-text></li>
 </ul>
-<pre><code class="js">
+<v-code lang="js" title="">
 const store = createStore(changeStore,
     window.__REDUX_DEVTOOLS_EXTENSION__ &&
     window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-</code></pre>
+</v-code>

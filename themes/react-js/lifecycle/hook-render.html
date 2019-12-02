@@ -26,12 +26,12 @@
 	<li>Элементы React иммутабельны. После создания элемента, нельзя изменить его потомков или атрибуты. Элемент похож на кадр в фильме: он отражает состояние интерфейса в конкретный момент времени</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 ReactDOM.render(
 	&lt;App /&gt;,
 	document.getElementById('root')
 );
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Рендеринг</h3>
@@ -41,14 +41,14 @@ ReactDOM.render(
 	<li>Когда React встречает подобный элемент, он собирает все JSX-атрибуты в один объект и передаёт их нашему компоненту. Этот объект называется <u>«пропсы» (props)</u></li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 function Welcome(props) {
 	return &lt;h1&gt;Привет, {props.name}&lt;/h1&gt;;
 }
 
 const element = &lt;Welcome name="Алиса" /&gt;;
 ReactDOM.render(element, document.getElementById('root'));
-</code></pre>
+</v-code>
 
 <ol class="list-num">
 	<li>Мы передаём React-элемент <u-code-text>&lt;Welcome name="Алиса" /&gt;</u-code-text> в <u-code-text>ReactDOM.render()</u-code-text></li>

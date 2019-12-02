@@ -3,7 +3,7 @@
 <!------------------------------------------------------------->
 <h4>Установка геттера в Vuex.Store</h4>
 <!------------------------------------------------------------->
-<pre><code class="js" v-pre>
+<v-code lang="js" title="">
 const store = new Vuex.Store({
     state: {
         count: 0
@@ -14,18 +14,18 @@ const store = new Vuex.Store({
         }
     }
 })
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Чтение геттера</h4>
 <!------------------------------------------------------------->
-<pre><code class="html">
+<v-code lang="js" title="">
 &lt;template&gt;
-    &lt;div class="container"&gt;Корзина покупок {{ <u-code>count</u-code> }}&lt;/div&gt;
+    &lt;div class="container"&gt;Корзина покупок <span v-pre>{{ <u-code>count</u-code> }}</span>&lt;/div&gt;
 &lt;/template&gt;
-</code></pre>
+</v-code>
 
-<pre><code class="js" v-pre>
+<v-code lang="js" title="">
 &lt;script&gt;
 export default {
     computed: {
@@ -35,18 +35,18 @@ export default {
     }
 }
 &lt;/script&gt;
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Чтение геттера (mapGetters)</h4>
 <!------------------------------------------------------------->
-<pre><code class="html" v-pre>
+<v-code lang="html" title="">
 &lt;template&gt;
-    &lt;div class="container"&gt;Корзина покупок {{ <u-code>storeCount</u-code> }}&lt;/div&gt;
+    &lt;div class="container"&gt;Корзина покупок <span v-pre>{{ <u-code>storeCount</u-code> }}</span>&lt;/div&gt;
 &lt;/template&gt;
-</code></pre>
+</v-code>
 
-<pre><code class="js" v-pre>
+<v-code lang="js" title="">
 &lt;script&gt;
 import { <u-code>mapGetters</u-code> } from 'vuex'
 
@@ -59,9 +59,9 @@ export default {
     }
 }
 &lt;/script&gt;
-</code></pre>
+</v-code>
 
-<pre><code class="js" v-pre>
+<v-code lang="js" title="">
 // указание другого имени
 export default {
     computed: {
@@ -70,4 +70,4 @@ export default {
         })
     }
 }
-</code></pre>
+</v-code>

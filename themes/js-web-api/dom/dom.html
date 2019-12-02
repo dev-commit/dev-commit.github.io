@@ -28,14 +28,14 @@
 <!------------------------------------------------------------->
 <h4>Методы консоли</h4>
 <!------------------------------------------------------------->
-<pre><code class="js"><u-code-title>js</u-code-title>
+<v-code lang="js" title="">
 $0           // последний элемент, выбранный во вкладке Elements
 $1           // предыдущий элемент, выбранный во вкладке Elements
 $$("div.my") // ищет все элементы в DOM по данному CSS-селектору.
 $("div.my")  // ищет первый элемент в DOM по данному CSS-селектору.
 
 $0.style.backgroundColor = 'red';
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Особенности</h3>
@@ -57,25 +57,25 @@ $0.style.backgroundColor = 'red';
 <ul class="list-point">
 	<b>Для использования методов массивов: </b>
 	<li>1. Применить метод массива через <u-code-text>call/apply</u-code-text></li>
-<pre><code class="js">
+<v-code lang="js" title="">
 var elems = document.documentElement.childNodes;
 
 [].forEach.<u-code>call</u-code>(elems, function(elem) {
 	alert( elem ); // HEAD, текст, BODY
 });
-</code></pre>
+</v-code>
 	
 	<li>2. При помощи <u-code-text>Array.prototype.slice</u-code-text> сделать из коллекции массив</li>
 	<li>Обычно вызов <u-code-text>arr.slice(a, b)</u-code-text> делает новый массив и копирует туда элементы <u-code-text>arr</u-code-text> с индексами от <u-code-text>a</u-code-text> до <u-code-text>b-1</u-code-text> включительно. Если же вызвать его без аргументов <u-code-text>arr.slice()</u-code-text>, то он делает новый массив и копирует туда все элементы <u-code-text>arr</u-code-text></li>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var elems = document.documentElement.childNodes;
 elems = <u-code>Array.prototype.slice.call</u-code>(elems); // теперь elems - массив
 
 elems.forEach(function(elem) {
 	alert( elem.tagName ); // HEAD, текст, BODY
 });
-</code></pre>
+</v-code>
 </ul>
 
 <ul class="list-point">

@@ -23,7 +23,7 @@
 <!------------------------------------------------------------->
 <h4>Обычный класс a !== b</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 class usualClass {
     constructor() {
         // this.name = null;
@@ -37,10 +37,10 @@ var a = new usualClass();
 var b = new usualClass();
 <u-code>console.log(a === b); // false</u-code>
 console.log(a.testMethod());
-</code></pre>
+</v-code>
 
-
-<div class="container-flex"><div class="container-half"><h4>Singleton ES5</h4><pre><code class="js">
+<v-two-code type="js;js" comment="Singleton ES5;Singleton ES6">
+<template v-slot:first>
 const Universe = (function(){
     let instance = null;
     function func() {
@@ -66,7 +66,8 @@ var b = new Universe();
 console.log(a.getSize(), b.getSize()); // 100, 100
 a.setSize(200);
 console.log(a.getSize(), b.getSize()); // 200, 200
-</code></pre></div><div class="container-half"><h4>Singleton ES6</h4><pre><code class="js">
+</template>
+<template v-slot:last>
 var instance = null;
 
 class Singleton {
@@ -80,7 +81,8 @@ class Singleton {
 var a = new Singleton();
 var b = new Singleton();
 <u-code>console.log(a === b); // true</u-code>
-</code></pre></div></div>
+</template>
+</v-two-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Представление класса в виде объектного литерала</h3>
@@ -88,11 +90,11 @@ var b = new Singleton();
 <ul class="list-point">
     <li>Всякий раз, когда мы обращаемся к переменной user, мы получаем ссылку на один и тот же объект</li>
 </ul>
-<pre><code class="js">
+<v-code lang="js" title="">
 const user = {
     name: 'Tony',
     greet: function() {
         console.log('Hello!');
     }
 };
-</code></pre>
+</v-code>

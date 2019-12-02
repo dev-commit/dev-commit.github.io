@@ -7,17 +7,17 @@
 <!------------------------------------------------------------->
 <h4>Исходный Object.create()</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 var objFirst = {
     name: 'Tony'
 };
 var objSecond = Object.create(objFirst); // => {} __proto__: name: "Tony"
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Полифил</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 var objFirst = {
     name: 'Tony'
 };
@@ -31,12 +31,12 @@ function inherit(proto) {
     var object = new F(); // Результатом вызова new F будет пустой объект с __proto__ равным значению F.prototype
     return object;        // Получили пустой объект с заданным прототипом. Возвратим его
 }
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Короткая запись</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 if (!Object.create) {
 	Object.create = function(proto) {
 		function F() {}
@@ -44,4 +44,4 @@ if (!Object.create) {
 		return new F;
 	};
 }
-</code></pre>
+</v-code>

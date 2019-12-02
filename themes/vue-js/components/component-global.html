@@ -3,30 +3,30 @@
 <!------------------------------------------------------------->
 <h4>./main.js</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 import './components/ui'
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>./components/ui/index.js</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 import Vue from 'vue'
 import Button from './Button.vue'
 Vue.component('ui-button', Button)
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>./components/ui/Button.vue</h4>
 <!------------------------------------------------------------->
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;template&gt;
     &lt;button :class="classes" class="ui-btn"&gt;
         &lt;slot&gt;&lt;/slot&gt;
     &lt;/button&gt;
 &lt;/template&gt;
-</code></pre>
-<pre><code class="js">
+</v-code>
+<v-code lang="js" title="">
 &lt;script&gt;
 export default {
     props: {
@@ -43,8 +43,8 @@ export default {
     }
 }
 &lt;/script&gt;
-</code></pre>
-<pre><code class="css">
+</v-code>
+<v-code lang="css" title="">
 &lt;style scoped&gt;
 .ui-btn {
     display: block;
@@ -53,14 +53,14 @@ export default {
     background: yellowgreen;
 }
 &lt;/style&gt;
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Any Component</h4>
 <!------------------------------------------------------------->
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;ui-button @click.<u-code>native</u-code>="getFunc" color="primary" block&gt;This is a button&lt;/ui-button&gt;
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<li><u-text-define>.native</u-text-define> - подписка на нативные события браузера на корневом элементе компонента</li>

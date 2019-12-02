@@ -57,19 +57,20 @@ class Welcome extends React.Component {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Импорт</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 <u-code>import</u-code> Header from '../Header';
 
 <u-code>export default</u-code> class App extends React.Component { ... }
 
 class App extends React.Component { ... }
 <u-code>export default</u-code> App;
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Классовые компоненты на jsx и js</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div class="container-flex"><div class="container-half"><pre><code class="js"><u-code-title>jsx</u-code-title>
+<v-two-code type="js;js" comment="jsx;js">
+<template v-slot:first>
 class App extends React.Component {
 	render() {
 		return &lt;button&gt;Кнопка&lt;/button&gt;;
@@ -79,7 +80,8 @@ ReactDOM.render(
 	&lt;App /&gt;,
 	document.getElementById('root')
 );
-</code></pre></div><div class="container-half"><pre><code class="js"><u-code-title>js</u-code-title>
+</template>
+<template v-slot:last>
 const e = React.<u-code>createElement</u-code>;
 class App extends React.Component {
 	render() {
@@ -90,7 +92,8 @@ ReactDOM.render(
 	<u-code>e</u-code>(App),
 	document.getElementById('root')
 );
-</code></pre></div></div>
+</template>
+</v-two-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Композиция компонентов</h3>
@@ -100,7 +103,7 @@ ReactDOM.render(
 	<li>компонент App может отрендерить компонент Child несколько раз</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 function App() {
 	return (
 		&lt;div&gt;
@@ -109,7 +112,7 @@ function App() {
 		&lt;/div&gt;
 	);
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Классовые компоненты с пропсами</h3>

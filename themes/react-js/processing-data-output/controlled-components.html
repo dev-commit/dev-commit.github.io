@@ -10,7 +10,7 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>input, submit</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -32,14 +32,14 @@ class App extends React.Component {
 		);
 	}
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>textarea</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;textarea value={this.state.value} onChange={this.handleChange}&gt;&lt;/textarea&gt;
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>select</h3>
@@ -48,13 +48,13 @@ class App extends React.Component {
 	<li>Пункт списка «Кокос» выбран по умолчанию из-за установленного атрибута <u-code-text>selected</u-code-text>. React вместо этого атрибута использует <u-code-text>value</u-code-text> в корневом теге <u-code-text>select</u-code-text>. В управляемом компоненте так удобнее, потому что обновлять значение нужно только в одном месте (<u-code-text>state</u-code-text>)</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 constructor(props) {
 	this.state = {value: 'coconut'};
 }
-</code></pre>
+</v-code>
 
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;form onSubmit={this.handleSubmit}&gt;
 	&lt;select value={this.state.value} onChange={this.handleChange}&gt;
 		&lt;option value="lime"&gt;Лайм&lt;/option&gt;
@@ -63,15 +63,15 @@ constructor(props) {
 	&lt;/select&gt;
 	&lt;input type="submit" value="Отправить" /&gt;
 &lt;/form&gt;
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<li>В атрибут <u-code-text>value</u-code-text> можно передать массив, что позволит выбрать несколько опций в теге <u-code-text>select</u-code-text></li>
 </ul>
 
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;select multiple={true} value={['Б', 'В']}&gt;
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Обработка нескольких элементов input</h3>
@@ -80,7 +80,7 @@ constructor(props) {
 	<li>Если нужны несколько управляемых элементов <u-code-text>input</u-code-text>, можно назначить каждому из них атрибут name, что позволит функции-обработчику решать, что делать, основываясь на значении <u-code-text>event.target.name</u-code-text></li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -106,16 +106,16 @@ class App extends React.Component {
 		);
 	}
 }
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Вычисляемые имена свойств</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 this.setState({
 	[name]: value
 });
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Значение null управляемого компонента</h3>
@@ -125,10 +125,10 @@ this.setState({
 	<li>Пример: изначально заблокированный <u-code-text>input</u-code-text> становится редактируемым спустя 1с</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 ReactDOM.render(&lt;input value="Привет" /&gt;, mountNode);
 
 setTimeout(function() {
 	ReactDOM.render(&lt;input value={null} /&gt;, mountNode);
 }, 1000);
-</code></pre>
+</v-code>

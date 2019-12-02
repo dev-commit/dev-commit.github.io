@@ -12,14 +12,14 @@
 	<li><u-text-define>v-on</u-text-define> - подписка на события DOM и выполнения JavaScript-кода по их наступлении</li>
 </ul>
 
-<pre><code class="html"><u-code-title>html</u-code-title>
+<v-code lang="html" title="html">
 &lt;button <u-code>v-on:click</u-code>=""&gt;&lt;/button&gt;            <u-code-comment># полная запись</u-code-comment>
 &lt;button <u-code>@click</u-code>=""&gt;&lt;/button&gt;                <u-code-comment># сокращенная запись</u-code-comment>
 &lt;button <u-code>@click</u-code>="methodOne"&gt;&lt;/button&gt;       <u-code-comment># указание названия метода</u-code-comment>
 &lt;button <u-code>@click</u-code>="methodTwo('hi')"&gt;&lt;/button&gt; <u-code-comment># указание JavaScript-выражения</u-code-comment>
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>js</u-code-title>
+<v-code lang="js" title="js">
 var app = new Vue({
 	el: '#app',
 	methods: {
@@ -31,14 +31,14 @@ var app = new Vue({
 		}
 	}
 })
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Императивный вызов методов</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 app.methodOne();
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3 id="v-on-mod-actions">Модификаторы событий</h3>
@@ -64,7 +64,7 @@ app.methodOne();
 <!------------------------------------------------------------->
 <h4>Примеры</h4>
 <!------------------------------------------------------------->
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;!-- событие click не будет всплывать дальше --&gt;
 &lt;a v-on:click.stop="doThis"&gt;&lt;/a&gt;
 
@@ -92,17 +92,17 @@ app.methodOne();
 &lt;!-- незамедлительно, вместо ожидания окончания `onScroll`  --&gt;
 &lt;!-- на случай, если там будет `event.preventDefault()`     --&gt;
 &lt;div v-on:scroll.passive="onScroll"&gt;...&lt;/div&gt;
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Отмена обычного поведения</h4>
 <!------------------------------------------------------------->
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;button <u-code>@click</u-code>="submit1"&gt;&lt;/button&gt;
 &lt;button <u-code>@click.prevent</u-code>="submit2"&gt;&lt;/button&gt;
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 methods: {
 	submit1(e) {
 		<u-code>e.preventDefault()</u-code>;
@@ -112,7 +112,7 @@ methods: {
 		console.log('prevent');
 	}
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3 id="v-on-mod-key">Модификаторы клавиш</h3>
@@ -122,19 +122,19 @@ methods: {
 	<li>Можно использовать любые допустимые имена клавиш, предоставляемые через <u-code-text>KeyboardEvent.key</u-code-text> в качестве модификаторов, именуя их в kebab-case</li>
 </ul>
 
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;input type="text" @keyup="methodOne"&gt;       <u-code-comment># любые символы</u-code-comment>
 &lt;input type="text" @keyup.13="methodOne"&gt;    <u-code-comment># использование значений keyCode (enter)</u-code-comment>
 &lt;input type="text" @keyup.enter="methodOne"&gt; <u-code-comment># использование модификатора (enter)</u-code-comment>
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 methods: {
 	methodOne(){
 		console.log('methodOne')
 	}
 }
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Псевдонимы для наиболее часто используемых клавиш</h4>
@@ -149,10 +149,10 @@ methods: {
 	<li><u-code-list>.left</u-code-list><u-code-list>.right</u-code-list></li>
 </ul>
 
-<pre><code>
-<a href="https://vuejs.org/v2/guide/events.html#Key-Modifiers" target="_blank">Список псевдонимов клавиш в Vue</a>
-<a href="https://css-tricks.com/snippets/javascript/javascript-keycodes/#article-header-id-1" target="_blank">Таблица с кодами клавиш</a>
-</code></pre>
+<u-link-wrapper>
+	<a href="https://vuejs.org/v2/guide/events.html#Key-Modifiers" target="_blank">Список псевдонимов клавиш в Vue</a>
+	<a href="https://css-tricks.com/snippets/javascript/javascript-keycodes/#article-header-id-1" target="_blank">Таблица с кодами клавиш</a>
+</u-link-wrapper>
 
 <!------------------------------------------------------------->
 <h4>Определение пользовательских псевдонимов клавиш</h4>
@@ -161,9 +161,9 @@ methods: {
 	<li>Определение пользовательских псевдонимов клавиш через глобальную опцию <u-code-text>config.keyCodes</u-code-text></li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 Vue.config.keyCodes.f1 = 112; // позволит использовать 'v-on:keyup.f1'
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3 id="v-on-mod-key-system">Системные модификаторы клавиш</h3>
@@ -189,7 +189,7 @@ Vue.config.keyCodes.f1 = 112; // позволит использовать 'v-on
 	<li><u-text-define>.exact</u-text-define> позволяет контролировать точную комбинацию системных модификаторов, необходимых для запуска события</li>
 </ul>
 
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;!-- сработает, даже если Alt или Shift также нажаты --&gt;
 &lt;button @click.ctrl="onClick"&gt;A&lt;/button&gt;
 
@@ -198,7 +198,7 @@ Vue.config.keyCodes.f1 = 112; // позволит использовать 'v-on
 
 &lt;!-- сработает, только когда не нажаты никакие системные модификаторы --&gt;
 &lt;button @click.exact="onClick"&gt;A&lt;/button&gt;
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3 id="v-on-mod-key-mouse">Модификаторы клавиш мыши</h3>

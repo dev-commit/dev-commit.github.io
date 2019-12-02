@@ -37,33 +37,33 @@
 	<v-method-return>undefined</v-method-return>
 </div>
 
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;button id="element"&gt;Action&lt;/button&gt;
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 function action() {
 	alert(1);
 }
 var element = document.querySelector('#element');
 element.<u-code>addEventListener</u-code>('click', action);
 element.<u-code>removeEventListener</u-code>('click', action);
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // для удаления нужно передать именно ту функцию-обработчик которая была назначена
 // так removeEventListener не сработает
 // в removeEventListener передана не та же функция, а другая, с одинаковым кодом
 element.addEventListener('click', function() {alert('ok')});
 element.removeEventListener('click', function() {alert('ok')});
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>js</u-code-title>
+<v-code lang="js" title="">
 // добавление нескольких обработчков на одно событие
 element.onclick = () => alert('Привет из onclick');
 element.addEventListener('click', () => alert('Привет'));
 element.addEventListener('click', () => alert('Привет Мир'));
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Обработчики некоторых событий можно назначать только через addEventListener</h4>
@@ -73,7 +73,7 @@ element.addEventListener('click', () => alert('Привет Мир'));
     <li>DOMContentLoaded</li>
 </ul>
 
-<pre><code class="js"><u-code-title>js</u-code-title>
+<v-code lang="js" title="">
 element.ontransitionend = function() {
 	alert('DOM property'); // не сработает
 };
@@ -81,7 +81,7 @@ element.ontransitionend = function() {
 element.addEventListener("transitionend", function() {
 	alert('addEventListener'); // сработает по окончании анимации
 });
-</code></pre>
+</v-code>
 
 <u-message-info>
 	Когда мы устанавливаем обработчик событий на объект <u-code-text>document</u-code-text>, мы всегда должны использовать метод <u-code-text>addEventListener</u-code-text>, а не <u>document.on&lt;событие&gt;</u>, т.к. в случае последнего могут возникать конфликты: новые обработчики будут перезаписывать уже существующие
@@ -95,15 +95,15 @@ element.addEventListener("transitionend", function() {
     <li>Если addEventListener получает объект в качестве обработчика, он вызывает <u-code-text>object.handleEvent(event)</u-code-text>, когда происходит событие</li>
 </ul>
 
-<pre><code class="js"><u-code-title>Использование объекта</u-code-title>
+<v-code lang="js" title="Использование объекта">
 element.addEventListener('click', {
 	handleEvent(event) {
 		//
 	}
 });
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>Использование класса</u-code-title>
+<v-code lang="js" title="Использование класса">
 class Listener {
 	handleEvent(event) {
 		//
@@ -112,28 +112,28 @@ class Listener {
 
 const listener = new Listener();
 element.addEventListener('click', listener);
-</code></pre>
+</v-code>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>2. Атрибут HTML</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;button onclick="alert('action')"&gt;Action&lt;/button&gt;
 &lt;button onclick="alert(&amp;quot;action&amp;quot;)"&gt;Использование двойных кавычек&lt;/button&gt;
 &lt;button onclick="alert(this.innerHTML)"&gt;Вывести содержимое&lt;/button&gt;
 &lt;button onclick="action()"&gt;Action&lt;/button&gt;
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <li>При создании обработчика браузером из атрибута, он автоматически создаёт функцию с телом из значения атрибута: action(). Разметка генерирует такое свойство:</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 button.onclick = function() {
 	action(); // содержимое атрибута
 };
-</code></pre>
+</v-code>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -146,39 +146,39 @@ button.onclick = function() {
 	<li>DOM-свойства чувствительны к регистру, поэтому необходимо использовать <u>elem.onclick</u> вместо <u>elem.ONCLICK</u></li>
 </ul>
 
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;button id="element"&gt;Action&lt;/button&gt;
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>Назначение новой функции</u-code-title>
+<v-code lang="js" title="Назначение новой функции">
 element.onclick = function() {
 	alert(1);
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>Назначение существующей функции</u-code-title>
+<v-code lang="js" title="Назначение существующей функции">
 element.onclick = action;
 
 function action() {
 	alert(1);
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>Удаление обработчика</u-code-title>
+<v-code lang="js" title="Удаление обработчика">
 element.onclick = null;
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Особенности</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 // при нажатии на body будут ошибки,
 // атрибуты всегда строки, и функция станет строкой
 document.body.setAttribute('onclick', function() { alert(1) });
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 element.onclick = function() { alert(1); }
 // заменит предыдущий обработчик
 element.onclick = function() { alert(2); }
-</code></pre>
+</v-code>

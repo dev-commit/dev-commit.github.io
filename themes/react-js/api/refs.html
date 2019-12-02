@@ -27,7 +27,7 @@
     <li>Рефы создаются с помощью <u-code-text>React.createRef()</u-code-text> и прикрепляются к React-элементам через <u-code-text>ref</u-code-text> атрибут. Обычно рефы присваиваются свойству экземпляра класса в конструкторе, чтобы на них можно было ссылаться из любой части компонента</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 class MyComponent extends React.Component {
 	constructor(props) {
 		super(props);
@@ -37,7 +37,7 @@ class MyComponent extends React.Component {
 		return &lt;div <u-code>ref={this.myRef}</u-code> /&gt;;
 	}
 }
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Доступ к рефам</h4>
@@ -46,14 +46,14 @@ class MyComponent extends React.Component {
     <li>Когда реф передаётся элементу в методе <u-code-text>render</u-code-text>, ссылка на данный узел доступна через свойство рефа <u-code-text>current</u-code-text></li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 const node = <u-code>this.myRef.current;</u-code>
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Добавление рефа к DOM-элементу и классовому компоненту</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 import React, { Component } from 'react';
 
 export default class App extends Component {
@@ -77,7 +77,7 @@ export default class App extends Component {
 		);
 	}
 }
-</code></pre>
+</v-code>
 
 <v-two-code type="js;js" comment="Доступ к экземпляру смонтированного компонента;Доступ к DOM-элементу компонента (Перенаправление рефов)">
 <template v-slot:first>
@@ -97,7 +97,7 @@ const Child = <u-code>React.forwardRef</u-code>((props, ref) =&gt; (
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Пример на useRef</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js red">
+<v-code lang="js red" title="">
 const Component = () =&gt; {
     const valueRef = useRef(null);
 
@@ -116,7 +116,7 @@ const Component = () =&gt; {
 		&lt;/&gt;
     );
 };
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Перенаправление рефов</h3>
@@ -146,7 +146,7 @@ const Component = () =&gt; {
     <li>React вызовет ref колбэк с DOM-элементом при монтировании компонента, а также вызовет его со значением <u-code-text>null</u-code-text> при размонтировании. Рефы будут хранить актуальное значение перед вызовом методов <u-code-text>componentDidMount</u-code-text> или <u-code-text>componentDidUpdate</u-code-text></li>
 </ul>
 
-<pre><code class="js"><u-code-title>js</u-code-title>
+<v-code lang="js" title="">
 import React, { Component } from 'react';
 
 export default class App extends Component {
@@ -176,4 +176,4 @@ export default class App extends Component {
 		);
 	}
 }
-</code></pre>
+</v-code>

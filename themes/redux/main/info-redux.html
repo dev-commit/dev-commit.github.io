@@ -29,7 +29,7 @@ npm i --save <u-code-npm>redux</u-code-npm>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Store</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 const store = <u-code>createStore</u-code>(reducerFunction); // создание store
 store.<u-code>getState</u-code>();                           // получить состояние store
 store.<u-code>subscribe</u-code>();                          // подписка на изменение store
@@ -37,12 +37,12 @@ store.<u-code>dispatch</u-code>({                            // событие �
     type: 'тип_события', 
     payload: 'данные' 
 }); 
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Пример использования Redux</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js border">
+<v-code lang="js border" title="">
 import { createStore } from 'redux';
 
 function changeStore(state = [], action) {
@@ -67,5 +67,5 @@ store.<u-code>subscribe</u-code>(() => {
 
 store.<u-code>dispatch</u-code>({ type: 'ADD_PRODUCT', payload: 'Product1' });
 store.<u-code>dispatch</u-code>({ type: 'ADD_PRODUCT', payload: 'Product2' });
-</code></pre>
+</v-code>
 

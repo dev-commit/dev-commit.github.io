@@ -15,17 +15,19 @@
 	</ul>
 </ul>
 
-<pre><code class="js light">
+<v-code lang="js light" title="">
 <table>
 	<tr><td><bg-methods>document.registerElement</bg-methods><bg-arguments>(имя, {prototype:прототип})</bg-arguments></td><td>  //</td></tr>
 	<tr><td><em>	&#8226; имя</em></td><td>  // имя нового тега, например "mega-select". Оно обязано содержать дефис "-". Спецификация требует дефис, чтобы избежать в будущем конфликтов со стандартными элементами HTML. Нельзя создать элемент timer или myTimer – будет ошибка</td></tr>
 	<tr><td><em>	&#8226; прототип</em></td><td>  // объект-прототип для нового элемента, он должен наследовать от HTMLElement, чтобы у элемента были стандартные свойства и методы</td></tr>
-</table></code></pre>
+</table>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Регистрация элемента</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div class="container-flex"><div class="container-half"><pre><code class="js">
+<v-two-code type="js;js" comment="Object.create;registerElement">
+<template v-slot:first>
 var element = <u-code>Object.create(HTMLElement.prototype)</u-code>;
 element.action = function(content) {
     this.innerHTML = content;
@@ -34,29 +36,30 @@ element.action = function(content) {
     prototype: element
 });
 document.querySelector('my-element').action('zzz');
-<br><br>
-</code></pre></div><div class="container-half"><pre><code class="js">
+</template>
+<template v-slot:last>
 <u-code>document.registerElement</u-code>("my-element", {
     prototype: {
         __proto__: <u-code>HTMLElement.prototype</u-code>,
         action: function(content) { 
-        	this.innerHTML = content; 
+            this.innerHTML = content; 
         },
         value: 77
     }
 });
 document.querySelector('my-element').action('zzz');
 var a = document.querySelector('my-element').value;
-</code></pre></div></div>
+</template>
+</v-two-code>
 
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;my-element&gt;Hello&lt;/my-element&gt;
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Расширение встроенных элементов</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var element = <u-code>Object.create(HTMLButtonElement.prototype)</u-code>;
 element.action = function(content) {
     this.innerHTML = content;
@@ -66,26 +69,26 @@ element.action = function(content) {
     <u-code>extends: 'button'</u-code>
 });
 document.querySelector('button').action('zzz');
-</code></pre>
-<pre><code class="css">
+</v-code>
+<v-code lang="css" title="">
 &lt;button <u-code>is="my-element"</u-code>&gt;&lt;/button&gt;
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Жизненный цикл</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="bash">
+<v-code lang="bash" title="">
 <em>createdCallback</em>                                     # элемент создан
 <em>attachedCallback</em>                                    # элемент добавлен в документ
 <em>detachedCallback</em>                                    # элемент удалён из документа
 <em>attributeChangedCallback(name, prevValue, newValue)</em> # атрибут добавлен, изменён или удалён
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 element.createdCallback = function() {
     //
 }
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
@@ -94,7 +97,7 @@ element.createdCallback = function() {
 <!------------------------------------------------------------->
 <h4>1. Элемент таймер</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 // прототип с методами для нового элемента
 var MyTimerProto = <u-code>Object.create(HTMLElement.prototype)</u-code>;
 MyTimerProto.tick = function() { // свой метод tick
@@ -110,15 +113,15 @@ MyTimerProto.tick = function() { // свой метод tick
 setInterval(function() {
     timer.tick();
 }, 1000);
-</code></pre>
-<pre><code class="html">
+</v-code>
+<v-code lang="html" title="">
 &lt;my-timer id="timer"&gt;0&lt;/my-timer&gt;
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>2. Элемент hello-world с таймером</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 // регистрация произойдёт через 2 сек
 setTimeout(function() {
     <u-code>document.registerElement</u-code>("hello-world", {
@@ -129,8 +132,8 @@ setTimeout(function() {
     });
     hello.sayHi();
 }, 2000);
-</code></pre>
-<pre><code class="css">
+</v-code>
+<v-code lang="css" title="">
 /* стиль для :unresolved элемента (до регистрации) */
 hello-world<u-code>:unresolved</u-code> {
     color: blue;
@@ -138,7 +141,7 @@ hello-world<u-code>:unresolved</u-code> {
 hello-world {
     transition: color 3s;
 }
-</code></pre>
-<pre><code class="html">
+</v-code>
+<v-code lang="html" title="">
 &lt;hello-world id="hello"&gt;Hello, world!&lt;/hello-world&gt;
-</code></pre>
+</v-code>

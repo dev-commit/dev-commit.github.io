@@ -18,14 +18,14 @@
 <!------------------------------------------------------------->
 <h4>Push (добавить в конец), Pop (удалить из конца) <u-code>O(1)</u-code></h4>
 <!------------------------------------------------------------->
-<pre><code class="bash">
+<v-code lang="bash" title="">
 # являются простыми операциями, поскольку не затрагивают весь остальной список
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Unshift (добавить в начало) <u-code>O(N)</u-code></h4>
 <!------------------------------------------------------------->
-<pre><code class="bash">
+<v-code lang="bash" title="">
 # чтобы добавить новый элемент в начало списка, нужно освободить пространство для этого значения, 
 # сдвинув на один все последующие значения
 [a, b, c, d, e]
@@ -33,19 +33,19 @@
   ⬊  ⬊  ⬊  ⬊  ⬊
     1  2  3  4  5
 [x, a, b, c, d, e]
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Shift (удалить из начала) <u-code>O(N)</u-code></h4>
 <!------------------------------------------------------------->
-<pre><code class="bash">
+<v-code lang="bash" title="">
 # удаляем первое значение и затем сдвигаем каждый элемент списка на предшествующий адрес
 [x, a, b, c, d, e]
     1  2  3  4  5
   ⬋  ⬋  ⬋  ⬋  ⬋
  0  1  2  3  4
 [a, b, c, d, e]
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Stack (Стек)</h3>
@@ -58,14 +58,14 @@
     <li><b>pop</b> убирается первый, а головным становится тот, на который был указатель у этого объекта (следующий элемент). При этом значение убранного элемента возвращается</li>
 </ul>
 
-<div class="container-flex"><div class="container-half">
+<v-two><template v-slot:first>
 <img src="/img/js/structure-stack1.png" width="550px">
-</div><div class="container-half">
+</template><template v-slot:last>
 <img src="/img/js/structure-stack2.png" width="450px">
 <ul class="list-point">
     <li>Организация стека в виде одномерного упорядоченного по адресам массива. push и pop</li>
 </ul>
-</div></div>
+</template></v-two>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Queue (Очередь)</h3>
@@ -92,8 +92,7 @@
 <!------------------------------------------------------------->
 <h4>Определения</h4>
 <!------------------------------------------------------------->
-
-<div class="container-flex"><div class="container-half">
+<v-two><template v-slot:first>
 <ul class="list-point">
     <li><u>Вершина (узел)</u> - простой объект</li>
     <li><u>Ребро</u> - связь между двумя верщинами</li>
@@ -103,9 +102,9 @@
     <li><u>Лист, листовой или терминальный узел</u> - узел, не имеющий дочерних элементов (узлы 1, 4, 7, 13)</li>
     <li><u>Внутренний узел</u> - любой узел дерева, имеющий потомков, и таким образом, не являющийся листовым узлом (3, 6, 10, 14)</li>
 </ul>
-</div><div class="container-half">
+</template><template v-slot:last>
 <img src="/img/js/structure-tree1.png" width="200px">
-</div></div>
+</template></v-two>
 
 <!------------------------------------------------------------->
 <h4>Представление дерева</h4>
@@ -151,25 +150,25 @@
     <u>Прямой обход (сверху-вниз, pre-order)</u>
     <li>вначале обрабатывается узел, затем посещается левое и правое поддерево</li>
 </ul>
-<pre><code class="bash">
+<v-code lang="bash" title="">
 E, D, B, A, C, H, F, G
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <u>Обратный обход (снизу вверх, post-order)</u>
     <li>вначале посещается левое и правое поддерево, затем обрабатывается узел</li>
 </ul>
-<pre><code class="bash">
+<v-code lang="bash" title="">
 A, C, B, D, G, F, H, E
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <u>Поперечный обход (слева-направо, in-order)</u>
     <li>вначале посещается левое поддерево, затем узел и правое поддерево</li>
 </ul>
-<pre><code class="bash">
+<v-code lang="bash" title="">
 A, B, C, D, E, F, G, H
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Обход двоичного дерева в ширину (BFS - Breadth First Search)</h4>
@@ -184,9 +183,9 @@ A, B, C, D, E, F, G, H
     <li>обрабатывается извлеченная вершина</li>
     <li>в очередь помещаются все дочерние</li>
 </ol>
-<pre><code class="bash">
+<v-code lang="bash" title="">
 E, D, H, B, F, A, C, G
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Куча</h3>

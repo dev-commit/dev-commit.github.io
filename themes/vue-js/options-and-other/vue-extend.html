@@ -6,14 +6,14 @@
 </ul>
 
 
-<pre><code class="html"><u-code-title>html</u-code-title>
+<v-code lang="html" title="html">
 &lt;div id="mount-point"&gt;&lt;/div&gt;
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>js</u-code-title>
+<v-code lang="js" title="js">
 // Создание конструктора
 var Profile = Vue.extend({
-	template: '{{firstName}} {{lastName}}, также известный как {{alias}}',
+	template: '<span v-pre>{{firstName}} {{lastName}}, также известный как {{alias}}</span>',
 	data: function () {
 		return {
 			firstName: 'Уолтер',
@@ -24,8 +24,8 @@ var Profile = Vue.extend({
 })
 // создаёт экземпляр Profile и монтирует его к элементу DOM
 new Profile().$mount('#mount-point')
-</code></pre>
+</v-code>
 
-<pre><code class="html"><u-code-title>result</u-code-title>
+<v-code lang="html" title="result">
 &lt;p&gt;Уолтер Уайт, также известный как Гейзенберг&lt;/p&gt;
-</code></pre>
+</v-code>

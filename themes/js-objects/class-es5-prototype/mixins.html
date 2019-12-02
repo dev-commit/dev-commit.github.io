@@ -8,7 +8,7 @@
 	<li>Для добавления примеси в класс – её просто «подмешивают» в прототип. «Подмешать» можно сколько угодно примесей, но если имена методов в разных примесях совпадают, то возможны конфликты.</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var mixinGreeting = {
     greet() {
         console.log(this.name);
@@ -21,4 +21,4 @@ for(var key in mixinGreeting) {
     <u-code>User.prototype[key] = mixinGreeting[key];</u-code>
 }
 new User('Tony').greet(); // => Tony
-</code></pre>
+</v-code>

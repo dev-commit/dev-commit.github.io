@@ -49,17 +49,17 @@
     <li>DocumentFragment, в отличие от insertAdjacent*, работает с коллекцией DOM-узлов</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var fragment = document.<u-code>createDocumentFragment()</u-code>; // создание
 fragment.appendChild(node);                       // добавление узлов
 fragment.cloneNode(true);                         // клонирование
 ul.appendChild(fragment);                         // вставка
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Пример использования</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 // создание элемента
 var div = document.createElement('div');
 div.innerText = 'element';
@@ -70,7 +70,7 @@ fragment.appendChild(div);
 
 // вывод фрагмента
 document.querySelector('ul').appendChild(fragment);
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>append/prepend, before/after, replaceWith</h3>
@@ -113,7 +113,7 @@ document.querySelector('ul').appendChild(fragment);
     <li>Во всех методах <u-code-text>nodes</u-code-text> - DOM-узлы или строки, в любом сочетании и количестве. Причём строки вставляются именно как текстовые узлы, в отличие от <u-code-text>insertAdjacentHTML</u-code-text></li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // добавим элемент в конец body
 var p = document.createElement('p');
 document.body.<u-code>append</u-code>(p);
@@ -124,7 +124,6 @@ em.<u-code>append</u-code>('Мир!');
 // вставить в параграф текстовый и обычный узлы
 p.<u-code>append</u-code>("Привет, ", em);
 
-// добавить элемент после <p>
+// добавить элемент после тега p
 p.<u-code>after</u-code>(document.createElement('hr'))
-</code></pre>
-
+</v-code>

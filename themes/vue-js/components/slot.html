@@ -10,10 +10,10 @@
 	<li>Всё в родительском шаблоне компилируется в области видимости родительского компонента; всё в дочернем шаблоне компилируется в области видимости дочернего компонента</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 <u-code>v-slot:user</u-code>  // полная запись
 <u-code>#user</u-code>        // сокращенная запись
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Использование</h3>
@@ -22,22 +22,22 @@
 <!------------------------------------------------------>
 <h4>Родительский компонент</h4>
 <!------------------------------------------------------>
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;app-task&gt;
 	&lt;template v-slot:user&gt;User Admin&lt;/template&gt;
 &lt;/app-task&gt;
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------>
 <h4>Дочерний компонент</h4>
 <!------------------------------------------------------>
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;template&gt;
     &lt;div&gt;
         &lt;slot name="user"&gt;User Default&lt;/slot&gt;
     &lt;/div&gt;
 &lt;/template&gt;
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Слоты с ограниченной областью видимости</h3>
@@ -49,12 +49,12 @@
 <!------------------------------------------------------>
 <h4>Родительский компонент</h4>
 <!------------------------------------------------------>
-<pre><code class="html" v-pre>
-{{userGeneral}}
+<v-code lang="html" title="">
+<span v-pre>{{userGeneral}}</span>
 &lt;app-task&gt;
     &lt;template v-slot:user="slotProps"&gt;
     	&lt;!-- slotProps виден только внутри template --&gt;
-    	{{userGeneral = slotProps.user}}
+    	<span v-pre>{{userGeneral = slotProps.user}}</span>
     &lt;/template&gt;
 &lt;/app-task&gt;
 
@@ -66,12 +66,12 @@ export default {
         };
     }
 &lt;/script&gt;
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------>
 <h4>Дочерний компонент</h4>
 <!------------------------------------------------------>
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;template&gt;
     &lt;div&gt;
         &lt;slot name="user" :user="userChild"&gt;&lt;/slot&gt;
@@ -87,4 +87,4 @@ export default {
     }
 }
 &lt;/script&gt;
-</code></pre>
+</v-code>

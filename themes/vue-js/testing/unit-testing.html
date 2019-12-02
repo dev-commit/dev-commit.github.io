@@ -14,7 +14,7 @@
 	<li>Примонтированные компоненты возвращаются внутри Wrapper, который предоставляет множество удобных методов для манипулирования, перемещения и различных запросов для экземпляра компонента Vue</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // Импортируем метод `mount()` из `vue-test-utils`
 // и компонент, который хотим протестировать
 import { mount } from '@vue/test-utils'
@@ -29,7 +29,7 @@ const vm = wrapper.vm
 // Чтобы изучить wrapper подробнее, просто выведите его в консоль
 // и ваши приключения с `vue-test-utils` начнутся
 console.log(wrapper)
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Тестирование отрендеренного HTML компонента</h4>
@@ -38,7 +38,7 @@ console.log(wrapper)
 	<li>Теперь, когда у нас есть wrapper, первой вещью, которую мы можем захотеть проверить что отрендеренный HTML компонента соответствует нашим ожиданиям</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 import { mount } from '@vue/test-utils'
 import Counter from './counter'
 
@@ -55,4 +55,4 @@ describe('Компонент Counter', () => {
 		expect(wrapper.contains('button')).toBe(true)
 	})
 })
-</code></pre>
+</v-code>

@@ -5,7 +5,7 @@
     <li>В случае, если функция вызвана при помощи <u-code-text>new</u-code-text>, то в <u-code-text>new.target</u-code-text> будет сама функция, в противном случае <u>undefined</u></li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 function User() {
 	alert(new.target);
 }
@@ -15,14 +15,14 @@ function User() {
 
 // с "new":
 <u-code>new User(); // function User { ... }</u-code>
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <li>Это можно использовать, чтобы отличить обычный вызов от вызова «в режиме конструктора». В частности, вот так можно сделать, чтобы функцию можно было вызывать как с, так и без new</li>
     <li>Такой подход иногда используется в библиотеках для создания более гибкого синтаксиса, который позволяет разработчикам вызывать функции при помощи оператора new или без него</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 function User(name) {
 	if (!new.target) { // в случае, если вы вызвали без оператора new
 		return new User(name); // ...добавим оператор new за вас
@@ -32,4 +32,4 @@ function User(name) {
 
 let vasya = User("Вася"); // переадресовывает вызовы на new User
 alert(vasya.name); // Вася
-</code></pre>
+</v-code>

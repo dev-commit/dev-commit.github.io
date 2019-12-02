@@ -51,11 +51,12 @@ this.state.comment = 'Привет';
 	<li>Поскольку <u-code-text>this.props</u-code-text> и <u-code-text>this.state</u-code-text> могут обновляться асинхронно, вы не должны полагаться на их текущее значение для вычисления следующего состояния</li>
 </ul>
 
-<pre><code class="js"><u-code-title>Неправильно: код может не обновить счётчик</u-code-title>
+<v-code lang="js" title="">
+// Неправильно: код может не обновить счётчик
 this.setState({
 	counter: this.state.counter + this.props.increment,
 });
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<li>Второй вариант вызова <u-code-text>setState()</u-code-text>, принимает функцию, а не объект. Эта функция получит предыдущее состояние в качестве первого аргумента и значения пропсов непосредственно во время обновления в качестве второго аргумента</li>

@@ -1,29 +1,24 @@
 <h2>require, exports</h2>
 
 things.js
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var array_counter = function(array) {
     return "В массиве находится " + array.length + " элемента!";
 };
 module.exports = array_counter;
-</code>
-</pre>
+</v-code>
 index.js
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var counter = require('./things');
 var a = counter([1, 7, 9, 99, 45, 8]);
 console.log(a);
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Exports нескольких переменных/функций (1 вариант)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 things.js
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var multiply = function(x, y) {
     // шаблон
     return `${x} умножить ${y} равно ${x * y}`;
@@ -31,44 +26,36 @@ var multiply = function(x, y) {
 var some_value = 451;
 module.exports.multiply = multiply;
 module.exports.some_value = some_value;
-</code>
-</pre>
+</v-code>
 index.js
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var things = require('./things');
 var a = things.some_value;
 var b = things.multiply(5, 7);
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Exports нескольких переменных/функций (2 вариант)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 things.js
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 module.exports.multiply = function(x, y) {
     return `${x} умножить ${y} равно ${x * y}`;
 };
 module.exports.some_value = 451;
-</code>
-</pre>
+</v-code>
 index.js
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var things = require('./things');
 var a = things.some_value;
 var b = things.multiply(5, 7);
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Exports нескольких переменных/функций (3 вариант)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 things.js
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var multiply = function(x, y) {
     return `${x} умножить ${y} равно ${x * y}`;
 };
@@ -78,13 +65,10 @@ module.exports = {
     multiply: multiply,
     some_value: some_value
 };
-</code>
-</pre>
+</v-code>
 index.js
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var things = require('./things');
 var a = things.some_value;
 var b = things.multiply(5, 7);
-</code>
-</pre>
+</v-code>

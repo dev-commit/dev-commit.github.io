@@ -8,7 +8,7 @@
 <!------------------------------------------------------------->
 <h4>1. Указание функции</h4>
 <!------------------------------------------------------------->
-<pre><code class="js"><u-code-title>js</u-code-title>
+<v-code lang="js" title="">
 const App = () =&gt; {
 	return (
 		&lt;&gt;
@@ -20,12 +20,12 @@ const App = () =&gt; {
 const Sample = () =&gt; {
 	return (&lt;h1&gt;Sample&lt;/h1&gt;);
 };
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>2. Указание объекта</h4>
 <!------------------------------------------------------------->
-<pre><code class="js"><u-code-title>js</u-code-title>
+<v-code lang="js" title="">
 const App = () =&gt; {
 	return (
 		&lt;&gt;
@@ -35,12 +35,12 @@ const App = () =&gt; {
 };
 
 const element = (&lt;h1&gt;Hello&lt;/h1&gt;);
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>3. Передача в компонент</h4>
 <!------------------------------------------------------------->
-<pre><code class="js"><u-code-title>js</u-code-title>
+<v-code lang="js" title="">
 const App = () =&gt; {
 	const element = (&lt;h1&gt;Hello&lt;/h1&gt;);
 	return &lt;Child elementObject={element} elementJsx={&lt;h1&gt;Hello&lt;/h1&gt;} /&gt;
@@ -54,7 +54,7 @@ const Child = (props) =&gt; {
 		&lt;/&gt;
 	);
 }
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>4. Передача компонета в props</h4>
@@ -63,24 +63,24 @@ const Child = (props) =&gt; {
 	<li>В React нет никаких ограничений на то, что можно передать в качестве пропсов</li>
 </ul>
 
-<pre><code class="js"><u-code-title>parent js</u-code-title>
+<v-code lang="js" title="parent js">
 // ReactDOM.render
 class ComponentParent extends React.Component {
 	render() {
 		return (<u-code>&lt;ComponentChild small={&lt;ComponentSmall /&gt;} /&gt;</u-code>);
 	}
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>small js</u-code-title>
+<v-code lang="js" title="small js">
 class ComponentSmall extends React.Component {
 	render() {
 		return (&lt;div&gt;ComponentSmall&lt;/div&gt;);
 	}
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js"><u-code-title>child js</u-code-title>
+<v-code lang="js" title="child js">
 class ComponentChild extends React.Component {
 	constructor(props) {
 		super(props);
@@ -89,5 +89,5 @@ class ComponentChild extends React.Component {
 		return (&lt;div&gt;{<u-code>this.props.small</u-code>}&lt;/div&gt;);
 	}
 }
-</code></pre>
+</v-code>
 

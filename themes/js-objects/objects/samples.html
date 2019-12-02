@@ -3,7 +3,7 @@
 <!------------------------------------------------------------->
 <h4>Задание свойств объекта</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 const text = 'Some text';
 function getId() {
 	return 7;
@@ -13,17 +13,18 @@ let obj = {
 	['prop_' + getId()]: 'some prop'
 }
 console.log(obj); // Object {text: 'Some text', prop_7: 'Some prop'}
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Метод для разных объектов</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 var speak = function() {
 	console.log(this.sound, this.name);
 }
-</code></pre>
-<pre><code class="js">
+</v-code>
+
+<v-code lang="js" title="">
 var animal = {
 	sound: 'Mrr',
 	name: 'Cat',
@@ -31,12 +32,12 @@ var animal = {
 }
 
 animal.speak(); // Mrr, Cat
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Функция, возвращающая объект</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 function createCar(property, value) {
 	return {
 		[property]: value,
@@ -48,4 +49,4 @@ function createCar(property, value) {
 	};
 }
 var a = createCar('vin', 1);
-</code></pre>
+</v-code>

@@ -4,7 +4,7 @@
 	<li><u-text-define>Render-функции</u-text-define> - более низкоуровневая альтернатива шаблонам</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 new Vue({
     el: '#app',
     render: function(h) { 
@@ -12,7 +12,7 @@ new Vue({
     }
 	// render: h => h (App)
 })
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<li><u-code-list>h</u-code-list> является сокращением от hyperscript</li>
@@ -20,7 +20,7 @@ new Vue({
 	<li>Про сокращение <u-code-text>h</u-code-text> можно думать как о более краткой форме функции <u-code-text>createElement</u-code-text></li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // vue-версия функции render() принимает три аргумента
 render(h) {
 	return h('div', {}, [...])
@@ -28,4 +28,4 @@ render(h) {
 // 1 - тип элемента
 // 2 - объект данных (свойства, атрибуты, классы, стили)
 // 3 - массив дочерних Node-узлов (можно размещать вложенные вызовы функции createElement и вернуть обратно дерево виртуальных DOM-узлов)
-</code></pre>
+</v-code>

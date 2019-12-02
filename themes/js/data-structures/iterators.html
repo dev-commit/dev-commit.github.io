@@ -17,29 +17,29 @@
 <!------------------------------------------------------------->
 <h4>Перебор через for...of</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 var arr = ['js', 'python', 'ruby'];
 for(var item of arr) {
     console.log(item);
 }
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Перебор через встроенный итератор</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 var arr = ['js', 'python', 'ruby'];
 var iterator = arr[<u-code>Symbol.iterator</u-code>]();
 console.log(iterator.<u-code>next()</u-code>); // {value: "js", done: false}
 console.log(iterator.<u-code>next()</u-code>); // {value: "python", done: false}
 console.log(iterator.<u-code>next()</u-code>); // {value: "ruby", done: false}
 console.log(iterator.<u-code>next()</u-code>); // {value: undefined, done: true}
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Перебор через встроенный итератор в цикле</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 var arr = ['js', 'python', 'ruby'];
 var iterator = arr[Symbol.iterator]();
 var next = iterator.next();
@@ -48,12 +48,12 @@ while (!next.done) {
     console.log(next.value);
     next = iterator.next();
 }
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Создание итератора</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 // итерируемый объект
 // числа от 1 до 100
 let idGenerator = {
@@ -78,4 +78,4 @@ let idGenerator = {
 // доступ к итератору
 let num = idGenerator[Symbol.iterator]();
 console.log(num.next().value);
-</code></pre>
+</v-code>

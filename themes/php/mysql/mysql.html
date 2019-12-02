@@ -3,8 +3,7 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Подключение к БД (connect.php)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="php">
+<v-code lang="php" title="">
 // Для хостинга
 $host = 'localhost';
 $user = 'ce00000_test';
@@ -22,14 +21,12 @@ mysqli_set_charset($link, 'utf8');
 if(!$link) {
     exit(mysqli_error($link));
 }
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Выборка одной записи (select)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="php">
+<v-code lang="php" title="">
 include('connect.php');
 
 $sql = "SELECT * FROM articles WHERE ID=2";
@@ -38,14 +35,12 @@ $row = mysqli_fetch_array($query);
 
 echo $row['NAME'];
 echo $row['DESCRIPTION'];
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Выборка всех записей в цикле (select)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="php">
+<v-code lang="php" title="">
 include('connect.php');
 
 $sql = "SELECT * FROM articles ORDER BY ID";
@@ -55,14 +50,12 @@ do {
     echo $row['NAME'];
     echo $row['DESCRIPTION'];
 } while ($row = mysqli_fetch_array($query))
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Добавление информации в БД (insert)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="php">
+<v-code lang="php" title="">
 include('connect.php');
 
 $name         = $_POST['NAME'];
@@ -70,43 +63,36 @@ $description  = $_POST['DESCRIPTION'];
 
 $sql = "INSERT INTO articles(NAME, DESCRIPTION) VALUES ('$name', '$description')";
 $query = mysqli_query($link, $sql);
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Обновление информации (update)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="php">
+<v-code lang="php" title="">
 include('connect.php');
 
 $sql = "UPDATE articles SET NAME='New name', DESCRIPTION='New description' WHERE ID=2";
 $query = mysqli_query($link, $sql);
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Удаление информации (delete)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="php">
+<v-code lang="php" title="">
 include('connect.php');
 
 $sql = "DELETE FROM articles WHERE ID=2";
 $query = mysqli_query($link, $sql);
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Выставление кодировки</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="php">
+<v-code lang="php" title="">
 // принудительное выставление кодировки при работе с БД
 // запросы после подключения к бд
 // только должно идти перед всеми остальными запросами
 set character_set_client='utf8';
 set character_set_results='utf8';
 set collation_connection='utf8_general_ci';
-</code>
-</pre>
+</v-code>

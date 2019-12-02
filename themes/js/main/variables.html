@@ -15,10 +15,10 @@
 	<li><b>Функциональная область видимости</b></li>
 
 	<li><b>Переменная видна до объявления</b></li>
-<pre><code class="js">
+<v-code lang="js" title="">
 alert(a); // undefined
 var a = 77;
-</code></pre>
+</v-code>
 	<ul class="list-point">
 	    <li><u>Инициализируются</u> значением <u>undefined</u> прямо когда создается связывание в начале <u>scope</u></li>
 	</ul>
@@ -32,18 +32,18 @@ var a = 77;
 	<li>Могут быть присвоены только в части инициализатора определения</li>
 	<li><b>const не может менять ссылку</b></li>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 const one = 1;
-</code></pre>
+</v-code>
 	
 	<li>Изменение элементов объектов и массивов</li>
-<pre><code class="js">
+<v-code lang="js" title="">
 const user = {
 	name: 'Tony'
 };
 user.name = 'Jack'; // допустимо
 user = 5;           // ошибка
-</code></pre>
+</v-code>
 </ol>
 
 </template><template v-slot:last>
@@ -55,19 +55,19 @@ user = 5;           // ошибка
 	<li><b>Блочная область видимости</b></li>
 
 	<li><b>Переменная видна только после объявления</b></li>
-<pre><code class="js">
+<v-code lang="js" title="">
 alert(a); // ReferenceError: a is not defined
 let a = 77;
-</code></pre>
+</v-code>
 	<ul class="list-point">
 	    <li><u>Остаются неинициализированными</u>. <u>Инициализируются</u> только в момент выполнения выражений let/const/class, все перед этим (выше) называется временная мертвая зона (<u>temporal dead zone</u>) - время между созданием переменной scope и инициализацией</li>
 	</ul>
 
 	<li><b>Нельзя повторно объявлять</b></li>
-<pre><code class="js">
+<v-code lang="js" title="">
 let x;
 let x; // SyntaxError: Identifier 'x' has already been declared
-</code></pre>
+</v-code>
 
 	<li><b>При использовании в цикле, для каждой итерации создаётся своя переменная</b></li>
 </ol>

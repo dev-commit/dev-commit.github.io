@@ -4,58 +4,46 @@
 <h3>Чтение из файла</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 Синхронно. Дальнейший код будет выполняться только после чтения файла (Sync)
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var fs = require('fs');
 var file_readed = fs.readFileSync('text.txt', 'utf8');
 console.log(file_readed);
-</code>
-</pre>
+</v-code>
 Асинхронно
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var fs = require('fs');
 fs.readFile('text.txt', 'utf8', function(err, data) {
     console.log(data);
 });
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Запись в файл</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 Синхронно
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var fs = require('fs');
 fs.writeFileSync('new_file.txt', 'Текст для \n файла');
-</code>
-</pre>
+</v-code>
 Асинхронно
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var fs = require('fs');
 fs.writeFile('new_file.txt', 'Текст для \n файла', function(err, data) {});
-</code>
-</pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Удаление файла</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 var fs = require('fs');
 fs.unlinkSync('file.txt'); // синхронно
 fs.unlink('file.txt', function() {}); // асинхронно
-</code>
-</pre>
+</v-code>
 
-<pre>
-<code class="js">
+<v-code lang="js" title="">
 // удаление сначала файла из папки
 fs.unlink('./test-folder/file.txt', function() {
     // после этого удаление папки
     fs.rmdir('test-folder', function() {});
 });
-</code>
-</pre>
+</v-code>

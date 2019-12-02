@@ -30,19 +30,19 @@
 	<v-method-return>Новый массив, где каждый элемент является результатом callback функции</v-method-return>
 </div>
 
-<pre><code class="js border">
+<v-code lang="js border" title="">
 var new_array = arr.map(function callback(currentValue, index, array) { 
 	// Возвращает элемент для new_array 
 }[, thisArg])
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var numbers = [1, 4, 9];
 var doubles = numbers.map(function(num) {
 	return num * 2;
 });
 // теперь doubles равен [2, 8, 18], а numbers всё ещё равен [1, 4, 9]
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>forEach</h3>
@@ -64,16 +64,16 @@ var doubles = numbers.map(function(num) {
 	</v-method-arg>
 </div>
 
-<pre><code class="js border">
+<v-code lang="js border" title="">
 arr.forEach(function callback(currentValue, index, array) {
 	//your iterator
 }[, thisArg]);
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<li>Ничего не возвращает, используется только для перебора</li>
 </ul>
-<pre><code class="js">
+<v-code lang="js" title="">
 var arr = ["Яблоко", "Апельсин", "Груша"];
 arr.forEach(function(element, index, arr) {
 	console.log( index + ": " + element + " (массив:" + arr + ")" );
@@ -81,7 +81,7 @@ arr.forEach(function(element, index, arr) {
 // "0: Яблоко   (массив:Яблоко,Апельсин,Груша)"
 // "1: Апельсин (массив:Яблоко,Апельсин,Груша)"
 // "2: Груша    (массив:Яблоко,Апельсин,Груша)"
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>filter</h3>
@@ -110,20 +110,20 @@ arr.forEach(function(element, index, arr) {
 	<li>Создаёт новый массив, в который войдут только те элементы arr, для которых вызов callback(item, i, arr) возвратит true</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // Выбор положительных элементов массива
 var arr = [1, -1, 2, -2, 3];
 var result = arr.filter(function(number) {
 	return number > 0;
 });
 alert(result); // => 1,2,3
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // Поиск вхождения подстроки в массив
 let arr = ['Tony', 'Jack', 'Nick', 'Tony and Jane'];
 let result = arr.filter(item => item.<u-code>includes</u-code>('Tony')); // => ["Tony", "Tony and Jane"]
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>every/some</h3>
@@ -153,14 +153,14 @@ let result = arr.filter(item => item.<u-code>includes</u-code>('Tony')); // => [
 	<li>Метод «arr.some(callback[, thisArg])» возвращает true, если вызов callback вернёт true для какого-нибудь элемента arr</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var arr = [1, -1, 2, -2, 3];
 function isPositive(number) {
   return number > 0;
 }
 alert( arr.every(isPositive) ); // false, не все положительные
 alert( arr.some(isPositive) );  // true, есть хоть одно положительное
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>reduce/reduceRight</h3>
@@ -183,11 +183,11 @@ alert( arr.some(isPositive) );  // true, есть хоть одно положи
 	</v-method-arg>
 </div>
 
-<pre><code class="js border">
+<v-code lang="js border" title="">
 array.reduceRight(function(previousValue, currentValue, index, array) {
 	// ...
 });
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<li>Используется для последовательной обработки каждого элемента массива с сохранением промежуточного результата</li>
@@ -195,9 +195,9 @@ array.reduceRight(function(previousValue, currentValue, index, array) {
 	<li><b>arr.reduceRight</b> идёт по массиву справа-налево</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 <em>arr.reduce(callback[, initialValue])</em>
-</code></pre>
+</v-code>
 
 <ul class="list-point">
 	<b>callback(previousValue, currentItem, index, arr)</b>
@@ -213,7 +213,7 @@ array.reduceRight(function(previousValue, currentValue, index, array) {
 	<li>Если нет <u-code>initialValue</u-code>, то оно равно первому элементу массива, а перебор начинается со второго</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // сумма элементов массива
 var arr = [1, 2, 3, 4, 5]
 
@@ -224,4 +224,4 @@ var result = arr.reduce(function(sum, current) {
 });
 
 alert(result); // 15
-</code></pre>
+</v-code>

@@ -7,38 +7,41 @@
 	<li>Если ловушки нет – операция идёт над target</li>
 </ul>
 
-<pre><code class="js light">
+<v-code lang="js light" title="">
 <table>
 	<tr><td>let proxy = <bg-methods>new Proxy</bg-methods><bg-arguments>(target, handler)</bg-arguments></td><td></td></tr>
 	<tr><td><em>	&#8226; target</em></td><td>  // объект, обращения к которому надо перехватывать</td></tr>
 	<tr><td><em>	&#8226; handler</em></td><td>  // объект с «ловушками»: функциями-перехватчиками для операций к target</td></tr>
-</table></code></pre>
+</table>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>get/set</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js light">
+<v-code lang="js light" title="">
 <table>
 	<tr><td><bg-methods>get</bg-methods><bg-arguments>(target, property, receiver)</bg-arguments></td><td> // срабатывает при чтении свойства из прокси</td></tr>
 	<tr><td><em>	&#8226; target</em></td><td>  // целевой объект, тот же который был передан первым аргументом в new Proxy</td></tr>
 	<tr><td><em>	&#8226; property</em></td><td>  // имя свойства</td></tr>
 	<tr><td><em>	&#8226; receiver</em></td><td>  // объект, к которому было применено присваивание. Обычно сам прокси, либо прототипно наследующий от него</td></tr>
-</table></code></pre>
+</table>
+</v-code>
 
-<pre><code class="js light">
+<v-code lang="js light" title="">
 <table>
 	<tr><td><bg-methods>set</bg-methods><bg-arguments>(target, property, value, receiver)</bg-arguments></td><td> // срабатывает при чтении свойства из прокси</td></tr>
 	<tr><td><em>	&#8226; target</em></td><td>  // целевой объект, тот же который был передан первым аргументом в new Proxy</td></tr>
 	<tr><td><em>	&#8226; property</em></td><td>  // имя свойства</td></tr>
 	<tr><td><em>	&#8226; value</em></td><td>  // значение свойства</td></tr>
 	<tr><td><em>	&#8226; receiver</em></td><td>  // объект, к которому было применено присваивание, обычно сам прокси, либо прототипно наследующий от него</td></tr>
-</table></code></pre>
+</table>
+</v-code>
 
 <ul class="list-point">
 	<li>Метод set должен вернуть true, если присвоение успешно обработано и false в случае ошибки (приведёт к генерации TypeError)</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 let user = {};
 
 let proxy = new Proxy(user, {
@@ -56,7 +59,7 @@ let proxy = new Proxy(user, {
 proxy.firstName = 'Tony';    // запись
 proxy.firstName;             // чтение
 console.log(user.firstName); // => 'Tony'
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>has</h3>
@@ -64,7 +67,7 @@ console.log(user.firstName); // => 'Tony'
 <ul class="list-point">
 	<li>Ловушка has срабатывает в операторе in и некоторых других случаях, когда проверяется наличие свойства</li>
 </ul>
-<pre><code class="js">
+<v-code lang="js" title="">
 // dictionary будет всегда возвращать true для любой in-проверки:
 let dictionary = {
 	'Hello': 'Привет'
@@ -77,7 +80,7 @@ dictionary = new Proxy(dictionary, {
 });
 
 alert("BlaBlaBla" in dictionary); // true
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>deleteProperty</h3>
@@ -85,7 +88,7 @@ alert("BlaBlaBla" in dictionary); // true
 <ul class="list-point">
 	<li>Ловушка deleteProperty по синтаксису аналогична get/has. Срабатывает при операции delete, должна вернуть true, если удаление было успешным</li>
 </ul>
-<pre><code class="js">
+<v-code lang="js" title="">
 // delete не повлияет на исходный объект, так как все операции перехватываются и «аннигилируются» прокси
 
 let dictionary = {
@@ -106,7 +109,7 @@ alert("Hello" in dictionary); // true
 // будет то же самое, что и выше
 // так как нет ловушки has, операция in сработает на исходном объекте
 alert("Hello" in proxy); // true
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>apply</h3>
@@ -115,15 +118,16 @@ alert("Hello" in proxy); // true
 	<li>Если аргумент target прокси – функция, то становится доступна ловушка apply для её вызова</li>	
 </ul>
 
-<pre><code class="js light">
+<v-code lang="js light" title="">
 <table>
 	<tr><td><bg-methods>apply</bg-methods><bg-arguments>(target, thisArgument, argumentsList)</bg-arguments></td><td>  //</td></tr>
 	<tr><td><em>	&#8226; target</em></td><td>  // исходный объект</td></tr>
 	<tr><td><em>	&#8226; thisArgument</em></td><td>  // контекст this вызова</td></tr>
 	<tr><td><em>	&#8226; argumentsList</em></td><td>  // аргументы вызова в виде массива</td></tr>
-</table></code></pre>
+</table>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // может обработать вызов сама и/или передать его функции
 function sum(a, b) {
 	return a + b;
@@ -140,7 +144,7 @@ let proxy = new Proxy(sum, {
 // Выведет сначала сообщение из прокси,
 // а затем уже сумму
 alert( proxy(1, 2) );
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>construct</h3>
@@ -149,7 +153,7 @@ alert( proxy(1, 2) );
 	<li>Ловушка construct(target, argumentsList) перехватывает вызовы при помощи new. Она получает исходный объект target и список аргументов argumentsList</li>	
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // передаёт операцию создания исходному классу или функции-конструктору, выводя сообщение об этом
 
 function User(name, surname) {
@@ -168,7 +172,7 @@ let UserProxy = new Proxy(User, {
 let user = new UserProxy('Tony', 'Smith');
 
 alert( user.name ); // Tony
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Полный список возможных функций-перехватчиков, которые может задавать handler</h3>

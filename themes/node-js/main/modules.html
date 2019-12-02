@@ -3,54 +3,54 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Модуль отслеживания событий</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 // модуль отслеживания событий
 var events = require('events');
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var my_emit = new events.EventEmitter();
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // обработчик событий
 my_emit.on('some_event', function(text) {
     console.log(text);
 });
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // вызов события
 my_emit.emit('some_event', 'Обработчки событий');
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Модуль наследования событий для объекта</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var events = require('events'); // модуль отслеживания событий
 var util = require('util');     // модуль наследования событий для объекта
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // конструктор объектов
 var cars = function(model) {
     this.model = model;
 }
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // наследование событий для всех объектов, созданных на основе cars
 util.inherits(cars, events.EventEmitter);
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var bmw   = new cars('BMW');
 var audi  = new cars('Audi');
 var volvo = new cars('Volvo');
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 // массив объектов
 var cars_arr = [bmw, audi, volvo];
 cars_arr.forEach(function(element) {
@@ -58,9 +58,9 @@ cars_arr.forEach(function(element) {
         console.log(element.model + ' speed is - ' + text);
     });
 });
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 bmw.emit('speed', '254km');
 audi.emit('speed', '150km');
-</code></pre>
+</v-code>

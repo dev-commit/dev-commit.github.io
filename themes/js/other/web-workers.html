@@ -10,9 +10,9 @@
 <!------------------------------------------------------------->
 <h4>1. Создание</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 var myWorker = new Worker("worker.js");
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>2.Отправка данных в веб-воркер</h4>
@@ -20,9 +20,9 @@ var myWorker = new Worker("worker.js");
 <ul class="list-point">
 	<li>У каждого веб воркера, как и у главного потока, имеется свой stack, heap и event loop. Послать сообщения в веб воркер (например, передать данные для расчетов) можно с помощью метода postMessage()</li>
 </ul>
-<pre><code class="js">
+<v-code lang="js" title="">
 myWorker.postMessage(imageData);
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>3. Событие типа message</h4>
@@ -30,14 +30,14 @@ myWorker.postMessage(imageData);
 <ul class="list-point">
 	<li>Это создаст событие типа message в очередь событий web worker’а, которое будет обработано в следующей итерации event loop воркера</li>
 </ul>
-<pre><code class="js">
+<v-code lang="js" title="">
 onmessage = function(e) {
 	console.log('Message received from main script');
 	var workerResult = 'Result: ' + (e.data[0] * e.data[1]);
 	console.log('Posting message back to main script');
 	postMessage(workerResult);
 }
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>4. Отправка данных в главный поток</h4>
@@ -45,9 +45,9 @@ onmessage = function(e) {
 <ul class="list-point">
 	<li>Аналогично, результаты вычислений и прочие данные воркер может отправить в главный поток с помощью метода postMessage(). И это опять же добавит событие типа message в очередь события главного потока</li>
 </ul>
-<pre><code class="js">
+<v-code lang="js" title="">
 myWorker.onmessage = function(e) {
 	result.textContent = e.data;
 	console.log('Message received from worker');
 }
-</code></pre>
+</v-code>

@@ -10,7 +10,7 @@ npm i --save-dev <u-code-npm>typescript</u-code-npm>
 <!------------------------------------------------------------->
 <h4>Добавление flow в секцию "scripts" файла package.json</h4>
 <!------------------------------------------------------------->
-<pre><code class="js"><u-code-title>package.json</u-code-title>
+<v-code lang="js" title="package.json">
 {
 	// ...
 	"scripts": {
@@ -19,7 +19,7 @@ npm i --save-dev <u-code-npm>typescript</u-code-npm>
 	},
 	// ...
 }
-</code></pre>
+</v-code>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -43,16 +43,16 @@ npx <u-code-npm>tsc</u-code-npm> --init
     <li>Эту проблему можно решить в два шага:</li>
     <li>Во-первых, изменим структуру проекта. Все файлы с исходниками переместим в директорию src.</li>
 
-<li><pre><code class="js">
+<li><v-code lang="js" title="">
 ├── package.json
 ├── src
 │   └── index.ts
 └── tsconfig.json
-</code></pre></li>
+</v-code></li>
 
     <li>Затем, укажем компилятору откуда ему брать исходные файлы и куда сохранять скомпилированный код.</li>
 
-<li><pre><code class="js"><u-code-title>tsconfig.json</u-code-title>
+<li><v-code lang="js" title="tsconfig.json">
 {
 	"compilerOptions": {
 		// ...
@@ -61,7 +61,7 @@ npx <u-code-npm>tsc</u-code-npm> --init
 		// ...
 	},
 }
-</code></pre></li>
+</v-code></li>
 
 </ul>
 
@@ -72,9 +72,9 @@ npx <u-code-npm>tsc</u-code-npm> --init
     <li>Если эта команда не вывела ничего в терминале, то процесс компиляции прошёл успешно</li>
 </ul>
 
-<pre><code class="bash">
+<v-code lang="bash" title="">
 npm run build
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Расширения файлов</h3>
@@ -92,15 +92,15 @@ npm run build
     <li>Существует два основных способа получения файлов объявлений:</li>
     <li><b>Bundled</b> — Библиотека устанавливается вместе с собственным файлом объявлений. Чтобы проверить, есть ли у библиотеки файл объявлений, поищите index.d.ts в её исходных файлах. В некоторых библиотеках наличие и расположение этого файла указываются в package.json в секциях typings или types.</li>
     <li><b><a href="https://github.com/DefinitelyTyped/DefinitelyTyped" target="_blank">DefinitelyTyped</a></b> репозиторий файлов объявлений. Например, React устанавливается без собственного файла объявления - вместо этого мы устанавливаем его отдельно:</li>
-<pre><code class="bash"><u-code-title>bash</u-code-title>
+<v-code lang="bash" title="bash">
 npm i --save-dev @types/react
-</code></pre>
+</v-code>
 	
 	<li><b>Локальные объявления</b> Иногда пакет, который вы хотите использовать, не имеет ни собственного файла объявлений, ни соответствующего файла в репозитории DefinitelyTyped. В этом случае, мы можем объявить собственный локальный файл объявлений. Для этого надо создать файл declarations.d.ts в корне директории, где лежат исходники вашего проекта. Файл объявлений может выглядеть примерно так:</li>
-<pre><code class="js"><u-code-title>js</u-code-title>
+<v-code lang="js" title="js">
 declare module 'querystring' {
 	export function stringify(val: object): string
 	export function parse(val: string): object
 }
-</code></pre>
+</v-code>
 </ul>

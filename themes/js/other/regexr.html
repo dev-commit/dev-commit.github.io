@@ -8,23 +8,23 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Expression Flags</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="html">
+<v-code lang="html" title="">
 <em>//g</em>          - global (все совпадения)
 <em>//i</em>          - case insensitive (регистронезависимый поиск)
 <em>//m</em>          - multiline
 <em>//u</em>          - unicode
 <em>//y</em>          - sticky
-</code></pre>
+</v-code>
 
-<pre><code class="html">
+<v-code lang="html" title="">
 <em>[]</em>           - класс символов
 <em>/[a-zA-Z]/g</em>  - глобальный поиск
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Expressions</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="html">
+<v-code lang="html" title="">
 <em>a-zA-Z</em>               - строчные и заглавне буквы
 <em>0-9</em>                  - символы от 0-9
 <em>^0-9</em>                 - символы кроме чисел от 0-9 
@@ -49,45 +49,45 @@
 <em>and(?= hi)</em>           - слова "and" после которых есть пробел и слово "hi"
 <em>and(?! hi)</em>           - слова "and" после которых нет пробела и слова "hi"
 <em>(\b\w+)@(\w+\.\w+\b)</em> - запоминающая группа. поиск email
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Класс RegExp</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var pattern = new RegExp('\w+', 'g'); // конструктор
 var pattern = /\w+/g;                 // литерал
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Свойства, доступные для чтение</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 pattern.global;
 pattern.ignoreCase;
 pattern.mutiline;
 pattern.lastIndex; // индекс последнего результата
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>test() - проверка соответствия строки регулярному выражению (true/false)</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 var text = "О дивный новый мир";
 var pattern = /новый/;
 var result = pattern.test(text); 
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>exec() - аналогичен match()</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 // если не установлен флаг global, результат аналогичен методу match
 // если установлен флаг global, получаем 1 первый match
 var text = "О дивный новый мир";
 var pattern = /новый/g;
 var result = pattern.exec(text); 
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Строки</h3>
@@ -96,48 +96,48 @@ var result = pattern.exec(text);
 <!------------------------------------------------------------->
 <h4>search() - возвращает позицию первого элемента</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 // игнорирует флаг global
 var text = "О дивный новый мир";
 var pattern = /мы/;
 var result = text.search(pattern); // 9
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>match() - возвращает само совпадение</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 // не игнорирует флаг global
 var text = "О дивный новый мир";
 var pattern = /новый/;
 var result = text.match(pattern); // ["новый", index: 9, input: "О дивный новый мир", groups: undefined]
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>split() - преобразование строки с заданным разделителем в массив </h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 var pattern = /[\s,]+/;
 var result = text.split(pattern); // разделитель пробел
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>replace() - ищет совпадение и заменяет</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 var text = 'привет мир';
 var pattern = /привет/;
 
 text = text.replace(pattern, function(match) {
     return match.toUpperCase();
 });
-</code></pre>
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 str = str.replace(/'/g, '"');         // поменять одинарные кавычки на двойные
 str = str.replace(/«/g, '"');         // поменять « 
 str = str.replace(/»/g, '"');         // поменять »
 str = str.replace(/–/g, '-');         // поменять "–"
 str = str.replace(/\r|\n/g, '');      // убрать перенос строки
 str = str.replace(/<\/?[^>]+>/g, ''); // удалить html теги из текста
-</code></pre>
+</v-code>

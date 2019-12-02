@@ -7,11 +7,11 @@
 	<li>Итак, если выполнить код <u-code-text>vm.someData = 'value'</u-code-text>, компонент не будет отрисован сразу же. Он обновится в следующей итерации при разборе очереди. Чтобы выполнить какой-нибудь код только после того, как завершится обновление DOM, можно передать коллбэк в метод <u-code-text>Vue.nextTick(callback)</u-code-text> после изменения данных. Он будет вызван после обновления DOM</li>
 </ul>
 
-<pre><code class="html">
-&lt;div id="example"&gt;{{ message }}&lt;/div&gt;
-</code></pre>
+<v-code lang="html" title="">
+&lt;div id="example"&gt;<span v-pre>{{ message }}</span>&lt;/div&gt;
+</v-code>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var vm = new Vue({
 	el: '#example',
 	data: {
@@ -23,7 +23,7 @@ vm.$el.textContent === 'новое сообщение'; // false
 Vue.<u-code>nextTick</u-code>(function () {
 	vm.$el.textContent === 'новое сообщение'; // true (DOM обновлён)
 })
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Метод экземпляра</h4>
@@ -32,9 +32,9 @@ Vue.<u-code>nextTick</u-code>(function () {
 	<li>Существует также метод экземпляра <u-code-text>vm.$nextTick()</u-code-text>, особенно подходящий для использования внутри компонентов, поскольку он не требует обращения к глобальной переменной <u-code-text>Vue</u-code-text>, а также автоматически связывает контекст <u>this</u> коллбэка с текущим экземпляром Vue</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 Vue.component('example', {
-	template: '{{ message }}',
+	template: '<span v-pre>{{ message }}</span>',
 	data: function () {
 		return {
 			message: 'не обновлено'
@@ -50,17 +50,17 @@ Vue.component('example', {
 		}
 	}
 })
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Использование с Promise</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 Vue.nextTick()
 	.then(function () {
 		// DOM обновлён
 	})
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Использование с async/await</h4>
@@ -69,7 +69,7 @@ Vue.nextTick()
 	<li>Поскольку <u-code-text>$nextTick()</u-code-text> возвращает промис, вы можете достичь того же, используя синтаксис <u-code-text>async/await</u-code-text> (ES2016)</li>
 </ul>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 methods: {
 	updateMessage: async function () {
 		this.message = 'обновлено'
@@ -78,4 +78,4 @@ methods: {
 		console.log(this.$el.textContent) // => 'обновлено'
 	}
 }
-</code></pre>
+</v-code>

@@ -8,14 +8,14 @@
 
 <hr>
 
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;!-- 3 вложенных элемента FORM > DIV > P с обработчиком на каждом --&gt;
 &lt;form onclick="alert('form')"&gt;FORM
 	&lt;div onclick="alert('div')"&gt;DIV
 		&lt;p onclick="alert('p')"&gt;P&lt;/p&gt;
 	&lt;/div&gt;
 &lt;/form&gt;
-</code></pre>
+</v-code>
 
 <ol class="list-num">
     <b>Клик на &lt;p&gt; вызовет обработчик onclick</b>
@@ -50,7 +50,7 @@
     <li>Если стоит только один обработчик <u>form.onclick</u>, то он «поймает» все клики внутри формы. Где бы ни был клик внутри - он всплывёт до элемента <u>form</u>, на котором сработает обработчик</li>
 </ul>
 
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;form id="form"&gt;FORM
 	&lt;div&gt;DIV
 		&lt;p&gt;P&lt;/p&gt;
@@ -64,7 +64,7 @@
 		alert('this: '+this.tagName);
 	};
 &lt;/script&gt;	
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Прекращение всплытия</h3>
@@ -86,8 +86,8 @@
     </v-method>
 </div>
 
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;body onclick="alert('Сюда всплытие не дойдёт'')"&gt;
 	&lt;button onclick="event.stopPropagation()"&gt;Кнопка&lt;/button&gt;
 &lt;/body&gt;
-</code></pre>
+</v-code>

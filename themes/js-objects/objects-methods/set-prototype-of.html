@@ -11,9 +11,9 @@
 	<v-method-arg arg="prototype">Новый прототип объекта (объект или null)</v-method-arg>
 </div>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 var dict = Object.setPrototypeOf({}, null);
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <li>Плохо сказывается на производительности</li>
@@ -22,7 +22,7 @@ var dict = Object.setPrototypeOf({}, null);
 <!------------------------------------------------------------->
 <h4>Примеры</h4>
 <!------------------------------------------------------------->
-<pre><code class="js"><u-code-title>js</u-code-title>
+<v-code lang="js" title="">
 const animal = {
 	say() {
 		console.log(this.name);
@@ -33,4 +33,4 @@ const cat = {
 }
 Object.setPrototypeOf(cat, animal);
 cat.say(); // => "cat"
-</code></pre>
+</v-code>

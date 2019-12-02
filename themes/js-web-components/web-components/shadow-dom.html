@@ -15,7 +15,7 @@
 	<li>Если в теге &lt;content&gt;&lt;/content&gt; есть содержимое, оно будет показано только в том случае, если узлов для вставки нет</li>
 </ul>
 
-<pre><code class="js light">
+<v-code lang="js light" title="">
 <table>
 	<tr><td><b>JavaScript</b></td></tr>
 	<tr><td><bg-methods>createShadowRoot</bg-methods><bg-arguments>()</bg-arguments></td><td>  // создание Shadow DOM</td></tr>
@@ -27,22 +27,24 @@
 	<tr><td><b>CSS</b></td></tr>
 	<tr><td><bg-methods>::shadow</bg-methods></td><td>  // выбирает корень Shadow DOM</td></tr>
 	<tr><td><bg-methods>>>></bg-methods></td><td>  // полностью игнорирует границы между DOM'ами</td></tr>
-</table></code></pre>
+</table>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Создание createShadowRoot</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var root = document.querySelector('#element').<u-code>createShadowRoot()</u-code>;
-</code></pre>
-<pre><code class="html">
+</v-code>
+
+<v-code lang="html" title="">
 &lt;div id="element"&gt;Hi&lt;/div&gt;
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Замена содержимого &lt;content&gt;&lt;/content&gt;</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 // =&gt; Shadow - заменяет содержимое в "element"
 root.innerHTML = '&lt;p&gt;Shadow&lt;/p&gt;'; 
 
@@ -51,21 +53,22 @@ root.innerHTML = '&lt;h1&gt;<u-code>&lt;content&gt;&lt;/content&gt;</u-code>&lt;
 
 // =&gt; Hi Shadow - вывести только &lt;h3&gt; из "element"
 root.innerHTML = '&lt;h1&gt;<u-code>&lt;content select="h3"&gt;&lt;/content&gt;</u-code>&lt;/h1&gt; &lt;p&gt;Shadow1&lt;/p&gt;';
-</code></pre>
-<pre><code class="html">
+</v-code>
+
+<v-code lang="html" title="">
 &lt;div id="element"&gt;
 	&lt;h3&gt;Hi&lt;/h3&gt;
 	&lt;p&gt;All&lt;/p&gt;
 &lt;/div&gt;
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Корень shadowRoot</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<pre><code class="js">
+<v-code lang="js" title="">
 var rootElement = document.querySelector('#element').<u-code>shadowRoot</u-code>;
 rootElement.querySelector('p').innerHTML = 'New Shadow';
-</code></pre>
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Стилизация</h3>

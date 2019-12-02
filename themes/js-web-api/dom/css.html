@@ -18,7 +18,7 @@
 	<v-method-return>объект, который дает доступ к стилю элемента на чтение и запись</v-method-return>
 </div>
 
-<pre><code class="js">
+<v-code lang="js" title="">
 element.style.width='100px';              // width
 element.style.fontSize = '20px';          // font-size
 element.style.backgroundColor = '#fff';   // background-color
@@ -29,30 +29,30 @@ element.style.cssFloat = 'left';          // float
 
 element.style.MozBorderRadius = '5px';    // -moz-border-radius
 element.style.WebkitBorderRadius = '5px'; // -webkit-border-radius
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Сброс стиля</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 // сброс поставленного стиля - свойства style стиль будет взят из CSS
 element.style.width = '';
 
 element.style.display = "none"; // скрыть
 element.style.display = "";     // показать
-</code></pre>
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Стиль в формате браузера</h4>
 <!------------------------------------------------------------->
-<pre><code class="js">
+<v-code lang="js" title="">
 // стиль в style находится в формате браузера, а не в том, в котором его присвоили
 document.body.style.margin = '20px';
 let a = document.body.style.marginTop; // 20px!
 
 document.body.style.color = '#abc';
 let a = document.body.style.color; // rgb(170, 187, 204)
-</code></pre>
+</v-code>
 
 <div class="v-method-wrapper">
     <v-method before="element." method="style.cssText" after="" arg="">
@@ -87,7 +87,7 @@ let a = document.body.style.color; // rgb(170, 187, 204)
 	</v-method-arg>
 </div>
 
-<pre><code class="html">
+<v-code lang="html" title="">
 &lt;style&gt;
 	body {
 		margin: 10px,
@@ -101,7 +101,7 @@ let a = document.body.style.color; // rgb(170, 187, 204)
 		let a = computedStyle.color;     // цвет
 	&lt;/script&gt;
 &lt;/body&gt;
-</code></pre>
+</v-code>
 
 <ul class="list-point">
     <li><b>1. getComputedStyle требует полное свойство</b></li>
