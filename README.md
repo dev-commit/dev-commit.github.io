@@ -40,3 +40,5 @@ v-pre
 - view
 - text
 - link
+
+link-page-wrapper - Оформить навигацию по теме
