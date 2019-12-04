@@ -9,6 +9,7 @@
 import React, {Component} from 'react';
 
 export default class App extends Component {
+
 	<u-code-wrapper><u-code-title>Конструктор</u-code-title>
 	constructor(props) {
 		super(props);
@@ -17,8 +18,9 @@ export default class App extends Component {
 		};
 	}
 	</u-code-wrapper>
+	<br>
 
-<u-code-wrapper><u-code-title>Методы</u-code-title>
+	<u-code-wrapper><u-code-title>Методы</u-code-title>
 	changeName(name) {
 		// синхронно
 		<u-code>this.setState</u-code>({
@@ -35,15 +37,17 @@ export default class App extends Component {
 		this.changeName('Jack');      // обращение к методу
         this.info = 'Start Variable'; // новое свойство (не видно в render)
 	}
-</u-code-wrapper>
+	</u-code-wrapper>
+	<br>
 
-<u-code-wrapper><u-code-title>Методы жизненного цикла</u-code-title>
+	<u-code-wrapper><u-code-title>Методы жизненного цикла</u-code-title>
 	componentDidMount()    { ... }
 	componentWillUnmount() { ... }
 	componentDidUpdate()   { ... }
-</u-code-wrapper>
-
-<u-code-wrapper><u-code-title>Рендер</u-code-title>
+	</u-code-wrapper>
+	<br>
+	
+	<u-code-wrapper><u-code-title>Рендер</u-code-title>
 	render() {
 		return (
 			&lt;h2&gt;
@@ -54,7 +58,7 @@ export default class App extends Component {
 			&lt;/h2&gt;
 		);
 	}
-</u-code-wrapper>
+	</u-code-wrapper>
 }
 </v-code>
 

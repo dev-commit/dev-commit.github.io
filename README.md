@@ -1,29 +1,13 @@
 
-Клиент-сервер
->> Unknown custom element: <u-code-define>
-
-react.js -> info -> structure
-сбились обертки
-
-react.js ->  patterns -> render-props
-Реализация
-
-react.js ->  processing-data-output -> controlled-components
-Значение null управляемого компонента
-
-Redux - end
-
+### CHECK
+- `v-code`            # Отступы внутри блока кода 
+- `u-code-wrapper`    # Отступы внутри блока кода обертки 
+- `link-page-wrapper` # Оформить навигацию по теме
 
 ### DELETE
 - container-flex
 - container-calc
 - var
-
-<v-method-wrapper>
-	<v-method name="new Promise" arg="executor" comment="конструктор промиса"></v-method>
-	<v-method-arg name="resolve(result)" comment="результат передается аргументом в .then"></v-method-arg>
-	<v-method-arg name="reject(error)"   comment="ошибка передается аргументом в .catch"></v-method-arg>
-</v-method-wrapper>
 
 vue.js
 v-pre
@@ -40,5 +24,3 @@ v-pre
 - view
 - text
 - link
-
-link-page-wrapper - Оформить навигацию по теме
