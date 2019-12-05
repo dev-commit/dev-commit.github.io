@@ -1,12 +1,12 @@
 <h2>Классы, ООП</h2>
 
-<v-code lang="js" title="">
-# переменные - поля
-# функции    - методы
-# self обязательный аргумент в методе, содержащий в себе экземпляр класса, передающийся при вызове метода
-</v-code>
+<ul class="list-point">
+    <li><u>Переменные</u> - поля</li>
+    <li><u>Функции</u> - методы</li>
+    <li><u>self</u> обязательный аргумент в методе, содержащий в себе экземпляр класса, передающийся при вызове метода</li>
+</ul>
 
-<v-code lang="js" title="">
+<v-code lang="python" title="">
 # объявление класса
 class Person:
 	name = 'Tony'
@@ -25,7 +25,7 @@ print(superPerson.name)      # обращение к свойству объек
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Наследование</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
+<v-code lang="python" title="">
 # объявление нового класса, наследованого от Person
 class Student(Person):
 	course = 1
@@ -39,7 +39,7 @@ print(superStudent.course)
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Инкапсуляция</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
+<v-code lang="python" title="">
 # одно нижнее подчеркивание - рекомендация не использовать свойсво/метод
 # при использовании ошибка выдаваться не будет
 class Person:
@@ -54,7 +54,7 @@ print(superPerson._name)
 superPerson._set('Steve', 14)
 </v-code>
 
-<v-code lang="js" title="">
+<v-code lang="python" title="">
 # два нижних подчеркивания - более жесткая рекомендация не использовать свойсво/метод
 # при использовании ошибка выдаваться будет
 class Person:
@@ -82,7 +82,7 @@ print('2'+'2') # для строк конкатенация
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Инициализация</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
+<v-code lang="python" title="">
 class Person:
 	def __init__(self, name, age):
 		self.name = name
@@ -92,7 +92,7 @@ superPerson = Person('Tony', 25)
 print(superPerson.name, superPerson.age)
 </v-code>
 
-<v-code lang="js" title="">
+<v-code lang="python" title="">
 # age=None выставление значения по умолчанию
 class Person:
 	def __init__(self, name, age=None):
