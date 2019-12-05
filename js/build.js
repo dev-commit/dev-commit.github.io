@@ -222,6 +222,10 @@ var arrJavaScript = [
     ['js', 'typing', 'type-casting',   emoji.code+'Приведение типов'],
     ['js', 'typing', 'typeof',         setTheme(1, ['typeof'])],
 
+    [1, 'Модули'],
+    ['js', 'modules', 'module-system', 'Модульная система'],
+    ['js', 'modules', 'module-es6',    'Модули (ES6)'],
+
     [1, 'Основное'],
     ['js', 'main', 'variables',         setTheme(1, ['var', 'let', 'const'])],
     ['js', 'main', 'context',           setTheme(1, ['this', 'call', 'apply', 'bind'])],
@@ -385,16 +389,12 @@ var arrJsWebApi = [
 // JAVASCRIPT WEB-COMPONENTS
 //---------------------------------------------------------------------
 var arrJsWebComponents = [
-    [1, 'Модули'],
-    ['js-web-components', 'modules', 'module-system', 'Модульная система'],
-    ['js-web-components', 'modules', 'module-es6',    'Модули (ES6)'],
-
     [1, 'Веб-компоненты'],
-    ['js-web-components', 'web-components', 'info',            'Теория'],
-    ['js-web-components', 'web-components', 'shadow-dom',      setTheme(3, ['1'])+' Shadow DOM'],
-    ['js-web-components', 'web-components', 'template',        setTheme(3, ['2'])+' HTML Templates'],
-    ['js-web-components', 'web-components', 'custom-elements', setTheme(3, ['3'])+' Custom Elements'],
-    ['js-web-components', 'web-components', 'imports',         setTheme(3, ['4'])+' HTML Imports'],
+    ['js-web-components', 'main', 'info',            'Теория'],
+    ['js-web-components', 'main', 'shadow-dom',      setTheme(3, ['1'])+' Shadow DOM'],
+    ['js-web-components', 'main', 'template',        setTheme(3, ['2'])+' HTML Templates'],
+    ['js-web-components', 'main', 'custom-elements', setTheme(3, ['3'])+' Custom Elements'],
+    ['js-web-components', 'main', 'imports',         setTheme(3, ['4'])+' HTML Imports'],
 ];
 
 
