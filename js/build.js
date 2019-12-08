@@ -270,6 +270,7 @@ var arrJavaScript = [
     ['js', 'other', 'ecmascript',             'ECMAScript'],
     ['js', 'other', 'jsdoc',                  'Синтаксис JSDoc'],
     ['js', 'other', 'strict-mode',            'Strict Mode'],
+    ['js', 'other', 'samples',                'Примеры'],
 ];
 
 
@@ -685,6 +686,8 @@ var arrVuejs = [
 //---------------------------------------------------------------------
 var arrTheory = [
     [1, 'JavaScript'],
+    ['theory', 'javascript', 'site-load',            'Загрузка сайта'],
+    ['theory', 'javascript', 'webkit',               'Браузерные движки'],
     ['theory', 'javascript', 'garbage-collection',   'Сборщик мусора'],
     ['theory', 'javascript', 'dictionary',           'Словарь'],
     ['theory', 'javascript', 'polyfill',             'Полифиллы'],

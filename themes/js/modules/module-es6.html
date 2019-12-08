@@ -44,6 +44,33 @@ export function libFunction() {
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Экспорт компонента по умолчанию</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+./src/components/MyComponent/MyComponent.js
+./src/components/MyComponent/index.js
+./src/components/OtherComponent/OtherComponent.js
+</v-code>
+
+<v-code lang="js" title="MyComponent">
+export default MyComponent;
+</v-code>
+
+<v-code lang="js" title="index.js">
+// Вариант 1
+export { default } from './MyComponent';
+
+// Вариант 2
+import MyComponent from './MyComponent';
+export default MyComponent;
+</v-code>
+
+<v-code lang="js" title="OtherComponent">
+// не нужно указывать полный путь: ./src/components/MyComponent/MyComponent.js
+import MyComponent from '../src/components/MyComponent';
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>export default class</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-two-code type="js;js" comment="Именованный класс;Анонимный класс">
