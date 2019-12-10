@@ -26,3 +26,32 @@ if (isAdmin) {
 }
 </template>
 </v-two-code>
+
+<v-two-code type="js;js" comment="Тернарный оператор;if…else">
+<template v-slot:first>
+const foo = () => {
+	const a = true;
+
+	return a ? 'Yes' : 'No';
+}
+
+const result = foo();
+</template>
+<template v-slot:last>
+const foo = () => {
+	const a = true;
+
+	if (a) {
+		return 'Yes';
+	} else {
+		return 'No';
+	}
+}
+
+const result = foo();
+</template>
+</v-two-code>
+
+<ul class="list-point">
+    <li><u-code-text>a ? return 'Yes' : return 'No'</u-code-text> - return это не «выражение» (<u>expression</u>), а «инструкция» (<u>statement</u>), а в тернарном операторе должны быть выражения</li>
+</ul>

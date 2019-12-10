@@ -235,6 +235,7 @@ var arrJavaScript = [
     ['js', 'main', 'destructive-array', 'Деструктуризация Arr (ES6)'],
     ['js', 'main', 'destructive-obj',   'Деструктуризация Obj (ES6)'],
     ['js', 'main', 'object-wrappers',   'Autoboxing (Object Wrappers)'],
+    ['js', 'main', 'ternary-operator',       'Тернарные операторы'],
 
     [1, 'Структуры данных'],
     ['js', 'data-structures', 'number',     setTheme(1, ['Number'])],
@@ -258,7 +259,6 @@ var arrJavaScript = [
     ['js', 'other', 'cycle',                  'Циклы'],
     ['js', 'other', 'exceptions',             'Исключения'],
     ['js', 'other', 'conditional-statements', 'Условные операторы'],
-    ['js', 'other', 'ternary-operator',       'Тернарные операторы'],
     ['js', 'other', 'math',                   'Math'],
     ['js', 'other', 'regexr',                 'Регулярные выражения'],
     ['js', 'other', 'asynchronous-scripts',   'Асинхронные скрипты: defer/async'],
