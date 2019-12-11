@@ -695,17 +695,6 @@ var arrTheory = [
     [1, 'Верстка'],
     ['theory', 'html', 'critical-rendering-path', 'Critical Rendering Path'],
 
-    [1, 'Паттерны проектирования'],
-    ['theory', 'design-patterns', 'info',             'Паттерны проектирования'],
-    ['theory', 'design-patterns', 'singleton',        '<u-menu>[1]</u-menu> Порожд. «Синглтон»'],
-    ['theory', 'design-patterns', 'builder',          '<u-menu>[1]</u-menu> Порожд. «Строитель»'],
-    ['theory', 'design-patterns', 'simple-factory',   '<u-menu>[1]</u-menu> Порожд. «Простая фабрика»'],
-    ['theory', 'design-patterns', 'decorator',        '<u-menu>[2]</u-menu> Структурн. «Декоратор»'],
-    ['theory', 'design-patterns', 'facade',           '<u-menu>[2]</u-menu> Структурн. «Фасад»'],
-    ['theory', 'design-patterns', 'observer',         '<u-menu>[3]</u-menu> Поведен. «Наблюдатель»'],
-    ['theory', 'design-patterns', 'module',           '<u-menu>[?]</u-menu> Неизвестно. «Модуль»'],
-    ['theory', 'design-patterns', 'module-revealing', '<u-menu>[?]</u-menu> Неизвестно. «Открытый модуль»'],
-
     [1, 'Парадигмы программирования'],
     ['theory', 'programming-paradigms', 'info',           'Парадигмы'],
     ['theory', 'programming-paradigms', 'imperative',     '1. Императивное'],
@@ -761,6 +750,22 @@ var arrTheory = [
     ['theory', 'other', 'version',              'Политика версионирования'],
     ['theory', 'other', 'name-case',            'Соглашение по именованию'],
     ['theory', 'other', 'prefix',               'Префиксы'],
+];
+
+//---------------------------------------------------------------------
+// OTHER
+//---------------------------------------------------------------------
+var arrDesignPatterns = [
+    [1, 'Паттерны проектирования'],
+    ['design-patterns', 'main', 'info',             'Паттерны проектирования'],
+    ['design-patterns', 'main', 'singleton',        emoji.cookie+setTheme(1, ['Порожд'])+' «Синглтон»'],
+    ['design-patterns', 'main', 'builder',          emoji.cookie+setTheme(1, ['Порожд'])+' «Строитель»'],
+    ['design-patterns', 'main', 'simple-factory',   emoji.cookie+setTheme(1, ['Порожд'])+' «Простая фабрика»'],
+    ['design-patterns', 'main', 'decorator',        emoji.donut+setTheme(1, ['Структурн'])+' «Декоратор»'],
+    ['design-patterns', 'main', 'facade',           emoji.donut+setTheme(1, ['Структурн'])+' «Фасад»'],
+    ['design-patterns', 'main', 'observer',         emoji.pizza+setTheme(1, ['Поведен'])+' «Наблюдатель»'],
+    ['design-patterns', 'main', 'module',           setTheme(1, ['Неизвестно'])+' «Модуль»'],
+    ['design-patterns', 'main', 'module-revealing', setTheme(1, ['Неизвестно'])+' «Открытый модуль»'],
 ];
 
 //---------------------------------------------------------------------
@@ -1170,41 +1175,39 @@ switch(pageName) {
     case 'js-web-api.html':        var arrCurrent = arrJsWebApi;        break;
     case 'js-web-components.html': var arrCurrent = arrJsWebComponents; break;
     case 'js-client-server.html':  var arrCurrent = arrJsClientServer;  break;
-
-    case 'react-js.html':      var arrCurrent = arrReactjs;     break;
-    case 'redux.html':         var arrCurrent = arrRedux;       break;
-    case 'react-hooks.html':   var arrCurrent = arrReactHooks;  break;
-    case 'react-router.html':  var arrCurrent = arrReactRouter; break;
-    case 'material-ui.html':   var arrCurrent = arrMaterialUI;  break;
-
-    case 'testing.html':       var arrCurrent = arrTesting;  break;
-
-    case 'vue-js.html':      var arrCurrent = arrVuejs;      break;
-    case 'webpack.html':     var arrCurrent = arrWebpack;    break;
-    case 'npm.html':         var arrCurrent = arrNpm;        break;
-    case 'theory.html':      var arrCurrent = arrTheory;     break;
-    case 'git.html':         var arrCurrent = arrGit;        break;
-    case 'linux.html':       var arrCurrent = arrLinux;      break;
-    case 'other.html':       var arrCurrent = arrOther;      break;
-    case 'js-tasks.html':    var arrCurrent = arrJsTasks;    break;
-    case 'jquery.html':      var arrCurrent = arrJquery;     break;
-    case 'canvas.html':      var arrCurrent = arrCanvas;     break;
-    case 'html.html':        var arrCurrent = arrHTML;       break;
-    case 'css.html':         var arrCurrent = arrCSS;        break;
-    case 'assessment.html':  var arrCurrent = arrAssessment; break;
-    case 'sass.html':        var arrCurrent = arrSass;       break;
-    case 'bootstrap.html':   var arrCurrent = arrBootstrap;  break;
-    case 'flow.html':        var arrCurrent = arrFlow;       break;
-    case 'svg.html':         var arrCurrent = arrSvg;        break;
-    case 'css-flexbox.html': var arrCurrent = arrCssFlexbox; break;
-    case 'css-grid.html':    var arrCurrent = arrCssGrid;    break;
-    case 'node-js.html':     var arrCurrent = arrNodejs;     break;
-    case 'php.html':         var arrCurrent = arrPhp;        break;
-    case 'python.html':      var arrCurrent = arrPython;     break;
-    case 'mysql.html':       var arrCurrent = arrMySql;      break;
-    case 'ramda.html':       var arrCurrent = arrRamda;      break;
-    case 'typescript.html':  var arrCurrent = arrTypescript; break;
-    default:                 var arrCurrent = [];
+    case 'react-js.html':          var arrCurrent = arrReactjs;         break;
+    case 'redux.html':             var arrCurrent = arrRedux;           break;
+    case 'react-hooks.html':       var arrCurrent = arrReactHooks;      break;
+    case 'react-router.html':      var arrCurrent = arrReactRouter;     break;
+    case 'material-ui.html':       var arrCurrent = arrMaterialUI;      break;
+    case 'testing.html':           var arrCurrent = arrTesting;         break;
+    case 'vue-js.html':            var arrCurrent = arrVuejs;           break;
+    case 'webpack.html':           var arrCurrent = arrWebpack;         break;
+    case 'npm.html':               var arrCurrent = arrNpm;             break;
+    case 'theory.html':            var arrCurrent = arrTheory;          break;
+    case 'git.html':               var arrCurrent = arrGit;             break;
+    case 'linux.html':             var arrCurrent = arrLinux;           break;
+    case 'other.html':             var arrCurrent = arrOther;           break;
+    case 'js-tasks.html':          var arrCurrent = arrJsTasks;         break;
+    case 'jquery.html':            var arrCurrent = arrJquery;          break;
+    case 'canvas.html':            var arrCurrent = arrCanvas;          break;
+    case 'html.html':              var arrCurrent = arrHTML;            break;
+    case 'css.html':               var arrCurrent = arrCSS;             break;
+    case 'assessment.html':        var arrCurrent = arrAssessment;      break;
+    case 'sass.html':              var arrCurrent = arrSass;            break;
+    case 'bootstrap.html':         var arrCurrent = arrBootstrap;       break;
+    case 'flow.html':              var arrCurrent = arrFlow;            break;
+    case 'svg.html':               var arrCurrent = arrSvg;             break;
+    case 'css-flexbox.html':       var arrCurrent = arrCssFlexbox;      break;
+    case 'css-grid.html':          var arrCurrent = arrCssGrid;         break;
+    case 'node-js.html':           var arrCurrent = arrNodejs;          break;
+    case 'php.html':               var arrCurrent = arrPhp;             break;
+    case 'python.html':            var arrCurrent = arrPython;          break;
+    case 'mysql.html':             var arrCurrent = arrMySql;           break;
+    case 'ramda.html':             var arrCurrent = arrRamda;           break;
+    case 'typescript.html':        var arrCurrent = arrTypescript;      break;
+    case 'design-patterns.html':   var arrCurrent = arrDesignPatterns;  break;
+    default:                       var arrCurrent = [];
 }
 
 if ( (pageName!=='index.html') && (pageName!=='index') && (pageName!=='') ) {
