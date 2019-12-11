@@ -750,6 +750,7 @@ var arrTheory = [
     ['theory', 'other', 'version',              'Политика версионирования'],
     ['theory', 'other', 'name-case',            'Соглашение по именованию'],
     ['theory', 'other', 'prefix',               'Префиксы'],
+    ['theory', 'other', 'specification-stage',  'Стадии спецификации'],
 ];
 
 //---------------------------------------------------------------------
@@ -778,6 +779,7 @@ var arrOther = [
     ['other', 'main', 'photoshop',     'Adobe Photoshop'],
     ['other', 'main', 'denwer',        'Denwer'],
     ['other', 'main', 'google-chrome', 'Google Chrome'],
+    ['other', 'main', 'trash',         'Свалка'],
 ];
 
 //---------------------------------------------------------------------
