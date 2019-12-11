@@ -751,12 +751,16 @@ var arrTheory = [
 
     [1, 'Технологии'],
     ['theory', 'technology', 'jira', 'Jira'],
+    ['theory', 'technology', 'emmet', 'Emmet'],
 
     [1, 'Прочее'],
     ['theory', 'other', 'typing',               'Типизация'],
     ['theory', 'other', 'web-applications',     'Виды веб-приложений'],
     ['theory', 'other', 'evolution-web-design', 'Эволюция веб-дизайна'],
     ['theory', 'other', 'frameworks',           'Фреймворки'],
+    ['theory', 'other', 'version',              'Политика версионирования'],
+    ['theory', 'other', 'name-case',            'Соглашение по именованию'],
+    ['theory', 'other', 'prefix',               'Префиксы'],
 ];
 
 //---------------------------------------------------------------------
@@ -765,11 +769,7 @@ var arrTheory = [
 var arrOther = [
     [1, 'Информация'],
     ['other', 'main', 'code-editors',  'Редакторы кода'],
-    ['other', 'main', 'version',       'Политика версионирования'],
     ['other', 'main', 'server-online', 'Server Online'],
-    ['other', 'main', 'name-case',     'Соглашение по именованию'],
-    ['other', 'main', 'prefix',        'Префиксы'],
-    ['other', 'main', 'emmet',         'Emmet'],
     ['other', 'main', 'photoshop',     'Adobe Photoshop'],
     ['other', 'main', 'denwer',        'Denwer'],
     ['other', 'main', 'google-chrome', 'Google Chrome'],
