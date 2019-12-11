@@ -29,24 +29,12 @@ type SelectItems = {
 </v-code>
 
 <v-code lang="js" title="types">
-let a:string = 'str';
-let a:number = 77;
+const a:string = 'str';
+const a:number = 77;
 </v-code>
 
 <v-code lang="js" title="functions">
 function my(x: string, y: number = 77) {}
 function my(x: '1' | '2') {}       // может передаваться '1' или '2'
 function my(x: number | string) {} // может передаваться number или string
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Несколько типов</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-type PropsOne = {
-	values: Object,
-}
-type PropsTwo = {
-	valuesNew: Object,
-} & PropsOne;
 </v-code>

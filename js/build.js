@@ -972,10 +972,13 @@ var arrSass = [
 //---------------------------------------------------------------------
 var arrFlow = [
     [1, 'Основное'],
-    ['flow', 'main', 'info',    'Информация'],
-    ['flow', 'main', 'install', 'Установка и настройка'],
-    ['flow', 'main', 'types',   'Types'],
-    ['flow', 'main', 'vscode',  'Настройка VSCode'],
+    ['flow', 'main', 'type-data',   'Типы данных'],
+    ['flow', 'main', 'type',        setTheme(1, ['type'])],
+
+    [1, 'Информация'],
+    ['flow', 'main', 'info',        'Информация'],
+    ['flow', 'main', 'install',     'Установка и настройка'],
+    ['flow', 'main', 'vscode',      'Настройка VSCode'],
 ];
 
 
