@@ -875,16 +875,20 @@ var arrHTML = [
     ['html', 'main', 'semantics',       'Семантика'],
     ['html', 'main', 'content-model',   'Content Model'],
     ['html', 'main', 'custom-elements', 'Custom Elements'],
-    ['html', 'main', 'html5-layout',    'Теги HTML5 Layout'],
     ['html', 'main', 'web-forms',       'Web Forms'],
     ['html', 'main', 'element-link',    'Ссылки'],
     ['html', 'main', 'element-media',   'Видео и аудио'],
     ['html', 'main', 'yandex-map',      'Яндекс Карты'],
     ['html', 'main', 'element-table',   'Таблицы'],
-    ['html', 'main', 'element-iframe',  'iframe'],
     ['html', 'main', 'samples',         'Примеры'],
-];
 
+    [1, 'Теги'],
+    ['html', 'tags', 'fieldset',  setTheme(1, ['&lt;fieldset&gt;', '&lt;legend&gt;'])],
+    ['html', 'tags', 'header',    setTheme(1, ['&lt;header&gt;', '&lt;section&gt;', '...'])],
+    ['html', 'tags', 'iframe',    setTheme(1, ['&lt;iframe&gt;'])],
+    ['html', 'tags', 'details',   setTheme(1, ['&lt;details&gt;', '&lt;summary&gt;'])],
+    ['html', 'tags', 'datalist',  setTheme(1, ['&lt;datalist&gt;', '&lt;option&gt;'])],
+];
 
 //---------------------------------------------------------------------
 // CSS
