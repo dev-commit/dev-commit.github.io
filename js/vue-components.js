@@ -32,7 +32,20 @@ Vue.component('v-two-code', {
 Vue.component('v-two', {
     template:
 		`<div class="v-two-wrapper">
-			<div class="v-two-column">
+			<div class="v-two-column v-two-column-half">
+				<slot name="first">User Default1</slot>
+			</div>
+			<div class="v-two-column v-two-column-half">
+				<slot name="last">User Default2</slot>
+			</div>
+		</div>`,
+})
+
+
+Vue.component('v-two-fix', {
+    template:
+		`<div class="v-two-wrapper">
+			<div class="v-two-column v-two-column-grow">
 				<slot name="first">User Default1</slot>
 			</div>
 			<div class="v-two-column">
@@ -40,6 +53,7 @@ Vue.component('v-two', {
 			</div>
 		</div>`,
 })
+
 
 Vue.component('v-pre-npm', {
 	template: `<pre class="v-pre-npm"><code class="bash"><slot></slot></code></pre>`,

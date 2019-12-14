@@ -919,7 +919,7 @@ var arrCSS = [
     ['css', 'features', 'custom-selector',    emoji.fire+'@custom-selector'],
 
     [1, 'CSS Color Module'],
-    ['css', 'color-module', 'colors',         emoji.babuin+'Цвета'],
+    ['css', 'color-module', 'colors',         emoji.babuin+'Цветовые схемы'],
     ['css', 'color-module', 'colors-func',    emoji.babuin+'Цветовые функции'],
 
     [1, 'Layout'],
@@ -1005,10 +1005,11 @@ var arrFlow = [
 //---------------------------------------------------------------------
 var arrSvg = [
     [1, 'Основное'],
-    ['svg', 'main', 'info',      'Информация'],
-    ['svg', 'main', 'figure',    'Фигуры'],
-    ['svg', 'main', 'filters',   'Фильтры'],
-    ['svg', 'main', 'gradients', 'Градиенты'],
+    ['svg', 'main', 'info',       'Информация'],
+    ['svg', 'main', 'figure',     'Фигуры'],
+    ['svg', 'main', 'filters',    'Фильтры'],
+    ['svg', 'main', 'gradients',  'Градиенты'],
+    ['svg', 'main', 'background', 'Background'],
 ];
 
 
