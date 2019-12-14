@@ -20,7 +20,7 @@ if ({} && []) {
 <h3>Строковое преобразование</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var user = {
+const user = {
 	name: 'Tony'
 };
 
@@ -29,7 +29,7 @@ alert( user ); // [object Object]
 
 <v-code lang="js" title="">
 // eсли в объекте присутствует метод toString, который возвращает примитив, то он используется для преобразования
-var obj = {
+const obj = {
 	name: 'Tony',
 	<u-code>toString</u-code>() {
 		return this.name;
@@ -44,7 +44,7 @@ alert( obj ); // Tony
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 // для численного преобразования объекта используется метод valueOf, а если его нет – то toString
-var room = {
+const room = {
 	number: 777,
 	<u-code>valueOf</u-code>() { return this.number; },
 	<u-code>toString</u-code>() { return this.number; }

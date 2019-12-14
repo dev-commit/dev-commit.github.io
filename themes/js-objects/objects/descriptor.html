@@ -14,11 +14,11 @@ Object.<u-code>defineProperties</u-code>(obj, descriptors);     // позвол�
 <h3>Получение дескриптора свойств</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var person = {
+const person = {
 	name: 'Tony',
 	age: 20
 }
-var a = Object.<u-code>getOwnPropertyDescriptor</u-code>(person, 'name');
+const a = Object.<u-code>getOwnPropertyDescriptor</u-code>(person, 'name');
 // {value: "Tony", writable: true, enumerable: true, configurable: true } 
 </v-code>
 
@@ -66,7 +66,7 @@ Object.<u-code>defineProperties</u-code>(person, {
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 // оба вызова добавляют в объект user обычное (удаляемое, изменяемое, перечисляемое) свойство
-var user = {};
+const user = {};
 user.name = 'Tony';
 Object.defineProperty(user, 'name', { value:'Tony', configurable:true, writable:true, enumerable:true });
 </v-code>
@@ -75,7 +75,7 @@ Object.defineProperty(user, 'name', { value:'Tony', configurable:true, writable:
 <h3>Геттеры и сеттеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var user = {
+const user = {
 	firstName: "Вася",
 	surname: "Петров"
 }
@@ -85,7 +85,7 @@ Object.defineProperty(user, "fullName", {
 		return this.firstName + ' ' + this.surname;
 	},
 	set(value) {
-		var split = value.split(' ');
+		const split = value.split(' ');
 		this.firstName = split[0];
 		this.surname = split[1];
 	}

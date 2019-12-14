@@ -10,18 +10,18 @@ fade(this, 1000, function() {
 })
 function fade(element, time, callbackFunction) {
 	// если callback не задан, создаем пустую функцию
-	var callback = callbackFunction || function() {};
+	const callback = callbackFunction || function() {};
 	// вызываем callback когда необходимо
 	callback.call(element); // передать новый контекст this
 }
 </v-code>
 
 <v-code lang="js" title="">
-var greeting = function(callback) {
-	var name = 'Tony';
+const greeting = function(callback) {
+	const name = 'Tony';
 	return callback(name);
 }
-var a = greeting(function(name) {
+const a = greeting(function(name) {
 	return 'Hello ' + name;
 });
 </v-code>

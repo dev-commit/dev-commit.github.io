@@ -16,7 +16,7 @@ function echo(text) {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 $('#search').keyup(function() {             // search - input[text]
-    var value = $('#search').val();         // получаем вводимые символы
+    const value = $('#search').val();         // получаем вводимые символы
     value = value.toLowerCase();            // переводим в нижний регистр
     $('.container').css('display', 'none'); // container - содержит блоки с названиями товаров
     $('.container:contains("'+value+'")').css('display', 'block'); // показываем блоки
@@ -28,7 +28,7 @@ $('#search').keyup(function() {             // search - input[text]
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 $(document).ready(function(){
-    var formOut = true;
+    const formOut = true;
     $('#box').mouseleave(function(){ formOut = true; });
     $('#box').mouseenter(function(){ formOut = false; });
     $('.bg').click( function() { if (formOut) { $('.bg').fadeOut(500); } });

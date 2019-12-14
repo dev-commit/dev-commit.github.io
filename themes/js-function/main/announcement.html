@@ -17,7 +17,7 @@ func(1);
 
 <v-code lang="js" title="">
 // присвоили ссылку на функцию
-var a = func;
+const a = func;
 function func(){
 	//
 }
@@ -27,18 +27,18 @@ function func(){
 <h3>2. Function Expression (выражения функции)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var func = function(num) {
+const func = function(num) {
 	console.log(num);
 }
 func(2);
 </v-code>
 
 <v-code lang="js" title="">
-var Task = function Task() {
+const Task = function Task() {
 	//
 }
 // создание нового объекта использую функцию Task
-var task = new Task();
+const task = new Task();
 </v-code>
 
 <!------------------------------------------------------------->
@@ -49,7 +49,7 @@ function sayHi() {   // создать функцию и поместить её
 	alert( "Привет" );
 }
 
-var func = sayHi;    // копирование функции в новую переменную
+const func = sayHi;    // копирование функции в новую переменную
 func(); // Привет    // функцию можно вызывать и как sayHi() и как func()
 
 sayHi = null;
@@ -76,7 +76,7 @@ sayHi();             // ошибка
 </v-code>
 
 <v-code lang="js" title="">
-var count = (function(num) {
+const count = (function(num) {
 	console.log(num);
 })(3);
 </v-code>
@@ -100,7 +100,7 @@ ask(
 <h4>Возвращение функции</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var func = function() {
+const func = function() {
 	return function() {
 		console.log('Hi');
 	}
@@ -119,7 +119,7 @@ func()();
 
 <v-code lang="js" title="">
 // создание функции из строки
-var sum = new Function('a,b', 'return a+b;');
-var result = sum(1, 2);
+const sum = new Function('a,b', 'return a+b;');
+const result = sum(1, 2);
 alert(result); // 3
 </v-code>

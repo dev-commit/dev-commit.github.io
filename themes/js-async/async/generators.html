@@ -14,10 +14,10 @@ function * genetare() {}
 function *genetare()  {} 
 
 // анонимная функция
-var generator = function*() {}
+const generator = function*() {}
 
 // метод у объекта
-var obj = {
+const obj = {
     *generator(start, end) {}
 }
 
@@ -55,7 +55,7 @@ function* generate() {
     yield 1;
     console.log('Finish');
 }
-var iterator = generate();
+const iterator = generate();
 console.log(iterator.next()); // Object { value: undefined, done: false } Start
 console.log(iterator.next()); // Object { value: undefined, done: true  } Finish
 console.log(iterator.next()); // Object { value: undefined, done: true  }        
@@ -66,10 +66,10 @@ console.log(iterator.next()); // Object { value: undefined, done: true  }
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 function* generator() {
-    var result = yield;
+    const result = yield;
     console.log(result); // 1
 }
-var iterator = generator();
+const iterator = generator();
 console.log(iterator.next());  // первый вызов запускает генератора, нельзя передать значение
 console.log(iterator.next(1)); // передаваемое значение
 

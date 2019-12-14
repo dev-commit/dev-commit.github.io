@@ -5,7 +5,7 @@
 </ul>
 
 <v-code lang="js" title="">
-var person = {
+const person = {
 	name: 'Tony',
 	age: 20
 }
@@ -13,15 +13,15 @@ var person = {
 
 <v-code lang="js" title="">
 Object.<u-code>preventExtensions</u-code>(person);    // запрещает добавление свойств в объект (применяется только к самому объекту)
-var a = Object.<u-code>isExtensible</u-code>(person); // проверяет применение preventExtensions
+const a = Object.<u-code>isExtensible</u-code>(person); // проверяет применение preventExtensions
 </v-code>
 
 <v-code lang="js" title="">
 Object.<u-code>seal</u-code>(person);                 // аналогичен preventExtensions, дополнительно задает атрибут configurable:false для всех свойств
-var a = Object.<u-code>isSealed</u-code>(person);     // проверяет применение seal
+const a = Object.<u-code>isSealed</u-code>(person);     // проверяет применение seal
 </v-code>
 
 <v-code lang="js" title="">
 Object.<u-code>freeze</u-code>(person);               // аналогичен seal, дополнительно делает все свойства доступные только для чтения (configurable:false, writable:false)
-var a = Object.<u-code>isFrozen</u-code>(person);     // проверяет применение freeze
+const a = Object.<u-code>isFrozen</u-code>(person);     // проверяет применение freeze
 </v-code>

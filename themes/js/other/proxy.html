@@ -7,35 +7,29 @@
 	<li>Если ловушки нет – операция идёт над target</li>
 </ul>
 
-<v-code lang="js light" title="">
-<table>
-	<tr><td>let proxy = <bg-methods>new Proxy</bg-methods><bg-arguments>(target, handler)</bg-arguments></td><td></td></tr>
-	<tr><td><em>	&#8226; target</em></td><td>  // объект, обращения к которому надо перехватывать</td></tr>
-	<tr><td><em>	&#8226; handler</em></td><td>  // объект с «ловушками»: функциями-перехватчиками для операций к target</td></tr>
-</table>
-</v-code>
+<div class="v-method-wrapper">
+	<v-method before="let proxy = " method="new Proxy" after="" arg="(target, handler)"></v-method>
+	<v-method-arg arg="target">объект, обращения к которому надо перехватывать</v-method-arg>
+	<v-method-arg arg="handler">объект с «ловушками»: функциями-перехватчиками для операций к target</v-method-arg>
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>get/set</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js light" title="">
-<table>
-	<tr><td><bg-methods>get</bg-methods><bg-arguments>(target, property, receiver)</bg-arguments></td><td> // срабатывает при чтении свойства из прокси</td></tr>
-	<tr><td><em>	&#8226; target</em></td><td>  // целевой объект, тот же который был передан первым аргументом в new Proxy</td></tr>
-	<tr><td><em>	&#8226; property</em></td><td>  // имя свойства</td></tr>
-	<tr><td><em>	&#8226; receiver</em></td><td>  // объект, к которому было применено присваивание. Обычно сам прокси, либо прототипно наследующий от него</td></tr>
-</table>
-</v-code>
+<div class="v-method-wrapper">
+	<v-method before="" method="get" after="" arg="(target, property, receiver)">срабатывает при чтении свойства из прокси</v-method>
+	<v-method-arg arg="target">целевой объект, тот же который был передан первым аргументом в new Proxy</v-method-arg>
+	<v-method-arg arg="property">имя свойства</v-method-arg>
+	<v-method-arg arg="receiver">объект, к которому было применено присваивание. Обычно сам прокси, либо прототипно наследующий от него</v-method-arg>
+</div>
 
-<v-code lang="js light" title="">
-<table>
-	<tr><td><bg-methods>set</bg-methods><bg-arguments>(target, property, value, receiver)</bg-arguments></td><td> // срабатывает при чтении свойства из прокси</td></tr>
-	<tr><td><em>	&#8226; target</em></td><td>  // целевой объект, тот же который был передан первым аргументом в new Proxy</td></tr>
-	<tr><td><em>	&#8226; property</em></td><td>  // имя свойства</td></tr>
-	<tr><td><em>	&#8226; value</em></td><td>  // значение свойства</td></tr>
-	<tr><td><em>	&#8226; receiver</em></td><td>  // объект, к которому было применено присваивание, обычно сам прокси, либо прототипно наследующий от него</td></tr>
-</table>
-</v-code>
+<div class="v-method-wrapper">
+	<v-method before="" method="set" after="" arg="(target, property, value, receiver)">срабатывает при чтении свойства из прокси</v-method>
+	<v-method-arg arg="target">целевой объект, тот же который был передан первым аргументом в new Proxy</v-method-arg>
+	<v-method-arg arg="property">имя свойства</v-method-arg>
+	<v-method-arg arg="value">значение свойства</v-method-arg>
+	<v-method-arg arg="receiver">объект, к которому было применено присваивание, обычно сам прокси, либо прототипно наследующий от него</v-method-arg>
+</div>
 
 <ul class="list-point">
 	<li>Метод set должен вернуть true, если присвоение успешно обработано и false в случае ошибки (приведёт к генерации TypeError)</li>
@@ -118,14 +112,14 @@ alert("Hello" in proxy); // true
 	<li>Если аргумент target прокси – функция, то становится доступна ловушка apply для её вызова</li>	
 </ul>
 
-<v-code lang="js light" title="">
-<table>
-	<tr><td><bg-methods>apply</bg-methods><bg-arguments>(target, thisArgument, argumentsList)</bg-arguments></td><td>  //</td></tr>
-	<tr><td><em>	&#8226; target</em></td><td>  // исходный объект</td></tr>
-	<tr><td><em>	&#8226; thisArgument</em></td><td>  // контекст this вызова</td></tr>
-	<tr><td><em>	&#8226; argumentsList</em></td><td>  // аргументы вызова в виде массива</td></tr>
-</table>
-</v-code>
+<div class="v-method-wrapper">
+	<v-method before="" method="apply" after="" arg="(target, thisArgument, argumentsList)">
+		описание метода
+	</v-method>
+	<v-method-arg arg="target">исходный объект</v-method-arg>
+	<v-method-arg arg="thisArgument">контекст this вызова</v-method-arg>
+	<v-method-arg arg="argumentsList">аргументы вызова в виде массива</v-method-arg>
+</div>
 
 <v-code lang="js" title="">
 // может обработать вызов сама и/или передать его функции

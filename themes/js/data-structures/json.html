@@ -6,15 +6,25 @@
 	<li><u>В JSON можно хранить</u> - объекты, массивы, строки, числа true, false, null. Другие значения при сериализации превращаются в null</li>
 </ul>
 
-<v-code lang="js light" title="">
-<bg-methods>JSON.parse(str, reviver)</bg-methods> // преобразует строку с данными в формате JSON в JavaScript-объект/массив/значение
-	<em>&#8226; str</em>     // строка с данными в формате JSON
-	<em>&#8226; reviver</em> // задание правила, функция function(key, value)
-<bg-methods>JSON.stringify(value, replacer, space)</bg-methods> // преобразует («сериализует») значение в JSON-строку
-	<em>&#8226; value</em>    // значение
-	<em>&#8226; replacer</em> // массив свойств, которые подлежат сериализации
-	<em>&#8226; space</em>    // форматирование. если число, то уровни вложенности в JSON оформляются указанным количеством пробелов, если строка, то вставляется эта строка
-</v-code>
+<div class="v-method-wrapper">
+	<v-method before="JSON.parse" method="method" after="" arg="(str, reviver)">
+		преобразует строку с данными в формате JSON в JavaScript-объект/массив/значение
+	</v-method>
+	<v-method-arg arg="str">строка с данными в формате JSON</v-method-arg>
+	<v-method-arg arg="reviver">задание правила, функция function(key, value)</v-method-arg>
+</div>
+
+
+<div class="v-method-wrapper">
+	<v-method before="JSON.stringify" method="method" after="" arg="(value, replacer, space)">
+		преобразует («сериализует») значение в JSON-строку
+	</v-method>
+
+	<v-method-arg arg="value">значение</v-method-arg>
+	<v-method-arg arg="replacer">массив свойств, которые подлежат сериализации</v-method-arg>
+	<v-method-arg arg="space">форматирование. если число, то уровни вложенности в JSON оформляются указанным количеством пробелов, если строка, то
+	вставляется эта строка</v-method-arg>
+</div>
 
 <v-code lang="js" title="">
 var user = {

@@ -8,9 +8,7 @@ let arrCustomElements = [
 	'u-code-npm',     'u-code-title',    'u-message-ok',   'u-message-info',
 	'u-message-warn', 'u-message-error', 'u-code-accent',  'u-menu',
 	'u-menu-accent',  'u-menu-code',     'u-menu-border',  'u-text-underline',
-	'u-fr1',          'u-fr2',           'u-fr3',
-
-	'bg-methods',     'bg-arguments', 'u-menu-unactive'
+	'u-menu-unactive'
 ];
 
 arrCustomElements.forEach(function(element) {

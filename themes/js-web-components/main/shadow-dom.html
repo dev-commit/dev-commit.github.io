@@ -15,19 +15,18 @@
 	<li>Если в теге &lt;content&gt;&lt;/content&gt; есть содержимое, оно будет показано только в том случае, если узлов для вставки нет</li>
 </ul>
 
-<v-code lang="js light" title="">
-<table>
-	<tr><td><b>JavaScript</b></td></tr>
-	<tr><td><bg-methods>createShadowRoot</bg-methods><bg-arguments>()</bg-arguments></td><td>  // создание Shadow DOM</td></tr>
-	<tr><td><bg-methods>shadowRoot</bg-methods><bg-arguments>()</bg-arguments></td><td>  // корень</td></tr>
-	
-	<tr><td><b>HTML</b></td></tr>
-	<tr><td><bg-methods>&lt;content&gt;&lt;/content&gt;</bg-methods></td><td>  // замена содержимого</td></tr>
+<v-code lang="js" title="JavaScript">
+createShadowRoot();  // создание Shadow DOM
+shadowRoot();        // корень
+</v-code>
 
-	<tr><td><b>CSS</b></td></tr>
-	<tr><td><bg-methods>::shadow</bg-methods></td><td>  // выбирает корень Shadow DOM</td></tr>
-	<tr><td><bg-methods>>>></bg-methods></td><td>  // полностью игнорирует границы между DOM'ами</td></tr>
-</table>
+<v-code lang="js" title="HTML">
+&lt;content&gt;&lt;/content&gt; <u-code-comment>// замена содержимого</u-code-comment>
+</v-code>
+
+<v-code lang="js" title="CSS">
+::shadow  // выбирает корень Shadow DOM
+>>>       // полностью игнорирует границы между DOM'ами
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -78,8 +77,11 @@ rootElement.querySelector('p').innerHTML = 'New Shadow';
 </ul>
 
 <ul class="list-point">
-	<li><bg-methods>::shadow</bg-methods></td><td> - выбирает корень Shadow DOM</li>
-	<li>Выбранный элемент сам по себе не создаёт CSS box, но служит отправной точкой для дальнейшей выборки уже внутри дерева Shadow DOM. Например, <u-code>#elem::shadow > div</u-code> найдёт внутри Shadow DOM #elem элементы div первого уровня</li>
-	<li><bg-methods>>>></bg-methods></td><td> - особого вида CSS-селектор для всех элементов Shadow DOM, который полностью игнорирует границы между DOM'ами, включая вложенные подэлементы, у которых тоже может быть свой Shadow DOM</li>
-	<li>Например, <u-code>#elem >>> span</u-code> найдёт все span внутри Shadow DOM #elem, но кроме того, если в #elem есть подэлементы, у которых свой Shadow DOM, то оно продолжит поиск в них</li>
+	<li><u-code-text>::shadow</u-code-text> - выбирает корень Shadow DOM</li>
+	<li>Выбранный элемент сам по себе не создаёт CSS box, но служит отправной точкой для дальнейшей выборки уже внутри дерева
+	Shadow DOM. Например, <u-code-text>#elem::shadow > div</u-code-text> найдёт внутри Shadow DOM #elem элементы div первого уровня</li>
+	<li><u-code-text>>>></u-code-text> - особого вида CSS-селектор для всех элементов Shadow DOM, который полностью игнорирует границы между DOM'ами, включая
+	вложенные подэлементы, у которых тоже может быть свой Shadow DOM</li>
+	<li>Например, <u-code-text>#elem >>> span</u-code-text> найдёт все span внутри Shadow DOM #elem, но кроме того, если в #elem есть
+	подэлементы, у которых свой Shadow DOM, то оно продолжит поиск в них</li>
 </ul>

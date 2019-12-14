@@ -4,7 +4,7 @@
 <h3>&lt;input type="text"&gt; и &lt;textarea&gt;&lt;/textarea&gt; (текстовое поле)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var text = $('#text').val();   // читаем value
+const text = $('#text').val();   // читаем value
 $('#text').val('new content'); // записываем value
 </v-code>
 
@@ -12,7 +12,7 @@ $('#text').val('new content'); // записываем value
 <h3>&lt;input type="checkbox"&gt; (галочка)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var checkbox = $('#checkbox').prop('checked'); // читаем (true/false)
+const checkbox = $('#checkbox').prop('checked'); // читаем (true/false)
 $('#checkbox').prop('checked', true);          // устанавливаем значение checked (true/false)
 </v-code>
 
@@ -20,8 +20,8 @@ $('#checkbox').prop('checked', true);          // устанавливаем з�
 <h3>&lt;input type="radio"&gt; (переключатель)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var radio = $('input[name=radio]:checked').prop('id'); // получаем id выбранного radio
-var radio = $('#radio1').prop('checked');        // проверяем по id выбран ли radio (true/false)
+const radio = $('input[name=radio]:checked').prop('id'); // получаем id выбранного radio
+const radio = $('#radio1').prop('checked');        // проверяем по id выбран ли radio (true/false)
 $('#radio1').prop('checked', true);              // устанавливаем checked по id
 </v-code>
 
@@ -29,9 +29,9 @@ $('#radio1').prop('checked', true);              // устанавливаем c
 <h3>&lt;select&gt;&lt;/select&gt; (выпадающий список)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var value = $('#select').val();                      // читаем выбранный value
-var text =  $('#select option:selected').text();     // читаем выбранный text
-var text =  $('#select [value=2]').text();           // читаем text по заданному value
+const value = $('#select').val();                      // читаем выбранный value
+const text =  $('#select option:selected').text();     // читаем выбранный text
+const text =  $('#select [value=2]').text();           // читаем text по заданному value
 $('#select [value=3]').attr('selected', 'selected'); // устанавливаем заданный элемент в selected
 </v-code>
 
@@ -40,7 +40,7 @@ $('#select [value=3]').attr('selected', 'selected'); // устанавливае
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js red" title="">
 // для checkbox сначала нужно перевести в число, а потому уже в булево значение
-var field = '1';
-var checkbox = Boolean(Number(field));
+const field = '1';
+const checkbox = Boolean(Number(field));
 $('.checkbox').prop('checked', checkbox);
 </v-code>
