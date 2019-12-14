@@ -10,45 +10,6 @@ var app = new Vue({
 			['JavaScript: Клиент-сервер', arrJsClientServer,  'menu-js'],
 			['JavaScript: Web API',       arrJsWebApi,        'menu-js'],
 			['JavaScript: WebComponents', arrJsWebComponents, 'menu-js'],
-			
-			['React.js',      arrReactjs,     'menu-fw'],
-			['Redux',         arrRedux,       'menu-fw'],
-			['ReactHooks',    arrReactHooks,  'menu-fw'],
-			['ReactRouter',   arrReactRouter, 'menu-fw'],
-			['Material-UI',   arrMaterialUI,  'menu-fw'],
-
-			['Тестирование',   arrTesting,  'menu-html'],
-
-			['Vue.js',              arrVuejs,      'menu-fw'],
-
-			['Git',               arrGit,        'menu-php'],
-			['Flow',              arrFlow,       'menu-php'],
-			['TypeScript',        arrTypescript, 'menu-php'],
-			['Webpack',           arrWebpack,    'menu-php'],
-			['NPM',               arrNpm,        'menu-php'],
-			['Ramda',             arrRamda,      'menu-php', true],
-
-			['Flexbox',           arrCssFlexbox, 'menu-html'],
-			['CSS Grid',          arrCssGrid,    'menu-html'],
-			['Bootstrap',         arrBootstrap,  'menu-html'],
-			['HTML',              arrHTML,       'menu-html'],
-			['CSS',               arrCSS,        'menu-html'],
-			['SVG',               arrSvg,        'menu-html'],
-			['Sass',              arrSass,       'menu-html', true],
-			['Canvas',            arrCanvas,     'menu-js'],
-
-			['Assessment',        arrAssessment, 'menu-fw'],
-			['Задачи',            arrJsTasks,    'menu-fw'],
-			['Теория',            arrTheory,     'menu-fw',],
-
-			['jQuery',            arrJquery,     'menu-other'],
-			['Other',             arrOther,      'menu-other'],
-			['Linux',             arrLinux,      'menu-other',],
-
-			['Node.js',           arrNodejs,     'menu-php'],
-			['PHP',               arrPhp,        'menu-php'],
-			['Python',            arrPython,     'menu-php'],
-			['MySQL',             arrMySql,      'menu-php'],
 		],
 		themesContent: null,
 		pageContent: '',

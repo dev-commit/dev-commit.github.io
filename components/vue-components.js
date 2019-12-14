@@ -1,6 +1,4 @@
-//---------------------------------------------------
-// VUE COMPONENTS
-//---------------------------------------------------
+
 Vue.component('v-two-code', {
 	props: ['type', 'comment'],
 	computed: {
@@ -11,16 +9,16 @@ Vue.component('v-two-code', {
 			return this.comment.split(';');
 		}
 	},
-    template:  `<div class="v-two-wrapper"><div class="v-two-column"><pre><code :class="textType[0]"><u-code-title v-text="textComment[0]"></u-code-title><slot name="first">User Default1</slot></code></pre></div><div class="v-two-column"><pre><code :class="textType[1]"><u-code-title v-text="textComment[1]"></u-code-title><slot name="last">User Default2</slot></code></pre></div></div>`,
+	template:  `<div class="v-two-wrapper"><div class="v-two-column v-two-column-half"><pre><code :class="textType[0]"><u-code-title v-text="textComment[0]"></u-code-title><slot name="first">User Default1</slot></code></pre></div><div class="v-two-column v-two-column-half"><pre><code :class="textType[1]"><u-code-title v-text="textComment[1]"></u-code-title><slot name="last">User Default2</slot></code></pre></div></div>`,
     // template:  `
     // 	<div class="v-two-wrapper">
-    // 		<div class="v-two-column">
+    // 		<div class="v-two-column v-two-column-half">
     // 			<pre><code :class="textType[0]">
     // 				<u-code-title v-text="textComment[0]"></u-code-title>
     // 				<slot name="first">User Default1</slot>
     // 			</code></pre>
     // 		</div>
-    // 		<div class="v-two-column">
+    // 		<div class="v-two-column v-two-column-half">
     // 			<pre><code :class="textType[1]">
     // 				<u-code-title v-text="textComment[1]"></u-code-title>
     // 				<slot name="last">User Default2</slot>
@@ -115,4 +113,8 @@ Vue.component('v-iframe', {
 Vue.component('v-code', {
 	props: ['lang', 'title'],
     template: `<pre><code :class="lang"><u-code-title v-text="title" /><slot></slot></code></pre>`
+})
+
+const app = new Vue({
+	el: '#content'
 })
