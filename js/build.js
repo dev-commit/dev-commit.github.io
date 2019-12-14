@@ -917,8 +917,10 @@ var arrCSS = [
     ['css', 'features', 'custom-selector',    emoji.fire+'@custom-selector'],
 
     [1, 'CSS Color Module'],
-    ['css', 'color-module', 'colors',         emoji.babuin+'Цветовые схемы'],
-    ['css', 'color-module', 'colors-func',    emoji.babuin+'Цветовые функции'],
+    ['css', 'color-module', 'colors',          emoji.panda+'Цветовые схемы'],
+    ['css', 'color-module', 'colors-func',     emoji.panda+'Цветовые функции'],
+    ['css', 'color-module', 'linear-gradient', setTheme(1, ['linear-gradient'])],
+    ['css', 'color-module', 'conic-gradient',  setTheme(1, ['conic-gradient'])],
 
     [1, 'Layout'],
     ['css', 'layout', 'info',                 emoji.theory+'Информация'],
@@ -950,7 +952,6 @@ var arrCSS = [
     ['css', 'main', 'background',             setTheme(1, ['background'])],
     ['css', 'main', 'lists',                  setTheme(1, ['ul', 'ol'])],
     ['css', 'main', 'calc',                   setTheme(1, ['calc()'])],
-    ['css', 'main', 'linear-gradient',        setTheme(1, ['linear-gradient'])],
     ['css', 'main', 'scrollbar',              setTheme(1, ['::-webkit-scrollbar'])],
 
     ['css', 'main', 'info',                   'Информация'],
