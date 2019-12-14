@@ -5,12 +5,9 @@
 - `link-page-wrapper` # Оформить навигацию по теме
 
 ### DELETE
-- container-flex
-- container-calc
 - var
 
-vue.js
-v-pre
+### VUE.JS v-pre
 - count
 - name
 - alias
