@@ -1,5 +1,3 @@
-const point = '<div class="circle-menu"></div> ';
-const code = '<u-menu-code>&lt;/&gt;</u-menu-code> ';
 
 const emoji = {
     theory:    '📑 ',
@@ -175,7 +173,7 @@ var arrRedux = [
     ['redux', 'main', 'info',                   'Информация'],
     ['redux', 'main', 'functional-programming', 'Принципы FP'],
     ['redux', 'main', 'methods',                'Методы'],
-    ['redux', 'main', 'structure',              code+'Структура'],
+    ['redux', 'main', 'structure',              emoji.code+'Структура'],
     ['redux', 'main', 'connect',                setTheme(1, ['Connect'])],
     ['redux', 'main', 'middleware',             setTheme(1, ['Middleware'])],
     ['redux', 'main', 'info-flux',              'Flux'],
@@ -195,9 +193,9 @@ var arrRedux = [
 //---------------------------------------------------------------------
 var arrReactRouter = [
     ['react-router', 'main', 'react-router',      setTheme(2, ['react-router', 'react-router-dom'])],
-    ['react-router', 'main', 'basic-routing',     point+'Basic Routing'],
-    ['react-router', 'main', 'style-active-link', point+'Style Active Link'],
-    ['react-router', 'main', 'url-parameters',    point+'URL Parameters'],
+    ['react-router', 'main', 'basic-routing',     emoji.cookie+'Basic Routing'],
+    ['react-router', 'main', 'style-active-link', emoji.cookie+'Style Active Link'],
+    ['react-router', 'main', 'url-parameters',    emoji.cookie+'URL Parameters'],
     ['react-router', 'main', 'page-404',          'Page 404'],
 ];
 
@@ -584,8 +582,8 @@ var arrVuejs = [
     [1, 'Информация'],
     ['vue-js', 'main',  'info',            'Информация'],
     ['vue-js', 'main',  'structure-files', 'Структура проекта'],
-    ['vue-js', 'main',  'structure-code',  code+'Пример кода vue-cli'],
-    ['vue-js', 'main',  'instance-vue',    code+'Экземпляр Vue'],
+    ['vue-js', 'main',  'structure-code',  emoji.code+'Пример кода vue-cli'],
+    ['vue-js', 'main',  'instance-vue',    emoji.code+'Экземпляр Vue'],
     ['vue-js', 'main',  'lifecycle-hooks', 'Хуки жизненного цикла'],
     ['theory', 'other', 'virtual-dom',     'Virtual DOM'],
 
@@ -652,14 +650,14 @@ var arrVuejs = [
     ['vue-js', 'vue-router', 'src-script',           'Подключение через &lt;script&gt;'],
     ['vue-js', 'vue-router', 'src-npm',              'Подключение через NPM'],
     ['vue-js', 'vue-router', 'server-configuration', 'Конфигурование сервера'],
-    ['vue-js', 'vue-router', 'path-static',          point+'Статический путь'],
-    ['vue-js', 'vue-router', 'path-dynamic',         point+'Динамический путь'],
-    ['vue-js', 'vue-router', 'path-comparison',      point+'Сопоставление путей'],
-    ['vue-js', 'vue-router', 'navigation',           point+'Программная навигация'],
-    ['vue-js', 'vue-router', 'passing-props',        point+'Входные параметры (props)'],
-    ['vue-js', 'vue-router', 'navigation-guards',    point+'Навигационные хуки'],
-    ['vue-js', 'vue-router', 'scroll-behavior',      point+'Поведение прокрутки страницы'],
-    ['vue-js', 'vue-router', 'lazy-loading',         point+'Леннивая загрузка маршрутов'],
+    ['vue-js', 'vue-router', 'path-static',          emoji.cookie+'Статический путь'],
+    ['vue-js', 'vue-router', 'path-dynamic',         emoji.cookie+'Динамический путь'],
+    ['vue-js', 'vue-router', 'path-comparison',      emoji.cookie+'Сопоставление путей'],
+    ['vue-js', 'vue-router', 'navigation',           emoji.cookie+'Программная навигация'],
+    ['vue-js', 'vue-router', 'passing-props',        emoji.cookie+'Входные параметры (props)'],
+    ['vue-js', 'vue-router', 'navigation-guards',    emoji.cookie+'Навигационные хуки'],
+    ['vue-js', 'vue-router', 'scroll-behavior',      emoji.cookie+'Поведение прокрутки страницы'],
+    ['vue-js', 'vue-router', 'lazy-loading',         emoji.cookie+'Леннивая загрузка маршрутов'],
     ['vue-js', 'vue-router', 'active-link',          'Стилизация активной ссылки'],
 
     [1, 'Vue CLI'],
@@ -789,8 +787,8 @@ var arrLinux = [
     [1, 'Ubuntu (Debian)'],
     ['linux', 'ubuntu', 'command', 'Команды'],
     ['linux', 'ubuntu', 'package', 'Пакеты'],
-    ['linux', 'ubuntu', 'nodejs',  point+'Node.js'],
-    ['linux', 'ubuntu', 'npm',     point+'Npm'],
+    ['linux', 'ubuntu', 'nodejs',  emoji.cookie+'Node.js'],
+    ['linux', 'ubuntu', 'npm',     emoji.cookie+'Npm'],
     ['linux', 'ubuntu', 'setting', 'Настройка'],
     ['linux', 'ubuntu', 'other',   'Прочее'],
 ];
