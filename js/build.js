@@ -871,16 +871,17 @@ var arrCanvas = [
 //---------------------------------------------------------------------
 var arrHTML = [
     [1, 'Основное'],
-    ['html', 'main', 'info',            'Информация'],
-    ['html', 'main', 'semantics',       'Семантика'],
+    ['html', 'main', 'info',            emoji.theory+'Информация'],
+    ['html', 'main', 'semantics',       emoji.theory+'Семантика'],
     ['html', 'main', 'content-model',   'Content Model'],
     ['html', 'main', 'custom-elements', 'Custom Elements'],
-    ['html', 'main', 'web-forms',       'Web Forms'],
-    ['html', 'main', 'element-link',    'Ссылки'],
-    ['html', 'main', 'element-media',   'Видео и аудио'],
-    ['html', 'main', 'yandex-map',      'Яндекс Карты'],
-    ['html', 'main', 'element-table',   'Таблицы'],
-    ['html', 'main', 'samples',         'Примеры'],
+
+    [1, 'Элементы'],
+    ['html', 'elements', 'img',     emoji.cookie+'Изображения'],
+    ['html', 'elements', 'form',    emoji.cookie+'Элементы формы'],
+    ['html', 'elements', 'link',    emoji.cookie+'Ссылки'],
+    ['html', 'elements', 'video',   emoji.cookie+'Видео и аудио'],
+    ['html', 'elements', 'table',   emoji.cookie+'Таблицы'],
 
     [1, 'Теги'],
     ['html', 'tags', 'fieldset',  setTheme(1, ['&lt;fieldset&gt;', '&lt;legend&gt;'])],
@@ -888,6 +889,14 @@ var arrHTML = [
     ['html', 'tags', 'iframe',    setTheme(1, ['&lt;iframe&gt;'])],
     ['html', 'tags', 'details',   setTheme(1, ['&lt;details&gt;', '&lt;summary&gt;'])],
     ['html', 'tags', 'datalist',  setTheme(1, ['&lt;datalist&gt;', '&lt;option&gt;'])],
+
+    [1, 'Атрибуты'],
+    ['html', 'attr', 'tabindex',    setTheme(1, ['tabindex'])],
+    ['html', 'attr', 'aria-label',  setTheme(1, ['aria-label'])],
+
+    [1, 'Прочее'],
+    ['html', 'other', 'yandex-map',  'Яндекс Карты'],
+    ['html', 'other', 'samples',     'Примеры'],
 ];
 
 //---------------------------------------------------------------------
@@ -908,7 +917,10 @@ var arrCSS = [
     ['css', 'features', 'custom-properties',  emoji.fire+'Custom Properties'],
     ['css', 'features', 'mixins',             emoji.fire+'@apply'],
     ['css', 'features', 'custom-selector',    emoji.fire+'@custom-selector'],
-    ['css', 'features', 'rrggbbaa',           emoji.fire+'RR-GG-BB-AA'],
+
+    [1, 'CSS Color Module'],
+    ['css', 'color-module', 'colors',         emoji.babuin+'Цвета'],
+    ['css', 'color-module', 'colors-func',    emoji.babuin+'Цветовые функции'],
 
     [1, 'Layout'],
     ['css', 'layout', 'info',                 emoji.theory+'Информация'],
