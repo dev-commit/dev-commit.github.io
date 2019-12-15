@@ -1055,6 +1055,7 @@ var arrCssGrid = [
 
     [1, 'Прочее'],
     ['css-grid', 'other', 'align-elements', 'Выравнивание элементов'],
+    ['css-grid', 'other', 'grid-auto-flow',  setTheme(1, ['grid-auto-flow'])],
 ];
 
 

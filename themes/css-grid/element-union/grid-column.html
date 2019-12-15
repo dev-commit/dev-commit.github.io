@@ -7,8 +7,8 @@
 <v-code lang="css" title="">
 .cards {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr; // 3 столбца (4 линии)
-	grid-template-rows: 200px 200px;    // 2 строки (3 линии)
+	grid-template-columns: 1fr 1fr 1fr; <u-code-comment># 3 столбца (4 линии)</u-code-comment>
+	grid-template-rows: 200px 200px;    <u-code-comment># 2 строки (3 линии)</u-code-comment>
 }
  _ _ _
 |_|_|_|
@@ -22,7 +22,7 @@
 // полная запись
 .card:nth-child(1) {
 	grid-column-start: 2;
-	grid-column-end: 4; // если написать -1 будет на всю ширину
+	grid-column-end: 4; <u-code-comment># если написать -1 будет на всю ширину</u-code-comment>
 	grid-row-start: 1;
 	grid-row-end: 3;
 }
@@ -59,9 +59,8 @@ grid-row: 1;
 
 <span>span - количество ячеек, которые нужно захватить</span>
 <v-code lang="css" title="">
-grid-column: 1 / span 2; от 1 до 3 линии (занять 2 ячейки)
-// аналогично
-grid-column: 1 / 3;      от 1 до 3 линии
+grid-column: 1 / span 2; <u-code-comment># от 1 до 3 линии (занять 2 ячейки)</u-code-comment>
+grid-column: 1 / 3;      <u-code-comment># от 1 до 3 линии (аналогично)</u-code-comment>
 </v-code>
 
 
@@ -98,7 +97,8 @@ grid-column: 1 / 3;      от 1 до 3 линии
 		"sidebar content"
 		"footer  footer";
 }
-// мы определили область content и автоматически появились линии content-start и content-end
+
+ <u-code-comment># определили область content и автоматически появились линии content-start и content-end</u-code-comment>
 .test {
 	z-index: 100;
 	background-color: blue;

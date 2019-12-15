@@ -2,20 +2,22 @@
 
 <v-code lang="css" title="">
 div {
-	background-image: url(img.png);                - путь к изображению
-	background-repeat: no-repeat;                  - повторение изображения
-	background-position: center center;            - позиционирование изображения (задние в px и %)
-	background-size: contain;                      - изображение полностью помещается в блок
-	background-size: cover;                        - изображение заполняет весь блок
-	background-size: 50%;                          - задание в %
-	background-color: #3b3b3b;                     - цвет фона
-	background-attachment: fixed;                  - будет ли прокручиваться фоновое изображение
-	background-origin: ...;
-	background-clip: ...;
+	background-image: url(img.png);      <u-code-comment># путь к изображению</u-code-comment>
+	background-repeat: no-repeat;        <u-code-comment># повторение изображения</u-code-comment>
+	background-position: center center;  <u-code-comment># позиционирование изображения (задние в px и %)</u-code-comment>
+	background-size: contain;            <u-code-comment># изображение полностью помещается в блок</u-code-comment>
+	background-size: cover;              <u-code-comment># изображение заполняет весь блок</u-code-comment>
+	background-size: 50%;                <u-code-comment># задание в %</u-code-comment>
+	background-color: #3b3b3b;           <u-code-comment># цвет фона</u-code-comment>
+	background-attachment: fixed;        <u-code-comment># будет ли прокручиваться фоновое изображение</u-code-comment>
+	background-origin: border-box;       <u-code-comment># устанавливает область расположения фона</u-code-comment>
+	background-clip: border-box;         <u-code-comment># определяет как цвет фона или фоновое изображение будут выводиться под границами блока</u-code-comment>
 }
 </v-code>
 
-Сокращенная запись
+<!------------------------------------------------------------->
+<h4>Сокращенная запись</h4>
+<!------------------------------------------------------------->
 <v-code lang="css" title="">
 div {
 	background: color url no-repeat center center / cover;
@@ -24,10 +26,15 @@ div {
 }
 </v-code>
 
-Задание нескольких фонов
+<!------------------------------------------------------------->
+<h4>Задание нескольких фонов</h4>
+<!------------------------------------------------------------->
 <v-code lang="css" title="">
 div {
 	background: url(img.png) no-repeat,
 		#fff url(img.png) no-repeat 100% 0;
 }
 </v-code>
+
+
+
