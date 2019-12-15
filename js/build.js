@@ -941,6 +941,10 @@ var arrCSS = [
     ['css', 'graphics', 'css-shapes',         emoji.donut+'CSS Shapes'],
     ['css', 'graphics', 'css-masking',        emoji.donut+'CSS Masking'],
 
+    [1, 'Особенности'],
+    ['css', 'special',  'collapse-margin',     emoji.panda+'Схлопывание внешних отступов'],
+    ['css', 'special',  'dropping-out-margin', emoji.panda+'Выпадение внешних отступов'],
+
     [1, 'Основное'],
     ['css', 'main', 'viewport',               setTheme(1, ['vw', 'vh', 'vmin', 'vmax'])],
     ['css', 'main', 'import',                 setTheme(1, ['@import'])],
