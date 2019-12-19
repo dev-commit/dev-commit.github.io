@@ -797,18 +797,21 @@ var arrLinux = [
 // JS-TASKS
 //---------------------------------------------------------------------
 var arrJsTasks = [
+    [1, 'Полифилы'],
+    ['js-task', 'polyphyls', 'object-create',  setTheme(1, ['Object.create'])],
+    ['js-task', 'polyphyls', 'bind',           setTheme(1, ['bind()'])],
+    ['js-task', 'polyphyls', 'new',            setTheme(1, ['new'])],
+    ['js-task', 'polyphyls', 'promise-all',    setTheme(1, ['Promise.all'])],
+
+    [1, 'Прототипы'],
+    ['js-task', 'prototype', 'prototype-inheritance',  'Прототипное наследование'],
+
     [1, 'Замыкания'],
     ['js-task', 'closures', 'sum-brackets', 'Сумма произвольного кол-ва скобок'],
 
     [1, 'Объекты'],
     ['js-task', 'objects', 'calling-function-as-object', 'Обращение к функции как к объекту'],
-    ['js-task', 'objects', 'prototype-inheritance',      'Прототипное наследование'],
     ['js-task', 'objects', 'copy-and-null',              'Копирование и null'],
-
-    [1, 'Полифилы'],
-    ['js-task', 'polyphyls', 'object-create',     'Object.create'],
-    ['js-task', 'polyphyls', 'object-create-jsr', 'Object.create (JSR)'],
-    ['js-task', 'polyphyls', 'bind',              'bind()'],
 
     [1, 'Массивы'],
     ['js-task', 'arrays', 'popup-and-array-value',         'Всплытие и значение массива'],
