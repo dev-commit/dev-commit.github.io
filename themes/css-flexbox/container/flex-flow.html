@@ -1,34 +1,41 @@
-<h2>flex-flow</h2>
+<h2>flex-flow: row nowrap</h2>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3 id="flex-flow"><span class="h3-bg">flex-flow</span> : row nowrap</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-рекомендуется использовать flex-flow, a не отдельные свойства (работает быстрее)
+<ul class="list-point">
+    <li>Рекомендуется использовать flex-flow, a не отдельные свойства (работает быстрее)</li>
+</ul>
 
 <div class="container-margin">
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3 id="flex-direction"><span class="h3-bg">flex-direction</span> : row</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-задаёт направление основных осей в контейнере
-<img src="/img/css-flexbox/flex-direction.jpg" height="135">
 
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<h2>flex-direction: row</h2>
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<ul class="list-point">
+    <li>Задаёт направление основных осей в контейнере</li>
+</ul>
+
+<img src="/img/css-flexbox/flex-direction.jpg" height="135">
 <v-code lang="css" title="">
-row              - расположение блоков по горизонтали (по умолчанию)
-row-reverse      - расположение блоков по горизонтали (реверсионно)
-column           - расположение блоков по вертикали
-column-reverse   - расположение блоков по вертикали (реверсионно)
+.flex-container {
+	flex-direction: row;              <u-code-comment># расположение блоков по горизонтали (по умолчанию)</u-code-comment>
+	flex-direction: row-reverse;      <u-code-comment># расположение блоков по горизонтали (реверсионно)</u-code-comment>
+	flex-direction: column;           <u-code-comment># расположение блоков по вертикали</u-code-comment>
+	flex-direction: column-reverse;   <u-code-comment># расположение блоков по вертикали (реверсионно)</u-code-comment>
+}
 </v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3 id="flex-wrap"><span class="h3-bg">flex-wrap</span> : nowrap</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-задает перенос флексов
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<h2>flex-wrap: nowrap</h2>
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<ul class="list-point">
+    <li>Задает перенос флексов</li>
+</ul>
 <img src="/img/css-flexbox/flex-wrap.jpg" height="135">
 
 <v-code lang="css" title="">
-nowrap           - флексы выстраиваются в одну линию
-wrap             - флексы выстраиваются в несколько строк
-wrap-reverse     - флексы выстраиваются в несколько строк реверсивно
+.flex-container {
+	flex-wrap: nowrap;           <u-code-comment># флексы выстраиваются в одну линию</u-code-comment>
+	flex-wrap: wrap;             <u-code-comment># флексы выстраиваются в несколько строк</u-code-comment>
+	flex-wrap: wrap-reverse;     <u-code-comment># флексы выстраиваются в несколько строк реверсивно</u-code-comment>
+}
 </v-code>
 </div>
-

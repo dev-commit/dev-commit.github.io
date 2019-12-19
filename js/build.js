@@ -1036,7 +1036,7 @@ var arrCssFlexbox = [
     ['css-flexbox', 'element', 'align-self',  setTheme(1, ['align-self'])],
 
     [1, 'Прочее'],
-    ['css-flexbox', 'other', 'margin',  'Margin'],
+    ['css-flexbox', 'other', 'margin',  'Поведение margin'],
     ['css-flexbox', 'other', 'samples', 'Примеры'],
 ];
 
