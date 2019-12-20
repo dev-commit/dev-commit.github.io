@@ -1,6 +1,24 @@
 <h2>Полифил new</h2>
 
 <v-code lang="js" title="">
+function Person(name) {
+	this.name = name;
+}
+function Foo(Constructor, ...props) {
+	const instance = Object.create(Constructor.prototype);
+	Constructor.apply(instance, props);
+	return instance;
+}
+
+const foo = Foo(Person, 'Tony');
+console.log(foo);
+</v-code>
+
+
+<hr>
+
+
+<v-code lang="js" title="">
 'use strict';
 
 function Foo(name) {
@@ -22,19 +40,3 @@ foo.getName();
 // => Foo { name: "MyName", __proto__: Object }
 // => MyName
 </v-code>
-
-<v-code lang="js red" tithistle="Не работает">
-function Person(name) {
-	this.name = name;
-}
-
-function newOp(Con, ...props) {
-	const instance = Object.create(Con.ptototype);
-	Con.apply(instance, props);
-	return instance;
-}
-
-const foo = newOp(Person, 'Max');
-console.log(foo);
-</v-code>
-
