@@ -803,7 +803,7 @@ var arrJsTasks = [
     ['js-task', 'polyphyls', 'new',            setTheme(1, ['new'])],
     ['js-task', 'polyphyls', 'promise-all',    setTheme(1, ['Promise.all'])],
 
-    [1, 'Функциональное программирование'],
+    [1, 'ФП'],
     ['js-task', 'functional', 'compose',  setTheme(1, ['compose'])],
 
     [1, 'Прототипы'],
