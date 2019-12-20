@@ -1,0 +1,34 @@
+<h2>compose</h2>
+
+<ul class="list-point">
+	<b>Задание:</b>
+    <li>Написать функцию compose, add, mul</li>
+    <li>add и mul - каррированные функции (только на 2 вызова)</li>
+    <li>Функция compose принимает неограниченное кол-во функций и применяет эти функции в обратном порядке</li>
+</ul>
+
+<v-code lang="js" title="Дано">
+const composed = compose(mul(2), add(5), add(2));
+console.log(composed(3)); // 20 
+console.log([1, 2, 6].map(composed)); // [16, 18, 26]
+</v-code>
+
+<v-code lang="js" title="Решение">
+function compose(...rest) {  
+	return function(count) {
+		return rest.reduceRight((prevValue, currentValue) => {
+			return currentValue(prevValue);
+		}, count);
+	}
+}
+function add(count1) {
+	return function(count2) {
+		return count1 + count2;
+	}
+}
+function mul(count1) {
+	return function(count2) {
+		return count1 * count2;
+	}
+}
+</v-code>
