@@ -22,3 +22,19 @@ foo.getName();
 // => Foo { name: "MyName", __proto__: Object }
 // => MyName
 </v-code>
+
+<v-code lang="js red" tithistle="Не работает">
+function Person(name) {
+	this.name = name;
+}
+
+function newOp(Con, ...props) {
+	const instance = Object.create(Con.ptototype);
+	Con.apply(instance, props);
+	return instance;
+}
+
+const foo = newOp(Person, 'Max');
+console.log(foo);
+</v-code>
+
