@@ -13,30 +13,3 @@ function Foo(Constructor, ...props) {
 const foo = Foo(Person, 'Tony');
 console.log(foo);
 </v-code>
-
-
-<hr>
-
-
-<v-code lang="js" title="">
-'use strict';
-
-function Foo(name) {
-	const instance = Object.create(Foo.prototype);
-	instance.name = name;
-	return instance;
-}
-
-const foo = Foo('MyName');
-console.log(foo);
-
-// при добавлении метода в Foo он доступен в foo
-Foo.prototype.getName = function() {
-	console.log('getName', this.name);
-}
-
-foo.getName();
-
-// => Foo { name: "MyName", __proto__: Object }
-// => MyName
-</v-code>
