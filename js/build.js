@@ -760,21 +760,41 @@ var arrTheory = [
     ['theory', 'other', 'specification-stage',  'Стадии спецификации'],
 ];
 
+
 //---------------------------------------------------------------------
-// OTHER
+// DESIGN PATTERNS
 //---------------------------------------------------------------------
 var arrDesignPatterns = [
-    [1, 'Паттерны проектирования'],
-    ['design-patterns', 'main', 'info',             'Паттерны проектирования'],
-    ['design-patterns', 'main', 'singleton',        emoji.cookie+setTheme(1, ['Порожд'])+' «Синглтон»'],
-    ['design-patterns', 'main', 'builder',          emoji.cookie+setTheme(1, ['Порожд'])+' «Строитель»'],
-    ['design-patterns', 'main', 'simple-factory',   emoji.cookie+setTheme(1, ['Порожд'])+' «Простая фабрика»'],
-    ['design-patterns', 'main', 'decorator',        emoji.donut+setTheme(1, ['Структурн'])+' «Декоратор»'],
-    ['design-patterns', 'main', 'facade',           emoji.donut+setTheme(1, ['Структурн'])+' «Фасад»'],
-    ['design-patterns', 'main', 'observer',         emoji.pizza+setTheme(1, ['Поведен'])+' «Наблюдатель»'],
-    ['design-patterns', 'main', 'module',           setTheme(1, ['Неизвестно'])+' «Модуль»'],
-    ['design-patterns', 'main', 'module-revealing', setTheme(1, ['Неизвестно'])+' «Открытый модуль»'],
+    [1, 'Основное'],
+    ['design-patterns', 'main',                 'info',             emoji.theory+'Информация'],
+
+    [1, '1. Порождающие'],
+    ['design-patterns', 'patterns-generating', 'singleton',         emoji.pizza+setTheme(4, ['«Синглтон»'])],
+    ['design-patterns', 'patterns-generating', 'builder',           emoji.pizza+setTheme(4, ['«Строитель»'])],
+    ['design-patterns', 'patterns-generating', 'simple-factory',    emoji.pizza+setTheme(4, ['«Простая фабрика»'])],
+
+    [1, '2. Структурные'],
+    ['design-patterns', 'patterns-structural', 'decorator',         emoji.pizza+setTheme(4, ['«Декоратор»'])],
+    ['design-patterns', 'patterns-structural', 'facade',            emoji.pizza+setTheme(4, ['«Фасад»'])],
+
+    [1, '3. Поведенческие'],
+    ['design-patterns', 'patterns-behavioral', 'observer',          emoji.pizza+setTheme(4, ['«Наблюдатель»'])],
+
+    [1, '4. Неизвестно'],
+    ['design-patterns', 'patterns-other',      'module',            emoji.pizza+setTheme(4, ['«Модуль»'])],
+    ['design-patterns', 'patterns-other',      'module-revealing',  emoji.pizza+setTheme(4, ['«Открытый модуль»'])],
+
+    [1, 'Функции'],
+    ['design-patterns', 'functions',  'compose',   setTheme(1, ['compose'])],
+
+    [1, 'Декораторы'],
+    ['design-patterns', 'decorators', 'debounce',  setTheme(1, ['debounce()'])],
+    ['design-patterns', 'decorators', 'once',      setTheme(1, ['once()'])],
+    ['design-patterns', 'decorators', 'after',     setTheme(1, ['after()'])],
+    ['design-patterns', 'decorators', 'throttle',  setTheme(1, ['throttle()'])],
+    ['design-patterns', 'decorators', 'partial',   setTheme(1, ['partial()'])],
 ];
+
 
 //---------------------------------------------------------------------
 // OTHER
@@ -811,9 +831,6 @@ var arrJsTasks = [
     ['js-task', 'polyphyls', 'bind',           setTheme(1, ['bind()'])],
     ['js-task', 'polyphyls', 'new',            setTheme(1, ['new'])],
     ['js-task', 'polyphyls', 'promise-all',    setTheme(1, ['Promise.all'])],
-
-    [1, 'ФП'],
-    ['js-task', 'functional', 'compose',  setTheme(1, ['compose'])],
 
     [1, 'Прототипы'],
     ['js-task', 'prototype', 'prototype-inheritance',  'Прототипное наследование'],
