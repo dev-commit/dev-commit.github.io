@@ -766,33 +766,33 @@ var arrTheory = [
 //---------------------------------------------------------------------
 var arrDesignPatterns = [
     [1, 'Основное'],
-    ['design-patterns', 'main',                 'info',             emoji.theory+'Информация'],
+    ['theory-patterns', 'main',                 'info',             emoji.theory+'Информация'],
 
     [1, '1. Порождающие'],
-    ['design-patterns', 'patterns-generating', 'singleton',         emoji.pizza+setTheme(4, ['«Синглтон»'])],
-    ['design-patterns', 'patterns-generating', 'builder',           emoji.pizza+setTheme(4, ['«Строитель»'])],
-    ['design-patterns', 'patterns-generating', 'simple-factory',    emoji.pizza+setTheme(4, ['«Простая фабрика»'])],
+    ['theory-patterns', 'patterns-generating', 'singleton',         emoji.pizza+setTheme(4, ['«Синглтон»'])],
+    ['theory-patterns', 'patterns-generating', 'builder',           emoji.pizza+setTheme(4, ['«Строитель»'])],
+    ['theory-patterns', 'patterns-generating', 'simple-factory',    emoji.pizza+setTheme(4, ['«Простая фабрика»'])],
 
     [1, '2. Структурные'],
-    ['design-patterns', 'patterns-structural', 'decorator',         emoji.pizza+setTheme(4, ['«Декоратор»'])],
-    ['design-patterns', 'patterns-structural', 'facade',            emoji.pizza+setTheme(4, ['«Фасад»'])],
+    ['theory-patterns', 'patterns-structural', 'decorator',         emoji.pizza+setTheme(4, ['«Декоратор»'])],
+    ['theory-patterns', 'patterns-structural', 'facade',            emoji.pizza+setTheme(4, ['«Фасад»'])],
 
     [1, '3. Поведенческие'],
-    ['design-patterns', 'patterns-behavioral', 'observer',          emoji.pizza+setTheme(4, ['«Наблюдатель»'])],
+    ['theory-patterns', 'patterns-behavioral', 'observer',          emoji.pizza+setTheme(4, ['«Наблюдатель»'])],
 
     [1, '4. Неизвестно'],
-    ['design-patterns', 'patterns-other',      'module',            emoji.pizza+setTheme(4, ['«Модуль»'])],
-    ['design-patterns', 'patterns-other',      'module-revealing',  emoji.pizza+setTheme(4, ['«Открытый модуль»'])],
+    ['theory-patterns', 'patterns-other',      'module',            emoji.pizza+setTheme(4, ['«Модуль»'])],
+    ['theory-patterns', 'patterns-other',      'module-revealing',  emoji.pizza+setTheme(4, ['«Открытый модуль»'])],
 
     [1, 'Функции'],
-    ['design-patterns', 'functions',  'compose',   setTheme(1, ['compose'])],
+    ['theory-patterns', 'functions',  'compose',   setTheme(1, ['compose'])],
 
     [1, 'Декораторы'],
-    ['design-patterns', 'decorators', 'debounce',  setTheme(1, ['debounce()'])],
-    ['design-patterns', 'decorators', 'once',      setTheme(1, ['once()'])],
-    ['design-patterns', 'decorators', 'after',     setTheme(1, ['after()'])],
-    ['design-patterns', 'decorators', 'throttle',  setTheme(1, ['throttle()'])],
-    ['design-patterns', 'decorators', 'partial',   setTheme(1, ['partial()'])],
+    ['theory-patterns', 'decorators', 'debounce',  setTheme(1, ['debounce()'])],
+    ['theory-patterns', 'decorators', 'once',      setTheme(1, ['once()'])],
+    ['theory-patterns', 'decorators', 'after',     setTheme(1, ['after()'])],
+    ['theory-patterns', 'decorators', 'throttle',  setTheme(1, ['throttle()'])],
+    ['theory-patterns', 'decorators', 'partial',   setTheme(1, ['partial()'])],
 ];
 
 
@@ -1226,6 +1226,9 @@ var page = window.location.pathname.split('/');
 var pageName = page[page.length-1];
 
 switch(pageName) {
+    case 'theory.html':            var arrCurrent = arrTheory;          break;
+    case 'theory-patterns.html':   var arrCurrent = arrDesignPatterns;  break;
+
     case 'js.html':                var arrCurrent = arrJavaScript;      break;
     case 'js-objects.html':        var arrCurrent = arrJsObjects;       break;
     case 'js-function.html':       var arrCurrent = arrJsFunction;      break;
@@ -1233,16 +1236,17 @@ switch(pageName) {
     case 'js-web-api.html':        var arrCurrent = arrJsWebApi;        break;
     case 'js-web-components.html': var arrCurrent = arrJsWebComponents; break;
     case 'js-client-server.html':  var arrCurrent = arrJsClientServer;  break;
+
     case 'react-js.html':          var arrCurrent = arrReactjs;         break;
-    case 'redux.html':             var arrCurrent = arrRedux;           break;
     case 'react-hooks.html':       var arrCurrent = arrReactHooks;      break;
     case 'react-router.html':      var arrCurrent = arrReactRouter;     break;
+    case 'redux.html':             var arrCurrent = arrRedux;           break;
+    case 'vue-js.html':            var arrCurrent = arrVuejs;           break;
+
     case 'material-ui.html':       var arrCurrent = arrMaterialUI;      break;
     case 'testing.html':           var arrCurrent = arrTesting;         break;
-    case 'vue-js.html':            var arrCurrent = arrVuejs;           break;
     case 'webpack.html':           var arrCurrent = arrWebpack;         break;
     case 'npm.html':               var arrCurrent = arrNpm;             break;
-    case 'theory.html':            var arrCurrent = arrTheory;          break;
     case 'git.html':               var arrCurrent = arrGit;             break;
     case 'linux.html':             var arrCurrent = arrLinux;           break;
     case 'other.html':             var arrCurrent = arrOther;           break;
@@ -1264,7 +1268,6 @@ switch(pageName) {
     case 'mysql.html':             var arrCurrent = arrMySql;           break;
     case 'ramda.html':             var arrCurrent = arrRamda;           break;
     case 'typescript.html':        var arrCurrent = arrTypescript;      break;
-    case 'design-patterns.html':   var arrCurrent = arrDesignPatterns;  break;
     default:                       var arrCurrent = [];
 }
 
