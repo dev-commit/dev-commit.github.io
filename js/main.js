@@ -10,10 +10,9 @@ var menu =
 
     splitter+
     '<a href="/pages/theory-patterns.html"   class="menu menu-other">⚡️ Паттерны</a>'+
-    '<a href="/pages/testing.html"           class="menu menu-other">⚡️ Тестирование</a>'+
-
     '<a href="/pages/theory-paradigms.html"  class="menu menu-other">⚡️ Парадигмы</a>'+
     '<a href="/pages/theory-algoritms.html"  class="menu menu-other">⚡️ Алгоритмы</a>'+
+    '<a href="/pages/testing.html"           class="menu menu-other">⚡️ Тестирование</a>'+
 
     splitter+
     '<a href="/pages/js.html"                class="menu menu-js">JavaScript</a>'+

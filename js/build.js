@@ -692,33 +692,6 @@ var arrVuejs = [
 // THEORY
 //---------------------------------------------------------------------
 var arrTheory = [
-    [1, 'JavaScript'],
-    ['theory', 'javascript', 'site-load',            'Загрузка сайта'],
-    ['theory', 'javascript', 'webkit',               'Браузерные движки'],
-    ['theory', 'javascript', 'garbage-collection',   'Сборщик мусора'],
-    ['theory', 'javascript', 'dictionary',           'Словарь'],
-    ['theory', 'javascript', 'polyfill',             'Полифиллы'],
-
-    [1, 'Верстка'],
-    ['theory', 'html', 'critical-rendering-path', 'Critical Rendering Path'],
-
-    [1, 'Парадигмы программирования'],
-    ['theory', 'programming-paradigms', 'info',           'Парадигмы'],
-    ['theory', 'programming-paradigms', 'imperative',     '1. Императивное'],
-    ['theory', 'programming-paradigms', 'declarative',    '2. Декларативное'],
-    ['theory', 'programming-paradigms', 'functional',     '3. Функциональное'],
-    ['theory', 'programming-paradigms', 'oop',            '4. Объектно-ориентированное'],
-    ['theory', 'programming-paradigms', 'composition',    'Композиция'],
-    ['theory', 'programming-paradigms', 'currying',       'Каррирование / Частичное применение функций'],
-    ['theory', 'programming-paradigms', 'ddd',            'DDD'],
-    ['theory', 'programming-paradigms', 'cqrs',           'CQRS'],
-    ['theory', 'programming-paradigms', 'event-sourcing', 'Event Sourcing'],
-
-    [1, 'Алгоритмы и структуры данных'],
-    ['theory', 'algorithms', 'big-o-notation',  'Big-O Notation (сложность алгоритмов)'],
-    ['theory', 'algorithms', 'structure-data',  'Структуры данных'],
-    ['theory', 'algorithms', 'algoritms-sort',  'Алгоритмы сотрировки'],
-
     [1, 'Принципы программирования'],
     ['theory', 'programming-principles', 'solid',         'SOLID'],
     ['theory', 'programming-principles', 'dry',           'DRY'],
@@ -734,11 +707,23 @@ var arrTheory = [
     ['theory', 'deployment', 'continuous-deployment',  '3. Continuous Deployment'],
     ['theory', 'deployment', 'software-deployment',    'Software Deployment'],
 
+    [1, 'Верстка'],
+    ['theory', 'html', 'critical-rendering-path', 'Critical Rendering Path'],
+
     [1, 'Методологии разработки'],
     ['theory', 'development-methodologies', 'info',       'Методологии разработки'],
     ['theory', 'development-methodologies', 'waterfall',  'Waterfall'],
     ['theory', 'development-methodologies', 'agile',      'Agile / Scrum / Kanban'],
     ['theory', 'development-methodologies', 'estimation', 'Эстимация'],
+
+    //---------------------------------------------------------------------
+
+    [1, 'JavaScript'],
+    ['theory', 'javascript', 'site-load',            'Загрузка сайта'],
+    ['theory', 'javascript', 'webkit',               'Браузерные движки'],
+    ['theory', 'javascript', 'garbage-collection',   'Сборщик мусора'],
+    ['theory', 'javascript', 'dictionary',           'Словарь'],
+    ['theory', 'javascript', 'polyfill',             'Полифиллы'],
 
     [1, 'Шаблон проектирования архитектуры приложения'],
     ['theory', 'application-architecture', 'info', 'Шаблоны проектирования'],
@@ -758,6 +743,39 @@ var arrTheory = [
     ['theory', 'other', 'name-case',            'Соглашение по именованию'],
     ['theory', 'other', 'prefix',               'Префиксы'],
     ['theory', 'other', 'specification-stage',  'Стадии спецификации'],
+];
+
+
+//---------------------------------------------------------------------
+// PARADIGMS
+//---------------------------------------------------------------------
+var arrParadigms = [
+    [1, 'ФП'],
+    ['theory-paradigms', 'fp', 'functional',     'ФП'],
+    ['theory-paradigms', 'fp', 'currying',       'Каррирование / Частичное применение функций'],
+
+    [1, 'ООП'],
+    ['theory-paradigms', 'oop', 'oop',            'ООП'],
+
+    [1, 'Основное'],
+    ['theory-paradigms', 'main', 'info',           'Парадигмы'],
+    ['theory-paradigms', 'main', 'imperative',     '1. Императивное'],
+    ['theory-paradigms', 'main', 'declarative',    '2. Декларативное'],
+    ['theory-paradigms', 'main', 'ddd',            'DDD'],
+    ['theory-paradigms', 'main', 'cqrs',           'CQRS'],
+    ['theory-paradigms', 'main', 'event-sourcing', 'Event Sourcing'],
+    ['theory-paradigms', 'main', 'composition',    'Композиция'],
+];
+
+
+//---------------------------------------------------------------------
+// ALGORITMS
+//---------------------------------------------------------------------
+var arrAlgoritms = [
+    [1, 'Основное'],
+    ['theory-algoritms', 'main', 'big-o-notation',  'Big-O Notation (сложность алгоритмов)'],
+    ['theory-algoritms', 'main', 'structure-data',  'Структуры данных'],
+    ['theory-algoritms', 'main', 'algoritms-sort',  'Алгоритмы сотрировки'],
 ];
 
 
@@ -1228,6 +1246,8 @@ var pageName = page[page.length-1];
 switch(pageName) {
     case 'theory.html':            var arrCurrent = arrTheory;          break;
     case 'theory-patterns.html':   var arrCurrent = arrDesignPatterns;  break;
+    case 'theory-paradigms.html':   var arrCurrent = arrParadigms;      break;
+    case 'theory-algoritms.html':   var arrCurrent = arrAlgoritms;      break;
 
     case 'js.html':                var arrCurrent = arrJavaScript;      break;
     case 'js-objects.html':        var arrCurrent = arrJsObjects;       break;
