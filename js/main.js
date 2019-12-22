@@ -3,10 +3,10 @@ hljs.initHighlightingOnLoad();
 
 var menu = 
     '<a href="/pages/assessment.html"       class="menu menu-other">Ассессмент</a>'+
-    '<a href="/pages/js-tasks.html"         class="menu menu-other">Задачи</a>'+
+    '<a href="/pages/js-tasks.html"         class="menu menu-other">🍕 Задачи</a>'+
+    '<a href="/pages/design-patterns.html"  class="menu menu-other">⚡️ Паттерны</a>'+
+    '<a href="/pages/testing.html"          class="menu menu-other">⚡️ Тестирование</a>'+
     '<a href="/pages/theory.html"           class="menu menu-other">Теория</a>'+
-    '<a href="/pages/testing.html"          class="menu menu-other">Тестирование</a>'+
-    '<a href="/pages/design-patterns.html"  class="menu menu-other">Паттерны проектирования</a>'+
 
     '<div style="width: 100%; flex-shrink: 0"></div>'+
     '<a href="/pages/js.html"                class="menu menu-js">JavaScript</a>'+
