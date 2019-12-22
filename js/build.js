@@ -751,11 +751,13 @@ var arrTheory = [
 //---------------------------------------------------------------------
 var arrParadigms = [
     [1, 'ФП'],
-    ['theory-paradigms', 'fp', 'functional',     'ФП'],
+    ['theory-paradigms', 'fp', 'functional',     'Информация'],
+    ['theory-paradigms', 'fp', 'concept',        'Концепции'],
     ['theory-paradigms', 'fp', 'currying',       'Каррирование / Частичное применение функций'],
 
     [1, 'ООП'],
-    ['theory-paradigms', 'oop', 'oop',            'ООП'],
+    ['theory-paradigms', 'oop', 'principles',       'Принципы'],
+    ['theory-paradigms', 'oop', 'access-modifiers', 'Модификаторы доступа'],
 
     [1, 'Основное'],
     ['theory-paradigms', 'main', 'info',           'Парадигмы'],

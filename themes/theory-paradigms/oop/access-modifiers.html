@@ -1,0 +1,31 @@
+<h2>Модификаторы доступа (Методы классов)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Модификаторы доступа (access modifiers)</u-text-define> - способ ограничения доступа к методам, классам, переменным</li>
+</ul>
+
+<ul class="list-point">
+    <li><u-code-list>private</u-code-list> - Видны внутри класса. Запрещает доступ из подкласса. Методы не наследуются</li>
+    <li><u-code-list>protected</u-code-list> - Видны внутри класса, пакета и наследников. Методы наследуются. Нельзя вызвать вне класса</li>
+    <li><u-code-list>static</u-code-list>    - Не имеет доступ к instance класса (this нельзя получить). Н-р, Math статический класс, в котором содержится набор статических методов. Не создаем instance через new, но можем пользоваться методами</li>
+    <li><u-code-list>package</u-code-list> - Видны только из текущего пакета</li>
+    <li><u-code-list>public</u-code-list> - Видны из всего приложения. Можно обратиться к this</li>
+</ul>
+
+<ul class="list-point">
+    <b>JavaScript</b>
+    <li><u-text-underline>Приватные (private)</u-text-underline> - let prop локальные переменные/методы, включая параметры конструктора. доступн только внутри класса</li>
+    <li><u-text-underline>Публичные (public)</u-text-underline> - this.prop свойства/методы, записанные в this класса</li>
+    <li><u-text-underline>Защищённые (protected)</u-text-underline> - this._prop начинаются с подчеркивания. доступны внутри класса и для его потомков</li>
+</ul>
+
+<v-code lang="js" title="">
+public class Car {
+    <u-code>public</u-code> void startMoving() {
+        turnKey();
+        startEngine();
+    }
+    <u-code>private</u-code> void turnKey() {...}
+    <u-code>private</u-code> void startEngine() {...}
+}
+</v-code>
