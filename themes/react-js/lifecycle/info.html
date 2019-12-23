@@ -10,3 +10,23 @@
     <li><u-text-define>Lifecycle Methods</u-text-define> - Методы жизненного цикла</li>
     <li><u-text-define>Lifecycle Hooks</u-text-define> - Функции, вызываемые на каждом этапе жизненного цикла</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Server Side Rendering</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>У React 2 рендеринга: клиентский и серверный</li>
+</ul>
+
+<ul class="list-point">
+    <li>Метод <u>render()</u> был заменен на <u>hydrate()</u></li>
+</ul>
+
+<v-code lang="js" title="">
+hydrate(&lt;App/&gt;, document.getElementById("root"));
+</v-code>
+
+<ul class="list-point">
+    <li><u>componentDidMount()</u> не используется</li>
+    <li class="red">При <u>SSR</u> не нужно обновление компонента</li>
+</ul>

@@ -98,6 +98,7 @@ var arrReactjs = [
     ['react-js', 'memoization', 'react-pure-component',               setTheme(1, ['React.PureComponent'])],
     ['react-js', 'components',  'state',                              setTheme(1, ['state', 'setState'])],
     ['react-js', 'components',  'props',                              setTheme(1, ['props'])],
+    ['react-js', 'components',  'force-update',                       setTheme(1, ['forceUpdate'])],
 
     [1, 'API'],
     ['react-js', 'api',  'children',                                  emoji.boom+'Children'],
