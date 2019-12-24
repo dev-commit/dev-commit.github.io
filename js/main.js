@@ -15,10 +15,10 @@ var menu =
     '<a href="/pages/testing.html"           class="menu menu-other">⚡️ Тестирование</a>'+
 
     splitter+
-    '<a href="/pages/js.html"                class="menu menu-js">JavaScript</a>'+
-    '<a href="/pages/js-objects.html"        class="menu menu-js">Объекты</a>'+
+    '<a href="/pages/js.html"                class="menu menu-js">⚾️ JavaScript</a>'+
+    '<a href="/pages/js-objects.html"        class="menu menu-js">⚾️ Прототипы</a>'+
+    '<a href="/pages/js-async.html"          class="menu menu-js">⚾️ Асинхронность</a>'+
     '<a href="/pages/js-function.html"       class="menu menu-js">Функции</a>'+
-    '<a href="/pages/js-async.html"          class="menu menu-js">Асинхронность</a>'+
     '<a href="/pages/js-client-server.html"  class="menu menu-js">Клиент-сервер</a>'+
     '<a href="/pages/js-web-api.html"        class="menu menu-js">Web API</a>'+
 
@@ -27,10 +27,11 @@ var menu =
     '<a href="/pages/canvas.html"            class="menu menu-js">Canvas</a>'+
 
     splitter+
-    '<a href="/pages/react-js.html"       class="menu menu-fw">React.js</a>'+
+    '<a href="/pages/react-js.html"       class="menu menu-fw">💥 React.js</a>'+
+    '<a href="/pages/react-api.html"      class="menu menu-fw">💥 React API</a>'+
+    '<a href="/pages/react-hooks.html"    class="menu menu-fw">💥 React Hooks</a>'+
     '<a href="/pages/redux.html"          class="menu menu-fw">Redux</a>'+
     '<a href="/pages/react-router.html"   class="menu menu-fw">React Router</a>'+
-    '<a href="/pages/react-hooks.html"    class="menu menu-fw">React Hooks</a>'+
     '<a href="/pages/vue-js.html"         class="menu menu-fw">Vue.js</a>'+
 
     splitter+

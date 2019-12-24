@@ -13,6 +13,7 @@ const emoji = {
     donut:     '🍩 ',
     pizza:     '🍕 ',
     clover:    '🍀 ',
+    baseball:  '⚾️ ',
 }
 
 function setTheme(tag, arr) {
@@ -93,12 +94,8 @@ var arrReactjs = [
     [1, 'Компоненты'],
     ['react-js', 'components',  'info',                               emoji.panda+'Компоненты'],
     ['react-js', 'components',  'jsx',                                emoji.panda+'JSX'],
-    ['react-js', 'components',  'react-dom-create-element',           setTheme(1, ['ReactDOM.createElement'])],
-    ['react-js', 'components',  'react-component',                    setTheme(1, ['React.Component'])],
-    ['react-js', 'memoization', 'react-pure-component',               setTheme(1, ['React.PureComponent'])],
     ['react-js', 'components',  'state',                              setTheme(1, ['state', 'setState'])],
     ['react-js', 'components',  'props',                              setTheme(1, ['props'])],
-    ['react-js', 'components',  'force-update',                       setTheme(1, ['forceUpdate'])],
 
     [1, 'API'],
     ['react-js', 'api',  'children',                                  emoji.boom+'Children'],
@@ -143,17 +140,31 @@ var arrReactjs = [
     ['react-js', 'react-plugins', 'prop-types',            setTheme(2, ['prop-types'])],
     ['react-js', 'react-plugins', 'formik',                setTheme(2, ['formik'])],
 
-    [1, 'Мемоизация'],
-    ['react-js', 'memoization', 'info',                    'Информация'],
-    ['react-js', 'memoization', 'react-pure-component',    setTheme(1, ['React.PureComponent'])],
-    ['react-js', 'memoization', 'react-memo',              setTheme(1, ['React.memo'])],
-
-    [1, 'Прочее'],
-    ['react-js', 'other',  'dangerously-set-inner-html',   setTheme(1, ['dangerouslySetInnerHTML'])],
-
     [1, 'Тестирование'],
     ['react-js', 'testing', 'react-developer-tools',       'React Developer Tools'],
     ['react-js', 'testing', 'redux-developer-tools',       'Redux DevTools'],
+];
+
+
+//---------------------------------------------------------------------
+// REACT API
+//---------------------------------------------------------------------
+var arrReactApi = [
+    [1, 'React'],
+    ['react-api', 'react',  'component',                    emoji.pizza+setTheme(4, ['React.Component'])],   
+    ['react-api', 'react',  'create-element',               emoji.pizza+setTheme(4, ['React.createElement()'])],
+    ['react-api', 'react',  'clone-element',                emoji.pizza+setTheme(4, ['React.cloneElement()'])],
+    ['react-api', 'react',  'create-factory',               emoji.pizza+setTheme(4, ['React.createFactory'])],
+    ['react-api', 'react',  'is-valid-element',             emoji.pizza+setTheme(4, ['React.isValidElement()'])],
+
+    [1, 'Мемоизация'],
+    ['react-api', 'memoization', 'info',                    'Информация'],
+    ['react-api', 'memoization', 'react-pure-component',    emoji.pizza+setTheme(4, ['React.PureComponent'])],
+    ['react-api', 'memoization', 'react-memo',              emoji.pizza+setTheme(4, ['React.memo'])],
+
+    [1, 'Прочее'],
+    ['react-api', 'other',  'force-update',                 emoji.pizza+setTheme(4, ['component.forceUpdate()'])],
+    ['react-api', 'other',  'dangerously-set-inner-html',   emoji.pizza+setTheme(4, ['dangerouslySetInnerHTML'])],
 ];
 
 
@@ -1249,8 +1260,8 @@ var pageName = page[page.length-1];
 switch(pageName) {
     case 'theory.html':            var arrCurrent = arrTheory;          break;
     case 'theory-patterns.html':   var arrCurrent = arrDesignPatterns;  break;
-    case 'theory-paradigms.html':   var arrCurrent = arrParadigms;      break;
-    case 'theory-algoritms.html':   var arrCurrent = arrAlgoritms;      break;
+    case 'theory-paradigms.html':  var arrCurrent = arrParadigms;      break;
+    case 'theory-algoritms.html':  var arrCurrent = arrAlgoritms;      break;
 
     case 'js.html':                var arrCurrent = arrJavaScript;      break;
     case 'js-objects.html':        var arrCurrent = arrJsObjects;       break;
@@ -1259,8 +1270,8 @@ switch(pageName) {
     case 'js-web-api.html':        var arrCurrent = arrJsWebApi;        break;
     case 'js-web-components.html': var arrCurrent = arrJsWebComponents; break;
     case 'js-client-server.html':  var arrCurrent = arrJsClientServer;  break;
-
     case 'react-js.html':          var arrCurrent = arrReactjs;         break;
+    case 'react-api.html':         var arrCurrent = arrReactApi;        break;
     case 'react-hooks.html':       var arrCurrent = arrReactHooks;      break;
     case 'react-router.html':      var arrCurrent = arrReactRouter;     break;
     case 'redux.html':             var arrCurrent = arrRedux;           break;
