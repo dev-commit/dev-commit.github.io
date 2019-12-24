@@ -1253,6 +1253,16 @@ var arrTesting = [
 ];
 
 
+// const PAGES = [
+//     {
+//         arr: arrAssessment,
+//         file: 'assessment.html',
+//         folder: '/pages/',
+//         className: 'menu-other',
+//         label: 'Ассессмент',
+//     },
+// ];
+
 
 var page = window.location.pathname.split('/');
 var pageName = page[page.length-1];
