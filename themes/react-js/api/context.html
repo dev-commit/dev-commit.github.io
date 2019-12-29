@@ -14,26 +14,34 @@
 <!------------------------------------------------------------->
 <h4>1. React.createContext</h4>
 <!------------------------------------------------------------->
-<v-code lang="js none" title="">
+
+<div class="v-method-wrapper">
+    <v-method before="React." method="createContext" after="" arg="(defaultValue)">
+    создание объекта Context. Когда React рендерит компонент, который подписан на этот объект, React получит текущее значение контекста из ближайшего подходящего <u>Provider</u> выше в дереве компонентов
+    </v-method>
+    <v-method-arg arg="defaultValue">аргумент используется только в том случае, если для компонента нет подходящего <u>Provider</u> выше в дереве. Если передать <u>undefined</u> как значение <u>Provider</u>, компоненты, использующие этот контекст, не будут использовать <u>defaultValue</u></v-method-arg>
+	<v-method-return>Объект Context</v-method-return>
+</div>
+
+
+<v-code lang="js border" title="">
 const MyContext = React.createContext(defaultValue);
 </v-code>
 
-<ul class="list-point">
-    <li><u-menu-code>React.createContext</u-menu-code> - создание объекта Context. Когда React рендерит компонент, который подписан на этот объект, React получит текущее значение контекста из ближайшего подходящего <u>Provider</u> выше в дереве компонентов</li>
-    <ul class="list-point">
-        <li><u-code-text>defaultValue</u-code-text> - аргумент используется только в том случае, если для компонента нет подходящего <u>Provider</u> выше в дереве. Если передать <u>undefined</u> как значение <u>Provider</u>, компоненты, использующие этот контекст, не будут использовать <u>defaultValue</u></li>
-    </ul>
-</ul>
 
 <!------------------------------------------------------------->
-<h4>2. Context.Provider</h4>
+<h4>2. Context.Provider (в JSX)</h4>
 <!------------------------------------------------------------->
-<v-code lang="js none" title="">
-&lt;MyContext.Provider value={/* некоторое значение */}&gt;
-</v-code>
+<div class="v-method-wrapper">
+    <v-method before="<MyContext." method="Provider" after="" arg=" value={} >">
+	Компонент используется для передачи текущего значения по дереву. Любой дочерний компонент может использовать этот контекст
+    </v-method>
+    <v-method-arg arg="MyContext">объект Context</v-method-arg>
+    <v-method-arg arg="value">некоторое значение</v-method-arg>
+	<v-method-return></v-method-return>
+</div>
 
 <ul class="list-point">
-    <li><u-menu-code>Context.Provider</u-menu-code> - компонент используется для передачи текущего значения по дереву. Любой дочерний компонент может использовать этот контекст</li>
     <li>Один Provider может быть связан с несколькими компонентами, потребляющими контекст. Так же Provider компоненты могут быть вложены друг в друга, переопределяя значение контекста глубже в дереве</li>
     <li>Все потребители, которые являются потомками <u>Provider</u>, будут повторно рендериться, как только проп <u>value</u> у <u>Provider</u> изменится. Потребитель перерендерится при изменении контекста, даже если его родитель, не использующий данный контекст, блокирует повторные рендеры с помощью <u>shouldComponentUpdate</u></li>
     <ul class="list-point">
@@ -44,7 +52,18 @@ const MyContext = React.createContext(defaultValue);
 <!------------------------------------------------------------->
 <h4>3. Class.contextType</h4>
 <!------------------------------------------------------------->
-<v-code lang="js none" title="">
+<div class="v-method-wrapper">
+    <v-method before="Class." method="contextType" after="" arg="(defaultValue)">
+	Определяет <u>contextType</u>, чтобы получить значение контекста. React найдёт (выше по дереву) ближайший <u>Provider-компонент</u>, предоставляющий этот контекст, и использует его значение
+    </v-method>
+</div>
+
+<ul class="list-point">
+    <li>В свойство класса <u>contextType</u> может быть назначен объект контекста, созданный с помощью <u>React.createContext()</u>. Это позволяет использовать ближайшее и актуальное значение указанного контекста при помощи <u>this.context</u>. В этом случае вы получаете доступ к контексту, как во всех методах жизненного цикла, так и в рендер методе</li>
+    <li>Можно подписаться только на один контекст, используя этот API</li>
+</ul>
+
+<v-code lang="js border" title="">
 class MyClass extends React.Component {
 	static contextType = MyContext;
 	render() {
@@ -53,26 +72,24 @@ class MyClass extends React.Component {
 }
 </v-code>
 
-<ul class="list-point">
-    <li><u-menu-code>Class.contextType</u-menu-code> - определяет <u>contextType</u>, чтобы получить значение контекста. React найдёт (выше по дереву) ближайший <u>Provider-компонент</u>, предоставляющий этот контекст, и использует его значение</li>
-    <li>В свойство класса <u>contextType</u> может быть назначен объект контекста, созданный с помощью <u>React.createContext()</u>. Это позволяет использовать ближайшее и актуальное значение указанного контекста при помощи <u>this.context</u>. В этом случае вы получаете доступ к контексту, как во всех методах жизненного цикла, так и в рендер методе</li>
-    <li>Можно подписаться только на один контекст, используя этот API</li>
-</ul>
-
 <!------------------------------------------------------------->
 <h4>4. Context.Consumer</h4>
 <!------------------------------------------------------------->
-<v-code lang="html none" title="">
+<div class="v-method-wrapper">
+    <v-method before="<MyContext." method="Consumer" after=">" arg="">
+	React-компонент, который подписывается на изменения контекста. В свою очередь, это позволяет вам подписаться на контекст в функциональном компоненте
+    </v-method>
+</div>
+
+<ul class="list-point">
+    <li><u>Consumer</u> принимает функцию в качестве дочернего компонента. Эта функция принимает текущее значение контекста и возвращает React-компонент. Передаваемый аргумент <u>value</u> будет равен ближайшему (вверх по дереву) значению этого контекста, а именно пропу <u>value Provider</u> компонента. Если такого <u>Provider</u> компонента не существует, аргумент <u>value</u> будет равен значению <u>defaultValue</u>, которое было передано в <u>createContext()</u></li>
+</ul>
+
+<v-code lang="html border" title="">
 &lt;MyContext.Consumer&gt;
 	{value =&gt; /* отрендерить что-то, используя значение контекста */}
 &lt;/MyContext.Consumer&gt;
 </v-code>
-
-<ul class="list-point">
-    <li><u-menu-code>MyContext.Consumer</u-menu-code> - React-компонент, который подписывается на изменения контекста. В свою очередь, это позволяет вам подписаться на контекст в функциональном компоненте</li>
-    <li>Consumer принимает функцию в качестве дочернего компонента. Эта функция принимает текущее значение контекста и возвращает React-компонент. Передаваемый аргумент <u>value</u> будет равен ближайшему (вверх по дереву) значению этого контекста, а именно пропу <u>value Provider</u> компонента. Если такого <u>Provider</u> компонента не существует, аргумент <u>value</u> будет равен значению <u>defaultValue</u>, которое было передано в <u>createContext()</u></li>
-</ul>
-
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Пример</h3>

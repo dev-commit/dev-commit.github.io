@@ -90,14 +90,11 @@ var arrReactjs = [
     ['react-js', 'info',  'reconciliation',                           emoji.theory+'Reconciliation Algorithm'],
     ['react-js', 'info',  'fiber',                                    emoji.theory+'React Fiber'],
     ['react-js', 'info',  'structure',                                emoji.code+'Структура'],
-
-    [1, 'Компоненты'],
-    ['react-js', 'components',  'info',                               emoji.panda+'Компоненты'],
-    ['react-js', 'components',  'jsx',                                emoji.panda+'JSX'],
-    ['react-js', 'components',  'state',                              setTheme(1, ['state', 'setState'])],
-    ['react-js', 'components',  'props',                              setTheme(1, ['props'])],
+    ['react-js', 'info',  'components',                               emoji.cookie+'Компоненты'],
+    ['react-js', 'info',  'props',                                    emoji.cookie+'Пропсы'],
 
     [1, 'API'],
+    ['react-js', 'api',  'jsx',                                       emoji.boom+'JSX'],
     ['react-js', 'api',  'children',                                  emoji.boom+'Children'],
     ['react-js', 'api',  'context',                                   emoji.boom+'Context API'],
     ['react-js', 'api',  'refs',                                      emoji.boom+'Рефы'],
@@ -158,13 +155,16 @@ var arrReactApi = [
     ['react-api', 'react',  'is-valid-element',             emoji.pizza+setTheme(4, ['React.isValidElement()'])],
 
     [1, 'Мемоизация'],
-    ['react-api', 'memoization', 'info',                    'Информация'],
+    ['react-api', 'memoization', 'info',                    emoji.theory+'Информация'],
     ['react-api', 'memoization', 'react-pure-component',    emoji.pizza+setTheme(4, ['React.PureComponent'])],
     ['react-api', 'memoization', 'react-memo',              emoji.pizza+setTheme(4, ['React.memo'])],
 
-    [1, 'Прочее'],
-    ['react-api', 'other',  'force-update',                 emoji.pizza+setTheme(4, ['component.forceUpdate()'])],
-    ['react-api', 'other',  'dangerously-set-inner-html',   emoji.pizza+setTheme(4, ['dangerouslySetInnerHTML'])],
+    [1, 'Компоненты'],
+    ['react-api', 'components',  'state',                   emoji.pizza+setTheme(4, ['setState()'])],
+    ['react-api', 'components',  'force-update',            emoji.pizza+setTheme(4, ['forceUpdate()'])],
+
+    [1, 'DOM-атрибуты'],
+    ['react-api', 'dom',  'dangerously-set-inner-html',     emoji.pizza+setTheme(4, ['dangerouslySetInnerHTML'])],
 ];
 
 
