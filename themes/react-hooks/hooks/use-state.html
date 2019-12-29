@@ -61,3 +61,15 @@ function ExampleWithManyStates() {
 <ul class="list-point">
     <li>Синтаксис деструктуризации массивов позволяет нам по разному называть переменные состояния, которые мы объявляем при вызове <u-code-text>useState</u-code-text>. Так как имён этих переменных нет в <u-code-text>API useState</u-code-text>, React предполагает, что если вы вызываете <u-code-text>useState</u-code-text> много раз, вы делаете это в одинаковой последовательности при каждом рендере</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Передача функции в второй аргумент</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const [comments, setComments] = useState([]);
+setComments(a => {
+	// вернет текущее значение 'comments'
+	console.log(a);
+});
+</v-code>
+

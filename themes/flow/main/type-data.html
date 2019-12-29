@@ -20,6 +20,8 @@ type Props = {
 	onHandle: (date: ?Date) =&gt; void,
 	onHandle: (id: ?number) =&gt; void,
 	onHandle: (Object) =&gt; void,
+	onHandle: Function,
+	onHandle: (fieldName: string, updateData: string | number) => boolean | Promise <boolean>,
 }
 
 type SelectItems = {

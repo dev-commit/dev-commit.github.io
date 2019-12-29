@@ -132,6 +132,9 @@ var arrReactjs = [
     //--------------------------------------------------------------------
     [2, 'React.js-Остальное'],
     //--------------------------------------------------------------------
+    [1, 'Прочее'],
+    ['react-js', 'other', 'samples',       'Примеры'],
+
     [1, 'React Plugins'],
     ['react-js', 'react-plugins', 'create-react-app',      setTheme(2, ['react', 'react-dom', 'create-react-app'])],
     ['react-js', 'react-plugins', 'prop-types',            setTheme(2, ['prop-types'])],
