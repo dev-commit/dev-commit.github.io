@@ -22,32 +22,32 @@
 - text
 - link
 
-### React.js
+### React API
 
-[ReactDOM]
-hydrate()
-unmountComponentAtNode()
-findDOMNode()
+`ReactDOM`
+- hydrate()
+- unmountComponentAtNode()
+- findDOMNode()
 
-[Задержка (Suspense)]
-React.lazy
-React.Suspense
+`Задержка (Suspense)`
+- React.lazy
+- React.Suspense
 
-[Свойства класса]
-defaultProps
-displayName
+`Поверхностный рендерер`
+- shallowRenderer.render()
+- shallowRenderer.getRenderOutput()
 
-[Элементы DOM]
-checked
-className
-htmlFor
-onChange
-selected
-style
-suppressContentEditableWarning
-suppressHydrationWarning
-value
+`Свойства класса`
+- defaultProps
+- displayName
 
-[Поверхностный рендерер]
-shallowRenderer.render()
-shallowRenderer.getRenderOutput()
+`Элементы DOM`
+- checked
+- className
+- htmlFor
+- onChange
+- selected
+- style
+- suppressContentEditableWarning
+- suppressHydrationWarning
+- value
