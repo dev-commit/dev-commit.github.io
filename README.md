@@ -21,3 +21,33 @@
 - view
 - text
 - link
+
+### React.js
+
+[ReactDOM]
+hydrate()
+unmountComponentAtNode()
+findDOMNode()
+
+[Задержка (Suspense)]
+React.lazy
+React.Suspense
+
+[Свойства класса]
+defaultProps
+displayName
+
+[Элементы DOM]
+checked
+className
+htmlFor
+onChange
+selected
+style
+suppressContentEditableWarning
+suppressHydrationWarning
+value
+
+[Поверхностный рендерер]
+shallowRenderer.render()
+shallowRenderer.getRenderOutput()
