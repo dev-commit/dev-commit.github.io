@@ -1,10 +1,16 @@
 <h2>Методы и свойства элементов страницы</h2>
 
-<!------------------------------------------------------------->
-<h4><u-code-list>innerHTML</u-code-list></h4>
-<!------------------------------------------------------------->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>innerHTML</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="element." method="innerHTML" after="" arg="">
+    HTML-содержимое элемента в виде строки
+    </v-method>
+    <v-method-return>Валидный HTML-код</v-method-return>
+</div>
+
 <ul class="list-point">
-    <li><u-menu-code>element.innerHTML</u-menu-code> - HTML-содержимое элемента в виде строки. Возвращаемое значение всегда валидный HTML-код</li>
     <li><b>Доступ</b> на <u>чтение</u> и на <u>запись</u></li>
     <li>Есть толбко у узлов-элементов</li>
     <li>Добавление <u-code-text>innerHTML+=</u-code-text> осуществляет перезапись: 1. Удаляется старое содержание; 2. На его место становится новое значение innerHTML. Т.к. новое значение записывается с нуля, то все изображения и другие ресурсы будут перезагружены</li>
@@ -15,11 +21,16 @@
 element.innerHTML = '&lt;h2&gt;new text&lt;/h2&gt;';
 </v-code>
 
-<!------------------------------------------------------------->
-<h4><u-code-list>outerHTML</u-code-list></h4>
-<!------------------------------------------------------------->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>outerHTML</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="element." method="outerHTML" after="" arg="">
+    содержит HTML элемента целиком
+    </v-method>
+</div>
+
 <ul class="list-point">
-    <li><u-menu-code>element.outerHTML</u-menu-code> - содержит HTML элемента целиком</li>
     <li><b>Доступ</b> на <u>чтение</u></li>
     <li>Технически свойство outerHTML доступно на запись. Но при этом элемент не меняется, а заменяется на новый, который тут же создаётся из нового outerHTML. При этом переменная, в которой изначально был старый элемент, и в которой мы «перезаписали» outerHTML, остаётся со старым элементом</li>
 </ul>
