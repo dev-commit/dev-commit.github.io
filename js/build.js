@@ -1067,6 +1067,7 @@ var arrFlow = [
     ['flow', 'main', 'function',    emoji.fire+'Задание функции'],
     ['flow', 'main', 'type',        emoji.fire+'Задание типа'],
     ['flow', 'main', 'react',       'Использование с React.js'],
+    ['flow', 'main', 'variants',    'Варианты'],
 
     [1, 'Установка'],
     ['flow', 'install', 'info',        emoji.theory+'Информация'],
