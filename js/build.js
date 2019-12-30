@@ -835,7 +835,6 @@ var arrOther = [
     ['other', 'technology', 'jira',                   'Jira'],
     ['other', 'technology', 'emmet',                  'Emmet'],
     ['other', 'technology', 'react-native',           'React.Native'],
-    ['other', 'technology', 'open-server',            'PHP Open Server'],
 
     [1, 'Информация'],
     ['other', 'main', 'code-editors',           'Редакторы кода'],
@@ -1168,24 +1167,27 @@ var arrNodejs = [
 //---------------------------------------------------------------------
 // PHP
 //---------------------------------------------------------------------
+
 var arrPhp = [
     [1, 'Основное'],
-    ['php', 'main', 'info',   'Информация'],
-    ['php', 'main', 'variables', 'Переменные'],
-    ['php', 'main', 'if',   'Конструкция if-else'],
-    ['php', 'main', 'switch',   'Конструкция switch-case'],
-    ['php', 'main', 'cycle',   'Циклы'],
-    ['php', 'main', 'array',   'Массивы'],
+    ['php', 'main', 'info',       'Информация'],
+    ['php', 'main', 'variables',  'Переменные'],
+    ['php', 'main', 'cycle',      'Циклы'],
+    ['php', 'main', 'array',      'Массивы'],
     ['php', 'main', 'function',   'Функции'],
+    ['php', 'main', 'if',         setTheme(1, ['if-else'])],
+    ['php', 'main', 'switch',     setTheme(1, ['switch-case'])],
 
     [1, 'Прочее'],
     ['php', 'other', 'function-php',   'Функции PHP'],
-    ['php', 'other', 'server',   'Суперглобальный массив SERVER'],
+    ['php', 'other', 'server',         'Суперглобальный массив SERVER'],
+    ['php', 'other', 'open-server',    'PHP Open Server'],
 
     [1, 'Примеры'],
-    ['php', 'samples', 'sample1',   '#1. Файлы и директории'],
-    ['php', 'samples', 'sample2',   '#2. Изображения'],
-    ['php', 'samples', 'sample3',   '#3. Отправка email'],
+    ['php', 'samples', 'files',         emoji.code+'Файлы и директории'],
+    ['php', 'samples', 'image-loader',  emoji.code+'Изображения'],
+    ['php', 'samples', 'email',         emoji.code+'Отправка email'],
+    ['php', 'samples', 'json-server',   emoji.code+'JSON Server'],
 
     [1, 'MySQL'],
     ['php', 'mysql', 'mysql',   'Работа с MySQL'],

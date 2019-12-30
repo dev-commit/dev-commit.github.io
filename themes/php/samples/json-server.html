@@ -1,0 +1,17 @@
+<h2>JSON Server</h2>
+
+<v-code lang="php" title="">
+&lt;?php
+    header('Access-Control-Allow-Origin: *');
+    
+    $id = $_GET['id'];
+    $json = file_get_contents('react.json');
+    $arr = json_decode($json);
+    
+    foreach ($arr as $item) {
+        if ($item-&gt;id == $id) {
+            echo json_encode($item);
+        }
+    }
+?&gt;
+</v-code>
