@@ -745,10 +745,6 @@ var arrTheory = [
     ['theory', 'application-architecture', 'mvc',  'MVC'],
     ['theory', 'application-architecture', 'mvvm', 'MVVM'],
 
-    [1, 'Технологии'],
-    ['theory', 'technology', 'jira', 'Jira'],
-    ['theory', 'technology', 'emmet', 'Emmet'],
-
     [1, 'Прочее'],
     ['theory', 'other', 'typing',               'Типизация'],
     ['theory', 'other', 'web-applications',     'Виды веб-приложений'],
@@ -835,13 +831,20 @@ var arrDesignPatterns = [
 // OTHER
 //---------------------------------------------------------------------
 var arrOther = [
+    [1, 'Технологии'],
+    ['other', 'technology', 'jira',                   'Jira'],
+    ['other', 'technology', 'emmet',                  'Emmet'],
+    ['other', 'technology', 'react-native',           'React.Native'],
+    ['other', 'technology', 'open-server',            'PHP Open Server'],
+
     [1, 'Информация'],
-    ['other', 'main', 'code-editors',  'Редакторы кода'],
-    ['other', 'main', 'server-online', 'Server Online'],
-    ['other', 'main', 'photoshop',     'Adobe Photoshop'],
-    ['other', 'main', 'denwer',        'Denwer'],
-    ['other', 'main', 'google-chrome', 'Google Chrome'],
-    ['other', 'main', 'trash',         'Свалка'],
+    ['other', 'main', 'code-editors',           'Редакторы кода'],
+    ['other', 'main', 'chrome-mobile-version',  'Chrome: Мобильная версия'],
+    ['other', 'main', 'server-online',          'Server Online'],
+    ['other', 'main', 'photoshop',              'Adobe Photoshop'],
+    ['other', 'main', 'denwer',                 'Denwer'],
+    ['other', 'main', 'google-chrome',          'Google Chrome'],
+    ['other', 'main', 'trash',                  'Свалка'],
 ];
 
 //---------------------------------------------------------------------
