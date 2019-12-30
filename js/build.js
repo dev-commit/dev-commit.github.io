@@ -1062,13 +1062,16 @@ var arrSass = [
 //---------------------------------------------------------------------
 var arrFlow = [
     [1, 'Основное'],
-    ['flow', 'main', 'type-data',   'Типы данных'],
-    ['flow', 'main', 'type',        setTheme(1, ['type'])],
+    ['flow', 'main', 'type-data',   emoji.pizza+'Типы данных'],
+    ['flow', 'main', 'var',         emoji.fire+'Задание переменной'],
+    ['flow', 'main', 'function',    emoji.fire+'Задание функции'],
+    ['flow', 'main', 'type',        emoji.fire+'Задание типа'],
+    ['flow', 'main', 'react',       'Использование с React.js'],
 
-    [1, 'Информация'],
-    ['flow', 'main', 'info',        'Информация'],
-    ['flow', 'main', 'install',     'Установка и настройка'],
-    ['flow', 'main', 'vscode',      'Настройка VSCode'],
+    [1, 'Установка'],
+    ['flow', 'install', 'info',        emoji.theory+'Информация'],
+    ['flow', 'install', 'install',     emoji.theory+'Установка и настройка'],
+    ['flow', 'install', 'vscode',      emoji.theory+'Настройка VSCode'],
 ];
 
 
