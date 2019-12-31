@@ -1,6 +1,7 @@
+
 const splitter = '<div style="width: 100%; flex-shrink: 0"></div>';
 
-var menu =
+const menu =
     '<a href="/pages/assessment.html"       class="menu menu-other">Ассессмент</a>' +
     '<a href="/pages/js-tasks.html"         class="menu menu-other">🍕 Задачи</a>' +
     '<a href="/pages/theory.html"           class="menu menu-other">Теория</a>' +
@@ -60,4 +61,4 @@ var menu =
     ''
 ;
 
-$('#menu-top').html(menu);
+document.getElementById('menu-top').innerHTML = menu;

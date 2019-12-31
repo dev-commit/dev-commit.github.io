@@ -1282,8 +1282,8 @@ var pageName = page[page.length-1];
 switch(pageName) {
     case 'theory.html':            var arrCurrent = arrTheory;          break;
     case 'theory-patterns.html':   var arrCurrent = arrDesignPatterns;  break;
-    case 'theory-paradigms.html':  var arrCurrent = arrParadigms;      break;
-    case 'theory-algoritms.html':  var arrCurrent = arrAlgoritms;      break;
+    case 'theory-paradigms.html':  var arrCurrent = arrParadigms;       break;
+    case 'theory-algoritms.html':  var arrCurrent = arrAlgoritms;       break;
 
     case 'js.html':                var arrCurrent = arrJavaScript;      break;
     case 'js-objects.html':        var arrCurrent = arrJsObjects;       break;
@@ -1378,8 +1378,3 @@ function build() {
     document.querySelector('#menu-build').appendChild(wrapperMenu);
     document.querySelector('#content').appendChild(wrapperContent);
 }
-
-$('#menu-build a').on('click', function() {
-    $('#menu-build a').removeClass('active');
-    $(this).addClass('active');
-});

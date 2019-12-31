@@ -1,4 +1,9 @@
 
+$('#menu-build a').on('click', function() {
+    $('#menu-build a').removeClass('active');
+    $(this).addClass('active');
+});
+
 $('#menu-left > a').on('click', function() {
     $('#menu-left a').removeClass('active');
     $(this).addClass('active');
@@ -21,8 +26,6 @@ $('#menu-left-show').on('click', function() {
     var isHide = $('#menu-left').hasClass('hide');
     localStorage.setItem('menu', isHide);
 });
-
-
 
 $(window).on('resize', function() {
     setLineScroll();
