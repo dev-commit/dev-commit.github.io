@@ -1,8 +1,7 @@
-//---------------------------------------------------
-// CUSTOM ELEMENTS
-//---------------------------------------------------
-let customElementRegistry = window.customElements;
-let arrCustomElements = [
+
+const customElementRegistry = window.customElements;
+
+const arrCustomElements = [
 	'u-code-text',    'u-code-list',     'u-code-comment', 'u-code',
 	'u-text-define',  'u-text-header',   'u-code-wrapper', 'u-link-wrapper',
 	'u-code-npm',     'u-code-title',    'u-message-ok',   'u-message-info',
