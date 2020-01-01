@@ -67,3 +67,30 @@ export default {
 }
 &lt;/script&gt;
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример #2</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="mapActions">
+addUser(state, payload) {
+    state.users.push(payload)
+}
+methods: {
+    ...mapActions(['updateMessage']),
+    ...mapMutations(['addUser'])
+}
+v-on:click="addUser({id:4, name:'Tony'})"
+</v-code>
+
+<v-code lang="js" title="mutations, commit">
+mutations: {
+    authenticate(state, { token, expiration }) {
+        localStorage.setItem('token', token)
+        localStorage.setItem('expiration', expiration)
+    }
+}
+commit('authenticate', {
+    token,
+    expiration
+})
+</v-code>
