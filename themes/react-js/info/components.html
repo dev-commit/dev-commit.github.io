@@ -42,7 +42,7 @@
 function Welcome(props) {
 	return &lt;h1&gt;Привет, {props.name}&lt;/h1&gt;;
 }
-// она получает данные через props
+// функция получает данные через props
 // возвращает React-элемент
 </template>
 <template v-slot:last>
@@ -55,7 +55,7 @@ class Welcome extends React.Component {
 </v-two-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Импорт</h3>
+<h3>Импорт и экспорт</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 <u-code>import</u-code> Header from '../Header';
@@ -115,7 +115,7 @@ function App() {
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Классовые компоненты с пропсами</h3>
+<h3>Компоненты с пропсами</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-two-code type="js;js" comment="Классовый компонент;Функциональный компонент">
 <template v-slot:first>
@@ -147,3 +147,45 @@ function Button(props) {
 }
 </template>
 </v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Классовые компонент: задание state</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="Свойство;Конструктор">
+<template v-slot:first>
+class App extends React.Component {
+	state = {
+	    name: 'Tony'
+	}
+}
+</template>
+<template v-slot:last>
+class App extends React.Component {
+	constructor(props) {
+	    super(props);
+	    this.state = {
+	        name: 'Tony'
+	    };
+	}
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Структура компонента</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+Component =  {
+    state: Object
+    props: Object,
+    context: undefined,
+    refs: Object,
+    updater: {
+        function isMounted()
+        function enqueueForceUpdate()
+        function enqueueReplaceState()
+        function enqueueSetState()
+    }
+    &lt;constructor&gt;: "Component"
+}
+</v-code>

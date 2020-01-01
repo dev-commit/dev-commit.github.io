@@ -175,7 +175,7 @@ var arrReactApi = [
 // REACT-HOOKS
 //---------------------------------------------------------------------
 var arrReactHooks = [
-    ['react-hooks', 'main', 'info',                   emoji.theory+'Информация'],
+    [1, 'Хуки'],
     ['react-hooks', 'hooks', 'use-state',             emoji.fire+setTheme(4, ['useState'])],
     ['react-hooks', 'hooks', 'use-effect',            emoji.fire+setTheme(4, ['useEffect'])],
     ['react-hooks', 'hooks', 'use-context',           emoji.fire+setTheme(4, ['useContext'])],
@@ -186,7 +186,11 @@ var arrReactHooks = [
     ['react-hooks', 'hooks', 'use-imperative-handle', emoji.fire+setTheme(4, ['useImperativeHandle'])],
     ['react-hooks', 'hooks', 'use-layout-effect',     emoji.fire+setTheme(4, ['useLayoutEffect'])],
     ['react-hooks', 'hooks', 'use-debug-value',       emoji.fire+setTheme(4, ['useDebugValue'])],
-    ['react-hooks', 'hooks', 'own-hooks',             emoji.theory+'Создание собственных хуков'],
+
+    [1, 'Информация'],
+    ['react-hooks', 'main',  'info',                  emoji.theory+'Информация'],
+    ['react-hooks', 'main', 'own-hooks',              emoji.theory+'Создание собственных хуков'],
+    ['react-hooks', 'main', 'questions',              emoji.theory+'Ответы на вопросы'],
 ];
 
 //---------------------------------------------------------------------
