@@ -7,18 +7,10 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Методы стилизации</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ol class="list-num">
-    <li>Отдельный файл</li>
-    <li>Инлайновая стилизация</li>
-    <li><a href="https://github.com/css-modules/css-modules" target="_blank">CSS Modules</a></li>
-    <li><a href="https://www.styled-components.com/" target="_blank">Styled Components</a></li>
-    <li><a href="https://github.com/threepointone/glamor" target="_blank">Glamor</a></li>
-    <li><a href="https://cssinjs.org/" target="_blank">JSS</a></li>
-</ol>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>1. Отдельный CSS файл</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>1. Отдельный CSS файл</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 import './index.css';
 
@@ -27,9 +19,9 @@ render() {
 }
 </v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>2. Инлайновая стилизация</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>2. Инлайновая стилизация</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 const style = {
 	width: '200px',
@@ -46,13 +38,59 @@ export default class App extends React.Component {
 }
 </v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>3. CSS Modules</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>3. CSS Modules</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://github.com/css-modules/css-modules" target="_blank">CSS Modules</a>
+</u-link-wrapper>
+
 <v-code lang="js" title="">
 import classes from './Component.css';
 
 render() {
 	return (&lt;div className={classes.headerItem}&gt;&lt;/div&gt;);
 }
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>4. CSS in JS</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://www.styled-components.com/" target="_blank">Styled Components</a>
+    <a href="https://github.com/threepointone/glamor" target="_blank">Glamor</a>
+    <a href="https://cssinjs.org/" target="_blank">JSS</a>
+</u-link-wrapper>
+
+<b>Реализация CSS in JS</b>
+
+<v-code lang="html" title="HTML">
+&lt;div id="app"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="JavaScript">
+const styles = `
+    #app {
+        width: 200px;
+        height: 200px;
+        background: yellowgreen;
+    }
+`;
+
+const stylesElement = document.createElement('style');
+stylesElement.appendChild(document.createTextNode(styles));
+document.body.appendChild(stylesElement);
+</v-code>
+
+<v-code lang="html" title="Результат">
+&lt;body&gt;
+    &lt;div id="app"&gt;&lt;/div&gt;
+    &lt;style&gt;
+        #app {
+            width: 200px;
+            height: 200px;
+            background: yellowgreen;
+        }
+    &lt;/style&gt;
+&lt;/body&gt;
 </v-code>
