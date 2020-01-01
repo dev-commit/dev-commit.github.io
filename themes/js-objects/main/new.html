@@ -5,8 +5,27 @@
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Полифил</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function Person(name) {
+	this.name = name;
+}
+function Foo(Constructor, ...props) {
+	// 1. Создаётся новый пустой объект через Object.create
+	const instance = Object.create(Constructor.prototype);
+	Constructor.apply(instance, props);
+	return instance;
+}
+
+const foo = Foo(Person, 'Tony');
+console.log(foo);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Функция, запущенная через new</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
 <ol class="list-num">
 
 <!-- 1 -->
