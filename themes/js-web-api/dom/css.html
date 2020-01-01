@@ -113,3 +113,15 @@ let a = document.body.style.color; // rgb(170, 187, 204)
     <li>getComputedStyle не дает доступ к этой информации, чтобы произвольная страница не могла определить, посещал ли пользователь ту или иную ссылку</li>
     <li>Кроме того, большинство браузеров запрещают применять к :visited CSS-стили, которые могут изменить геометрию элемента, чтобы даже окольным путем нельзя было это понять. В целях безопасности</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+button.addEventListener('click', () => {
+    box.style.transform = 'translateX(1000px)';
+    box.style.transition = 'transform 1s ease-in-out';
+    getComputedStyle(box).transform; // +++
+    box.style.transform = 'translateX(500px)';
+})
+</v-code>
