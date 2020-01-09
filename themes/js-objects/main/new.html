@@ -18,6 +18,7 @@ function Foo(Constructor, ...props) {
 
 	// 2. Модифицируется <u>this</u> (т.е. этот новый объект) и инициализируются методы и свойства
 	// Применяет функцию-класс к нашему новосозданному объекту
+	// instance.name = 'Tony';
 	const result = Constructor.apply(instance, props);
 
 	// 3. Неявно возвращается <u>this</u> без вызова <u>return</u>
@@ -27,51 +28,18 @@ function Foo(Constructor, ...props) {
 }
 
 const foo = Foo(Person, 'Tony');
-console.log(foo);
+console.log(foo); // => Object { name: "Tony" }
 </v-code>
-
-
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Функция-конструктор</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-function User(name) {
+function Foo(name) {
 	this.name = name;
-	this.isAdmin = false;
 }
 
-let user = new User("Вася");
-
-alert(user.name); // Вася
-alert(user.isAdmin); // false
+const foo = new Foo('Tony');
+console.log(foo); // => Object { name: "Tony" }
 </v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Вызов функции через new User(...)</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ol class="list-num">
-	<li>Создаётся новый пустой объект, и он присваивается <u-code-text>this</u-code-text></li>
-	<li>Выполняется код функции. Обычно он модифицирует <u-code-text>this</u-code-text>, добавляет туда новые свойства</li>
-	<li>Возвращается значение <u-code-text>this</u-code-text></li>
-</ol>
-
-<v-code lang="js" title="">
-function User(name) {
-	// this = {};  (неявно)
-
-	// добавляет свойства к this
-	this.name = name;
-	this.isAdmin = false;
-
-	// return this;  (неявно)
-}
-</v-code>
-
-<v-code lang="js" title="">
-// То есть, результат вызова new User("Вася") – это тот же объект, что и:
-let user = {
-	name: "Вася",
-	isAdmin: false
-};
-</v-code>
