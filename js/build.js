@@ -36,7 +36,15 @@ function setTheme(tag, arr) {
 // ASSESSMENT
 //---------------------------------------------------------------------
 var arrAssessment = [
-    [1, 'Прототипы'],
+    [1, 'Типизация'],
+    ['js', 'typing', 'typing',         emoji.theory+'Типизация'],
+    ['js', 'typing', 'type-data',      emoji.theory+'Типы данных'],
+    ['js', 'typing', 'symbol',         emoji.pizza+'Symbol (ES6)'],
+    ['js', 'typing', 'hoisting',       emoji.fire+'Всплытие'],
+    ['js', 'typing', 'type-casting',   emoji.code+'Приведение типов'],
+    ['js', 'typing', 'typeof',         setTheme(1, ['typeof'])],
+
+    [1, 'Классы'],
     ['js-objects', 'main',            'inheritance',   emoji.fire+'Наследование'],
     ['js-objects', 'main',            'prototype',     emoji.fire+setTheme(1, ['__proto__', 'prototype'])],
     ['js-objects', 'main',            'new',           emoji.fire+setTheme(1, ['new'])],
@@ -44,12 +52,6 @@ var arrAssessment = [
     ['js-objects', 'objects-methods', 'object-assign', emoji.pizza+setTheme(4, ['Object.assign'])],
     ['js-objects', 'main',            'constructor',   emoji.pizza+setTheme(4, ['constructor'])],
     ['js-objects', 'main',            'return',        emoji.pizza+setTheme(4, ['return'])],
-
-    [1, 'Типизация'],
-    ['js', 'typing', 'typing',         emoji.theory+'Типизация'],
-    ['js', 'typing', 'type-data',      emoji.theory+'Типы данных'],
-    ['js', 'typing', 'type-casting',   emoji.code+'Приведение типов'],
-    ['js',  'main',  'variables',      emoji.pizza+setTheme(1, ['var', 'let', 'const'])],
 
     [1, 'Основы'],
     ['js',          'main',       'bind',                 emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
@@ -239,8 +241,11 @@ var arrJavaScript = [
     [1, 'Типизация'],
     ['js', 'typing', 'typing',         emoji.theory+'Типизация'],
     ['js', 'typing', 'type-data',      emoji.theory+'Типы данных'],
+    ['js', 'typing', 'symbol',         emoji.pizza+'Symbol (ES6)'],
     ['js', 'typing', 'type-casting',   emoji.code+'Приведение типов'],
+    ['js', 'typing', 'hoisting',       emoji.fire+'Всплытие'],
     ['js', 'typing', 'typeof',         setTheme(1, ['typeof'])],
+    ['js', 'typing', 'variables',      setTheme(1, ['var', 'let', 'const'])],
 
     [1, 'Модули'],
     ['js', 'modules', 'module-system', 'Модульная система'],
@@ -250,7 +255,6 @@ var arrJavaScript = [
     ['js', 'main', 'context',           emoji.baseball+'Контекст'],
     ['js', 'main', 'bind',              emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
     ['js', 'main', 'array-cycle',       setTheme(1, ['map', 'forEach', '...'])],
-    ['js', 'main', 'variables',         setTheme(1, ['var', 'let', 'const'])],
     ['js', 'main', 'spread-array',      emoji.fire+'Spread Arr (ES6)'],
     ['js', 'main', 'spread-obj',        emoji.fire+'Spread Obj (ES-2018)'],
     ['js', 'main', 'destructive-array', emoji.fire+'Деструктуризация Arr (ES6)'],
@@ -263,7 +267,6 @@ var arrJavaScript = [
     ['js', 'data-structures', 'json',       setTheme(1, ['Json'])],
     ['js', 'data-structures', 'date-time',  setTheme(1, ['Date'])],
     ['js', 'data-structures', 'array',      setTheme(1, ['Array'])],
-    ['js', 'data-structures', 'symbol',     setTheme(1, ['Symbol (ES6)'])],
     ['js', 'data-structures', 'iterators',  setTheme(1, ['Iterators (ES6)'])],
     ['js', 'data-structures', 'map',        setTheme(1, ['Map', 'WeakMap'])],
     ['js', 'data-structures', 'set',        setTheme(1, ['Set', 'WeakSet'])],
@@ -315,12 +318,12 @@ var arrJsFunction = [
 //---------------------------------------------------------------------
 var arrJsAsync = [
     [1, 'Теория'],
-    ['js-async', 'theory', 'event-loop', 'Event Loop'],
-    ['js-async', 'theory', 'event-loop-tasks', 'Event Loop: Tasks'],
+    ['js-async', 'theory', 'event-loop',       emoji.theory+'Event Loop'],
+    ['js-async', 'theory', 'event-loop-tasks', emoji.theory+'Event Loop: Tasks'],
 
     [1, 'Promise'],
-    ['js-async', 'promise', 'info',                  'Информация'],
-    ['js-async', 'promise', 'methods',               'Методы'],
+    ['js-async', 'promise', 'info',                  emoji.theory+'Информация'],
+    ['js-async', 'promise', 'methods',               emoji.code+'Методы'],
     ['js-async', 'promise', 'method-new',            setTheme(1, ['new Promise'])],
     ['js-async', 'promise', 'method-then-catch',     setTheme(1, ['.then', '.catch', '.finally'])],
     ['js-async', 'promise', 'method-resolve-reject', setTheme(1, ['Promise.resolve', 'Promise.reject'])],

@@ -1,0 +1,106 @@
+<h2>Всплытие</h2>
+
+<ul class="list-point">
+	<b>Двухпроходной анализатор</b>
+    <li>1 проход - лексический анализ кода</li>
+    <li>2 проход - исполнение кода</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li><u-text-define>Hoisting</u-text-define> - поднятие (всплытие), которое совершает переменная</li>
+    <li><u-text-define>Temporal Dead Zone</u-text-define> (временная мертвая зона) - время между созданием переменной scope и инициализацией</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4><u-code-text>var</u-code-text></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><b><u>Всплытие</u></b>: инициализация значением <u-code-text>undefined</u-code-text></li>
+    <li><b><u>Выполнение</u></b>: инициализация присвоенным значением</li>
+    <li><b><u>При обращении до объявления</u></b>: <u-code-text>undefined</u-code-text></li>
+    <li>Функциональная область видимости</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4><u-code-text>let и const</u-code-text></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><b><u>Всплытие</u></b>: остаются неинициализированными, попадают в <u-text-underline>Temporal Dead Zone</u-text-underline></li>
+    <li><b><u>Выполнение</u></b>: инициализация только в момент выполнения выражений <u-code-text>let/const/class</u-code-text></li>
+    <li><b><u>При обращении до объявления</u></b>: ошибка "Uncaught ReferenceError: Cannot access 'foo' before initialization"</li>
+    <li>Блочная область видимости</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4><u-code-text>function foo() {}</u-code-text></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><b><u>Всплытие</u></b>:</li>
+    <li><b><u>Выполнение</u></b>: </li>
+    <li><b><u>При обращении до объявления</u></b>: вызывается функция</li>
+    <li>Функция имеет безусловный приоритет</li>
+    <li><u>LexicalEnvironment</u> создает запись о том, что <u>"foo"</u> переменная, если <u>"foo"</u> не равно функции. Если <u>"foo"</u> равно функции, остальные <u>"var/let/const foo"</u> игнорируются, при условии что они не инициализированы значением</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4><u-code-text>Без объявления</u-code-text></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Записывается в глобальный объект <u-code-text>window</u-code-text> при нестрогом режиме</li>
+</ul>
+
+<v-code lang="js" title="">
+// true
+a = true;
+console.log(a);
+
+// Uncaught ReferenceError: "a" is not defined
+'use strict'
+a = true;
+console.log(a);
+
+// Uncaught ReferenceError: "a" is not define
+console.log(a);
+a = true;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример 1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Переменная "var a" непроинициализирована
+function a() { return true }
+var a;
+console.log(a); //=> ƒ a() { return true }
+
+// Переменная "var a" проинициализирована
+function a() { return true }
+var a = 'Hello';
+console.log(a); // => "Hello"
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример 2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var a = 1;
+
+(function() {
+    console.log(a); // => undefined
+    var a = 2;      // всплывает и инициализируется значением "undefined"
+})();
+
+// "function а" имеет максимальный приоритет, но "var a" проинициализирована
+// поэтому "a == 1"
+function a() {
+    console.log(this);
+}
+
+a.call(null); // => Uncaught TypeError: a.call is not a function
+</v-code>
