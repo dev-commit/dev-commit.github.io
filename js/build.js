@@ -426,11 +426,11 @@ var arrJsWebComponents = [
 var arrJsObjects = [
     [1, 'Основное'],
     ['js-objects', 'main', 'inheritance',   emoji.fire+'Наследование'],
-    ['js-objects', 'main', 'prototype',     emoji.donut+setTheme(1, ['__proto__', 'prototype'])],
+    ['js-objects', 'main', 'new',           emoji.fire+setTheme(1, ['new'])],
+    ['js-objects', 'main', 'prototype',     emoji.fire+setTheme(1, ['__proto__', 'prototype'])],
     ['js-objects', 'main', 'constructor',   emoji.donut+setTheme(1, ['constructor'])],
-    ['js-objects', 'main', 'new',           emoji.clover+setTheme(1, ['new'])],
-    ['js-objects', 'main', 'new-target',    emoji.clover+setTheme(1, ['new.target'])],
-    ['js-objects', 'main', 'return',        emoji.clover+setTheme(1, ['return'])],
+    ['js-objects', 'main', 'return',        emoji.donut+setTheme(1, ['return'])],
+    ['js-objects', 'main', 'new-target',    emoji.bear+setTheme(1, ['new.target'])],
 
     [1, 'Методы Object'],
     ['js-objects', 'objects-methods', 'object-create',      emoji.pizza+setTheme(4, ['Object.create'])+' <u-code-list>__proto__</u-code-list>'],

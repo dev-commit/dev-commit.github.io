@@ -33,6 +33,48 @@ admin.getName();    // => "Tony"
 console.log(admin); // => Object { getName() {}, name: "Tony" }
 </v-code>
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка прототипа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Object.create (верно)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+User.prototype = Object.create(Person.prototype);
+</v-code>
+
+<ul class="list-point">
+    <li><u>Object.create</u> создает новый пустой объект, прототипом которого устанавиливает ссылку на <u>Person.prototype</u></li>
+    <li>При вызове <u>User</u> через <u>new</u>, создастся новый объект и в свойство прото установится ссылку на свой <u>prototype</u></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. Простое присваивание прототипов (неверно)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+User.prototype = Person.prototype;
+</v-code>
+
+<ul class="list-point">
+    <li>Если добавлять методы в <u>User.prototype</u>, они попадут в <u>Person.prototype</u></li>
+    <li>Перезатрется текущий прототип у <u>User</u>: в <u>User.prototype</u> будет пустой объект со свойством <u>constructor</u>, который ссылается на <u>User</u>. Если в коде могут быть добавлены методы и мы их перезатрем</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Через new (неверно)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+User.prototype = new Person; 
+</v-code>
+
+<ul class="list-point">
+    <li>При вызове <u>new</u> получаем объект, наполненный свойствами с прототипом, но хотим получить пустой объект, чтобы не было свойств</li>
+    <li>При <u>new Person</u> прилетит мусор в виде собственных свойств класса <u>Person</u></li>
+</ul>
+
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>ES6-классы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

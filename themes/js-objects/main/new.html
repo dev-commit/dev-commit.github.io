@@ -19,7 +19,7 @@ function Foo(Constructor, ...props) {
 	// 2. Модифицируется <u>this</u> (т.е. этот новый объект) и инициализируются методы и свойства
 	// Применяет функцию-класс к нашему новосозданному объекту
 	// instance.name = 'Tony';
-	const result = Constructor.apply(instance, props);
+	Constructor.apply(instance, props);
 
 	// 3. Неявно возвращается <u>this</u> без вызова <u>return</u>
 	// Если в return объект, то вернется он
