@@ -874,7 +874,6 @@ var arrJsTasks = [
     [1, 'Полифилы'],
     ['js-task', 'polyphyls', 'object-create',  setTheme(1, ['Object.create'])],
     ['js-task', 'polyphyls', 'bind',           setTheme(1, ['bind()'])],
-    ['js-task', 'polyphyls', 'new',            setTheme(1, ['new'])],
     ['js-task', 'polyphyls', 'promise-all',    setTheme(1, ['Promise.all'])],
 
     [1, 'Прототипы'],
