@@ -66,6 +66,31 @@ console.log(a);
 a = true;
 </v-code>
 
+<!------------------------------------------------------------->
+<h4><u-code-text>import</u-code-text></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>К началу выполнения модуля все его зависимости должны быть загружены и выполнены</li>
+    <li>Поэтому, неважно место где указан <u>import</u>. Важно, чтобы не было объявлено одноименных переменных на уровне <u>import</u></li>
+    <li>Ошибка будет выведена до исполнения модуля, следовательно не будет выполнен не только код текущего модуля, но так же не будут выполнены его зависимости</li>
+</ul>
+
+<v-code lang="js" title="">
+console.log(a);    // неважно как объявлена "a" в модуле var/let/const
+import a from 'a'; // OK
+</v-code>
+
+<v-code lang="js" title="">
+var a = 10;        // var/let/const - одинаковое поведение
+import a from 'a'; // Uncaught SyntaxError: Identifier 'a' has already been declared
+</v-code>
+
+<v-code lang="js" title="">
+import a from 'a'; // Uncaught SyntaxError: Identifier 'a' has already been declared
+var a = 10;        // var/let/const - одинаковое поведение
+</v-code>
+
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
