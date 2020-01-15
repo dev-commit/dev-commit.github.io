@@ -1,3 +1,99 @@
+
+console.log(sumSequence(1, 3)); // 1 + 2 + 3 = 6
+console.log(sumSequence(2, 3)); // 2 + 3 = 5
+console.log(sumSequence(2, 2)); // 2 = 2
+console.log(sumSequence(1, 2)); // 1 + 2 = 3
+
+// function sumSequence(start, end) {
+//   if (start === end) {
+//     return start;
+//   } else {
+//     const sum = start + end;
+//     sumSequence(start+1, end);
+//   }
+// }
+
+// 1 iteration - 1 + sumSequecen(?, ?)
+// 2 iteration - 1 + 2 = 3
+
+// 1 iteration 3 + sumsequence(1, 2)
+// 2 iteration 2 + sumsequence(1, 1)
+
+function sumSequence(start, end) {
+  if (start === end) {
+    return end;
+  } else {
+    return end + sumSequence(start, end - 1);
+  }
+}
+
+//-------------------------------
+
+
+var p = Promise.resolve(4);
+
+p
+.then(data => {
+  console.log(data); // 4
+  throw new Error('');
+})
+.catch(err => {
+  console.log('err'); // err
+})
+.finally((data) => {
+  console.log(data); // undefined
+  return 1;
+})
+.then((data) => {
+  console.log(data); // undefined
+})
+
+
+//-----------------------------------------
+
+
+// // reconcilattion
+
+var add = (a, b) => a + b;
+
+var memoAdd = memo(add);
+console.log(memoAdd(2, 3)); // 5
+console.log(memoAdd(2, 2)); // 4
+console.log(memoAdd(2, 2)); // 4, console.log('returned cached value');
+
+function memo(add) {
+  var data = {};
+  
+  return function(...arg) {
+    const key = JSON.stringify(arg);
+    
+    if (data[key]) {
+      console.log('returned cached value');
+    } else {
+      data[key] = add.apply(null, arg);
+    }
+    
+    return data[key];
+  }
+}
+
+
+
+// Store - state - store data
+// Reducers -> state1 => state2 - change state - change data
+// Action => dispatch => trigger reducer - ???
+
+
+// FETCH_USERS
+
+
+// 1 Actions - snapshots - history
+// 2 Actions  - metaknowledge
+
+
+
+
+
 //--------------------------------------------------------------------
 
 OBS 22.0.2
