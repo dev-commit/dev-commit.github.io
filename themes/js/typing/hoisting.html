@@ -101,28 +101,3 @@ import a from 'a'; // Uncaught SyntaxError: Identifier 'a' has already been decl
 import a from 'a'; // Uncaught SyntaxError: Identifier 'a' has already been declared
 var a = 10;        // var/let/const - одинаковое поведение
 </v-code>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Примеры</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<!------------------------------------------------------------->
-<h4>Пример 1</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-var a = 1;
-
-(function() {
-    console.log(a); // => undefined
-    var a = 2;      // всплывает и инициализируется значением "undefined"
-})();
-
-// "function а" имеет максимальный приоритет, но "var a" проинициализирована
-// поэтому "a == 1"
-function a() {
-    console.log(this);
-}
-
-a.call(null); // => Uncaught TypeError: a.call is not a function
-</v-code>

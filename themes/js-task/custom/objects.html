@@ -1,0 +1,33 @@
+<h2>Объекты</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обращение к функции как к объекту</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+let test = function() {
+	console.log('hi from object!');
+}
+test.method = function () {
+	console.log('hi from method!');
+}
+test.method()
+test()
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объекты: копирование и null</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var a = {};
+
+function clear (a) {
+	a.a=10;
+	a = null;
+}
+
+clear(a);
+console.log(a);
+
+// => Object { a: 10 }
+</v-code>
+

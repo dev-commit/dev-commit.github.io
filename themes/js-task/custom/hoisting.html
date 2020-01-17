@@ -1,0 +1,54 @@
+<h2>Всплытие</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var a = 1;
+
+(function() {
+    console.log(a); // => undefined
+    var a = 2;      // всплывает и инициализируется значением "undefined"
+})();
+
+// "function а" имеет максимальный приоритет, но "var a" проинициализирована
+// поэтому "a == 1"
+function a() {
+    console.log(this);
+}
+
+a.call(null); // => Uncaught TypeError: a.call is not a function
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+(function () {
+    f(); // 2
+    f = function () {
+    	console.log(1);
+    };
+})();
+
+f(); // 1
+var f = 10;
+f(); // f is not a function
+
+function f () {
+	console.log(2);
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Значение массива</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var a = [];
+function clear(arr) {
+    arr.push(2);
+    arr = null;
+}
+clear(a);
+console.log(a); // [2]
+</v-code>

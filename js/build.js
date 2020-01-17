@@ -879,33 +879,24 @@ var arrJsTasks = [
     ['js-task', 'polyphyls', 'bind',           setTheme(1, ['bind()'])],
     ['js-task', 'polyphyls', 'promise-all',    setTheme(1, ['Promise.all'])],
 
-    [1, 'Прототипы'],
-    ['js-task', 'prototype', 'prototype-inheritance',  'Прототипное наследование'],
+    [1, 'Функции'],
+    ['js-task', 'functions', 'duplicate', setTheme(1, ['Duplicate'])],
+    ['js-task', 'functions', 'fibonacci', 'Число Фибоначчи'],
 
-    [1, 'Замыкания'],
-    ['js-task', 'closures', 'sum-brackets', 'Сумма произвольного кол-ва скобок'],
+    [1, 'Основное'],
+    ['js-task', 'main', 'sum-brackets',         'Сумма произвольного кол-ва скобок'],
+    ['js-task', 'main', 'settimeout-for-var',   'setTimeout в for без let'],
+    ['js-task', 'main', 'promise-make-request', 'Promise Make Request'],
 
-    [1, 'Объекты'],
-    ['js-task', 'objects', 'calling-function-as-object', 'Обращение к функции как к объекту'],
-    ['js-task', 'objects', 'copy-and-null',              'Копирование и null'],
-
-    [1, 'Массивы'],
-    ['js-task', 'arrays', 'popup-and-array-value',         'Всплытие и значение массива'],
-    ['js-task', 'arrays', 'reduceright-and-create-object', 'reduceRight и создание объекта'],
-    ['js-task', 'arrays', 'map-and-enumerate-objects',     'map и перебор массива объектов'],
-    ['js-task', 'arrays', 'duplicate-array-method',        'Метод дублирующий массив'],
-
-    [1, 'Асинхронность'],
-    ['js-task', 'async', 'promise-make-request',       'Promise Make Request'],
-    ['js-task', 'async', 'promise-and-settimeout',     'Promise и setTimeout'],
-    ['js-task', 'async', 'promise-and-arguments-then', 'Promise и аргументы then'],
-    ['js-task', 'async', 'promise-resolve-reject',     'Promise Resolve / Reject'],
-    ['js-task', 'async', 'promise-resolve',            'Promise Resolve'],
-    ['js-task', 'async', 'promise-reject',             'Promise Reject'],
-    ['js-task', 'async', 'settimeout-for-var',         'setTimeout в for без let'],
-
-    [1, 'Прочее'],
-    ['js-task', 'other', 'popup-func-and-variable', 'Всплытие функции и переменной'],
+    [1, 'Общие темы'],
+    ['js-task', 'custom', 'prototype',   emoji.pizza+'Прототипы'],
+    ['js-task', 'custom', 'hoisting',    emoji.pizza+'Всплытие'],
+    ['js-task', 'custom', 'objects',     emoji.pizza+'Объекты'],
+    ['js-task', 'custom', 'arrays',      emoji.pizza+'Массивы'],
+    ['js-task', 'custom', 'promise',     emoji.pizza+'Promise'],
+    ['js-task', 'custom', 'context',     emoji.pizza+'Контекст'],
+    ['js-task', 'custom', 'event-loop',  emoji.pizza+'Event Loop'],
+    ['js-task', 'custom', 'closure',     emoji.pizza+'Замыкания'],
 ];
 
 

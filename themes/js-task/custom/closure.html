@@ -1,0 +1,26 @@
+<h2>Замыкания</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Исправить ошибку. Проверка должна возвращать истину</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u>Решение</u>: поменять "var" на "let"</li>
+</ul>
+
+<v-code lang="js" title="">
+function closure() {
+	return (function() {
+		const arr = [];
+		
+		for (var i=0; i<10; i++) {
+			arr.push(function() {
+				return i
+			});
+		}
+		
+		return arr;
+	})();
+}
+
+console.log(closure()[3]() === 3); // => должно быть "true"
+</v-code>
