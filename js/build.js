@@ -600,6 +600,9 @@ var arrNpm = [
     ['npm', 'gulp', 'gulp4',     'Gulp 4'],
     ['npm', 'gulp', 'gulpfile',  'gulpfile.js'],
     ['npm', 'gulp', 'other',     'Примечания'],
+
+    [1, 'Parcel'],
+    ['npm', 'parcel', 'info',       'Информация'],
 ];
 
 
