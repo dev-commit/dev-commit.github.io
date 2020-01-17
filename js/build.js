@@ -891,14 +891,15 @@ var arrJsTasks = [
     ['js-task', 'main', 'promise-make-request', 'Promise Make Request'],
 
     [1, 'Общие темы'],
-    ['js-task', 'custom', 'prototype',   emoji.pizza+'Прототипы'],
     ['js-task', 'custom', 'hoisting',    emoji.pizza+'Всплытие'],
-    ['js-task', 'custom', 'objects',     emoji.pizza+'Объекты'],
-    ['js-task', 'custom', 'arrays',      emoji.pizza+'Массивы'],
-    ['js-task', 'custom', 'promise',     emoji.pizza+'Promise'],
+    ['js-task', 'custom', 'closure',     emoji.pizza+'Замыкания'],
+    ['js-task', 'custom', 'prototype',   emoji.pizza+'Прототипы'],
     ['js-task', 'custom', 'context',     emoji.pizza+'Контекст'],
     ['js-task', 'custom', 'event-loop',  emoji.pizza+'Event Loop'],
-    ['js-task', 'custom', 'closure',     emoji.pizza+'Замыкания'],
+    ['js-task', 'custom', 'promise',     emoji.pizza+'Promise'],
+    ['js-task', 'custom', 'currying',    emoji.pizza+'Каррирование'],
+    ['js-task', 'custom', 'objects',     emoji.pizza+'Объекты'],
+    ['js-task', 'custom', 'arrays',      emoji.pizza+'Массивы'],
 ];
 
 

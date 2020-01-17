@@ -27,3 +27,31 @@ function foo() {
 const bar = foo().call();
 bar.call({ y: 20 }); // call вызывает bar 
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>#2</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+'use strict';
+
+const todo = {
+	finished: true,
+	tasks: [
+		{ task: 'Read book', done: true },
+		{ task: 'Walk', done: false },
+	],
+	getFinishedTasks() {
+		return this.tasks.filter(function (item) {
+			return item.done === this.finished;
+		});
+		// return this.tasks.filter(item => item.done === this.finished);
+	}
+};
+
+const result = todo.getFinishedTasks();
+console.log(result);
+
+// 1. без 'use strict' => []
+// 2. 'use strict' => Uncaught TypeError: Cannot read property 'finished' of undefined
+// 3. стрелочная функция => 0: {task: "Read book", done: true}
+</v-code>

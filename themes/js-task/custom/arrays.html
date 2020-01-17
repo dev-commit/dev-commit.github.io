@@ -11,7 +11,7 @@ const tweeps = [
 
 // написать функцию prop
 const str = 'Mentioned by ' + tweeps.map(prop('name')).join(', '); // 'Mentioned by Peter, Mary'
-const agesStr = `They are ${tweeps.map(prop('age')).join(',')}` // 'They are 20, 32'
+const agesStr = `They are ${tweeps.map(prop('age')).join(',')}`    // 'They are 20, 32'
 
 function prop(propName) {
     return function(obj) {

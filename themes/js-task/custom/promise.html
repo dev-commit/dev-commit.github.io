@@ -99,3 +99,26 @@ function finalHandler1() {
 }
 // => 55, catch Error, finalHandler1, finalHandler, finalHandler
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Finally</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var p = Promise.resolve(4);
+
+p
+    .then(data => {
+        console.log(data); // 4
+        throw new Error('');
+    })
+    .catch(err => {
+        console.log('err'); // err
+    })
+    .finally((data) => {
+        console.log(data); // undefined
+        return 1;
+    })
+    .then((data) => {
+        console.log(data); // undefined
+    })
+</v-code>

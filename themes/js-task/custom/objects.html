@@ -10,8 +10,8 @@ let test = function() {
 test.method = function () {
 	console.log('hi from method!');
 }
-test.method()
-test()
+test.method();
+test();
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -26,8 +26,49 @@ function clear (a) {
 }
 
 clear(a);
-console.log(a);
+console.log(a); // => Object { a: 10 }
+</v-code>
 
-// => Object { a: 10 }
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Присвоение null</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const a = [];
+
+function clear(arr) {
+	// присвоение в локальную переменную
+	arr.push(2);
+	arr = null;
+}
+clear(a);
+
+console.log(a); // [2]
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функция withName</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const obj1 = {};
+
+function withName(obj, name) {
+	obj.name = name;
+	return obj;
+}
+
+const obj2 = withName(obj1, 'Max');
+console.log(obj2.name);     // 'Max'
+console.log(obj1.name);     // 'Max'
+console.log(obj1 === obj2); // true
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обращение к объектам</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var a = { key: 'foo' };
+var b = { key: 'bar' };
+var c = {};
+c[a] === c[b]	// => true
 </v-code>
 

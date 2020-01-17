@@ -24,3 +24,20 @@ function closure() {
 
 console.log(closure()[3]() === 3); // => должно быть "true"
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>const a = 20 в замыкании</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function foo() {
+	const a = 20
+	return function() {
+		console.log(a);
+	}
+}
+
+const a = 10
+const bar = foo()
+bar(); // 20
+</v-code>
+

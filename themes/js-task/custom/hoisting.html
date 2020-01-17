@@ -41,6 +41,25 @@ function f () {
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const a = 1;
+
+function b() {
+    // перезаписывается не глобальная переменная, а локальная функция
+    a = 10;
+    return 20;
+    // функция всплывает
+    function a() {}
+}
+
+b();
+
+console.log(a); // 1
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Значение массива</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
@@ -52,3 +71,47 @@ function clear(arr) {
 clear(a);
 console.log(a); // [2]
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Временная Dead Zone</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function foo(a) {  
+    if (a > 0) {
+        // a во временной dead zone
+        let a = a + 10;
+        return a;
+    }
+    return a;
+}
+
+console.log(foo(20));
+
+// => ReferenceError: Cannot access 'a' before initialization
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>this</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="comment;comment">
+<template v-slot:first>
+var a = 1; 
+function b() { 
+    a = 10; 
+    return; 
+    function a() {} 
+} 
+b(); 
+console.log(a); // => 1
+</template>
+<template v-slot:last>
+var a = 1; 
+function b() { 
+    a = 10;     
+    return; 
+    let a;
+} 
+b(); 
+console.log(a); // => Uncaught ReferenceError: Cannot access 'a' before initialization
+</template>
+</v-two-code>
