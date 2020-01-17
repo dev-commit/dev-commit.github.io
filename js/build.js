@@ -880,8 +880,10 @@ var arrJsTasks = [
     ['js-task', 'polyphyls', 'promise-all',    setTheme(1, ['Promise.all'])],
 
     [1, 'Функции'],
-    ['js-task', 'functions', 'duplicate', setTheme(1, ['Duplicate'])],
-    ['js-task', 'functions', 'fibonacci', 'Число Фибоначчи'],
+    ['js-task', 'functions', 'duplicate',      setTheme(1, ['Duplicate'])],
+    ['js-task', 'functions', 'fibonacci',      'Число Фибоначчи'],
+    ['js-task', 'functions', 'function-count', 'Функция считает свои вызовы'],
+    ['js-task', 'functions', 'memoization',    'Мемоизация'],
 
     [1, 'Основное'],
     ['js-task', 'main', 'sum-brackets',         'Сумма произвольного кол-ва скобок'],

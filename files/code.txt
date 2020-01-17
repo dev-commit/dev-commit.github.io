@@ -52,33 +52,6 @@ p
 //-----------------------------------------
 
 
-// // reconcilattion
-
-var add = (a, b) => a + b;
-
-var memoAdd = memo(add);
-console.log(memoAdd(2, 3)); // 5
-console.log(memoAdd(2, 2)); // 4
-console.log(memoAdd(2, 2)); // 4, console.log('returned cached value');
-
-function memo(add) {
-  var data = {};
-  
-  return function(...arg) {
-    const key = JSON.stringify(arg);
-    
-    if (data[key]) {
-      console.log('returned cached value');
-    } else {
-      data[key] = add.apply(null, arg);
-    }
-    
-    return data[key];
-  }
-}
-
-
-
 // Store - state - store data
 // Reducers -> state1 => state2 - change state - change data
 // Action => dispatch => trigger reducer - ???
@@ -89,8 +62,6 @@ function memo(add) {
 
 // 1 Actions - snapshots - history
 // 2 Actions  - metaknowledge
-
-
 
 
 
@@ -122,20 +93,6 @@ console.log(foo); // => Foo {__proto__: { a:2 }}
 
 Person.__proto__ -> Function.prototype
 Person.prototype.constructor.__proto__ -> Function.prototype
-
-
-//--------------------------------------------------------------------
-
-Написать функцию, считающее число своих вызовов
-
-const func = function() {
-    func.counter = func.counter || 0;
-    return ++func.counter;
-};
-
-console.log(func()); // 1
-console.log(func()); // 2
-console.log(func()); // 3
 
 
 //--------------------------------------------------------------------
