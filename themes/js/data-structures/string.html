@@ -28,7 +28,7 @@ var pos = str.<u-code>lastIndexOf</u-code>('name'); // с конца (-1 не н
 <!------------------------------------------------------------->
 <h4>Взятие подстроки: substring, substr, slice</h4>
 <!------------------------------------------------------------->
-<u-code>slice</u-code>
+<u-code-list>slice</u-code-list>
 <ul class="list-point">
 	<li>Отрицательные значения отсчитываются от конца строки</li>
 </ul>
@@ -38,7 +38,7 @@ var root = 'testme'.slice(-2);     // 'me', от 2 позиции с конца
 var root = 'testme'.slice(1, -1);  // "estm", от 1 позиции до первой с конца 
 </v-code>
 
-<u-code>substring</u-code>
+<u-code-list>substring</u-code-list>
 <ul class="list-point">
 	<li>Отрицательные аргументы интерпретируются как равные нулю</li>
 	<li>Слишком большие значения усекаются до длины строки</li>
@@ -51,7 +51,7 @@ var root = 'testme'.substring(-2);    // 'testme', -2 становится 0
 var root = 'testme'.substring(4, -1); // 'test', -1 становится 0 -> получили substring(4, 0), 4 > 0, так что аргументы меняются местами -> substring(0, 4) = "test"
 </v-code>
 
-<u-code>substr</u-code>
+<u-code-list>substr</u-code-list>
 <v-code lang="js" title="">
 var root = str.<u-code>substr</u-code>(1, 4);   // вырезать с 1 позиции 4 символа
 var root = str.substr(1);      // вырезать с 1 позиции до конца строки
