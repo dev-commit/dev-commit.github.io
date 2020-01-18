@@ -115,3 +115,22 @@ b();
 console.log(a); // => Uncaught ReferenceError: Cannot access 'a' before initialization
 </template>
 </v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Переменная</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var a = 5;
+function someFunction() {
+    // "3" запишется не в глобальную, а в локальную, потому что она всплыла
+    a = 3;
+
+    // условие не выполнится но "a" всплывет
+    if (false) {
+        var a = 10;
+    }
+}
+
+someFunction();
+console.log(a); // => 5
+</v-code>

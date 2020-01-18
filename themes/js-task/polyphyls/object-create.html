@@ -1,94 +1,91 @@
-<h2>Полифил Object.create</h2>
+<h2>🔥 Полифил Object.create</h2>
+
+<ul class="list-point">
+    <li><u>Object.create</u> создаёт пустой объект с __proto__, равным первому аргументу</li>
+</ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Версия 0</h3>
+<h3>Исходный Object.create()</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-const obj1 = {
-    name: 'MyName'
-}
+const objFirst = {
+    name: 'Tony'
+};
 
-const obj2 = create(obj1);
-
-function create(obj) {
-    function Fn() {}
-    Fn.prototype = obj;
-    return new Fn();
-}
-
-console.log(obj2.name); // => MyName
+const objSecond = Object.create(objFirst); // => {} __proto__: name: "Tony"
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Версия 1</h3>
+<h3>Запись в виде полифила</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="Через prototype">
+if (!Object.create) {
+    Object.create = function(proto) {
+        function F() {};
+        F.prototype = proto;
+        return new F;
+    }
+}
+</v-code>
 
+<v-code lang="js" title="Через setPrototypeOf">
+if (!Object.create) {
+    Object.create = function(proto) {
+        const newObject = {};
+        Object.setPrototypeOf(proto, newObject);
+        return newObject;
+    }
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Запись в виде функции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-const myObj1= {
+const objFirst = {
+    name: 'Tony'
+};
+
+//if (!Object.create) Object.create = create; // проверка поддержки Object.create
+const objSecond = create(objFirst); // => {} __proto__: name: "Tony"
+
+function create(proto) {
+    // 1. Создана новая функция F. Она ничего не делает с this,
+    // так что если вызвать new F, то получим пустой объект
+    function F() {}
+
+    // 2. Свойство F.prototype устанавливается в будущий прототип proto
+    F.prototype = proto;
+
+    // 3. Результатом вызова new F будет пустой объект с __proto__ 
+    // равным значению F.prototype. Возвращаем объект
+    return new F(); 
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Множественное наследование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const objFirst= {
     a: 1
 };
-const myObj2= {
+const objSecond= {
     p: {value: 20},
     k: {value: 30}
 };
 
-function objectCreateobj(myObj1, myObj2) {
-    function getPrototype() {}
-    getPrototype.prototype = myObj1;
+function create(objFirst, objSecond) {
+    function F() {}
+    F.prototype = objFirst;
 
-    let myProto = new getPrototype();
+    let myProto = new F();
 
-    for (key in myObj2) {
-        myProto[key] = myObj2[key].value;
+    for (key in objSecond) {
+        myProto[key] = objSecond[key].value;
     }
     return myProto;
 }
 
-objectCreateobj(myObj1, myObj2);
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Версия 2: LearnJavaScript</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<!------------------------------------------------------------->
-<h4>Исходный Object.create()</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-var objFirst = {
-    name: 'Tony'
-};
-var objSecond = Object.create(objFirst); // => {} __proto__: name: "Tony"
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Полифил</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-var objFirst = {
-    name: 'Tony'
-};
-
-//if (!Object.create) Object.create = inherit; // проверка поддержки Object.create
-var objSecond = inherit(objFirst); // => {} __proto__: name: "Tony"
-
-function inherit(proto) {
-    function F() {}       // Создана новая функция F. Она ничего не делает с this, так что если вызвать new F, то получим пустой объект
-    F.prototype = proto;  // Свойство F.prototype устанавливается в будущий прототип proto
-    var object = new F(); // Результатом вызова new F будет пустой объект с __proto__ равным значению F.prototype
-    return object;        // Получили пустой объект с заданным прототипом. Возвратим его
-}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Короткая запись</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-if (!Object.create) {
-    Object.create = function(proto) {
-        function F() {}
-        F.prototype = proto;
-        return new F;
-    };
-}
+const obj = create(objFirst, objSecond);
 </v-code>

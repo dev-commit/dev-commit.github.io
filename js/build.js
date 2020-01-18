@@ -3,16 +3,12 @@ const emoji = {
     theory:    '📑 ',
     code:      '⚡️ ',
     panda:     '🐼 ',
-    bear:      '🐻 ',
-    koala:     '🐨 ',
     cookie:    '🍪 ',
-    babuin:    '🦍 ',
-    mouse:     '🐹 ',
-    boom:      '💥 ',
-    fire:      '🔥 ',
     donut:     '🍩 ',
     pizza:     '🍕 ',
-    clover:    '🍀 ',
+    boom:      '💥 ',
+    fire:      '🔥 ',
+    cup:       '🥤 ',
     baseball:  '⚾️ ',
 }
 
@@ -376,10 +372,10 @@ var arrJsWebApi = [
     ['js-web-api', 'dom-events', 'list-events',       emoji.pizza+'Список событий'],
     ['js-web-api', 'dom-events', 'params-event',      emoji.pizza+'Объект события (Event)'],
 
-    ['js-web-api', 'dom-events', 'propagation-model',     emoji.clover+'Модель распространения событий'],
-    ['js-web-api', 'dom-events', 'propagation-capturing', emoji.clover+'1. Фаза погружения'],
-    ['js-web-api', 'dom-events', 'propagation-target',    emoji.clover+'2. Фаза цели'],
-    ['js-web-api', 'dom-events', 'propagation-bubbling',  emoji.clover+'3. Фаза всплытия'],
+    ['js-web-api', 'dom-events', 'propagation-model',     emoji.baseball+'Модель распространения событий'],
+    ['js-web-api', 'dom-events', 'propagation-capturing', emoji.baseball+'1. Фаза погружения'],
+    ['js-web-api', 'dom-events', 'propagation-target',    emoji.baseball+'2. Фаза цели'],
+    ['js-web-api', 'dom-events', 'propagation-bubbling',  emoji.baseball+'3. Фаза всплытия'],
 
     ['js-web-api', 'dom-events', 'propagation-delegate',  emoji.fire+'Делегирование событий'],
     ['js-web-api', 'dom-events', 'prevent',               setTheme(1, ['event.preventDefault()'])],
@@ -433,7 +429,7 @@ var arrJsObjects = [
     ['js-objects', 'main', 'prototype',     emoji.fire+setTheme(1, ['__proto__', 'prototype'])],
     ['js-objects', 'main', 'constructor',   emoji.donut+setTheme(1, ['constructor'])],
     ['js-objects', 'main', 'return',        emoji.donut+setTheme(1, ['return'])],
-    ['js-objects', 'main', 'new-target',    emoji.bear+setTheme(1, ['new.target'])],
+    ['js-objects', 'main', 'new-target',    emoji.cup+setTheme(1, ['new.target'])],
 
     [1, 'Методы Object'],
     ['js-objects', 'objects-methods', 'object-create',      emoji.pizza+setTheme(4, ['Object.create'])+' <u-code-list>__proto__</u-code-list>'],
@@ -880,15 +876,19 @@ var arrJsTasks = [
     ['js-task', 'polyphyls', 'promise-all',    setTheme(1, ['Promise.all'])],
 
     [1, 'Функции'],
-    ['js-task', 'functions', 'duplicate',      setTheme(1, ['Duplicate'])],
-    ['js-task', 'functions', 'fibonacci',      'Число Фибоначчи'],
-    ['js-task', 'functions', 'function-count', 'Функция считает свои вызовы'],
-    ['js-task', 'functions', 'memoization',    'Мемоизация'],
+    ['js-task', 'functions', 'duplicate',            setTheme(1, ['Duplicate'])],
+    ['js-task', 'functions', 'fibonacci',            'Число Фибоначчи'],
+    ['js-task', 'functions', 'function-count',       'Функция считает свои вызовы'],
+    ['js-task', 'functions', 'memoization',          'Мемоизация'],
+    ['js-task', 'functions', 'promise-make-request', 'Promise Make Request'],
+    ['js-task', 'functions', 'retrier',              'Retrier (запросы по URL)'],
+    ['js-task', 'functions', 'series',               'Series'],
+    ['js-task', 'functions', 'cancel-timeout',       'Отмена всех таймаутов'],
 
     [1, 'Основное'],
     ['js-task', 'main', 'sum-brackets',         'Сумма произвольного кол-ва скобок'],
     ['js-task', 'main', 'settimeout-for-var',   'setTimeout в for без let'],
-    ['js-task', 'main', 'promise-make-request', 'Promise Make Request'],
+
 
     [1, 'Общие темы'],
     ['js-task', 'custom', 'hoisting',    emoji.pizza+'Всплытие'],

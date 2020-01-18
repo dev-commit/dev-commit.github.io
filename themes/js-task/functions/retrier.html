@@ -1,0 +1,27 @@
+<h2>👿 Retrier</h2>
+
+<ul class="list-point">
+    <li>Есть Retrier, который должен делать запрос по URL</li>
+    <li>В случает неудачи, должен выполнить запрос указанное кол-во раз</li>
+    <li>Если не было результата после попыток, выбросить исключение</li>
+</ul>
+
+<v-code lang="js" title="">
+function retrier(url, n) {
+	if (n > 0) {
+		return fetch(url)
+			.then(data => {
+				if (data.statusCode >= 200 && data.statusCode < 300) {
+					return data;
+				} else {
+					return retrier(url, n-1);
+				}
+			})
+			.catch(err => {
+				return retrier(url, n-1);
+			})
+	} else {
+		throw Error('Error');
+	}
+}
+</v-code>

@@ -42,22 +42,22 @@ const menu =
     '<a href="/pages/bootstrap.html"   class="menu menu-html">Bootstrap</a>' +
 
     splitter +
-    '<a href="/pages/webpack.html"     class="menu menu-other">Webpack</a>' +
-    '<a href="/pages/git.html"         class="menu menu-other">Git</a>' +
-    '<a href="/pages/material-ui.html" class="menu menu-other">Material-UI</a>' +
-    '<a href="/pages/flow.html"        class="menu menu-other">Flow</a>' +
-    '<a href="/pages/typescript.html"  class="menu menu-other">TypeScript</a>' +
-    '<a href="/pages/npm.html"         class="menu menu-other">NPM</a>' +
-    '<a href="/pages/ramda.html"       class="menu menu-other">Ramda</a>' +
+    '<a href="/pages/git.html"         class="menu menu-php">🔥 Git</a>' +
+    '<a href="/pages/flow.html"        class="menu menu-php">🔥 Flow</a>' +
+    '<a href="/pages/npm.html"         class="menu menu-php">🥤 NPM</a>' +
+    '<a href="/pages/webpack.html"     class="menu menu-php">🥤 Webpack</a>' +
+    '<a href="/pages/material-ui.html" class="menu menu-php">Material-UI</a>' +
+    '<a href="/pages/typescript.html"  class="menu menu-php">TypeScript</a>' +
+    '<a href="/pages/ramda.html"       class="menu menu-php">Ramda</a>' +
 
     splitter +
-    '<a href="/pages/linux.html"       class="menu menu-php">Linux</a>' +
-    '<a href="/pages/other.html"       class="menu menu-php">Other</a>' +
-    '<a href="/pages/jquery.html"      class="menu menu-php">jQuery</a>' +
-    '<a href="/pages/node-js.html"     class="menu menu-php">Node.js</a>' +
-    '<a href="/pages/php.html"         class="menu menu-php">PHP</a>' +
-    '<a href="/pages/python.html"      class="menu menu-php">Python</a>' +
-    '<a href="/pages/mysql.html"       class="menu menu-php">mySql</a>' +
+    '<a href="/pages/linux.html"       class="menu menu-other">Linux</a>' +
+    '<a href="/pages/other.html"       class="menu menu-other">Other</a>' +
+    '<a href="/pages/jquery.html"      class="menu menu-other">jQuery</a>' +
+    '<a href="/pages/node-js.html"     class="menu menu-other">Node.js</a>' +
+    '<a href="/pages/php.html"         class="menu menu-other">PHP</a>' +
+    '<a href="/pages/python.html"      class="menu menu-other">Python</a>' +
+    '<a href="/pages/mysql.html"       class="menu menu-other">mySql</a>' +
     ''
 ;
 
