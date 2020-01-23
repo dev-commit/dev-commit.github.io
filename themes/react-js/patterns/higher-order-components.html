@@ -39,6 +39,19 @@
 	<li>Рефы не передаются. По соглашению компоненты высшего порядка передают оборачиваемому компоненту все пропсы, кроме рефов. ref на самом деле не проп, как, например, key, и поэтому иначе обрабатывается React. Реф элемента, созданного компонентом из HOC, будет указывать на экземпляр ближайшего в иерархии контейнера, а не на оборачиваемый компонент</li>
 </ul>
 
+<!------------------------------------------------------------->
+<h4>Основано на паттерне "return function"</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const func = (a) => {
+	return (b) => {
+		console.log(a + b); // 3
+	}
+}
+
+func(1)(2);
+</v-code>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
@@ -145,17 +158,31 @@ const higherOrderComponent = (WrappedComponent, incrementNumber) =&gt; {
 const EnhancedComponent = higherOrderComponent(WrappedComponent, 5);
 </v-code>
 
-<hr>
+<!------------------------------------------------------------->
+<h4>3. withStyles из Material-UI</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="component">
+import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import styles from './ComponentStyles';
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Основано на паттерне "return function"</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-const func = (a) => {
-	return (b) => {
-		console.log(a + b); // 3
-	}
-}
+const Component = ({ classes }) =&gt; {
+	return (
+		&lt;h1 className={classes.header}&gt;Desktop&lt;/h1&gt;
+	);
+};
 
-func(1)(2);
+export default withStyles(styles)(Component);
 </v-code>
+
+<v-code lang="js" title="styles">
+const ComponentStyles = ({ spacing }: Object) => ({
+	header: {}
+});
+
+export default ComponentStyles;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>4. connect из Redux</h4>
+<!------------------------------------------------------------->

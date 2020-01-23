@@ -7,3 +7,18 @@ const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 <ul class="list-point">
     <li>Возвращает мемоизированное значение</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import React, { useMemo, useState } from 'react';
+
+const App = () => {
+	const [page, setPage] = useSate(1);
+
+	const handleChange = useMemo(() => {
+		setPage(2);
+	}, [page]);
+}
+</v-code>
