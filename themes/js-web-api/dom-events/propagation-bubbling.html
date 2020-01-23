@@ -71,14 +71,13 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li>Всплытие идёт с «целевого» элемента наверх. Любой промежуточный обработчик может решить, что событие полностью обработано, и остановить всплытие</li>
-    <li>Если у элемента есть несколько обработчиков на одно событие, то даже при прекращении всплытия все они будут выполнены. <u-code-text>event.stopPropagation()</u-code-text> препятствует продвижению события дальше, но на текущем элементе все обработчики будут вызваны</li>
-    <li><u-code-text>event.stopImmediatePropagation()</u-code-text> не только предотвращает всплытие, но и останавливает обработку событий на текущем элементе</li>
+    <li>Если у элемента есть несколько обработчиков на одно событие, то даже при прекращении всплытия все они будут выполнены
     <li><b>Недостаток</b>: при использовании систем аналитики где необходимо учитывать все клики, события с <u>stopPropagation</u> не будут учитываться</li>
 </ul>
 
 <div class="v-method-wrapper">
     <v-method before="event." method="stopPropagation" after="" arg="()">
-    Прекращение всплытия
+    Прекращение всплытия, но на текущем элементе все обработчики будут вызваны
     </v-method>
 
    	<v-method before="event." method="stopImmediatePropagation" after="" arg="()">
@@ -91,3 +90,4 @@
 	&lt;button onclick="event.stopPropagation()"&gt;Кнопка&lt;/button&gt;
 &lt;/body&gt;
 </v-code>
+
