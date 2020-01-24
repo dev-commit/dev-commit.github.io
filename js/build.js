@@ -190,14 +190,20 @@ var arrReactHooks = [
 // REDUX
 //---------------------------------------------------------------------
 var arrRedux = [
-    ['redux', 'main', 'info',                   'Информация'],
-    ['redux', 'main', 'functional-programming', 'Принципы FP'],
-    ['redux', 'main', 'methods',                'Методы'],
-    ['redux', 'main', 'structure',              emoji.code+'Структура'],
-    ['redux', 'main', 'connect',                setTheme(1, ['Connect'])],
-    ['redux', 'main', 'middleware',             setTheme(1, ['Middleware'])],
-    ['redux', 'main', 'info-flux',              'Flux'],
-    ['redux', 'main', 'info-redux',             'Redux'],
+    [1, 'Код'],
+    ['redux', 'code', 'elements',          emoji.fire+'Элементы'],
+    ['redux', 'code', 'redux',             emoji.code+'Redux'],
+    ['redux', 'code', 'react-redux',       emoji.code+'React-Redux'],
+    ['redux', 'code', 'create-store',      emoji.pizza+setTheme(1, ['createStore'])+' <u>redux</u>'],
+    ['redux', 'code', 'combine-reducers',  emoji.pizza+setTheme(1, ['combineReducers'])+' <u>redux</u>'],
+    ['redux', 'code', 'provider',          emoji.pizza+setTheme(1, ['Provider'])+' <u>react-redux</u>'],
+    ['redux', 'code', 'connect',           emoji.pizza+setTheme(1, ['connect'])+' <u>react-redux</u>'],
+    ['redux', 'code', 'apply-middleware',  emoji.pizza+setTheme(1, ['applyMiddleware'])+' <u>redux</u>'],
+
+    [1, 'Информация'],
+    ['redux', 'main', 'info-flux',              emoji.theory+'Flux'],
+    ['redux', 'main', 'info',                   emoji.theory+'Redux'],
+    ['redux', 'main', 'functional-programming', emoji.theory+'Принципы FP'],
 
     [1, 'Redux Plugins'],
     ['redux', 'plugins', 'redux-thunk',    setTheme(2, ['redux-thunk', 'redux-devtools-extension'])],

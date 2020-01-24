@@ -1,0 +1,28 @@
+<h2>Элементы</h2>
+
+<ul class="list-point">
+    <li><u-text-define>1. View</u-text-define> - компонент</li>
+
+    <hr>
+    <li><u-text-define>2. Store</u-text-define> - помещаются все данные приложения. Store иммутабельный: мы можем создавать всегда только новую копию данных, а не менять старое состояние store. ТОЛЬКО ОДИН объект Store. Store, "объединяет" Reducer и Actions</li>
+    
+    <hr>
+    <li><u-text-define>3. Actions</u-text-define> - объект. Описывает факт, что что-то произошло, но не указывает, как состояние приложения должно измениться в ответ (Reducer). Изменение состоние происходит с помощью действий</li>
+
+    <ul class="list-point">
+        <li><u-menu-code>Actions</u-menu-code> </li>
+        <ul class="list-point">
+            <li><u-code-text>&#9776; type</u-code-text> - обязательное поле</li>
+            <li><u-code-text>payload</u-code-text> - свойство в которое помещаются все данные, которые передаются вместе с действием</li>
+        </ul>
+    </ul>
+    
+    <li><u-text-underline>ActionsCreator</u-text-underline> - функция для вызова Action</li>
+
+    <hr>
+    <li><u-text-define>4. Reducer</u-text-define> - (преобразователь) - чистая функция, которая берет на вход <u>предыдущее состояние</u> и <u>action</u> и возвращает новое состояние. Не модифицирует данные, а всегда возвращает новые данные. Указывает, как состояние приложения должно измениться в ответ на Action</li>
+    <li>Мы не мутировали наш state, мы создали новый state. В редьюсере, мы всегда должны возвращать новый объект, а не измененный предыдущий</li>
+    <li>Объект, который мы возвращаем в редьюсере, далее с помощью функции <u-code-text>connect</u-code-text>, превратится в свойства для компонентов. Благодаря этому, внутри компонента <u-code-text>&lt;Component /&gt;</u-code-text>, мы сможем получить доступ к свойству <u-code-text>this.props.name_prop</u-code-text></li>
+    
+    <li><u-text-underline>Reducer Composition</u-text-underline> - фундаментальный шаблон построения redux приложений: мы разбиваем наше глобальное состояние на кусочки, за каждый кусочек отвечает свой <u-code-text>reducer</u-code-text>. Кусочки объединяются в <u-code-text>rootReducer</u-code-text> Корневом Редьюсере</li>
+</ul>

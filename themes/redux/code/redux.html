@@ -1,0 +1,51 @@
+<h2>Redux</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Методы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const store = <u-code>createStore</u-code>(reducerFunction); // создание store
+store.<u-code>getState</u-code>();                           // получить состояние store
+store.<u-code>subscribe</u-code>();                          // подписка на изменение store
+store.<u-code>dispatch</u-code>({                            // событие обновления состояния store
+    type: 'тип_события', 
+    payload: 'данные' 
+}); 
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример использования</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="">
+// 1. STORE (создание store)
+import { createStore } from 'redux';
+const store = <u-code>createStore</u-code>(changeStore);
+
+// 2. REDUCER
+function changeStore(state = [], action) {
+    switch (action.type) {
+        case 'ADD_PRODUCT': {
+            return [...state, action.payload];
+        }
+        default: {
+            return state;
+        }
+    }
+}
+
+// 3. COMPONENT (подписка и получение состояния store)
+store.<u-code>subscribe</u-code>(() => {
+    console.log(store.<u-code>getState</u-code>());
+});
+
+// 4. COMPONENT (обновление состояния store)
+store.<u-code>dispatch</u-code>({ type: 'ADD_PRODUCT', payload: 'Product1' });
+store.<u-code>dispatch</u-code>({ type: 'ADD_PRODUCT', payload: 'Product2' });
+</v-code>
+
+<v-code lang="js" title="">
+// Данные, которые вернет "action" в "changeStore"
+// => {type: "@@redux/INITn.9.1.1.y.1"}          // всегда когда redux инициализирован
+// => {type: "ADD_PRODUCT", payload: "Product1"} // добавленный action
+</v-code>
+
