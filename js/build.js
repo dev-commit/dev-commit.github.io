@@ -206,7 +206,7 @@ var arrRedux = [
     ['redux', 'main', 'functional-programming', emoji.theory+'Принципы FP'],
 
     [1, 'Redux Plugins'],
-    ['redux', 'plugins', 'redux-thunk',    setTheme(2, ['redux-thunk', 'redux-devtools-extension'])],
+    ['redux', 'plugins', 'redux-thunk',    setTheme(2, ['redux-thunk'])+'<br>'+setTheme(2, ['redux-devtools-extension'])],
     ['redux', 'plugins', 'redux-form',     setTheme(2, ['redux-form'])],
     ['redux', 'plugins', 'redux-actions',  setTheme(2, ['redux-actions'])],
     ['redux', 'plugins', 'redux-saga',     setTheme(2, ['redux-saga'])],
