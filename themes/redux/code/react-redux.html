@@ -88,10 +88,19 @@ export default myReducer;
 <v-code lang="js border" title="redux/actions.js">
 import { ADD_VALUE } from './actionTypes';
 
+// возвращает объект
 export const addMyValue = myValue => ({
     <u-code>type</u-code>: ADD_VALUE,
     <u-code>payload</u-code>: { myValue }
 })
+
+// возвращает функцию (redux-thunk)
+export const addMyValue = myValue => dispatch => {
+    dispatch({
+		<u-code>type</u-code>: ADD_VALUE,
+		<u-code>payload</u-code>: { myValue }
+    });
+};
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
