@@ -186,3 +186,17 @@ export default ComponentStyles;
 <!------------------------------------------------------------->
 <h4>4. connect из Redux</h4>
 <!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => ({
+	myValue: state.myReducer
+})
+const mapDispatchToProps = {
+	getMethod: getMethod
+}
+export default <u-code>connect</u-code>(
+	mapStateToProps,
+	mapDispatchToProps
+)(Component);
+</v-code>

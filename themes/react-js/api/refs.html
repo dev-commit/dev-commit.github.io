@@ -141,16 +141,14 @@ const Component = () =&gt; {
     <li><b>Применение:</b> для написания библиотек</li>
 </ul>
 
-<hr>
+<div class="v-method-wrapper">
+    <v-method before="React." method="forwardRef" after="" arg="(props, ref)">
+    Получить <u>ref</u> и передать его в дочерний DOM-элемент компонента
+    </v-method>
 
-<ul class="list-point">
-    <li><u-menu-code>React.forwardRef</u-menu-code> получить <u>ref</u> и передать его в дочерний DOM-элемент компонента</li>
-    <ul class="list-point">
-        <li><u-code-text>props</u-code-text> - пропсы</li>
-        <li><u-code-text>ref</u-code-text> - существует только в том случае, если создавать компонент через функцию React.forwardRef. Обычные функциональные или классовые компоненты не получают <u>ref</u> в качестве аргумента или пропа</li>
-    </ul>
-</ul>
-
+	<v-method-arg arg="props">пропсы</v-method-arg>
+	<v-method-arg arg="ref">существует только в том случае, если создавать компонент через функцию React.forwardRef. Обычные функциональные или классовые компоненты не получают <u>ref</u> в качестве аргумента или пропа</v-method-arg>
+</div>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Колбэк-рефы</h3>
