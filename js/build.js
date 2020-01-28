@@ -155,7 +155,7 @@ var arrReactApi = [
     ['react-api', 'memoization', 'react-memo',              emoji.pizza+setTheme(4, ['React.memo'])],
 
     [1, 'Компоненты'],
-    ['react-api', 'components',  'state',                   emoji.pizza+setTheme(4, ['setState()'])],
+    ['react-api', 'components',  'set-state',               emoji.pizza+setTheme(4, ['setState()'])],
     ['react-api', 'components',  'force-update',            emoji.pizza+setTheme(4, ['forceUpdate()'])],
 
     [1, 'DOM-атрибуты'],
