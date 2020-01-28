@@ -727,6 +727,7 @@ var arrTheory = [
     ['theory', 'programming-principles', 'code-standart', 'Стандарты кода'],
 
     [1, 'Deployment'],
+    ['theory', 'deployment', 'info',                   emoji.theory+'Информация'],
     ['theory', 'deployment', 'continuous-integration', emoji.baseball+'1. Continuous Integration'],
     ['theory', 'deployment', 'continuous-delivery',    emoji.baseball+'2. Continuous Delivery'],
     ['theory', 'deployment', 'continuous-deployment',  emoji.baseball+'3. Continuous Deployment'],
@@ -882,10 +883,10 @@ var arrJsTasks = [
     ['js-task', 'polyphyls', 'promise-all',    setTheme(1, ['Promise.all'])],
 
     [1, 'Функции'],
+    ['js-task', 'functions', 'memoization',          setTheme(1, ['Memoization'])],
     ['js-task', 'functions', 'duplicate',            setTheme(1, ['Duplicate'])],
     ['js-task', 'functions', 'fibonacci',            'Число Фибоначчи'],
     ['js-task', 'functions', 'function-count',       'Функция считает свои вызовы'],
-    ['js-task', 'functions', 'memoization',          'Мемоизация'],
     ['js-task', 'functions', 'promise-make-request', 'Promise Make Request'],
     ['js-task', 'functions', 'retrier',              'Retrier (запросы по URL)'],
     ['js-task', 'functions', 'series',               'Series'],
