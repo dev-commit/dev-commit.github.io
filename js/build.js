@@ -180,7 +180,7 @@ var arrReactHooks = [
     ['react-hooks', 'hooks', 'use-debug-value',       emoji.fire+setTheme(4, ['useDebugValue'])],
 
     [1, 'Информация'],
-    ['react-hooks', 'main',  'info',                  emoji.theory+'Информация'],
+    ['react-hooks', 'main', 'info',                   emoji.theory+'Информация'],
     ['react-hooks', 'main', 'own-hooks',              emoji.theory+'Создание собственных хуков'],
     ['react-hooks', 'main', 'questions',              emoji.theory+'Ответы на вопросы'],
 ];
@@ -192,8 +192,8 @@ var arrReactHooks = [
 var arrRedux = [
     [1, 'Код'],
     ['redux', 'code', 'elements',          emoji.fire+'Элементы'],
-    ['redux', 'code', 'redux',             emoji.code+'Redux'],
     ['redux', 'code', 'react-redux',       emoji.code+'React-Redux'],
+    ['redux', 'code', 'redux',             emoji.code+'Redux'],
     ['redux', 'code', 'create-store',      emoji.pizza+setTheme(1, ['createStore'])+' <u>redux</u>'],
     ['redux', 'code', 'combine-reducers',  emoji.pizza+setTheme(1, ['combineReducers'])+' <u>redux</u>'],
     ['redux', 'code', 'provider',          emoji.pizza+setTheme(1, ['Provider'])+' <u>react-redux</u>'],
