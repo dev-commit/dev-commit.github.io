@@ -38,6 +38,16 @@ if (!Object.create) {
 }
 </v-code>
 
+<v-code lang="js" title="Через __proto__">
+if (!Object.create) {
+    Object.create = function(proto) {
+		const newObject = {};
+		newObject.__proto__ = proto;
+		return newObject;
+    }
+}
+</v-code>
+
 <v-code lang="js" title="">
 const o = Object.create(object);
 
