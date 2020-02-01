@@ -1,0 +1,31 @@
+<h2>👿 Проверить закрывающиеся скобки</h2>
+
+<ul class="list-point">
+    <li>Недоделано</li>
+</ul>
+
+<v-code lang="js" title="">
+function test(string) {
+    let array = [];
+    
+	// некорректно указывать нулевой элемент
+    if (string[0] === ')') {
+        return false;
+    }
+    
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] === '(' || array.length === 0) {
+            array.push(string[i])
+        } else {
+            array.pop();
+        }
+    }
+    
+    return !array.length
+}
+
+test('()()()');          // => true
+test('((()))');          // => true
+test('(()))))))))))))'); // => false
+test(')()))');           // => false
+</v-code>

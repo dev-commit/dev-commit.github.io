@@ -885,17 +885,20 @@ var arrJsTasks = [
     [1, 'Функции'],
     ['js-task', 'functions', 'memoization',          setTheme(1, ['Memoization'])],
     ['js-task', 'functions', 'duplicate',            setTheme(1, ['Duplicate'])],
+    ['js-task', 'functions', 'shallow-equal',        setTheme(1, ['Shallow Equal'])],
     ['js-task', 'functions', 'fibonacci',            'Число Фибоначчи'],
     ['js-task', 'functions', 'function-count',       'Функция считает свои вызовы'],
     ['js-task', 'functions', 'promise-make-request', 'Promise Make Request'],
     ['js-task', 'functions', 'retrier',              'Retrier (запросы по URL)'],
     ['js-task', 'functions', 'series',               'Series'],
     ['js-task', 'functions', 'cancel-timeout',       'Отмена всех таймаутов'],
+    ['js-task', 'functions', 'shop-queue',           'Магазин с кассами'],
+    ['js-task', 'functions', 'closing-brackets',     'Проверить закрывающиеся скобки'],
+    ['js-task', 'functions', 'doit',                 'Do It'],
 
     [1, 'Основное'],
     ['js-task', 'main', 'sum-brackets',         'Сумма произвольного кол-ва скобок'],
     ['js-task', 'main', 'settimeout-for-var',   'setTimeout в for без let'],
-
 
     [1, 'Общие темы'],
     ['js-task', 'custom', 'hoisting',    emoji.pizza+'Всплытие'],
