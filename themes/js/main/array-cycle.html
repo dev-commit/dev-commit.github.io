@@ -1,11 +1,11 @@
 <h2>Перебор массива</h2>
 
 <ul class="list-point">
-	<li><u-code-list>every/some</u-code-list> - для проверки массива</li>
-	<li><u-code-list>forEach</u-code-list> - для перебора массива</li>
-	<li><u-code-list>filter</u-code-list> - для фильтрации массива</li>
 	<li><u-code-list>map</u-code-list> - для трансформации массива в массив</li>
+	<li><u-code-list>forEach</u-code-list> - для перебора массива</li>
 	<li><u-code-list>reduce/reduceRight</u-code-list> - для прохода по массиву с вычислением значения</li>
+	<li><u-code-list>filter</u-code-list> - для фильтрации массива</li>
+	<li><u-code-list>every/some</u-code-list> - для проверки массива</li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -31,17 +31,19 @@
 </div>
 
 <v-code lang="js border" title="">
-var new_array = arr.map(function callback(currentValue, index, array) { 
-	// Возвращает элемент для new_array 
-}[, thisArg])
+const newArray = arr.map((currentValue, index, array) => { 
+	// Возвращает элемент для newArray 
+}[, thisArg]);
 </v-code>
 
 <v-code lang="js" title="">
-var numbers = [1, 4, 9];
-var doubles = numbers.map(function(num) {
+const numbers = [1, 2, 3];
+const doubles = numbers.map((num) => {
 	return num * 2;
 });
-// теперь doubles равен [2, 8, 18], а numbers всё ещё равен [1, 4, 9]
+
+console.log(numbers); // => [1, 2, 3]
+console.log(doubles); // => [2, 4, 6]
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -65,8 +67,8 @@ var doubles = numbers.map(function(num) {
 </div>
 
 <v-code lang="js border" title="">
-arr.forEach(function callback(currentValue, index, array) {
-	//your iterator
+arr.forEach((currentValue, index, array) => {
+	// Your iterator
 }[, thisArg]);
 </v-code>
 
@@ -74,92 +76,14 @@ arr.forEach(function callback(currentValue, index, array) {
 	<li>Ничего не возвращает, используется только для перебора</li>
 </ul>
 <v-code lang="js" title="">
-var arr = ["Яблоко", "Апельсин", "Груша"];
-arr.forEach(function(element, index, arr) {
-	console.log( index + ": " + element + " (массив:" + arr + ")" );
+const arr = ['Яблоко', 'Апельсин', 'Груша'];
+arr.forEach((element, index, arr) => {
+	console.log(element, index, arr);
 });
-// "0: Яблоко   (массив:Яблоко,Апельсин,Груша)"
-// "1: Апельсин (массив:Яблоко,Апельсин,Груша)"
-// "2: Груша    (массив:Яблоко,Апельсин,Груша)"
-</v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>filter</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div class="v-method-wrapper">
-    <v-method before="arr." method="filter" after="" arg="(callback, thisArg)">
-    создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции
-    </v-method>
-
-	<v-method-arg arg="callback">
-	Функция, которая будет вызвана для каждого элемента массива. Если функция возвращает true, то элемент остаётся в массиве, если false, то удаляется. Три аргумента:<br>
-	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
-	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
-	<u>array</u> - массив, по которому осуществляется проход<br>
-	</v-method-arg>
-
-	<v-method-arg arg="thisArg">
-	Необязательный параметр. Значение, используемое в качестве this при вызове функции callback
-	</v-method-arg>
-
-	<v-method-return>Новый массив с элементами для которых callback вернёт true. Если ни один элемент не пройдет тест, то будет возвращен пустой массив</v-method-return>
-</div>
-
-<ul class="list-point">
-	<li>Используется для фильтрации массива через функцию</li>
-	<li>Создаёт новый массив, в который войдут только те элементы arr, для которых вызов callback(item, i, arr) возвратит true</li>
-</ul>
-
-<v-code lang="js" title="">
-// Выбор положительных элементов массива
-var arr = [1, -1, 2, -2, 3];
-var result = arr.filter(function(number) {
-	return number > 0;
-});
-alert(result); // => 1,2,3
-</v-code>
-
-<v-code lang="js" title="">
-// Поиск вхождения подстроки в массив
-let arr = ['Tony', 'Jack', 'Nick', 'Tony and Jane'];
-let result = arr.filter(item => item.<u-code>includes</u-code>('Tony')); // => ["Tony", "Tony and Jane"]
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>every/some</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div class="v-method-wrapper">
-    <v-method before="arr." method="every/some" after="" arg="(callback, thisArg)">
-    проверяет, удовлетворяют ли <i><u>все/какие-нибудь</u></i> элементы массива условию, заданному в передаваемой функции
-    </v-method>
-
-	<v-method-arg arg="callback">
-	Функция проверки каждого элемента, принимает три аргумента:<br>
-	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
-	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
-	<u>array</u> - массив, по которому осуществляется проход<br>
-	</v-method-arg>
-
-	<v-method-arg arg="thisArg">
-	Необязательный параметр. Значение, используемое в качестве this при вызове функции callback
-	</v-method-arg>
-
-	<v-method-return>true если функция проверки возвращает truthy значение для <i><u>каждого/хотя бы одного</u></i> элемента массива. Иначе, false</v-method-return>
-</div>
-
-<ul class="list-point">
-	<li>Используется для проверки массива</li>
-	<li>Метод «arr.every(callback[, thisArg])» возвращает true, если вызов callback вернёт true для каждого элемента arr</li>
-	<li>Метод «arr.some(callback[, thisArg])» возвращает true, если вызов callback вернёт true для какого-нибудь элемента arr</li>
-</ul>
-
-<v-code lang="js" title="">
-var arr = [1, -1, 2, -2, 3];
-function isPositive(number) {
-  return number > 0;
-}
-alert( arr.every(isPositive) ); // false, не все положительные
-alert( arr.some(isPositive) );  // true, есть хоть одно положительное
+// => 'Яблоко'   0  Array(3)
+// => 'Апельсин' 1  Array(3)
+// => 'Груша'    2  Array(3)
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -215,13 +139,92 @@ array.reduceRight(function(previousValue, currentValue, index, array) {
 
 <v-code lang="js" title="">
 // сумма элементов массива
-var arr = [1, 2, 3, 4, 5]
+const arr = [1, 2, 3, 4, 5]
 
 // для каждого элемента массива запустить функцию,
 // промежуточный результат передавать первым аргументом далее
-var result = arr.reduce(function(sum, current) {
+const result = arr.reduce(function(sum, current) {
   return sum + current
 });
 
 alert(result); // 15
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>filter</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="arr." method="filter" after="" arg="(callback, thisArg)">
+    создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции
+    </v-method>
+
+	<v-method-arg arg="callback">
+	Функция, которая будет вызвана для каждого элемента массива. Если функция возвращает true, то элемент остаётся в массиве, если false, то удаляется. Три аргумента:<br>
+	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
+	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
+	<u>array</u> - массив, по которому осуществляется проход<br>
+	</v-method-arg>
+
+	<v-method-arg arg="thisArg">
+	Необязательный параметр. Значение, используемое в качестве this при вызове функции callback
+	</v-method-arg>
+
+	<v-method-return>Новый массив с элементами для которых callback вернёт true. Если ни один элемент не пройдет тест, то будет возвращен пустой массив</v-method-return>
+</div>
+
+<ul class="list-point">
+	<li>Используется для фильтрации массива через функцию</li>
+	<li>Создаёт новый массив, в который войдут только те элементы arr, для которых вызов callback(item, i, arr) возвратит true</li>
+</ul>
+
+<v-code lang="js" title="">
+// Выбор положительных элементов массива
+const arr = [1, -1, 2, -2, 3];
+const result = arr.filter(function(number) {
+	return number > 0;
+});
+alert(result); // => 1,2,3
+</v-code>
+
+<v-code lang="js" title="">
+// Поиск вхождения подстроки в массив
+let arr = ['Tony', 'Jack', 'Nick', 'Tony and Jane'];
+let result = arr.filter(item => item.<u-code>includes</u-code>('Tony')); // => ["Tony", "Tony and Jane"]
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>every/some</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="arr." method="every/some" after="" arg="(callback, thisArg)">
+    проверяет, удовлетворяют ли <i><u>все/какие-нибудь</u></i> элементы массива условию, заданному в передаваемой функции
+    </v-method>
+
+	<v-method-arg arg="callback">
+	Функция проверки каждого элемента, принимает три аргумента:<br>
+	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
+	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
+	<u>array</u> - массив, по которому осуществляется проход<br>
+	</v-method-arg>
+
+	<v-method-arg arg="thisArg">
+	Необязательный параметр. Значение, используемое в качестве this при вызове функции callback
+	</v-method-arg>
+
+	<v-method-return>true если функция проверки возвращает truthy значение для <i><u>каждого/хотя бы одного</u></i> элемента массива. Иначе, false</v-method-return>
+</div>
+
+<ul class="list-point">
+	<li>Используется для проверки массива</li>
+	<li>Метод «arr.every(callback[, thisArg])» возвращает true, если вызов callback вернёт true для каждого элемента arr</li>
+	<li>Метод «arr.some(callback[, thisArg])» возвращает true, если вызов callback вернёт true для какого-нибудь элемента arr</li>
+</ul>
+
+<v-code lang="js" title="">
+const arr = [1, -1, 2, -2, 3];
+function isPositive(number) {
+  return number > 0;
+}
+alert( arr.every(isPositive) ); // false, не все положительные
+alert( arr.some(isPositive) );  // true, есть хоть одно положительное
 </v-code>
