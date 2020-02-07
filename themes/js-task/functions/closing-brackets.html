@@ -1,9 +1,44 @@
-<h2>👿 Проверить закрывающиеся скобки</h2>
+<h2>Проверить закрывающиеся скобки</h2>
 
 <ul class="list-point">
-    <li>Недоделано</li>
+    <li>Напишите функцию тестирующую правильность вложенных скобок трех типов(кроме нижеперчисленных символов других в строке нет) - '(' и ')', '[' и ']', '<' и '>':</li>
 </ul>
 
+<v-code lang="js" title="">
+test('[]()&lt;&gt;') // =&gt; true
+test('[]()&lt;)') // =&gt; false
+test('[(&lt;&gt;)]') // =&gt; true
+test('[(&lt;&gt;])') // =&gt; false
+</v-code>
+
+<v-code lang="js" title="">
+function test (str) {
+    var strArr = str.split('');
+    var stack = [];
+    var check = {
+        ']': '[',
+        ')': '(',
+        '>': '<'
+    };
+
+    strArr.forEach(function (bracket) {
+        if ((stack.length === 0) || !check[bracket] ) {
+            stack.push(bracket);
+        } else {
+            var lastElmInStack = stack[stack.length - 1];
+            if (lastElmInStack === check[bracket]) {
+                stack.pop();
+            }
+        }
+    });
+
+  return !stack.length;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Недоделанный вариант</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 function test(string) {
     let array = [];
