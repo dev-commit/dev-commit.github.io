@@ -6,6 +6,50 @@
 	<li>.then и .catch возвращают новый промис, поэтому их можно использовать по цепочке</li>
 </ul>
 
+<v-code lang="js" title="">
+const promise = Promise.resolve(1);
+
+promise
+	// Promise.resolve вернул "1"
+	.then(data => console.log(data)) // "1"
+
+	// then ничего не вернул
+	.then(data => {
+		console.log(data); // "undefined"
+		return 2;
+	})
+
+	// then вернул "2"
+	.then(data => {
+		console.log(data); // "2"
+		throw new Error('Api Error')
+	})
+
+	// предудущий then бросил ошибку
+	.then(data => console.log('Hello'))
+
+	// минуя then попадаем в catch
+	.catch(error => {
+		console.log(error.message); // "Api Error"
+		return 3;
+	})
+
+	// catch вернул "3"
+	.then(data => {
+		console.log(data); // "3"
+		return 4;
+	})
+
+	// then вернул 4, но finally пропустит его мимо себя
+	.finally(data => { 
+		console.log(data); // "undefined"
+		return 5;
+	})
+
+	// из finally вернули "5", но результат берется из предудщего then или catch
+	.then(data => console.log(data)) // "4"
+</v-code>
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Аргументы .then</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

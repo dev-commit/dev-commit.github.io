@@ -53,6 +53,7 @@ var arrAssessment = [
     ['js',          'main',       'bind',                 emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
     ['js',          'main',       'context',              emoji.baseball+'Контекст'],
     ['js-function', 'main',       'closures',             emoji.fire+'Замыкания'],
+    ['js-function', 'main',       'arrow',                emoji.fire+'Стрелочные функции'],
     ['js-async',    'theory',     'event-loop',           emoji.panda+'Event Loop'],
     ['js-async',    'theory',     'event-loop-tasks',     emoji.panda+'Event Loop: Tasks'],
 
@@ -65,7 +66,12 @@ var arrAssessment = [
     ['js-async',    'async',      'async-func',           emoji.boom+'Async Function (ES2017)'],
 
     [1, 'Теория'],
-    ['theory', 'html', 'critical-rendering-path', emoji.theory+'Critical Rendering Path'],
+    ['theory-paradigms', 'oop',                    'principles',              emoji.theory+'ООП'],
+    ['theory-paradigms', 'fp',                     'concept',                 emoji.theory+'ФП'],
+    ['theory',           'programming-principles', 'solid',                   emoji.theory+'SOLID'],
+    ['theory-patterns',  'main',                   'info',                    emoji.theory+'Паттерны'],
+    ['theory',           'html',                   'critical-rendering-path', emoji.theory+'Critical Rendering Path'],
+    ['testing',          'theory',                 'pyramid',                 emoji.theory+'Пирамида тестирования'],
 ];
 
 
@@ -888,6 +894,7 @@ var arrJsTasks = [
     ['js-task', 'functions', 'shallow-equal',        setTheme(1, ['Shallow Equal'])],
     ['js-task', 'functions', 'anagram',              setTheme(1, ['Anagram'])],
     ['js-task', 'functions', 'fibonacci',            setTheme(1, ['Fibonacci'])],
+    ['js-task', 'functions', 'sum-sequence',         'Сумма последовательности'],
     ['js-task', 'functions', 'function-count',       'Функция считает свои вызовы'],
     ['js-task', 'functions', 'promise-make-request', 'Promise Make Request'],
     ['js-task', 'functions', 'retrier',              'Retrier (запросы по URL)'],
