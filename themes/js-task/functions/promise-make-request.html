@@ -29,6 +29,7 @@ const makeConcurrentCall = (urls, total) => {
 	const buff = [...new Set(urls)].map(url => ({
 		url
 	}));
+
 	return new Promise((resolve) => {
 		const makeRequest = (index) => {a
 			const {
@@ -48,7 +49,7 @@ const makeConcurrentCall = (urls, total) => {
 			makeRequest(i)
 		}
 	})
-};
+}
 </v-code>
 
 <!------------------------------------------------------------->
@@ -107,3 +108,4 @@ function makeConcurrentCall(urls, maxCount) {
 	})
 }
 </v-code>
+
