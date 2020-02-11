@@ -58,6 +58,7 @@ const makeConcurrentCall = (urls, total) => {
 function makeConcurrentCall(urls, total) {
 	let res = [];
 	let countIndex = total;
+
 	return new Promise((resolve) => {
 		function request(index) {
 			fetch(urls[index]).then(response => response.json()).then(response => {
@@ -105,16 +106,4 @@ function makeConcurrentCall(urls, maxCount) {
 		}
 	})
 }
-
-const urls = [
-	'https://jsonplaceholder.typicode.com/todos/1',
-	'https://jsonplaceholder.typicode.com/todos/2',
-	'https://jsonplaceholder.typicode.com/todos/3',
-	'https://jsonplaceholder.typicode.com/todos/3',
-	'https://jsonplaceholder.typicode.com/todos/5',
-	'https://jsonplaceholder.typicode.com/todos/6',
-	'https://jsonplaceholder.typicode.com/todos/7'
-];
-
-makeConcurrentCall(urls, 3).then(console.log);
 </v-code>

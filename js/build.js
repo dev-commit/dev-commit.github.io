@@ -893,6 +893,8 @@ var arrJsTasks = [
     ['js-task', 'functions', 'duplicate',            setTheme(1, ['Duplicate'])],
     ['js-task', 'functions', 'shallow-equal',        setTheme(1, ['Shallow Equal'])],
     ['js-task', 'functions', 'anagram',              setTheme(1, ['Anagram'])],
+    ['js-task', 'functions', 'palindrome',           setTheme(1, ['Palindrome'])],
+
     ['js-task', 'functions', 'fibonacci',            setTheme(1, ['Fibonacci'])],
     ['js-task', 'functions', 'intersection-arrays',  'Пересечение массивов'],
     ['js-task', 'functions', 'sum-sequence',         'Сумма последовательности'],
