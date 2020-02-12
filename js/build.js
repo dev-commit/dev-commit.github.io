@@ -273,11 +273,11 @@ var arrJavaScript = [
     ['js', 'data-structures', 'number',     setTheme(1, ['Number'])],
     ['js', 'data-structures', 'string',     setTheme(1, ['String'])],
     ['js', 'data-structures', 'json',       setTheme(1, ['Json'])],
-    ['js', 'data-structures', 'date-time',  setTheme(1, ['Date'])],
     ['js', 'data-structures', 'array',      setTheme(1, ['Array'])],
     ['js', 'data-structures', 'iterators',  setTheme(1, ['Iterators (ES6)'])],
     ['js', 'data-structures', 'map',        setTheme(1, ['Map', 'WeakMap'])],
     ['js', 'data-structures', 'set',        setTheme(1, ['Set', 'WeakSet'])],
+    ['js', 'data-structures', 'date-time',  setTheme(1, ['Date'])],
 
     [1, 'Клиентское хранилище'],
     ['js', 'client-storage', 'web-storage', setTheme(1, ['localStorage', 'sessionStorage'])],
