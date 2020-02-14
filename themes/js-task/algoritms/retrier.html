@@ -6,6 +6,9 @@
     <li>Если не было результата после попыток, выбросить исключение</li>
 </ul>
 
+<!------------------------------------------------------------->
+<h4>#1</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 function retrier(url, n) {
 	if (n > 0) {
@@ -23,5 +26,37 @@ function retrier(url, n) {
 	} else {
 		throw Error('Error');
 	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function retrier(url: string, times: number) {
+    let count = 0;
+
+    if (count === number) {
+        return;
+    }
+
+    return new Promise(function(resolve, reject) {
+        function request(url) {
+            fetch(url).then(data, error => {
+                if (data) {
+                    resolve(data);
+                }
+                if (error) {
+                    count++;
+                    request(url);
+                    reject(error);
+                }
+            })
+        }
+    })
+
+    for (let i = 0; i < times; i++) {
+        request(url);
+    }
 }
 </v-code>
