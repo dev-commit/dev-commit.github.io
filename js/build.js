@@ -803,9 +803,9 @@ var arrParadigms = [
 //---------------------------------------------------------------------
 var arrAlgoritms = [
     [1, 'Основное'],
-    ['theory-algoritms', 'main', 'big-o-notation',  'Big-O Notation (сложность алгоритмов)'],
-    ['theory-algoritms', 'main', 'structure-data',  'Структуры данных'],
-    ['theory-algoritms', 'main', 'algoritms-sort',  'Алгоритмы сотрировки'],
+    ['theory-algoritms', 'main', 'big-o-notation',  emoji.theory+'Big-O Notation'],
+    ['theory-algoritms', 'main', 'structure-data',  emoji.theory+'Структуры данных'],
+    ['theory-algoritms', 'main', 'algoritms-sort',  emoji.code+'Алгоритмы сотрировки'],
 ];
 
 
@@ -831,16 +831,6 @@ var arrDesignPatterns = [
     [1, '4. Неизвестно'],
     ['theory-patterns', 'patterns-other',      'module',            emoji.pizza+setTheme(4, ['«Модуль»'])],
     ['theory-patterns', 'patterns-other',      'module-revealing',  emoji.pizza+setTheme(4, ['«Открытый модуль»'])],
-
-    [1, 'Функции'],
-    ['theory-patterns', 'functions',  'compose',   setTheme(1, ['compose'])],
-
-    [1, 'Декораторы'],
-    ['theory-patterns', 'decorators', 'debounce',  setTheme(1, ['debounce()'])],
-    ['theory-patterns', 'decorators', 'once',      setTheme(1, ['once()'])],
-    ['theory-patterns', 'decorators', 'after',     setTheme(1, ['after()'])],
-    ['theory-patterns', 'decorators', 'throttle',  setTheme(1, ['throttle()'])],
-    ['theory-patterns', 'decorators', 'partial',   setTheme(1, ['partial()'])],
 ];
 
 
@@ -890,27 +880,40 @@ var arrJsTasks = [
     ['js-task',    'polyphyls', 'promise-all',    emoji.cookie+setTheme(4, ['Promise.all'])],
 
     [1, 'Алгоритмы'],
+    ['js-task', 'algoritms', 'compose',              emoji.code+setTheme(4, ['Compose'])],
     ['js-task', 'algoritms', 'memoization',          emoji.code+setTheme(4, ['Memoization'])],
     ['js-task', 'algoritms', 'duplicate',            emoji.code+setTheme(4, ['Duplicate'])],
     ['js-task', 'algoritms', 'shallow-equal',        emoji.code+setTheme(4, ['Shallow Equal'])],
     ['js-task', 'algoritms', 'event-emitter',        emoji.code+setTheme(4, ['EventEmitter'])],
-    ['js-task', 'algoritms', 'retrier',              emoji.code+setTheme(4, ['Retrier (запросы по URL)'])],
     ['js-task', 'algoritms', 'anagram',              emoji.code+setTheme(4, ['Анаграмма'])],
     ['js-task', 'algoritms', 'palindrome',           emoji.code+setTheme(4, ['Палиндром'])],
     ['js-task', 'algoritms', 'fibonacci',            emoji.code+setTheme(4, ['Число Фибоначчи'])],
-    ['js-task', 'algoritms', 'intersection-arrays',  emoji.code+setTheme(4, ['Пересечение массивов'])],
-    ['js-task', 'algoritms', 'sum-sequence',         emoji.code+setTheme(4, ['Сумма последовательности'])],
     ['js-task', 'algoritms', 'closing-brackets',     emoji.code+setTheme(4, ['Проверить закрывающиеся скобки'])],
+    ['js-task', 'algoritms', 'sum-sequence',         emoji.code+setTheme(4, ['Сумма последовательности'])],
+    ['js-task', 'algoritms', 'sum-brackets',         emoji.code+setTheme(4, ['Сумма скобок sum(1)(2)(3)'])],
+    ['js-task', 'algoritms', 'function-count',       emoji.code+setTheme(4, ['Функция считает свои вызовы'])],
+    ['js-task', 'algoritms', 'series',               emoji.code+setTheme(4, ['Series'])],
+    ['js-task', 'algoritms', 'shop-queue',           emoji.code+setTheme(4, ['Магазин с кассами'])],
 
-    [1, 'Функции'],
-    ['js-task', 'algoritms', 'sum-brackets',         'Сумма произвольного кол-ва скобок'],
-    ['js-task', 'algoritms', 'function-count',       'Функция считает свои вызовы'],
-    ['js-task', 'algoritms', 'promise-make-request', 'Promise Make Request'],
-    ['js-task', 'algoritms', 'series',               'Series'],
-    ['js-task', 'algoritms', 'shop-queue',           'Магазин с кассами'],
-    ['js-task', 'algoritms', 'doit',                 'Do It'],
-    ['js-task', 'algoritms', 'cancel-timeout',       'setTimeout: отмена всех'],
-    ['js-task', 'algoritms', 'settimeout-for-var',   'setTimeout: в for без let'],
+    [1, 'Декораторы'],
+    ['js-task', 'decorators', 'debounce',  setTheme(1, ['debounce()'])],
+    ['js-task', 'decorators', 'once',      setTheme(1, ['once()'])],
+    ['js-task', 'decorators', 'after',     setTheme(1, ['after()'])],
+    ['js-task', 'decorators', 'throttle',  setTheme(1, ['throttle()'])],
+    ['js-task', 'decorators', 'partial',   setTheme(1, ['partial()'])],
+
+    [1, 'Асинхронность'],
+    ['js-task', 'algoritms', 'retrier',              emoji.code+setTheme(4, ['Retrier (запросы по URL)'])],
+    ['js-task', 'algoritms', 'promise-make-request', emoji.code+setTheme(4, ['Promise Make Request'])],
+    ['js-task', 'algoritms', 'cancel-timeout',       emoji.code+setTheme(4, ['setTimeout: отмена всех'])],
+    ['js-task', 'algoritms', 'settimeout-for-var',   emoji.code+setTheme(4, ['setTimeout: в for без let'])],
+
+    [1, 'Массивы'],
+    ['js-task', 'algoritms', 'intersection-arrays',  emoji.code+setTheme(4, ['Пересечение массивов'])],
+    ['js-task', 'algoritms', 'flat-array',           emoji.code+setTheme(4, ['Плоский массив'])],
+    ['js-task', 'algoritms', 'max-array-element',    emoji.code+setTheme(4, ['Максимальный элемент массива'])],
+    ['js-task', 'algoritms', 'doit',                 emoji.code+setTheme(4, ['Двумерный массив сумм'])],
+    ['js-task', 'algoritms', 'merge-sort',           emoji.code+setTheme(4, ['MergeSort'])],
 
     [1, 'Общие темы'],
     ['js-task', 'custom', 'hoisting',    emoji.pizza+setTheme(4, ['Всплытие'])],
@@ -918,6 +921,7 @@ var arrJsTasks = [
     ['js-task', 'custom', 'prototype',   emoji.pizza+setTheme(4, ['Прототипы'])],
     ['js-task', 'custom', 'context',     emoji.pizza+setTheme(4, ['Контекст'])],
     ['js-task', 'custom', 'event-loop',  emoji.pizza+setTheme(4, ['Event Loop'])],
+    ['js-task', 'custom', 'async',       emoji.pizza+setTheme(4, ['Асинхронность'])],
     ['js-task', 'custom', 'promise',     emoji.pizza+setTheme(4, ['Promise'])],
     ['js-task', 'custom', 'async-await', emoji.pizza+setTheme(4, ['Async Await'])],
     ['js-task', 'custom', 'currying',    emoji.pizza+setTheme(4, ['Каррирование'])],
@@ -1292,6 +1296,9 @@ var arrTesting = [
     ['testing', 'theory', 'tdd',              'TDD'],
     ['testing', 'theory', 'bdd',              'BDD'],
     ['testing', 'theory', 'chrome-dev-tools', 'Chrome DevTools'],
+
+    [1, 'Фреймворки'],
+    ['testing', 'frameworks', 'jest',         'Jest'],
 ];
 
 

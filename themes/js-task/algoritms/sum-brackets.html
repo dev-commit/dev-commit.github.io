@@ -1,8 +1,8 @@
 <h2>Сумма произвольного количества скобок</h2>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Вариант #1</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>#1</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 function sum() {
     let total = 0;
@@ -22,9 +22,9 @@ console.log(sum(10)(5)(5)(80)() === 100);
 console.log(typeof sum(100) === "function");
 </v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Learn.Javascript.Ru</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>#2 Learn.Javascript.Ru</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 function sum(a) {
 	var currentSum = a;
@@ -44,9 +44,9 @@ console.log(sum(6)(-1)(-2)(-3));    // 0
 console.log(sum(0)(1)(2)(3)(4)(5)); // 15
 </v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Фиксированное окончание пустым значением</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>#3 Фиксированное окончание пустым значением</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 console.log(sum(1)(2)(3)()); // 6
 function sum(arg) {
@@ -62,9 +62,9 @@ function sum(arg) {
 }
 </v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Добавление числа</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>#4 Добавление числа</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 console.log(sum(1)(2)(3) + 5); // 11
 
@@ -100,4 +100,27 @@ function sum(arg) {
 //         return f;
 //     }
 // a2.valueOf() + 5
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#5</h4>
+<!------------------------------------------------------------->
+<!-- Матвеев -->
+
+<v-code lang="js" title="">
+function sum(num) {
+    let result = num || 0;
+
+    function sum2(n) {
+        if (typeof n === 'undefined') {
+            return result;
+        }
+        result += n;
+        return sum2;
+    }
+
+    sum2.toString = () => result;
+}
+
+console.log(sum(1)(2)(3)); // 6
 </v-code>

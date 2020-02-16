@@ -11,6 +11,10 @@ test('[(&lt;&gt;)]') // =&gt; true
 test('[(&lt;&gt;])') // =&gt; false
 </v-code>
 
+<!------------------------------------------------------------->
+<h4>#1</h4>
+<!------------------------------------------------------------->
+
 <v-code lang="js" title="">
 function test (str) {
     var strArr = str.split('');
@@ -36,9 +40,9 @@ function test (str) {
 }
 </v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Недоделанный вариант</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>#2 Недоделанный вариант</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 function test(string) {
     let array = [];
@@ -64,3 +68,34 @@ test('((()))');          // => true
 test('(()))))))))))))'); // => false
 test(')()))');           // => false
 </v-code>
+
+<!------------------------------------------------------------->
+<h4>#3</h4>
+<!------------------------------------------------------------->
+<!-- Кара -->
+
+<v-code lang="js" title="">
+const checkValidBrackets = expression => {
+    let stack = [];
+    let map = {
+        '(': ')'
+    }
+
+    for (let i = 0; i < expression.length; i++) {
+        if (Object.keys(map).some(key => key === expression[i])) {
+            stack.push(expression[i]);
+        } else {
+            if (!Object.keys(map).some(key => key === expression[i] || map[key] === expression[i])) {
+                continue;
+            }
+            if (map[stack.pop()] !== expression[i]) {
+                return false;
+            }
+        }
+    }
+
+    return stack.length === 0;
+}
+</v-code>
+
+

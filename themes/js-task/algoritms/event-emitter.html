@@ -1,5 +1,8 @@
 <h2>👿 EventEmitter</h2>
 
+<!------------------------------------------------------------->
+<h4>#1</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 function EventEmitter() {
 	this.listeners = Object.create(null);
@@ -31,3 +34,107 @@ emitter.addEventListener('click', () => {});
 // .addEventListener('zzz', listener);
 // .removeEventListener('zzz', listener);
 </v-code>
+
+<!------------------------------------------------------------->
+<h4>#2</h4>
+<!------------------------------------------------------------->
+<!-- Гришанович -->
+
+<v-code lang="js" title="">
+class EventEmitter {
+    on(type: string, listener: Function)
+    off(type: string, listener: Function)
+    emit(type: string)
+    constuctor() {
+        this.events = Object.create(null)
+    }
+    
+     on(type, listener) {
+        if(!this.event[type]]) {
+            this.events[type] = [];
+        }
+        this[events].push(listener);
+    }
+     off(type, listener) {
+        this.events[type] = this.events[type].filter(item => item !== listener); 
+    }
+    
+    emit(type) {
+        if(!this.events[type]) return;
+        for(let func of this.events[type]) {
+            func();
+        }
+    }
+}
+
+e.emit('toString');
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#3</h4>
+<!------------------------------------------------------------->
+<!-- Кара -->
+
+<v-code lang="js" title="">
+class EventEmitter {
+    constructor() {
+        this.map = Object.create(null);
+    }
+
+    on(event, fn) {
+        if (typeof tn === 'function') {
+            this.map[event] ? this.map[event].push(fn) : this.map[event] = [fn];
+        } else {
+            console.log('Нужно больше функций');
+        }
+    }
+
+    emit(event) {
+        if (this.map[event]) {
+            this.map[event].forEach(fn => fn())
+        }
+    }
+}
+
+const eventEmitter = new EventEmitter();
+
+eventEmitter.on('someEvent', () => console.log('abc'));
+eventEmitter.on('someEvent', () => console.log('def'));
+eventEmitter.on('someEvent', 'Hello');
+
+eventEmitter.emit('toString');
+eventEmitter.emit('someEvent'); // abc, def
+eventEmitter.emit('no-event');
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#4</h4>
+<!------------------------------------------------------------->
+<!-- Матвеев -->
+
+<v-code lang="js" title="">
+function Emitter() {
+    this.listeners = Object.create(null);
+}
+
+Emitter.prototype.on = function(event, cb) {
+    if (typeof cb !== 'function') {
+        return;
+    }
+    if (!this.listeners[event]) {
+        this.listeners[event] = [];
+    }
+    this.listeners[event].push(cb);
+}
+Emitter.prototype.emit = function(event, ...rest) {
+    if (!this.listeners[event]) {
+        return;
+    }
+    for(let func of this.listeners[event]) {
+        func(...rest);
+    }
+}
+
+const a = new Emitter();
+</v-code>
+

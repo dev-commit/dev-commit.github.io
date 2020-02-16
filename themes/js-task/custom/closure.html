@@ -3,9 +3,6 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Исправить ошибку. Проверка должна возвращать истину</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li><u>Решение</u>: поменять "var" на "let"</li>
-</ul>
 
 <v-code lang="js" title="">
 function closure() {
@@ -24,6 +21,14 @@ function closure() {
 
 console.log(closure()[3]() === 3); // => должно быть "true"
 </v-code>
+
+<ul class="list-point">
+    <li><u>Решение 1</u>: поменять "var" на "let"</li>
+    <li><u>Решение 2</u>: добавить "bind"</li>
+<v-code lang="js" title="">
+arr.push(function() {...}.bind(this, i))
+</v-code>
+</ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>const a = 20 в замыкании</h3>

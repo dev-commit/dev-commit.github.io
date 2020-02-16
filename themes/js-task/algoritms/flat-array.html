@@ -1,0 +1,23 @@
+<h2>Превращение массива неогранчиенной вложенности в плоский</h2>
+
+<v-code lang="js" title="">
+const deepArray = [1, 2, [3, 4, [5, 6, 7]]];
+
+const flatten = deepArray => {
+	const ans = [];
+	
+	const innerFn = el => {
+		if (!Array.isArray(el)) {
+			ans.push(el);
+		} else {
+			innerFn(el);
+		}
+	}
+	
+	deepArray.forEach(innerFn);
+	
+	return ans;
+}
+
+flatten(deepArray); // => [1, 2, 3, 4, 5, 6, 7]
+</v-code>
