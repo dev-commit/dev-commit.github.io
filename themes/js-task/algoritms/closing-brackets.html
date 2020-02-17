@@ -41,6 +41,45 @@ function test (str) {
 </v-code>
 
 <!------------------------------------------------------------->
+<h4>Один вид скобок (мой вариант)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const checkValidBrackets = expression => {
+    const strArr = expression.split('');
+    const stack = [];
+    const check = {
+        '(': ')'
+    }
+
+    strArr.forEach(bracket => {
+        if (bracket === ')' || bracket === '(') {
+            if (stack.length === 0 && bracket === ')') {
+                return false;
+            }
+
+            if (check[bracket]) {
+                stack.push(bracket);
+            } else {
+                stack.pop();
+            }
+        }
+    });
+
+    return !stack.length;
+}
+
+[
+    '()',
+    ') ()',
+    '( )(',
+    '(( )',
+    '(2 9))',
+    '(())',
+    '()()'
+].map(checkValidBrackets);
+</v-code>
+
+<!------------------------------------------------------------->
 <h4>#2 Недоделанный вариант</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">

@@ -1,6 +1,38 @@
 <h2>👿 EventEmitter</h2>
 
 <!------------------------------------------------------------->
+<h4>Мой вариант</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const ee = {
+    listeners = Object.create({});
+    on(event, hundler) {
+        if (event in this.listeners) {
+            this.listeners[event] = [...this.listeners[event], hundler]; 
+        } else {
+            this.listeners[event] = [hundler]; 
+        }
+
+    }
+    emit(event) {
+        if (this.listeners[event] && this.listeners.hasOwnProperties(event)) { //
+            this.listeners[event].forEach(hundler => {
+                hundler();
+            })
+        }
+    }
+}
+
+ee.on('myEvent', () => console.log("hello"))
+ee.on('myEvent', () => console.log("hello 2"))
+ee.emit('myEvent',) // hello hello 2
+ee.emit('myEvent') // hello hello 2
+
+ee.emit('blabla')
+ee.emit('toString')
+</v-code>
+
+<!------------------------------------------------------------->
 <h4>#1</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
