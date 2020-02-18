@@ -878,6 +878,9 @@ var arrJsTasks = [
     ['js-task',    'polyphyls', 'object-create',  emoji.cookie+setTheme(4, ['Object.create'])],
     ['js-task',    'polyphyls', 'bind',           emoji.cookie+setTheme(4, ['bind()'])],
     ['js-task',    'polyphyls', 'promise-all',    emoji.cookie+setTheme(4, ['Promise.all'])],
+    ['js-task',    'polyphyls', 'map',            emoji.cookie+setTheme(4, ['Array.prototype.map'])],
+    ['js-task',    'polyphyls', 'filter',         emoji.cookie+setTheme(4, ['Array.prototype.filter'])],
+    ['js-task',    'polyphyls', 'reduce',         emoji.cookie+setTheme(4, ['Array.prototype.reduce'])],
 
     [1, 'Алгоритмы'],
     ['js-task', 'algoritms', 'compose',              emoji.code+setTheme(4, ['Compose'])],
