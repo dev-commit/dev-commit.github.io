@@ -1301,7 +1301,10 @@ var arrTesting = [
     ['testing', 'theory', 'chrome-dev-tools', 'Chrome DevTools'],
 
     [1, 'Фреймворки'],
-    ['testing', 'frameworks', 'jest',         'Jest'],
+    ['testing', 'frameworks', 'jest',         emoji.cup+'Jest'],
+    ['testing', 'frameworks', 'jasmine',      emoji.cup+'Jasmine'],
+    ['testing', 'frameworks', 'mocha',        emoji.cup+'Mocha'],
+    ['testing', 'frameworks', 'karma',        emoji.cup+'Karma'],
 ];
 
 
