@@ -1,5 +1,34 @@
 <h2>Async Function (ES2017)</h2>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объявление</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="Стрелочная;Обычная">
+<template v-slot:first>
+const foo = async () => {
+    const a = await AsyncFunction();
+};
+</template>
+<template v-slot:last>
+async function foo() {
+    const a = await AsyncFunction();  
+}
+</template>
+</v-two-code>
+
+<v-two-code type="js;js" comment="Стрелочная;Обычная">
+<template v-slot:first>
+(async () => {
+    const a = await AsyncFunction();
+})();
+</template>
+<template v-slot:last>
+(async function() {
+    const a = await AsyncFunction();
+})();
+</template>
+</v-two-code>
+
 <ul class="list-point">
 	<li>Async Function - асинхронная функция (Promise + Generator)</li>
 	<li>Асинхронная функция возвращает обещение, для получения значения используется then</li>
@@ -59,14 +88,4 @@ const dataService = {
 	getUser: async function(id) {}  // свойство
 	async getUserProp(id) {}        // метод
 }
-</v-code>
-
-<v-code lang="js" title="">
-(async function() {
-	//
-})();
-
-(async () => {
-	//
-})();
 </v-code>
