@@ -18,7 +18,6 @@ function setTheme(tag, arr) {
         case 1: resultTag = 'u-menu'; break;
         case 2: resultTag = 'u-menu-border'; break;
         case 3: resultTag = 'u-menu-accent'; break;
-        case 3: resultTag = 'u-menu-accent'; break;
         case 4: resultTag = 'u-menu-unactive'; break;
     }
     let result = arr.map(function(element) {
@@ -521,8 +520,8 @@ var arrWebpack = [
     ['webpack', 'loaders', 'style-loader',            setTheme(1, ['style-loader'])],
     ['webpack', 'loaders', 'sass-loader',             setTheme(1, ['sass-loader'])],
     ['webpack', 'loaders', 'file-loader',             setTheme(2, ['file-loader'])],
-    ['webpack', 'loaders', 'image-webpack-loader',    setTheme(2, ['image-webpack-loader'])],
-    ['webpack', 'loaders', 'html-loader',             setTheme(2, ['html-loader'])],
+    ['webpack', 'loaders', 'image-webpack-loader',    setTheme(1, ['image-webpack-loader'])],
+    ['webpack', 'loaders', 'html-loader',             setTheme(1, ['html-loader'])],
 
     [1, 'postcss'],
     ['webpack', 'postcss', 'postcss-loader',          setTheme(1, ['postcss-loader'])],
