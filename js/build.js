@@ -1290,20 +1290,40 @@ var arrTypescript = [
 // ТЕСТИРОВАНИЕ
 //---------------------------------------------------------------------
 var arrTesting = [
+    [1, 'Теория'],
     ['testing', 'theory', 'info',             emoji.theory+'Тестирование'],
-    ['testing', 'theory', 'pyramid',          'Пирамида тестирования'],
+    ['testing', 'theory', 'pyramid',          emoji.theory+'Пирамида тестирования'],
     ['testing', 'theory', 'unit-test',        emoji.baseball+'1. Юнит-тесты'],
     ['testing', 'theory', 'integration-test', emoji.baseball+'2. Интеграционные тесты'],
     ['testing', 'theory', 'e2e-test',         emoji.baseball+'3. E2E-тесты'],
     ['testing', 'theory', 'tdd',              'TDD'],
     ['testing', 'theory', 'bdd',              'BDD'],
-    ['testing', 'theory', 'chrome-dev-tools', 'Chrome DevTools'],
 
-    [1, 'Фреймворки'],
-    ['testing', 'frameworks', 'jest',         emoji.cup+'Jest'],
-    ['testing', 'frameworks', 'jasmine',      emoji.cup+'Jasmine'],
-    ['testing', 'frameworks', 'mocha',        emoji.cup+'Mocha'],
-    ['testing', 'frameworks', 'karma',        emoji.cup+'Karma'],
+    [1, 'Основное'],
+    ['testing', 'main', 'frameworks',       emoji.cookie+'Фреймворки'],
+    ['testing', 'main', 'chrome-dev-tools', 'Chrome DevTools'],
+];
+
+
+//---------------------------------------------------------------------
+// JEST
+//---------------------------------------------------------------------
+var arrJest = [
+    [1, 'Основное'],
+    ['jest', 'main', 'info',        emoji.theory+'Информация'],
+    ['jest', 'main', 'install',     emoji.code+'Установка и настройка'],
+
+    [1, 'Элементы'],
+    ['jest', 'elements', 'pattern',     emoji.code+'Шаблон'],
+    ['jest', 'elements', 'functions',   emoji.fire+'Глобальные функции'],
+    ['jest', 'elements', 'matchers',    emoji.fire+'Matchers'],
+    ['jest', 'elements', 'hooks',       emoji.fire+'Хуки'],
+
+    [1, 'JavaScript: примеры'],
+    ['jest', 'samples', 'sync',        '1. Синхронные тесты'],
+    ['jest', 'samples', 'async',       '2. Асинхронные тесты'],
+    ['jest', 'samples', 'mock',        '3. Mock-данные'],
+    ['jest', 'samples', 'mock-axios',  '4. Mock-данные в Axios'],
 ];
 
 
@@ -1366,6 +1386,7 @@ switch(pageName) {
     case 'mysql.html':             var arrCurrent = arrMySql;           break;
     case 'ramda.html':             var arrCurrent = arrRamda;           break;
     case 'typescript.html':        var arrCurrent = arrTypescript;      break;
+    case 'jest.html':              var arrCurrent = arrJest;            break;
     default:                       var arrCurrent = [];
 }
 

@@ -4,23 +4,24 @@ const splitter = '<div style="width: 100%; flex-shrink: 0"></div>';
 const menu =
     '<a href="/pages/assessment.html"       class="menu menu-other">Ассессмент</a>' +
     '<a href="/pages/js-tasks.html"         class="menu menu-other">🍕 Задачи</a>' +
-    '<a href="/pages/theory.html"           class="menu menu-other">Теория</a>' +
-
-    splitter +
     '<a href="/pages/theory-patterns.html"   class="menu menu-other">⚡️ Паттерны</a>' +
     '<a href="/pages/theory-paradigms.html"  class="menu menu-other">⚡️ Парадигмы</a>' +
     '<a href="/pages/theory-algoritms.html"  class="menu menu-other">⚡️ Алгоритмы</a>' +
-    '<a href="/pages/testing.html"           class="menu menu-other">⚡️ Тестирование</a>' +
+    '<a href="/pages/theory.html"           class="menu menu-other">Теория</a>' +
+
+    splitter +
+    '<a href="/pages/testing.html"           class="menu menu-fw">🍕 Тестирование</a>' +
+    '<a href="/pages/jest.html"              class="menu menu-fw">🍕 Jest</a>' +
 
     splitter +
     '<a href="/pages/js.html"                class="menu menu-js">⚾️ JavaScript</a>' +
     '<a href="/pages/js-objects.html"        class="menu menu-js">⚾️ Классы</a>' +
-    '<a href="/pages/js-async.html"          class="menu menu-js">⚾️ Асинхронность</a>' +
-    '<a href="/pages/js-function.html"       class="menu menu-js">Функции</a>' +
-    '<a href="/pages/js-client-server.html"  class="menu menu-js">Клиент-сервер</a>' +
-    '<a href="/pages/js-web-api.html"        class="menu menu-js">Web API</a>' +
+    '<a href="/pages/js-function.html"       class="menu menu-js">⚾️ Функции</a>' +
+    '<a href="/pages/js-async.html"          class="menu menu-js">🍪 Асинхронность</a>' +
+    '<a href="/pages/js-client-server.html"  class="menu menu-js">🍪 Клиент-сервер</a>' +
 
     splitter +
+    '<a href="/pages/js-web-api.html"        class="menu menu-js">Web API</a>' +
     '<a href="/pages/js-web-components.html" class="menu menu-js">WebComponents</a>' +
     '<a href="/pages/canvas.html"            class="menu menu-js">Canvas</a>' +
 

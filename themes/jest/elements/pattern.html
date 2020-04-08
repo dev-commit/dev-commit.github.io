@@ -1,0 +1,51 @@
+<h2>Шаблон</h2>
+
+<!------------------------------------------------------------->
+<h4>1. Структура файлов</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="intro.js">
+const sum = (a, b) => a + b;
+module.exports = { sum };
+</v-code>
+
+<v-code lang="js" title="intro.test.js">
+const { sum } = require('./intro');
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Добавление Matchers</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="intro.test.js">
+test('Common Matchers', () => {
+	expect(sum(1, 3)).toBe(4); // должно быть "4"
+});
+
+test('Numbers Matchers', () => {
+	expect(sum(1, 3)).toBeGreaterThan(2); // должно быть больше чем "2"
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Отрицание в Matchers</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="intro.test.js">
+test('Common Matchers', () => {
+	expect(sum(1, 3)).not.toBe(5); // не должно быть "5" 
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>4. Объединение тест-кейсов</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="intro.test.js">
+describe('Sum function', () => {
+	test('Common Matchers', () => {
+		expect(sum(1, 3)).toBe(4);
+	});
+
+	test('Numbers Matchers', () => {
+		expect(sum(1, 3)).toBeGreaterThan(2);
+	});
+});
+</v-code>
+
