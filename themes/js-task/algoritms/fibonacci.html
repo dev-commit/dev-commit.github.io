@@ -5,20 +5,36 @@
     <li>Вывод: 0 1 1 2 3 5 8 13 21 34 55</li>
 </ul>
 
+<!------------------------------------------------------------->
+<h4>Решение 1</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
-console.log(fibonacci(10) === 55); 
-
 // рекурсивное решение (сложность 2 в степени n)
+
 const fibonacci = n => {
     return n < 2 ? n : fibonacci(n-1) + fibonacci(n-2);
 }
 
+console.log(fibonacci(10) === 55); 
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Решение 2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
 // оптимальное решение (сложность единичная, линейная)
+
 const fibArr = [0, 1];
+
 const fibonacci = n => {    
     while(fibArr.length < n) {
         fibArr.push(fibArr[fibArr.length-1] + fibArr[fibArr.length-2])
     }
     return fibArr[n];
 }
+
+console.log(fibArr[6]); 
 </v-code>
+
+
+
