@@ -32,12 +32,13 @@ function setTheme(tag, arr) {
 //---------------------------------------------------------------------
 var arrAssessment = [
     [1, 'Типизация'],
-    ['js', 'typing', 'typing',         emoji.theory+'Типизация'],
-    ['js', 'typing', 'type-data',      emoji.theory+'Типы данных'],
-    ['js', 'typing', 'symbol',         emoji.pizza+'Symbol (ES6)'],
-    ['js', 'typing', 'hoisting',       emoji.fire+'Всплытие'],
-    ['js', 'typing', 'type-casting',   emoji.code+'Приведение типов'],
-    ['js', 'typing', 'typeof',         setTheme(1, ['typeof'])],
+    ['js',         'typing',  'typing',         emoji.theory+'Типизация'],
+    ['js',         'typing',  'type-data',      emoji.theory+'Типы данных'],
+    ['js',         'typing',  'type-casting',   emoji.code+'Сравнение типов'],
+    ['js-objects', 'objects', 'conversion',     setTheme(1, ['toString', 'valueOf'])],
+    ['js',         'typing',  'typeof',         setTheme(1, ['typeof'])],
+    ['js',         'typing',  'symbol',         emoji.pizza+'Symbol (ES6)'],
+    ['js',         'typing',  'hoisting',       emoji.fire+'Всплытие'],
 
     [1, 'Классы'],
     ['js-objects', 'main',            'inheritance',   emoji.fire+'Наследование'],
@@ -248,10 +249,10 @@ var arrJavaScript = [
     [1, 'Типизация'],
     ['js', 'typing', 'typing',         emoji.theory+'Типизация'],
     ['js', 'typing', 'type-data',      emoji.theory+'Типы данных'],
-    ['js', 'typing', 'symbol',         emoji.pizza+'Symbol (ES6)'],
-    ['js', 'typing', 'type-casting',   emoji.code+'Приведение типов'],
-    ['js', 'typing', 'hoisting',       emoji.fire+'Всплытие'],
+    ['js', 'typing', 'type-casting',   emoji.code+'Сравнение типов'],
     ['js', 'typing', 'typeof',         setTheme(1, ['typeof'])],
+    ['js', 'typing', 'symbol',         emoji.pizza+'Symbol (ES6)'],
+    ['js', 'typing', 'hoisting',       emoji.fire+'Всплытие'],
     ['js', 'typing', 'variables',      setTheme(1, ['var', 'let', 'const'])],
 
     [1, 'Модули'],
