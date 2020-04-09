@@ -6,35 +6,28 @@
 </ul>
 
 <!------------------------------------------------------------->
-<h4>Решение 1</h4>
+<h4>Решение 1: оптимальное решение (сложность единичная, линейная)</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-// рекурсивное решение (сложность 2 в степени n)
+const fibonacci = n => {
+	const arrFib = [0, 1];
 
+    while(arrFib.length < n) {
+        arrFib.push(arrFib[arrFib.length-1] + arrFib[arrFib.length-2])
+    }
+    return n ? arrFib[n-1] : 'Неверный индекс';
+}
+
+console.log(fibonacci(7)); // 8
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Решение 2: рекурсивное решение (сложность 2 в степени n)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
 const fibonacci = n => {
     return n < 2 ? n : fibonacci(n-1) + fibonacci(n-2);
 }
 
 console.log(fibonacci(10) === 55); 
 </v-code>
-
-<!------------------------------------------------------------->
-<h4>Решение 2</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-// оптимальное решение (сложность единичная, линейная)
-
-const fibArr = [0, 1];
-
-const fibonacci = n => {    
-    while(fibArr.length < n) {
-        fibArr.push(fibArr[fibArr.length-1] + fibArr[fibArr.length-2])
-    }
-    return fibArr[n];
-}
-
-console.log(fibArr[6]); 
-</v-code>
-
-
-
