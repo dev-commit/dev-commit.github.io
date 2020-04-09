@@ -1,0 +1,40 @@
+<h2>Reducer</h2>
+
+<v-code lang="js" title="reducer">
+const SET_LOADING = 'SET_LOADING';
+
+const initialState = {
+    data: null,
+    isLoading: false,
+};
+
+const myReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case SET_LOADING: {
+            return {
+                ...state,
+                isLoading: true,
+            };
+        }
+    }
+};
+</v-code>
+
+<v-code lang="js" title="test">
+describe('reducer', () => {
+	test('SET_LOADING', () => {
+        const action = {
+            type: SET_LOADING,
+        }
+
+        expect(myReducer(state = initialState, action)).toEqual({
+            ...state,
+            data: null,
+            isLoading: true,
+        })
+	});
+});
+</v-code>
+
+
+

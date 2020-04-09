@@ -1320,11 +1320,14 @@ var arrJest = [
     ['jest', 'elements', 'matchers',    emoji.fire+'Matchers'],
     ['jest', 'elements', 'hooks',       emoji.fire+'Хуки'],
 
-    [1, 'JavaScript: примеры'],
-    ['jest', 'samples', 'sync',        '1. Синхронные тесты'],
-    ['jest', 'samples', 'async',       '2. Асинхронные тесты'],
-    ['jest', 'samples', 'mock',        '3. Mock-данные'],
-    ['jest', 'samples', 'mock-axios',  '4. Mock-данные в Axios'],
+    [1, 'JavaScript'],
+    ['jest', 'javascript', 'sync',        '1. Синхронные тесты'],
+    ['jest', 'javascript', 'async',       '2. Асинхронные тесты'],
+    ['jest', 'javascript', 'mock',        '3. Mock-данные'],
+    ['jest', 'javascript', 'mock-axios',  '4. Mock-данные в Axios'],
+
+    [1, 'Redux'],
+    ['jest', 'redux', 'reducer',        'Reducer'],
 ];
 
 
