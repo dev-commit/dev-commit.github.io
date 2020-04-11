@@ -1,0 +1,73 @@
+<h2>Actions</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Action</u-text-define> - объект</li>
+    <li><u>Асинхронный Action Creater</u> - функция, которая диспатчит несколько action</li>
+</ul>
+
+<v-code lang="js" title="Constants">
+const NEWS_GET_REQUEST = 'NEWS_GET_REQUEST';
+const NEWS_GET_SUCCESS = 'NEWS_GET_SUCCESS';
+const NEWS_GET_FAILURE = 'NEWS_GET_FAILURE';
+</v-code>
+
+<v-code lang="js" title="Sync Actions">
+const newsRequest = () => ({
+    type: NEWS_GET_REQUEST,
+});
+
+const newsSuccess = (data) => ({
+    type: NEWS_GET_SUCCESS,
+    payload: data,
+});
+
+const newsFailure = (errorMsg = 'Error') => ({
+    type: NEWS_GET_FAILURE,
+    payload: {
+        errorMsg,
+    },
+    error: true,
+});
+</v-code>
+
+<v-code lang="js" title="Sync Tests">
+describe('Sync Actions', () => {
+    it('newsRequest', () => {
+        const expectedAction = {
+            type: NEWS_GET_REQUEST,
+        };
+
+        expect(newsRequest()).toEqual(expectedAction);
+    })
+
+    it('newsSuccess', () => {
+        const expectedAction = {
+            type: NEWS_GET_SUCCESS,
+            payload: [1, 2, 3],
+        };
+
+        expect(newsSuccess([1, 2, 3])).toEqual(expectedAction);
+    })
+
+    it('newsFailure', () => {
+        const errorMessage = 'Wrong Password';
+        const expectedAction = {
+            type: NEWS_GET_FAILURE,
+            payload: {
+                errorMsg: errorMessage,
+            },
+            error: true,
+        };
+
+        expect(newsFailure(errorMessage)).toEqual(expectedAction);
+    })
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Асинхронные action</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>fetch-mock</u-code-text>библиотека для "мока" асинхронных запросов</li>
+    <li><u-code-text>redux-mock-store</u-code-text></li>
+</ul>

@@ -33,6 +33,37 @@ ee.emit('toString')
 </v-code>
 
 <!------------------------------------------------------------->
+<h4>Вариант из рабочей системы</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { pathOr } from 'ramda';
+
+export default {
+    events: {},
+
+    on(event, listener) {
+        if (!this.events[event]) {
+            this.events[event] = { listeners: [] };
+        }
+        this.events[event].listeners.push(listener);
+    },
+
+    off(event) {
+        delete this.events[event];
+    },
+
+    emit(name, ...payload) {
+        const listeners = pathOr([], ['listeners'], this.events[name]);
+
+        // eslint-disable-next-line no-restricted-syntax
+        for (const listener of listeners) {
+            listener.apply(this, payload);
+        }
+    },
+};
+</v-code>
+
+<!------------------------------------------------------------->
 <h4>#1</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">

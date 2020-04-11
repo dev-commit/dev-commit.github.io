@@ -1008,6 +1008,10 @@ var arrHTML = [
 // CSS
 //---------------------------------------------------------------------
 var arrCSS = [
+    [1, 'База'],
+    ['css', 'basic',  'priority-styles',      emoji.fire+'Приоритетность стилей'],
+    ['css', 'basic',  'selector-specificity', emoji.fire+'Специфичность селекторов'],
+
     [1, 'CSS Selectors'],
     ['css', 'selectors', 'selectors',         emoji.pizza+'Селекторы'],
     ['css', 'selectors', 'pseudo-classes',    emoji.pizza+'Псевдоклассы'],
@@ -1049,8 +1053,8 @@ var arrCSS = [
     ['css', 'graphics', 'css-masking',        emoji.donut+'CSS Masking'],
 
     [1, 'Особенности'],
-    ['css', 'special',  'collapse-margin',     emoji.panda+'Схлопывание внешних отступов'],
-    ['css', 'special',  'dropping-out-margin', emoji.panda+'Выпадение внешних отступов'],
+    ['css', 'special',  'collapse-margin',     emoji.pizza+'Схлопывание внешних отступов'],
+    ['css', 'special',  'dropping-out-margin', emoji.pizza+'Выпадение внешних отступов'],
 
     [1, 'Основное'],
     ['css', 'main', 'viewport',               setTheme(1, ['vw', 'vh', 'vmin', 'vmax'])],
@@ -1327,7 +1331,8 @@ var arrJest = [
     ['jest', 'javascript', 'mock-axios',  '4. Mock-данные в Axios'],
 
     [1, 'Redux'],
-    ['jest', 'redux', 'reducer',        'Reducer'],
+    ['jest', 'redux', 'reducers',  'Reducers'],
+    ['jest', 'redux', 'actions',   'Actions'],
 ];
 
 
