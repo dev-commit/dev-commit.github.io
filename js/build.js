@@ -706,6 +706,9 @@ var arrVuejs = [
     ['vue-js', 'vue-cli', 'import_export',     setTheme(1, ['import', 'export'])],
     ['vue-js', 'vue-cli', 'vscode',            'Настройка Visual Studio Code'],
 
+    [1, 'VueLoader'],
+    ['vue-js', 'vue-loader', 'package',        emoji.code+'Пакеты'],
+
     [1, 'Плагины'],
     ['vue-js', 'plugins', 'vuetify',     'Vuetify'],
     ['vue-js', 'plugins', 'fontawesome', 'FontAwesome'],
@@ -724,10 +727,10 @@ var arrVuejs = [
 //---------------------------------------------------------------------
 var arrTheory = [
     [1, 'Принципы программирования'],
-    ['theory', 'programming-principles', 'solid',         'SOLID'],
-    ['theory', 'programming-principles', 'dry',           'DRY'],
-    ['theory', 'programming-principles', 'kiss',          'KISS'],
-    ['theory', 'programming-principles', 'yagni',         'YAGNI'],
+    ['theory', 'programming-principles', 'solid',         emoji.fire+'SOLID'],
+    ['theory', 'programming-principles', 'dry',           emoji.fire+'DRY'],
+    ['theory', 'programming-principles', 'kiss',          emoji.fire+'KISS'],
+    ['theory', 'programming-principles', 'yagni',         emoji.fire+'YAGNI'],
     ['theory', 'programming-principles', 'code-smell',    'Запахи кода'],
     ['theory', 'programming-principles', 'refactoring',   'Рефакторинг'],
     ['theory', 'programming-principles', 'code-standart', 'Стандарты кода'],
@@ -905,6 +908,7 @@ var arrJsTasks = [
     ['js-task', 'decorators', 'after',     setTheme(1, ['after()'])],
     ['js-task', 'decorators', 'throttle',  setTheme(1, ['throttle()'])],
     ['js-task', 'decorators', 'partial',   setTheme(1, ['partial()'])],
+    ['js-task', 'decorators', 'pipe',      setTheme(1, ['pipe()'])],
 
     [1, 'Асинхронность'],
     ['js-task', 'algoritms', 'retrier',              emoji.code+setTheme(4, ['Retrier (запросы по URL)'])],
@@ -1194,16 +1198,17 @@ var arrMySql = [
 //---------------------------------------------------------------------
 var arrNodejs = [
     [1, 'Основное'],
-    ['node-js', 'main', 'info',     'Информация'],
-    ['node-js', 'main', 'function', 'Функции'],
+    ['node-js', 'main', 'info',     emoji.theory+'Информация'],
+    ['node-js', 'main', 'function', emoji.pizza+'Функции'],
+    ['node-js', 'main', 'modules',  emoji.pizza+'Модули'],
+    ['node-js', 'main', 'files',    emoji.pizza+'Файлы и директории'],
     ['node-js', 'main', 'export',   setTheme(1, ['require', 'exports'])],
-    ['node-js', 'main', 'modules',  'Модули'],
-    ['node-js', 'main', 'files',    'Файлы и директории'],
+    ['node-js', 'main', 'pipe',     setTheme(1, ['.pipe'])],
+
     ['node-js', 'main', 'server',   'Сервер'],
     ['node-js', 'main', 'stream',   'Потоки'],
-    ['node-js', 'main', 'pipe',     setTheme(1, ['.pipe'])],
     ['node-js', 'main', 'router',   'Маршрутизация'],
-    ['node-js', 'main', 'url',     'Данные из url'],
+    ['node-js', 'main', 'url',      'Данные из url'],
 
     [1, 'NPM пакеты'],
     ['node-js', 'package', 'express',     setTheme(2, ['express'])],
@@ -1348,6 +1353,19 @@ var arrJest = [
 //         folder: '/pages/',
 //         className: 'menu-other',
 //         label: 'Ассессмент',
+//     },
+// ];
+
+// const THEMES = [
+//     {
+//         title: 'CRM-UI (Input)',
+//         content: [
+//             {
+//                 id: 'CRMTextArea',
+//                 src: 'https://gist.github.com/anton-sergeenkov/dc8046594c9a2eea164045d6ee915c47.js',
+//                 name: 'CRMTextArea',
+//             }
+//         ],
 //     },
 // ];
 

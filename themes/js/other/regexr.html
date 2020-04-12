@@ -141,3 +141,34 @@ str = str.replace(/–/g, '-');         // поменять "–"
 str = str.replace(/\r|\n/g, '');      // убрать перенос строки
 str = str.replace(/<\/?[^>]+>/g, ''); // удалить html теги из текста
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры regexr</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Валидация</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+/^[A-Za-z]+$/
+</v-code>
+
+<v-code lang="js" title="">
+const REGEXP_PHONE                 = /([0-9\+\(\)\-\ \/])$/;
+const REGEXP_ALLOWED_PHONE_SYMBOLS = /^[\d+\s-()]*$/gm;
+const REGEXP_SITE                  = /(^(http|https):\/\/)|^$/;
+const REGEXP_EMAIL                 = /^[-._A-Za-z0-9]+@(?:[A-Za-z0-9][-a-z0-9]+\.)+[A-Za-z]{2,}|^$/;
+const REGEXP_PASSWORD              = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])[a-zA-Z\d]{6,12}$/;
+const REGEXP_CYRILLIC              = /\W/;
+const REGEXP_SKYPE                 = /^[_.:A-Za-z0-9]+$/;
+
+const REGEXP_TEXT                  = /^[а-яА-Яёa-zA-Z0-9\s]+$/iu;
+const REGEXP_NAME                  = /^[а-яА-Яёa-zA-Z-]+$/iu;
+const REGEXP_FIRST_NAME            = /^(([А-ЯЁ][а-яё]*)|([A-Z][a-z]*))$/;
+const REGEXP_LAST_NAME             = /^((([А-Я][а-я]*)(-|$))|([A-Z][a-z]*)(-|$))+$/;
+const REGEXP_ORGANIZATION          = /^[а-яА-Яёa-zA-Z0-9.\-_,:;!\\/"№'()#%@+*$&\s]+$/iu;
+const REGEXP_LOGIN                 = /^[a-zA-Z0-9.\-_]+$/iu;
+const REGEXP_PASSWORD              = /^[а-яА-Яёa-zA-Z0-9.\-_#%@!+*$&]+$/iu;
+const REGEXP_EMAIL                 = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+const REGEXP_URL                   = /^(http:\/\/|https:\/\/)?[a-z0-9]+([-.][a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
+</v-code>
