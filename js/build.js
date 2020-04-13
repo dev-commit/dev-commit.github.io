@@ -1354,10 +1354,11 @@ var arrJest = [
 //---------------------------------------------------------------------
 var arrReactTesting = [
     [1, 'React Testing Library'],
-    ['react-testing', 'react-tsting-library', 'info',               emoji.theory+'Информация'],
-    ['react-testing', 'react-tsting-library', 'npm',                emoji.lemon+'Установка'],
-    ['react-testing', 'react-tsting-library', 'code-react-cli',     emoji.code+'Использование с CreateReactApp'],
-    ['react-testing', 'react-tsting-library', 'code-react-cli-min', emoji.code+'1. Простой тест'],
+    ['react-testing', 'react-tsting-library', 'info',                  emoji.theory+'Информация'],
+    ['react-testing', 'react-tsting-library', 'npm',                   emoji.lemon+'Установка'],
+    ['react-testing', 'react-tsting-library', 'react-testing-methods', emoji.pizza+'React-Testing Methods'],
+    ['react-testing', 'react-tsting-library', 'code-react-cli',        emoji.code+'Использование с CreateReactApp'],
+    ['react-testing', 'react-tsting-library', 'code-react-cli-min',    emoji.code+'1. Простой тест'],
 ];
 
 

@@ -7,6 +7,7 @@ import App from './App';
 
 test('App Test', () => {
 	const { getByText } = <u-code>render</u-code>(&lt;App /&gt;);
+	// вхождение слова "Hello" в текст компонента
 	const linkElement = <u-code>getByText</u-code>(/hello/i);
 	expect(linkElement).toBeInTheDocument();
 });
