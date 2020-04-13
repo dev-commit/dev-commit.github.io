@@ -10,6 +10,9 @@ const emoji = {
     fire:      '🔥 ',
     cup:       '🥤 ',
     baseball:  '⚾️ ',
+    lemon:     '🍋 ',
+    avocado:   '🥑 ',
+    favorite:  '⭐️ ',
 }
 
 function setTheme(tag, arr) {
@@ -1122,7 +1125,7 @@ var arrFlow = [
 
     [1, 'Установка'],
     ['flow', 'install', 'info',        emoji.theory+'Информация'],
-    ['flow', 'install', 'install',     emoji.theory+'Установка и настройка'],
+    ['flow', 'install', 'install',     emoji.lemon+'Установка и настройка'],
     ['flow', 'install', 'vscode',      emoji.theory+'Настройка VSCode'],
 ];
 
@@ -1296,8 +1299,8 @@ var arrRamda = [
 //---------------------------------------------------------------------
 var arrTypescript = [
     [1, 'Основное'],
-    ['typescript', 'main', 'info',    'Информация'],
-    ['typescript', 'main', 'install', 'Установка и настройка'],
+    ['typescript', 'main', 'info',    emoji.theory+'Информация'],
+    ['typescript', 'main', 'install', emoji.lemon+'Установка и настройка'],
 ];
 
 
@@ -1326,7 +1329,7 @@ var arrTesting = [
 var arrJest = [
     [1, 'Основное'],
     ['jest', 'main', 'info',        emoji.theory+'Информация'],
-    ['jest', 'main', 'install',     emoji.code+'Установка и настройка'],
+    ['jest', 'main', 'install',     emoji.lemon+'Установка и настройка'],
 
     [1, 'Элементы'],
     ['jest', 'elements', 'pattern',     emoji.code+'Шаблон'],
@@ -1343,6 +1346,18 @@ var arrJest = [
     [1, 'Redux'],
     ['jest', 'redux', 'reducers',  'Reducers'],
     ['jest', 'redux', 'actions',   'Actions'],
+];
+
+
+//---------------------------------------------------------------------
+// REACT TESTING
+//---------------------------------------------------------------------
+var arrReactTesting = [
+    [1, 'React Testing Library'],
+    ['react-testing', 'react-tsting-library', 'info',               emoji.theory+'Информация'],
+    ['react-testing', 'react-tsting-library', 'npm',                emoji.lemon+'Установка'],
+    ['react-testing', 'react-tsting-library', 'code-react-cli',     emoji.code+'Использование с CreateReactApp'],
+    ['react-testing', 'react-tsting-library', 'code-react-cli-min', emoji.code+'1. Простой тест'],
 ];
 
 
@@ -1419,6 +1434,7 @@ switch(pageName) {
     case 'ramda.html':             var arrCurrent = arrRamda;           break;
     case 'typescript.html':        var arrCurrent = arrTypescript;      break;
     case 'jest.html':              var arrCurrent = arrJest;            break;
+    case 'react-testing.html':     var arrCurrent = arrReactTesting;    break;
     default:                       var arrCurrent = [];
 }
 

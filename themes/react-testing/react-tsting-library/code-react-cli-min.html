@@ -1,0 +1,21 @@
+<h2>Минимальный код</h2>
+
+<v-code lang="js" title="./src/App/App.test.js">
+import React from 'react';
+import { render } from '@testing-library/react';
+import App from './App';
+
+test('App Test', () => {
+	const { getByText } = <u-code>render</u-code>(&lt;App /&gt;);
+	const linkElement = <u-code>getByText</u-code>(/hello/i);
+	expect(linkElement).toBeInTheDocument();
+});
+</v-code>
+
+<v-code lang="js" title="./src/App/App.js">
+import React from 'react';
+
+const App = () =&gt; (&lt;div&gt;Hello&lt;/div&gt;);
+
+export default App;
+</v-code>

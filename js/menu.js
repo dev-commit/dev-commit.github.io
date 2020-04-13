@@ -12,13 +12,14 @@ const menu =
     splitter +
     '<a href="/pages/testing.html"           class="menu menu-fw">🍕 Тестирование</a>' +
     '<a href="/pages/jest.html"              class="menu menu-fw">🍕 Jest</a>' +
+    '<a href="/pages/react-testing.html"     class="menu menu-fw">🍕 React Test</a>' +
 
     splitter +
-    '<a href="/pages/js.html"                class="menu menu-js">⚾️ JavaScript</a>' +
-    '<a href="/pages/js-objects.html"        class="menu menu-js">⚾️ Классы</a>' +
-    '<a href="/pages/js-function.html"       class="menu menu-js">⚾️ Функции</a>' +
-    '<a href="/pages/js-async.html"          class="menu menu-js">⚡️ Асинхронность</a>' +
-    '<a href="/pages/js-client-server.html"  class="menu menu-js">⚡️ Клиент-сервер</a>' +
+    '<a href="/pages/js.html"                class="menu menu-js">🥑 JavaScript</a>' +
+    '<a href="/pages/js-objects.html"        class="menu menu-js">🥑 Классы</a>' +
+    '<a href="/pages/js-function.html"       class="menu menu-js">🥑 Функции</a>' +
+    '<a href="/pages/js-async.html"          class="menu menu-js">🍋 Асинхронность</a>' +
+    '<a href="/pages/js-client-server.html"  class="menu menu-js">🍋 Клиент-сервер</a>' +
 
     splitter +
     '<a href="/pages/js-web-api.html"        class="menu menu-js">Web API</a>' +
