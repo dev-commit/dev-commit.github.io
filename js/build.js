@@ -1311,14 +1311,15 @@ var arrTesting = [
     [1, 'Теория'],
     ['testing', 'theory', 'info',             emoji.theory+'Тестирование'],
     ['testing', 'theory', 'pyramid',          emoji.theory+'Пирамида тестирования'],
-    ['testing', 'theory', 'unit-test',        emoji.baseball+'1. Юнит-тесты'],
-    ['testing', 'theory', 'integration-test', emoji.baseball+'2. Интеграционные тесты'],
-    ['testing', 'theory', 'e2e-test',         emoji.baseball+'3. E2E-тесты'],
-    ['testing', 'theory', 'tdd',              'TDD'],
-    ['testing', 'theory', 'bdd',              'BDD'],
+    ['testing', 'theory', 'unit-test',        emoji.favorite+'1. Юнит-тесты'],
+    ['testing', 'theory', 'integration-test', emoji.favorite+'2. Интеграционные тесты'],
+    ['testing', 'theory', 'e2e-test',         emoji.favorite+'3. E2E-тесты'],
+    ['testing', 'theory', 'tdd',              emoji.avocado+'TDD'],
+    ['testing', 'theory', 'bdd',              emoji.avocado+'BDD'],
+    ['testing', 'theory', 'types',            emoji.theory+'Разновидности'],
 
     [1, 'Основное'],
-    ['testing', 'main', 'frameworks',       emoji.cookie+'Фреймворки'],
+    ['testing', 'main', 'frameworks',       emoji.pizza+'Фреймворки'],
     ['testing', 'main', 'chrome-dev-tools', 'Chrome DevTools'],
 ];
 
@@ -1356,10 +1357,24 @@ var arrReactTesting = [
     [1, 'React Testing Library'],
     ['react-testing', 'react-tsting-library', 'info',                  emoji.theory+'Информация'],
     ['react-testing', 'react-tsting-library', 'npm',                   emoji.lemon+'Установка'],
-    ['react-testing', 'react-tsting-library', 'react-testing-methods', emoji.pizza+'React-Testing Methods'],
-    ['react-testing', 'react-tsting-library', 'code-react-cli',        emoji.code+'Использование с CreateReactApp'],
-    ['react-testing', 'react-tsting-library', 'code-react-cli-min',    emoji.code+'1. Простой тест'],
+    ['react-testing', 'react-tsting-library', 'methods',               emoji.fire+'Методы'],
+    ['react-testing', 'react-tsting-library', 'code-react-cli',        'Использование с CreateReactApp'],
+    ['react-testing', 'react-tsting-library', 'code-react-cli-samples', emoji.code+'Примеры'],
+
+    [1, 'React Test Renderer'],
+    ['react-testing', 'react-test-renderer',  'info',  emoji.theory+'Информация'],
+    ['react-testing', 'react-test-renderer',  'npm',   emoji.lemon+'Установка'],
+    ['react-testing', 'react-test-renderer',  'code',  emoji.code+'Примеры'],
+
+    [1, 'Enzyme'],
+    ['react-testing', 'enzyme',  'info',    emoji.theory+'Информация'],
+    ['react-testing', 'enzyme',  'npm',     emoji.lemon+'Установка'],
+    ['react-testing', 'enzyme',  'methods', emoji.fire+'Методы'],
+
+    [1, 'ReactDOM.render'],
+    ['react-testing', 'react-dom',  'code',  emoji.code+'Примеры'],
 ];
+
 
 
 // const PAGES = [

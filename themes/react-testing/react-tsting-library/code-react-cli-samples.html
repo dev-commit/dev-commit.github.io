@@ -1,0 +1,42 @@
+<h2>Примеры</h2>
+
+<!------------------------------------------------------------->
+<h4><u-code-text>getByText</u-code-text></h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="./src/App/App.test.js">
+import React from 'react';
+import { render } from '@testing-library/react';
+
+const App = () =&gt; (&lt;div&gt;Hello&lt;/div&gt;);
+
+it('App', () => {
+	const { getByText } = <u-code>render</u-code>(&lt;App /&gt;);
+
+	// вхождение слова "Hello" в текст компонента
+	expect(<u-code>getByText</u-code>(/hello/i)).toBeInTheDocument();
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4><u-code-text>getByTestId</u-code-text></h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import React from 'react';
+import { render, screen, cleanup } from '@testing-library/react';
+
+const App = () =&gt; (&lt;Button label="click me" /&gt;);
+
+const Button = ({ label }) =&gt; (
+    &lt;div data-testid="button" className="button-style"&gt;
+    	{label}
+    &lt;/div&gt;
+);
+
+// чтобы можно было рендерить несколко раз один и тот же компонент
+afterEach(cleanup);
+
+it('Button', () =&gt; {
+    const { getByTestId } = <u-code>render</u-code>(&lt;Button lable="click me" /&gt;);
+    expect(<u-code>screen.getByTestId</u-code>('button')).toBeInTheDocument();
+});
+</v-code>
