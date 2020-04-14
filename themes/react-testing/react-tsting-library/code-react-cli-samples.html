@@ -3,11 +3,11 @@
 <!------------------------------------------------------------->
 <h4><u-code-text>getByText</u-code-text></h4>
 <!------------------------------------------------------------->
-<v-code lang="js" title="./src/App/App.test.js">
+<v-code lang="js" title="App.test.js">
 import React from 'react';
-import { render } from '@testing-library/react';
+import App from './App';
 
-const App = () =&gt; (&lt;div&gt;Hello&lt;/div&gt;);
+import { render } from '@testing-library/react';
 
 it('App', () => {
 	const { getByText } = <u-code>render</u-code>(&lt;App /&gt;);
@@ -17,26 +17,87 @@ it('App', () => {
 });
 </v-code>
 
+<v-code lang="js" title="App.js">
+import React from 'react';
+
+const App = () =&gt; (&lt;div&gt;Hello&lt;/div&gt;);
+
+export default App;
+</v-code>
+
 <!------------------------------------------------------------->
 <h4><u-code-text>getByTestId</u-code-text></h4>
 <!------------------------------------------------------------->
-<v-code lang="js" title="">
+<v-code lang="js" title="App.test.js">
 import React from 'react';
+import App from './App';
+
 import { render, screen, cleanup } from '@testing-library/react';
 
-const App = () =&gt; (&lt;Button label="click me" /&gt;);
+// для рендера одного компонента несколько раз
+afterEach(cleanup);
 
-const Button = ({ label }) =&gt; (
-    &lt;div data-testid="button" className="button-style"&gt;
+it('App', () =&gt; {
+    const { getByTestId } = <u-code>render</u-code>(&lt;App lable="My Label" /&gt;);
+    expect(<u-code>screen.getByTestId</u-code>('button')).toBeInTheDocument();
+});
+</v-code>
+
+<v-code lang="js" title="App.js">
+import React from 'react';
+
+const App = ({ label }) =&gt; (
+    &lt;div data-testid="button"&gt;
     	{label}
     &lt;/div&gt;
 );
 
-// чтобы можно было рендерить несколко раз один и тот же компонент
-afterEach(cleanup);
-
-it('Button', () =&gt; {
-    const { getByTestId } = <u-code>render</u-code>(&lt;Button lable="click me" /&gt;);
-    expect(<u-code>screen.getByTestId</u-code>('button')).toBeInTheDocument();
-});
+export default App;
 </v-code>
+
+<!------------------------------------------------------------->
+<h4>Create Snapshot</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="App.test.js">
+import React from 'react';
+import { render, cleanup } from '@testing-library/react';
+
+import App from './App';
+
+it('App', () =&gt; {
+    const { asFragment } = render(&lt;App label="My Label" /&gt;);
+    expect(asFragment()).toMatchSnapshot();
+});
+
+</v-code>
+
+<v-code lang="js" title="App.js">
+import React from 'react';
+
+const App = ({ label }) =&gt; (
+    &lt;header&gt;
+        &lt;h1&gt;{label}&lt;/h1&gt;
+    &lt;/header&gt;
+);
+
+export default App;
+</v-code>
+
+<ul class="list-point">
+    <li>После запуска теста, создается файл <u>./__snapshots__/App.test.js.snap</u></li>
+</ul>
+
+<v-code lang="js" title="./__snapshots__/App.test.js.snap">
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App 1`] = `
+&lt;DocumentFragment&gt;
+	&lt;header&gt;
+		&lt;h1&gt;
+			My Label
+		&lt;/h1&gt;
+	&lt;/header&gt;
+&lt;/DocumentFragment&gt;
+`;
+</v-code>
+
