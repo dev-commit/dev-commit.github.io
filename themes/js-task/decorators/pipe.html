@@ -40,8 +40,7 @@ pipe(
 
 function pipe(...func) {
 	return function(obj) {
-		return func.call(obj, null)
-		// добавить reduce
+		return func.reduce((previousValue, currentValue) => currentValue(previousValue), obj)
 	}
 }
 </v-code>
