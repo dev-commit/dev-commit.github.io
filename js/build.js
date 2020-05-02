@@ -808,10 +808,18 @@ var arrParadigms = [
 // ALGORITMS
 //---------------------------------------------------------------------
 var arrAlgoritms = [
-    [1, 'Основное'],
-    ['theory-algoritms', 'main', 'big-o-notation',  emoji.theory+'Big-O Notation'],
-    ['theory-algoritms', 'main', 'structure-data',  emoji.theory+'Структуры данных'],
-    ['theory-algoritms', 'main', 'algoritms-sort',  emoji.code+'Алгоритмы сотрировки'],
+    [1, 'Алгоритмы'],
+    ['theory-algoritms', 'algoritms', 'big-o-notation',  emoji.theory+'Big-O Notation'],
+    ['theory-algoritms', 'algoritms', 'algoritms-sort',  emoji.code+'Алгоритмы сотрировки'],
+
+    [1, 'Структуры данных'],
+    ['theory-algoritms', 'structure', 'info',  emoji.theory+'Информация'],
+    ['theory-algoritms', 'structure', 'stack', 'Стек'],
+    ['theory-algoritms', 'structure', 'queue', 'Очередь'],
+    ['theory-algoritms', 'structure', 'list',  'Список'],
+    ['theory-algoritms', 'structure', 'graph', 'Граф'],
+    ['theory-algoritms', 'structure', 'tree',  'Дерево'],
+    ['theory-algoritms', 'structure', 'heap',  'Куча'],
 ];
 
 

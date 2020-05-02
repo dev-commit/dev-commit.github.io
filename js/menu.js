@@ -6,7 +6,7 @@ const menu =
     '<a href="/pages/js-tasks.html"          class="menu menu-other">🍕 Задачи</a>' +
     '<a href="/pages/theory-patterns.html"   class="menu menu-other">⚡️ Паттерны</a>' +
     '<a href="/pages/theory-paradigms.html"  class="menu menu-other">⚡️ Парадигмы</a>' +
-    '<a href="/pages/theory-algoritms.html"  class="menu menu-other">⚡️ Алгоритмы</a>' +
+    '<a href="/pages/theory-algoritms.html"  class="menu menu-other">⚡️ Алгоритмы и структуры</a>' +
     '<a href="/pages/theory.html"            class="menu menu-other">Теория</a>' +
 
     splitter +
