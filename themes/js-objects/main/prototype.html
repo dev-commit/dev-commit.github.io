@@ -51,7 +51,52 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
-<h4>Пример #1</h4>
+<h4>1. Перетирание прототипа</h4>
+<!------------------------------------------------------------->
+
+<ul class="list-point">
+    <li>При создании объекта его <u-code-text>__proto__</u-code-text> 1 раз получает ссылку на <u-code-text>prototype</u-code-text> функции конструктора</li>
+    <li>Эта ссылка остаётся при <u-code-text>Fn.prototype = {};</u-code-text> и по-прежнему указывает на старое значение, но к функции конструктору уже не имеет отношения</li>
+    <li>При <u-code-text>Fn.prototype = {}</u-code-text> не просто добавили объект, а поменяли ссылку и новые отнаследованные объекты получат уже ее</li>
+</ul>
+
+<img src="/img/js/prototype/prototype-clear-link.jpg" width="400px">
+
+<v-two-code type="js;js" comment="Всё стандартно;Перетирание протоипа">
+<template v-slot:first>
+function Fn() {}
+
+Fn.prototype = {
+	isConnected: true
+};
+
+let connect = new Fn();
+
+console.log(connect.isConnected); // => true
+
+Fn.prototype.isConnected = false;
+
+console.log(connect.isConnected); // => false
+</template>
+<template v-slot:last>
+function Fn() {}
+
+Fn.prototype = {
+    isConnected: true
+};
+
+let connect = new Fn();
+
+console.log(connect.isConnected); // true
+
+Fn.prototype = {};
+
+console.log(connect.isConnected); // true
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>2</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 function User() {
@@ -66,7 +111,7 @@ var admin = new Admin(); // => Admin {id: 77, __proto__: User name: "Tony"}
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>Пример #2</h4>
+<h4>3</h4>
 <!------------------------------------------------------------->
 <img src="/img/js/prototype/proto-tree.jpg" class="center" height="250px">
 
