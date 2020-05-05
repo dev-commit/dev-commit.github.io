@@ -55,10 +55,10 @@ var arrAssessment = [
     [1, 'Основы'],
     ['js',          'main',       'bind',                 emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
     ['js',          'main',       'context',              emoji.baseball+'Контекст'],
-    ['js-function', 'main',       'closures',             emoji.fire+'Замыкания'],
-    ['js-function', 'main',       'arrow',                emoji.fire+'Стрелочные функции'],
-    ['js-async',    'theory',     'event-loop',           emoji.panda+'Event Loop'],
-    ['js-async',    'theory',     'event-loop-tasks',     emoji.panda+'Event Loop: Tasks'],
+    ['js',          'closures',   'closures',             emoji.fire+'Замыкания'],
+    ['js',          'function',   'arrow',                emoji.fire+'Стрелочные функции'],
+    ['js-async',    'theory',     'event-loop',           emoji.lemon+'Event Loop'],
+    ['js-async',    'theory',     'event-loop-tasks',     emoji.lemon+'Event Loop: Tasks'],
 
     [1, 'Практика'],
     ['js',          'main',       'array-cycle',          emoji.boom+setTheme(1, ['map', 'forEach', '...'])],
@@ -287,6 +287,19 @@ var arrJavaScript = [
     ['js', 'client-storage', 'indexed-db',  setTheme(1, ['IndexedDB'])],
     ['js', 'client-storage', 'cookie',      setTheme(1, ['cookie'])],
 
+    [1, 'Замыкания'],
+    ['js', 'closures', 'closures',          emoji.theory+'Замыкания'],
+    ['js', 'closures', 'environment',       emoji.theory+'Области видимости'],
+
+    [1, 'Функции'],
+    ['js', 'function', 'info',                      emoji.theory+'Информация'],
+    ['js', 'function', 'announcement',              'Объявление'],
+    ['js', 'function', 'arguments',                 'Псевдомассив аргументов arguments'],
+    ['js', 'function', 'parameters',                'Параметры функции (ES6)'],
+    ['js', 'function', 'arrow',                     'Стрелочные функции (ES6)'],
+    ['js', 'function', 'recursion',                 'Рекурсия'],
+    ['js', 'function', 'named-function-expression', 'Named Function Expression'],
+
     [1, 'Дополнительно'],
     ['js', 'other', 'pattern-string',         'Шаблонные строки (ES6)'],
     ['js', 'other', 'object-wrappers',        'Autoboxing (Object Wrappers)'],
@@ -306,21 +319,6 @@ var arrJavaScript = [
     ['js', 'other', 'jsdoc',                  'Синтаксис JSDoc'],
     ['js', 'other', 'strict-mode',            'Strict Mode'],
     ['js', 'other', 'samples',                'Примеры'],
-];
-
-
-//---------------------------------------------------------------------
-// JAVASCRIPT FUNCTION
-//---------------------------------------------------------------------
-var arrJsFunction = [
-    ['js-function', 'main', 'info',                      'Информация'],
-    ['js-function', 'main', 'announcement',              'Объявление'],
-    ['js-function', 'main', 'arguments',                 'Псевдомассив аргументов arguments'],
-    ['js-function', 'main', 'parameters',                'Параметры функции (ES6)'],
-    ['js-function', 'main', 'arrow',                     'Стрелочные функции (ES6)'],
-    ['js-function', 'main', 'closures',                  'Замыкания'],
-    ['js-function', 'main', 'recursion',                 'Рекурсия'],
-    ['js-function', 'main', 'named-function-expression', 'Named Function Expression'],
 ];
 
 
@@ -1420,7 +1418,6 @@ switch(pageName) {
 
     case 'js.html':                var arrCurrent = arrJavaScript;      break;
     case 'js-objects.html':        var arrCurrent = arrJsObjects;       break;
-    case 'js-function.html':       var arrCurrent = arrJsFunction;      break;
     case 'js-async.html':          var arrCurrent = arrJsAsync;         break;
     case 'js-web-api.html':        var arrCurrent = arrJsWebApi;        break;
     case 'js-web-components.html': var arrCurrent = arrJsWebComponents; break;

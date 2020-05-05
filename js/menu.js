@@ -17,7 +17,6 @@ const menu =
     splitter +
     '<a href="/pages/js.html"                class="menu menu-js">🥑 JavaScript</a>' +
     '<a href="/pages/js-objects.html"        class="menu menu-js">🥑 Классы</a>' +
-    '<a href="/pages/js-function.html"       class="menu menu-js">🥑 Функции</a>' +
     '<a href="/pages/js-async.html"          class="menu menu-js">🍋 Асинхронность</a>' +
     '<a href="/pages/js-client-server.html"  class="menu menu-js">🍋 Клиент-сервер</a>' +
 

@@ -17,6 +17,13 @@ typeof NaN          // "number"
 </v-code>
 
 <v-code lang="js" title="">
+var bar = function foo() {};
+typeof foo(); // Uncaught ReferenceError: g is not defined
+typeof bar;   // => "function"
+typeof bar()  // => "undefined"
+</v-code>
+
+<v-code lang="js" title="">
 // проверка поддержки свойств
 typeof addEventListener !== 'undefined'
 </v-code>
