@@ -1360,25 +1360,27 @@ var arrJest = [
 // REACT TESTING
 //---------------------------------------------------------------------
 var arrReactTesting = [
-    [1, 'React Testing Library'],
+    [1, 'Основы'],
+    ['react-testing', 'main',  'info',  emoji.theory+'Информация'],
+
+    [1, '1. Enzyme'],
+    ['react-testing', 'enzyme',  'info',    emoji.theory+'Информация'],
+    ['react-testing', 'enzyme',  'npm',     emoji.lemon+'Установка'],
+    ['react-testing', 'enzyme',  'methods', emoji.fire+'Методы'],
+
+    [1, '2. React Testing Library'],
     ['react-testing', 'react-tsting-library', 'info',                  emoji.theory+'Информация'],
     ['react-testing', 'react-tsting-library', 'npm',                   emoji.lemon+'Установка'],
     ['react-testing', 'react-tsting-library', 'methods',               emoji.fire+'Методы'],
     ['react-testing', 'react-tsting-library', 'code-react-cli',        'Использование с CreateReactApp'],
     ['react-testing', 'react-tsting-library', 'code-react-cli-samples', emoji.code+'Примеры'],
 
-    [1, 'React Test Renderer'],
+    [1, '3. React Test Renderer'],
     ['react-testing', 'react-test-renderer',  'info',  emoji.theory+'Информация'],
     ['react-testing', 'react-test-renderer',  'npm',   emoji.lemon+'Установка'],
     ['react-testing', 'react-test-renderer',  'code',  emoji.code+'Примеры'],
 
-    [1, 'Enzyme'],
-    ['react-testing', 'enzyme',  'info',    emoji.theory+'Информация'],
-    ['react-testing', 'enzyme',  'npm',     emoji.lemon+'Установка'],
-    ['react-testing', 'enzyme',  'methods', emoji.fire+'Методы'],
 
-    [1, 'ReactDOM.render'],
-    ['react-testing', 'react-dom',  'code',  emoji.code+'Примеры'],
 ];
 
 
