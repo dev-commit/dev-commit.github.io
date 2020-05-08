@@ -1367,6 +1367,7 @@ var arrReactTesting = [
     ['react-testing', 'enzyme',  'info',    emoji.theory+'Информация'],
     ['react-testing', 'enzyme',  'npm',     emoji.lemon+'Установка'],
     ['react-testing', 'enzyme',  'methods', emoji.fire+'Методы'],
+    ['react-testing', 'enzyme',  'code',    emoji.code+'Примеры'],
 
     [1, '2. React Testing Library'],
     ['react-testing', 'react-tsting-library', 'info',                  emoji.theory+'Информация'],
