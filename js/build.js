@@ -1363,7 +1363,7 @@ var arrReactTesting = [
     [1, 'Основы'],
     ['react-testing', 'main',  'info',  emoji.theory+'Информация'],
 
-    [1, '1. Enzyme'],
+    [1, '1. Enzyme + Jest'],
     ['react-testing', 'enzyme',  'info',    emoji.theory+'Информация'],
     ['react-testing', 'enzyme',  'npm',     emoji.lemon+'Установка'],
     ['react-testing', 'enzyme',  'methods', emoji.fire+'Методы'],
