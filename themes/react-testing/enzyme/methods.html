@@ -1,40 +1,50 @@
 <h2>Методы</h2>
 
 <v-code lang="js" title="">
-import Enzyme, { shallow, render, mount } from 'enzyme';
+it('', () =&gt; {
+	const wrapper = shallow(&lt;App propApp="Hello App" /&gt;);
+	expect(wrapper.<em>ЭлементСоСвойствами</em>).<em>ВалидаторJest</em>();
+});
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Основные методы Enzyme</h3>
+<h3>Элемент со свойствами</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<!------------------------------------------------------------->
-<h4>1. shallow</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li>Не рендерит дочерние компоненты</li>
-    <li>Основной метод по работе с тестами</li>
-    <li>Работает с React-нодой</li>
-    <li><u>Lifecycle methods</u>: constructor, render, componentDidMount, componentDidUpdate</li>
-</ul>
+<v-code lang="js" title="">
+// 1. Поиск всех элементов (компонент или dom-элемент)
+	.<u-code>find</u-code>('div')           // выборка всех "div"
 
-<!------------------------------------------------------------->
-<h4>2. render</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li>Рендерит дочерние компоненты</li>
-    <li>Работает с React-нодой</li>
-    <li><u>Lifecycle methods</u>: constructor, render, componentDidMount, componentDidUpdate</li>
-</ul>
+// 2. Выбор элеметов
+	.<u-code>first</u-code>()               // первый элемент
+	.<u-code>last</u-code>()                // последний элемент
+	.<u-code>at</u-code>(0)                 // первый элемент
+	.<u-code>at</u-code>(1)                 // второй элемент
 
-<!------------------------------------------------------------->
-<h4>3. mount</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li>Рендерит дочерние компоненты</li>
-    <li>Нужен на уровне Snapshots, когда не важен Lifecycle</li>
-    <li>Работает с DOM-нодой (результат рендера - HTML)</li>
-    <li><u>Lifecycle methods</u>: render</li>
-</ul>
+// 3. Работа с элементами
+	.<u-code>text</u-code>()                 .toBe('Hello') / .toContain('ello')  // содержит текст, заданный в jest
+	.<u-code>html</u-code>()                 .toBe('&lt;h1&gt;Hi&lt;/h1&gt;')                 // содержит html, заданный в jest
+	.<u-code>exists</u-code>()               .toBeTruthy()                        // элемент существует
+	.<u-code>length</u-code>                 .toBe(1) / .toBe(0)                  // если "1" - элемент существует, если "0" - не существует
+	.<u-code>hasClass</u-code>('header')     .toBeTruthy() / .toBeFalsy()         // содежит класс "header"
+	.<u-code>contains</u-code>(&lt;h1&gt;Hi&lt;/h1&gt;)  .toBeTruthy()                        // содержит html-код
+	.<u-code>props</u-code>().propChild      .toBe('Hello Child')                 // обращение к значению пропсов
+	.<u-code>prop</u-code>('target')         .toBe('_blank')                      // обращение к конкретному значению пропа
+</v-code>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Валидаторы Jest</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+.<u-code>toBe</u-code>('Hello')                       // содержит текст
+.<u-code>toBe</u-code>('&lt;h1&gt;Hi&lt;/h1&gt;')     // содержит html
+.<u-code>toBe</u-code>(1)                             // найден 1 элемент
+.<u-code>toBe</u-code>(0)                             // найдено 0 элементов
 
+.<u-code>toContain</u-code>('ello')                   // содержит часть текста
+
+.<u-code>not</u-code>.<u-code>toBe</u-code>('_blank') // не содержит текст
+
+.<u-code>toBeTruthy</u-code>()                        // истина
+.<u-code>toBeFalsy</u-code>()                         // ложь
+</v-code>
 
