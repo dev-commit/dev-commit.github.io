@@ -1337,6 +1337,7 @@ var arrJest = [
     [1, 'Основное'],
     ['jest', 'main', 'info',        emoji.theory+'Информация'],
     ['jest', 'main', 'install',     emoji.lemon+'Установка и настройка'],
+    ['jest', 'main', 'mocks',       'Mock'],
 
     [1, 'Элементы'],
     ['jest', 'elements', 'pattern',     emoji.code+'Шаблон'],
@@ -1363,31 +1364,39 @@ var arrReactTesting = [
     [1, 'Основы'],
     ['react-testing', 'main',  'info',  emoji.theory+'Информация'],
 
-    [1, '1. Enzyme + Jest'],
-    ['react-testing', 'enzyme',  'info',                emoji.theory+'Информация'],
-    ['react-testing', 'enzyme',  'npm',                 emoji.lemon+'Установка'],
-    ['react-testing', 'enzyme',  'methods-render',      emoji.fire+'Методы рендеринга'],
-    ['react-testing', 'enzyme',  'methods',             emoji.fire+'Методы'],
-
-    ['react-testing', 'enzyme',  'method-all',          setTheme(1, ['...'])],
-    ['react-testing', 'enzyme',  'method-state',        setTheme(1, ['state'])],
-    ['react-testing', 'enzyme',  'method-props',        setTheme(1, ['props'])],
-    ['react-testing', 'enzyme',  'method-simulate',     setTheme(1, ['simulate'])],
-    ['react-testing', 'enzyme',  'method-debug',        setTheme(1, ['debug'])],
-
-    [1, '2. React Testing Library'],
+    [1, '1. React Testing Library'],
     ['react-testing', 'react-tsting-library', 'info',                  emoji.theory+'Информация'],
     ['react-testing', 'react-tsting-library', 'npm',                   emoji.lemon+'Установка'],
     ['react-testing', 'react-tsting-library', 'methods',               emoji.fire+'Методы'],
     ['react-testing', 'react-tsting-library', 'code-react-cli',        'Использование с CreateReactApp'],
     ['react-testing', 'react-tsting-library', 'code-react-cli-samples', emoji.code+'Примеры'],
 
-    [1, '3. React Test Renderer'],
+    [1, '2. React Test Renderer'],
     ['react-testing', 'react-test-renderer',  'info',  emoji.theory+'Информация'],
     ['react-testing', 'react-test-renderer',  'npm',   emoji.lemon+'Установка'],
     ['react-testing', 'react-test-renderer',  'code',  emoji.code+'Примеры'],
 ];
 
+
+//---------------------------------------------------------------------
+// Enzyme
+//---------------------------------------------------------------------
+var arrEnzyme = [
+    [1, 'Основное'],
+    ['enzyme', 'main',  'info',                emoji.theory+'Информация'],
+    ['enzyme', 'main',  'npm',                 emoji.lemon+'Установка'],
+
+    [1, 'API'],
+    ['enzyme', 'api',  'methods-render',      emoji.fire+'Методы рендеринга'],
+    ['enzyme', 'api',  'methods',             emoji.fire+'Методы'],
+
+    [1, 'Методы'],
+    ['enzyme', 'methods',  'other',        setTheme(1, ['...'])],
+    ['enzyme', 'methods',  'state',        setTheme(1, ['state'])],
+    ['enzyme', 'methods',  'props',        setTheme(1, ['props'])],
+    ['enzyme', 'methods',  'simulate',     setTheme(1, ['simulate'])],
+    ['enzyme', 'methods',  'debug',        setTheme(1, ['debug'])],
+];
 
 
 // const PAGES = [
@@ -1417,53 +1426,56 @@ var arrReactTesting = [
 var page = window.location.pathname.split('/');
 var pageName = page[page.length-1];
 
+var arrCurrent = [];
+
 switch(pageName) {
-    case 'theory.html':            var arrCurrent = arrTheory;          break;
-    case 'theory-patterns.html':   var arrCurrent = arrDesignPatterns;  break;
-    case 'theory-paradigms.html':  var arrCurrent = arrParadigms;       break;
-    case 'theory-algoritms.html':  var arrCurrent = arrAlgoritms;       break;
+    case 'theory.html':            arrCurrent = arrTheory;          break;
+    case 'theory-patterns.html':   arrCurrent = arrDesignPatterns;  break;
+    case 'theory-paradigms.html':  arrCurrent = arrParadigms;       break;
+    case 'theory-algoritms.html':  arrCurrent = arrAlgoritms;       break;
 
-    case 'js.html':                var arrCurrent = arrJavaScript;      break;
-    case 'js-objects.html':        var arrCurrent = arrJsObjects;       break;
-    case 'js-async.html':          var arrCurrent = arrJsAsync;         break;
-    case 'js-web-api.html':        var arrCurrent = arrJsWebApi;        break;
-    case 'js-web-components.html': var arrCurrent = arrJsWebComponents; break;
-    case 'js-client-server.html':  var arrCurrent = arrJsClientServer;  break;
-    case 'react-js.html':          var arrCurrent = arrReactjs;         break;
-    case 'react-api.html':         var arrCurrent = arrReactApi;        break;
-    case 'react-hooks.html':       var arrCurrent = arrReactHooks;      break;
-    case 'react-router.html':      var arrCurrent = arrReactRouter;     break;
-    case 'redux.html':             var arrCurrent = arrRedux;           break;
-    case 'vue-js.html':            var arrCurrent = arrVuejs;           break;
+    case 'js.html':                arrCurrent = arrJavaScript;      break;
+    case 'js-objects.html':        arrCurrent = arrJsObjects;       break;
+    case 'js-async.html':          arrCurrent = arrJsAsync;         break;
+    case 'js-web-api.html':        arrCurrent = arrJsWebApi;        break;
+    case 'js-web-components.html': arrCurrent = arrJsWebComponents; break;
+    case 'js-client-server.html':  arrCurrent = arrJsClientServer;  break;
+    case 'react-js.html':          arrCurrent = arrReactjs;         break;
+    case 'react-api.html':         arrCurrent = arrReactApi;        break;
+    case 'react-hooks.html':       arrCurrent = arrReactHooks;      break;
+    case 'react-router.html':      arrCurrent = arrReactRouter;     break;
+    case 'redux.html':             arrCurrent = arrRedux;           break;
+    case 'vue-js.html':            arrCurrent = arrVuejs;           break;
 
-    case 'material-ui.html':       var arrCurrent = arrMaterialUI;      break;
-    case 'testing.html':           var arrCurrent = arrTesting;         break;
-    case 'webpack.html':           var arrCurrent = arrWebpack;         break;
-    case 'npm.html':               var arrCurrent = arrNpm;             break;
-    case 'git.html':               var arrCurrent = arrGit;             break;
-    case 'linux.html':             var arrCurrent = arrLinux;           break;
-    case 'other.html':             var arrCurrent = arrOther;           break;
-    case 'js-tasks.html':          var arrCurrent = arrJsTasks;         break;
-    case 'jquery.html':            var arrCurrent = arrJquery;          break;
-    case 'canvas.html':            var arrCurrent = arrCanvas;          break;
-    case 'html.html':              var arrCurrent = arrHTML;            break;
-    case 'css.html':               var arrCurrent = arrCSS;             break;
-    case 'assessment.html':        var arrCurrent = arrAssessment;      break;
-    case 'sass.html':              var arrCurrent = arrSass;            break;
-    case 'bootstrap.html':         var arrCurrent = arrBootstrap;       break;
-    case 'flow.html':              var arrCurrent = arrFlow;            break;
-    case 'svg.html':               var arrCurrent = arrSvg;             break;
-    case 'css-flexbox.html':       var arrCurrent = arrCssFlexbox;      break;
-    case 'css-grid.html':          var arrCurrent = arrCssGrid;         break;
-    case 'node-js.html':           var arrCurrent = arrNodejs;          break;
-    case 'php.html':               var arrCurrent = arrPhp;             break;
-    case 'python.html':            var arrCurrent = arrPython;          break;
-    case 'mysql.html':             var arrCurrent = arrMySql;           break;
-    case 'ramda.html':             var arrCurrent = arrRamda;           break;
-    case 'typescript.html':        var arrCurrent = arrTypescript;      break;
-    case 'jest.html':              var arrCurrent = arrJest;            break;
-    case 'react-testing.html':     var arrCurrent = arrReactTesting;    break;
-    default:                       var arrCurrent = [];
+    case 'material-ui.html':       arrCurrent = arrMaterialUI;      break;
+    case 'testing.html':           arrCurrent = arrTesting;         break;
+    case 'webpack.html':           arrCurrent = arrWebpack;         break;
+    case 'npm.html':               arrCurrent = arrNpm;             break;
+    case 'git.html':               arrCurrent = arrGit;             break;
+    case 'linux.html':             arrCurrent = arrLinux;           break;
+    case 'other.html':             arrCurrent = arrOther;           break;
+    case 'js-tasks.html':          arrCurrent = arrJsTasks;         break;
+    case 'jquery.html':            arrCurrent = arrJquery;          break;
+    case 'canvas.html':            arrCurrent = arrCanvas;          break;
+    case 'html.html':              arrCurrent = arrHTML;            break;
+    case 'css.html':               arrCurrent = arrCSS;             break;
+    case 'assessment.html':        arrCurrent = arrAssessment;      break;
+    case 'sass.html':              arrCurrent = arrSass;            break;
+    case 'bootstrap.html':         arrCurrent = arrBootstrap;       break;
+    case 'flow.html':              arrCurrent = arrFlow;            break;
+    case 'svg.html':               arrCurrent = arrSvg;             break;
+    case 'css-flexbox.html':       arrCurrent = arrCssFlexbox;      break;
+    case 'css-grid.html':          arrCurrent = arrCssGrid;         break;
+    case 'node-js.html':           arrCurrent = arrNodejs;          break;
+    case 'php.html':               arrCurrent = arrPhp;             break;
+    case 'python.html':            arrCurrent = arrPython;          break;
+    case 'mysql.html':             arrCurrent = arrMySql;           break;
+    case 'ramda.html':             arrCurrent = arrRamda;           break;
+    case 'typescript.html':        arrCurrent = arrTypescript;      break;
+    case 'jest.html':              arrCurrent = arrJest;            break;
+    case 'react-testing.html':     arrCurrent = arrReactTesting;    break;
+    case 'enzyme.html':            arrCurrent = arrEnzyme;          break;
+    default:                       arrCurrent = [];
 }
 
 if ( (pageName!=='index.html') && (pageName!=='index') && (pageName!=='') ) {
