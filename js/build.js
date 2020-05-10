@@ -1368,9 +1368,10 @@ var arrReactTesting = [
     ['react-testing', 'enzyme',  'npm',                 emoji.lemon+'Установка'],
     ['react-testing', 'enzyme',  'methods-render',      emoji.fire+'Методы рендеринга'],
     ['react-testing', 'enzyme',  'methods',             emoji.fire+'Методы'],
-    ['react-testing', 'enzyme',  'code-without-enzyme', '1. Без Enzyme'],
-    ['react-testing', 'enzyme',  'code-main',           '2. Основные действия'],
+
+    ['react-testing', 'enzyme',  'method-all',          setTheme(1, ['...'])],
     ['react-testing', 'enzyme',  'method-state',        setTheme(1, ['state'])],
+    ['react-testing', 'enzyme',  'method-props',        setTheme(1, ['props'])],
     ['react-testing', 'enzyme',  'method-simulate',     setTheme(1, ['simulate'])],
 
     [1, '2. React Testing Library'],

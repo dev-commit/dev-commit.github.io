@@ -47,12 +47,9 @@ class App extends Component {
 it('', () =&gt; {
     const wrapper = shallow(&lt;App /&gt;);
 
-    <u-code-comment>// 1. Начальное состояние name: 'Jack'</u-code-comment>.
-    <em>expect</em>(wrapper.<u>state</u>(<em>'name'</em>)).<u>toBe</u>(<em>'Tony'</em>);
-    <u-code-comment>// 2. Изменили состояние: name: 'Tony'</u-code-comment>.
-    wrapper.<u>find</u>(<em>'button'</em>).<u-code>simulate</u-code>('<u-code>click</u-code>');
-    <u-code-comment>// 3. Проверили корректность изменения состояния</u-code-comment>.
-    <em>expect</em>(wrapper.<u>state</u>(<em>'name'</em>)).<u>toBe</u>(<em>'Jack'</em>);
+    <em>expect</em>(wrapper.<u>state</u>(<em>'name'</em>)).<u>toBe</u>(<em>'Tony'</em>);  <u-code-comment>// 1. Начальное состояние name: 'Jack'</u-code-comment>.
+    wrapper.<u>find</u>(<em>'button'</em>).<u-code>simulate</u-code>('<u-code>click</u-code>');   <u-code-comment>// 2. Изменили состояние: name: 'Tony'</u-code-comment>.
+    <em>expect</em>(wrapper.<u>state</u>(<em>'name'</em>)).<u>toBe</u>(<em>'Jack'</em>);  <u-code-comment>// 3. Проверили корректность изменения состояния</u-code-comment>.
 });
 </v-code>
 
@@ -60,12 +57,9 @@ it('', () =&gt; {
 it('', () =&gt; {
     const wrapper = shallow(&lt;App /&gt;);
 
-    <u-code-comment>// 1. Начальное состояние job: ''</u-code-comment>.
-    <em>expect</em>(wrapper.<u>state</u>(<em>'job'</em>)).<u>toBe</u>(<em>''</em>);
-    <u-code-comment>// 2. Изменили состояние: job: 'Developer'</u-code-comment>.
-    wrapper.<u>find</u>(<em>'input'</em>).<u-code>simulate</u-code>('<u-code>change</u-code>', { target: { value: 'Developer' } });
-    <u-code-comment>// 3. Проверили корректность изменения состояния</u-code-comment>.
-    <em>expect</em>(wrapper.<u>state</u>(<em>'job'</em>)).<u>toBe</u><em>('Developer'</em>);
+    <em>expect</em>(wrapper.<u>state</u>(<em>'job'</em>)).<u>toBe</u>(<em>''</em>); <u-code-comment>                                        // 1. Начальное состояние job: ''</u-code-comment>.
+    wrapper.<u>find</u>(<em>'input'</em>).<u-code>simulate</u-code>('<u-code>change</u-code>', { target: { value: 'Developer' } }); <u-code-comment>// 2. Изменили состояние: job: 'Developer'</u-code-comment>.
+    <em>expect</em>(wrapper.<u>state</u>(<em>'job'</em>)).<u>toBe</u><em>('Developer'</em>); <u-code-comment>                               // 3. Проверили корректность изменения состояния</u-code-comment>.
 });
 </v-code>
 

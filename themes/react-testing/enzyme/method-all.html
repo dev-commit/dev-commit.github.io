@@ -6,25 +6,16 @@ import { shallow } from 'enzyme';
 </v-code>
 
 <v-code lang="js" title="">
-const Child = ({ propChild }) =&gt; (
-    &lt;div&gt;{propChild}&lt;/div&gt;
-);
-
-const App = ({ propApp }) =&gt; {
-    return (
-        &lt;div&gt;
-            &lt;h1 className="header"&gt;Hello&lt;/h1&gt;
-            &lt;Child propChild="Hello Child" /&gt;
-            &lt;h1&gt;Hello Last&lt;/h1&gt;
-            &lt;a target="_blank"&gt;&lt;/a&gt;
-        &lt;/div&gt;
-    )
-}
+const App = ({ propApp }) => (
+    &lt;div&gt;
+        &lt;h1 className="header"&gt;Hello&lt;/h1&gt;
+    &lt;/div&gt;
+)
 </v-code>
 
 <v-code lang="js" title="">
 it('', () =&gt; {
-    const wrapper = shallow(&lt;App propApp="Hello App" /&gt;);
+    const wrapper = shallow(&lt;App /&gt;);
 
     <em>expect</em>(!!wrapper)                                            .<u-code>toBeTruthy</u-code>();
 
@@ -42,16 +33,6 @@ it('', () =&gt; {
     
     <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>hasClass</u-code>(<em>'header'</em>))               .<u-code>toBeTruthy</u-code>();
     <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>hasClass</u-code>(<em>'nothing'</em>))              .<u-code>toBeFalsy</u-code>();
-
-	<u-code-comment>// Аналогично что для React-компонента</u-code-comment>.
-    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>Child</em>).<u-code>props</u-code>().propChild)               .<u-code>toBe</u-code>(<em>'Hello Child'</em>);
-    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>Child</em>).<u-code>prop</u-code>(<em>'propChild'</em>))               .<u-code>toBe</u-code>(<em>'Hello Child'</em>);
-	
-	<u-code-comment>// Аналогично что для DOM-элемента</u-code-comment>.
-    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'a'</em>).<u-code>props</u-code>().target)                    .<u-code>toBe</u-code>(<em>'_blank'</em>);
-    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'a'</em>).<u-code>prop</u-code>(<em>'target'</em>))                    .<u-code>toBe</u-code>(<em>'_blank'</em>);
-    
-    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>Child</em>).<u-code>text</u-code>(<em>'propChild'</em>))               .<u-code>toBeTruthy</u-code>();
 });
 </v-code>
 
