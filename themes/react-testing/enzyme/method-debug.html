@@ -1,0 +1,31 @@
+<h2>debug</h2>
+
+<v-code lang="js" title="">
+import React from 'react';
+import { shallow } from 'enzyme';
+</v-code>
+
+<v-code lang="js" title="">
+const App = () => (
+    &lt;div&gt;
+        &lt;h1 className="header"&gt;Hello&lt;/h1&gt;
+    &lt;/div&gt;
+)
+</v-code>
+
+<v-code lang="js" title="">
+it('', () => {
+    const wrapper = shallow(&lt;App /&gt;);
+
+    console.log(wrapper.<u-code>debug</u-code>());
+});
+</v-code>
+
+<v-code lang="js" title="">
+// => 
+// &lt;div&gt;
+//     &lt;h1 className="header"&gt;
+//         Hello
+//     &lt;/h1&gt;
+// &lt;/div&gt;
+</v-code>

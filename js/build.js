@@ -1373,6 +1373,7 @@ var arrReactTesting = [
     ['react-testing', 'enzyme',  'method-state',        setTheme(1, ['state'])],
     ['react-testing', 'enzyme',  'method-props',        setTheme(1, ['props'])],
     ['react-testing', 'enzyme',  'method-simulate',     setTheme(1, ['simulate'])],
+    ['react-testing', 'enzyme',  'method-debug',        setTheme(1, ['debug'])],
 
     [1, '2. React Testing Library'],
     ['react-testing', 'react-tsting-library', 'info',                  emoji.theory+'Информация'],
@@ -1385,8 +1386,6 @@ var arrReactTesting = [
     ['react-testing', 'react-test-renderer',  'info',  emoji.theory+'Информация'],
     ['react-testing', 'react-test-renderer',  'npm',   emoji.lemon+'Установка'],
     ['react-testing', 'react-test-renderer',  'code',  emoji.code+'Примеры'],
-
-
 ];
 
 
