@@ -11,9 +11,10 @@ const menu =
 
     splitter +
     '<a href="/pages/testing.html"           class="menu menu-fw">🍕 Тестирование</a>' +
-    '<a href="/pages/jest.html"              class="menu menu-fw">🍕 Jest</a>' +
-    '<a href="/pages/enzyme.html"            class="menu menu-fw">🍕 Enzyme + Jest</a>' +
+    '<a href="/pages/jest.html"              class="menu menu-fw">🍋 Jest</a>' +
+    '<a href="/pages/enzyme.html"            class="menu menu-fw">🍋 Enzyme + Jest</a>' +
     '<a href="/pages/react-testing.html"     class="menu menu-fw">🍕 React Testing</a>' +
+    '<a href="/pages/cypress.html"           class="menu menu-fw">🍋 Cypress</a>' +
 
     splitter +
     '<a href="/pages/js.html"                class="menu menu-js">🥑 JavaScript</a>' +

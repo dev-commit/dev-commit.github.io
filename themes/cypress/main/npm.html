@@ -1,0 +1,38 @@
+<h2>Установка</h2>
+
+<u-link-wrapper>
+	<a href="https://www.cypress.io/" target="_blank">Cypress</a>
+	<a href="https://chancejs.com/" target="_blank">Chance</a>
+</u-link-wrapper>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>cypress</u-code-npm>
+npm i --save-dev <u-code-npm>chance</u-code-npm>
+</v-pre-npm>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>package.json</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="package.json">
+{
+	"scripts": {
+		"cypress:open": "cypress open", // запуск тестов
+		"cypress:run": "cypress run"    // record screenshots, videos and failures
+	},
+	"devDependencies": {
+		"chance": "^",
+		"cypress": "^"
+	}
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Запуск</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+npm run e2e       # запуск cypress
+</v-code>
+
+<ul class="list-point">
+    <li>Собственные тесты должны находиться в <u-code-text>cypress/integration</u-code-text></li>
+</ul>

@@ -1379,7 +1379,7 @@ var arrReactTesting = [
 
 
 //---------------------------------------------------------------------
-// Enzyme
+// ENZYME
 //---------------------------------------------------------------------
 var arrEnzyme = [
     [1, 'Основное'],
@@ -1396,6 +1396,16 @@ var arrEnzyme = [
     ['enzyme', 'methods',  'props',        setTheme(1, ['props'])],
     ['enzyme', 'methods',  'simulate',     setTheme(1, ['simulate'])],
     ['enzyme', 'methods',  'debug',        setTheme(1, ['debug'])],
+];
+
+
+//---------------------------------------------------------------------
+// CYPRESS
+//---------------------------------------------------------------------
+var arrCypress = [
+    [1, 'Основное'],
+    ['cypress', 'main',  'info',                emoji.theory+'Информация'],
+    ['cypress', 'main',  'npm',                 emoji.lemon+'Установка'],
 ];
 
 
@@ -1475,6 +1485,7 @@ switch(pageName) {
     case 'jest.html':              arrCurrent = arrJest;            break;
     case 'react-testing.html':     arrCurrent = arrReactTesting;    break;
     case 'enzyme.html':            arrCurrent = arrEnzyme;          break;
+    case 'cypress.html':           arrCurrent = arrCypress;         break;
     default:                       arrCurrent = [];
 }
 
