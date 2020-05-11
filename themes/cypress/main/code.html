@@ -1,0 +1,18 @@
+<h2>Структура</h2>
+
+<ul class="list-point">
+    <li>Собственные тесты должны находиться в <u-code-text>cypress/integration</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+cy.<u-code>visit</u-code>('http://localhost:8081/index');
+cy.<u-code>contains</u-code>('Hello');
+cy.<u-code>get</u-code>('button').<u-code>click</u-code>();
+
+cy
+    .<u-code>get</u-code>('element')
+    .<u-code>children</u-code>()
+    .<u-code>should</u-code>('contain', 'Some text')
+    .<u-code>and</u-code>('be.visible')
+</v-code>
+
