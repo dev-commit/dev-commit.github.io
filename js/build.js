@@ -1404,9 +1404,9 @@ var arrEnzyme = [
 //---------------------------------------------------------------------
 var arrCypress = [
     [1, 'Основное'],
-    ['cypress', 'main',  'info',                emoji.theory+'Информация'],
-    ['cypress', 'main',  'npm',                 emoji.lemon+'Установка'],
-    ['cypress', 'main',  'code',                 emoji.code+'Структура'],
+    ['cypress', 'main',  'info',       emoji.theory+'Информация'],
+    ['cypress', 'main',  'npm',        emoji.lemon+'Установка'],
+    ['cypress', 'main',  'code',       emoji.code+'Структура'],
 ];
 
 
