@@ -1407,6 +1407,10 @@ var arrCypress = [
     ['cypress', 'main',  'info',       emoji.theory+'Информация'],
     ['cypress', 'main',  'npm',        emoji.lemon+'Установка'],
     ['cypress', 'main',  'code',       emoji.code+'Структура'],
+
+    [1, 'Методы'],
+    ['cypress', 'methods',  'should',  setTheme(1, ['should'])],
+    ['cypress', 'methods',  'common',  setTheme(1, ['visit', 'pause', 'wait'])],
 ];
 
 
