@@ -22,14 +22,10 @@ describe('Starter', () => {
 
     it('Starter', () => {
         cy.<u-code>contains</u-code>('Hello');                <span class="fix-u-code"></span>// на странице содержится 'Hello'
+        cy.<u-code>get</u-code>('h1').<u-code>contains</u-code>('Hello');      // в h1 содержится 'Hello'
         cy.<u-code>get</u-code>('button').<u-code>click</u-code>();            // вызов события
-        cy.<u-code>url</u-code>().<u-code>should</u-code>('include' 'index');  // проверка url на вхождение 'index'
+        cy.<u-code>url</u-code>().<u-code>should</u-code>('include', 'index'); // проверка url на вхождение 'index' (объект не должен быть строкой)
         cy.<u-code>checkTitle</u-code>('Hello');              <span class="fix-u-code"></span>// вызов собственного метода из './cypress/support/commands.js'
-    });
-
-    it('Check value', () => {
-        // изменить и проверить value
-        cy.<u-code>get</u-code>('input').<u-code>type</u-code>('New Value').<u-code>should</u-code>('have.value', 'New Value');  
     });
 
     it('Without Cypress', () => {
@@ -48,10 +44,6 @@ Cypress.Commands.add('checkTitle', (message) => {
 </v-code>
 
 <v-code lang="js" title="">
-cy
-    .<u-code>get</u-code>('element')
-    .<u-code>children</u-code>()
-    .<u-code>should</u-code>('contain', 'Some text')
-    .<u-code>should</u-code>('not.contain')
-    .<u-code>and</u-code>('be.visible')
+cy.<u-code>children</u-code>()
+cy.<u-code>and</u-code>('be.visible')
 </v-code>

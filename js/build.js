@@ -1410,7 +1410,9 @@ var arrCypress = [
 
     [1, 'Методы'],
     ['cypress', 'methods',  'should',  setTheme(1, ['should'])],
-    ['cypress', 'methods',  'common',  setTheme(1, ['visit', 'pause', 'wait'])],
+    ['cypress', 'methods',  'type',    setTheme(1, ['type', 'clear', 'blur'])],
+    ['cypress', 'methods',  'visit',   setTheme(1, ['visit', 'pause', 'wait'])],
+    ['cypress', 'methods',  'get',     setTheme(1, ['get'])],
 ];
 
 
