@@ -109,12 +109,23 @@ Vue.component('v-iframe', {
 		</iframe>`,
 })
 
-// v-pre
 Vue.component('v-code', {
 	props: ['lang', 'title'],
     template: `<pre><code :class="lang"><u-code-title v-text="title" /><slot></slot></code></pre>`
 })
 
+Vue.component('v-details', {
+	props: ['title'],
+    template: `
+		<details>
+			<summary v-html="title"></summary>
+			<slot></slot>
+		</details>
+	`,
+})
+
 const app = new Vue({
 	el: '#content'
 })
+
+

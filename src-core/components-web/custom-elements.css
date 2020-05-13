@@ -3,13 +3,14 @@ all
 *******************************************/
 u-code-text, u-code-list, u-code-comment, u-code, u-text-define, u-text-header,
 u-code-wrapper, u-link-wrapper, u-code-npm, u-code-title, u-code-accent,
-u-menu, u-menu-accent, u-menu-code, u-menu-border, u-text-underline  {
+u-menu, u-menu-accent, u-menu-code, u-menu-border, u-text-underline, u-text-accent,
+u-block-left-padding  {
 	margin: 0;
 	padding: 0;
 	border: 0;
 	display: inline;
 }
-u-code-wrapper, u-link-wrapper {
+u-code-wrapper, u-link-wrapper, u-block-left-padding {
 	display: block;
 }
 
@@ -64,6 +65,17 @@ u-text-underline {
 	color: rgba(var(--color-fw), 1);
 	border-bottom: 2px dashed rgba(var(--color-fw), 0.7);
 }
+u-text-accent {
+	font-weight: 500;
+	color: #6241ea;
+}
+
+/*******************************************
+blocks
+*******************************************/
+u-block-left-padding {
+	padding-left: 50px;
+}
 
 /*******************************************
 menu
@@ -106,7 +118,7 @@ u-link-wrapper {
 }
 u-link-wrapper a {
 	text-decoration: none;
-	color: #666666 !important;
+	color: #6241ea !important;
 	margin: 10px 0px;
 	font-size: 15px;
 	text-decoration: underline;
@@ -123,7 +135,7 @@ u-link-wrapper a:before {
 	width: 16px;
 	height: 16px;
 	margin: 0px 7px;
-	background-image: url(../img/link.svg);
+	background-image: url(img/link.svg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;
