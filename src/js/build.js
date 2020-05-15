@@ -781,7 +781,7 @@ var arrAlgoritms = [
 
     [1, 'Структуры данных'],
     ['theory-algoritms', 'structure', 'info',  emoji.theory+'Информация'],
-    ['theory-algoritms', 'structure', 'stack', 'Стек'],
+    ['theory-algoritms', 'structure', 'stack', emoji.star+'Стек'],
     ['theory-algoritms', 'structure', 'queue', 'Очередь'],
     ['theory-algoritms', 'structure', 'list',  'Список'],
     ['theory-algoritms', 'structure', 'graph', 'Граф'],
