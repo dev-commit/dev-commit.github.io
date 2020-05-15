@@ -780,13 +780,20 @@ var arrAlgoritms = [
     ['theory-algoritms', 'algoritms', 'algoritms-sort',  emoji.code+'Алгоритмы сотрировки'],
 
     [1, 'Структуры данных'],
-    ['theory-algoritms', 'structure', 'info',  emoji.theory+'Информация'],
-    ['theory-algoritms', 'structure', 'stack', emoji.star+'Стек'],
-    ['theory-algoritms', 'structure', 'queue', 'Очередь'],
-    ['theory-algoritms', 'structure', 'list',  'Список'],
-    ['theory-algoritms', 'structure', 'graph', 'Граф'],
-    ['theory-algoritms', 'structure', 'tree',  'Дерево'],
-    ['theory-algoritms', 'structure', 'heap',  'Куча'],
+    ['theory-algoritms', 'structure', 'info',         emoji.theory+'Информация'],
+    ['theory-algoritms', 'structure', 'stack',        emoji.favorite+'Стек'],
+    ['theory-algoritms', 'structure', 'queue',        emoji.favorite+'Очередь'],
+    ['theory-algoritms', 'structure', 'list',         emoji.favorite+'Список'],
+    ['theory-algoritms', 'structure', 'list-linked',  emoji.favorite+'Связанный список'],
+    ['theory-algoritms', 'structure', 'graph',        emoji.favorite+'Граф'],
+    ['theory-algoritms', 'structure', 'tree',         emoji.favorite+'Дерево'],
+    ['theory-algoritms', 'structure', 'heap',         emoji.favorite+'Куча'],
+
+    //--------------------------------------------------------------------
+    [2, 'JavaScript'],
+    //--------------------------------------------------------------------
+    ['js', 'data-structures', 'map',        setTheme(1, ['Map', 'WeakMap'])],
+    ['js', 'data-structures', 'set',        setTheme(1, ['Set', 'WeakSet'])],
 ];
 
 
