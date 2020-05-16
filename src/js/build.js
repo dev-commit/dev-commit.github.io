@@ -787,7 +787,7 @@ var arrAlgoritms = [
     ['theory-algoritms', 'structure', 'list-linked',  emoji.favorite+'Связанный список'],
     ['theory-algoritms', 'structure', 'set',          emoji.favorite+'Множество'],
     ['theory-algoritms', 'structure', 'map',          emoji.favorite+'Map'],
-    ['theory-algoritms', 'structure', 'hash',         emoji.favorite+'Хэш-таблицы'],
+    ['theory-algoritms', 'structure', 'hash',         emoji.favorite+'Хэш-таблица'],
     ['theory-algoritms', 'structure', 'list',         emoji.favorite+'Список'],
     ['theory-algoritms', 'structure', 'graph',        emoji.favorite+'Граф'],
     ['theory-algoritms', 'structure', 'tree',         emoji.favorite+'Дерево'],
