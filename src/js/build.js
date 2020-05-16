@@ -776,7 +776,8 @@ var arrParadigms = [
 //---------------------------------------------------------------------
 var arrAlgoritms = [
     [1, 'Алгоритмы'],
-    ['theory-algoritms', 'algoritms', 'big-o-notation',  emoji.theory+'Big-O Notation'],
+    ['theory-algoritms', 'algoritms', 'info',            emoji.theory+'Информация'],
+    ['theory-algoritms', 'algoritms', 'big-o-notation',  emoji.avocado+'Big-O Notation'],
     ['theory-algoritms', 'algoritms', 'algoritms-sort',  emoji.code+'Алгоритмы сотрировки'],
 
     [1, 'Структуры данных'],
@@ -785,10 +786,13 @@ var arrAlgoritms = [
     ['theory-algoritms', 'structure', 'queue',        emoji.favorite+'Очередь'],
     ['theory-algoritms', 'structure', 'list-linked',  emoji.favorite+'Связанный список'],
     ['theory-algoritms', 'structure', 'set',          emoji.favorite+'Множество'],
-
+    ['theory-algoritms', 'structure', 'map',          emoji.favorite+'Map'],
+    ['theory-algoritms', 'structure', 'hash',         emoji.favorite+'Хэш-таблицы'],
     ['theory-algoritms', 'structure', 'list',         emoji.favorite+'Список'],
     ['theory-algoritms', 'structure', 'graph',        emoji.favorite+'Граф'],
     ['theory-algoritms', 'structure', 'tree',         emoji.favorite+'Дерево'],
+    ['theory-algoritms', 'structure', 'tree-prefix',  emoji.favorite+'Префиксное дерево'],
+
     ['theory-algoritms', 'structure', 'heap',         emoji.favorite+'Куча'],
 
     //--------------------------------------------------------------------
