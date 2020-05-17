@@ -776,8 +776,9 @@ var arrParadigms = [
 //---------------------------------------------------------------------
 var arrAlgoritms = [
     [1, 'Основное'],
-    ['theory-algoritms', 'main', 'info',            emoji.theory+'Информация'],
     ['theory-algoritms', 'main', 'big-o-notation',  emoji.avocado+'Big-O Notation'],
+    ['theory-algoritms', 'main', 'info',            emoji.theory+'Информация'],
+    ['theory-algoritms', 'main', 'paradigms',       emoji.theory+'Методы разработки алгоритмов'],
 
     [1, 'Алгоритмы'],
     ['theory-algoritms', 'algoritms', 'sort',           emoji.code+'Сортировка'],
