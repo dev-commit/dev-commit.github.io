@@ -2,19 +2,15 @@
 const splitter = '<div style="width: 100%; flex-shrink: 0"></div>';
 
 const menu =
-    '<a href="/pages/assessment.html"        class="menu menu-other">Ассессмент</a>' +
-    '<a href="/pages/js-tasks.html"          class="menu menu-other">🍕 Задачи</a>' +
-    '<a href="/pages/theory-patterns.html"   class="menu menu-other">⚡️ Паттерны</a>' +
-    '<a href="/pages/theory-paradigms.html"  class="menu menu-other">⚡️ Парадигмы</a>' +
-    '<a href="/pages/theory-algoritms.html"  class="menu menu-other">⚡️ Алгоритмы и структуры</a>' +
-    '<a href="/pages/theory.html"            class="menu menu-other">Теория</a>' +
+    '<a href="/pages/assessment.html"            class="menu menu-other">Ассессмент</a>' +
+    '<a href="/pages/js-tasks.html"              class="menu menu-other">🍕 Задачи</a>' +
+    '<a href="/pages/theory.html"                class="menu menu-other">Теория</a>' +
 
     splitter +
-    '<a href="/pages/testing.html"           class="menu menu-fw">🍕 Тестирование</a>' +
-    '<a href="/pages/jest.html"              class="menu menu-fw">🍋 Jest</a>' +
-    '<a href="/pages/enzyme.html"            class="menu menu-fw">🍋 Enzyme + Jest</a>' +
-    '<a href="/pages/react-testing.html"     class="menu menu-fw">🍕 React Testing</a>' +
-    '<a href="/pages/cypress.html"           class="menu menu-fw">🍋 Cypress</a>' +
+    '<a href="/pages/theory-patterns.html"        class="menu menu-other">⚡️ Паттерны</a>' +
+    '<a href="/pages/theory-paradigms.html"       class="menu menu-other">⚡️ Парадигмы</a>' +
+    '<a href="/pages/theory-algoritms.html"       class="menu menu-other">⚡️ Алгоритмы</a>' +
+    '<a href="/pages/theory-data-structures.html" class="menu menu-other">⚡️ Структуры данных</a>' +
 
     splitter +
     '<a href="/pages/js.html"                class="menu menu-js">🥑 JavaScript</a>' +
@@ -34,6 +30,13 @@ const menu =
     '<a href="/pages/redux.html"          class="menu menu-fw">Redux</a>' +
     '<a href="/pages/react-router.html"   class="menu menu-fw">React Router</a>' +
     '<a href="/pages/vue-js.html"         class="menu menu-fw">Vue.js</a>' +
+
+    splitter +
+    '<a href="/pages/testing.html"           class="menu menu-other">🍕 Тестирование</a>' +
+    '<a href="/pages/jest.html"              class="menu menu-other">🍋 Jest</a>' +
+    '<a href="/pages/enzyme.html"            class="menu menu-other">🍋 Enzyme + Jest</a>' +
+    '<a href="/pages/react-testing.html"     class="menu menu-other">🍕 React Testing</a>' +
+    '<a href="/pages/cypress.html"           class="menu menu-other">🍋 Cypress</a>' +
 
     splitter +
     '<a href="/pages/html.html"        class="menu menu-html">HTML</a>' +

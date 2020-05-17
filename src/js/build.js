@@ -775,37 +775,41 @@ var arrParadigms = [
 // ALGORITMS
 //---------------------------------------------------------------------
 var arrAlgoritms = [
-    [1, 'Алгоритмы'],
-    ['theory-algoritms', 'algoritms', 'info',            emoji.theory+'Информация'],
-    ['theory-algoritms', 'algoritms', 'big-o-notation',  emoji.avocado+'Big-O Notation'],
+    [1, 'Основное'],
+    ['theory-algoritms', 'main', 'info',            emoji.theory+'Информация'],
+    ['theory-algoritms', 'main', 'big-o-notation',  emoji.avocado+'Big-O Notation'],
 
-    //--------------------------------------------------------------------
-    [2, 'Алгоритмы'],
-    //--------------------------------------------------------------------
-    ['theory-algoritms', 'algoritms', 'algoritms-sort',           emoji.code+'Сортировка'],
-    ['theory-algoritms', 'algoritms', 'algoritms-search',         emoji.code+'Поиск'],
-    ['theory-algoritms', 'algoritms', 'algoritms-string-reverse', emoji.code+'Переворот строки'],
-    ['theory-algoritms', 'algoritms', 'algoritms-hashing',        emoji.code+'Хеширование'],
-    ['theory-algoritms', 'algoritms', 'algoritms-fibonacci',      emoji.code+'Число Фибоначчи'],
-    ['theory-algoritms', 'algoritms', 'algoritms-factorial',      emoji.code+'Факториал'],
+    [1, 'Алгоритмы'],
+    ['theory-algoritms', 'algoritms', 'sort',           emoji.code+'Сортировка'],
+    ['theory-algoritms', 'algoritms', 'search',         emoji.code+'Поиск'],
+    ['theory-algoritms', 'algoritms', 'string-reverse', emoji.code+'Переворот строки'],
+    ['theory-algoritms', 'algoritms', 'hashing',        emoji.code+'Хеширование'],
+    ['theory-algoritms', 'algoritms', 'fibonacci',      emoji.code+'Число Фибоначчи'],
+    ['theory-algoritms', 'algoritms', 'factorial',      emoji.code+'Факториал'],
+];
+
+
+//---------------------------------------------------------------------
+// DATA STRUCTURES
+//---------------------------------------------------------------------
+var arrDataStructures = [
+    [1, 'Основное'],
+    ['theory-data-structures', 'main', 'info',  emoji.theory+'Информация'],
 
     [1, 'Структуры данных'],
-    ['theory-algoritms', 'structure', 'info',         emoji.theory+'Информация'],
-    ['theory-algoritms', 'structure', 'stack',        emoji.favorite+'Стек'],
-    ['theory-algoritms', 'structure', 'queue',        emoji.favorite+'Очередь'],
-    ['theory-algoritms', 'structure', 'list-linked',  emoji.favorite+'Связанный список'],
-    ['theory-algoritms', 'structure', 'set',          emoji.favorite+'Множество'],
-    ['theory-algoritms', 'structure', 'map',          emoji.favorite+'Map'],
-    ['theory-algoritms', 'structure', 'hash',         emoji.favorite+'Хэш-таблица'],
-    ['theory-algoritms', 'structure', 'list',         emoji.favorite+'Список'],
-    ['theory-algoritms', 'structure', 'graph',        emoji.favorite+'Граф'],
-    ['theory-algoritms', 'structure', 'tree',         emoji.favorite+'Дерево'],
-    ['theory-algoritms', 'structure', 'tree-prefix',  emoji.favorite+'Префиксное дерево'],
-    ['theory-algoritms', 'structure', 'heap',         emoji.favorite+'Куча'],
+    ['theory-data-structures', 'structures', 'stack',        emoji.favorite+'Стек'],
+    ['theory-data-structures', 'structures', 'queue',        emoji.favorite+'Очередь'],
+    ['theory-data-structures', 'structures', 'list-linked',  emoji.favorite+'Связанный список'],
+    ['theory-data-structures', 'structures', 'set',          emoji.favorite+'Множество'],
+    ['theory-data-structures', 'structures', 'map',          emoji.favorite+'Map'],
+    ['theory-data-structures', 'structures', 'hash',         emoji.favorite+'Хэш-таблица'],
+    ['theory-data-structures', 'structures', 'list',         emoji.favorite+'Список'],
+    ['theory-data-structures', 'structures', 'graph',        emoji.favorite+'Граф'],
+    ['theory-data-structures', 'structures', 'tree',         emoji.favorite+'Дерево'],
+    ['theory-data-structures', 'structures', 'tree-prefix',  emoji.favorite+'Префиксное дерево'],
+    ['theory-data-structures', 'structures', 'heap',         emoji.favorite+'Куча'],
 
-    //--------------------------------------------------------------------
-    [2, 'JavaScript'],
-    //--------------------------------------------------------------------
+    [1, 'Структуры данных в JavaScript'],
     ['js', 'data-structures', 'map',        setTheme(1, ['Map', 'WeakMap'])],
     ['js', 'data-structures', 'set',        setTheme(1, ['Set', 'WeakSet'])],
 ];
@@ -1435,54 +1439,55 @@ var pageName = page[page.length-1];
 var arrCurrent = [];
 
 switch(pageName) {
-    case 'theory.html':            arrCurrent = arrTheory;          break;
-    case 'theory-patterns.html':   arrCurrent = arrDesignPatterns;  break;
-    case 'theory-paradigms.html':  arrCurrent = arrParadigms;       break;
-    case 'theory-algoritms.html':  arrCurrent = arrAlgoritms;       break;
+    case 'theory.html':                 arrCurrent = arrTheory;          break;
+    case 'theory-patterns.html':        arrCurrent = arrDesignPatterns;  break;
+    case 'theory-paradigms.html':       arrCurrent = arrParadigms;       break;
+    case 'theory-algoritms.html':       arrCurrent = arrAlgoritms;       break;
+    case 'theory-data-structures.html': arrCurrent = arrDataStructures;  break;
 
-    case 'js.html':                arrCurrent = arrJavaScript;      break;
-    case 'js-objects.html':        arrCurrent = arrJsObjects;       break;
-    case 'js-async.html':          arrCurrent = arrJsAsync;         break;
-    case 'js-web-api.html':        arrCurrent = arrJsWebApi;        break;
-    case 'js-web-components.html': arrCurrent = arrJsWebComponents; break;
-    case 'js-client-server.html':  arrCurrent = arrJsClientServer;  break;
-    case 'react-js.html':          arrCurrent = arrReactjs;         break;
-    case 'react-api.html':         arrCurrent = arrReactApi;        break;
-    case 'react-hooks.html':       arrCurrent = arrReactHooks;      break;
-    case 'react-router.html':      arrCurrent = arrReactRouter;     break;
-    case 'redux.html':             arrCurrent = arrRedux;           break;
-    case 'vue-js.html':            arrCurrent = arrVuejs;           break;
+    case 'js.html':                     arrCurrent = arrJavaScript;      break;
+    case 'js-objects.html':             arrCurrent = arrJsObjects;       break;
+    case 'js-async.html':               arrCurrent = arrJsAsync;         break;
+    case 'js-web-api.html':             arrCurrent = arrJsWebApi;        break;
+    case 'js-web-components.html':      arrCurrent = arrJsWebComponents; break;
+    case 'js-client-server.html':       arrCurrent = arrJsClientServer;  break;
+    case 'react-js.html':               arrCurrent = arrReactjs;         break;
+    case 'react-api.html':              arrCurrent = arrReactApi;        break;
+    case 'react-hooks.html':            arrCurrent = arrReactHooks;      break;
+    case 'react-router.html':           arrCurrent = arrReactRouter;     break;
+    case 'redux.html':                  arrCurrent = arrRedux;           break;
+    case 'vue-js.html':                 arrCurrent = arrVuejs;           break;
 
-    case 'material-ui.html':       arrCurrent = arrMaterialUI;      break;
-    case 'testing.html':           arrCurrent = arrTesting;         break;
-    case 'webpack.html':           arrCurrent = arrWebpack;         break;
-    case 'npm.html':               arrCurrent = arrNpm;             break;
-    case 'git.html':               arrCurrent = arrGit;             break;
-    case 'linux.html':             arrCurrent = arrLinux;           break;
-    case 'other.html':             arrCurrent = arrOther;           break;
-    case 'js-tasks.html':          arrCurrent = arrJsTasks;         break;
-    case 'jquery.html':            arrCurrent = arrJquery;          break;
-    case 'canvas.html':            arrCurrent = arrCanvas;          break;
-    case 'html.html':              arrCurrent = arrHTML;            break;
-    case 'css.html':               arrCurrent = arrCSS;             break;
-    case 'assessment.html':        arrCurrent = arrAssessment;      break;
-    case 'sass.html':              arrCurrent = arrSass;            break;
-    case 'bootstrap.html':         arrCurrent = arrBootstrap;       break;
-    case 'flow.html':              arrCurrent = arrFlow;            break;
-    case 'svg.html':               arrCurrent = arrSvg;             break;
-    case 'css-flexbox.html':       arrCurrent = arrCssFlexbox;      break;
-    case 'css-grid.html':          arrCurrent = arrCssGrid;         break;
-    case 'node-js.html':           arrCurrent = arrNodejs;          break;
-    case 'php.html':               arrCurrent = arrPhp;             break;
-    case 'python.html':            arrCurrent = arrPython;          break;
-    case 'mysql.html':             arrCurrent = arrMySql;           break;
-    case 'ramda.html':             arrCurrent = arrRamda;           break;
-    case 'typescript.html':        arrCurrent = arrTypescript;      break;
-    case 'jest.html':              arrCurrent = arrJest;            break;
-    case 'react-testing.html':     arrCurrent = arrReactTesting;    break;
-    case 'enzyme.html':            arrCurrent = arrEnzyme;          break;
-    case 'cypress.html':           arrCurrent = arrCypress;         break;
-    default:                       arrCurrent = [];
+    case 'material-ui.html':            arrCurrent = arrMaterialUI;      break;
+    case 'testing.html':                arrCurrent = arrTesting;         break;
+    case 'webpack.html':                arrCurrent = arrWebpack;         break;
+    case 'npm.html':                    arrCurrent = arrNpm;             break;
+    case 'git.html':                    arrCurrent = arrGit;             break;
+    case 'linux.html':                  arrCurrent = arrLinux;           break;
+    case 'other.html':                  arrCurrent = arrOther;           break;
+    case 'js-tasks.html':               arrCurrent = arrJsTasks;         break;
+    case 'jquery.html':                 arrCurrent = arrJquery;          break;
+    case 'canvas.html':                 arrCurrent = arrCanvas;          break;
+    case 'html.html':                   arrCurrent = arrHTML;            break;
+    case 'css.html':                    arrCurrent = arrCSS;             break;
+    case 'assessment.html':             arrCurrent = arrAssessment;      break;
+    case 'sass.html':                   arrCurrent = arrSass;            break;
+    case 'bootstrap.html':              arrCurrent = arrBootstrap;       break;
+    case 'flow.html':                   arrCurrent = arrFlow;            break;
+    case 'svg.html':                    arrCurrent = arrSvg;             break;
+    case 'css-flexbox.html':            arrCurrent = arrCssFlexbox;      break;
+    case 'css-grid.html':               arrCurrent = arrCssGrid;         break;
+    case 'node-js.html':                arrCurrent = arrNodejs;          break;
+    case 'php.html':                    arrCurrent = arrPhp;             break;
+    case 'python.html':                 arrCurrent = arrPython;          break;
+    case 'mysql.html':                  arrCurrent = arrMySql;           break;
+    case 'ramda.html':                  arrCurrent = arrRamda;           break;
+    case 'typescript.html':             arrCurrent = arrTypescript;      break;
+    case 'jest.html':                   arrCurrent = arrJest;            break;
+    case 'react-testing.html':          arrCurrent = arrReactTesting;    break;
+    case 'enzyme.html':                 arrCurrent = arrEnzyme;          break;
+    case 'cypress.html':                arrCurrent = arrCypress;         break;
+    default:                            arrCurrent = [];
 }
 
 if ( (pageName!=='index.html') && (pageName!=='index') && (pageName!=='') ) {
