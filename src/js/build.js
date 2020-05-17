@@ -696,7 +696,7 @@ var arrVuejs = [
 // THEORY
 //---------------------------------------------------------------------
 var arrTheory = [
-    [1, 'Принципы программирования'],
+    [1, 'Стандарты кода'],
     ['theory', 'programming-principles', 'solid',         emoji.fire+'SOLID'],
     ['theory', 'programming-principles', 'dry',           emoji.fire+'DRY'],
     ['theory', 'programming-principles', 'kiss',          emoji.fire+'KISS'],
@@ -778,7 +778,16 @@ var arrAlgoritms = [
     [1, 'Алгоритмы'],
     ['theory-algoritms', 'algoritms', 'info',            emoji.theory+'Информация'],
     ['theory-algoritms', 'algoritms', 'big-o-notation',  emoji.avocado+'Big-O Notation'],
-    ['theory-algoritms', 'algoritms', 'algoritms-sort',  emoji.code+'Алгоритмы сотрировки'],
+
+    //--------------------------------------------------------------------
+    [2, 'Алгоритмы'],
+    //--------------------------------------------------------------------
+    ['theory-algoritms', 'algoritms', 'algoritms-sort',           emoji.code+'Сортировка'],
+    ['theory-algoritms', 'algoritms', 'algoritms-search',         emoji.code+'Поиск'],
+    ['theory-algoritms', 'algoritms', 'algoritms-string-reverse', emoji.code+'Переворот строки'],
+    ['theory-algoritms', 'algoritms', 'algoritms-hashing',        emoji.code+'Хеширование'],
+    ['theory-algoritms', 'algoritms', 'algoritms-fibonacci',      emoji.code+'Число Фибоначчи'],
+    ['theory-algoritms', 'algoritms', 'algoritms-factorial',      emoji.code+'Факториал'],
 
     [1, 'Структуры данных'],
     ['theory-algoritms', 'structure', 'info',         emoji.theory+'Информация'],
@@ -792,7 +801,6 @@ var arrAlgoritms = [
     ['theory-algoritms', 'structure', 'graph',        emoji.favorite+'Граф'],
     ['theory-algoritms', 'structure', 'tree',         emoji.favorite+'Дерево'],
     ['theory-algoritms', 'structure', 'tree-prefix',  emoji.favorite+'Префиксное дерево'],
-
     ['theory-algoritms', 'structure', 'heap',         emoji.favorite+'Куча'],
 
     //--------------------------------------------------------------------
@@ -884,7 +892,6 @@ var arrJsTasks = [
     ['js-task', 'algoritms', 'event-emitter',            emoji.code+setTheme(4, ['EventEmitter'])],
     ['js-task', 'algoritms', 'anagram',                  emoji.code+setTheme(4, ['Анаграмма'])],
     ['js-task', 'algoritms', 'palindrome',               emoji.code+setTheme(4, ['Палиндром'])],
-    ['js-task', 'algoritms', 'fibonacci',                emoji.code+setTheme(4, ['Число Фибоначчи'])],
     ['js-task', 'algoritms', 'closing-brackets',         emoji.code+setTheme(4, ['Проверить закрывающиеся скобки'])],
     ['js-task', 'algoritms', 'sum-sequence',             emoji.code+setTheme(4, ['Сумма последовательности'])],
     ['js-task', 'algoritms', 'sum-brackets',             emoji.code+setTheme(4, ['Сумма скобок sum(1)(2)(3)'])],
