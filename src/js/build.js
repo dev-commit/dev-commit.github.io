@@ -823,6 +823,10 @@ var arrDataStructures = [
     ['theory-data-structures', 'structures', 'tree-prefix',  emoji.favorite+'Префиксное дерево'],
     ['theory-data-structures', 'structures', 'heap',         emoji.favorite+'Куча'],
 
+    [1, 'Примеры'],
+    ['theory-data-structures', 'samples', 'intersection-array', emoji.code+'Пересечение массивов'],
+    ['theory-data-structures', 'samples', 'multiple-checks',    emoji.code+'Множественные проверки'],
+
     [1, 'Структуры данных в JavaScript'],
     ['js', 'data-structures', 'map',        setTheme(1, ['Map', 'WeakMap'])],
     ['js', 'data-structures', 'set',        setTheme(1, ['Set', 'WeakSet'])],
