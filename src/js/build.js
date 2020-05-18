@@ -1407,6 +1407,9 @@ var arrCypress = [
     ['cypress', 'methods',  'type',    setTheme(1, ['type', 'clear', 'blur'])],
     ['cypress', 'methods',  'visit',   setTheme(1, ['visit', 'pause', 'wait'])],
     ['cypress', 'methods',  'get',     setTheme(1, ['get'])],
+
+    [1, 'Guides'],
+    ['cypress', 'guides',  'network-requests', emoji.favorite+'Network Requests'],
 ];
 
 
