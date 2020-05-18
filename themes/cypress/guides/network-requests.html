@@ -28,8 +28,8 @@ cy.<u-code>route</u-code>()   // предоставляет таблицу ма�
 <h3>Использование <u-code-text>cy.server</u-code-text> и <u-code-text>cy.route</u-code-text></h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-cy.server()
-cy.route({
+cy.<u-code>server</u-code>()
+cy.<u-code>route</u-code>({
     method: 'GET',      // Route all GET requests
     url: '/users/*',    // that have a URL that matches '/users/*'
     response: []        // and force the response to be: []
@@ -39,8 +39,16 @@ cy.route({
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Использование <u-code-text>cy.fixture</u-code-text></h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Файл <u-code-text>./cypress/fixtures/activities.json</u-code-text></li>
+</ul>
+
 <v-code lang="js" title="">
-cy.server()
-cy.fixture('activities.json').as('activitiesJSON')
-cy.route('GET', 'activities/*', '@activitiesJSON')
+cy.<u-code>server</u-code>()
+cy.<u-code>fixture</u-code>('activities.json').as('activitiesJSON')
+cy.<u-code>route</u-code>('GET', 'activities/*', '@activitiesJSON')
+
+// GET             - метод
+// activities/*    - часть URL
+// @activitiesJSON - алиас fixture 
 </v-code>

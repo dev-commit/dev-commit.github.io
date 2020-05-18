@@ -775,8 +775,13 @@ var arrParadigms = [
 // ALGORITMS
 //---------------------------------------------------------------------
 var arrAlgoritms = [
+    [1, 'Big-O Notation'],
+    ['theory-algoritms', 'big-o', 'info',      emoji.theory+'Информация'],
+    ['theory-algoritms', 'big-o', 'variants',  emoji.avocado+'Варианты'],
+    ['theory-algoritms', 'big-o', 'structure', emoji.avocado+'Структуры данных'],
+    ['theory-algoritms', 'big-o', 'samples',   emoji.avocado+'Примеры'],
+
     [1, 'Основное'],
-    ['theory-algoritms', 'main', 'big-o-notation',  emoji.avocado+'Big-O Notation'],
     ['theory-algoritms', 'main', 'info',            emoji.theory+'Информация'],
     ['theory-algoritms', 'main', 'paradigms',       emoji.theory+'Методы разработки алгоритмов'],
 
@@ -798,9 +803,17 @@ var arrDataStructures = [
     ['theory-data-structures', 'main', 'info',  emoji.theory+'Информация'],
 
     [1, 'Структуры данных'],
+
+    //--------------------------------------------------------------------
+    [2, 'Линейные'],
+    //--------------------------------------------------------------------
     ['theory-data-structures', 'structures', 'stack',        emoji.favorite+'Стек'],
     ['theory-data-structures', 'structures', 'queue',        emoji.favorite+'Очередь'],
     ['theory-data-structures', 'structures', 'list-linked',  emoji.favorite+'Связанный список'],
+
+    //--------------------------------------------------------------------
+    [2, 'Остальные'],
+    //--------------------------------------------------------------------
     ['theory-data-structures', 'structures', 'set',          emoji.favorite+'Множество'],
     ['theory-data-structures', 'structures', 'map',          emoji.favorite+'Map'],
     ['theory-data-structures', 'structures', 'hash',         emoji.favorite+'Хэш-таблица'],
@@ -1398,15 +1411,16 @@ var arrEnzyme = [
 //---------------------------------------------------------------------
 var arrCypress = [
     [1, 'Основное'],
-    ['cypress', 'main',  'info',       emoji.theory+'Информация'],
-    ['cypress', 'main',  'npm',        emoji.lemon+'Установка'],
-    ['cypress', 'main',  'code',       emoji.code+'Структура'],
+    ['cypress', 'main',  'info',        emoji.theory+'Информация'],
+    ['cypress', 'main',  'npm',         emoji.lemon+'Установка'],
+    ['cypress', 'main',  'code',        emoji.code+'Структура'],
 
     [1, 'Методы'],
-    ['cypress', 'methods',  'should',  setTheme(1, ['should'])],
-    ['cypress', 'methods',  'type',    setTheme(1, ['type', 'clear', 'blur'])],
-    ['cypress', 'methods',  'visit',   setTheme(1, ['visit', 'pause', 'wait'])],
-    ['cypress', 'methods',  'get',     setTheme(1, ['get'])],
+    ['cypress', 'methods',  'should',   setTheme(1, ['should'])],
+    ['cypress', 'methods',  'type',     setTheme(1, ['type', 'clear', 'blur'])],
+    ['cypress', 'methods',  'visit',    setTheme(1, ['visit', 'pause', 'wait'])],
+    ['cypress', 'methods',  'get',      setTheme(1, ['get'])],
+    ['cypress', 'methods',  'fixture',  setTheme(1, ['fixture'])],
 
     [1, 'Guides'],
     ['cypress', 'guides',  'network-requests', emoji.favorite+'Network Requests'],

@@ -1,0 +1,72 @@
+<h2>fixture</h2>
+
+<u-link-wrapper>
+	<a href="https://docs.cypress.io/api/commands/fixture.html" target="_blank">Fixture</a>
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="cy." method="fixture" after="" arg="(filePath, encoding, options)">
+    загрузка фиксированного набора данных, расположенного в файле
+    </v-method>
+
+	<v-method-arg arg="filePath">путь к файлу из cypress/fixtures</v-method-arg>
+	<v-method-arg arg="encoding">кодировка, которая будет использована при чтении файла</v-method-arg>
+	<v-method-arg arg="options">опции для изменения стандартного поведения</v-method-arg>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>JSON</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="./cypress/fixtures/data.json">
+{
+    "name": "Tony",
+    "age": 25
+}
+</v-code>
+
+<v-two-code type="js;js" comment="Загрузка fixtures и добавление алиаса;Загрузка fixtures и чтение данных">
+<template v-slot:first>
+cy.<u-code>fixture</u-code>('data.json').as('data')
+</template>
+<template v-slot:last>
+cy.fixture('data.json').then((json) => {
+    // { name: "Tony", age: 25 }
+    console.log(json); 
+})
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Images</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="Returns dogs.png as Base64">
+cy.<u-code>fixture</u-code>('images/dogs.png') 
+</v-code>
+
+<v-code lang="js" title="Image fixtures are sent as base64">
+cy.fixture('images/logo.png').then((logo) => {
+	// logo will be encoded as base64
+	// and should look something like this:
+	// aIJKnwxydrB10NVWqhlmmC+ZiWs7otHotSAAAOw==...
+})
+</v-code>
+
+<v-code lang="js" title="Change encoding of Image fixture">
+cy.fixture('images/logo.png', 'binary').then((logo) => {
+	// logo will be encoded as binary
+	// and should look something like this:
+	// 000000000000000000000000000000000000000000...
+})
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>MP3</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="Playing MP3 file">
+cy.fixture('audio/sound.mp3', 'base64').then((mp3) => {
+	const uri = 'data:audio/mp3;base64,' + mp3
+	const audio = new Audio(uri)
+
+	audio.play()
+})
+</v-code>
