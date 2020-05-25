@@ -55,11 +55,7 @@ git <u-code>reflog</u-code> <i>НазваниеВетки</i>  # откатит�
 <img src="/img/git/rebase.jpg" width="300px">
 </template></v-two>
 
-
-
-
-
-
+<img src="/img/git/rebase-merge.jpg" width="550px">
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -97,3 +93,11 @@ pick 3895aa6 MessageCommit4
     <li><u-code-text>t, reset</u-code-text> - reset HEAD to a label</li>
     <li><u-code-text>m, merge</u-code-text> - create a merge commit using the original merge commit's message (or the oneline, if no original merge commit was specified)</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>git pull</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+git <u-code>pull</u-code> origin master           # работает по merge
+git <u-code>pull --rebase</u-code> origin master  # работает по rebase
+</v-code>
