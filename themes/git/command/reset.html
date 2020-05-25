@@ -6,6 +6,7 @@
 
 <v-code lang="bash" title="">
 git <u-code>reset</u-code>
-git <u-code>reset --hard</u-code> d8578edf8458ce06fbc5bb76a58c5ca4a58c5ca4 # откатиться к конкретному коммиту и удалить последующие (хэш смотрим в «git log»)
-git <u-code>reset HEAD</u-code> имя_файла                                  # если изменения были индексированны и нужно откатиться перед самим коммитом
+git <u-code>reset --hard HEAD^1</u-code>      # откатиться на заданное кол-во коммитов
+git <u-code>reset --hard</u-code> <i>HashCommit</i>  # откатиться к конкретному коммиту и удалить последующие (хэш смотрим в «git log»)
+git <u-code>reset HEAD</u-code> <i>ИмяФайла</i>      # если изменения были индексированны и нужно откатиться перед самим коммитом
 </v-code>
