@@ -259,6 +259,7 @@ var arrJavaScript = [
     [1, 'Замыкания'],
     ['js', 'closures', 'closures',          emoji.theory+'Замыкания'],
     ['js', 'closures', 'environment',       emoji.theory+'Области видимости'],
+    ['js', 'closures', 'funarg',            emoji.theory+'Фунарг-проблема'],
 
     [1, 'Функции'],
     ['js', 'function', 'info',                      emoji.theory+'Информация'],
