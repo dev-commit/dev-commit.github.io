@@ -24,10 +24,14 @@ var arrAssessment = [
     [1, 'Основы'],
     ['js',          'main',       'bind',                 emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
     ['js',          'main',       'context',              emoji.baseball+'Контекст'],
-    ['js',          'closures',   'closures',             emoji.fire+'Замыкания'],
     ['js',          'function',   'arrow',                emoji.fire+'Стрелочные функции'],
     ['js-async',    'theory',     'event-loop',           emoji.lemon+'Event Loop'],
     ['js-async',    'theory',     'event-loop-tasks',     emoji.lemon+'Event Loop: Tasks'],
+
+    [1, 'Замыкания'],
+    ['js', 'closures', 'closures',          emoji.theory+'Замыкания'],
+    ['js', 'closures', 'environment',       emoji.theory+'Области видимости'],
+    ['js', 'closures', 'funarg',            emoji.theory+'Фунарг-проблема'],
 
     [1, 'Практика'],
     ['js',          'main',       'array-cycle',          emoji.boom+setTheme(1, ['map', 'forEach', '...'])],
