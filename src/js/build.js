@@ -343,10 +343,13 @@ var arrJsClientServer = [
     ['js-client-server', 'ajax', 'axios',          emoji.fire+'3. Axios'],
     ['js-client-server', 'ajax', 'request-js',     emoji.code+'Request JS'],
     ['js-client-server', 'ajax', 'response-php',   emoji.code+'Response PHP'],
-    ['js-client-server', 'ajax', 'jsonp',          'JSONP'],
-    ['js-client-server', 'ajax', 'cors',           'CORS'],
-    ['js-client-server', 'ajax', 'websocket',      'WebSocket'],
-    ['js-client-server', 'ajax', 'comet',          'Comet'],
+
+    [1, 'Технологии'],
+    ['js-client-server', 'tech', 'websocket',      emoji.lemon+'WebSocket'],
+    ['js-client-server', 'tech', 'cors',           emoji.lemon+'CORS'],
+    ['js-client-server', 'tech', 'xss',            emoji.lemon+'XSS'],
+    ['js-client-server', 'tech', 'jsonp',          'JSONP'],
+    ['js-client-server', 'tech', 'comet',          'Comet'],
 ];
 
 
