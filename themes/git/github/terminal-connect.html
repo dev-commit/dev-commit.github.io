@@ -1,4 +1,3 @@
-
 <h2>Подключение по SSH</h2>
 
 <v-code lang="bash" title="">
@@ -18,8 +17,12 @@ Use HTTPS: https://github.com/anton-sergeenkov/repo.git
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>1. Git Bash</h3>
+<h3>SSH</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Git Bash</h4>
+<!------------------------------------------------------------->
 <u-link-wrapper>
 	<a href="https://git-scm.com/" target="_blank">Git</a>
 </u-link-wrapper>
@@ -30,10 +33,9 @@ Use HTTPS: https://github.com/anton-sergeenkov/repo.git
 	<u-code>$ cd</u-code> путь_до_папки ($ cd и перетащить папку)
 </v-code>
 
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>2. Generating a new SSH key</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>2. Generating a new SSH key</h4>
+<!------------------------------------------------------------->
 <u-link-wrapper>
 	<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank">Generating a new SSH key</a>
 </u-link-wrapper>
@@ -47,9 +49,9 @@ Use HTTPS: https://github.com/anton-sergeenkov/repo.git
 	<u-code>$ ssh-add ~/.ssh/id_rsa</u-code>
 </v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>3. Add the SSH key to your GitHub account</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>3. Add the SSH key to your GitHub account</h4>
+<!------------------------------------------------------------->
 <u-link-wrapper>
 <a href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account" target="_blank">Adding a new SSH key to your GitHub account</a>
 </u-link-wrapper>
@@ -64,3 +66,18 @@ Use HTTPS: https://github.com/anton-sergeenkov/repo.git
 4. Git Bash
 	<u-code>$ git clone git@github.com:</u-code>name_account/name_repo.git
 </u-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>HTTPS / HTTP</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При подключении по HTTPS / HTTP требуется единоразовый ввода логина и пароля от учетной записи</li>
+    <li>После этого логин и пароль сохранятся на компьютере</li>
+
+    <hr>
+    <li>Если изенился логин/пароль, необходимо обновить данные учетной записи</li>
+    <li>Панель управления -> Учетные записи пользователей -> Диспетчер учетных данных</li>
+    <li><u-code-text>git:https://github.com</u-code-text> так выглядит учетка для Git</li>
+    <li>Можно изменить данные учетки или ее удалить</li>
+    <li>Если учетка была удалена, при следующем взаимодействии в консоле, git попросит ввести логин и пароль в отдельном окне авторизации</li>
+</ul>
