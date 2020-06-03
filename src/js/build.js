@@ -2,6 +2,15 @@
 //---------------------------------------------------------------------
 // ASSESSMENT
 //---------------------------------------------------------------------
+var arrSingle = [
+    ['css', 'graphics', 'css-shapes',         emoji.donut+'CSS Shapes'],
+];
+
+
+
+//---------------------------------------------------------------------
+// ASSESSMENT
+//---------------------------------------------------------------------
 var arrAssessment = [
     [1, 'Типизация'],
     ['js',         'typing',  'typing',         emoji.theory+'Типизация'],
@@ -1517,6 +1526,8 @@ switch(pageName) {
     case 'react-testing.html':          arrCurrent = arrReactTesting;    break;
     case 'enzyme.html':                 arrCurrent = arrEnzyme;          break;
     case 'cypress.html':                arrCurrent = arrCypress;         break;
+
+    case '_single.html':                arrCurrent = arrSingle;          break;
     default:                            arrCurrent = [];
 }
 
