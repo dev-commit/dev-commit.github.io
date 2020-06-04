@@ -1091,12 +1091,12 @@ var arrCSS = [
     ['css', 'transform', 'animation',         setTheme(1, ['animation', '@keyframes'])],
 
     [1, 'Графика'],
-    ['css', 'graphics', 'blend-mode',         emoji.donut+'CSS Blend Modes'],
-    ['css', 'graphics', 'filter',             emoji.donut+'CSS Filters'],
-    ['css', 'graphics', 'backdrop-filter',    emoji.donut+'CSS Backdrop-Filter'],
-    ['css', 'graphics', 'clip-path',          emoji.donut+'CSS Clipping (Clip-path)'],
-    ['css', 'graphics', 'css-shapes',         emoji.donut+'CSS Shapes'],
-    ['css', 'graphics', 'css-masking',        emoji.donut+'CSS Masking'],
+    ['css', 'graphics', 'blend-mode',         emoji.lemon+'CSS Blend Modes'],
+    ['css', 'graphics', 'filter',             emoji.lemon+'CSS Filters'],
+    ['css', 'graphics', 'backdrop-filter',    emoji.lemon+'CSS Backdrop-Filter'],
+    ['css', 'graphics', 'clip-path',          emoji.lemon+'CSS Clipping (Clip-path)'],
+    ['css', 'graphics', 'css-shapes',         emoji.lemon+'CSS Shapes'],
+    ['css', 'graphics', 'css-masking',        emoji.lemon+'CSS Masking'],
 
     [1, 'Особенности'],
     ['css', 'special',  'collapse-margin',     emoji.pizza+'Схлопывание внешних отступов'],

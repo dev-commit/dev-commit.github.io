@@ -20,7 +20,30 @@
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Функции</h3>
+<h3>CSS Shapes Level 1: Свойства</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-code-text>shape-outside</u-code-text> - задание фигуры</li>
+    <li><u-code-text>shape-margin</u-code-text> - margin от shape до контента</li>
+    <li><u-code-text>shape-image-threshold</u-code-text> - определяется пороговое значение альфа - канала фигуры, или какой процент изображения может быть прозрачным. Альфа канал для обрезки по изображению</li>
+</ul>
+
+<v-code lang="css bash" title="">
+div {
+	shape-outside: circle();
+	shape-outside: ellipse();
+	shape-outside: inset();
+	shape-outside: polygon();
+	shape-outside: url();
+	shape-outside: linear-gradient();
+
+	shape-margin: 10px;
+	shape-image-threshold: 0.7;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Фигуры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
@@ -123,24 +146,26 @@ shape-outside: url(image.png)
 shape-outside: linear-gradient(45deg, rgba(255, 255, 255, 0) 150px, red 150px)
 </v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Свойства</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li><u-code-text>shape-margin</u-code-text> - margin от shape до контента</li>
-    <li><u-code-text>shape-image-threshold</u-code-text> - определяется пороговое значение альфа - канала фигуры, или какой процент изображения может быть прозрачным. Альфа канал для обрезки по изображению</li>
+    <li>В примере задан градиент, в котором цвет и прозрачность соотносятся, как 50% / 50%, и установить для shape-image-threshold - .5</li>
+    <li>Т.е. все пиксели, которые более чем на 50% непрозрачны следует рассматривать как часть изображения</li>
 </ul>
 
 <v-code lang="css" title="">
 div {
-	shape-margin: 10px;
-	shape-image-threshold: 0.7;
+	shape-image-threshold: 0.5;
+	shape-outside: linear-gradient(to bottom right, #2bf0a5, transparent);
+	background-image: linear-gradient(to bottom right, #2bf0a5, transparent);
 }
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Keyword values (reference-box)</h3>
+<h3>Прочее</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Keyword values (reference-box)</h4>
+<!------------------------------------------------------------->
 <v-code lang="css" title="">
 .item {
 	shape-outside:<u-code>none</u-code>;
@@ -151,9 +176,9 @@ div {
 }
 </v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Global values</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>Global values</h4>
+<!------------------------------------------------------------->
 <v-code lang="css" title="">
 .item {
 	shape-outside: initial;
@@ -162,10 +187,12 @@ div {
 }
 </v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>closest-side и fartest-side</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>closest-side и fartest-side</h4>
+<!------------------------------------------------------------->
 <ul class="list-point">
     <li><u-code-text>closest-side</u-code-text> - расстояние до ближайшей строны (circle, ellipse)</li>
     <li><u-code-text>fartest-side</u-code-text> - расстояние до дальней стороны (circle, ellipse)</li>
 </ul>
+
+<v-iframe height="450" src="https://codepen.io/Sergeenkov/embed/bGEbXxM?height=245&theme-id=dark&default-tab=html,result" />
