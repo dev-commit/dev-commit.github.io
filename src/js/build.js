@@ -784,10 +784,12 @@ var arrParadigms = [
     ['theory-paradigms', 'main', 'info',           'Парадигмы'],
     ['theory-paradigms', 'main', 'imperative',     '1. Императивное'],
     ['theory-paradigms', 'main', 'declarative',    '2. Декларативное'],
+    ['theory-paradigms', 'main', 'composition',    'Композиция'],
+
+    [1, '< / >'],
     ['theory-paradigms', 'main', 'ddd',            'DDD'],
     ['theory-paradigms', 'main', 'cqrs',           'CQRS'],
     ['theory-paradigms', 'main', 'event-sourcing', 'Event Sourcing'],
-    ['theory-paradigms', 'main', 'composition',    'Композиция'],
 ];
 
 
