@@ -3,7 +3,7 @@
 // ASSESSMENT
 //---------------------------------------------------------------------
 var arrSingle = [
-    ['css', 'adaptive', 'meta-viewport',      emoji.lemon+'Meta Viewport'],
+    ['js-client-server', 'hacking', 'xss',            'XSS'],
 ];
 
 
@@ -356,9 +356,12 @@ var arrJsClientServer = [
     [1, 'Технологии'],
     ['js-client-server', 'tech', 'websocket',      emoji.lemon+'WebSocket'],
     ['js-client-server', 'tech', 'cors',           emoji.lemon+'CORS'],
-    ['js-client-server', 'tech', 'xss',            emoji.lemon+'XSS'],
     ['js-client-server', 'tech', 'jsonp',          'JSONP'],
     ['js-client-server', 'tech', 'comet',          'Comet'],
+
+    [1, 'Hacking'],
+    ['js-client-server', 'hacking', 'xss',            'XSS'],
+    ['js-client-server', 'hacking', 'sql-injection',  'SQL инъекции'],
 ];
 
 
