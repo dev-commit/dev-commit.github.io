@@ -3,7 +3,7 @@
 // ASSESSMENT
 //---------------------------------------------------------------------
 var arrSingle = [
-    ['css', 'graphics', 'css-shapes',         emoji.donut+'CSS Shapes'],
+    ['css', 'adaptive', 'meta-viewport',      emoji.lemon+'Meta Viewport'],
 ];
 
 
@@ -1065,8 +1065,9 @@ var arrCSS = [
     ['css', 'selectors', 'properties',        emoji.pizza+'Свойства'],
 
     [1, 'Адаптивность'],
-    ['css', 'adaptive', 'html',               emoji.donut+'HTML'],
-    ['css', 'adaptive', 'media-queries',      emoji.donut+'CSS Media queries'],
+    ['css', 'adaptive', 'meta-viewport',      emoji.lemon+'Meta Viewport'],
+    ['css', 'adaptive', 'media-queries',      emoji.lemon+'CSS Media queries'],
+    ['css', 'adaptive', 'browser-style',      emoji.lemon+'Стилизация браузера'],
 
     [1, 'Features'],
     ['css', 'features', 'custom-properties',  emoji.fire+'Custom Properties'],
