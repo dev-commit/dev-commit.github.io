@@ -33,7 +33,7 @@ var arrAssessment = [
     [1, 'Основы'],
     ['js',          'main',       'bind',                 emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
     ['js',          'main',       'context',              emoji.baseball+'Контекст'],
-    ['js',          'function',   'arrow',                emoji.fire+'Стрелочные функции'],
+    ['js',          'function',   'arrow',                emoji.favorite+'Стрелочные функции'],
     ['js-async',    'theory',     'event-loop',           emoji.lemon+'Event Loop'],
     ['js-async',    'theory',     'event-loop-tasks',     emoji.lemon+'Event Loop: Tasks'],
 
@@ -51,11 +51,12 @@ var arrAssessment = [
     ['js-async',    'async',      'async-func',           emoji.boom+'Async Function (ES2017)'],
 
     [1, 'Теория'],
-    ['theory-paradigms', 'oop',                    'principles',              emoji.theory+'ООП'],
-    ['theory-paradigms', 'fp',                     'concept',                 emoji.theory+'ФП'],
+    ['theory-paradigms', 'oop',                    'principles',              emoji.lemon+'ООП'],
+    ['theory-paradigms', 'fp',                     'concept',                 emoji.lemon+'ФП'],
+    ['theory',           'html',                   'critical-rendering-path', emoji.avocado+'Critical Rendering Path'],
+    ['theory',           'html',                   'repaint-and-reflow',      emoji.avocado+'Repaint & Reflow'],
     ['theory',           'programming-principles', 'solid',                   emoji.theory+'SOLID'],
     ['theory-patterns',  'main',                   'info',                    emoji.theory+'Паттерны'],
-    ['theory',           'html',                   'critical-rendering-path', emoji.theory+'Critical Rendering Path'],
     ['testing',          'theory',                 'pyramid',                 emoji.theory+'Пирамида тестирования'],
 ];
 
@@ -734,7 +735,8 @@ var arrTheory = [
     ['theory', 'deployment', 'software-deployment',    emoji.baseball+'Software Deployment'],
 
     [1, 'Верстка'],
-    ['theory', 'html', 'critical-rendering-path', 'Critical Rendering Path'],
+    ['theory', 'html', 'critical-rendering-path', emoji.avocado+'Critical Rendering Path'],
+    ['theory', 'html', 'repaint-and-reflow',      emoji.avocado+'Repaint & Reflow'],
 
     [1, 'Методологии разработки'],
     ['theory', 'development-methodologies', 'info',       'Методологии разработки'],
