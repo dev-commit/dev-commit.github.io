@@ -356,6 +356,7 @@ var arrJsClientServer = [
     [1, 'Технологии'],
     ['js-client-server', 'tech', 'websocket',      emoji.lemon+'WebSocket'],
     ['js-client-server', 'tech', 'cors',           emoji.lemon+'CORS'],
+    ['js-client-server', 'tech', 'webrtc',         emoji.lemon+'WebRTC'],
     ['js-client-server', 'tech', 'jsonp',          'JSONP'],
     ['js-client-server', 'tech', 'comet',          'Comet'],
 
