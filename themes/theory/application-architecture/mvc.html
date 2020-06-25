@@ -7,15 +7,11 @@
     <li>Controller полностью отделен от View</li>
 </ul>
 
-<v-code lang="js" title="">
-View -> Controller -> Model
+<img src="/img/other/mvc.png" width="600px">
 
-<i>Вход                  Выход</i>
-Controller ⇨ Model ⇨ View <i>⇨ Controller</i>
-                ⇩
-<i>Слой взаимодействия с backend</i>
-</v-code>
-
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Структура</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li><u-text-define>Модель (Model)</u-text-define> - данные, методы для работы с данными, изменения и обновления данных</li>
 	<li>Реагирует на команды контроллера, изменяя своё состояние (бизнес-логика: просчитывание данных, операций, работа с БД)</li>
@@ -31,3 +27,5 @@ Controller ⇨ Model ⇨ View <i>⇨ Controller</i>
     <li><u-text-define>Контроллер (Controller)</u-text-define> - обработка событий. Интерпретирует действия пользователя (например, щелчек по кнопке или нажатие клавиши на клавиатуре), оповещая модель о необходимости изменений (берет данные из view и передает в model - запускает model. Бизнес-логика, обработка данных из БД)</li>
     <li>Логика клиентских приложений может быть реализована в контроллере</li>
 </ul>
+
+
