@@ -1,6 +1,6 @@
 
 //---------------------------------------------------------------------
-// ASSESSMENT
+// DEMO
 //---------------------------------------------------------------------
 var arrSingle = [
     ['js-client-server', 'hacking', 'xss',            'XSS'],
@@ -51,13 +51,14 @@ var arrAssessment = [
     ['js-async',    'async',      'async-func',           emoji.boom+'Async Function (ES2017)'],
 
     [1, 'Теория'],
-    ['theory-paradigms', 'oop',                    'principles',              emoji.lemon+'ООП'],
-    ['theory-paradigms', 'fp',                     'concept',                 emoji.lemon+'ФП'],
-    ['theory',           'html',                   'critical-rendering-path', emoji.avocado+'Critical Rendering Path'],
-    ['theory',           'html',                   'repaint-and-reflow',      emoji.avocado+'Repaint & Reflow'],
-    ['theory',           'programming-principles', 'solid',                   emoji.theory+'SOLID'],
-    ['theory-patterns',  'main',                   'info',                    emoji.theory+'Паттерны'],
-    ['testing',          'theory',                 'pyramid',                 emoji.theory+'Пирамида тестирования'],
+    ['theory-paradigms', 'oop',                      'principles',              emoji.lemon+'ООП'],
+    ['theory-paradigms', 'fp',                       'concept',                 emoji.lemon+'ФП'],
+    ['theory',           'html',                     'critical-rendering-path', emoji.avocado+'Critical Rendering Path'],
+    ['theory',           'html',                     'repaint-and-reflow',      emoji.avocado+'Repaint & Reflow'],
+    ['theory',           'programming-principles',   'solid',                   emoji.baseball+'SOLID'],
+    ['theory-patterns',  'main',                     'info',                    emoji.theory+'Паттерны'],
+    ['theory',           'application-architecture', 'mvc',                     emoji.theory+'MVC'],
+    ['testing',          'theory',                   'pyramid',                 emoji.theory+'Пирамида тестирования'],
 ];
 
 
@@ -734,15 +735,14 @@ var arrTheory = [
     ['theory', 'deployment', 'continuous-deployment',  emoji.baseball+'3. Continuous Deployment'],
     ['theory', 'deployment', 'software-deployment',    emoji.baseball+'Software Deployment'],
 
-    [1, 'Верстка'],
-    ['theory', 'html', 'critical-rendering-path', emoji.avocado+'Critical Rendering Path'],
-    ['theory', 'html', 'repaint-and-reflow',      emoji.avocado+'Repaint & Reflow'],
+    [1, 'Оптимизация'],
+    ['theory', 'optimization', 'critical-rendering-path', emoji.avocado+'Critical Rendering Path'],
+    ['theory', 'optimization', 'repaint-and-reflow',      emoji.avocado+'Repaint & Reflow'],
 
-    [1, 'Методологии разработки'],
-    ['theory', 'development-methodologies', 'info',       'Методологии разработки'],
-    ['theory', 'development-methodologies', 'waterfall',  'Waterfall'],
-    ['theory', 'development-methodologies', 'agile',      'Agile / Scrum / Kanban'],
-    ['theory', 'development-methodologies', 'estimation', 'Эстимация'],
+    [1, 'MVC ...'],
+    ['theory', 'application-architecture', 'info', emoji.theory+'Шаблоны проектирования'],
+    ['theory', 'application-architecture', 'mvc',  emoji.lemon+'MVC'],
+    ['theory', 'application-architecture', 'mvvm', emoji.lemon+'MVVM'],
 
     //---------------------------------------------------------------------
 
@@ -753,10 +753,11 @@ var arrTheory = [
     ['theory', 'javascript', 'dictionary',           'Словарь'],
     ['theory', 'javascript', 'polyfill',             'Полифиллы'],
 
-    [1, 'Шаблон проектирования архитектуры приложения'],
-    ['theory', 'application-architecture', 'info', 'Шаблоны проектирования'],
-    ['theory', 'application-architecture', 'mvc',  'MVC'],
-    ['theory', 'application-architecture', 'mvvm', 'MVVM'],
+    [1, 'Методологии разработки'],
+    ['theory', 'development-methodologies', 'info',       'Методологии разработки'],
+    ['theory', 'development-methodologies', 'waterfall',  'Waterfall'],
+    ['theory', 'development-methodologies', 'agile',      'Agile / Scrum / Kanban'],
+    ['theory', 'development-methodologies', 'estimation', 'Эстимация'],
 
     [1, 'Прочее'],
     ['theory', 'other', 'typing',               'Типизация'],
