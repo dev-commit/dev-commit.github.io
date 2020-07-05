@@ -1,50 +1,654 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<meta charset="utf-8">
-    <link rel="icon" type="image/png" href="../src/img/favicon.png">
-</head>
-<body>
 
-	<div id="container">
-		<div id="menu-left">
-			<div id="menu-left-starter">
-				<div id="menu-left-show"></div>
-				<a href="#menu-top">Starter</a>
-			</div>
-			<div id="menu-build"></div>
-		</div>
-		<div id="content-wrapper">
-			<div id="menu-top"></div>
-			<div id="content"></div>
-		</div>
-	</div>
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Redux</title>
+            <meta charset="utf-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+        </head>
+        <body>
+        
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Код</div><a href="#code-elements">🔥 Элементы</a><a href="#code-react-redux">⚡️ React-Redux</a><a href="#code-redux">⚡️ Redux</a><a href="#code-create-store">🍕 <u-menu>createStore</u-menu> <u>redux</u></a><a href="#code-combine-reducers">🍕 <u-menu>combineReducers</u-menu> <u>redux</u></a><a href="#code-provider">🍕 <u-menu>Provider</u-menu> <u>react-redux</u></a><a href="#code-connect">🍕 <u-menu>connect</u-menu> <u>react-redux</u></a><a href="#code-apply-middleware">🍕 <u-menu>applyMiddleware</u-menu> <u>redux</u></a><div class="theme">Информация</div><a href="#main-info-flux">📑 Flux</a><a href="#main-info">📑 Redux</a><a href="#main-functional-programming">📑 Принципы FP</a><div class="theme">Redux Plugins</div><a href="#plugins-redux-thunk"><u-menu-border>redux-thunk</u-menu-border><br><u-menu-border>redux-devtools-extension</u-menu-border></a><a href="#plugins-redux-form"><u-menu-border>redux-form</u-menu-border></a><a href="#plugins-redux-actions"><u-menu-border>redux-actions</u-menu-border></a><a href="#plugins-redux-saga"><u-menu-border>redux-saga</u-menu-border></a><a href="#plugins-redux-logger"><u-menu-border>redux-logger</u-menu-border></a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment.html"            class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks.html"              class="menu menu-other">🍕 Задачи</a><a href="/pages/theory.html"                class="menu menu-other">Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns.html"        class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms.html"       class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms.html"       class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures.html" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js.html"                class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-objects.html"        class="menu menu-js">🥑 Классы</a><a href="/pages/js-async.html"          class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-client-server.html"  class="menu menu-js">🍋 Клиент-сервер</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api.html"        class="menu menu-js">Web API</a><a href="/pages/js-web-components.html" class="menu menu-js">WebComponents</a><a href="/pages/canvas.html"            class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js.html"       class="menu menu-fw">💥 React.js</a><a href="/pages/react-api.html"      class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks.html"    class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux.html"          class="menu menu-fw">Redux</a><a href="/pages/react-router.html"   class="menu menu-fw">React Router</a><a href="/pages/vue-js.html"         class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing.html"           class="menu menu-other">🍕 Тестирование</a><a href="/pages/jest.html"              class="menu menu-other">🍋 Jest</a><a href="/pages/enzyme.html"            class="menu menu-other">🍋 Enzyme + Jest</a><a href="/pages/react-testing.html"     class="menu menu-other">🍕 React Testing</a><a href="/pages/cypress.html"           class="menu menu-other">🍋 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html.html"        class="menu menu-html">HTML</a><a href="/pages/css.html"         class="menu menu-html">CSS</a><a href="/pages/css-flexbox.html" class="menu menu-html">Flexbox</a><a href="/pages/css-grid.html"    class="menu menu-html">CSS Grid</a><a href="/pages/svg.html"         class="menu menu-html">SVG</a><a href="/pages/sass.html"        class="menu menu-html">Sass</a><a href="/pages/bootstrap.html"   class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git.html"         class="menu menu-php">🔥 Git</a><a href="/pages/flow.html"        class="menu menu-php">🔥 Flow</a><a href="/pages/npm.html"         class="menu menu-php">🥤 NPM</a><a href="/pages/webpack.html"     class="menu menu-php">🥤 Webpack</a><a href="/pages/material-ui.html" class="menu menu-php">Material-UI</a><a href="/pages/typescript.html"  class="menu menu-php">TypeScript</a><a href="/pages/ramda.html"       class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/linux.html"       class="menu menu-other">Linux</a><a href="/pages/other.html"       class="menu menu-other">Other</a><a href="/pages/jquery.html"      class="menu menu-other">jQuery</a><a href="/pages/node-js.html"     class="menu menu-other">Node.js</a><a href="/pages/php.html"         class="menu menu-other">PHP</a><a href="/pages/python.html"      class="menu menu-other">Python</a><a href="/pages/mysql.html"       class="menu menu-other">mySql</a></div>
+                    <div id="content"><div id="code-elements"><h2>Элементы</h2>
 
-	<!-- OWN JAVASCRIPT !!! -->
-	<script src="../src/libs/jquery.js"></script>
-	<script src="../src-core/js/utils.js"></script>
-	<script src="../src/js/build.js"></script>
-	<script src="../src/js/menu.js"></script>
-	<script src="../src/js/main.js"></script>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. View (компонент)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Компонент</li>
+</ul>
 
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
-	<link rel="stylesheet" type="text/css" href="../src/css/index.css">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Store</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Помещаются все данные приложения</li>
+    <li>Store иммутабельный: мы можем создавать всегда только новую копию данных, а не менять старое состояние store</li>
+    <li>В Redux <u>ТОЛЬКО ОДИН</u> объект Store</li>
+</ul>
 
-	<!-- Libraries -->
-	<script src="../src-core/libs/highlight/highlight.pack.js"></script>
-	<script src="../src-core/libs/vue.js"></script>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Actions (объект)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Описывает факт, что что-то произошло, но не указывает, как состояние приложения должно измениться в ответ (<u>Reducer</u>). Изменение состоние происходит с помощью <u>Actions</u></li>
+    <li><u-text-underline>ActionsCreator</u-text-underline> - функция для вызова Action</li>
+    <hr>
+    <li><u-code-text>type</u-code-text> - обязательное поле</li>
+    <li><u-code-text>payload</u-code-text> - свойство в которое помещаются все данные, которые передаются вместе с действием</li>
+</ul>
 
-	<!-- Custom Elements -->
-	<script src="../src-core/components-web/custom-elements.js"></script>
-	<link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+<!------------------------------------------------------------->
+<h4>Для чего нужен Actions</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Action - объект, который описывает какое-то действие за которым скрываетмся какой-то Reducer. Реализация того что скрывается за Action это уже детали и она не принципиальна</li>
+    <li>Вместо того чтобы несвязанно запускать изменения, мы пытаемся его связать с Action, который как правило никогда не будет изменяться, а за ним будет уже стоять реализация</li>
+    <li>Приложение может пережить рефакторинг, но Action описывают бизнес-логику, которая не должна поменяться</li>
+    <li>Каждый Action - это метаданные (metaknowledge) - знания о том что мы делали (получали пользователя, добавляли пользователя, фильтровали и т.д.). К бизнес-логике не относится</li>
+    <li>this</li>
+</ul>
 
-	<!-- Vue.js Components -->
-	<script src="../src-core/components-vue/vue-components.js"></script>
-	<link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+<ul class="list-point">
+    <b>Задача: Добавить пользователя</b>
+    <li>- пользователь может добавиться только на фронте</li>
+    <li>- пользователь может добавиться в базу данных</li>
+    <li>Для Action это всё равно будет ADD_USER</li>
+</ul>
 
-	<!-- JavaScript -->
-	<script src="../src-core/js/init.js"></script>
-</body>
-</html>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>4. Reducer (преобразователь)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Чистая функция типа <u-code-text>(state, action) => newState</u-code-text>, которая берет на вход <u>предыдущее состояние</u> и <u>action</u> и возвращает новое состояние. Не модифицирует данные, а всегда возвращает новые данные. Указывает, как состояние приложения должно измениться в ответ на Action</li>
+    <li>Мы не мутировали наш state, мы создали новый state. В редьюсере, мы всегда должны возвращать новый объект, а не измененный предыдущий</li>
+    <li>Объект, который мы возвращаем в редьюсере, далее с помощью функции <u-code-text>connect</u-code-text>, превратится в свойства для компонентов. Благодаря этому, внутри компонента <u-code-text>&lt;Component /&gt;</u-code-text>, мы сможем получить доступ к свойству <u-code-text>this.props.name_prop</u-code-text></li>
+    <li><u-text-underline>Reducer Composition</u-text-underline> - фундаментальный шаблон построения redux приложений: мы разбиваем наше глобальное состояние на кусочки, за каждый кусочек отвечает свой <u-code-text>reducer</u-code-text>. Кусочки объединяются в <u-code-text>rootReducer</u-code-text> Корневом Редьюсере</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Чистые функции</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>Чистые функции</u-text-define> (pure functions)</li>
+    <li>Возвращает один и тот же результат для одинаковых входных данных</li>
+    <li>Не изменяет входные данные (иммутабельность)</li>
+    <li>Не зависит от внешнего состояния (базы данных, DOM или глобальной переменной)</li>
+    <li>Не имеет побочных эффектов (side effects): не влияют на состояние программы</li>
+    <li>Чистые функции могут вызывать только чистые функции</li>
+</ul>
+
+
+</div><div id="code-react-redux"><h2>React-Redux</h2>
+
+<u-link-wrapper>
+	<a href="https://codesandbox.io/s/v8n57owly0" target="_blank">Пример из документации</a>
+</u-link-wrapper>
+
+<v-code lang="bash" title=""><em>
+&#10006; redux
+	&#10006; reducers
+		&#8226; index.js
+		&#8226; my-reducer.js
+	&#8226; store.js
+	&#8226; actions.js
+	&#8226; actionTypes.js
+&#8226; App.js
+&#8226; index.js
+</em></v-code>
+
+<img src="/img/redux/react-redux-structure.png" width="800px">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. PROVIDER</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="index.js">
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import { <u-code>Provider</u-code> } from 'react-redux';
+import store from './redux/store';
+
+import App from './App';
+
+ReactDOM.render(
+    &lt;<u-code>Provider store={store}</u-code>&gt;
+        &lt;App /&gt;
+    &lt;/<u-code>Provider</u-code>&gt;,
+    document.getElementById('root')
+);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. STORE</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="redux/store.js">
+import { <u-code>createStore</u-code> } from 'redux';
+import rootReducer from './reducers';
+
+const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
+const devtoolMiddleware = ext && ext();
+
+export default <u-code>createStore</u-code>(rootReducer, devtoolMiddleware);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. REDUCERS</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="redux/reducers/index.js">
+import { <u-code>combineReducers</u-code> } from 'redux';
+import myReducer from './my-reducer';
+
+export default <u-code>combineReducers</u-code>({
+    myReducer
+});
+</v-code>
+
+<v-code lang="js border" title="redux/reducers/my-reducer.js">
+import { ADD_VALUE } from '../actionTypes';
+
+const initialState = ['Default Value 1', 'Default Value 2'];
+
+const myReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case ADD_VALUE: {
+            <u-code>return [...state, action.payload.myValue]</u-code>;
+        }
+        default: {
+            return state;
+        }
+    }
+};
+
+export default myReducer;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>4. ACTIONS (ACTIONS CREATOR)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="redux/actions.js">
+import { ADD_VALUE } from './actionTypes';
+
+// возвращает объект
+export const addMyValue = myValue => ({
+    <u-code>type</u-code>: ADD_VALUE,
+    <u-code>payload</u-code>: { myValue }
+})
+
+// возвращает функцию (redux-thunk)
+export const addMyValue = myValue => dispatch => {
+    dispatch({
+		<u-code>type</u-code>: ADD_VALUE,
+		<u-code>payload</u-code>: { myValue }
+    });
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>5. COMPONENT</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="App.js">
+import React, {Component} from 'react';
+import { <u-code>connect</u-code> } from 'react-redux';
+import { addMyValue } from './redux/actions';
+
+class App extends Component {
+	componentDidMount() {
+		<u-code>this.props.addMyValue</u-code>('New Value');
+	}
+	render() {
+		console.log(<u-code>this.props.myValue</u-code>);
+		// => (2) ["Default Value 1", "Default Value 2"]
+		// => (3) ["Default Value 1", "Default Value 2", "New Value"]
+		return (&lt;div&gt;&lt;/div&gt;);
+	}
+}
+
+const mapStateToProps = state =&gt; ({
+	<u-code>myValue: state.myReducer</u-code>
+})
+const mapDispatchToProps = {
+	<u-code>addMyValue: addMyValue</u-code>
+}
+
+export default <u-code>connect</u-code>(
+	mapStateToProps,
+	mapDispatchToProps
+)(App);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>6. CONST</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="redux/actionTypes.js">
+export const ADD_VALUE = 'ADD_VALUE';
+</v-code>
+</div><div id="code-redux"><h2>Redux</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Методы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const store = <u-code>createStore</u-code>(reducerFunction); // создание store
+store.<u-code>getState</u-code>();                           // получить состояние store
+store.<u-code>subscribe</u-code>();                          // подписка на изменение store
+store.<u-code>dispatch</u-code>({                            // событие обновления состояния store
+    type: 'тип_события', 
+    payload: 'данные' 
+}); 
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример использования</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="">
+// 1. STORE (создание store)
+import { createStore } from 'redux';
+const store = <u-code>createStore</u-code>(changeStore);
+
+// 2. REDUCER
+function changeStore(state = [], action) {
+    switch (action.type) {
+        case 'ADD_PRODUCT': {
+            return [...state, action.payload];
+        }
+        default: {
+            return state;
+        }
+    }
+}
+
+// 3. COMPONENT (подписка и получение состояния store)
+store.<u-code>subscribe</u-code>(() => {
+    console.log(store.<u-code>getState</u-code>());
+});
+
+// 4. COMPONENT (обновление состояния store)
+store.<u-code>dispatch</u-code>({ type: 'ADD_PRODUCT', payload: 'Product1' });
+store.<u-code>dispatch</u-code>({ type: 'ADD_PRODUCT', payload: 'Product2' });
+</v-code>
+
+<v-code lang="js" title="">
+// Данные, которые вернет "action" в "changeStore"
+// => {type: "@@redux/INITn.9.1.1.y.1"}          // всегда когда redux инициализирован
+// => {type: "ADD_PRODUCT", payload: "Product1"} // добавленный action
+</v-code>
+
+</div><div id="code-create-store"><h2>createStore</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="createStore" after="" arg="(reducer*, initialState, middleware)">
+    Создание store
+    </v-method>
+
+	<v-method-arg arg="reducer">функция-обработчик изменений (редьюсер)</v-method-arg>
+	<v-method-arg arg="initialState">начальное состояние</v-method-arg>
+	<v-method-arg arg="middleware">берет входные данные и передает дальше</v-method-arg>
+</div>
+
+<v-code lang="js" title="">
+import { <u-code>createStore</u-code> } from 'redux';
+</v-code>
+</div><div id="code-combine-reducers"><h2>combineReducers</h2>
+
+<ul class="list-point">
+	<li><u-text-define>combineReducers</u-text-define> - объединение нескольких reducer</li>
+</ul>
+
+<v-code lang="js" title="">
+import { <u-code>combineReducers</u-code> } from 'redux';
+</v-code>
+</div><div id="code-provider"><h2>Provider</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Provider</u-text-define> - рутовый компонент для того чтобы прокидывать Store. Необходим для того чтобы не пробрасывать Store в каждый компонент самостоятельно. <u-code-text>Store</u-code-text> будет доступен в каждом дочернем компоненте <u-code-text>Provider</u-code-text> из функции <u-code-text>connect</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+import { <u-code>Provider</u-code> } from 'react-redux';
+</v-code>
+
+</div><div id="code-connect"><h2>Connect</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="connect" after="" arg="(mapStateToProps, mapDispatchToProps)">
+    Подключение компонента к Store (декоратор)
+    </v-method>
+
+	<v-method-arg arg="mapStateToProps">
+		"маппинг" (соответствие) <u-text-underline>state</u-text-underline> к props. Подписаться на обновления данных
+	    <ul class="list-point">
+	    	<li>Не только получаем в <u-code-text>this.props.XXX</u-code-text> данные, но еще подписываемся на изменение этих данных</li>
+	    	<li>Когда мы подписываемся только на нужные редьюсеры в компоненте, перерисовка происходит только в случае изменения конкретно этих данных. Если же мы бы подписались просто на весь корневой редьюсер, то не важно в каком бы редьюсере изменились данные - все подписанные на корневой редьюсер компоненты обновились бы</li>
+	    </ul>
+	</v-method-arg>
+
+	<v-method-arg arg="mapDispatchToProps">"маппинг" (соответствие) <u-text-underline>dispatch</u-text-underline> к props. "Прокинуть" actions в контейнер</v-method-arg>
+
+	<v-method-return>Результат работы функции <u>connect</u> - новый присоединенный компонент, который оборачивает переданный компонент. Компонент <u-code-text>&lt;App /&gt;</u-code-text> на выходе получился <u-code-text>&lt;Connected(App)&gt;</u-code-text>. В свойствах (<u-code-text>props</u-code-text>) компонента <u-code-text>&lt;App /&gt;</u-code-text> теперь есть метод redux <u-code-text>store - dispatch</u-code-text>, и <u>объект свойств</u></li></v-method-return>
+</div>
+
+<ul class="list-point">
+    <li><u-code-text>mapStateToProps</u-code-text> срабатывает каждый раз, когда происходит изменение state</li>
+</ul>
+
+<v-code lang="js" title="Component">
+import { <u-code>connect</u-code> } from 'react-redux';
+
+const mapStateToProps = state => ({
+	myValue: state.myReducer
+})
+const mapDispatchToProps = {
+	getMethod: getMethod
+}
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Component);
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>mapDispatchToProps</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="Объект;Функция">
+<template v-slot:first>
+const mapDispatchToProps = {
+	getPhotosAction: return
+}
+</template>
+<template v-slot:last>
+const mapDispatchToProps = function(<u-code>dispatch</u-code>) {
+	return {
+		getPhotosAction: function(year) {
+			return <u-code>dispatch</u-code>(getPhotos(year));
+		}
+	}
+}
+</template>
+</v-two-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two><template v-slot:first>
+<v-code lang="js" title="">
+export default connect(
+	null,              // subscribe = false
+	null               // action = false
+)(Component);
+</v-code>
+<v-code lang="js" title="">
+export default connect(
+	mapStateToProps,   // subscribe = true
+	null               // action = false
+)(Component)
+</v-code>
+</template><template v-slot:last>
+<v-code lang="js" title="">
+export default connect(
+	null,              // subscribe = false
+	mapDispatchToProps // action = true
+)(Component)
+</v-code>
+<v-code lang="js" title="">
+export default connect(
+	mapStateToProps,   // subscribe = true
+	mapDispatchToProps // action = true
+)(Component)
+</v-code>
+</template></v-two>
+</div><div id="code-apply-middleware"><h2>Middleware</h2>
+
+<ul class="list-point">
+    <li><u-text-define>middleware</u-text-define> - суть middleware функций, взять входные данные, добавить что-то и передать дальше. Middleware - это всегда функция, которые обычно возвращают функцию, если только целью middleware не является прервать цепочку вызовов</li>
+</ul>
+
+<v-code lang="js" title="src/redux/store.js">
+import { createStore, <u-code>applyMiddleware</u-code> } from 'redux';
+import rootReducer from './reducers';
+import { ping } from './enhancers/ping';
+
+export default createStore(rootReducer, <u-code>applyMiddleware</u-code>(ping));
+</v-code>
+
+<v-code lang="js" title="src/redux/enhancers/ping.js">
+export const ping = function ping(store) {
+    return function (<u-code>next</u-code>) {
+        return function (<u-code>action</u-code>) {
+            console.log('Type: '+action.type);               // => Type: ADD_VALUE
+            console.log('Payload: '+action.payload.myValue); // => Payload: New Value
+            return next(action);
+        };
+    };
+};
+</v-code>
+
+<ul class="list-point">
+    <li><u-code>store</u-code> - redux-store приложения</li>
+    <li><u-code>next</u-code> - функция-обертка, которая позволяет продолжить выполнение цепочки</li>
+    <li><u-code>action</u-code> - действие, которое было вызвано (это store.dispatch)</li>
+</ul>
+</div><div id="main-info-flux"><h2>Flux</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Flux-архитектура</u-text-define> - архитектурный подход или набор шаблонов программирования для построения пользовательского интерфейса веб-приложений, сочетающийся с реактивным программированием и построенный на однонаправленных потоках данных</li>
+    <li><b>Может быть несколько STORE</b></li>
+</ul>
+
+<ol class="list-num">
+	<b>Методология Flux состоит из 4 частей</b>
+	<li><u>View</u> (компоненты)</li>
+	<li><u>Action</u> (события)</li>
+	<li><u>Dispatcher</u> - сообщает Store о каком-то событии и передает информацию</li>
+	<li><u>Store</u> (хранилище) - задача ограничить доступ к состоянию через определенный интерфейс</li>
+</ol>
+
+<p>
+	<u-code-text>View</u-code-text> -> 
+	<u-code-text>Action</u-code-text> -> 
+	<u-code-text>Dispatcher</u-code-text> -> 
+	<u-code-text>Store</u-code-text> -> 
+	<u-code-text>View</u-code-text>
+</p>
+
+<hr>
+<ul class="list-point">
+	<li><b>Достоинства: </b>сложно случайно измененить состояние. Если что-то произойдет, то ясно где искать ошибку</li>
+</ul>
+</div><div id="main-info"><h2>Информация</h2>
+
+<u-link-wrapper>
+    <a href="https://react-redux.js.org/introduction/quick-start" target="_blank">Документация react-redux</a>
+    <a href="https://redux.js.org/introduction/getting-started" target="_blank">Документация redux</a>
+    <a href="https://maxfarseer.gitbooks.io/redux-course-ru-v2/" target="_blank">Максим Пацианский "React Redux" (книга)</a>
+    <a href="https://getinstance.info/articles/react/learning-react-redux/" target="_blank">Новый уровень React: Redux</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>NPM</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npm i --save <u-code-npm>redux</u-code-npm>
+npm i --save <u-code-npm>react-redux</u-code-npm>
+</v-pre-npm>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Redux</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Redux</u-text-define> - это инструмент управления состоянием приложения (предсказуемый контейнер состояния для JS приложений). Он подходит для одностраничных приложений, в которых управление состоянием может со временем становиться сложным. Redux не связан с каким-то определенным фреймворком, и хотя разрабатывался для React, может использоваться с Angular или jQuery</li>
+
+    <li>В React «однонаправленный поток данных» - поток данных проходит в одном направлении, от родителя к ребенку. При этом не очевидно, как два компонента, не связанные отношением родитель-ребенок, будут взаимодействовать между собой</li>
+
+    <li>Redux предлагает хранить все состояние приложения в одном месте, называемом <u>«store»</u> («хранилище»). Компоненты «отправляют» изменение состояния в хранилище, а не напрямую другим компонентам. Компоненты, которые должны быть в курсе этих изменений, «подписываются» на хранилище</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Принципы</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li>Единственный источник истины</li>
+    <li>Состояние доступно только для чтения</li>
+    <li>Изменения делаются «чистыми» функциями</li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Однонаправленный поток данных</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li>Приложение получило начальное состояние (<u-code-text>initial state</u-code-text>)</li>
+    <li>Пользователь нажав кнопку, отправил действие (<u-code-text>dispatch action</u-code-text>)</li>
+    <li>Соответсвующий редьюсер обновил часть приложения, в согласии с тем, что узнал от действия</li>
+    <li>Приложение изменилось и теперь отражает новое состояние</li>
+    <li>... (все повторяется по кругу, с пункта 2)</li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Структура файлов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Rails Style</li>
+    <li>Redux Ducks</li>
+</ul>
+</div><div id="main-functional-programming"><h2>Принципы функционального программирования в Redux</h2>
+
+<ul class="list-point">
+	<li><u>Чистые функции (pure functions)</u> - функция возвращаюшая знечение, зависомое только от получаемых аргументов</li>
+	<li><u>Неизменность данных (immutability)</u></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Иммутабельность</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><b>Два подхода к изменению данных:</b></li>
+    <ol class="list-num">
+        <li><u-text-underline>Мутировать (изменять)</u-text-underline> данные, напрямую устанавливая новые значения</li>
+        <li><u-text-underline>Иммутабельность</u-text-underline> заменять данные новой копией, которая содержит изменения</li>
+    </ol>
+
+    <li><b>Преимущества:</b></li>
+    <ol class="list-num">
+        <li>Перерендеринг. Помогает создавать в React чистые компоненты. Неизменяемые данные позволяют определить наличие изменений и момент, когда компонент нужно перерендерить</li>
+        <li>«Путешествие во времени». Позволяет сохранять предыдущее состояние без изменений и обращаться к ним позже</li>
+        <li>Обнаружение изменений. Если неизменяемый объект, на который ссылается, отличается от предыдущего, то объект изменился</li>
+    </ol>
+</ul>
+</div><div id="plugins-redux-thunk"><h2>redux-thunk</h2>
+
+<v-pre-npm>
+npm i --save <u-code-npm>redux-thunk</u-code-npm>              # асинхронные actions
+npm i --save <u-code-npm>redux-devtools-extension</u-code-npm> # для работы devtools
+</v-pre-npm>
+
+<v-code lang="js" title="redux/reducers/store.js">
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from <u-code>'redux-thunk'</u-code>;
+import rootReducer from './reducers';
+
+export default createStore(rootReducer, <u-code>composeWithDevTools(applyMiddleware(thunk))</u-code>);
+</v-code>
+
+<v-code lang="js" title="redux/actions.js">
+import axios from 'axios';
+import { GET_REQUEST } from './actionTypes';
+
+export const getPhotos = function(year) {
+    return function(dispatch) {
+
+        axios.get('url')
+        .then(response => {
+            dispatch({
+                type: GET_REQUEST_AJAX,
+                payload: response.data,
+            })
+        })
+        .catch(error => console.log(error));
+
+        setTimeout(() => {
+            dispatch({
+                type: GET_REQUEST_TIMEOUT,
+                payload: [1, 2, 3, 4, 5],
+            })
+        }, 5000)
+
+
+    }
+}
+</v-code>
+
+<ul class="list-point">
+    <li>Если action creator возвращает функцию - она выполняется. Если возвращает простой объект - передается дальше</li>
+    <li>В цепочке middleware есть доступный метод dispatch и getState</li>
+</ul>
+</div><div id="plugins-redux-form"><h2>redux-form</h2>
+
+<v-pre-npm>
+npm i --save <u-code-npm>redux-form</u-code-npm>
+</v-pre-npm>
+</div><div id="plugins-redux-actions"><h2>redux-actions</h2>
+
+<v-pre-npm>
+npm i --save <u-code-npm>redux-actions</u-code-npm>
+</v-pre-npm>
+</div><div id="plugins-redux-saga"><h2>redux-saga</h2>
+
+<v-pre-npm>
+npm i --save <u-code-npm>redux-saga</u-code-npm>
+</v-pre-npm>
+
+</div><div id="plugins-redux-logger"><h2>redux-logger</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>redux-logger</u-code-npm>
+</v-pre-npm>
+
+<v-code lang="js" title="src/redux/store.js">
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer from './reducers';
+import logger from 'redux-logger';
+
+export default createStore(rootReducer, applyMiddleware(logger));
+</v-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

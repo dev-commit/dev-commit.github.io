@@ -1,50 +1,192 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<meta charset="utf-8">
-    <link rel="icon" type="image/png" href="../src/img/favicon.png">
-</head>
-<body>
 
-	<div id="container">
-		<div id="menu-left">
-			<div id="menu-left-starter">
-				<div id="menu-left-show"></div>
-				<a href="#menu-top">Starter</a>
-			</div>
-			<div id="menu-build"></div>
-		</div>
-		<div id="content-wrapper">
-			<div id="menu-top"></div>
-			<div id="content"></div>
-		</div>
-	</div>
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>React Router</title>
+            <meta charset="utf-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+        </head>
+        <body>
+        
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><a href="#main-react-router"><u-menu-border>react-router</u-menu-border> <u-menu-border>react-router-dom</u-menu-border></a><a href="#main-basic-routing">🍪 Basic Routing</a><a href="#main-style-active-link">🍪 Style Active Link</a><a href="#main-url-parameters">🍪 URL Parameters</a><a href="#main-page-404">Page 404</a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment.html"            class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks.html"              class="menu menu-other">🍕 Задачи</a><a href="/pages/theory.html"                class="menu menu-other">Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns.html"        class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms.html"       class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms.html"       class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures.html" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js.html"                class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-objects.html"        class="menu menu-js">🥑 Классы</a><a href="/pages/js-async.html"          class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-client-server.html"  class="menu menu-js">🍋 Клиент-сервер</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api.html"        class="menu menu-js">Web API</a><a href="/pages/js-web-components.html" class="menu menu-js">WebComponents</a><a href="/pages/canvas.html"            class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js.html"       class="menu menu-fw">💥 React.js</a><a href="/pages/react-api.html"      class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks.html"    class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux.html"          class="menu menu-fw">Redux</a><a href="/pages/react-router.html"   class="menu menu-fw">React Router</a><a href="/pages/vue-js.html"         class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing.html"           class="menu menu-other">🍕 Тестирование</a><a href="/pages/jest.html"              class="menu menu-other">🍋 Jest</a><a href="/pages/enzyme.html"            class="menu menu-other">🍋 Enzyme + Jest</a><a href="/pages/react-testing.html"     class="menu menu-other">🍕 React Testing</a><a href="/pages/cypress.html"           class="menu menu-other">🍋 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html.html"        class="menu menu-html">HTML</a><a href="/pages/css.html"         class="menu menu-html">CSS</a><a href="/pages/css-flexbox.html" class="menu menu-html">Flexbox</a><a href="/pages/css-grid.html"    class="menu menu-html">CSS Grid</a><a href="/pages/svg.html"         class="menu menu-html">SVG</a><a href="/pages/sass.html"        class="menu menu-html">Sass</a><a href="/pages/bootstrap.html"   class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git.html"         class="menu menu-php">🔥 Git</a><a href="/pages/flow.html"        class="menu menu-php">🔥 Flow</a><a href="/pages/npm.html"         class="menu menu-php">🥤 NPM</a><a href="/pages/webpack.html"     class="menu menu-php">🥤 Webpack</a><a href="/pages/material-ui.html" class="menu menu-php">Material-UI</a><a href="/pages/typescript.html"  class="menu menu-php">TypeScript</a><a href="/pages/ramda.html"       class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/linux.html"       class="menu menu-other">Linux</a><a href="/pages/other.html"       class="menu menu-other">Other</a><a href="/pages/jquery.html"      class="menu menu-other">jQuery</a><a href="/pages/node-js.html"     class="menu menu-other">Node.js</a><a href="/pages/php.html"         class="menu menu-other">PHP</a><a href="/pages/python.html"      class="menu menu-other">Python</a><a href="/pages/mysql.html"       class="menu menu-other">mySql</a></div>
+                    <div id="content"><div id="main-react-router"><h2>react-router</h2>
 
-	<!-- OWN JAVASCRIPT !!! -->
-	<script src="../src/libs/jquery.js"></script>
-	<script src="../src-core/js/utils.js"></script>
-	<script src="../src/js/build.js"></script>
-	<script src="../src/js/menu.js"></script>
-	<script src="../src/js/main.js"></script>
+<v-pre-npm>
+npm i --save <u-code-npm>react-router</u-code-npm>
+npm i --save <u-code-npm>react-router-dom</u-code-npm>
+</v-pre-npm>
 
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
-	<link rel="stylesheet" type="text/css" href="../src/css/index.css">
+<u-link-wrapper>
+	<a href="https://reacttraining.com/react-router/web/guides/quick-start" target="_blank">Документация</a>
+</u-link-wrapper>
 
-	<!-- Libraries -->
-	<script src="../src-core/libs/highlight/highlight.pack.js"></script>
-	<script src="../src-core/libs/vue.js"></script>
+</div><div id="main-basic-routing"><h2>Basic Routing</h2>
 
-	<!-- Custom Elements -->
-	<script src="../src-core/components-web/custom-elements.js"></script>
-	<link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+<ul class="list-point">
+	<li><u-text-define>BrowserRouter</u-text-define> - router. Использует html5 history api и следит за тем чтобы UI был синхронизирован с тем что написано в адресной строке</li>
+	<li><u-text-define>Route</u-text-define> - отображение UI, следит чтобы совпадали пути между компонентом и адресной строкой</li>
+	<li><u-text-define>Link</u-text-define> - видоизмененная ссылка под React для редиректа на нужную страницу. Предотвращает обновление страницы, в отличии от обычной ссылке</li>
 
-	<!-- Vue.js Components -->
-	<script src="../src-core/components-vue/vue-components.js"></script>
-	<link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+	<hr>
+	<li><u-code-text>exact</u-code-text> - компонент будет рендериться только по указанному адресу, а не по всем адресам, связанным с ним</li>
+	<li><u-code-text>Router</u-code-text> и <u-code-text>Route</u-code-text> технически они являются компонентами, но сами не создают DOM-элементов</li>
+</ul>
 
-	<!-- JavaScript -->
-	<script src="../src-core/js/init.js"></script>
-</body>
-</html>
+<v-code lang="js" title="">
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
+const Home    = () =&gt; ( &lt;h2&gt;Home&lt;/h2&gt; )
+const About   = () =&gt; ( &lt;h2&gt;About&lt;/h2&gt; )
+const Contact = () =&gt; ( &lt;h2&gt;Contact&lt;/h2&gt; )
+
+export default class App extends Component {
+	render() {
+		return (
+			&lt;Router&gt;
+				&lt;div&gt;
+					&lt;Link to="/"&gt;Home&lt;/Link&gt;
+					&lt;Link to="/about/"&gt;About&lt;/Link&gt;
+					&lt;Link to="/contact/"&gt;Contact&lt;/Link&gt;
+
+					&lt;Route path="/" exact component={Home} /&gt;
+					&lt;Route path="/about" component={About} /&gt;
+					&lt;Route path="/contact" component={Contact} /&gt;
+				&lt;/div&gt;
+			&lt;/Router&gt;
+		);
+	}
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Настройка сервера Webpack</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>При переходе по <u-code-text>Link</u-code-text> изменяется url, но физически этой страницы нет. Поэтому нужно настроить сервер</li>
+</ul>
+
+<v-code lang="js" title="webpack.config.js">
+module.exports = {
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'build'),
+		<u-code-wrapper>
+		publicPath: '/'
+		</u-code-wrapper>
+	},
+	devServer: {
+		contentBase: './dist',
+		<u-code-wrapper>
+		historyApiFallback: {
+			disableDotRule: true
+		},
+		</u-code-wrapper>
+		stats: 'errors-only',
+		port: 3000
+	}
+}
+</v-code>
+</div><div id="main-style-active-link"><h2>Стилизация активной ссылки</h2>
+
+<ul class="list-point">
+	<li>Использование <u-code-text>NavLink</u-code-text> вместо <u-code-text>Link</u-code-text> добавляет к активной ссылке класс <u-code-text>active</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+import { NavLink } from 'react-router-dom';
+
+...
+	&lt;NavLink to="/about/"&gt;About&lt;/NavLink&gt;
+...
+</v-code>
+
+<ul class="list-point">
+	<li>При использовании <u>css-modules</u>, стилизовать ссылку нужно глобально</li>
+</ul>
+
+<v-code lang="js" title="">
+:global {
+    a.active {
+        color: yellowgreen !important;
+    }
+}
+</v-code>
+</div><div id="main-url-parameters"><h2>URL Parameters</h2>
+
+<v-code lang="js" title="">
+export default class App extends Component {
+	render() {
+		return (
+			&lt;Router&gt;
+				&lt;div&gt;
+					&lt;Link to="/posts/"&gt;Posts&lt;/Link&gt;
+					&lt;Link to="/posts/<u-code>77</u-code>"&gt;Post 77&lt;/Link&gt;
+
+					&lt;Route path="/posts" <u-code>exact</u-code> component={Posts} /&gt;
+					&lt;Route path="/posts/<u-code>:id</u-code>" component={Post} /&gt;
+				&lt;/div&gt;
+			&lt;/Router&gt;
+		);
+	}
+}
+
+class Post extends Component {
+	constructor(props) {
+		super(props);
+	}
+	render() {
+		return (
+			&lt;div&gt;
+				<u-code>{this.props.match.params.id}</u-code>
+			&lt;/div&gt;
+		);
+	}
+}
+</v-code>
+</div><div id="main-page-404"><h2>Page 404</h2>
+
+<v-code lang="js" title="">
+// все ссылки, страница 404
+&lt;Route path="*" component={Error} /&gt;
+</v-code>
+
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

@@ -1,50 +1,464 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<meta charset="utf-8">
-    <link rel="icon" type="image/png" href="../src/img/favicon.png">
-</head>
-<body>
 
-	<div id="container">
-		<div id="menu-left">
-			<div id="menu-left-starter">
-				<div id="menu-left-show"></div>
-				<a href="#menu-top">Starter</a>
-			</div>
-			<div id="menu-build"></div>
-		</div>
-		<div id="content-wrapper">
-			<div id="menu-top"></div>
-			<div id="content"></div>
-		</div>
-	</div>
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>SVG</title>
+            <meta charset="utf-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+        </head>
+        <body>
+        
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Основное</div><a href="#main-info">Информация</a><a href="#main-figure">Фигуры</a><a href="#main-filters">Фильтры</a><a href="#main-gradients">Градиенты</a><a href="#main-background">Background</a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment.html"            class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks.html"              class="menu menu-other">🍕 Задачи</a><a href="/pages/theory.html"                class="menu menu-other">Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns.html"        class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms.html"       class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms.html"       class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures.html" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js.html"                class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-objects.html"        class="menu menu-js">🥑 Классы</a><a href="/pages/js-async.html"          class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-client-server.html"  class="menu menu-js">🍋 Клиент-сервер</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api.html"        class="menu menu-js">Web API</a><a href="/pages/js-web-components.html" class="menu menu-js">WebComponents</a><a href="/pages/canvas.html"            class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js.html"       class="menu menu-fw">💥 React.js</a><a href="/pages/react-api.html"      class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks.html"    class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux.html"          class="menu menu-fw">Redux</a><a href="/pages/react-router.html"   class="menu menu-fw">React Router</a><a href="/pages/vue-js.html"         class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing.html"           class="menu menu-other">🍕 Тестирование</a><a href="/pages/jest.html"              class="menu menu-other">🍋 Jest</a><a href="/pages/enzyme.html"            class="menu menu-other">🍋 Enzyme + Jest</a><a href="/pages/react-testing.html"     class="menu menu-other">🍕 React Testing</a><a href="/pages/cypress.html"           class="menu menu-other">🍋 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html.html"        class="menu menu-html">HTML</a><a href="/pages/css.html"         class="menu menu-html">CSS</a><a href="/pages/css-flexbox.html" class="menu menu-html">Flexbox</a><a href="/pages/css-grid.html"    class="menu menu-html">CSS Grid</a><a href="/pages/svg.html"         class="menu menu-html">SVG</a><a href="/pages/sass.html"        class="menu menu-html">Sass</a><a href="/pages/bootstrap.html"   class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git.html"         class="menu menu-php">🔥 Git</a><a href="/pages/flow.html"        class="menu menu-php">🔥 Flow</a><a href="/pages/npm.html"         class="menu menu-php">🥤 NPM</a><a href="/pages/webpack.html"     class="menu menu-php">🥤 Webpack</a><a href="/pages/material-ui.html" class="menu menu-php">Material-UI</a><a href="/pages/typescript.html"  class="menu menu-php">TypeScript</a><a href="/pages/ramda.html"       class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/linux.html"       class="menu menu-other">Linux</a><a href="/pages/other.html"       class="menu menu-other">Other</a><a href="/pages/jquery.html"      class="menu menu-other">jQuery</a><a href="/pages/node-js.html"     class="menu menu-other">Node.js</a><a href="/pages/php.html"         class="menu menu-other">PHP</a><a href="/pages/python.html"      class="menu menu-other">Python</a><a href="/pages/mysql.html"       class="menu menu-other">mySql</a></div>
+                    <div id="content"><div id="main-info"><h2>Информация</h2>
 
-	<!-- OWN JAVASCRIPT !!! -->
-	<script src="../src/libs/jquery.js"></script>
-	<script src="../src-core/js/utils.js"></script>
-	<script src="../src/js/build.js"></script>
-	<script src="../src/js/menu.js"></script>
-	<script src="../src/js/main.js"></script>
+<ul class="list-point">
+    <li><u-text-define>SVG SLIL animation</u-text-define> - анимация внутри SVG без HTML и CSS (мало используется разработчиками)</li>
+</ul>
 
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
-	<link rel="stylesheet" type="text/css" href="../src/css/index.css">
+<u-link-wrapper>
+    <a href="https://www.w3schools.com/graphics/svg_intro.asp" target="_blank">w3schools.com</a>
+    <a href="http://css.yoksel.ru/tags/#svg" target="_blank">yoksel.ru</a>
+</u-link-wrapper>
 
-	<!-- Libraries -->
-	<script src="../src-core/libs/highlight/highlight.pack.js"></script>
-	<script src="../src-core/libs/vue.js"></script>
+<!------------------------------------------------------------->
+<h4>Библиотеки</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Raphaël</li>
+    <li>SVG.js</li>
+</ul>
+</div><div id="main-figure"><h2>Фигуры</h2>
 
-	<!-- Custom Elements -->
-	<script src="../src-core/components-web/custom-elements.js"></script>
-	<link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Стилизация на CSS</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+svg {
+	fill: yellowgreen;
+	fill-opacity: 0.9;
+	stroke: black;
+	stroke-width: 2;
+	stroke-opacity: 0.7;
+}
+svg path {
+	d: path('M0,100 L 20,0 80,90 100,0 100,100 Z');
+}
+</v-code>
 
-	<!-- Vue.js Components -->
-	<script src="../src-core/components-vue/vue-components.js"></script>
-	<link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Прямоугольник (rectangle)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;rect width="50px" height="50px" x="25" y="25" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/rect1.png" class="img200">
+</template></v-two-fix>
 
-	<!-- JavaScript -->
-	<script src="../src-core/js/init.js"></script>
-</body>
-</html>
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;rect width="50px" height="50px" x="25" y="25" rx="10" ry="50" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/rect2.png" class="img200">
+</template></v-two-fix>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Окружность (circle, ellipse)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;circle cx="50" cy="50" r="25" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/circle1.png" class="img200">
+</template></v-two-fix>
+
+<ul class="list-point">
+    <li><u-code-text>&lt;g&gt;</u-code-text>Объединение объектов для задания общих свойств<u-code-text>&lt;/g&gt;</u-code-text></li>
+</ul>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;g stroke="black" stroke-width="3" fill="black"&gt;
+		&lt;circle cx="50" cy="50" r="5" /&gt;
+		&lt;circle cx="100" cy="100" r="5" /&gt;
+	&lt;/g&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/circle2.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;ellipse cx="50" cy="50" rx="35" ry="25" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/ellipse1.png" class="img200">
+</template></v-two-fix>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Линия (line, polyline)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;line x1="0" y1="0" x2="50" y2="50" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/line1.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;polyline points="0,0 50,50 25,75" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/polyline1.png" class="img200">
+</template></v-two-fix>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Полигон (polygon)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;polygon points="0,0 50,50 25,75" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/polygon1.png" class="img200">
+</template></v-two-fix>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Путь (path)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<b>Доступные команды:</b>
+	<li><b>M</b> = moveto</li>
+	<li><b>L</b> = lineto</li>
+	<li><b>H</b> = horizontal lineto</li>
+	<li><b>V</b> = vertical lineto</li>
+	<li><b>C</b> = curveto</li>
+	<li><b>S</b> = smooth curveto</li>
+	<li><b>Q</b> = quadratic Bézier curve</li>
+	<li><b>T</b> = smooth quadratic Bézier curveto</li>
+	<li><b>A</b> = elliptical Arc</li>
+	<li><b>Z</b> = closepath</li>
+</ul>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;path d="M0,100 L50,50 100,100 Z" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/path1.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100" &gt;
+	&lt;path d="M0,100 Q 50,50 100,100"&gt;&lt;/path&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/path2.png" class="img200">
+</template></v-two-fix>
+
+<ul class="list-point">
+    <li>Атрибут <u-code-text>preserveAspectRatio="none"</u-code-text> позволяет поместить фигуру целиком в <u>viewBox</u></li>
+    <li>При изменении размера блока svg размер фигуры будет меняться</li>
+</ul>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100" preserveAspectRatio="none"&gt;
+	&lt;path d="M0,100 L 20,0 80,90 100,0 100,100 Z"&gt;&lt;/path&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/path4.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100" preserveAspectRatio="none"&gt;
+	&lt;path d="M0,50 Q 25,0 50,50, 75,100, 100,50 L100,100 0,100 0,50"&gt;&lt;/path&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/path3.png" class="img200">
+</template></v-two-fix>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Текст (text)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;text x="25" y="30"&gt;I love SVG!&lt;/text&gt;
+	&lt;text x="45" y="100" transform="rotate(30 20,40)"&gt;I love SVG&lt;/text&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/text1.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;text x="10" y="30"&gt;Several lines:
+		&lt;tspan x="10" y="60"&gt;First line.&lt;/tspan&gt;
+		&lt;tspan x="10" y="90"&gt;Second line.&lt;/tspan&gt;
+	&lt;/text&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/text2.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+  &lt;a xlink:href="https://www.yandex.ru/" target="_blank"&gt;
+    &lt;text x="10" y="30"&gt;Link&lt;/text&gt;
+  &lt;/a&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/text3.png" class="img200">
+</template></v-two-fix>
+</div><div id="main-filters"><h2>Фильтры</h2>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f1" x="0" y="0"&gt;
+			&lt;feGaussianBlur in="SourceGraphic" stdDeviation="15" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f1)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/filter1.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f2" x="0" y="0" width="200%" height="200%"&gt;
+			&lt;feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" /&gt;
+			&lt;feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" /&gt;
+			&lt;feBlend in="SourceGraphic" in2="offOut" mode="normal" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f2)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/filter2.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f3" x="0" y="0" width="200%" height="200%"&gt;
+			&lt;feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" /&gt;
+			&lt;feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" /&gt;
+			&lt;feBlend in="SourceGraphic" in2="blurOut" mode="normal" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f3)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/filter3.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f4" x="0" y="0" width="200%" height="200%"&gt;
+			&lt;feOffset result="offOut" in="SourceAlpha" dx="20" dy="20" /&gt;
+			&lt;feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" /&gt;
+			&lt;feBlend in="SourceGraphic" in2="blurOut" mode="normal" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f4)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/filter4.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f5" x="0" y="0" width="200%" height="200%"&gt;
+			&lt;feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" /&gt;
+			&lt;feColorMatrix result="matrixOut" in="offOut" type="matrix"
+				values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" /&gt;
+			&lt;feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="10" /&gt;
+			&lt;feBlend in="SourceGraphic" in2="blurOut" mode="normal" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f5)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/filter5.png" class="img200">
+</template></v-two-fix>
+</div><div id="main-gradients"><h2>Градиенты</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Linear Gradient</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%"&gt;
+			&lt;stop offset="0%"   style="stop-color:rgb(255,255,0);stop-opacity:1" /&gt;
+			&lt;stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" /&gt;
+		&lt;/linearGradient&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" fill="url(#grad1)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/gradient1.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%"&gt;
+			&lt;stop offset="0%"   style="stop-color:rgb(255,255,0);stop-opacity:1" /&gt;
+			&lt;stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" /&gt;
+		&lt;/linearGradient&gt;
+	&lt;/defs&gt;
+  &lt;rect width="100px" height="100px" x="50" y="50" fill="url(#grad2)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/gradient2.png" class="img200">
+</template></v-two-fix>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Radial Gradient</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;radialGradient id="grad3" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"&gt;
+			&lt;stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0" /&gt;
+			&lt;stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" /&gt;
+		&lt;/radialGradient&gt;
+	&lt;/defs&gt;
+  &lt;rect width="100px" height="100px" x="50" y="50" fill="url(#grad3)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/gradient3.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;radialGradient id="grad4" cx="20%" cy="30%" r="30%" fx="50%" fy="50%"&gt;
+			&lt;stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0" /&gt;
+			&lt;stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" /&gt;
+		&lt;/radialGradient&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" fill="url(#grad4)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/gradient4.png" class="img200">
+</template></v-two-fix>
+</div><div id="main-background"><h2>Background</h2>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;div class="pie"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="css" title="">
+.pie {
+	width: 200px;
+	height: 200px;
+	background: url(
+		'data:image/svg+xml,\
+		&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"&gt;\
+			&lt;circle r="100" cx="100" cy="100" fill="yellowgreen" /&gt;\
+		&lt;/svg&gt;'
+	);
+}
+</v-code>
+</template><template v-slot:last>
+<img src="/img/svg/background.png" class="img200">
+</template></v-two-fix>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

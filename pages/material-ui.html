@@ -1,50 +1,182 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<meta charset="utf-8">
-    <link rel="icon" type="image/png" href="../src/img/favicon.png">
-</head>
-<body>
 
-	<div id="container">
-		<div id="menu-left">
-			<div id="menu-left-starter">
-				<div id="menu-left-show"></div>
-				<a href="#menu-top">Starter</a>
-			</div>
-			<div id="menu-build"></div>
-		</div>
-		<div id="content-wrapper">
-			<div id="menu-top"></div>
-			<div id="content"></div>
-		</div>
-	</div>
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Material-UI</title>
+            <meta charset="utf-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+        </head>
+        <body>
+        
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><a href="#main-spacing"><u-menu>spacing</u-menu></a><a href="#main-with-styles"><u-menu>makeStyles</u-menu> <u-menu>withStyles</u-menu></a><a href="#main-css-in-js">CSS in JS</a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment.html"            class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks.html"              class="menu menu-other">🍕 Задачи</a><a href="/pages/theory.html"                class="menu menu-other">Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns.html"        class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms.html"       class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms.html"       class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures.html" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js.html"                class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-objects.html"        class="menu menu-js">🥑 Классы</a><a href="/pages/js-async.html"          class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-client-server.html"  class="menu menu-js">🍋 Клиент-сервер</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api.html"        class="menu menu-js">Web API</a><a href="/pages/js-web-components.html" class="menu menu-js">WebComponents</a><a href="/pages/canvas.html"            class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js.html"       class="menu menu-fw">💥 React.js</a><a href="/pages/react-api.html"      class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks.html"    class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux.html"          class="menu menu-fw">Redux</a><a href="/pages/react-router.html"   class="menu menu-fw">React Router</a><a href="/pages/vue-js.html"         class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing.html"           class="menu menu-other">🍕 Тестирование</a><a href="/pages/jest.html"              class="menu menu-other">🍋 Jest</a><a href="/pages/enzyme.html"            class="menu menu-other">🍋 Enzyme + Jest</a><a href="/pages/react-testing.html"     class="menu menu-other">🍕 React Testing</a><a href="/pages/cypress.html"           class="menu menu-other">🍋 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html.html"        class="menu menu-html">HTML</a><a href="/pages/css.html"         class="menu menu-html">CSS</a><a href="/pages/css-flexbox.html" class="menu menu-html">Flexbox</a><a href="/pages/css-grid.html"    class="menu menu-html">CSS Grid</a><a href="/pages/svg.html"         class="menu menu-html">SVG</a><a href="/pages/sass.html"        class="menu menu-html">Sass</a><a href="/pages/bootstrap.html"   class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git.html"         class="menu menu-php">🔥 Git</a><a href="/pages/flow.html"        class="menu menu-php">🔥 Flow</a><a href="/pages/npm.html"         class="menu menu-php">🥤 NPM</a><a href="/pages/webpack.html"     class="menu menu-php">🥤 Webpack</a><a href="/pages/material-ui.html" class="menu menu-php">Material-UI</a><a href="/pages/typescript.html"  class="menu menu-php">TypeScript</a><a href="/pages/ramda.html"       class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/linux.html"       class="menu menu-other">Linux</a><a href="/pages/other.html"       class="menu menu-other">Other</a><a href="/pages/jquery.html"      class="menu menu-other">jQuery</a><a href="/pages/node-js.html"     class="menu menu-other">Node.js</a><a href="/pages/php.html"         class="menu menu-other">PHP</a><a href="/pages/python.html"      class="menu menu-other">Python</a><a href="/pages/mysql.html"       class="menu menu-other">mySql</a></div>
+                    <div id="content"><div id="main-spacing"><h2>Spacing</h2>
 
-	<!-- OWN JAVASCRIPT !!! -->
-	<script src="../src/libs/jquery.js"></script>
-	<script src="../src-core/js/utils.js"></script>
-	<script src="../src/js/build.js"></script>
-	<script src="../src/js/menu.js"></script>
-	<script src="../src/js/main.js"></script>
+<v-code lang="bash" title="">
+spacing() == spacing(1)
+</v-code>
 
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
-	<link rel="stylesheet" type="text/css" href="../src/css/index.css">
+<v-code lang="bash" title="">
+<em>spacing(0)</em>     # 0px
+<em>spacing(0.25)</em>  # 2px
+<em>spacing(0.5)</em>   # 4px
+<em>spacing(0.75)</em>  # 6px
 
-	<!-- Libraries -->
-	<script src="../src-core/libs/highlight/highlight.pack.js"></script>
-	<script src="../src-core/libs/vue.js"></script>
+<em>spacing(1)</em>     # 8px
+<em>spacing(1.25)</em>  # 10px
+<em>spacing(1.5)</em>   # 12px
+<em>spacing(1.75)</em>  # 14px
 
-	<!-- Custom Elements -->
-	<script src="../src-core/components-web/custom-elements.js"></script>
-	<link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+<em>spacing(2)</em>     # 16px
+<em>spacing(2.25)</em>  # 18px
+<em>spacing(2.5)</em>   # 20px
+<em>spacing(2.75)</em>  # 22px
 
-	<!-- Vue.js Components -->
-	<script src="../src-core/components-vue/vue-components.js"></script>
-	<link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+<em>spacing(3)</em>     # 24px
+<em>spacing(3.25)</em>  # 26px
+<em>spacing(3.5)</em>   # 28px
+<em>spacing(3.75)</em>  # 30px
 
-	<!-- JavaScript -->
-	<script src="../src-core/js/init.js"></script>
-</body>
-</html>
+<em>spacing(4)</em>     # 32px
+<em>spacing(4.25)</em>  # 34px
+<em>spacing(4.5)</em>   # 36px
+<em>spacing(4.75)</em>  # 38px
+
+<em>spacing(5)</em>     # 40px
+<em>spacing(5.25)</em>  # 42px
+<em>spacing(5.5)</em>   # 44px
+<em>spacing(5.75)</em>  # 46px
+
+<em>spacing(6)</em>     # 48px
+<em>spacing(6.25)</em>  # 50px
+<em>spacing(6.5)</em>   # 52px
+<em>spacing(6.75)</em>  # 54px
+
+<em>spacing(7)</em>     # 56px
+<em>spacing(7.25)</em>  # 58px
+<em>spacing(7.5)</em>   # 60px
+<em>spacing(7.75)</em>  # 62px
+
+<em>spacing(8)</em>     # 64px
+<em>spacing(8.25)</em>  # 66px
+<em>spacing(8.5)</em>   # 68px
+<em>spacing(8.75)</em>  # 70px
+
+<em>spacing(9)</em>     # 72px
+<em>spacing(9.25)</em>  # 74px
+<em>spacing(9.5)</em>   # 76px
+<em>spacing(9.75)</em>  # 78px
+
+<em>spacing(10)</em>    # 80px
+<em>spacing(10.25)</em> # 82px
+<em>spacing(10.5)</em>  # 84px
+<em>spacing(10.75)</em> # 86px
+
+<em>spacing(11)</em>    # 88px
+<em>spacing(11.25)</em> # 90px
+<em>spacing(11.5)</em>  # 92px
+<em>spacing(11.75)</em> # 94px
+
+<em>spacing(12)</em>    # 96px
+<em>spacing(12.25)</em> # 98px
+<em>spacing(12.5)</em>  # 100px
+<em>spacing(12.75)</em> # 102px
+
+<em>spacing(13)</em>    # 104px
+<em>spacing(13.25)</em> # 106px
+<em>spacing(13.5)</em>  # 108px
+<em>spacing(13.75)</em> # 110px
+
+<em>spacing(14)</em>    # 112px
+<em>spacing(14.25)</em> # 114px
+<em>spacing(14.5)</em>  # 116px
+<em>spacing(14.75)</em> # 118px
+</v-code>
+</div><div id="main-with-styles"><h2>makeStyles and withStyles</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>makeStyles</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+import { <u-code>makeStyles</u-code> } from '@material-ui/core/styles';
+const useStyles = makeStyles(theme => ({
+	label: {
+		mardin: '10px',
+	},
+}));
+const MyComponent = () => {
+	const classes = useStyles();
+	return (&lt;label className={classes.label} /&gt;);
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>withStyles</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="MyComponent.js">
+import { <u-code>withStyles</u-code> } from '@material-ui/core/styles';
+import styles from './MyComponentStyles';
+const MyComponent = () => {
+	return (&lt;label className={classes.label} /&gt;);
+};
+export default withStyles(styles)(CRMRadio);
+</v-code>
+
+<v-code lang="css" title="MyComponentStyles.js">
+const MyComponentStyles = () => ({
+    label: {
+		mardin: '10px',
+    }
+});
+export default MyComponentStyles;
+</v-code>
+
+</div><div id="main-css-in-js"><h2>CSS in JS</h2>
+
+<v-code lang="js" title="">
+label: {
+    backgroundColor: '#fff',
+    '& span.MuiFormControlLabel-label': {
+        backgroundColor: 'yellow',
+    },
+},
+</v-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

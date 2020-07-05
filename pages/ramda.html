@@ -1,50 +1,77 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<meta charset="utf-8">
-    <link rel="icon" type="image/png" href="../src/img/favicon.png">
-</head>
-<body>
 
-	<div id="container">
-		<div id="menu-left">
-			<div id="menu-left-starter">
-				<div id="menu-left-show"></div>
-				<a href="#menu-top">Starter</a>
-			</div>
-			<div id="menu-build"></div>
-		</div>
-		<div id="content-wrapper">
-			<div id="menu-top"></div>
-			<div id="content"></div>
-		</div>
-	</div>
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Ramda</title>
+            <meta charset="utf-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+        </head>
+        <body>
+        
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Методы</div><a href="#methods-path"><u-menu>path</u-menu> <u-menu>pathOr</u-menu></a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment.html"            class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks.html"              class="menu menu-other">🍕 Задачи</a><a href="/pages/theory.html"                class="menu menu-other">Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns.html"        class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms.html"       class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms.html"       class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures.html" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js.html"                class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-objects.html"        class="menu menu-js">🥑 Классы</a><a href="/pages/js-async.html"          class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-client-server.html"  class="menu menu-js">🍋 Клиент-сервер</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api.html"        class="menu menu-js">Web API</a><a href="/pages/js-web-components.html" class="menu menu-js">WebComponents</a><a href="/pages/canvas.html"            class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js.html"       class="menu menu-fw">💥 React.js</a><a href="/pages/react-api.html"      class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks.html"    class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux.html"          class="menu menu-fw">Redux</a><a href="/pages/react-router.html"   class="menu menu-fw">React Router</a><a href="/pages/vue-js.html"         class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing.html"           class="menu menu-other">🍕 Тестирование</a><a href="/pages/jest.html"              class="menu menu-other">🍋 Jest</a><a href="/pages/enzyme.html"            class="menu menu-other">🍋 Enzyme + Jest</a><a href="/pages/react-testing.html"     class="menu menu-other">🍕 React Testing</a><a href="/pages/cypress.html"           class="menu menu-other">🍋 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html.html"        class="menu menu-html">HTML</a><a href="/pages/css.html"         class="menu menu-html">CSS</a><a href="/pages/css-flexbox.html" class="menu menu-html">Flexbox</a><a href="/pages/css-grid.html"    class="menu menu-html">CSS Grid</a><a href="/pages/svg.html"         class="menu menu-html">SVG</a><a href="/pages/sass.html"        class="menu menu-html">Sass</a><a href="/pages/bootstrap.html"   class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git.html"         class="menu menu-php">🔥 Git</a><a href="/pages/flow.html"        class="menu menu-php">🔥 Flow</a><a href="/pages/npm.html"         class="menu menu-php">🥤 NPM</a><a href="/pages/webpack.html"     class="menu menu-php">🥤 Webpack</a><a href="/pages/material-ui.html" class="menu menu-php">Material-UI</a><a href="/pages/typescript.html"  class="menu menu-php">TypeScript</a><a href="/pages/ramda.html"       class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/linux.html"       class="menu menu-other">Linux</a><a href="/pages/other.html"       class="menu menu-other">Other</a><a href="/pages/jquery.html"      class="menu menu-other">jQuery</a><a href="/pages/node-js.html"     class="menu menu-other">Node.js</a><a href="/pages/php.html"         class="menu menu-other">PHP</a><a href="/pages/python.html"      class="menu menu-other">Python</a><a href="/pages/mysql.html"       class="menu menu-other">mySql</a></div>
+                    <div id="content"><div id="methods-path"><div class="v-method-wrapper">
+    <v-method before="" method="path" after="" arg="">
+	Получить значение по заданному пути
+    </v-method>
+</div>
 
-	<!-- OWN JAVASCRIPT !!! -->
-	<script src="../src/libs/jquery.js"></script>
-	<script src="../src-core/js/utils.js"></script>
-	<script src="../src/js/build.js"></script>
-	<script src="../src/js/menu.js"></script>
-	<script src="../src/js/main.js"></script>
+<div class="v-method-wrapper">
+    <v-method before="" method="pathOr" after="" arg="">
+	Если данный ненулевой объект имеет значение по указанному пути, возвращает значение по этому пути. В противном случае возвращает предоставленное значение по умолчанию
+    </v-method>
+</div>
 
-	<!-- CSS -->
-	<link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
-	<link rel="stylesheet" type="text/css" href="../src/css/index.css">
+<v-code lang="js" title="">
+import { path, pathOr } from 'ramda';
 
-	<!-- Libraries -->
-	<script src="../src-core/libs/highlight/highlight.pack.js"></script>
-	<script src="../src-core/libs/vue.js"></script>
+const event = {
+    target: {
+        value: 77
+    }
+}
 
-	<!-- Custom Elements -->
-	<script src="../src-core/components-web/custom-elements.js"></script>
-	<link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+// js
+const value = event.target.value
 
-	<!-- Vue.js Components -->
-	<script src="../src-core/components-vue/vue-components.js"></script>
-	<link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
-
-	<!-- JavaScript -->
-	<script src="../src-core/js/init.js"></script>
-</body>
-</html>
+// ramda
+const value = <u-code>path(['target', 'value'], event)</u-code>;
+</v-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

@@ -1458,137 +1458,149 @@ var arrCypress = [
 ];
 
 
-// const PAGES = [
-//     {
-//         arr: arrAssessment,
-//         file: 'assessment.html',
-//         folder: '/pages/',
-//         className: 'menu-other',
-//         label: 'Ассессмент',
-//     },
-// ];
+const ARR_THEMES = [
+    // { title: 'Теория',                    page: 'theory',                 arr: arrTheory          },
+    // { title: 'Паттерны',                  page: 'theory-patterns',        arr: arrDesignPatterns  },
+    // { title: 'Парадигмы',                 page: 'theory-paradigms',       arr: arrParadigms       },
+    // { title: 'Алгоритмы',                 page: 'theory-algoritms',       arr: arrAlgoritms       },
+    // { title: 'Структуры данных',          page: 'theory-data-structures', arr: arrDataStructures  },
 
-// const THEMES = [
-//     {
-//         title: 'CRM-UI (Input)',
-//         content: [
-//             {
-//                 id: 'CRMTextArea',
-//                 src: 'https://gist.github.com/anton-sergeenkov/dc8046594c9a2eea164045d6ee915c47.js',
-//                 name: 'CRMTextArea',
-//             }
-//         ],
-//     },
-// ];
+    // { title: 'JavaScript',                page: 'js',                     arr: arrJavaScript      },
+    // { title: 'JavaScript: Объекты',       page: 'js-objects',             arr: arrJsObjects       },
+    // { title: 'JavaScript: Асинхронность', page: 'js-async',               arr: arrJsAsync         },
+    // { title: 'JavaScript: WebAPI',        page: 'js-web-api',             arr: arrJsWebApi        },
+    // { title: 'JavaScript: WebComponents', page: 'js-web-components',      arr: arrJsWebComponents },
+    // { title: 'JavaScript: Клиент-сервер', page: 'js-client-server',       arr: arrJsClientServer  },
+    // { title: 'JavaScript: Задачи',        page: 'js-tasks',               arr: arrJsTasks         },
 
+    // { title: 'React.js',                  page: 'react-js',               arr: arrReactjs         },
+    // { title: 'React API',                 page: 'react-api',              arr: arrReactApi        },
+    // { title: 'React Hooks',               page: 'react-hooks',            arr: arrReactHooks      },
+    // { title: 'React Router',              page: 'react-router',           arr: arrReactRouter     },
+    // { title: 'Redux',                     page: 'redux',                  arr: arrRedux           },
+    // { title: 'Vue.js',                    page: 'vue-js',                 arr: arrVuejs           },
 
-var page = window.location.pathname.split('/');
-var pageName = page[page.length-1];
+    // { title: 'HTML',                      page: 'html',                   arr: arrHTML            },
+    // { title: 'CSS',                       page: 'css',                    arr: arrCSS             },
+    // { title: 'Sass',                      page: 'sass',                   arr: arrSass            },
+    // { title: 'Bootstrap',                 page: 'bootstrap',              arr: arrBootstrap       },
+    // { title: 'SVG',                       page: 'svg',                    arr: arrSvg             },
+    // { title: 'Flexbox',                   page: 'css-flexbox',            arr: arrCssFlexbox      },
+    // { title: 'CSS Grid',                  page: 'css-grid',               arr: arrCssGrid         },
 
-var arrCurrent = [];
+    // { title: 'Material-UI',               page: 'material-ui',            arr: arrMaterialUI      },
+    // { title: 'Тестирование',              page: 'testing',                arr: arrTesting         },
+    // { title: 'Тестирование React',        page: 'react-testing',          arr: arrReactTesting    },
+    // { title: 'Webpack',                   page: 'webpack',                arr: arrWebpack         },
+    // { title: 'NPM',                       page: 'npm',                    arr: arrNpm             },
+    // { title: 'Git',                       page: 'git',                    arr: arrGit             },
+    // { title: 'Linux',                     page: 'linux',                  arr: arrLinux           },
+    // { title: 'Прочее',                    page: 'other',                  arr: arrOther           },
+    // { title: 'jQuery',                    page: 'jquery',                 arr: arrJquery          },
+    // { title: 'Canvas',                    page: 'canvas',                 arr: arrCanvas          },
+    // { title: 'Ассессмент',                page: 'assessment',             arr: arrAssessment      },
+    // { title: 'Flow',                      page: 'flow',                   arr: arrFlow            },
+    // { title: 'Ramda',                     page: 'ramda',                  arr: arrRamda           },
+    // { title: 'Typescript',                page: 'typescript',             arr: arrTypescript      },
+    // { title: 'Jest',                      page: 'jest',                   arr: arrJest            },
+    // { title: 'Enzyme',                    page: 'enzyme',                 arr: arrEnzyme          },
+    // { title: 'Cypress',                   page: 'cypress',                arr: arrCypress         },
 
-switch(pageName) {
-    case 'theory.html':                 arrCurrent = arrTheory;          break;
-    case 'theory-patterns.html':        arrCurrent = arrDesignPatterns;  break;
-    case 'theory-paradigms.html':       arrCurrent = arrParadigms;       break;
-    case 'theory-algoritms.html':       arrCurrent = arrAlgoritms;       break;
-    case 'theory-data-structures.html': arrCurrent = arrDataStructures;  break;
+    // { title: 'Node.js',                   page: 'node-js',                arr: arrNodejs          },
+    // { title: 'PHP',                       page: 'php',                    arr: arrPhp             },
+    // { title: 'mySQL',                     page: 'mysql',                  arr: arrMySql           },
+    // { title: 'Python',                    page: 'python',                 arr: arrPython          },
 
-    case 'js.html':                     arrCurrent = arrJavaScript;      break;
-    case 'js-objects.html':             arrCurrent = arrJsObjects;       break;
-    case 'js-async.html':               arrCurrent = arrJsAsync;         break;
-    case 'js-web-api.html':             arrCurrent = arrJsWebApi;        break;
-    case 'js-web-components.html':      arrCurrent = arrJsWebComponents; break;
-    case 'js-client-server.html':       arrCurrent = arrJsClientServer;  break;
-    case 'react-js.html':               arrCurrent = arrReactjs;         break;
-    case 'react-api.html':              arrCurrent = arrReactApi;        break;
-    case 'react-hooks.html':            arrCurrent = arrReactHooks;      break;
-    case 'react-router.html':           arrCurrent = arrReactRouter;     break;
-    case 'redux.html':                  arrCurrent = arrRedux;           break;
-    case 'vue-js.html':                 arrCurrent = arrVuejs;           break;
+    // { title: 'Тестовый',                  page: '_single',                arr: arrSingle          },
+];
 
-    case 'material-ui.html':            arrCurrent = arrMaterialUI;      break;
-    case 'testing.html':                arrCurrent = arrTesting;         break;
-    case 'webpack.html':                arrCurrent = arrWebpack;         break;
-    case 'npm.html':                    arrCurrent = arrNpm;             break;
-    case 'git.html':                    arrCurrent = arrGit;             break;
-    case 'linux.html':                  arrCurrent = arrLinux;           break;
-    case 'other.html':                  arrCurrent = arrOther;           break;
-    case 'js-tasks.html':               arrCurrent = arrJsTasks;         break;
-    case 'jquery.html':                 arrCurrent = arrJquery;          break;
-    case 'canvas.html':                 arrCurrent = arrCanvas;          break;
-    case 'html.html':                   arrCurrent = arrHTML;            break;
-    case 'css.html':                    arrCurrent = arrCSS;             break;
-    case 'assessment.html':             arrCurrent = arrAssessment;      break;
-    case 'sass.html':                   arrCurrent = arrSass;            break;
-    case 'bootstrap.html':              arrCurrent = arrBootstrap;       break;
-    case 'flow.html':                   arrCurrent = arrFlow;            break;
-    case 'svg.html':                    arrCurrent = arrSvg;             break;
-    case 'css-flexbox.html':            arrCurrent = arrCssFlexbox;      break;
-    case 'css-grid.html':               arrCurrent = arrCssGrid;         break;
-    case 'node-js.html':                arrCurrent = arrNodejs;          break;
-    case 'php.html':                    arrCurrent = arrPhp;             break;
-    case 'python.html':                 arrCurrent = arrPython;          break;
-    case 'mysql.html':                  arrCurrent = arrMySql;           break;
-    case 'ramda.html':                  arrCurrent = arrRamda;           break;
-    case 'typescript.html':             arrCurrent = arrTypescript;      break;
-    case 'jest.html':                   arrCurrent = arrJest;            break;
-    case 'react-testing.html':          arrCurrent = arrReactTesting;    break;
-    case 'enzyme.html':                 arrCurrent = arrEnzyme;          break;
-    case 'cypress.html':                arrCurrent = arrCypress;         break;
+ARR_THEMES.forEach((item) => {
+    prepare(item);
+})
 
-    case '_single.html':                arrCurrent = arrSingle;          break;
-    default:                            arrCurrent = [];
-}
+function prepare(arrCurrent) {
+    let wrapperMenu = '';
+    let wrapperContent = '';
 
-if ( (pageName!=='index.html') && (pageName!=='index') && (pageName!=='') ) {
-    build();
-}
-
-function build() {
-    let wrapperMenu = document.createElement('slot');
-    let wrapperContent = document.createElement('slot');
-
-    arrCurrent.forEach(function(item){
+    arrCurrent.arr.forEach((item) => {
 
         if (isNaN(item[0])) {
-            let elementMenu = document.createElement('a');
-            elementMenu.setAttribute('href', `#${item[1]}-${item[2]}`);
-            elementMenu.innerHTML = item[3];
-
-            let path = `../themes/${item[0]}/${item[1]}/${item[2]}.html`;
+            const elementMenu = `<a href="#${item[1]}-${item[2]}">${item[3]}</a>`
+            const path = `../themes/${item[0]}/${item[1]}/${item[2]}.html`;
 
             $.ajax({
                 type: "GET",
                 url: path,
                 async: false,
-                success: function (data) {
-                    let elementContent = document.createElement('div');
-                    elementContent.setAttribute('id', `${item[1]}-${item[2]}`);
-                    elementContent.innerHTML = data;
-                    wrapperContent.appendChild(elementContent);
+                success: function(data) {
+                    wrapperContent += `<div id="${item[1]}-${item[2]}">${data}</div>`;
                 }
             });
 
-            wrapperMenu.appendChild(elementMenu);
+            wrapperMenu += elementMenu;
         }
 
         if (item[0] === 1) {
-            let elementMenu = document.createElement('div');
-            elementMenu.setAttribute('class', 'theme');
-            elementMenu.innerHTML = item[1];
-            wrapperMenu.appendChild(elementMenu);
+            wrapperMenu += `<div class="theme">${item[1]}</div>`;
         }
 
         if (item[0] === 2) {
-            let elementMenu = document.createElement('div');
-            elementMenu.setAttribute('class', 'section');
-            elementMenu.innerHTML = item[1];
-            wrapperMenu.appendChild(elementMenu);
+            wrapperMenu += `<div class="section">${item[1]}</div>`;
         }
-
     });
 
-    document.querySelector('#menu-build').appendChild(wrapperMenu);
-    document.querySelector('#content').appendChild(wrapperContent);
+    const html = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>${arrCurrent.title}</title>
+            <meta charset="utf-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+        </head>
+        <body>
+        
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build">${wrapperMenu}</div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top">${getMenu()}</div>
+                    <div id="content">${wrapperContent}</div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    `;
+
+    const blob = new Blob([html], {type: "text/html;charset=utf-8"});
+    window.saveAs(blob, arrCurrent.page+'.html'); 
 }
+
