@@ -1459,59 +1459,59 @@ var arrCypress = [
 
 
 const ARR_THEMES = [
-    // { title: 'Теория',                    page: 'theory',                 arr: arrTheory          },
-    // { title: 'Паттерны',                  page: 'theory-patterns',        arr: arrDesignPatterns  },
-    // { title: 'Парадигмы',                 page: 'theory-paradigms',       arr: arrParadigms       },
-    // { title: 'Алгоритмы',                 page: 'theory-algoritms',       arr: arrAlgoritms       },
-    // { title: 'Структуры данных',          page: 'theory-data-structures', arr: arrDataStructures  },
+    { title: 'Теория',                    page: 'theory',                 arr: arrTheory          },
+    { title: 'Паттерны',                  page: 'theory-patterns',        arr: arrDesignPatterns  },
+    { title: 'Парадигмы',                 page: 'theory-paradigms',       arr: arrParadigms       },
+    { title: 'Алгоритмы',                 page: 'theory-algoritms',       arr: arrAlgoritms       },
+    { title: 'Структуры данных',          page: 'theory-data-structures', arr: arrDataStructures  },
 
-    // { title: 'JavaScript',                page: 'js',                     arr: arrJavaScript      },
-    // { title: 'JavaScript: Объекты',       page: 'js-objects',             arr: arrJsObjects       },
-    // { title: 'JavaScript: Асинхронность', page: 'js-async',               arr: arrJsAsync         },
-    // { title: 'JavaScript: WebAPI',        page: 'js-web-api',             arr: arrJsWebApi        },
-    // { title: 'JavaScript: WebComponents', page: 'js-web-components',      arr: arrJsWebComponents },
-    // { title: 'JavaScript: Клиент-сервер', page: 'js-client-server',       arr: arrJsClientServer  },
-    // { title: 'JavaScript: Задачи',        page: 'js-tasks',               arr: arrJsTasks         },
+    { title: 'JavaScript',                page: 'js',                     arr: arrJavaScript      },
+    { title: 'JavaScript: Объекты',       page: 'js-objects',             arr: arrJsObjects       },
+    { title: 'JavaScript: Асинхронность', page: 'js-async',               arr: arrJsAsync         },
+    { title: 'JavaScript: WebAPI',        page: 'js-web-api',             arr: arrJsWebApi        },
+    { title: 'JavaScript: WebComponents', page: 'js-web-components',      arr: arrJsWebComponents },
+    { title: 'JavaScript: Клиент-сервер', page: 'js-client-server',       arr: arrJsClientServer  },
+    { title: 'JavaScript: Задачи',        page: 'js-tasks',               arr: arrJsTasks         },
 
-    // { title: 'React.js',                  page: 'react-js',               arr: arrReactjs         },
-    // { title: 'React API',                 page: 'react-api',              arr: arrReactApi        },
-    // { title: 'React Hooks',               page: 'react-hooks',            arr: arrReactHooks      },
-    // { title: 'React Router',              page: 'react-router',           arr: arrReactRouter     },
-    // { title: 'Redux',                     page: 'redux',                  arr: arrRedux           },
-    // { title: 'Vue.js',                    page: 'vue-js',                 arr: arrVuejs           },
+    { title: 'React.js',                  page: 'react-js',               arr: arrReactjs         },
+    { title: 'React API',                 page: 'react-api',              arr: arrReactApi        },
+    { title: 'React Hooks',               page: 'react-hooks',            arr: arrReactHooks      },
+    { title: 'React Router',              page: 'react-router',           arr: arrReactRouter     },
+    { title: 'Redux',                     page: 'redux',                  arr: arrRedux           },
+    { title: 'Vue.js',                    page: 'vue-js',                 arr: arrVuejs           },
 
-    // { title: 'HTML',                      page: 'html',                   arr: arrHTML            },
-    // { title: 'CSS',                       page: 'css',                    arr: arrCSS             },
-    // { title: 'Sass',                      page: 'sass',                   arr: arrSass            },
-    // { title: 'Bootstrap',                 page: 'bootstrap',              arr: arrBootstrap       },
-    // { title: 'SVG',                       page: 'svg',                    arr: arrSvg             },
-    // { title: 'Flexbox',                   page: 'css-flexbox',            arr: arrCssFlexbox      },
-    // { title: 'CSS Grid',                  page: 'css-grid',               arr: arrCssGrid         },
+    { title: 'HTML',                      page: 'html',                   arr: arrHTML            },
+    { title: 'CSS',                       page: 'css',                    arr: arrCSS             },
+    { title: 'Sass',                      page: 'sass',                   arr: arrSass            },
+    { title: 'Bootstrap',                 page: 'bootstrap',              arr: arrBootstrap       },
+    { title: 'SVG',                       page: 'svg',                    arr: arrSvg             },
+    { title: 'Flexbox',                   page: 'css-flexbox',            arr: arrCssFlexbox      },
+    { title: 'CSS Grid',                  page: 'css-grid',               arr: arrCssGrid         },
 
-    // { title: 'Material-UI',               page: 'material-ui',            arr: arrMaterialUI      },
-    // { title: 'Тестирование',              page: 'testing',                arr: arrTesting         },
-    // { title: 'Тестирование React',        page: 'react-testing',          arr: arrReactTesting    },
-    // { title: 'Webpack',                   page: 'webpack',                arr: arrWebpack         },
-    // { title: 'NPM',                       page: 'npm',                    arr: arrNpm             },
-    // { title: 'Git',                       page: 'git',                    arr: arrGit             },
-    // { title: 'Linux',                     page: 'linux',                  arr: arrLinux           },
-    // { title: 'Прочее',                    page: 'other',                  arr: arrOther           },
-    // { title: 'jQuery',                    page: 'jquery',                 arr: arrJquery          },
-    // { title: 'Canvas',                    page: 'canvas',                 arr: arrCanvas          },
-    // { title: 'Ассессмент',                page: 'assessment',             arr: arrAssessment      },
-    // { title: 'Flow',                      page: 'flow',                   arr: arrFlow            },
-    // { title: 'Ramda',                     page: 'ramda',                  arr: arrRamda           },
-    // { title: 'Typescript',                page: 'typescript',             arr: arrTypescript      },
-    // { title: 'Jest',                      page: 'jest',                   arr: arrJest            },
-    // { title: 'Enzyme',                    page: 'enzyme',                 arr: arrEnzyme          },
-    // { title: 'Cypress',                   page: 'cypress',                arr: arrCypress         },
+    { title: 'Material-UI',               page: 'material-ui',            arr: arrMaterialUI      },
+    { title: 'Тестирование',              page: 'testing',                arr: arrTesting         },
+    { title: 'Тестирование React',        page: 'react-testing',          arr: arrReactTesting    },
+    { title: 'Webpack',                   page: 'webpack',                arr: arrWebpack         },
+    { title: 'NPM',                       page: 'npm',                    arr: arrNpm             },
+    { title: 'Git',                       page: 'git',                    arr: arrGit             },
+    { title: 'Linux',                     page: 'linux',                  arr: arrLinux           },
+    { title: 'Прочее',                    page: 'other',                  arr: arrOther           },
+    { title: 'jQuery',                    page: 'jquery',                 arr: arrJquery          },
+    { title: 'Canvas',                    page: 'canvas',                 arr: arrCanvas          },
+    { title: 'Ассессмент',                page: 'assessment',             arr: arrAssessment      },
+    { title: 'Flow',                      page: 'flow',                   arr: arrFlow            },
+    { title: 'Ramda',                     page: 'ramda',                  arr: arrRamda           },
+    { title: 'Typescript',                page: 'typescript',             arr: arrTypescript      },
+    { title: 'Jest',                      page: 'jest',                   arr: arrJest            },
+    { title: 'Enzyme',                    page: 'enzyme',                 arr: arrEnzyme          },
+    { title: 'Cypress',                   page: 'cypress',                arr: arrCypress         },
 
-    // { title: 'Node.js',                   page: 'node-js',                arr: arrNodejs          },
-    // { title: 'PHP',                       page: 'php',                    arr: arrPhp             },
-    // { title: 'mySQL',                     page: 'mysql',                  arr: arrMySql           },
-    // { title: 'Python',                    page: 'python',                 arr: arrPython          },
+    { title: 'Node.js',                   page: 'node-js',                arr: arrNodejs          },
+    { title: 'PHP',                       page: 'php',                    arr: arrPhp             },
+    { title: 'mySQL',                     page: 'mysql',                  arr: arrMySql           },
+    { title: 'Python',                    page: 'python',                 arr: arrPython          },
 
-    // { title: 'Тестовый',                  page: '_single',                arr: arrSingle          },
+    { title: 'Тестовый',                  page: '_single',                arr: arrSingle          },
 ];
 
 ARR_THEMES.forEach((item) => {
@@ -1556,9 +1556,11 @@ function prepare(arrCurrent) {
             <title>${arrCurrent.title}</title>
             <meta charset="utf-8">
             <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
         </head>
         <body>
-        
+            <div id="preloader"></div>
+
             <div id="container">
                 <div id="menu-left">
                     <div id="menu-left-starter">
@@ -1575,6 +1577,7 @@ function prepare(arrCurrent) {
         
             <!-- OWN JAVASCRIPT !!! -->
             <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
             <script src="../src-core/js/utils.js"></script>
             <script src="../src/js/main.js"></script>
         
@@ -1603,4 +1606,3 @@ function prepare(arrCurrent) {
     const blob = new Blob([html], {type: "text/html;charset=utf-8"});
     window.saveAs(blob, arrCurrent.page+'.html'); 
 }
-
