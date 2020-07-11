@@ -27,12 +27,13 @@
 </div>
 
 <v-code lang="js" title="">
-var user = {
+const user = {
     name: 'Tony',
     id: 25
 }
-var userData = <u-code>JSON.stringify</u-code>(user); // объект в JSON ("{"name":"Tony","id":25}")
-var userObj = <u-code>JSON.parse</u-code>(userData);  // JSON в строку
+
+const userData = <u-code>JSON.stringify</u-code>(user); // объект в JSON ("{"name":"Tony","id":25}")
+const userObj = <u-code>JSON.parse</u-code>(userData);  // JSON в строку
 </v-code>
 
 <!------------------------------------------------------------->
@@ -41,7 +42,7 @@ var userObj = <u-code>JSON.parse</u-code>(userData);  // JSON в строку
 <v-code lang="js" title="">
 // если в объекте есть метод toJSON при преобразовани stringify данные будут браться из него
 // если такого метода нет - перечисляются его свойства, кроме функций
-var user = {
+const user = {
     name: 'Tony',
     id: 25,
     toJSON() {
@@ -50,7 +51,8 @@ var user = {
         }
     }
 }
-var userData = JSON.stringify(user); // объект в JSON ("{"name":"Tony"}")
+
+const userData = JSON.stringify(user); // объект в JSON ("{"name":"Tony"}")
 </v-code>
 
 <!------------------------------------------------------------->
@@ -61,11 +63,12 @@ var userData = JSON.stringify(user); // объект в JSON ("{"name":"Tony"}")
 	<li>Если она указана, то в процессе чтения объекта из строки JSON.parse передаёт ей по очереди все создаваемые пары ключ-значение и может возвратить либо преобразованное значение, либо undefined, если его нужно пропустить</li>
 </ul>
 <v-code lang="js" title="">
-var str = '{"title":"Конференция","date":"2014-11-30T12:00:00.000Z"}';
-var event = JSON.parse(str, function(key, value) {
+const str = '{"title":"Конференция","date":"2014-11-30T12:00:00.000Z"}';
+const event = JSON.parse(str, function(key, value) {
 	if (key == 'date') return new Date(value);
 	return value;
 });
+
 alert( event.date.getDate() );
 </v-code>
 
@@ -73,11 +76,12 @@ alert( event.date.getDate() );
 <h4>JSON.stringify. Исключение свойств</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var user = {
+const user = {
 	name: "Вася",
 	age: 25,
 	window: window
 };
+
 alert( JSON.stringify(user, ["name", "age"]) ); // {"name":"Вася","age":25}
 </v-code>
 
@@ -90,15 +94,16 @@ alert( JSON.stringify(user, ["name", "age"]) ); // {"name":"Вася","age":25}
 </ul>
 
 <v-code lang="js" title="">
-var user = {
+const user = {
 	name: "Вася",
 	age: 25,
 	window: window
 };
-var str = JSON.stringify(user, function(key, value) {
+const str = JSON.stringify(user, function(key, value) {
 	if (key == 'window') return undefined;
 	return value;
 });
+
 alert( str ); // {"name":"Вася","age":25}
 // функция пропустит свойство с названием window
 // для остальных она возвращает значение, передавая его стандартному алгоритму
@@ -108,7 +113,7 @@ alert( str ); // {"name":"Вася","age":25}
 <h4>JSON.stringify. Форматирование</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var user = {
+const user = {
 	name: "Вася",
 	age: 25,
 	roles: {
@@ -117,5 +122,6 @@ var user = {
 	}
 };
 
-var str = JSON.stringify(user, "", 4); // => отформатированный текст
+const str1 = JSON.stringify(user, "", 4); // => отформатированный текст
+const str2 = JSON.stringify(user, null, 4); // => отформатированный текст
 </v-code>

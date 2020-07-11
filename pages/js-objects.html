@@ -1004,7 +1004,18 @@ alert( obj ); // Tony
 <h3>Численное преобразование</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-// для численного преобразования объекта используется метод valueOf, а если его нет – то toString
+const room = {
+	number: 777,
+};
+
+alert( +room ); // NaN
+</v-code>
+
+<ul class="list-point">
+    <li>Для численного преобразования объекта используется метод <u>valueOf</u>, а если его нет – то <u>toString</u></li>
+</ul>
+
+<v-code lang="js" title="">
 const room = {
 	number: 777,
 	<u-code>valueOf</u-code>() { return this.number; },

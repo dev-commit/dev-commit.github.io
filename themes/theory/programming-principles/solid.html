@@ -6,33 +6,120 @@
     <li><b>Цель принципов</b>: способствуют изменениям; легко понимаемы; повторно используемы</li>
 </ul>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Принципы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
 <!------------------------------------------------------------->
-<h4>Принципы</h4>
+<h4>[S] SRP</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-    <li><u-text-define>[S] SRP</u-text-define> (The Single Responsibility Principle. <u-text-underline>Принцип единственной ответственности</u-text-underline>)</li>
+    <li><u-text-define>The Single Responsibility Principle</u-text-define> - Принцип единственной ответственности</li>
     <li>Каждый класс выполняет лишь одну задачу/ответственность</li>
+</ul>
 
-    <hr>
-    <li><u-text-define>[O] OCP</u-text-define> (The Open Closed Principle. <u-text-underline>Принцип открытости/закрытости</u-text-underline>)</li>
+<v-details title="Пример">
+<v-code lang="js" title="">
+// Класс по обоработки новости
+class News {
+    constructor(title, text) {
+        this.title = title;
+        this.text = text;
+        this.modified = false;
+    }
+    update(text) {
+        this.text = text;
+        this.modified = true;
+    }
+    // Разные форматы новости должно быть в отдельном класса
+    // html() {}
+    // json() {}
+}
+
+// Класс по формированию новости в разных форматах
+class NewsPrinter {
+    constructor(news) {
+        this.news = news;
+    }
+    html() {
+        return `
+            &lt;div&gt;
+                &lt;h1&gt;${this.news.title}&lt;/h1&gt;
+                &lt;h1&gt;${this.news.text}&lt;/h1&gt;
+            &lt;/div&gt;
+        `
+    }
+    json() {
+        return JSON.stringify({
+            title: this.news.title,
+            text: this.news.text,
+            modified: this.news.modified
+        })
+    }
+}
+
+const printer = new NewsPrinter(
+    new News('Название новости', 'Описание новости')
+)
+
+console.log(printer.html());
+console.log(printer.json());
+</v-code>
+</v-details>
+
+<!------------------------------------------------------------->
+<h4>[O] OCP</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>The Open Closed Principle</u-text-define> - Принцип открытости/закрытости</li>
     <li>Программные сущности (классы, модули, функции и т.д.) должны быть открыты для расширения, но закрыты для модификации</li>
     <li>От класса можно наследоваться и расширить его функциональность, но нет прямой возможности менять функциональность базового класса</li>
     <li>Неважно сколько добавили свойств объекту, код будет работать</li>
+</ul>
 
-    <hr>
-    <li><u-text-define>[L] LSP</u-text-define> (The Liskov Substitution Principle. <u-text-underline>Принцип подстановки Барбары Лисков</u-text-underline>)</li>
+<v-details title="Пример">
+<v-code lang="js" title="">
+//
+</v-code>
+</v-details>
+
+<!------------------------------------------------------------->
+<h4>[L] LSP</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>The Liskov Substitution Principle</u-text-define> - Принцип подстановки Барбары Лисков</li>
     <li>Если гарантируется функциональность для базового класса, то гарантируется функциональность для всех его потомков (поведение программы не изменится)</li>
     <li>Поведение в методах-наследниках менять нельзя</li>
     <li>Наследующий класс должен дополнять, а не изменять базовый и не должен противоречить поведению, заданному базовым классом</li>
+</ul>
 
-    <hr>
-    <li><u-text-define>[I] ISP</u-text-define> (The Interface Segregation Principle. <u-text-underline>Принцип разделения интерфейса</u-text-underline>)</li>
+<v-details title="Пример">
+<v-code lang="js" title="">
+//
+</v-code>
+</v-details>
+
+<!------------------------------------------------------------->
+<h4>[I] ISP</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>The Interface Segregation Principle</u-text-define> - Принцип разделения интерфейса</li>
     <li>Разделение интерфейса на более мелкие части</li>
     <li>Абстракция (API или класс) должна быть сгруппирована в мелкие единицы и содержать только необходимые методы, давая возможность использовать только то, что необходимо. При необходимости разделить функциональность на несколько классов. При изменении методов интерфейса не должны меняться программные сущности, которые этот метод не используют</li>
     <li>Программные сущности не должны зависеть от методов, которые они не используют</li>
+</ul>
 
-    <hr>
-    <li><u-text-define>[D] DIP</u-text-define> (The Dependency Inversion Principle. <u-text-underline>Принцип инверсии зависимостей</u-text-underline>)</li>
+<v-details title="Пример">
+<v-code lang="js" title="">
+//
+</v-code>
+</v-details>
+
+<!------------------------------------------------------------->
+<h4>[D] DIP</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>The Dependency Inversion Principle</u-text-define> - Принцип инверсии зависимостей</li>
     <li>Зависимость кода должна строиться от абстракции, а не от класса</li>
     <li>Модули верхних уровней не должны зависеть от модулей нижних уровней. Оба типа модулей должны зависеть от абстракций</li>
     <li>Абстракции не должны зависеть от деталей. Детали должны зависеть от абстракций</li>
@@ -40,9 +127,12 @@
     <li>Решает, когда части зависят друг от друга. Когда появляются связи между двумя объектами, их нужно разделить</li>
 </ul>
 
-<!------------------------------------------------------------->
-<h4>DIP</h4>
-<!------------------------------------------------------------->
+<v-details title="Пример">
+<v-code lang="js" title="">
+//
+</v-code>
+</v-details>
+
 <v-code lang="bash" title="">
 Decoupling
     &#9776; Inversion of Control
@@ -51,9 +141,9 @@ Decoupling
         &#8226; Inderfaces
 </v-code>
 
-<!------------------------------------------------------------->
-<h4>Когда следует применять</h4>
-<!------------------------------------------------------------->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Когда следует применять</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li><u>Жесткость</u> - трудно вносить изменнея в код. Одно изменение вносит изменение в другие модули</li>
     <li><u>Хрупкость</u> - свойство программы повреждаться во многих местах при внесении одного изменения</li>
