@@ -2809,8 +2809,8 @@ Chrome Dev Tools -> Сеть -> Запись активности
 <v-code lang="js" title="">
 var $body = $('body');
 $body.css('padding', '1px'); // reflow, repaint
-$body.css('color', 'red'); // repaint
-$body.css('margin', '2px'); // reflow, repaint
+$body.css('color', 'red');   // repaint
+$body.css('margin', '2px');  // reflow, repaint
 // На самом деле произойдет только 1 reflow и repaint
 </v-code>
 </template><template v-slot:last>
@@ -2827,6 +2827,10 @@ $body.css('margin', '2px');
 </v-code>
 </template></v-two>
 </div><div id="programming-principles-solid"><h2>SOLID</h2>
+
+<u-link-wrapper>
+    <a href="https://www.youtube.com/watch?v=xq13wiqvcTc" target="_blank">YouTube. SOLID Принципы в JavaScript</a>
+</u-link-wrapper>
 
 <ul class="list-point">
     <li><u-text-define>SOLID</u-text-define> (Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency inversion) - пять основных принципов ООП</li>
@@ -2846,12 +2850,11 @@ $body.css('margin', '2px');
     <li>Каждый класс выполняет лишь одну задачу/ответственность</li>
 </ul>
 
-<v-details title="Пример">
+<v-details title="<u-text-underline>Пример</u-text-underline>">
 <v-two><template v-slot:first>
 <b>Да</b>
 
-<v-code lang="js border" title="">
-// Класс для обоработки новости
+<v-code lang="js border" title="Класс для обоработки новости">
 class News {
     constructor(title, text) {
         this.title = title;
@@ -2867,9 +2870,7 @@ class News {
     // json() {}
 }
 </v-code>
-
-<v-code lang="js border" title="">
-// Класс для формирования новости в разных форматах
+<v-code lang="js border" title="Класс для формирования новости в разных форматах">
 class NewsPrinter {
     constructor(news) {
         this.news = news;
@@ -2891,7 +2892,6 @@ class NewsPrinter {
     }
 }
 </v-code>
-
 <v-code lang="js border" title="">
 const printer = new NewsPrinter(
     new News('Название новости', 'Описание новости')
@@ -2935,7 +2935,6 @@ class News {
     }
 }
 </v-code>
-
 <v-code lang="js" title="">
 const news = new News(
     'Название новости',
@@ -2949,11 +2948,6 @@ console.log(news.json());
 </template></v-two>
 </v-details>
 
-
-
-
-
-
 <!------------------------------------------------------------->
 <h4>[O] OCP</h4>
 <!------------------------------------------------------------->
@@ -2965,7 +2959,7 @@ console.log(news.json());
     <li>Если привносим что-то новое, то не меняем старый код</li>
 </ul>
 
-<v-details title="Пример">
+<v-details title="<u-text-underline>Пример</u-text-underline>">
 
 <v-two><template v-slot:first>
 
@@ -2978,7 +2972,6 @@ class Shape {
     }
 }
 </v-code>
-
 <v-code lang="js border" title="Наследники">
 class Square extends Shape {
     constructor(size) {
@@ -3044,7 +3037,6 @@ class Circle {
     }
 }
 </v-code>
-
 <v-code lang="js" title="Класс для калькуляции">
 class AreaCalculator {
     constructor(shapes = []) {
@@ -3083,12 +3075,165 @@ console.log(calc.sum());
     <li>Если гарантируется функциональность для базового класса, то гарантируется функциональность для всех его потомков (поведение программы не изменится)</li>
     <li>Поведение в методах-наследниках менять нельзя</li>
     <li>Наследующий класс должен дополнять, а не изменять базовый и не должен противоречить поведению, заданному базовым классом</li>
+    <li>Функции, которые используют базовый тип, должны уметь взаимодействовать с ним и его подтипами, при этом не зная ничего про это </li>
 </ul>
 
-<v-details title="Пример">
-<v-code lang="js" title="">
-//
+<v-details title="<u-text-underline>Пример 1</u-text-underline>">
+<v-two><template v-slot:first>
+<b>Да</b>
+
+<ul class="list-point">
+    <li>Нужно правильно выбирать слои абстракции</li>
+    <li>Просто наследоваться от человека некорректно</li>
+    <li>Добавляем еще один уровень абстракции в виде базовых классов</li>
+</ul>
+
+<v-code lang="js border" title="">
+class Person {
+    //
+}
+class Member extends Person {
+    access() {
+        console.log('Есть доступ');
+    }
+}
+class Guest extends Person {
+    isGuest = true;
+}
 </v-code>
+<v-code lang="js border" title="">
+class Frontend extends Member {}
+class Backend extends Member {}
+
+class PersonFromDifferentCompany extends Guest {
+    access() {
+        throw new Error('Нет доступа');
+    }
+}
+</v-code>
+<v-code lang="js border" title="">
+// функция должна работать со всеми классми-наследниками
+// от Person
+function openSecretDoor(member) {
+    member.access();
+}
+
+openSecretDoor(new Frontend());
+openSecretDoor(new Backend());
+// должен быть member
+// openSecretDoor(new PersonFromDifferentCompany());
+</v-code>
+
+</template><template v-slot:last>
+<b>Нет</b>
+
+<v-code lang="js" title="">
+class Person {
+    access() {
+        console.log('Есть доступ');
+    }
+}
+</v-code>
+<v-code lang="js" title="">
+class Frontend extends Person {}
+class Backend extends Person {}
+
+class PersonFromDifferentCompany extends Person {
+    access() {
+        throw new Error('Нет доступа');
+    }
+}
+</v-code>
+<v-code lang="js" title="">
+// функция должна работать со всеми классми-наследниками
+// от Person
+function openSecretDoor(person) {
+    person.access();
+}
+
+openSecretDoor(new Frontend());
+openSecretDoor(new Backend());
+// получаем ошибку. нарушение принципа [L] LSP
+openSecretDoor(new PersonFromDifferentCompany());
+</v-code>
+
+</template></v-two>
+</v-details>
+
+
+<v-details title="<u-text-underline>Пример 2</u-text-underline>">
+<v-two><template v-slot:first>
+<b>Да</b>
+
+<v-code lang="js border" title="Базовые классы">
+class Component {}
+class ComponentWithTemplate extends Component {
+    render() {
+        return `&lt;div&gt;Component&lt;/div&gt;`
+    }
+}
+class HigherOrderComponent extends Component {}
+</v-code>
+<v-code lang="js border" title="Наследники">
+class HeaderComponent extends ComponentWithTemplate {
+    onInit() {}
+}
+class FooterComponent extends ComponentWithTemplate {
+    afterInit() {}
+}
+class HOC extends HigherOrderComponent {
+    render() {
+        throw new Error('Рендер невозможен');
+    }
+}
+</v-code>
+<v-code lang="js border" title="Функция">
+function renderComponent(component) {
+    console.log(component.render());
+}
+
+renderComponent(new HeaderComponent());
+renderComponent(new FooterComponent());
+// вызов невозможен
+// renderComponent(new HOC());
+</v-code>
+
+</template><template v-slot:last>
+<b>Нет</b>
+
+<v-code lang="js" title="Базовый класс">
+class Component {
+    render() {
+        return `&lt;div&gt;Component&lt;/div&gt;`
+    }
+}
+</v-code>
+<v-code lang="js" title="Наследники">
+class HeaderComponent extends Component {
+    onInit() {}
+}
+class FooterComponent extends Component {
+    afterInit() {}
+}
+class HOC extends Component {
+    // не должно быть реализации метода render
+    render() {
+        throw new Error('Рендер невозможен');
+    }
+}
+</v-code>
+<v-code lang="js" title="Функция">
+function renderComponent(component) {
+    console.log(component.render());
+}
+
+renderComponent(new HeaderComponent());
+renderComponent(new FooterComponent());
+// ошибка
+renderComponent(new HOC());
+</v-code>
+
+</template></v-two>
 </v-details>
 
 <!------------------------------------------------------------->
@@ -3096,16 +3241,90 @@ console.log(calc.sum());
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li><u-text-define>The Interface Segregation Principle</u-text-define> - Принцип разделения интерфейса</li>
+    <li>Классы-наследники не должны зависеть от методов базового класса, если они их не используют</li>
     <li>Разделение интерфейса на более мелкие части</li>
     <li>Абстракция (API или класс) должна быть сгруппирована в мелкие единицы и содержать только необходимые методы, давая возможность использовать только то, что необходимо. При необходимости разделить функциональность на несколько классов. При изменении методов интерфейса не должны меняться программные сущности, которые этот метод не используют</li>
-    <li>Программные сущности не должны зависеть от методов, которые они не используют</li>
 </ul>
 
-<v-details title="Пример">
-<v-code lang="js" title="">
-//
+<v-details title="<u-text-underline>Пример</u-text-underline>">
+<v-two><template v-slot:first>
+<b>Да</b>
+
+<v-code lang="js border" title="Базовый класс">
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+}
 </v-code>
+<v-code lang="js border" title="Объекты">
+const swimmer = {
+    swim() {
+        console.log(this.name+'умеет плавать')
+    }
+}
+const flier = {
+    fly() {
+        console.log(this.name+'умеет летать')
+    }
+}
+</v-code>
+<v-code lang="js border" title="Наследники">
+class Dog extends Animal {}
+class Eagle extends Animal {}
+
+Object.assign(Dog.prototype, swimmer);
+Object.assign(Eagle.prototype, flier);
+</v-code>
+<v-code lang="js border" title="Вызов методов">
+const dog = new Dog('Jack');
+dog.swim();
+// dog.fly();  // нет метода
+
+const eagle = new Eagle('Bobby');
+// eagle.swim(); // нет метода
+eagle.fly();
+</v-code>
+
+</template><template v-slot:last>
+<b>Нет</b>
+
+<v-code lang="js" title="Базовый класс">
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    swim() {
+        console.log(this.name+'умеет плавать')
+    }
+    fly() {
+        console.log(this.name+'умеет летать')
+    }
+}
+
+</v-code>
+<v-code lang="js" title="Наследники">
+class Dog extends Animal {
+    fly() { return null }
+}
+class Eagle extends Animal {
+    swim() { return null }
+}
+</v-code>
+<v-code lang="js" title="Вызов методов">
+const dog = new Dog('Jack');
+dog.swim(); // +
+dog.fly();  // -
+
+const eagle = new Eagle('Bobby');
+eagle.swim(); // -
+eagle.fly();  // +
+</v-code>
+
+</template></v-two>
 </v-details>
+
 
 <!------------------------------------------------------------->
 <h4>[D] DIP</h4>
@@ -3119,11 +3338,33 @@ console.log(calc.sum());
     <li>Решает, когда части зависят друг от друга. Когда появляются связи между двумя объектами, их нужно разделить</li>
 </ul>
 
-<v-details title="Пример">
-<v-code lang="js" title="">
-//
+
+<!-- Верхний уровень модулей не должен зависеть от абстракции нижнего уровня.
+Все уровни должны зависеть от абстракции, а не от конкретики
+Мы инверсируем зависимости
+ -->
+
+
+
+<v-details title="<u-text-underline>Пример</u-text-underline>">
+<v-two><template v-slot:first>
+<b>Да</b>
+
+<v-code lang="js border" title="">
+...
 </v-code>
+
+</template><template v-slot:last>
+<b>Нет</b>
+
+<v-code lang="js" title="">
+...
+</v-code>
+
+</template></v-two>
 </v-details>
+
+
 
 <v-code lang="bash" title="">
 Decoupling
