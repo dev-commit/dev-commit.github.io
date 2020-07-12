@@ -19,8 +19,11 @@
 </ul>
 
 <v-details title="Пример">
-<v-code lang="js" title="">
-// Класс по обоработки новости
+<v-two><template v-slot:first>
+<b>Да</b>
+
+<v-code lang="js border" title="">
+// Класс для обоработки новости
 class News {
     constructor(title, text) {
         this.title = title;
@@ -35,8 +38,10 @@ class News {
     // html() {}
     // json() {}
 }
+</v-code>
 
-// Класс по формированию новости в разных форматах
+<v-code lang="js border" title="">
+// Класс для формирования новости в разных форматах
 class NewsPrinter {
     constructor(news) {
         this.news = news;
@@ -57,7 +62,9 @@ class NewsPrinter {
         })
     }
 }
+</v-code>
 
+<v-code lang="js border" title="">
 const printer = new NewsPrinter(
     new News('Название новости', 'Описание новости')
 )
@@ -65,7 +72,59 @@ const printer = new NewsPrinter(
 console.log(printer.html());
 console.log(printer.json());
 </v-code>
+
+</template><template v-slot:last>
+<b>Нет</b>
+
+<v-code lang="js" title="">
+// Класс для обоработки новости
+class News {
+    constructor(title, text) {
+        this.title = title;
+        this.text = text;
+        this.modified = false;
+    }
+    update(text) {
+        this.text = text;
+        this.modified = true;
+    }
+
+    // Разные форматы новости
+    html() {
+        return `
+            &lt;div&gt;
+                &lt;h1&gt;${this.title}&lt;/h1&gt;
+                &lt;h1&gt;${this.text}&lt;/h1&gt;
+            &lt;/div&gt;
+        `
+    }
+    json() {
+        return JSON.stringify({
+            title: this.title,
+            text: this.text,
+            modified: this.modified
+        })
+    }
+}
+</v-code>
+
+<v-code lang="js" title="">
+const news = new News(
+    'Название новости',
+    'Описание новости'
+);
+
+console.log(news.html());
+console.log(news.json());
+</v-code>
+
+</template></v-two>
 </v-details>
+
+
+
+
+
 
 <!------------------------------------------------------------->
 <h4>[O] OCP</h4>
@@ -75,19 +134,124 @@ console.log(printer.json());
     <li>Программные сущности (классы, модули, функции и т.д.) должны быть открыты для расширения, но закрыты для модификации</li>
     <li>От класса можно наследоваться и расширить его функциональность, но нет прямой возможности менять функциональность базового класса</li>
     <li>Неважно сколько добавили свойств объекту, код будет работать</li>
+    <li>Если привносим что-то новое, то не меняем старый код</li>
 </ul>
 
 <v-details title="Пример">
-<v-code lang="js" title="">
-//
+
+<v-two><template v-slot:first>
+
+<b>Да</b>
+
+<v-code lang="js border" title="Базовый класс">
+class Shape {
+    area() {
+        //
+    }
+}
 </v-code>
+
+<v-code lang="js border" title="Наследники">
+class Square extends Shape {
+    constructor(size) {
+        super();
+        this.size = size;
+    }
+    area() {
+        return this.size ** 2;
+    }
+}
+
+class Circle extends Shape {
+    constructor(radius) {
+        super();
+        this.radius = radius;
+    }
+    area() {
+        return (this.radius * 2) * Math.PI;
+    }
+}
+</v-code>
+
+<ul class="list-point">
+    <li>Класс AreaCalculator открыли для расширений и закрыли для модификаций - метод sum сделан 1 раз и больше к нему не возвращаемся</li>
+</ul>
+
+<v-code lang="js border" title="Класс для калькуляции">
+class AreaCalculator {
+    constructor(shapes = []) {
+        this.shapes = shapes;
+    }
+    sum() {
+        return this.shapes.reduce((acc, shape) => {
+            acc += shape.area();
+            return acc;
+        }, 0)
+    }
+}
+
+const calc = new AreaCalculator([
+    new Square(10),
+    new Circle(1)
+]);
+
+console.log(calc.sum());
+</v-code>
+
+</template><template v-slot:last>
+<b>Нет</b>
+
+<v-code lang="js" title="Наследники">
+class Square {
+    constructor(size) {
+        this.type = 'square';
+        this.size = size;
+    }
+}
+
+class Circle {
+    constructor(radius) {
+        this.type = 'circle';
+        this.radius = radius;
+    }
+}
+</v-code>
+
+<v-code lang="js" title="Класс для калькуляции">
+class AreaCalculator {
+    constructor(shapes = []) {
+        this.shapes = shapes;
+    }
+
+    sum() {
+        return this.shapes.reduce((acc, shape) => {
+            if (shape.type === 'circle') {
+                acc += (shape.radius * 2) * Math.PI
+            } else if (shape.type === 'square') {
+                acc += shape.size ** 2
+            }
+
+            return acc;
+        }, 0)
+    }
+}
+
+const calc = new AreaCalculator([
+    new Square(10),
+    new Circle(1)
+]);
+
+console.log(calc.sum());
+</v-code>
+
+</template></v-two>
 </v-details>
 
 <!------------------------------------------------------------->
 <h4>[L] LSP</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-    <li><u-text-define>The Liskov Substitution Principle</u-text-define> - Принцип подстановки Барбары Лисков</li>
+    <li><u-text-define>The Liskov Substitution Principle</u-text-define> - Принцип подстановки Барбары Лиско́в</li>
     <li>Если гарантируется функциональность для базового класса, то гарантируется функциональность для всех его потомков (поведение программы не изменится)</li>
     <li>Поведение в методах-наследниках менять нельзя</li>
     <li>Наследующий класс должен дополнять, а не изменять базовый и не должен противоречить поведению, заданному базовым классом</li>
