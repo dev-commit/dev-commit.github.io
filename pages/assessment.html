@@ -3331,40 +3331,121 @@ eagle.fly();  // +
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li><u-text-define>The Dependency Inversion Principle</u-text-define> - Принцип инверсии зависимостей</li>
+    <li>Верхний уровень модулей не должен зависеть от абстракции нижнего уровня. Все уровни должны зависеть от абстракции, а не от конкретики. Мы инверсируем зависимости</li>
     <li>Зависимость кода должна строиться от абстракции, а не от класса</li>
     <li>Модули верхних уровней не должны зависеть от модулей нижних уровней. Оба типа модулей должны зависеть от абстракций</li>
     <li>Абстракции не должны зависеть от деталей. Детали должны зависеть от абстракций</li>
     <li>Зависимость на Абстракциях. Нет зависимости на что-то конкретное</li>
     <li>Решает, когда части зависят друг от друга. Когда появляются связи между двумя объектами, их нужно разделить</li>
+    <li>Использует Angular в своём ядре</li>
 </ul>
-
-
-<!-- Верхний уровень модулей не должен зависеть от абстракции нижнего уровня.
-Все уровни должны зависеть от абстракции, а не от конкретики
-Мы инверсируем зависимости
- -->
-
-
 
 <v-details title="<u-text-underline>Пример</u-text-underline>">
 <v-two><template v-slot:first>
 <b>Да</b>
 
+<ul class="list-point">
+    <li>Создать новый класс, который будет являться интерфейсом для взаимодействия между сущностями</li>
+    <li><u>class Database</u> не зависит от абстракций низшего уровня, она зависит только от тех абстракций, который передали в класс</li>
+    <li>Изменили порядок зависимостей и сделали код масштабируемым</li>
+</ul>
+
+<v-code lang="js border" title="Базовые классы">
+class Fetch {
+    request(url) {
+        return Promise.resolve('data from fetch');
+    }
+}
+class LocalStorage {
+    get() {
+        const data = 'data from local storage';
+        return data;
+    }
+}
+</v-code>
+<v-code lang="js border" title="Оболочки">
+// Оболочка для Fetch
+class FetchClient {
+    constructor() {
+        this.fetch = new Fetch();
+    }
+
+    clientGet(key) {
+        return this.fetch.request(key);
+    }
+}
+
+// Оболочка для LocalStorage
+class LocalStorageClient {
+    constructor() {
+        this.localStorage = new LocalStorage();
+    }
+
+    clientGet(key) {
+        return this.localStorage.get(key);
+    }
+}
+</v-code>
 <v-code lang="js border" title="">
-...
+class Database {
+    constructor(client) {
+        this.client = client;
+    }
+
+    getData(key) {
+        return this.client.clientGet(key);
+    }
+}
+
+// работает с FetchClient() если нужно
+const db = new Database(new FetchClient());
+// или работаем с LocalStorageClient() если нужно
+const db = new Database(new LocalStorageClient());
+
+console.log(db.getData('rand'));
 </v-code>
 
 </template><template v-slot:last>
 <b>Нет</b>
 
+<ul class="list-point">
+    <li>Изначально данные получались через <u>class Fetch</u></li>
+    <li>Потом данные необходимо брать из <u>class LocalStorage</u></li>
+    <li>При изменении места откуда берутся данные, необходимо менять <u>class Database</u></li>
+</ul>
+
+<v-code lang="js" title="Базовые классы">
+class Fetch {
+    request(url) {
+        return Promise.resolve('data from fetch');
+    }
+}
+class LocalStorage {
+    get() {
+        const data = 'data from local storage';
+        return data;
+    }
+}
+</v-code>
 <v-code lang="js" title="">
-...
+class Database {
+    constructor() {
+        // this.fetch = new Fetch();
+        this.localStorage = new LocalStorage();
+    }
+
+    getDate() {
+        // return this.fetch.request('vk.com');
+        return this.localStorage.get('ls key');
+    }
+}
+
+const db = new Database();
+console.log(db.getData());
 </v-code>
 
 </template></v-two>
 </v-details>
-
-
 
 <v-code lang="bash" title="">
 Decoupling
@@ -3384,6 +3465,7 @@ Decoupling
     <li><u>Ненужные повторения</u> - проблема дублирования кода</li>
     <li><u>Непрозрачность</u> - трудность кода для понимания</li>
 </ul>
+
 </div><div id="main-info"><h2>Паттерны проектирования</h2>
 
 <u-link-wrapper>

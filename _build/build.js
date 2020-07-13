@@ -1459,9 +1459,9 @@ var arrCypress = [
 // 47
 
 const ARR_THEMES = [
-    { title: 'Ассессмент',                page: 'assessment',             arr: arrAssessment      },
+    // { title: 'Ассессмент',                page: 'assessment',             arr: arrAssessment      },
 
-    { title: 'Теория',                    page: 'theory',                 arr: arrTheory          },
+    // { title: 'Теория',                    page: 'theory',                 arr: arrTheory          },
     // { title: 'Паттерны',                  page: 'theory-patterns',        arr: arrDesignPatterns  },
     // { title: 'Парадигмы',                 page: 'theory-paradigms',       arr: arrParadigms       },
     // { title: 'Алгоритмы',                 page: 'theory-algoritms',       arr: arrAlgoritms       },
