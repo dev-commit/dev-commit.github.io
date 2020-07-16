@@ -139,15 +139,15 @@ array.reduceRight(function(previousValue, currentValue, index, array) {
 
 <v-code lang="js" title="">
 // сумма элементов массива
-const arr = [1, 2, 3, 4, 5]
+const arr = [1, 2, 3, 4, 5];
 
 // для каждого элемента массива запустить функцию,
 // промежуточный результат передавать первым аргументом далее
-const result = arr.reduce(function(sum, current) {
-  return sum + current
+const result = arr.reduce((sum, current) => {
+  return sum + current;
 });
 
-alert(result); // 15
+console.log(result); // 15
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -180,10 +180,11 @@ alert(result); // 15
 <v-code lang="js" title="">
 // Выбор положительных элементов массива
 const arr = [1, -1, 2, -2, 3];
-const result = arr.filter(function(number) {
+const result = arr.filter(number => {
 	return number > 0;
 });
-alert(result); // => 1,2,3
+
+console.log(result); // => [1, 2, 3]
 </v-code>
 
 <v-code lang="js" title="">
@@ -222,9 +223,11 @@ let result = arr.filter(item => item.<u-code>includes</u-code>('Tony')); // => [
 
 <v-code lang="js" title="">
 const arr = [1, -1, 2, -2, 3];
+
 function isPositive(number) {
   return number > 0;
 }
-alert( arr.every(isPositive) ); // false, не все положительные
-alert( arr.some(isPositive) );  // true, есть хоть одно положительное
+
+console.log( arr.every(isPositive) ); // false, не все положительные
+console.log( arr.some(isPositive) );  // true, есть хоть одно положительное
 </v-code>
