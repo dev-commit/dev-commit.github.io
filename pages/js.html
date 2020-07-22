@@ -1100,15 +1100,15 @@ array.reduceRight(function(previousValue, currentValue, index, array) {
 
 <v-code lang="js" title="">
 // сумма элементов массива
-const arr = [1, 2, 3, 4, 5]
+const arr = [1, 2, 3, 4, 5];
 
 // для каждого элемента массива запустить функцию,
 // промежуточный результат передавать первым аргументом далее
-const result = arr.reduce(function(sum, current) {
-  return sum + current
+const result = arr.reduce((sum, current) => {
+  return sum + current;
 });
 
-alert(result); // 15
+console.log(result); // 15
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -1141,10 +1141,11 @@ alert(result); // 15
 <v-code lang="js" title="">
 // Выбор положительных элементов массива
 const arr = [1, -1, 2, -2, 3];
-const result = arr.filter(function(number) {
+const result = arr.filter(number => {
 	return number > 0;
 });
-alert(result); // => 1,2,3
+
+console.log(result); // => [1, 2, 3]
 </v-code>
 
 <v-code lang="js" title="">
@@ -1183,11 +1184,13 @@ let result = arr.filter(item => item.<u-code>includes</u-code>('Tony')); // => [
 
 <v-code lang="js" title="">
 const arr = [1, -1, 2, -2, 3];
+
 function isPositive(number) {
   return number > 0;
 }
-alert( arr.every(isPositive) ); // false, не все положительные
-alert( arr.some(isPositive) );  // true, есть хоть одно положительное
+
+console.log( arr.every(isPositive) ); // false, не все положительные
+console.log( arr.some(isPositive) );  // true, есть хоть одно положительное
 </v-code>
 </div><div id="main-spread-array"><h2>Spread-оператор массивов (ES6)</h2>
 
@@ -3755,57 +3758,92 @@ user = null;
 </u-link-wrapper>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Expression Flags</h3>
+<h3>Выражения</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Expression Flag</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>//g</u-code-text> - global (все совпадения)</li>
+    <li><u-code-text>//i</u-code-text> - case insensitive (регистронезависимый поиск)</li>
+    <li><u-code-text>//m</u-code-text> - multiline</li>
+    <li><u-code-text>//u</u-code-text> - unicode</li>
+    <li><u-code-text>//y</u-code-text> - sticky</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Спецсимволы</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>[]</u-code-text> - класс символов</li>
+    <li><u-code-text>\</u-code-text> - для обычных символов - делает их специальными. Например, выражение /s/ ищет просто символ 's'. А если поставить \ перед s, то /\s/ уже обозначает пробельный символ. И наоборот, если символ специальный, например *, то \ сделает его просто обычным символом "звездочка". Например, /a*/ ищет 0 или больше подряд идущих символов 'a'. Чтобы найти а со звездочкой 'a*' - поставим \ перед спец. символом: /a\*/.</li>
+    <li><u-code-text></u-code-text> - </li>
+    <li><u-code-text></u-code-text> - </li>
+    <li><u-code-text></u-code-text> - </li>
+    <li><u-code-text></u-code-text> - </li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Примеры</h4>
+<!------------------------------------------------------------->
 <v-code lang="bash" title="">
-<em>//g</em>          # global (все совпадения)
-<em>//i</em>          # case insensitive (регистронезависимый поиск)
-<em>//m</em>          # multiline
-<em>//u</em>          # unicode
-<em>//y</em>          # sticky
+/[a-zA-Z]/g               # все буквы EN/RU - глобальный поиск
+/[a-zA-Zа-яА-Я.,-\d\s]/g  # все буквы EN/RU, символы '.,-', цифры 0-9, пустые символы
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Expressions</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+a-zA-Z               # строчные и заглавне буквы EN
+а-яА-Я               # строчные и заглавне буквы RU
 </v-code>
 
 <v-code lang="bash" title="">
-<em>[]</em>           # класс символов
-<em>/[a-zA-Z]/g</em>  # глобальный поиск
+0-9                  # символы от 0-9
+^0-9                 # символы кроме чисел от 0-9 
+\d                   # символы от 0-9
+\D                   # символы кроме чисел от 0-9
 </v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Expressions</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="bash" title="">
-<em>a-zA-Z</em>               # строчные и заглавне буквы
-<em>0-9</em>                  # символы от 0-9
-<em>^0-9</em>                 # символы кроме чисел от 0-9 
-<em>\d</em>                   # символы от 0-9
-<em>\D</em>                   # символы кроме чисел от 0-9
-<em>\w</em>                   # символы, являющиеся буквами или цифрами
-<em>\W</em>                   # символы, не являющиеся буквами или цифрами
-<em>\s</em>                   # пустые символы (пробелы, табуляция, перенос строк)
-<em>\S</em>                   # все не пустые символы
-<em>\bar\b</em>               # граница слова. только слово "bar"
-<em>\bar\B</em>               # не должно быть границы слова. только символы "bar" в слове
-<em>grey|gray</em>            # или
-<em>.</em>                    # любой символ кроме переноса строк
-<em>\.</em>                   # точка (экранированно /)
-<em>a.{5}z</em>               # между буквами "a" и "z" 5 любых символов
-<em>a.{2,5}z</em>             # между буквами "a" и "z" от 2-5 любых символов
-<em>a.{2,}z</em>              # между буквами "a" и "z" от 2 и более любых символов
-<em>a.+z</em>                 # между буквами "a" и "z" от 1 и более любых символов
-<em>a.*z</em>                 # между буквами "a" и "z" от 0 и более любых символов
-<em>^edit</em>                # начало строки (установить multiline)
-<em>\.$</em>                  # конец строки (установить multiline)
-<em>and(?= hi)</em>           # слова "and" после которых есть пробел и слово "hi"
-<em>and(?! hi)</em>           # слова "and" после которых нет пробела и слова "hi"
-<em>(\b\w+)@(\w+\.\w+\b)</em> # запоминающая группа. поиск email
+\w                   # символы, являющиеся буквами или цифрами
+\W                   # символы, не являющиеся буквами или цифрами
+</v-code>
+
+<v-code lang="bash" title="">
+\s                   # пустые символы (пробелы, табуляция, перенос строк)
+\S                   # все не пустые символы
+</v-code>
+
+<v-code lang="bash" title="">
+\bar\b               # граница слова. только слово "bar"
+\bar\B               # не должно быть границы слова. только символы "bar" в слове
+
+grey|gray            # или
+.                    # любой символ кроме переноса строк
+\.                   # точка (экранированно /)
+
+a.{5}z               # между буквами "a" и "z" 5 любых символов
+a.{2,5}z             # между буквами "a" и "z" от 2-5 любых символов
+a.{2,}z              # между буквами "a" и "z" от 2 и более любых символов
+a.+z                 # между буквами "a" и "z" от 1 и более любых символов
+a.*z                 # между буквами "a" и "z" от 0 и более любых символов
+
+^edit                # начало строки (установить multiline)
+\.$                  # конец строки (установить multiline)
+and(?= hi)           # слова "and" после которых есть пробел и слово "hi"
+and(?! hi)           # слова "and" после которых нет пробела и слова "hi"
+(\b\w+)@(\w+\.\w+\b) # запоминающая группа. поиск email
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Класс RegExp</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var pattern = new RegExp('\w+', 'g'); // конструктор
-var pattern = /\w+/g;                 // литерал
+const pattern = new RegExp('\w+', 'g'); // конструктор
+const pattern = /\w+/g;                 // литерал
 </v-code>
 
 <!------------------------------------------------------------->
@@ -3822,9 +3860,9 @@ pattern.lastIndex; // индекс последнего результата
 <h4>test() - проверка соответствия строки регулярному выражению (true/false)</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var text = "О дивный новый мир";
-var pattern = /новый/;
-var result = pattern.test(text); 
+const text = "О дивный новый мир";
+const pattern = /новый/;
+const result = pattern.test(text); 
 </v-code>
 
 <!------------------------------------------------------------->
@@ -3833,9 +3871,9 @@ var result = pattern.test(text);
 <v-code lang="js" title="">
 // если не установлен флаг global, результат аналогичен методу match
 // если установлен флаг global, получаем 1 первый match
-var text = "О дивный новый мир";
-var pattern = /новый/g;
-var result = pattern.exec(text); 
+const text = "О дивный новый мир";
+const pattern = /новый/g;
+const result = pattern.exec(text); 
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -3847,9 +3885,9 @@ var result = pattern.exec(text);
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 // игнорирует флаг global
-var text = "О дивный новый мир";
-var pattern = /мы/;
-var result = text.search(pattern); // 9
+const text = "О дивный новый мир";
+const pattern = /мы/;
+const result = text.search(pattern); // 9
 </v-code>
 
 <!------------------------------------------------------------->
@@ -3857,25 +3895,25 @@ var result = text.search(pattern); // 9
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 // не игнорирует флаг global
-var text = "О дивный новый мир";
-var pattern = /новый/;
-var result = text.match(pattern); // ["новый", index: 9, input: "О дивный новый мир", groups: undefined]
+const text = "О дивный новый мир";
+const pattern = /новый/;
+const result = text.match(pattern); // ["новый", index: 9, input: "О дивный новый мир", groups: undefined]
 </v-code>
 
 <!------------------------------------------------------------->
 <h4>split() - преобразование строки с заданным разделителем в массив </h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var pattern = /[\s,]+/;
-var result = text.split(pattern); // разделитель пробел
+const pattern = /[\s,]+/;
+const result = text.split(pattern); // разделитель пробел
 </v-code>
 
 <!------------------------------------------------------------->
 <h4>replace() - ищет совпадение и заменяет</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var text = 'привет мир';
-var pattern = /привет/;
+const text = 'привет мир';
+const pattern = /привет/;
 
 text = text.replace(pattern, function(match) {
     return match.toUpperCase();
