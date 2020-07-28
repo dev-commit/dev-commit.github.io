@@ -1122,7 +1122,7 @@ var arrCSS = [
     ['css', 'main', 'background',             setTheme(1, ['background'])],
     ['css', 'main', 'lists',                  setTheme(1, ['ul', 'ol'])],
     ['css', 'main', 'calc',                   setTheme(1, ['calc()'])],
-    ['css', 'main', 'scrollbar',              setTheme(1, ['::-webkit-scrollbar'])],
+    ['css', 'main', 'scrollbar',              setTheme(1, ['scrollbar'])],
 
     ['css', 'main', 'info',                   'Информация'],
     ['css', 'main', 'actions',                'События браузера'],
