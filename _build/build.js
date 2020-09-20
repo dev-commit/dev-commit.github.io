@@ -543,6 +543,7 @@ var arrGit = [
     ['git', 'usecase', 'squash-commit',     'Squash Commit'],
     ['git', 'usecase', 'resolve-conflists', 'Разрешение конфликтов merge'],
     ['git', 'usecase', 'reset-changes',     'Отмена изменений'],
+    ['git', 'usecase', 'other',             'Прочее'],
 
     [1, 'Команды Основные'],
     ['git', 'command',  'init',         setTheme(1, ['init'])],
