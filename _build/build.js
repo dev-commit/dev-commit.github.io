@@ -497,8 +497,8 @@ var arrBootstrap = [
 //---------------------------------------------------------------------
 var arrWebpack = [
     [1, 'Информация'],
-    ['webpack', 'main', 'info',      'Информация'],
-    ['webpack', 'main', 'structure', 'Структура'],
+    ['webpack', 'main', 'info',      emoji.theory+'Информация'],
+    ['webpack', 'main', 'structure', emoji.code+'Структура'],
     ['webpack', 'main', 'scripts',   'Скрипты'],
 
     [1, 'plugins'],
