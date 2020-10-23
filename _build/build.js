@@ -117,16 +117,13 @@ var arrReactjs = [
     [2, 'React.js-Остальное'],
     //--------------------------------------------------------------------
     [1, 'Прочее'],
-    ['react-js', 'other', 'samples',       'Примеры'],
+    ['react-js', 'other',  'react-developer-tools', 'React Developer Tools'],
+    ['react-js', 'other',  'samples',               'Примеры'],
 
     [1, 'React Plugins'],
     ['react-js', 'react-plugins', 'create-react-app',      setTheme(2, ['react', 'react-dom', 'create-react-app'])],
     ['react-js', 'react-plugins', 'prop-types',            setTheme(2, ['prop-types'])],
     ['react-js', 'react-plugins', 'formik',                setTheme(2, ['formik'])],
-
-    [1, 'Тестирование'],
-    ['react-js', 'testing', 'react-developer-tools',       'React Developer Tools'],
-    ['react-js', 'testing', 'redux-developer-tools',       'Redux DevTools'],
 ];
 
 
@@ -182,20 +179,20 @@ var arrReactHooks = [
 // REDUX
 //---------------------------------------------------------------------
 var arrRedux = [
-    [1, 'Код'],
-    ['redux', 'code', 'elements',          emoji.fire+'Элементы'],
-    ['redux', 'code', 'react-redux',       emoji.code+'React-Redux'],
-    ['redux', 'code', 'redux',             emoji.code+'Redux'],
-    ['redux', 'code', 'create-store',      emoji.pizza+setTheme(1, ['createStore'])+' <u>redux</u>'],
-    ['redux', 'code', 'combine-reducers',  emoji.pizza+setTheme(1, ['combineReducers'])+' <u>redux</u>'],
-    ['redux', 'code', 'provider',          emoji.pizza+setTheme(1, ['Provider'])+' <u>react-redux</u>'],
-    ['redux', 'code', 'connect',           emoji.pizza+setTheme(1, ['connect'])+' <u>react-redux</u>'],
-    ['redux', 'code', 'apply-middleware',  emoji.pizza+setTheme(1, ['applyMiddleware'])+' <u>redux</u>'],
+    [1, 'React Redux'],
+    ['redux', 'react-redux', 'elements',          emoji.fire+'Элементы'],
+    ['redux', 'react-redux', 'react-redux',       emoji.code+'React-Redux'],
+    ['redux', 'react-redux', 'create-store',      emoji.pizza+setTheme(1, ['createStore'])+' <u>redux</u>'],
+    ['redux', 'react-redux', 'combine-reducers',  emoji.pizza+setTheme(1, ['combineReducers'])+' <u>redux</u>'],
+    ['redux', 'react-redux', 'provider',          emoji.pizza+setTheme(1, ['Provider'])+' <u>react-redux</u>'],
+    ['redux', 'react-redux', 'connect',           emoji.pizza+setTheme(1, ['connect'])+' <u>react-redux</u>'],
+    ['redux', 'react-redux', 'apply-middleware',  emoji.pizza+setTheme(1, ['applyMiddleware'])+' <u>redux</u>'],
 
-    [1, 'Информация'],
-    ['redux', 'main', 'info-flux',              emoji.theory+'Flux'],
-    ['redux', 'main', 'info',                   emoji.theory+'Redux'],
-    ['redux', 'main', 'functional-programming', emoji.theory+'Принципы FP'],
+    [1, 'Flux и Redux'],
+    ['redux', 'redux', 'redux',                  emoji.code + 'Redux'],
+    ['redux', 'redux', 'info-flux',              emoji.theory+'Flux'],
+    ['redux', 'redux', 'info-redux',             emoji.theory+'Redux'],
+    ['redux', 'redux', 'functional-programming', emoji.theory+'Принципы FP'],
 
     [1, 'Redux Plugins'],
     ['redux', 'plugins', 'redux-thunk',    setTheme(2, ['redux-thunk'])+'<br>'+setTheme(2, ['redux-devtools-extension'])],
@@ -203,6 +200,9 @@ var arrRedux = [
     ['redux', 'plugins', 'redux-actions',  setTheme(2, ['redux-actions'])],
     ['redux', 'plugins', 'redux-saga',     setTheme(2, ['redux-saga'])],
     ['redux', 'plugins', 'redux-logger',   setTheme(2, ['redux-logger'])],
+
+    [1, 'Прочее'],
+    ['redux', 'other', 'redux-developer-tools', 'Redux DevTools'],
 ];
 
 
@@ -1480,7 +1480,7 @@ const ARR_THEMES = [
     // { title: 'React API',                 page: 'react-api',              arr: arrReactApi        },
     // { title: 'React Hooks',               page: 'react-hooks',            arr: arrReactHooks      },
     // { title: 'React Router',              page: 'react-router',           arr: arrReactRouter     },
-    // { title: 'Redux',                     page: 'redux',                  arr: arrRedux           },
+    { title: 'Redux',                     page: 'redux',                  arr: arrRedux           },
     // { title: 'Vue.js',                    page: 'vue-js',                 arr: arrVuejs           },
 
     // { title: 'HTML',                      page: 'html',                   arr: arrHTML            },
