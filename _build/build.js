@@ -466,7 +466,6 @@ var arrJsObjects = [
     ['js-objects', 'class-es6', 'expression',       'Выражения классов'],
 
     [1, 'Классы ES5 «Функциональный стиль»'],
-    ['js-objects', 'class-es5-functional', 'info',                emoji.theory+'Теория'],
     ['js-objects', 'class-es5-functional', 'create',              emoji.pizza+'Объявление'],
     ['js-objects', 'class-es5-functional', 'methods-private',     emoji.pizza+'Приватный метод'],
     ['js-objects', 'class-es5-functional', 'getters-and-setters', emoji.pizza+'Геттеры и сеттеры'],
