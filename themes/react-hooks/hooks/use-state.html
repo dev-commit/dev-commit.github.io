@@ -1,81 +1,219 @@
 <h2>Хук состояния useState</h2>
 
-<v-code lang="js border" title="useState">
-import React, { useState } from 'react';
-
-const [show, setShow] = useState(false);
-setShow(true);
-</v-code>
-
 <div class="v-method-wrapper">
     <v-method before="" method="useState" after="" arg="(startState)">
     для использования внутреннего состояния в функциональном компоненте. React будет хранить это состояние между рендерами
     </v-method>
-
 	<v-method-arg arg="startState">начальное состояние. Используется только при первом рендере</v-method-arg>
-
 	<v-method-return>[currentState, setStateFunction] - возвращает текущее значение состояния и функцию для его обновления</v-method-return>
 </div>
 
+<v-code lang="js border" title="useState">
+import React, { useState } from 'react';
+
+const [counter, setCounter] = useState(0);
+setCounter(1);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Базовый</h4>
+<!------------------------------------------------------------->
 <ul class="list-point">
-    <b>Отличия</b> <u-code-text>useState()</u-code-text> от  <u-code-text>this.setState</u-code-text>
-    <li>Не сливает новое и старое состояние вместе</li>
-    <li>Состояние может быть объектом</li>
+    <li><u-code-text>counter</u-code-text> - текущее состоение</li>
+    <li><u-code-text>setCount(1)</u-code-text> - функция для изменения состояния</li>
+    <li><u-code-text>useState(0)</u-code-text> - начальное состоние "0"</li>
 </ul>
 
 <v-code lang="js" title="Счетчик">
-import React, { <u-code>useState</u-code> } from 'react';
+const App = () => {
+	<u-code>const [counter, setCounter] = useState(0);</u-code>
 
-function Example() {
-
-	// Объявляем новую переменную состояния "count"
-	// useState(0) - начальное состоние "0", так как счётчик начинается с нуля
-	<u-code>const [count, setCount] = useState(0);</u-code>
+	const increment = () => {
+		<u-code>setCounter</u-code>(counter + 1)
+	}
 
 	return (
 		&lt;div&gt;
-			&lt;p&gt;Вы нажали {count} раз&lt;/p&gt;
-			&lt;button onClick={() =&gt; <u-code>setCount</u-code>(count + 1)}&gt;
-				Нажми на меня
-			&lt;/button&gt;
+			{counter}
+			&lt;button onClick={increment}&gt;Increment&lt;/button&gt;
 		&lt;/div&gt;
 	);
 }
 </v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Объявление нескольких переменных состояния</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>2. Функция-коллбэк в setCounter()</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u-text-underline>Хук работает асинхронно</u-text-underline></li>
+	<li>Должен произойти цикл рендеринга, чтобы counter изменился</li>
+</ul>
+
+<v-code lang="js border" title="">
+const [counter, setCounter] = useState(0);
+
+setCounter(prevCounter => {
+	// Если нужно точно основываться на предыдущем состоянии
+	// Вернет текущее значение "counter"
+	return prevCounter + 1
+})
+
+// setCounter(prevCounter => prevCounter + 1)
+</v-code>
+
 <v-code lang="js" title="">
-// Хук состояния можно использовать в компоненте более одного раза
-function ExampleWithManyStates() {
-	const [age, setAge] = <u-code>useState</u-code>(42);
-	const [fruit, setFruit] = <u-code>useState</u-code>('банан');
-	const [todos, setTodos] = <u-code>useState</u-code>([{ text: 'Изучить хуки' }]);
+const [counter, setCounter] = useState(0);
+
+const increment = () => {
+	setCounter(1);
+	setCounter(2);
+	setCounter(3); // Установится последнее значение
 }
 </v-code>
 
+<v-two-code type="js;js" comment="Неверно;Верно">
+<template v-slot:first>
+setCounter(counter + 1)
+setCounter(counter + 1) // counter остался прежним
+</template>
+<template v-slot:last>
+setCounter(prevCounter => {
+	return prevCounter + 1
+})
+setCounter(prevCounter => {
+	return prevCounter + 1
+})
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>3. State с объектами</h4>
+<!------------------------------------------------------------->
+<v-code lang="js border" title="">
+setCounter(prev => {
+	return {
+		...prev,
+		title: 'Новое значение'
+	}
+})
+</v-code>
+
+<v-code lang="js" title="">
+const [counter, setCounter] = useState({
+	title: 'Счетчик',
+	data: Date.now()
+})
+</v-code>
+
 <ul class="list-point">
-    <li>Синтаксис деструктуризации массивов позволяет нам по разному называть переменные состояния, которые мы объявляем при вызове <u-code-text>useState</u-code-text>. Так как имён этих переменных нет в <u-code-text>API useState</u-code-text>, React предполагает, что если вы вызываете <u-code-text>useState</u-code-text> много раз, вы делаете это в одинаковой последовательности при каждом рендере</li>
+	<li>Если передаем новый объект, то он полностью перезатирает состояние</li>
+	<li>В отличие от классового компонента, он не совмещается с существующим</li>
 </ul>
 
+<v-two-code type="js;js" comment="Неверно;Верно">
+<template v-slot:first>
+// Перезатрет "date"
+setCounter({ title: 'Новое значение' })
+</template>
+<template v-slot:last>
+setCounter(prev => {
+	return {
+		...prev,
+		title: 'Новое значение'
+	}
+})
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>4. Функция-коллбэк в useState(). Вычисление начального состояния</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const calc = () => {
+	console.log('Some calculations');
+}
+</v-code>
+
+<v-two-code type="js;js" comment="Неверно;Верно">
+<template v-slot:first>
+const App = () => {
+	// calc() вызывается 2 раза при начальном рендеринге
+	// calc() вызывается 2 раза при каждом обновлении state
+	// т.к. при изменении state заново рендерится компонент
+	const [count, setCount] = useState(calc());
+}
+
+</template>
+<template v-slot:last>
+const App = () => {
+	// оптимизация
+	// 1 раз вычислит значение и больше не будет вызываться 
+	// calc() вызывается 2 раза при начальном рендеринге
+	// calc() не вызывается при каждом обновлении state
+<u-code-wrapper>
+	const [count, setCount] = useState(() => {
+		return calc()
+	});
+
+</u-code-wrapper>
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>5. Объявление нескольких переменных состояния</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Хук состояния можно использовать в компоненте более одного раза</li>
+	<li>Синтаксис деструктуризации массивов позволяет по разному называть переменные состояния, которые объявляем при вызове <u-code-text>useState</u-code-text>. Так как имён этих переменных нет в <u-code-text>API useState</u-code-text>, React предполагает, что если вы вызываете <u-code-text>useState</u-code-text> много раз, вы делаете это в одинаковой последовательности при каждом рендере</li>
+</ul>
+
+<v-code lang="js" title="">
+const App = () => {
+	const [age, setAge] = useState(42);
+	const [fruit, setFruit] = useState('Банан');
+}
+</v-code>
+
+
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Передача функции в второй аргумент</h3>
+<h3>Сравнение <u-code-text>useState()</u-code-text> и <u-code-text>this.setState</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <b>Отличия</b>
+    <li>Не сливает новое и старое состояние вместе</li>
+    <li>Состояние может быть объектом</li>
+</ul>
+
+<v-code lang="js" title="">
+// изменение состояния перерисовывает компонент
+1. this.setState({ a: 1 }) -> this.render()
+2. useState()
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Особенности</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-const [comments, setComments] = useState([]);
-setComments(a => {
-	// вернет текущее значение 'comments'
-	console.log(a);
-});
+// Не работает
+if (true) {
+	const [counter, setCounter] = useState(0);
+}
 </v-code>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Переписывание на Хуки</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-two-code type="js;js" comment="prevState;useState">
 <template v-slot:first>
-class MyComponent extends Component {
+class App extends Component {
 	state = {
 		open: false,
 	}
@@ -87,7 +225,7 @@ class MyComponent extends Component {
 }
 </template>
 <template v-slot:last>
-const MyComponent = () => {
+const App = () => {
 	const [open, setOpen] = useState(false);
 	const handleOpenModal = () => {
 		setOpen(!open);
@@ -98,14 +236,14 @@ const MyComponent = () => {
 
 <v-two-code type="js;js" comment="Callback;useState">
 <template v-slot:first>
-const foo = isContract => {
+const App = isContract => {
 	this.setState(() => ({
 		signed: isContract,
 	}), () => this.props.handleChange());
 };
 </template>
 <template v-slot:last>
-const foo = isContract => {
+const App = isContract => {
 	setSigned(isContract);
 	handleChange();
 }
@@ -114,7 +252,7 @@ const foo = isContract => {
 
 <v-two-code type="js;js" comment="Callback;useState, useEffect">
 <template v-slot:first>
-class MyComponent extends Component {
+class App extends Component {
 	state = {
 		comment: null,
 	}
@@ -126,7 +264,7 @@ class MyComponent extends Component {
 }
 </template>
 <template v-slot:last>
-const MyComponent = () => {
+const App = () => {
 	const [comment, setComment] = useState();
 	const setCommentSubject = (fio) => {
 		setComment(fio);
