@@ -20,7 +20,7 @@ class App extends Component {
 		return (
 			&lt;div&gt;
 				&lt;input type="text" <u-code>ref={this.input}</u-code> /&gt;
-				&lt;button onClick={this.handleClick}&gt;Кнопка&lt;/button&gt;
+				&lt;button onClick={this.handleClick}&gt;Ok&lt;/button&gt;
 			&lt;/div&gt;
 		);
 	}
@@ -30,16 +30,16 @@ class App extends Component {
 import { useRef } from 'react';
 
 const App = () =&gt; {
-    const inputRef = useRef(null)
+    const inputRef = <u-code>useRef(null)</u-code>;
 
     const handleClick = () =&gt; {
-        alert(inputRef.current.value);
+        alert(<u-code>inputRef.current.value</u-code>);
     }
 
     return (
         &lt;div&gt;
-            &lt;input type="text" ref={inputRef} /&gt;
-            &lt;button onClick={handleClick}&gt;Кнопка&lt;/button&gt;
+            &lt;input type="text" <u-code>ref={inputRef}</u-code> /&gt;
+            &lt;button onClick={handleClick}&gt;Ok&lt;/button&gt;
         &lt;/div&gt;
     )
 }
