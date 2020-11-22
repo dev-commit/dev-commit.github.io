@@ -6,7 +6,8 @@
     <li>Неуправляемые компоненты опираются на DOM в качестве источника данных и могут быть удобны при интеграции React с кодом, не связанным с React. Количество кода может уменьшиться, правда, за счёт потери в его чистоте. Поэтому в обычных ситуациях рекомендуется использовать управляемые компоненты</li>
 </ul>
 
-<v-code lang="js" title="">
+<v-two-code type="js;js" comment="createRef (класс);useRef (функция)">
+<template v-slot:first>
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -24,7 +25,27 @@ class App extends Component {
 		);
 	}
 }
-</v-code>
+</template>
+<template v-slot:last>
+import { useRef } from 'react';
+
+const App = () =&gt; {
+    const inputRef = useRef(null)
+
+    const handleClick = () =&gt; {
+        alert(inputRef.current.value);
+    }
+
+    return (
+        &lt;div&gt;
+            &lt;input type="text" ref={inputRef} /&gt;
+            &lt;button onClick={handleClick}&gt;Кнопка&lt;/button&gt;
+        &lt;/div&gt;
+    )
+}
+</template>
+</v-two-code>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Значения по умолчанию</h3>

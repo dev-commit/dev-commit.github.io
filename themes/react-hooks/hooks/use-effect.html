@@ -1,11 +1,20 @@
 <h2>Хук эффекта useEffect</h2>
 
+<div class="v-method-wrapper">
+    <v-method before="" method="useState" after="" arg="(startState)">
+    необходим для выполнения Side Effects (побочных эффектов)
+    </v-method>
+	<v-method-arg arg="effect">коллбэк</v-method-arg>
+	<v-method-arg arg="deps">dependencies - массив, с указанием от чего зависит useEffect</v-method-arg>
+</div>
+
 <v-code lang="js border" title="">
 import React, { useEffect } from 'react';
 </v-code>
 
 <v-code lang="js border" title="">
 // <b><u-code-text>componentDidMount</u-code-text> и <u-code-text>componentDidUpdate</u-code-text></b>
+// Отсделить каждый рендеринг компонента. Выполняется после каждого рендера и обновления
 useEffect(() => {
 	document.title = 'Заголовок';
 });
@@ -132,6 +141,10 @@ static getDerivedStateFromProps(nextProps, prevState) {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Теория</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Побочные эффекты</u-text-define> - операции, которые могут влиять на работу других компонентов и их нельзя выполнить во время рендера. Н-р: запрашивать данные, делать подписки или вручную менять DOM из React-компонента</li>
+</ul>
+
 <!------------------------------------------------------------->
 <h4>Виды эффектов</h4>
 <!------------------------------------------------------------->
@@ -140,19 +153,13 @@ static getDerivedStateFromProps(nextProps, prevState) {
     <li><b>2. Эффекты со сбросом</b>. Например, может потребоваться установить подписку на какой-нибудь внешний источник данных</li>
 </ul>
 
+<!------------------------------------------------------------->
+<h4>Теория</h4>
+<!------------------------------------------------------------->
 <ul class="list-point">
-	<li>По умолчанию useEffect выполняется после каждого рендера и обновления</li>
 	<li>Если эффект возвращает функцию, React выполнит её, когда придет время для очистки. Функция указывает эффекту, как выполнить «сброс». React производит очистку, когда компонент демонтируется</li>
     <li>Каждый раз, когда компонент перерисовывается, мы планируем новый эффект, заменяя предыдущий</li>
     <li>В отличие от componentDidMount или componentDidUpdate, эффекты, запланированные с помощью useEffect, не блокируют браузер, чтобы обновить экран</li>
-</ul>
-
-<hr>
-
-<ul class="list-point">
-    <li><u-text-define>Побочные эффекты / Эффекты</u-text-define> - операции, которые могут влиять на работу других компонентов и их нельзя выполнить во время рендера. Н-р: запрашивать данные, делать подписки или вручную менять DOM из React-компонента</li>
-    <li>С помощью хука эффекта <u-text-define>useEffect</u-text-define> можно выполнять побочные эффекты из функционального компонента. Он выполняет ту же роль, что и <u-code-text>componentDidMount</u-code-text>, <u-code-text>componentDidUpdate</u-code-text> и <u-code-text>componentWillUnmount</u-code-text> в React-классах, объединив их в единый API</li>
-    <li>Можно использовать более одного эффекта в компоненте</li>
 </ul>
 
 <hr>

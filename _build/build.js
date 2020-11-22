@@ -152,8 +152,8 @@ var arrReactHooks = [
     [1, 'Хуки'],
     ['react-hooks', 'hooks', 'use-state',             emoji.fire+setTheme(4, ['useState'])],
     ['react-hooks', 'hooks', 'use-effect',            emoji.fire+setTheme(4, ['useEffect'])],
-    ['react-hooks', 'hooks', 'use-context',           emoji.fire+setTheme(4, ['useContext'])],
     ['react-hooks', 'hooks', 'use-ref',               emoji.fire+setTheme(4, ['useRef'])],
+    ['react-hooks', 'hooks', 'use-context',           emoji.fire+setTheme(4, ['useContext'])],
     ['react-hooks', 'hooks', 'use-memo',              emoji.fire+setTheme(4, ['useMemo'])],
     ['react-hooks', 'hooks', 'use-callback',          emoji.fire+setTheme(4, ['useCallback'])],
     ['react-hooks', 'hooks', 'use-reducer',           emoji.fire+setTheme(4, ['useReducer'])],
@@ -1468,7 +1468,7 @@ const ARR_THEMES = [
     // { title: 'JavaScript: Клиент-сервер', page: 'js-client-server',       arr: arrJsClientServer  },
     // { title: 'JavaScript: Задачи',        page: 'js-tasks',               arr: arrJsTasks         },
 
-    // { title: 'React.js',                  page: 'react-js',               arr: arrReactjs         },
+    { title: 'React.js',                  page: 'react-js',               arr: arrReactjs         },
     // { title: 'React API',                 page: 'react-api',              arr: arrReactApi        },
     { title: 'React Hooks',               page: 'react-hooks',            arr: arrReactHooks      },
     // { title: 'React Router',              page: 'react-router',           arr: arrReactRouter     },
