@@ -1,11 +1,4 @@
 
-//---------------------------------------------------------------------
-// DEMO
-//---------------------------------------------------------------------
-var arrSingle = [
-    ['js-client-server', 'hacking', 'xss',            'XSS'],
-];
-
 
 //---------------------------------------------------------------------
 // ASSESSMENT
@@ -1456,7 +1449,7 @@ var arrCypress = [
     ['cypress', 'guides',  'network-requests', emoji.favorite+'Network Requests'],
 ];
 
-// 47
+// 46
 
 const ARR_THEMES = [
     // { title: 'Ассессмент',                page: 'assessment',             arr: arrAssessment      },
@@ -1511,8 +1504,6 @@ const ARR_THEMES = [
     // { title: 'PHP',                       page: 'php',                    arr: arrPhp             },
     // { title: 'mySQL',                     page: 'mysql',                  arr: arrMySql           },
     // { title: 'Python',                    page: 'python',                 arr: arrPython          },
-
-    // { title: 'Тестовый',                  page: '_single',                arr: arrSingle          },
 ];
 
 ARR_THEMES.forEach((item) => {
