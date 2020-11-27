@@ -155,12 +155,13 @@ var arrReactHooks = [
     ['react-hooks', 'hooks', 'use-ref',               emoji.fire+setTheme(4, ['useRef'])],
     ['react-hooks', 'hooks', 'use-memo',              emoji.fire+setTheme(4, ['useMemo'])],
 
-    ['react-hooks', 'hooks', 'use-context',           emoji.code+setTheme(4, ['useContext'])],
-    ['react-hooks', 'hooks', 'use-callback',          emoji.code+setTheme(4, ['useCallback'])],
-    ['react-hooks', 'hooks', 'use-reducer',           emoji.code+setTheme(4, ['useReducer'])],
-    ['react-hooks', 'hooks', 'use-imperative-handle', emoji.code+setTheme(4, ['useImperativeHandle'])],
-    ['react-hooks', 'hooks', 'use-layout-effect',     emoji.code+setTheme(4, ['useLayoutEffect'])],
-    ['react-hooks', 'hooks', 'use-debug-value',       emoji.code+setTheme(4, ['useDebugValue'])],
+    ['react-hooks', 'hooks', 'use-callback',          emoji.lemon+setTheme(4, ['useCallback'])],
+    ['react-hooks', 'hooks', 'use-context',           emoji.lemon+setTheme(4, ['useContext'])],
+    ['react-hooks', 'hooks', 'use-reducer',           emoji.lemon+setTheme(4, ['useReducer'])],
+
+    ['react-hooks', 'hooks', 'use-imperative-handle', emoji.baseball+setTheme(4, ['useImperativeHandle'])],
+    ['react-hooks', 'hooks', 'use-layout-effect',     emoji.baseball+setTheme(4, ['useLayoutEffect'])],
+    ['react-hooks', 'hooks', 'use-debug-value',       emoji.baseball+setTheme(4, ['useDebugValue'])],
 
     [1, 'Информация'],
     ['react-hooks', 'main', 'info',                   emoji.theory+'Информация'],
