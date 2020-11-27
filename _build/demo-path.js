@@ -1,2 +1,2 @@
 
-const DEMO_PATH = 'react-hooks/hooks/use-ref';
+const DEMO_PATH = 'react-hooks/hooks/use-memo';

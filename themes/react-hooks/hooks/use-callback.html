@@ -1,6 +1,16 @@
 <h2>Хук useCallback</h2>
 
+<div class="v-method-wrapper">
+    <v-method before="" method="useCallback" after="" arg="()">
+	Колбэк
+    </v-method>
+    <v-method-arg arg=""></v-method-arg>
+    <v-method-return>Возвращает мемоизированный колбэк</v-method-return>
+</div>
+
 <v-code lang="js border" title="">
+import React, { useCallback } from 'react';
+
 const memoizedCallback = useCallback(
 	() => {
 		doSomething(a, b);
@@ -8,8 +18,3 @@ const memoizedCallback = useCallback(
 	[a, b],
 );
 </v-code>
-
-<ul class="list-point">
-    <li>Возвращает мемоизированный колбэк</li>
-</ul>
-

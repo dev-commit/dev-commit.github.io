@@ -1,21 +1,23 @@
 <h2>Хук useReducer</h2>
 
+<div class="v-method-wrapper">
+    <v-method before="" method="useReducer" after="" arg="()">
+    Даёт возможность управлять внутренним состоянием более сложного компонента с помощью редюсера. Альтернатива для <u>useState</u>
+    </v-method>
+    <v-method-arg arg="reducer">редюсер типа <u-code-text>(state, action) => newState</u-code-text></v-method-arg>
+    <v-method-arg arg="initialArg">initialArg</v-method-arg>
+    <v-method-arg arg="init">init</v-method-arg>
+    <v-method-return>Возвращает текущее состояние в паре с методом <u-code-text>dispatch</u-code-text></v-method-return>
+</div>
+
 <v-code lang="js border" title="">
+import React, { useReducer } from 'react';
+
 const [state, dispatch] = useReducer(reducer, initialArg, init);
 </v-code>
 
-<ul class="list-point">
-    <li>Альтернатива для <u>useState</u>. Принимает редюсер типа <u-code-text>(state, action) => newState</u-code-text> и возвращает текущее состояние в паре с методом <u-code-text>dispatch</u-code-text></li>
-</ul>
-
-<hr>
-
-<ul class="list-point">
-    <li><u-text-define>useReducer</u-text-define> - даёт возможность управлять внутренним состоянием более сложного компонента с помощью редюсера</li>
-</ul>
-
 <v-code lang="js" title="">
-function Todos() {
+const App = () => {
 	const [todos, dispatch] = useReducer(todosReducer);
 	// ...
 }

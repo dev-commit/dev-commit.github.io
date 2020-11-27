@@ -1,23 +1,25 @@
 <h2>Хук контекста useContext</h2>
 
+<div class="v-method-wrapper">
+    <v-method before="" method="useContext" after="" arg="()">
+	Можно подписаться на контекст React без использования каких-либо вложений
+    </v-method>
+    <v-method-arg arg="obj">объект контекста (значение, возвращённое из <u-code-text>React.createContext</u-code-text>)</v-method-arg>
+    <v-method-return>текущее значение контекста для принятого контекста</v-method-return>
+</div>
+
+<ul class="list-point">
+    <li>Текущее значение контекста определяется пропом value ближайшего <u-code-text>&lt;MyContext.Provider&gt;</u-code-text> над вызывающим компонентом в дереве</li>
+</ul>
+
 <v-code lang="js border" title="">
 import React, { useContext } from 'react';
 
 const value = <u-code>useContext</u-code>(MyContext);
 </v-code>
 
-<ul class="list-point">
-    <li>Принимает объект контекста (значение, возвращённое из <u-code-text>React.createContext</u-code-text>) и возвращает текущее значение контекста для этого контекста. Текущее значение контекста определяется пропом value ближайшего <u-code-text>&lt;MyContext.Provider&gt;</u-code-text> над вызывающим компонентом в дереве</li>
-</ul>
-
-<hr>
-
-<ul class="list-point">
-    <li><u-text-define>useContext</u-text-define> - можно подписаться на контекст React без использования каких-либо вложений</li>
-</ul>
-
 <v-code lang="js" title="">
-function Example() {
+const App = () => {
 	const locale = useContext(LocaleContext);
 	const theme = useContext(ThemeContext);
 	// ...
@@ -25,9 +27,12 @@ function Example() {
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Пример: установка языка</h3>
+<h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<!------------------------------------------------------------->
+<h4>Пример #1. Установка языка</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="index.js">
 import React from 'react';
 import ReactDOM from "react-dom";
