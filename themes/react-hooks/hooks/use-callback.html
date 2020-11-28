@@ -44,13 +44,13 @@ const memoizedValue = useMemo(() => {
 <!------------------------------------------------------------->
 
 <v-code lang="js" title="">
-import { useEffect, useState, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const App = () =&gt; {
     const [count, setCount] = useState(1)
     const [items, setItems] = useState([])
 
-    // Если не вызывать useCallback, то будкт лишний раз вызываться useEffect
+    // Если не вызывать useCallback, то будет лишний раз вызываться useEffect
     // при любом изменении state
     const generateItemsFromAPI = useCallback((indexNumber) =&gt; {
         return new Array(count).fill('').map((_, i) =&gt; `Элемент ${i + indexNumber}`)

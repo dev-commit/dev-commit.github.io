@@ -1,2 +1,2 @@
 
-const DEMO_PATH = 'react-hooks/hooks/use-callback';
+const DEMO_PATH = 'react-hooks/hooks/use-context';

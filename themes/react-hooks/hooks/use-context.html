@@ -18,58 +18,71 @@ import React, { useContext } from 'react';
 const value = <u-code>useContext</u-code>(MyContext);
 </v-code>
 
-<v-code lang="js" title="">
-const App = () => {
-	const locale = useContext(LocaleContext);
-	const theme = useContext(ThemeContext);
-	// ...
-}
-</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
-<h4>Пример #1. Установка языка</h4>
+<h4>Пример #1. Смена темы</h4>
 <!------------------------------------------------------------->
-<v-code lang="js" title="index.js">
-import React from 'react';
-import ReactDOM from "react-dom";
-
-import LanguageContextProvider from './LanguageContextProvider';
-import { <u-code>useLanguage</u-code> } from './LanguageContextProvider';
+<v-code lang="js" title="index.jsx">
+import ThemeProvider from './ThemeProvider';
+import { useTheme } from './ThemeProvider';
 
 const App = () =&gt; (
-	&lt;LanguageContextProvider&gt;
-		&lt;Component /&gt;
-	&lt;/LanguageContextProvider&gt;
+    &lt;ThemeProvider&gt;
+        &lt;View /&gt;
+        &lt;Change /&gt;
+    &lt;/ThemeProvider&gt;
 );
 
-const Component = (props) =&gt; {
-	<u-code>const isLanguage = useLanguage();</u-code>
-	return (
-		&lt;&gt;
-			Hello {isLanguage}
-		&lt;/&gt;
-	);
+const View = () =&gt; {
+    const isTheme = useTheme();
+    return (
+        &lt;&gt;
+            Выбрана тема: {isTheme.theme}
+        &lt;/&gt;
+    )
 };
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(&lt;App /&gt;, rootElement);
+const Change = () =&gt; {
+    const isTheme = useTheme();
+
+    return (
+        &lt;&gt;
+            &lt;button onClick={() =&gt; isTheme.change('dark')}&gt;Dark&lt;/button&gt;
+            &lt;button onClick={() =&gt; isTheme.change('light')}&gt;Light&lt;/button&gt;
+        &lt;/&gt;
+    )
+};
+
+export default App;
 </v-code>
 
-<v-code lang="js" title="LanguageContextProvider.jsx">
-import React, { <u-code>useContext</u-code> } from 'react';
+<v-code lang="js" title="ThemeProvider.jsx">
+import React, { useState, useContext } from 'react'
 
-const IsLanguageContext = <u-code>React.createContext('ru')</u-code>;
+const ThemeContext = React.createContext()
 
-const LanguageContextProvider = ({children, ...props}) =&gt; (
-	&lt;IsLanguageContext.Provider value={'en'} {...props}&gt;
-		{children}
-	&lt;/IsLanguageContext.Provider&gt;
-);
+export const ThemeProvider = ({ children, ...props }) =&gt; {
+    const [theme, setTheme] = useState('light')
 
-export default LanguageContextProvider;
-export const useLanguage = () =&gt; <u-code>useContext(IsLanguageContext)</u-code>;
+    const change = (name) =&gt; setTheme(name)
+
+    return (
+		&lt;ThemeContext.Provider
+            value=<span v-pre>{{</span>
+                theme,
+                change
+            <span v-pre>}}</span>
+			{...props}
+		&gt;
+            { children}
+        &lt;/ThemeContext.Provider&gt;
+    )
+}
+
+export default ThemeProvider
+export const useTheme = () =&gt; useContext(ThemeContext)
 </v-code>

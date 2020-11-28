@@ -154,8 +154,8 @@ var arrReactHooks = [
     ['react-hooks', 'hooks', 'use-effect',            emoji.fire+setTheme(4, ['useEffect'])],
     ['react-hooks', 'hooks', 'use-ref',               emoji.fire+setTheme(4, ['useRef'])],
     ['react-hooks', 'hooks', 'use-memo',              emoji.fire+setTheme(4, ['useMemo'])],
+    ['react-hooks', 'hooks', 'use-callback',          emoji.fire+setTheme(4, ['useCallback'])],
 
-    ['react-hooks', 'hooks', 'use-callback',          emoji.lemon+setTheme(4, ['useCallback'])],
     ['react-hooks', 'hooks', 'use-context',           emoji.lemon+setTheme(4, ['useContext'])],
     ['react-hooks', 'hooks', 'use-reducer',           emoji.lemon+setTheme(4, ['useReducer'])],
 
