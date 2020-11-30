@@ -10,7 +10,24 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>input, submit</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
+<v-code lang="js" title="Хуки">
+import React, { useState } from 'react'
+
+const App = () =&gt; {
+	const [value, setValue] = useState('')
+
+	const onChange = e =&gt; setValue(e.target.value)
+
+	return (
+		&lt;&gt;
+			&lt;input type="text" value={value} onChange={onChange} /&gt;
+			&lt;h1&gt;{value}&lt;/h1&gt;
+		&lt;/&gt;
+	)
+}
+</v-code>
+
+<v-code lang="js" title="Классовые">
 class App extends React.Component {
 	constructor(props) {
 		super(props);

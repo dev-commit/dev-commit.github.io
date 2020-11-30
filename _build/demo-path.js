@@ -1,2 +1,2 @@
 
-const DEMO_PATH = 'react-hooks/hooks/use-context';
+const DEMO_PATH = 'react-hooks/main/own-hooks';
