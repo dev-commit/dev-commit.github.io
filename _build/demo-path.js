@@ -1,2 +1,2 @@
 
-const DEMO_PATH = 'react-hooks/main/own-hooks';
+const DEMO_PATH = 'redux/react-redux/react-redux';

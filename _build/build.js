@@ -1473,7 +1473,7 @@ const ARR_THEMES = [
     // { title: 'React API',                 page: 'react-api',              arr: arrReactApi        },
     // { title: 'React Hooks',               page: 'react-hooks',            arr: arrReactHooks      },
     // { title: 'React Router',              page: 'react-router',           arr: arrReactRouter     },
-    // { title: 'Redux',                     page: 'redux',                  arr: arrRedux           },
+    { title: 'Redux',                     page: 'redux',                  arr: arrRedux           },
     // { title: 'Vue.js',                    page: 'vue-js',                 arr: arrVuejs           },
 
     // { title: 'HTML',                      page: 'html',                   arr: arrHTML            },

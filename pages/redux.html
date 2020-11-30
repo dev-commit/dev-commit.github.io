@@ -111,6 +111,11 @@
 <img src="/img/redux/react-redux-structure.png" width="800px">
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>DISPATCH</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<img src="/img/redux/react-redux-dispatch.png" width="1000px">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>1. PROVIDER</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js border" title="index.js">
@@ -249,6 +254,39 @@ export const ADD_VALUE = 'ADD_VALUE';
 <v-code lang="js" title="">
 import { <u-code>createStore</u-code> } from 'redux';
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Упрощённая реализация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const createStore = (rootReducer, initialState) => {
+    let state = rootReducer(initialState, { type: '__INIT__' });
+    // массивы слушателей
+    const subscribers = []
+
+    return {
+        // говорит, что что-то произошло
+        dispatch(action){
+            // action - объект, у которого есть поле "type"
+            // action === { type: 'INCREMENT' }
+
+            // передаем предыдущее состояние и action, возвращаем новое состояние
+            state = rootReducer(state, action);
+            // уведомление слушателей об изменении состояния
+            subscribers.forEach(sub => sub())
+        },
+        // все слушатели данного объекта, должны что-то поменять
+        subscribe(callback) {
+            // подписываемся на store
+            subscribers.push(callback);
+        },
+        // геттер для получения состояния
+        getState() {
+            return state;
+        }
+    }
+}
+</v-code>
 </div><div id="react-redux-combine-reducers"><h2>combineReducers</h2>
 
 <ul class="list-point">
@@ -362,7 +400,17 @@ export default connect(
 </div><div id="react-redux-apply-middleware"><h2>Middleware</h2>
 
 <ul class="list-point">
-    <li><u-text-define>middleware</u-text-define> - суть middleware функций, взять входные данные, добавить что-то и передать дальше. Middleware - это всегда функция, которые обычно возвращают функцию, если только целью middleware не является прервать цепочку вызовов</li>
+    <li><u-text-define>Middleware</u-text-define> - (посредник) — функция, которая вызывается при передаче действия ещё до того, как это действие попадёт в <u>reducer</u> и <u>store.</u></li>
+    <li>Активировать middleware можно с помощью Redux функции applyMiddleware. Она берёт middleware, которое мы хотим зарегистрировать, и возвращает функцию, которая, в свою очередь, берёт функцию createStore. Затем эта вторая функция создаёт для нас store с уже включённым в него middleware</li>
+
+    <hr>
+    <li><u>Middleware</u> - шаблонный способ подцепления к actions, отправляемым в redux store</li>
+    <li><u>Middleware</u> - функция, принимающая state и возвращающая функцию</li>
+    <li><u>Middleware</u> - функции, которые перехватывают действия</li>
+
+    <hr>
+    <li>Суть middleware функций, взять входные данные, добавить что-то и передать дальше. Middleware - это всегда функция, которые обычно возвращают функцию, если только целью middleware не является прервать цепочку вызовов</li>
+    <li><u>Применение: </u>от логгирование, обработка исключений, модифицирование действий, кэширование результатов и изменения способа и времени попадания действия в store</li>
 </ul>
 
 <v-code lang="js" title="src/redux/store.js">
@@ -390,6 +438,9 @@ export const ping = function ping(store) {
     <li><u-code>next</u-code> - функция-обертка, которая позволяет продолжить выполнение цепочки</li>
     <li><u-code>action</u-code> - действие, которое было вызвано (это store.dispatch)</li>
 </ul>
+
+
+
 </div><div id="redux-redux"><h2>Redux</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

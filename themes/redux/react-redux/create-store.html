@@ -13,3 +13,36 @@
 <v-code lang="js" title="">
 import { <u-code>createStore</u-code> } from 'redux';
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Упрощённая реализация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const createStore = (rootReducer, initialState) => {
+    let state = rootReducer(initialState, { type: '__INIT__' });
+    // массивы слушателей
+    const subscribers = []
+
+    return {
+        // говорит, что что-то произошло
+        dispatch(action){
+            // action - объект, у которого есть поле "type"
+            // action === { type: 'INCREMENT' }
+
+            // передаем предыдущее состояние и action, возвращаем новое состояние
+            state = rootReducer(state, action);
+            // уведомление слушателей об изменении состояния
+            subscribers.forEach(sub => sub())
+        },
+        // все слушатели данного объекта, должны что-то поменять
+        subscribe(callback) {
+            // подписываемся на store
+            subscribers.push(callback);
+        },
+        // геттер для получения состояния
+        getState() {
+            return state;
+        }
+    }
+}
+</v-code>
