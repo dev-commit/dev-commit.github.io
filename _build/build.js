@@ -174,7 +174,8 @@ var arrReactHooks = [
 //---------------------------------------------------------------------
 var arrRedux = [
     [1, 'React Redux'],
-    ['redux', 'react-redux', 'code',        emoji.code+'React-Redux'],
+    ['redux', 'code', 'redux',       emoji.code+'Redux'],
+    ['redux', 'code', 'react-redux', emoji.code+'React-Redux'],
 
     [1, 'Элементы'], 
     ['redux', 'elements',    'view',        emoji.cookie+'1. View'],
@@ -191,7 +192,7 @@ var arrRedux = [
     ['redux', 'methods', 'apply-middleware',  emoji.pizza+setTheme(4, ['applyMiddleware'])+' <u>redux</u>'],
 
     [1, 'Flux и Redux'],
-    ['redux', 'redux', 'redux',                  emoji.code+'Redux'],
+
     ['redux', 'redux', 'info-flux',              emoji.theory+'Flux'],
     ['redux', 'redux', 'info-redux',             emoji.theory+'Redux'],
     ['redux', 'redux', 'functional-programming', emoji.theory+'Принципы FP'],
