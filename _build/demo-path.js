@@ -1,2 +1,2 @@
 
-const DEMO_PATH = 'redux/react-redux/elements';
+const DEMO_PATH = 'redux/elements/middleware';

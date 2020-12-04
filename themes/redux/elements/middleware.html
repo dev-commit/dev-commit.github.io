@@ -13,3 +13,42 @@
     <li>Суть middleware функций, взять входные данные, добавить что-то и передать дальше. Middleware - это всегда функция, которые обычно возвращают функцию, если только целью middleware не является прервать цепочку вызовов</li>
     <li><u>Применение: </u>от логгирование, обработка исключений, модифицирование действий, кэширование результатов и изменения способа и времени попадания действия в store</li>
 </ul>
+
+<v-two-code type="js border;js border" comment="Стрелочная фукнкция;Обычная функция">
+<template v-slot:first>
+const starterMiddleware = store => next => action => {
+    //
+    return next(action)
+}
+</template>
+<template v-slot:last>
+const logger = (state) => {
+    return function (next) {
+        return function (action) {
+        	//
+        	return next(action)
+        }
+    }
+}
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Реализация Middleware Logger</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const logger = (state) => {
+    return function (next) {
+        return function (action) {
+            console.log('Action', action);
+            console.log('Prev State', state.getState());
+
+            const newState = next(action);
+            console.log('New State', state.getState());
+            return newState;
+        }
+    }
+}
+</v-code>
+
+
