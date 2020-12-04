@@ -47,13 +47,17 @@ ReactDOM.render(
 <h3>2. STORE</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js border" title="redux/store.js">
-import { <u-code>createStore</u-code> } from 'redux';
+import { <u-code>createStore</u-code>, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 
-const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
-const devtoolMiddleware = ext && ext();
-
-export default <u-code>createStore</u-code>(rootReducer, devtoolMiddleware);
+export default <u-code>createStore</u-code>(
+	rootReducer,
+	composeWithDevTools(
+		applyMiddleware(thunk)
+	)
+);
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -142,7 +146,7 @@ export default <u-code>connect</u-code>(
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>6. CONST</h3>
+<h3>6. ACTION TYPES</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js border" title="redux/actionTypes.js">
 export const ADD_VALUE = 'ADD_VALUE';

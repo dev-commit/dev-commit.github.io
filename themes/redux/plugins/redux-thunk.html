@@ -1,48 +1,76 @@
 <h2>redux-thunk</h2>
 
+<ul class="list-point">
+    <li>Добавление асинхронного кода в actions</li>
+    <li>Если action creator возвращает функцию - она выполняется. Если возвращает простой объект - передается дальше</li>
+    <li>В цепочке middleware есть доступный метод dispatch и getState</li>
+</ul>
+
 <v-pre-npm>
-npm i --save <u-code-npm>redux-thunk</u-code-npm>              # асинхронные actions
-npm i --save <u-code-npm>redux-devtools-extension</u-code-npm> # для работы devtools
+npm i --save <u-code-npm>redux-thunk</u-code-npm>
 </v-pre-npm>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="redux/reducers/store.js">
 import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import thunk from <u-code>'redux-thunk'</u-code>;
+import thunk from '<u-code>redux-thunk</u-code>';
 import rootReducer from './reducers';
 
-export default createStore(rootReducer, <u-code>composeWithDevTools(applyMiddleware(thunk))</u-code>);
+export default createStore(
+    rootReducer,
+    applyMiddleware(<u-code>thunk</u-code>)
+);
 </v-code>
 
 <v-code lang="js" title="redux/actions.js">
 import axios from 'axios';
-import { GET_REQUEST } from './actionTypes';
+import { ASYNC_PENDING, GET_REQUEST_TIMEOUT } from './actionTypes';
 
-export const getPhotos = function(year) {
-    return function(dispatch) {
+// может быть несколько dispatch
+export const getAsyncData = () => (dispatch) => {
+    
+    // синхронное действие
+    <u-code>dispatch</u-code>({
+        type: ASYNC_PENDING
+    })
 
-        axios.get('url')
+    // асинхронный запрос на сервер
+    axios.get('https://yandex.ru/')
         .then(response => {
-            dispatch({
-                type: GET_REQUEST_AJAX,
+            <u-code>dispatch</u-code>({
+                type: ASYNC_SUCCESS,
                 payload: response.data,
             })
         })
         .catch(error => console.log(error));
 
-        setTimeout(() => {
-            dispatch({
-                type: GET_REQUEST_TIMEOUT,
-                payload: [1, 2, 3, 4, 5],
-            })
-        }, 5000)
-
-
-    }
-}
+    // асинхронный setTimeout
+    setTimeout(() => {
+        <u-code>dispatch</u-code>({
+            type: GET_REQUEST_TIMEOUT,
+            payload: [1, 2, 3, 4, 5],
+        })
+    }, 5000)
+};
 </v-code>
 
-<ul class="list-point">
-    <li>Если action creator возвращает функцию - она выполняется. Если возвращает простой объект - передается дальше</li>
-    <li>В цепочке middleware есть доступный метод dispatch и getState</li>
-</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты написания</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="Стрелочная функция;Обычная функция">
+<template v-slot:first>
+const getAsyncData = () => (dispatch) => {
+    //
+};
+</template>
+<template v-slot:last>
+const getAsyncData = function() {
+    return function(dispatch) {
+        //
+    }
+}
+</template>
+</v-two-code>
