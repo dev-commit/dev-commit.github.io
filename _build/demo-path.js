@@ -1,2 +1,2 @@
 
-const DEMO_PATH = 'redux/react-redux/react-redux';
+const DEMO_PATH = 'redux/react-redux/elements';

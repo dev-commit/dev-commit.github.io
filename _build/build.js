@@ -174,13 +174,19 @@ var arrReactHooks = [
 //---------------------------------------------------------------------
 var arrRedux = [
     [1, 'React Redux'],
-    ['redux', 'react-redux', 'elements',          emoji.fire+'Элементы'],
-    ['redux', 'react-redux', 'react-redux',       emoji.code+'React-Redux'],
-    ['redux', 'react-redux', 'create-store',      emoji.pizza+setTheme(1, ['createStore'])+' <u>redux</u>'],
-    ['redux', 'react-redux', 'combine-reducers',  emoji.pizza+setTheme(1, ['combineReducers'])+' <u>redux</u>'],
-    ['redux', 'react-redux', 'provider',          emoji.pizza+setTheme(1, ['Provider'])+' <u>react-redux</u>'],
-    ['redux', 'react-redux', 'connect',           emoji.pizza+setTheme(1, ['connect'])+' <u>react-redux</u>'],
-    ['redux', 'react-redux', 'apply-middleware',  emoji.pizza+setTheme(1, ['applyMiddleware'])+' <u>redux</u>'],
+    ['redux', 'react-redux-elements', 'view',        emoji.cookie+'1. View'],
+    ['redux', 'react-redux-elements', 'action',      emoji.cookie+'2. Action'],
+    ['redux', 'react-redux-elements', 'middleware',  emoji.cookie+'3. Middleware'],
+    ['redux', 'react-redux-elements', 'reducer',     emoji.cookie+'4. Reducer'],
+    ['redux', 'react-redux-elements', 'store',       emoji.cookie+'5. Store'],
+    ['redux', 'react-redux',          'code',        emoji.code+'React-Redux'],
+
+    [1, 'React Redux (методы)'], 
+    ['redux', 'react-redux-methods', 'create-store',      emoji.pizza+setTheme(4, ['createStore'])+' <u>redux</u>'],
+    ['redux', 'react-redux-methods', 'combine-reducers',  emoji.pizza+setTheme(4, ['combineReducers'])+' <u>redux</u>'],
+    ['redux', 'react-redux-methods', 'provider',          emoji.pizza+setTheme(4, ['Provider'])+' <u>react-redux</u>'],
+    ['redux', 'react-redux-methods', 'connect',           emoji.pizza+setTheme(4, ['connect'])+' <u>react-redux</u>'],
+    ['redux', 'react-redux-methods', 'apply-middleware',  emoji.pizza+setTheme(4, ['applyMiddleware'])+' <u>redux</u>'],
 
     [1, 'Flux и Redux'],
     ['redux', 'redux', 'redux',                  emoji.code + 'Redux'],

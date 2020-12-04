@@ -124,19 +124,21 @@ import { <u-code>connect</u-code> } from 'react-redux';
 import { setName } from '../../redux/actions';
 
 const AppRedux = ({ dataStarter, setName }) =&gt; {
-	console.log(<u-code>dataStarter</u-code>);
+	console.log(dataStarter);
 	// {value: 0, name: ""}
 	// {value: 0, name: "Jack"} - после нажатия кнопки
 
-	return (&lt;button onClick={() =&gt; <u-code>setName</u-code>('Jack')}&gt;Ok&lt;/button&gt;);
+	return (
+		&lt;button onClick={() =&gt; setName('Jack')}&gt;Ok&lt;/button&gt;
+	);
 }
 
 const mapStateToProps = state =&gt; ({
-	dataStarter: state.reducerStarter
+	<u-code>dataStarter</u-code>: state.reducerStarter
 })
 
 const mapDispatchToProps = {
-	setName
+	<u-code>setName</u-code>
 }
 export default connect(
 	mapStateToProps,
