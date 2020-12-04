@@ -157,50 +157,53 @@ export default <u-code>createStore</u-code>(
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js border" title="redux/reducers/index.js">
 import { <u-code>combineReducers</u-code> } from 'redux';
-import myReducer from './my-reducer';
+import reducerStarter from './reducer-starter';
 
 export default <u-code>combineReducers</u-code>({
-    myReducer
+    reducerStarter
 });
 </v-code>
 
-<v-code lang="js border" title="redux/reducers/my-reducer.js">
-import { ADD_VALUE } from '../actionTypes';
+<v-code lang="js border" title="redux/reducers/reducer-starter.js">
+import { NAME } from '../actionTypes';
 
-const initialState = ['Default Value 1', 'Default Value 2'];
+const initialState = {
+    name: ''
+};
 
-const myReducer = (state = initialState, action) => {
+const reducerStarter = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_VALUE: {
-            <u-code>return [...state, action.payload.myValue]</u-code>;
-        }
-        default: {
+        case <u-code>NAME</u-code>:
+            return {
+                ...state,
+                name: action.payload
+            }
+        default:
             return state;
-        }
     }
 };
 
-export default myReducer;
+export default reducerStarter;
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>4. ACTIONS (ACTIONS CREATOR)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js border" title="redux/actions.js">
-import { ADD_VALUE } from './actionTypes';
+import { NAME } from './actionTypes';
 
 // возвращает объект
-export const addMyValue = myValue => ({
-    <u-code>type</u-code>: ADD_VALUE,
-    <u-code>payload</u-code>: { myValue }
-})
+export const setName = (name) => ({
+    type: <u-code>NAME</u-code>,
+    payload: name
+});
 
 // возвращает функцию (redux-thunk)
-export const addMyValue = myValue => dispatch => {
-    dispatch({
-		<u-code>type</u-code>: ADD_VALUE,
-		<u-code>payload</u-code>: { myValue }
-    });
+export const setName = () => (dispatch) => {
+	dispatch({
+		type: <u-code>NAME</u-code>,
+		payload: name
+	})
 };
 </v-code>
 
@@ -208,40 +211,36 @@ export const addMyValue = myValue => dispatch => {
 <h3>5. COMPONENT</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js border" title="App.js">
-import React, {Component} from 'react';
+import React from 'react';
 import { <u-code>connect</u-code> } from 'react-redux';
-import { addMyValue } from './redux/actions';
+import { setName } from '../../redux/actions';
 
-class App extends Component {
-	componentDidMount() {
-		<u-code>this.props.addMyValue</u-code>('New Value');
-	}
-	render() {
-		console.log(<u-code>this.props.myValue</u-code>);
-		// => (2) ["Default Value 1", "Default Value 2"]
-		// => (3) ["Default Value 1", "Default Value 2", "New Value"]
-		return (&lt;div&gt;&lt;/div&gt;);
-	}
+const AppRedux = ({ dataStarter, setName }) =&gt; {
+	console.log(<u-code>dataStarter</u-code>);
+	// {value: 0, name: ""}
+	// {value: 0, name: "Jack"} - после нажатия кнопки
+
+	return (&lt;button onClick={() =&gt; <u-code>setName</u-code>('Jack')}&gt;Ok&lt;/button&gt;);
 }
 
 const mapStateToProps = state =&gt; ({
-	<u-code>myValue: state.myReducer</u-code>
+	dataStarter: state.reducerStarter
 })
-const mapDispatchToProps = {
-	<u-code>addMyValue: addMyValue</u-code>
-}
 
-export default <u-code>connect</u-code>(
+const mapDispatchToProps = {
+	setName
+}
+export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(App);
+)(AppRedux);
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>6. ACTION TYPES</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js border" title="redux/actionTypes.js">
-export const ADD_VALUE = 'ADD_VALUE';
+export const NAME = 'NAME';
 </v-code>
 </div><div id="react-redux-create-store"><h2>createStore</h2>
 
