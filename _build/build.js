@@ -184,12 +184,18 @@ var arrRedux = [
     ['redux', 'elements',    'reducer',     emoji.cookie+'4. Reducer'],
     ['redux', 'elements',    'store',       emoji.cookie+'5. Store'],
 
-    [1, 'Методы'], 
+    [1, 'Методы'],
+    //--------------------------------------------------------------------
+    [2, 'Redux'],
+    //--------------------------------------------------------------------
     ['redux', 'methods', 'create-store',      emoji.pizza+setTheme(4, ['createStore'])+' <u>redux</u>'],
+    ['redux', 'methods', 'apply-middleware',  emoji.pizza+setTheme(4, ['applyMiddleware'])+' <u>redux</u>'],
     ['redux', 'methods', 'combine-reducers',  emoji.pizza+setTheme(4, ['combineReducers'])+' <u>redux</u>'],
+    //--------------------------------------------------------------------
+    [2, 'React-Redux'],
+    //--------------------------------------------------------------------
     ['redux', 'methods', 'provider',          emoji.pizza+setTheme(4, ['Provider'])+' <u>react-redux</u>'],
     ['redux', 'methods', 'connect',           emoji.pizza+setTheme(4, ['connect'])+' <u>react-redux</u>'],
-    ['redux', 'methods', 'apply-middleware',  emoji.pizza+setTheme(4, ['applyMiddleware'])+' <u>redux</u>'],
 
     [1, 'Flux и Redux'],
 
