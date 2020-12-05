@@ -174,6 +174,9 @@ var arrReactHooks = [
 //---------------------------------------------------------------------
 var arrRedux = [
     [1, 'React Redux'],
+    ['redux', 'scheme', 'structure-common',      emoji.fire+'Структура общая'],
+    ['redux', 'scheme', 'structure-realization', emoji.fire+'Структура реализации'],
+
     ['redux', 'code', 'redux',       emoji.code+'Redux'],
     ['redux', 'code', 'react-redux', emoji.code+'React-Redux'],
 
@@ -188,17 +191,16 @@ var arrRedux = [
     //--------------------------------------------------------------------
     [2, 'Redux'],
     //--------------------------------------------------------------------
-    ['redux', 'methods', 'create-store',      emoji.pizza+setTheme(4, ['createStore'])+' <u>redux</u>'],
-    ['redux', 'methods', 'apply-middleware',  emoji.pizza+setTheme(4, ['applyMiddleware'])+' <u>redux</u>'],
-    ['redux', 'methods', 'combine-reducers',  emoji.pizza+setTheme(4, ['combineReducers'])+' <u>redux</u>'],
+    ['redux', 'methods', 'create-store',      emoji.pizza+setTheme(4, ['createStore'])],
+    ['redux', 'methods', 'apply-middleware',  emoji.pizza+setTheme(4, ['applyMiddleware'])],
+    ['redux', 'methods', 'combine-reducers',  emoji.pizza+setTheme(4, ['combineReducers'])],
     //--------------------------------------------------------------------
     [2, 'React-Redux'],
     //--------------------------------------------------------------------
-    ['redux', 'methods', 'provider',          emoji.pizza+setTheme(4, ['Provider'])+' <u>react-redux</u>'],
-    ['redux', 'methods', 'connect',           emoji.pizza+setTheme(4, ['connect'])+' <u>react-redux</u>'],
+    ['redux', 'methods', 'provider',          emoji.pizza+setTheme(4, ['Provider'])],
+    ['redux', 'methods', 'connect',           emoji.pizza+setTheme(4, ['connect'])],
 
     [1, 'Flux и Redux'],
-
     ['redux', 'redux', 'info-flux',              emoji.theory+'Flux'],
     ['redux', 'redux', 'info-redux',             emoji.theory+'Redux'],
     ['redux', 'redux', 'functional-programming', emoji.theory+'Принципы FP'],

@@ -14,6 +14,23 @@
     <li><u>Применение: </u>от логгирование, обработка исключений, модифицирование действий, кэширование результатов и изменения способа и времени попадания действия в store</li>
 </ul>
 
+<v-code lang="js border" title="">
+const starterMiddleware = store => next => action => {
+    // action           => { type: "NAME", payload: "Tony" }  - Action
+    // state.getState() => { reducerStarter: { name: "" } }   - Prev State
+
+    // Вызывается Reducer
+    const newState = next(action);
+    
+    // state.getState() => { reducerStarter: { name: "Tony" } }   - New State
+
+    return newState;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты записи</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-two-code type="js border;js border" comment="Стрелочная фукнкция;Обычная функция">
 <template v-slot:first>
 const starterMiddleware = store => next => action => {
