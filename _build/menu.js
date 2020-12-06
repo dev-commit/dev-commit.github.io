@@ -63,7 +63,7 @@ function getMenu() {
     
     MENU_ITEMS.forEach((element) => {
         if (element) {
-            html += `<a href="/pages/${element.href}.html" class="menu ${element.class}">${element.name}</a>`
+            html += `<a href="/pages/${element.href}" class="menu ${element.class}">${element.name}</a>`
         } else {
             html += splitter
         }
