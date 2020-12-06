@@ -1377,6 +1377,14 @@ var arrTypescript = [
     ['typescript', 'types', 'any',     emoji.pizza+setTheme(4, ['Any'])],
     ['typescript', 'types', 'never',   emoji.pizza+setTheme(4, ['Never'])],
     ['typescript', 'types', 'type',    emoji.pizza+setTheme(4, ['Type'])],
+
+    [1, 'Interface'],
+    ['typescript', 'interface', 'main',             emoji.favorite+'Основы'],
+    ['typescript', 'interface', 'inherit',          emoji.favorite+'Наследование интерфейсов'],
+    ['typescript', 'interface', 'with-class',       emoji.favorite+'Взаимодействие с классами'],
+    ['typescript', 'interface', 'dynamic-key-obj',  emoji.favorite+'Динамические ключи объекта'],
+
+
 ];
 
 

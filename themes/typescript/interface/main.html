@@ -1,0 +1,31 @@
+<h2>Основы</h2>
+
+<ul class="list-point">
+    <li>Тип для объектов или классов, в котором указыается какие поля должны присутствовать у этих объектов</li>
+</ul>
+
+<v-code lang="js" title="">
+interface Rect {
+	readonly id: string // только для чтения
+	color?: string      // необязательный параметр
+	size: {
+		width: number
+		height: number
+	}
+}
+
+const rect1: Rect = {
+	id: '1',
+	size: {
+		width: 20,
+		height: 30
+	},
+	color: '#ccc' // можно не задавать
+}
+</v-code>
+
+<v-code lang="js" title="">
+// приведение объекта к типу
+const rect = {} as Rect // новая запись
+const rect = &lt;Rect&gt;{}   // старя запись
+</v-code>
