@@ -207,12 +207,28 @@ var arrRedux = [
     ['redux', 'redux', 'functional-programming', emoji.theory+'Принципы FP'],
 
     [1, 'Redux Plugins'],
-    ['redux', 'plugins', 'redux-thunk',              setTheme(2, ['redux-thunk'])],
-    ['redux', 'plugins', 'redux-form',               setTheme(2, ['redux-form'])],
-    ['redux', 'plugins', 'redux-actions',            setTheme(2, ['redux-actions'])],
-    ['redux', 'plugins', 'redux-saga',               setTheme(2, ['redux-saga'])],
-    ['redux', 'plugins', 'redux-logger',             setTheme(2, ['redux-logger'])],
+
+    //--------------------------------------------------------------------
+    [2, 'Основное'],
+    //--------------------------------------------------------------------
     ['redux', 'plugins', 'redux-devtools-extension', setTheme(2, ['redux-devtools-extension'])],
+
+    //--------------------------------------------------------------------
+    [2, 'Асинхронность'],
+    //--------------------------------------------------------------------
+    ['redux', 'plugins', 'redux-thunk',              setTheme(2, ['redux-thunk'])],
+    ['redux', 'plugins', 'redux-saga',               setTheme(2, ['redux-saga'])],
+
+    //--------------------------------------------------------------------
+    [2, 'Формы'],
+    //--------------------------------------------------------------------
+    ['redux', 'plugins', 'redux-form',               setTheme(2, ['redux-form'])],
+
+    //--------------------------------------------------------------------
+    [2, 'Прочее'],
+    //--------------------------------------------------------------------
+    ['redux', 'plugins', 'redux-actions',            setTheme(2, ['redux-actions'])],
+    ['redux', 'plugins', 'redux-logger',             setTheme(2, ['redux-logger'])],
 ];
 
 
