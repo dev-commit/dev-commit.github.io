@@ -1,72 +1,73 @@
 
+const MENU_ITEMS = [
+    { href: 'assessment',             class: 'menu-other', name: 'Ассессмент' },
+    { href: 'js-tasks',               class: 'menu-other', name: '🍕 Задачи' },
+    { href: 'theory',                 class: 'menu-other', name: 'Теория' },
+    null,
+    { href: 'theory-patterns',        class: 'menu-other', name: '⚡️ Паттерны' },
+    { href: 'theory-paradigms',       class: 'menu-other', name: '⚡️ Парадигмы' },
+    { href: 'theory-algoritms',       class: 'menu-other', name: '⚡️ Алгоритмы' },
+    { href: 'theory-data-structures', class: 'menu-other', name: '⚡️ Структуры данных' },
+    null,
+    { href: 'js',                     class: 'menu-js',    name: '🥑 JavaScript' },
+    { href: 'js-objects',             class: 'menu-js',    name: '🥑 Классы' },
+    { href: 'js-async',               class: 'menu-js',    name: '🍋 Асинхронность' },
+    { href: 'js-client-server',       class: 'menu-js',    name: '🍋 Клиент-сервер' },
+    null,
+    { href: 'js-web-api',             class: 'menu-js',    name: 'Web API' },
+    { href: 'js-web-components',      class: 'menu-js',    name: 'WebComponents' },
+    { href: 'canvas',                 class: 'menu-js',    name: 'Canvas' },
+    null,
+    { href: 'react-js',               class: 'menu-fw',    name: '💥 React.js' },
+    { href: 'react-api',              class: 'menu-fw',    name: '💥 React API' },
+    { href: 'react-hooks',            class: 'menu-fw',    name: '💥 React Hooks' },
+    { href: 'redux',                  class: 'menu-fw',    name: '🍋 Redux' },
+    { href: 'react-router',           class: 'menu-fw',    name: 'React Router' },
+    { href: 'vue-js',                 class: 'menu-fw',    name: 'Vue.js' },
+    null,
+    { href: 'testing',                class: 'menu-other', name: '📑 Тестирование' },
+    { href: 'jest',                   class: 'menu-other', name: '🔰 Jest' },
+    { href: 'enzyme',                 class: 'menu-other', name: '🔰 Enzyme + Jest' },
+    { href: 'react-testing',          class: 'menu-other', name: '🍋 React Testing' },
+    { href: 'cypress',                class: 'menu-other', name: '🔰 Cypress' },
+    null,
+    { href: 'html',                   class: 'menu-html',  name: 'HTML' },
+    { href: 'css',                    class: 'menu-html',  name: 'CSS' },
+    { href: 'css-flexbox',            class: 'menu-html',  name: 'Flexbox' },
+    { href: 'css-grid',               class: 'menu-html',  name: 'CSS Grid' },
+    { href: 'svg',                    class: 'menu-html',  name: 'SVG' },
+    { href: 'sass',                   class: 'menu-html',  name: 'Sass' },
+    { href: 'bootstrap',              class: 'menu-html',  name: 'Bootstrap' },
+    null,
+    { href: 'git',                    class: 'menu-php',   name: '🔥 Git' },
+    { href: 'typescript',             class: 'menu-php',   name: '🍋 TypeScript' },
+    { href: 'flow',                   class: 'menu-php',   name: '🍋 Flow' },
+    { href: 'npm',                    class: 'menu-php',   name: '🔰 Webpack' },
+    { href: 'webpack',                class: 'menu-php',   name: 'NPM' },
+    { href: 'material-ui',            class: 'menu-php',   name: 'Material-UI' },
+    { href: 'ramda',                  class: 'menu-php',   name: 'Ramda' },
+    null,
+    { href: 'linux',                  class: 'menu-other', name: 'Linux' },
+    { href: 'other',                  class: 'menu-other', name: 'Other' },
+    { href: 'jquery',                 class: 'menu-other', name: 'jQuery' },
+    { href: 'node-js',                class: 'menu-other', name: 'Node.js' },
+    { href: 'php',                    class: 'menu-other', name: 'PHP' },
+    { href: 'python',                 class: 'menu-other', name: 'Python' },
+    { href: 'mysql',                  class: 'menu-other', name: 'mySql' },
+];
+
 function getMenu() {
     const splitter = '<div style="width: 100%; flex-shrink: 0"></div>';
+    
+    let html = '';
+    
+    MENU_ITEMS.forEach((element) => {
+        if (element) {
+            html += `<a href="/pages/${element.href}.html" class="menu ${element.class}">${element.name}</a>`
+        } else {
+            html += splitter
+        }
+    })
 
-    const menu =
-        '<a href="/pages/assessment.html"            class="menu menu-other">Ассессмент</a>' +
-        '<a href="/pages/js-tasks.html"              class="menu menu-other">🍕 Задачи</a>' +
-        '<a href="/pages/theory.html"                class="menu menu-other">Теория</a>' +
-
-        splitter +
-        '<a href="/pages/theory-patterns.html"        class="menu menu-other">⚡️ Паттерны</a>' +
-        '<a href="/pages/theory-paradigms.html"       class="menu menu-other">⚡️ Парадигмы</a>' +
-        '<a href="/pages/theory-algoritms.html"       class="menu menu-other">⚡️ Алгоритмы</a>' +
-        '<a href="/pages/theory-data-structures.html" class="menu menu-other">⚡️ Структуры данных</a>' +
-
-        splitter +
-        '<a href="/pages/js.html"                class="menu menu-js">🥑 JavaScript</a>' +
-        '<a href="/pages/js-objects.html"        class="menu menu-js">🥑 Классы</a>' +
-        '<a href="/pages/js-async.html"          class="menu menu-js">🍋 Асинхронность</a>' +
-        '<a href="/pages/js-client-server.html"  class="menu menu-js">🍋 Клиент-сервер</a>' +
-
-        splitter +
-        '<a href="/pages/js-web-api.html"        class="menu menu-js">Web API</a>' +
-        '<a href="/pages/js-web-components.html" class="menu menu-js">WebComponents</a>' +
-        '<a href="/pages/canvas.html"            class="menu menu-js">Canvas</a>' +
-
-        splitter +
-        '<a href="/pages/react-js.html"       class="menu menu-fw">💥 React.js</a>' +
-        '<a href="/pages/react-api.html"      class="menu menu-fw">💥 React API</a>' +
-        '<a href="/pages/react-hooks.html"    class="menu menu-fw">💥 React Hooks</a>' +
-        '<a href="/pages/redux.html"          class="menu menu-fw">Redux</a>' +
-        '<a href="/pages/react-router.html"   class="menu menu-fw">React Router</a>' +
-        '<a href="/pages/vue-js.html"         class="menu menu-fw">Vue.js</a>' +
-
-        splitter +
-        '<a href="/pages/testing.html"           class="menu menu-other">🍕 Тестирование</a>' +
-        '<a href="/pages/jest.html"              class="menu menu-other">🍋 Jest</a>' +
-        '<a href="/pages/enzyme.html"            class="menu menu-other">🍋 Enzyme + Jest</a>' +
-        '<a href="/pages/react-testing.html"     class="menu menu-other">🍕 React Testing</a>' +
-        '<a href="/pages/cypress.html"           class="menu menu-other">🍋 Cypress</a>' +
-
-        splitter +
-        '<a href="/pages/html.html"        class="menu menu-html">HTML</a>' +
-        '<a href="/pages/css.html"         class="menu menu-html">CSS</a>' +
-        '<a href="/pages/css-flexbox.html" class="menu menu-html">Flexbox</a>' +
-        '<a href="/pages/css-grid.html"    class="menu menu-html">CSS Grid</a>' +
-        '<a href="/pages/svg.html"         class="menu menu-html">SVG</a>' +
-        '<a href="/pages/sass.html"        class="menu menu-html">Sass</a>' +
-        '<a href="/pages/bootstrap.html"   class="menu menu-html">Bootstrap</a>' +
-
-        splitter +
-        '<a href="/pages/git.html"         class="menu menu-php">🔥 Git</a>' +
-        '<a href="/pages/typescript.html"  class="menu menu-php">🍋 TypeScript</a>' +
-        '<a href="/pages/flow.html"        class="menu menu-php">🍋 Flow</a>' +
-        '<a href="/pages/npm.html"         class="menu menu-php">🥤 NPM</a>' +
-        '<a href="/pages/webpack.html"     class="menu menu-php">🥤 Webpack</a>' +
-        '<a href="/pages/material-ui.html" class="menu menu-php">Material-UI</a>' +
-        '<a href="/pages/ramda.html"       class="menu menu-php">Ramda</a>' +
-
-        splitter +
-        '<a href="/pages/linux.html"       class="menu menu-other">Linux</a>' +
-        '<a href="/pages/other.html"       class="menu menu-other">Other</a>' +
-        '<a href="/pages/jquery.html"      class="menu menu-other">jQuery</a>' +
-        '<a href="/pages/node-js.html"     class="menu menu-other">Node.js</a>' +
-        '<a href="/pages/php.html"         class="menu menu-other">PHP</a>' +
-        '<a href="/pages/python.html"      class="menu menu-other">Python</a>' +
-        '<a href="/pages/mysql.html"       class="menu menu-other">mySql</a>' +
-        ''
-    ;
-
-    return menu;
+    return html;
 }
