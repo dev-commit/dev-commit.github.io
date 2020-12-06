@@ -1389,9 +1389,9 @@ var arrTypescript = [
     ['typescript', 'function', 'functions-overload', emoji.cookie+'Перегрузка функций'],
 
     [1, 'Классы'],
-    ['typescript', 'class', 'main',         emoji.donut+'Основы'],
-    ['typescript', 'class', 'modificator',  emoji.donut+'Модификаторы полей'],
-    ['typescript', 'class', 'abstract',     emoji.donut+'Абстрактные классы'],
+    ['typescript', 'class', 'main',         emoji.coconut+'Основы'],
+    ['typescript', 'class', 'modificator',  emoji.coconut+'Модификаторы полей'],
+    ['typescript', 'class', 'abstract',     emoji.coconut+'Абстрактные классы'],
 
     [1, 'Другие возможности'],
     ['typescript', 'capabilities', 'enums',      emoji.baseball+'Enums'],
