@@ -1372,20 +1372,38 @@ var arrTypescript = [
     ['typescript', 'main', 'install', emoji.lemon+'Установка и настройка'],
 
     [1, 'Типы'],
-    ['typescript', 'types', 'basic',   emoji.pizza+setTheme(4, ['Базовые'])],
-    ['typescript', 'types', 'typle',   emoji.pizza+setTheme(4, ['Typle'])],
-    ['typescript', 'types', 'any',     emoji.pizza+setTheme(4, ['Any'])],
-    ['typescript', 'types', 'never',   emoji.pizza+setTheme(4, ['Never'])],
-    ['typescript', 'types', 'type',    emoji.pizza+setTheme(4, ['Type'])],
+    ['typescript', 'types', 'basic',   emoji.chevron+setTheme(4, ['Базовые'])],
+    ['typescript', 'types', 'typle',   emoji.chevron+setTheme(4, ['Typle'])],
+    ['typescript', 'types', 'any',     emoji.chevron+setTheme(4, ['Any'])],
+    ['typescript', 'types', 'never',   emoji.chevron+setTheme(4, ['Never'])],
+    ['typescript', 'types', 'type',    emoji.chevron+setTheme(4, ['Type'])],
 
-    [1, 'Interface'],
+    [1, 'Интерфейсы'],
     ['typescript', 'interface', 'main',             emoji.favorite+'Основы'],
     ['typescript', 'interface', 'inherit',          emoji.favorite+'Наследование интерфейсов'],
     ['typescript', 'interface', 'with-class',       emoji.favorite+'Взаимодействие с классами'],
     ['typescript', 'interface', 'dynamic-key-obj',  emoji.favorite+'Динамические ключи объекта'],
 
 
+
+    [1, 'Функции'],
+    ['typescript', 'function', '',             emoji.favorite+'Основы'],
+    ['typescript', 'function', '',             emoji.favorite+'Перегрузка функций'],
+
+    [1, 'Классы'],
+    ['typescript', 'class', '',             emoji.favorite+'Основы'],
+    ['typescript', 'class', '',             emoji.favorite+'Модификаторы полей'],
+    ['typescript', 'class', '',             emoji.favorite+'Абстрактные классы'],
+
+    [1, 'Другие возможности'],
+    ['typescript', 'capabilities', 'enums',      emoji.favorite+'Enums'],
+    ['typescript', 'capabilities', 'guards',     emoji.favorite+'Guards'],
+    ['typescript', 'capabilities', 'generics',   emoji.favorite+'Generics'],
+    ['typescript', 'capabilities', 'operators',  emoji.favorite+'Операторы'],
 ];
+
+
+
 
 
 //---------------------------------------------------------------------

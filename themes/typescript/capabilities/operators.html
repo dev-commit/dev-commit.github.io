@@ -1,0 +1,34 @@
+<h2>Операторы</h2>
+
+<v-code lang="js" title="">
+interface Person {
+	name: string
+	age: number
+}
+
+// keyof - пробегаемся по типу Person
+// тип из ключей интерфейса
+type PersonKeys = keyof Person // 'name' | 'age'
+
+let key: PersonKeys = 'name'
+key = 'age'
+</v-code>
+
+<v-code lang="js" title="">
+type User = {
+	_id: number
+	name: string
+	email: string
+	createdAt: Date
+}
+
+// Создать новый тип из существующего, не включая некоторые поля
+
+// Указываем, какие поля нужно не забирать (_id и createdAt)
+type UserKeysNoMeta1 = Exclude&lt;keyof User, '_id' | 'createdAt'&gt; // 'name' | 'email'
+// Указываем, какие поля нужно забрать (name, email)
+type UserKeysNoMeta2 = Pick&lt;User, 'name' | 'email'&gt; // 'name' | 'email'
+
+let u1: UserKeysNoMeta1 = 'name'
+// u1 = '_id'
+</v-code>

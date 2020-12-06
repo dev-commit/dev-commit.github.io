@@ -12,7 +12,9 @@ const emoji = {
     baseball:  '⚾️ ',
     lemon:     '🍋 ',
     avocado:   '🥑 ',
+    coconut:   '🥥 ',
     favorite:  '⭐️ ',
+    chevron:   '🔰 ',
 }
 
 function setTheme(tag, arr) {

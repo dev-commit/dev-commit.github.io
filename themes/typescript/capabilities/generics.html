@@ -1,0 +1,15 @@
+<h2>Generics</h2>
+
+<v-code lang="js" title="">
+const arrayOfNumbers: Array&lt;number&gt; = [1, 1, 2, 3, 5]
+const arrayOfStrings: Array&lt;string&gt; = ['Hello', 'Vladilen']
+
+// динамически подстраивается под разные типы данных
+function reverse&lt;T&gt;(array: T[]): T[] {
+	return array.reverse()
+}
+
+reverse(arrayOfNumbers)
+reverse(arrayOfStrings)
+</v-code>
+
