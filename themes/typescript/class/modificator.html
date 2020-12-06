@@ -1,0 +1,36 @@
+<h2>Модификаторы полей</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Виды модификаторов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-underline>protected</u-text-underline> - внутри класса и в наследниках</li>
+    <li><u-text-underline>public</u-text-underline> - внутри класса и для всех инстансов (<u>задан по умолчанию</u>)</li>
+    <li><u-text-underline>private</u-text-underline> - внутри класса</li>
+</ul>
+
+<v-code lang="js" title="">
+class Animal {
+	protected voice: string = ''
+	public color: string = 'black'
+
+	constructor() {
+		this.go()
+	}
+
+	private go() {
+		console.log('Go')
+	}
+}
+
+class Cat extends Animal {
+	public setVoice(voice: string): void {
+		this.voice = voice
+	}
+}
+
+const cat = new Cat()
+cat.setVoice('test')
+console.log(cat.color)
+// cat.voice
+</v-code>

@@ -1384,26 +1384,21 @@ var arrTypescript = [
     ['typescript', 'interface', 'with-class',       emoji.favorite+'Взаимодействие с классами'],
     ['typescript', 'interface', 'dynamic-key-obj',  emoji.favorite+'Динамические ключи объекта'],
 
-
-
     [1, 'Функции'],
-    ['typescript', 'function', '',             emoji.favorite+'Основы'],
-    ['typescript', 'function', '',             emoji.favorite+'Перегрузка функций'],
+    ['typescript', 'function', 'main',               emoji.cookie+'Основы'],
+    ['typescript', 'function', 'functions-overload', emoji.cookie+'Перегрузка функций'],
 
     [1, 'Классы'],
-    ['typescript', 'class', '',             emoji.favorite+'Основы'],
-    ['typescript', 'class', '',             emoji.favorite+'Модификаторы полей'],
-    ['typescript', 'class', '',             emoji.favorite+'Абстрактные классы'],
+    ['typescript', 'class', 'main',         emoji.donut+'Основы'],
+    ['typescript', 'class', 'modificator',  emoji.donut+'Модификаторы полей'],
+    ['typescript', 'class', 'abstract',     emoji.donut+'Абстрактные классы'],
 
     [1, 'Другие возможности'],
-    ['typescript', 'capabilities', 'enums',      emoji.favorite+'Enums'],
-    ['typescript', 'capabilities', 'guards',     emoji.favorite+'Guards'],
-    ['typescript', 'capabilities', 'generics',   emoji.favorite+'Generics'],
-    ['typescript', 'capabilities', 'operators',  emoji.favorite+'Операторы'],
+    ['typescript', 'capabilities', 'enums',      emoji.baseball+'Enums'],
+    ['typescript', 'capabilities', 'guards',     emoji.baseball+'Guards'],
+    ['typescript', 'capabilities', 'generics',   emoji.baseball+'Generics'],
+    ['typescript', 'capabilities', 'operators',  emoji.baseball+'Операторы'],
 ];
-
-
-
 
 
 //---------------------------------------------------------------------
