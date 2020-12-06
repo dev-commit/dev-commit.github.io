@@ -199,6 +199,7 @@ var arrRedux = [
     //--------------------------------------------------------------------
     ['redux', 'methods', 'provider',          emoji.pizza+setTheme(4, ['Provider'])],
     ['redux', 'methods', 'connect',           emoji.pizza+setTheme(4, ['connect'])],
+    ['redux', 'methods', 'hooks',             emoji.pizza+setTheme(4, ['useDispatch', 'useSelector'])],
 
     [1, 'Flux и Redux'],
     ['redux', 'redux', 'info-flux',              emoji.theory+'Flux'],

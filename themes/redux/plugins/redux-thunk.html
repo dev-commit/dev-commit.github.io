@@ -29,7 +29,7 @@ import axios from 'axios';
 import { ASYNC_PENDING, GET_REQUEST_TIMEOUT } from './actionTypes';
 
 // может быть несколько dispatch
-export const getAsyncData = () => (dispatch) => {
+export const getAsyncData = () => dispatch => {
     
     // синхронное действие
     <u-code>dispatch</u-code>({
@@ -54,6 +54,22 @@ export const getAsyncData = () => (dispatch) => {
         })
     }, 5000)
 };
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Асинхронная функция</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+export const getAsyncData = () => {
+    return async dispatch => {
+        const response = await fetch('')
+        const json = await response.json()
+        dispatch({
+            type: 'ASYNC_SUCCESS',
+            payload: json
+        })
+    }
+}
 </v-code>
 
 
