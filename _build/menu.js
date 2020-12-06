@@ -50,11 +50,11 @@ function getMenu() {
 
         splitter +
         '<a href="/pages/git.html"         class="menu menu-php">🔥 Git</a>' +
-        '<a href="/pages/flow.html"        class="menu menu-php">🔥 Flow</a>' +
+        '<a href="/pages/typescript.html"  class="menu menu-php">🍋 TypeScript</a>' +
+        '<a href="/pages/flow.html"        class="menu menu-php">🍋 Flow</a>' +
         '<a href="/pages/npm.html"         class="menu menu-php">🥤 NPM</a>' +
         '<a href="/pages/webpack.html"     class="menu menu-php">🥤 Webpack</a>' +
         '<a href="/pages/material-ui.html" class="menu menu-php">Material-UI</a>' +
-        '<a href="/pages/typescript.html"  class="menu menu-php">TypeScript</a>' +
         '<a href="/pages/ramda.html"       class="menu menu-php">Ramda</a>' +
 
         splitter +

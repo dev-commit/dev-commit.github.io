@@ -1370,6 +1370,13 @@ var arrTypescript = [
     [1, 'Основное'],
     ['typescript', 'main', 'info',    emoji.theory+'Информация'],
     ['typescript', 'main', 'install', emoji.lemon+'Установка и настройка'],
+
+    [1, 'Типы'],
+    ['typescript', 'types', 'basic',   emoji.pizza+setTheme(4, ['Базовые'])],
+    ['typescript', 'types', 'typle',   emoji.pizza+setTheme(4, ['Typle'])],
+    ['typescript', 'types', 'any',     emoji.pizza+setTheme(4, ['Any'])],
+    ['typescript', 'types', 'never',   emoji.pizza+setTheme(4, ['Never'])],
+    ['typescript', 'types', 'type',    emoji.pizza+setTheme(4, ['Type'])],
 ];
 
 
@@ -1528,7 +1535,7 @@ const ARR_THEMES = [
     // { title: 'Canvas',                    page: 'canvas',                 arr: arrCanvas          },
     // { title: 'Flow',                      page: 'flow',                   arr: arrFlow            },
     // { title: 'Ramda',                     page: 'ramda',                  arr: arrRamda           },
-    // { title: 'Typescript',                page: 'typescript',             arr: arrTypescript      },
+    { title: 'Typescript',                page: 'typescript',             arr: arrTypescript      },
     // { title: 'Jest',                      page: 'jest',                   arr: arrJest            },
     // { title: 'Enzyme',                    page: 'enzyme',                 arr: arrEnzyme          },
     // { title: 'Cypress',                   page: 'cypress',                arr: arrCypress         },
