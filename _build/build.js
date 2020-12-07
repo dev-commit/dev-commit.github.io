@@ -471,7 +471,7 @@ var arrJsClass = [
 //---------------------------------------------------------------------
 // JAVASCRIPT OBJECTS
 //---------------------------------------------------------------------
-const commentProto = ' <u-code-comment>(__proto__)</u-code-comment>';
+const commentProto = ' <u-code-comment>__proto__</u-code-comment>';
 
 var arrJsObjects = [
     [1, 'Методы'],
