@@ -82,6 +82,23 @@ and(?! hi)           # слова "and" после которых нет про�
 (\b\w+)@(\w+\.\w+\b) # запоминающая группа. поиск email
 </v-code>
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+^[a-zA-Z.-/'\\s]+$     // стандартная регурялка
+
+^hello$                // точное совпадение (начало и окончание)
+[^(^hello$)]           // точное совпадение - отрицание
+[^(\bhello\b)]         // точное совпадение - отрицание
+
+^(?!.*(hello))         // все что угодно, кроме "hello" ("hell" - не сработает, "hello1" - сработает)
+^(?!.*(\\bhello\\b))   // все что угодно, кроме "hello" ("hell" - не сработает, "hello1" - не сработает) 
+^(?!.*(hello$))        // все что угодно, кроме "hello" ("hell" - не сработает, "hello1" - не сработает)
+</v-code>
+
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Класс RegExp</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

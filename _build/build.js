@@ -114,8 +114,9 @@ var arrReactjs = [
     ['react-js', 'other',  'samples',               'Примеры'],
 
     [1, 'React Plugins'],
-    ['react-js', 'react-plugins', 'create-react-app',      setTheme(2, ['react', 'react-dom', 'create-react-app'])],
+    ['react-js', 'react-plugins', 'create-react-app',      setTheme(2, ['create-react-app'])],
     ['react-js', 'react-plugins', 'prop-types',            setTheme(2, ['prop-types'])],
+    ['react-js', 'react-plugins', 'classnames',            setTheme(2, ['classnames'])],
     ['react-js', 'react-plugins', 'formik',                setTheme(2, ['formik'])],
 ];
 
@@ -613,8 +614,11 @@ var arrNpm = [
     ['npm', 'npm', 'shortcut',     'Сокращения'],
     ['npm', 'npm', 'package-json', 'package.json'],
 
-    [1, 'NPM'],
+    [1, 'NPM Packages'],
     ['npm', 'npm-package', 'http-server', setTheme(2, ['http-server'])],
+
+    [1, 'Yarn'],
+    ['npm', 'yarn', 'main', 'Основное'],
 
     [1, 'Gulp'],
     ['npm', 'gulp', 'npm',       'NPM'],

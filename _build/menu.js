@@ -44,7 +44,7 @@ const MENU_ITEMS = [
     { href: 'typescript',             class: 'menu-php',   name: '🍋 TypeScript' },
     { href: 'flow',                   class: 'menu-php',   name: '🍋 Flow' },
     { href: 'webpack',                class: 'menu-php',   name: '🥥 Webpack' },
-    { href: 'npm',                    class: 'menu-php',   name: 'NPM' },
+    { href: 'npm',                    class: 'menu-php',   name: 'NPM & Yarn & Gulp' },
     { href: 'material-ui',            class: 'menu-php',   name: 'Material-UI' },
     { href: 'ramda',                  class: 'menu-php',   name: 'Ramda' },
     null,

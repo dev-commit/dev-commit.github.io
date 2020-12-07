@@ -1,2 +1,2 @@
 
-const DEMO_PATH = 'npm/gulp/structure';
+const DEMO_PATH = 'react-js/react-plugins/create-react-app';
