@@ -48,7 +48,7 @@ const MENU_ITEMS = [
     { href: 'material-ui',            class: 'menu-php',   name: 'Material-UI' },
     { href: 'ramda',                  class: 'menu-php',   name: 'Ramda' },
     null,
-    { href: 'other',                  class: 'menu-other', name: '📑 Other' },
+    { href: 'other',                  class: 'menu-other', name: 'Other' },
     { href: 'node-js',                class: 'menu-other', name: 'Node.js' },
     { href: 'php',                    class: 'menu-other', name: 'PHP' },
     { href: 'python',                 class: 'menu-other', name: 'Python' },
