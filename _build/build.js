@@ -8,19 +8,19 @@ var arrAssessment = [
     ['js',         'typing',  'typing',         emoji.theory+'Типизация'],
     ['js',         'typing',  'type-data',      emoji.theory+'Типы данных'],
     ['js',         'typing',  'type-casting',   emoji.code+'Сравнение типов'],
-    ['js-objects', 'objects', 'conversion',     setTheme(1, ['toString', 'valueOf'])],
+    ['js-objects', 'main',    'conversion',     setTheme(1, ['toString', 'valueOf'])],
     ['js',         'typing',  'typeof',         setTheme(1, ['typeof'])],
-    ['js',         'typing',  'symbol',         emoji.pizza+'Symbol (ES6)'],
+    ['js',         'typing',  'symbol',         emoji.chevron+'Symbol (ES6)'],
     ['js',         'typing',  'hoisting',       emoji.fire+'Всплытие'],
 
     [1, 'Классы'],
-    ['js-objects', 'main',            'inheritance',   emoji.fire+'Наследование'],
-    ['js-objects', 'main',            'prototype',     emoji.fire+setTheme(1, ['__proto__', 'prototype'])],
-    ['js-objects', 'main',            'new',           emoji.fire+setTheme(1, ['new'])],
-    ['js-objects', 'objects-methods', 'object-create', emoji.pizza+setTheme(4, ['Object.create'])],
-    ['js-objects', 'objects-methods', 'object-assign', emoji.pizza+setTheme(4, ['Object.assign'])],
-    ['js-objects', 'main',            'constructor',   emoji.pizza+setTheme(4, ['constructor'])],
-    ['js-objects', 'main',            'return',        emoji.pizza+setTheme(4, ['return'])],
+    ['js-class',   'main',     'inheritance',   emoji.fire+'Наследование'],
+    ['js-class',   'main',     'prototype',     emoji.fire+setTheme(1, ['__proto__', 'prototype'])],
+    ['js-class',   'main',     'new',           emoji.fire+setTheme(1, ['new'])],
+    ['js-objects', 'methods',  'object-create', emoji.chevron+setTheme(4, ['Object.create'])],
+    ['js-objects', 'methods',  'object-assign', emoji.chevron+setTheme(4, ['Object.assign'])],
+    ['js-class',   'main',     'constructor',   emoji.chevron+setTheme(4, ['constructor'])],
+    ['js-class',   'main',     'return',        emoji.chevron+setTheme(4, ['return'])],
 
     [1, 'Основы'],
     ['js',          'main',       'bind',                 emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
@@ -95,14 +95,14 @@ var arrReactjs = [
 
     [1, 'Жизненный цикл компонентов'],
     ['react-js', 'lifecycle', 'info',                              emoji.theory+'Информация'],
-    ['react-js', 'lifecycle', 'hook-constructor',                  emoji.pizza+'constructor()'],
-    ['react-js', 'lifecycle', 'hook-get-derived-state-from-props', emoji.pizza+'getDerivedStateFromProps()'],
-    ['react-js', 'lifecycle', 'hook-should-component-update',      emoji.pizza+'shouldComponentUpdate()'],
-    ['react-js', 'lifecycle', 'hook-render',                       emoji.pizza+'render()'],
-    ['react-js', 'lifecycle', 'hook-get-snapshot-before-update',   emoji.pizza+'getSnapshotBeforeUpdate()'],
-    ['react-js', 'lifecycle', 'hook-component-did-mount',          emoji.cup+'componentDidMount()'],
-    ['react-js', 'lifecycle', 'hook-component-did-update',         emoji.cup+'componentDidUpdate()'],
-    ['react-js', 'lifecycle', 'hook-component-will-unmount',       emoji.cup+'componentWillUnmount()'],
+    ['react-js', 'lifecycle', 'hook-constructor',                  emoji.chevron+'constructor()'],
+    ['react-js', 'lifecycle', 'hook-get-derived-state-from-props', emoji.chevron+'getDerivedStateFromProps()'],
+    ['react-js', 'lifecycle', 'hook-should-component-update',      emoji.chevron+'shouldComponentUpdate()'],
+    ['react-js', 'lifecycle', 'hook-render',                       emoji.chevron+'render()'],
+    ['react-js', 'lifecycle', 'hook-get-snapshot-before-update',   emoji.chevron+'getSnapshotBeforeUpdate()'],
+    ['react-js', 'lifecycle', 'hook-component-did-mount',          emoji.coconut+'componentDidMount()'],
+    ['react-js', 'lifecycle', 'hook-component-did-update',         emoji.coconut+'componentDidUpdate()'],
+    ['react-js', 'lifecycle', 'hook-component-will-unmount',       emoji.coconut+'componentWillUnmount()'],
     ['react-js', 'lifecycle', 'hook-get-derived-state-from-error', emoji.cookie+'getDerivedStateFromError()'],
     ['react-js', 'lifecycle', 'hook-component-did-catch',          emoji.cookie+'componentDidCatch()'],
 
@@ -125,23 +125,23 @@ var arrReactjs = [
 //---------------------------------------------------------------------
 var arrReactApi = [
     [1, 'React'],
-    ['react-api', 'react',  'component',                    emoji.pizza+setTheme(4, ['React.Component'])],   
-    ['react-api', 'react',  'create-element',               emoji.pizza+setTheme(4, ['React.createElement()'])],
-    ['react-api', 'react',  'clone-element',                emoji.pizza+setTheme(4, ['React.cloneElement()'])],
-    ['react-api', 'react',  'create-factory',               emoji.pizza+setTheme(4, ['React.createFactory'])],
-    ['react-api', 'react',  'is-valid-element',             emoji.pizza+setTheme(4, ['React.isValidElement()'])],
+    ['react-api', 'react',  'component',                    emoji.chevron+setTheme(4, ['React.Component'])],   
+    ['react-api', 'react',  'create-element',               emoji.chevron+setTheme(4, ['React.createElement()'])],
+    ['react-api', 'react',  'clone-element',                emoji.chevron+setTheme(4, ['React.cloneElement()'])],
+    ['react-api', 'react',  'create-factory',               emoji.chevron+setTheme(4, ['React.createFactory'])],
+    ['react-api', 'react',  'is-valid-element',             emoji.chevron+setTheme(4, ['React.isValidElement()'])],
 
     [1, 'Мемоизация'],
     ['react-api', 'memoization', 'info',                    emoji.theory+'Информация'],
-    ['react-api', 'memoization', 'react-pure-component',    emoji.pizza+setTheme(4, ['React.PureComponent'])],
-    ['react-api', 'memoization', 'react-memo',              emoji.pizza+setTheme(4, ['React.memo'])],
+    ['react-api', 'memoization', 'react-pure-component',    emoji.chevron+setTheme(4, ['React.PureComponent'])],
+    ['react-api', 'memoization', 'react-memo',              emoji.chevron+setTheme(4, ['React.memo'])],
 
     [1, 'Компоненты'],
-    ['react-api', 'components',  'set-state',               emoji.pizza+setTheme(4, ['setState()'])],
-    ['react-api', 'components',  'force-update',            emoji.pizza+setTheme(4, ['forceUpdate()'])],
+    ['react-api', 'components',  'set-state',               emoji.chevron+setTheme(4, ['setState()'])],
+    ['react-api', 'components',  'force-update',            emoji.chevron+setTheme(4, ['forceUpdate()'])],
 
     [1, 'DOM-атрибуты'],
-    ['react-api', 'dom',  'dangerously-set-inner-html',     emoji.pizza+setTheme(4, ['dangerouslySetInnerHTML'])],
+    ['react-api', 'dom',  'dangerously-set-inner-html',     emoji.chevron+setTheme(4, ['dangerouslySetInnerHTML'])],
 ];
 
 
@@ -191,15 +191,15 @@ var arrRedux = [
     //--------------------------------------------------------------------
     [2, 'Redux'],
     //--------------------------------------------------------------------
-    ['redux', 'methods', 'create-store',      emoji.pizza+setTheme(4, ['createStore'])],
-    ['redux', 'methods', 'apply-middleware',  emoji.pizza+setTheme(4, ['applyMiddleware'])],
-    ['redux', 'methods', 'combine-reducers',  emoji.pizza+setTheme(4, ['combineReducers'])],
+    ['redux', 'methods', 'create-store',      emoji.chevron+setTheme(4, ['createStore'])],
+    ['redux', 'methods', 'apply-middleware',  emoji.chevron+setTheme(4, ['applyMiddleware'])],
+    ['redux', 'methods', 'combine-reducers',  emoji.chevron+setTheme(4, ['combineReducers'])],
     //--------------------------------------------------------------------
     [2, 'React-Redux'],
     //--------------------------------------------------------------------
-    ['redux', 'methods', 'provider',          emoji.pizza+setTheme(4, ['Provider'])],
-    ['redux', 'methods', 'connect',           emoji.pizza+setTheme(4, ['connect'])],
-    ['redux', 'methods', 'hooks',             emoji.pizza+setTheme(4, ['useDispatch', 'useSelector'])],
+    ['redux', 'methods', 'provider',          emoji.chevron+setTheme(4, ['Provider'])],
+    ['redux', 'methods', 'connect',           emoji.chevron+setTheme(4, ['connect'])],
+    ['redux', 'methods', 'hooks',             emoji.chevron+setTheme(4, ['useDispatch', 'useSelector'])],
 
     [1, 'Flux и Redux'],
     ['redux', 'redux', 'info-flux',              emoji.theory+'Flux'],
@@ -207,26 +207,10 @@ var arrRedux = [
     ['redux', 'redux', 'functional-programming', emoji.theory+'Принципы FP'],
 
     [1, 'Redux Plugins'],
-
-    //--------------------------------------------------------------------
-    [2, 'Основное'],
-    //--------------------------------------------------------------------
     ['redux', 'plugins', 'redux-devtools-extension', setTheme(2, ['redux-devtools-extension'])],
-
-    //--------------------------------------------------------------------
-    [2, 'Асинхронность'],
-    //--------------------------------------------------------------------
     ['redux', 'plugins', 'redux-thunk',              setTheme(2, ['redux-thunk'])],
     ['redux', 'plugins', 'redux-saga',               setTheme(2, ['redux-saga'])],
-
-    //--------------------------------------------------------------------
-    [2, 'Формы'],
-    //--------------------------------------------------------------------
     ['redux', 'plugins', 'redux-form',               setTheme(2, ['redux-form'])],
-
-    //--------------------------------------------------------------------
-    [2, 'Прочее'],
-    //--------------------------------------------------------------------
     ['redux', 'plugins', 'redux-actions',            setTheme(2, ['redux-actions'])],
     ['redux', 'plugins', 'redux-logger',             setTheme(2, ['redux-logger'])],
 ];
@@ -263,7 +247,7 @@ var arrJavaScript = [
     ['js', 'typing', 'type-data',      emoji.theory+'Типы данных'],
     ['js', 'typing', 'type-casting',   emoji.code+'Сравнение типов'],
     ['js', 'typing', 'typeof',         setTheme(1, ['typeof'])],
-    ['js', 'typing', 'symbol',         emoji.pizza+'Symbol (ES6)'],
+    ['js', 'typing', 'symbol',         emoji.chevron+'Symbol (ES6)'],
     ['js', 'typing', 'hoisting',       emoji.fire+'Всплытие'],
     ['js', 'typing', 'variables',      setTheme(1, ['var', 'let', 'const'])],
 
@@ -452,63 +436,64 @@ var arrJsWebComponents = [
 
 
 //---------------------------------------------------------------------
+// JAVASCRIPT CLASS
+//---------------------------------------------------------------------
+var arrJsClass = [
+    [1, 'Основное'],
+    ['js-class', 'main', 'inheritance',   emoji.fire+'Наследование'],
+    ['js-class', 'main', 'prototype',     emoji.fire+setTheme(1, ['__proto__', 'prototype'])],
+    ['js-class', 'main', 'new',           emoji.fire+setTheme(1, ['new'])],
+    ['js-class', 'main', 'constructor',   emoji.coconut+setTheme(1, ['constructor'])],
+    ['js-class', 'main', 'return',        emoji.coconut+setTheme(1, ['return'])],
+    ['js-class', 'main', 'new-target',    emoji.baseball+setTheme(1, ['new.target'])],
+
+    [1, 'Классы ES6+'],
+    ['js-class', 'class-es6', 'info',             emoji.theory+'Теория'],
+    ['js-class', 'class-es6', 'create',           emoji.fire+'Объявление'],
+    ['js-class', 'class-es6', 'inherit',          emoji.fire+'Наследование'],
+    ['js-class', 'class-es6', 'class-properties', 'Свойства классов'],
+    ['js-class', 'class-es6', 'expression',       'Выражения классов'],
+
+    [1, 'Классы ES5 «Функциональный стиль»'],
+    ['js-class', 'class-es5-functional', 'create',              emoji.pizza+'Объявление'],
+    ['js-class', 'class-es5-functional', 'methods-private',     emoji.pizza+'Приватный метод'],
+    ['js-class', 'class-es5-functional', 'getters-and-setters', emoji.pizza+'Геттеры и сеттеры'],
+    ['js-class', 'class-es5-functional', 'inherit',             emoji.pizza+'Наследование'],
+
+    [1, 'Классы ES5 «Прототипный стиль»'],
+    ['js-class', 'class-es5-prototype', 'info',        emoji.theory+'Теория'],
+    ['js-class', 'class-es5-prototype', 'methods',     emoji.cookie+'Добавление методов'],
+    ['js-class', 'class-es5-prototype', 'inherit',     emoji.cookie+'Наследование классов'],
+    ['js-class', 'class-es5-prototype', 'mixins',      emoji.cookie+'Примеси'],
+];
+
+
+//---------------------------------------------------------------------
 // JAVASCRIPT OBJECTS
 //---------------------------------------------------------------------
 var arrJsObjects = [
+    [1, 'Методы'],
+    ['js-objects', 'methods', 'object-create',      emoji.chevron+setTheme(4, ['Object.create'])+' <u-code-list>__proto__</u-code-list>'],
+    ['js-objects', 'methods', 'object-assign',      emoji.chevron+setTheme(4, ['Object.assign'])],
+    ['js-objects', 'methods', 'set-prototype-of',   emoji.chevron+setTheme(4, ['Object.setPrototypeOf'])+' <u-code-list>__proto__</u-code-list>'],
+    ['js-objects', 'methods', 'get-prototype-of',   emoji.chevron+setTheme(4, ['Object.getPrototypeOf'])+' <u-code-list>__proto__</u-code-list>'],
+    ['js-objects', 'methods', 'is-prototype-of',    emoji.chevron+setTheme(4, ['isPrototypeOf'])+' <u-code-list>__proto__</u-code-list>'],
+    ['js-objects', 'methods', 'instanceof',         emoji.chevron+setTheme(4, ['instanceof'])],
+
+    ['js-objects', 'main', 'check-property',   'Проверка наличия свойства'],
+    ['js-objects', 'main', 'descriptor',       'Дескрипторы свойств'],
+    ['js-objects', 'main', 'extends',          'Расширяемость объектов'],
+
     [1, 'Основное'],
-    ['js-objects', 'main', 'inheritance',   emoji.fire+'Наследование'],
-    ['js-objects', 'main', 'new',           emoji.fire+setTheme(1, ['new'])],
-    ['js-objects', 'main', 'prototype',     emoji.fire+setTheme(1, ['__proto__', 'prototype'])],
-    ['js-objects', 'main', 'constructor',   emoji.coconut+setTheme(1, ['constructor'])],
-    ['js-objects', 'main', 'return',        emoji.coconut+setTheme(1, ['return'])],
-    ['js-objects', 'main', 'new-target',    emoji.baseball+setTheme(1, ['new.target'])],
+    ['js-objects', 'main', 'info',             emoji.theory+'Теория'],
+    ['js-objects', 'main', 'literal-notation', emoji.code+'Литеральная нотация'],
+    ['js-objects', 'main', 'for',              emoji.code+'Перебор объекта'],
+    ['js-objects', 'main', 'conversion',       setTheme(1, ['toString', 'valueOf'])],
 
-
-
-
-
-    [1, 'Методы Object'],
-    ['js-objects', 'objects-methods', 'object-create',      emoji.pizza+setTheme(4, ['Object.create'])+' <u-code-list>__proto__</u-code-list>'],
-    ['js-objects', 'objects-methods', 'object-assign',      emoji.pizza+setTheme(4, ['Object.assign'])],
-    ['js-objects', 'objects-methods', 'set-prototype-of',   emoji.pizza+setTheme(4, ['Object.setPrototypeOf'])+' <u-code-list>__proto__</u-code-list>'],
-    ['js-objects', 'objects-methods', 'get-prototype-of',   emoji.pizza+setTheme(4, ['Object.getPrototypeOf'])+' <u-code-list>__proto__</u-code-list>'],
-    ['js-objects', 'objects-methods', 'is-prototype-of',    emoji.pizza+setTheme(4, ['isPrototypeOf'])+' <u-code-list>__proto__</u-code-list>'],
-    ['js-objects', 'objects-methods', 'instanceof',         emoji.pizza+setTheme(4, ['instanceof'])],
-
-    ['js-objects', 'objects',         'for',                'Перебор объекта'],
-    ['js-objects', 'objects',         'check-property',     'Проверка наличия свойства'],
-    ['js-objects', 'objects',         'descriptor',         'Дескрипторы свойств'],
-    ['js-objects', 'objects',         'extends',            'Расширяемость объектов'],
-
-    [1, 'Объекты ES6+'],
-    ['js-objects', 'objects', 'info',             emoji.theory+'Теория'],
-    ['js-objects', 'objects', 'literal-notation', emoji.boom+'Литеральная нотация'],
-    ['js-objects', 'objects', 'constructor',      'Конструктор создания объекта'],
-    ['js-objects', 'objects', 'prototype',        'Прототип'],
-    ['js-objects', 'objects', 'conversion',       emoji.donut+setTheme(1, ['toString', 'valueOf'])],
-    ['js-objects', 'objects', 'samples',          'Примеры'],
-
-
-
-
-    [1, 'Классы ES6+'],
-    ['js-objects', 'class-es6', 'info',             emoji.theory+'Теория'],
-    ['js-objects', 'class-es6', 'create',           emoji.fire+'Объявление'],
-    ['js-objects', 'class-es6', 'inherit',          emoji.fire+'Наследование'],
-    ['js-objects', 'class-es6', 'class-properties', 'Свойства классов'],
-    ['js-objects', 'class-es6', 'expression',       'Выражения классов'],
-
-    [1, 'Классы ES5 «Функциональный стиль»'],
-    ['js-objects', 'class-es5-functional', 'create',              emoji.pizza+'Объявление'],
-    ['js-objects', 'class-es5-functional', 'methods-private',     emoji.pizza+'Приватный метод'],
-    ['js-objects', 'class-es5-functional', 'getters-and-setters', emoji.pizza+'Геттеры и сеттеры'],
-    ['js-objects', 'class-es5-functional', 'inherit',             emoji.pizza+'Наследование'],
-
-    [1, 'Классы ES5 «Прототипный стиль»'],
-    ['js-objects', 'class-es5-prototype', 'info',        emoji.theory+'Теория'],
-    ['js-objects', 'class-es5-prototype', 'methods',     emoji.cookie+'Добавление методов'],
-    ['js-objects', 'class-es5-prototype', 'inherit',     emoji.cookie+'Наследование классов'],
-    ['js-objects', 'class-es5-prototype', 'mixins',      emoji.cookie+'Примеси'],
+    [1, 'Прочее'],
+    ['js-objects', 'other', 'constructor',  'Конструктор создания объекта'],
+    ['js-objects', 'other', 'prototype',    'Прототип'],
+    ['js-objects', 'other', 'samples',      'Примеры'],
 ];
 
 
@@ -956,7 +941,7 @@ var arrLinux = [
 //---------------------------------------------------------------------
 var arrJsTasks = [
     [1, 'Полифилы'],
-    ['js-objects', 'main',      'new',            emoji.cookie+setTheme(4, ['new'])],
+    ['js-class',   'main',      'new',            emoji.cookie+setTheme(4, ['new'])],
     ['js-task',    'polyphyls', 'object-create',  emoji.cookie+setTheme(4, ['Object.create'])],
     ['js-task',    'polyphyls', 'bind',           emoji.cookie+setTheme(4, ['bind()'])],
     ['js-task',    'polyphyls', 'promise-all',    emoji.cookie+setTheme(4, ['Promise.all'])],
@@ -1530,6 +1515,7 @@ const ARR_THEMES = [
 
     { title: 'JavaScript',                page: 'js',                     arr: arrJavaScript      },
     { title: 'JavaScript: Объекты',       page: 'js-objects',             arr: arrJsObjects       },
+    { title: 'JavaScript: Классы',        page: 'js-class',               arr: arrJsClass         },
     { title: 'JavaScript: Асинхронность', page: 'js-async',               arr: arrJsAsync         },
     { title: 'JavaScript: WebAPI',        page: 'js-web-api',             arr: arrJsWebApi        },
     { title: 'JavaScript: WebComponents', page: 'js-web-components',      arr: arrJsWebComponents },
