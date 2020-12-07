@@ -1546,7 +1546,7 @@ const ARR_THEMES = [
     // { title: 'NPM',                       page: 'npm',                    arr: arrNpm             },
     // { title: 'Git',                       page: 'git',                    arr: arrGit             },
     // { title: 'Linux',                     page: 'linux',                  arr: arrLinux           },
-    // { title: 'Прочее',                    page: 'other',                  arr: arrOther           },
+    { title: 'Прочее',                    page: 'other',                  arr: arrOther           },
     // { title: 'jQuery',                    page: 'jquery',                 arr: arrJquery          },
     // { title: 'Canvas',                    page: 'canvas',                 arr: arrCanvas          },
     // { title: 'Flow',                      page: 'flow',                   arr: arrFlow            },
