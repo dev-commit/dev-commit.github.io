@@ -482,6 +482,7 @@ var arrJsObjects = [
     ['js-objects', 'methods', 'is-prototype-of',    emoji.chevron+setTheme(4, ['isPrototypeOf'])+commentProto],
     ['js-objects', 'methods', 'instanceof',         emoji.chevron+setTheme(4, ['instanceof'])],
 
+    ['js-objects', 'main', 'for',              'Перебор объекта'],
     ['js-objects', 'main', 'check-property',   'Проверка наличия свойства'],
     ['js-objects', 'main', 'descriptor',       'Дескрипторы свойств'],
     ['js-objects', 'main', 'extends',          'Расширяемость объектов'],
@@ -489,7 +490,6 @@ var arrJsObjects = [
     [1, 'Основное'],
     ['js-objects', 'main', 'info',             emoji.theory+'Теория'],
     ['js-objects', 'main', 'literal-notation', emoji.code+'Литеральная нотация'],
-    ['js-objects', 'main', 'for',              emoji.code+'Перебор объекта'],
     ['js-objects', 'main', 'conversion',       setTheme(1, ['toString', 'valueOf'])],
 
     [1, 'Прочее'],
