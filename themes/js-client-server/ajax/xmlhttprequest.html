@@ -67,11 +67,11 @@ Date: Sat, 08 Sep 2012 16:53:16 GMT
 <h3>Свойства XMLHttpRequest</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="bash" title="">
-<em>xhr.status</em>       # HTTP-код ответа: 200, 404, 403 и так далее. Может быть также равен 0, если сервер не ответил или при запросе на другой домен
-<em>xhr.statusText</em>   # Текстовое описание статуса от сервера: OK, Not Found, Forbidden и т.д.
-<em>xhr.responseText</em> # Текст ответа сервера. Для json JSON.parse(xhr.responseText)
-<em>xhr.responseXML</em>  # Если сервер вернул XML, снабдив его правильным заголовком Content-type: text/xml, то браузер создаст из него XML-документ. По нему можно будет делать запросы xhr.responseXml.querySelector("...") и другие
-<em>xhr.timeout</em>      # Максимальная продолжительность асинхронного запроса. При превышении этого времени запрос будет оборван и сгенерировано событие ontimeout
+xhr.status       # HTTP-код ответа: 200, 404, 403 и так далее. Может быть также равен 0, если сервер не ответил или при запросе на другой домен
+xhr.statusText   # Текстовое описание статуса от сервера: OK, Not Found, Forbidden и т.д.
+xhr.responseText # Текст ответа сервера. Для json JSON.parse(xhr.responseText)
+xhr.responseXML  # Если сервер вернул XML, снабдив его правильным заголовком Content-type: text/xml, то браузер создаст из него XML-документ. По нему можно будет делать запросы xhr.responseXml.querySelector("...") и другие
+xhr.timeout      # Максимальная продолжительность асинхронного запроса. При превышении этого времени запрос будет оборван и сгенерировано событие ontimeout
 </v-code>
 
 <v-code lang="js" title="">
@@ -85,14 +85,14 @@ xhr.ontimeout = function() {
 <h3>События</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="bash" title="">
-<em>onreadystatechange</em> # можно посмотреть «текущее состояние запроса» в свойстве xhr.readyState
-<em>onloadstart</em>        # запрос начат
-<em>onprogress</em>         # браузер получил очередной пакет данных, можно прочитать текущие полученные данные в responseText
-<em>onabort</em>            # запрос был отменён вызовом xhr.abort()
-<em>onerror</em>            # произошла ошибка
-<em>onload</em>             # запрос был успешно (без ошибок) завершён
-<em>ontimeout</em>          # запрос был прекращён по таймауту
-<em>onloadend</em>          # запрос был завершён (успешно или неуспешно)
+onreadystatechange # можно посмотреть «текущее состояние запроса» в свойстве xhr.readyState
+onloadstart        # запрос начат
+onprogress         # браузер получил очередной пакет данных, можно прочитать текущие полученные данные в responseText
+onabort            # запрос был отменён вызовом xhr.abort()
+onerror            # произошла ошибка
+onload             # запрос был успешно (без ошибок) завершён
+ontimeout          # запрос был прекращён по таймауту
+onloadend          # запрос был завершён (успешно или неуспешно)
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

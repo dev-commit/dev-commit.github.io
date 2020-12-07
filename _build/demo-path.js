@@ -1,2 +1,2 @@
 
-const DEMO_PATH = 'css/special/collapse-margin';
+const DEMO_PATH = 'npm/gulp/structure';

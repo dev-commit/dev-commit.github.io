@@ -15,7 +15,7 @@ const MENU_ITEMS = [
     { href: 'js-async',               class: 'menu-js',    name: '🍋 Асинхронность' },
     { href: 'js-client-server',       class: 'menu-js',    name: '🍋 Клиент-сервер' },
     null,
-    { href: 'js-web-api',             class: 'menu-js',    name: 'Web API' },
+    { href: 'js-web-api',             class: 'menu-js',    name: '🥑 Web API' },
     { href: 'js-web-components',      class: 'menu-js',    name: 'WebComponents' },
     { href: 'canvas',                 class: 'menu-js',    name: 'Canvas' },
     null,

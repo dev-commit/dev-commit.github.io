@@ -1504,7 +1504,7 @@ var arrCypress = [
     ['cypress', 'guides',  'network-requests', emoji.favorite+'Network Requests'],
 ];
 
-// 46
+// 47
 
 const ARR_THEMES = [
     // { title: 'Ассессмент',                page: 'assessment',             arr: arrAssessment      },
@@ -1516,7 +1516,7 @@ const ARR_THEMES = [
     // { title: 'Структуры данных',          page: 'theory-data-structures', arr: arrDataStructures  },
 
     // { title: 'JavaScript',                page: 'js',                     arr: arrJavaScript      },
-    { title: 'JavaScript: Объекты',       page: 'js-objects',             arr: arrJsObjects       },
+    // { title: 'JavaScript: Объекты',       page: 'js-objects',             arr: arrJsObjects       },
     // { title: 'JavaScript: Классы',        page: 'js-class',               arr: arrJsClass         },
     // { title: 'JavaScript: Асинхронность', page: 'js-async',               arr: arrJsAsync         },
     // { title: 'JavaScript: WebAPI',        page: 'js-web-api',             arr: arrJsWebApi        },
