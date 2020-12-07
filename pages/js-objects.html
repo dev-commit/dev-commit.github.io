@@ -217,7 +217,8 @@ for(let key <u-code>in</u-code> obj) {
 <h3>Перечисление всех свойств объекта</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-// возвращает массив со всеми собственными (те, что в цепочке прототипов, не войдут в массив) именами перечисляемых свойств объекта
+// возвращает массив со всеми собственными именами перечисляемых свойств объекта
+// (те, что в цепочке прототипов, не войдут в массив)
 var a = Object.<u-code>keys</u-code>(obj);
 
 // количество свойств
@@ -359,12 +360,16 @@ const person = {
 Object.<u-code>preventExtensions</u-code>(person);
 // проверяет применение preventExtensions
 const a = Object.<u-code>isExtensible</u-code>(person);
+</v-code>
 
+<v-code lang="js" title="">
 // аналогичен preventExtensions, дополнительно задает атрибут configurable:false для всех свойств
 Object.<u-code>seal</u-code>(person);
 // проверяет применение seal
 const a = Object.<u-code>isSealed</u-code>(person);
+</v-code>
 
+<v-code lang="js" title="">
 // аналогичен seal, дополнительно делает все свойства доступные только для чтения (configurable:false, writable:false)
 Object.<u-code>freeze</u-code>(person);
 // проверяет применение freeze
