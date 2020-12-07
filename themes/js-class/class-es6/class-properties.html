@@ -24,28 +24,3 @@ console.log(cnt.count);    // => 1
 cnt.inc();                 // => 2
 setTimeout(cnt.inc, 1000); // => 3
 </v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Статические свойства и методы</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li><u-code-text>static</u-code-text> - свойства, которые принадлежат классу, а не конкретным объектам</li>
-</ul>
-
-<v-code lang="js" title="">
-class Counter {
-	count = 1;
-
-	inc = () => {
-		this.count += Counter.incrementStep;
-		console.log(this.count);
-	}
-
-	static incrementStep = 2;
-	static incrementAll = function(arr) {
-		arr.forEach((c) => c.inc());
-	}
-}
-
-Counter.incrementAll([]);
-</v-code>

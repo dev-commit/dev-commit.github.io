@@ -1,0 +1,40 @@
+<h2>Создание класса</h2>
+
+<ul class="list-point">
+	<li><u-code-text>constructor()</u-code-text> - метод, который вызывается в момент создания объекта (при использовании <u>new</u>). Он создает и инициализирует свойства</li>
+	<li>В классе может быть только 1 конструктор. Если не указать конструктор, то JS создаст пустой конструктор</li>
+</ul>
+
+<v-code lang="js" title="">
+class Task {
+	constructor(name = 'Default') {
+		this.title = 'MyTask';
+		this.name = name;
+		console.log('Create task');
+	}
+	complete() {
+		return this.title;
+	}
+}
+
+// Создание экземпляра класса (объекта)
+const task = new Task('New Task');
+
+// Обращение к свойствам
+const title = task.title; // => "MyTask"
+const name  = task.name;  // => "New Task" если передали в constructor
+
+// Обращение к методам
+const complete = task.complete(); // => MyTask
+
+// Является ли объект представителем класса
+const flag = task instanceof Task; // => true
+</v-code>
+
+<v-code lang="js" title="">
+// Переопределение стандартных методов
+Task.prototype.toString = function() {
+	return this.name;
+}
+</v-code>
+

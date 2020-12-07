@@ -8,6 +8,34 @@
     <li><u>super()</u> должен вызываться первым объявлением <u>this</u></li>
 </ul>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Простой пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+class User {
+	constructor(name) {
+		this.name = name;
+	}
+	getName() {
+		console.log(this.name);
+	}
+}
+
+class Admin <u-code>extends</u-code> User {
+	constructor(name) {
+		<u-code>super</u-code>(name);
+	}
+}
+
+const admin = new Admin('Tony');
+admin.getName();    // => "Tony"
+console.log(admin); // => Object { name: "Tony" }
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Усложненный пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 // создание супер-класса
 class Task {

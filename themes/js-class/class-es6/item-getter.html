@@ -1,0 +1,40 @@
+<h2>Геттеры и Сеттеры</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Геттеры и Сеттеры</u-text-define> - аксессоры. Внутри класса выглядят и ведут себя как методы, а снаружи выглядят и ведут себя как свойства</li>
+	<li>Эти свойства-методы позволяют получить доступ и присвоить значения "настоящим" свойствам объекта, т.е. выступают в роли фильтра</li>
+	<li>Названия свойств get и set не должны совпадать с названиями основных свойств объекта</li>
+	<li>Свойство <u-code-text>get</u-code-text> связывает свойство объекта с функцией, которая будет вызываться при обращении к этому свойству</li>
+</ul>
+
+<v-code lang="js" title="">
+class Task {
+	constructor() {
+		this._done = false;
+	}
+	<u-code>get</u-code> done() {
+		return this._done === true ? 'Yes' : 'No';
+	}
+	<u-code>set</u-code> done(value) {
+		if(value != undefined && typeof value === 'boolean') {
+			this._done = value;
+		} else {
+			console.error('Ошибка! Укажите значение true или false');
+		}
+	}
+	complete() {
+		this.done = true;
+	}
+}
+
+const task = new Task();
+
+// Обращение через Геттер
+const a1 = task.done;  // => "No"
+// Обращение напрямую к свойству
+const a2 = task._done; // => false
+// Установка значения через Сеттер
+task.done = true;
+// Обращение через Геттер
+const a3 = task.done; // => "Yes"
+</v-code>
