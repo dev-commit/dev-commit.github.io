@@ -347,36 +347,36 @@ var arrJsAsync = [
 
 
 //---------------------------------------------------------------------
-// JAVASCRIPT CLIENT-SERVER
+// JAVASCRIPT NETWORK
 //---------------------------------------------------------------------
-var arrJsClientServer = [
+var arrJsNetwork = [
     [1, 'Клиент-сервер'],
-    ['js-client-server', 'theory', 'info',          emoji.theory+'Информация'],
-    ['js-client-server', 'theory', 'http',          emoji.theory+'HTTP'],
-    ['js-client-server', 'theory', 'https',         emoji.theory+'HTTPS'],
-    ['js-client-server', 'theory', 'soap',          emoji.theory+'SOAP'],
-    ['js-client-server', 'theory', 'rest',          emoji.boom+'1. REST API'],
-    ['js-client-server', 'theory', 'rest-json-api', emoji.boom+'2. REST JSON API'],
-    ['js-client-server', 'theory', 'graphql',       emoji.boom+'3. GraphQL'],
+    ['js-network', 'theory', 'info',          emoji.theory+'Информация'],
+    ['js-network', 'theory', 'http',          emoji.theory+'HTTP'],
+    ['js-network', 'theory', 'https',         emoji.theory+'HTTPS'],
+    ['js-network', 'theory', 'soap',          emoji.theory+'SOAP'],
+    ['js-network', 'theory', 'rest',          emoji.boom+'1. REST API'],
+    ['js-network', 'theory', 'rest-json-api', emoji.boom+'2. REST JSON API'],
+    ['js-network', 'theory', 'graphql',       emoji.boom+'3. GraphQL'],
 
     [1, 'AJAX и технологии'],
-    ['js-client-server', 'ajax', 'info',           emoji.theory+'Описание'],
-    ['js-client-server', 'ajax', 'xmlhttprequest', emoji.fire+'1. XMLHttpRequest'],
-    ['js-client-server', 'ajax', 'fetch',          emoji.fire+'2. Fetch'],
-    ['js-client-server', 'ajax', 'axios',          emoji.fire+'3. Axios'],
-    ['js-client-server', 'ajax', 'request-js',     emoji.code+'Request JS'],
-    ['js-client-server', 'ajax', 'response-php',   emoji.code+'Response PHP'],
+    ['js-network', 'ajax', 'info',           emoji.theory+'Описание'],
+    ['js-network', 'ajax', 'xmlhttprequest', emoji.fire+'1. XMLHttpRequest'],
+    ['js-network', 'ajax', 'fetch',          emoji.fire+'2. Fetch'],
+    ['js-network', 'ajax', 'axios',          emoji.fire+'3. Axios'],
+    ['js-network', 'ajax', 'request-js',     emoji.code+'Request JS'],
+    ['js-network', 'ajax', 'response-php',   emoji.code+'Response PHP'],
 
     [1, 'Технологии'],
-    ['js-client-server', 'tech', 'websocket',      emoji.lemon+'WebSocket'],
-    ['js-client-server', 'tech', 'cors',           emoji.lemon+'CORS'],
-    ['js-client-server', 'tech', 'webrtc',         emoji.lemon+'WebRTC'],
-    ['js-client-server', 'tech', 'jsonp',          'JSONP'],
-    ['js-client-server', 'tech', 'comet',          'Comet'],
+    ['js-network', 'tech', 'websocket',      emoji.lemon+'WebSocket'],
+    ['js-network', 'tech', 'cors',           emoji.lemon+'CORS'],
+    ['js-network', 'tech', 'webrtc',         emoji.lemon+'WebRTC'],
+    ['js-network', 'tech', 'jsonp',          'JSONP'],
+    ['js-network', 'tech', 'comet',          'Comet'],
 
     [1, 'Hacking'],
-    ['js-client-server', 'hacking', 'xss',            'XSS'],
-    ['js-client-server', 'hacking', 'sql-injection',  'SQL инъекции'],
+    ['js-network', 'hacking', 'xss',            'XSS'],
+    ['js-network', 'hacking', 'sql-injection',  'SQL инъекции'],
 ];
 
 
@@ -1524,11 +1524,11 @@ const ARR_THEMES = [
 
     // { title: 'JavaScript',                page: 'js',                     arr: arrJavaScript      },
     // { title: 'JavaScript: Объекты',       page: 'js-objects',             arr: arrJsObjects       },
-    { title: 'JavaScript: Классы',        page: 'js-class',               arr: arrJsClass         },
+    // { title: 'JavaScript: Классы',        page: 'js-class',               arr: arrJsClass         },
     // { title: 'JavaScript: Асинхронность', page: 'js-async',               arr: arrJsAsync         },
     // { title: 'JavaScript: WebAPI',        page: 'js-web-api',             arr: arrJsWebApi        },
     // { title: 'JavaScript: WebComponents', page: 'js-web-components',      arr: arrJsWebComponents },
-    // { title: 'JavaScript: Клиент-сервер', page: 'js-client-server',       arr: arrJsClientServer  },
+    // { title: 'JavaScript: Сеть',          page: 'js-network',             arr: arrJsNetwork       },
     // { title: 'JavaScript: Задачи',        page: 'js-tasks',               arr: arrJsTasks         },
 
     // { title: 'React.js',                  page: 'react-js',               arr: arrReactjs         },

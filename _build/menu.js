@@ -13,7 +13,7 @@ const MENU_ITEMS = [
     { href: 'js-class',               class: 'menu-js',    name: '🥑 Классы' },
     { href: 'js-objects',             class: 'menu-js',    name: '🥑 Объекты' },
     { href: 'js-async',               class: 'menu-js',    name: '🍋 Асинхронность' },
-    { href: 'js-client-server',       class: 'menu-js',    name: '🍋 Клиент-сервер' },
+    { href: 'js-network',             class: 'menu-js',    name: '🍋 Сеть' },
     null,
     { href: 'js-web-api',             class: 'menu-js',    name: '🥑 Web API' },
     { href: 'js-web-components',      class: 'menu-js',    name: 'WebComponents' },
