@@ -3,12 +3,34 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="icon" type="image/png" href="src/img/favicon.png">
-	<link rel="stylesheet" type="text/css" href="src/css/index.css">
-	<link rel="stylesheet" href="src-core/css/basic.css">
+<style>
+	body {
+		background-color: #f8f9fa;
+		padding: 20px 50px;
+	}
+	#root {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	a {
+		display: flex;
+		align-items: center;
+		color: black;
+		padding: 7px 10px;
+		margin: 5px;
+		text-decoration: none;
+		font-family: sans-serif;
+		background-color: #fff;
+		box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+	}
+</style>
 </head>
 <body>
-	<div id="menu-top"></div>
+	<div id="root"></div>
 
-	<script src="src/js/menu.js"></script>
+	<script src="_build/menu.js"></script>
+	<script>
+		root.innerHTML = getMenu();
+	</script>
 </body>
 </html>
