@@ -1528,7 +1528,7 @@ const ARR_THEMES = [
     // { title: 'JavaScript: Асинхронность', page: 'js-async',               arr: arrJsAsync         },
     // { title: 'JavaScript: WebAPI',        page: 'js-web-api',             arr: arrJsWebApi        },
     // { title: 'JavaScript: WebComponents', page: 'js-web-components',      arr: arrJsWebComponents },
-    // { title: 'JavaScript: Сеть',          page: 'js-network',             arr: arrJsNetwork       },
+    { title: 'JavaScript: Сеть',          page: 'js-network',             arr: arrJsNetwork       },
     // { title: 'JavaScript: Задачи',        page: 'js-tasks',               arr: arrJsTasks         },
 
     // { title: 'React.js',                  page: 'react-js',               arr: arrReactjs         },
