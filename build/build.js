@@ -1090,6 +1090,7 @@ var arrHTML = [
 //---------------------------------------------------------------------
 var arrCSS = [
     [1, 'База'],
+    ['css', 'basic',  'pattern',              emoji.code+'Шаблон'],
     ['css', 'basic',  'priority-styles',      emoji.fire+'Приоритетность стилей'],
     ['css', 'basic',  'selector-specificity', emoji.fire+'Специфичность селекторов'],
 
@@ -1206,10 +1207,16 @@ var arrFlow = [
 var arrSvg = [
     [1, 'Основное'],
     ['svg', 'main', 'info',       'Информация'],
-    ['svg', 'main', 'figure',     'Фигуры'],
-    ['svg', 'main', 'filters',    'Фильтры'],
-    ['svg', 'main', 'gradients',  'Градиенты'],
-    ['svg', 'main', 'background', 'Background'],
+    ['svg', 'main', 'css',        emoji.code+'Стилизация на CSS'],
+
+    [1, 'Элементы'],
+    ['svg', 'elements', 'figure',     emoji.chevron+'Фигуры'],
+    ['svg', 'elements', 'text',       emoji.chevron+'Текст'],
+    ['svg', 'elements', 'image',      emoji.chevron+'Изображение'],
+    ['svg', 'elements', 'mask',       emoji.chevron+'Маскирование'],
+    ['svg', 'elements', 'filters',    emoji.chevron+'Фильтры'],
+    ['svg', 'elements', 'gradients',  emoji.chevron+'Градиенты'],
+    ['svg', 'elements', 'background', emoji.chevron+'Background'],
 ];
 
 
@@ -1528,7 +1535,7 @@ const ARR_THEMES = [
     // { title: 'JavaScript: Асинхронность', page: 'js-async',               arr: arrJsAsync         },
     // { title: 'JavaScript: WebAPI',        page: 'js-web-api',             arr: arrJsWebApi        },
     // { title: 'JavaScript: WebComponents', page: 'js-web-components',      arr: arrJsWebComponents },
-    { title: 'JavaScript: Сеть',          page: 'js-network',             arr: arrJsNetwork       },
+    // { title: 'JavaScript: Сеть',          page: 'js-network',             arr: arrJsNetwork       },
     // { title: 'JavaScript: Задачи',        page: 'js-tasks',               arr: arrJsTasks         },
 
     // { title: 'React.js',                  page: 'react-js',               arr: arrReactjs         },

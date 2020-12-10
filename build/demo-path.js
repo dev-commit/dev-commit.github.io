@@ -1,2 +1,2 @@
 
-const DEMO_PATH = 'react-js/react-plugins/create-react-app';
+const DEMO_PATH = 'svg/elements/mask';
