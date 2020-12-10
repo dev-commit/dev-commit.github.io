@@ -1562,7 +1562,7 @@ const ARR_THEMES = [
     // { title: 'JavaScript: Сеть',          page: 'js-network',             arr: arrJsNetwork       },
     // { title: 'JavaScript: Задачи',        page: 'js-tasks',               arr: arrJsTasks         },
 
-    { title: 'React.js',                  page: 'react-js',               arr: arrReactjs         },
+    // { title: 'React.js',                  page: 'react-js',               arr: arrReactjs         },
     // { title: 'React API',                 page: 'react-api',              arr: arrReactApi        },
     // { title: 'React Hooks',               page: 'react-hooks',            arr: arrReactHooks      },
     // { title: 'React Router',              page: 'react-router',           arr: arrReactRouter     },
