@@ -1,5 +1,17 @@
 <h2>Custom Elements</h2>
 
+<v-code lang="js border" title="">
+class CustomElement extends HTMLElement {
+    constructor() {
+        super();
+        this.innerText = 'Hello World';
+    }
+}
+customElements.define('custom-element', CustomElement);
+// => Hello World
+</v-code>
+
+
 <u-message-error>document.registerElement => window.customElements.define (устаревшая конструкция)</u-message-error>
 
 <ul class="list-point">

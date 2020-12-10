@@ -10,6 +10,11 @@
     <v-method-return>Возвращает [state, dispatch] текущее состояние в паре с методом <u-code-text>dispatch</u-code-text></v-method-return>
 </div>
 
+<ul class="list-point">
+    <li>Хук useReducer обычно предпочтительнее useState, когда есть сложная логика состояния, которая включает в себя несколько значений, или когда следующее состояние зависит от предыдущего</li>
+    <li>useReducer позволяет оптимизировать производительность компонентов, которые запускают глубокие обновления, поскольку можно передавать dispatch вместо колбэков</li>
+</ul>
+
 <v-code lang="js border" title="">
 import React, { useReducer } from 'react';
 

@@ -1,5 +1,22 @@
 <h2>Shadow DOM</h2>
 
+<v-code lang="html border" title="">
+&lt;div id="root"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="js border" title="">
+const element = document.getElementById('root');
+
+const shadowRoot = element.attachShadow({
+    mode: 'open'
+});
+
+shadowRoot.innerHTML = '<strong>Hello All</strong> People';
+element.shadowRoot.querySelector('strong').textContent = 'Hello!';
+// => Hello! People
+</v-code>
+
+
 <u-message-error>Element.createShadowRoot => Element.attachShadowe (устаревшая конструкция)</u-message-error>
 
 <ul class="list-point">

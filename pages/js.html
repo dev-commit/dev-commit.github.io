@@ -730,27 +730,31 @@ export function libFunction() {
 <h3>Экспорт компонента по умолчанию</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="bash" title="">
-./src/components/MyComponent/MyComponent.js
-./src/components/MyComponent/index.js
+./src/components/App/App.js
+./src/components/App/index.js
 ./src/components/OtherComponent/OtherComponent.js
 </v-code>
 
-<v-code lang="js" title="MyComponent">
-export default MyComponent;
+<v-code lang="js border" title="App">
+const App = () => {
+	//
+};
+
+export default App;
 </v-code>
 
-<v-code lang="js" title="index.js">
+<v-code lang="js border" title="index.js">
 // Вариант 1
-export { default } from './MyComponent';
+export { default } from './App';
 
 // Вариант 2
-import MyComponent from './MyComponent';
-export default MyComponent;
+import App from './App';
+export default App;
 </v-code>
 
-<v-code lang="js" title="OtherComponent">
-// не нужно указывать полный путь: ./src/components/MyComponent/MyComponent.js
-import MyComponent from '../src/components/MyComponent';
+<v-code lang="js border" title="OtherComponent">
+// не нужно указывать полный путь: ./src/components/App/App.js
+import App from '../App';
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

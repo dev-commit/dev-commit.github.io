@@ -1,7 +1,21 @@
 <h2>Шаблоны &lt;template&gt;</h2>
 
+<v-code lang="html border" title="">
+&lt;template&gt;
+    &lt;strong&gt;&lt;/strong&gt;
+&lt;/template&gt;
+</v-code>
+
+<v-code lang="js border" title="">
+const template = document.querySelector('template');
+const templateContent = document.importNode(template.content, true);
+templateContent.querySelector('strong').innerText = 'Hello';
+console.log(templateContent); // =&gt; &lt;strong&gt;Hello&lt;/strong&gt;
+</v-code>
+
+
 <ul class="list-point">
-<li>Элемент &lt;template&gt; предназначен для хранения «образца» разметки, невидимого и предназначенного для вставки куда-либо. Содержимое читается находящимся вообще «вне документа»</li>
+	<li>Элемент &lt;template&gt; предназначен для хранения «образца» разметки, невидимого и предназначенного для вставки куда-либо. Содержимое читается находящимся вообще «вне документа»</li>
 </ul>
 
 <!------------------------------------------------------------->

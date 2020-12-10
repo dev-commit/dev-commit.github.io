@@ -16,7 +16,7 @@
                         <div id="menu-left-show"></div>
                         <a href="#menu-top">Starter</a>
                     </div>
-                    <div id="menu-build"><div class="theme">Веб-компоненты</div><a href="#main-info">Теория</a><a href="#main-shadow-dom"><u-menu-accent>1</u-menu-accent> Shadow DOM</a><a href="#main-template"><u-menu-accent>2</u-menu-accent> HTML Templates</a><a href="#main-custom-elements"><u-menu-accent>3</u-menu-accent> Custom Elements</a><a href="#main-imports"><u-menu-accent>4</u-menu-accent> HTML Imports</a></div>
+                    <div id="menu-build"><div class="theme">Основное</div><a href="#main-info">📑 Теория</a><div class="theme">Элементы</div><a href="#elements-custom-elements">🔰 1. Custom Elements</a><a href="#elements-shadow-dom">🔰 2. Shadow DOM</a><a href="#elements-html-templates">🔰 3. HTML Templates</a><a href="#elements-html-import">🔰 4. HTML Import</a></div>
                 </div>
                 <div id="content-wrapper">
                     <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn & Gulp</a><a href="/pages/material-ui" class="menu menu-php">Material-UI</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
@@ -33,138 +33,25 @@
 	<a href="https://css-tricks.com/styling-a-web-component/" target="_blank">[css-tricks.com] Styling a Web Component</a>
 	<a href="https://www.polymer-project.org/" target="_blank">Polymer (полифилл на тему веб-компонент)</a>
 </u-link-wrapper>
-</div><div id="main-shadow-dom"><h2>Shadow DOM</h2>
 
-<u-message-error>Element.createShadowRoot => Element.attachShadowe (устаревшая конструкция)</u-message-error>
+<hr>
 
-<ul class="list-point">
-	<li><u-text-define>Shadow DOM</u-text-define> - это средство для создания отдельного DOM-дерева внутри элемента, которое не видно снаружи без применения специальных методов. Shadow DOM - это внутренний DOM элемента, который существует отдельно от внешнего документа. В нём могут быть свои ID, свои стили и так далее. Причём снаружи его, без применения специальных техник, не видно, поэтому не возникает конфликтов</li>
-	<li>Shadow DOM - спецификация, описывающая метод объединения нескольких DOM-деревьев в одну иерархию и как эти деревья взаимодействуют друг с другом в пределах документа, что позволяет лучше скомпоновать DOM</li>
-	<li>Shadow DOM можно создать внутри любого элемента</li>
-	<li>С момента создания Shadow DOM обычное содержимое (дети) элемента не отображается, а показывается только Shadow DOM</li>
-	
-	<hr>
-	<b>&lt;content&gt;</b>
-	<li>Тег <u>&lt;content&gt;</u> влияет только на отображение, он не перемещает узлы физически. Внутри <u>&lt;content&gt;</u> показывается не элемент целиком, а только его содержимое</li>
-	<li>Внутри Shadow DOM можно использовать &lt;content&gt; много раз с разными значениями select, указывая таким образом, где конкретно какие части исходного содержимого разместить. Но при этом дублирование узлов невозможно. Если узел показан в одном &lt;content&gt;, то в следующем он будет пропущен</li>
-	<li>Например, если сначала идёт &lt;content select="h3.title"&gt;, а затем &lt;content select="h3"&gt;, то в первом &lt;content&gt; будут показаны заголовки &lt;h3&gt; с классом title, а во втором – все остальные, кроме уже показанных</li>
-	<li>Если в теге &lt;content&gt;&lt;/content&gt; есть содержимое, оно будет показано только в том случае, если узлов для вставки нет</li>
-</ul>
+<u-link-wrapper>
+	<a href="https://github.com/plainobject/FancyProgress" target="_blank">Демо на Веб-компонентах</a>
+</u-link-wrapper>
+</div><div id="elements-custom-elements"><h2>Custom Elements</h2>
 
-<v-code lang="js" title="JavaScript">
-createShadowRoot();  // создание Shadow DOM
-shadowRoot();        // корень
-</v-code>
-
-<v-code lang="js" title="HTML">
-&lt;content&gt;&lt;/content&gt; <u-code-comment>// замена содержимого</u-code-comment>
-</v-code>
-
-<v-code lang="js" title="CSS">
-::shadow  // выбирает корень Shadow DOM
->>>       // полностью игнорирует границы между DOM'ами
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Создание createShadowRoot</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-var root = document.querySelector('#element').<u-code>createShadowRoot()</u-code>;
-</v-code>
-
-<v-code lang="html" title="">
-&lt;div id="element"&gt;Hi&lt;/div&gt;
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Замена содержимого &lt;content&gt;&lt;/content&gt;</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-// =&gt; Shadow - заменяет содержимое в "element"
-root.innerHTML = '&lt;p&gt;Shadow&lt;/p&gt;'; 
-
-// =&gt; Hi All Shadow - выводит всё содержимое из "element"
-root.innerHTML = '&lt;h1&gt;<u-code>&lt;content&gt;&lt;/content&gt;</u-code>&lt;/h1&gt; &lt;p&gt;Shadow&lt;/p&gt;';
-
-// =&gt; Hi Shadow - вывести только &lt;h3&gt; из "element"
-root.innerHTML = '&lt;h1&gt;<u-code>&lt;content select="h3"&gt;&lt;/content&gt;</u-code>&lt;/h1&gt; &lt;p&gt;Shadow1&lt;/p&gt;';
-</v-code>
-
-<v-code lang="html" title="">
-&lt;div id="element"&gt;
-	&lt;h3&gt;Hi&lt;/h3&gt;
-	&lt;p&gt;All&lt;/p&gt;
-&lt;/div&gt;
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Корень shadowRoot</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-var rootElement = document.querySelector('#element').<u-code>shadowRoot</u-code>;
-rootElement.querySelector('p').innerHTML = 'New Shadow';
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Стилизация</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-	<li>По умолчанию стили внутри Shadow DOM относятся только к его содержимому</li>
-</ul>
-
-<ul class="list-point">
-	<li><u-code-text>::shadow</u-code-text> - выбирает корень Shadow DOM</li>
-	<li>Выбранный элемент сам по себе не создаёт CSS box, но служит отправной точкой для дальнейшей выборки уже внутри дерева
-	Shadow DOM. Например, <u-code-text>#elem::shadow > div</u-code-text> найдёт внутри Shadow DOM #elem элементы div первого уровня</li>
-	<li><u-code-text>>>></u-code-text> - особого вида CSS-селектор для всех элементов Shadow DOM, который полностью игнорирует границы между DOM'ами, включая
-	вложенные подэлементы, у которых тоже может быть свой Shadow DOM</li>
-	<li>Например, <u-code-text>#elem >>> span</u-code-text> найдёт все span внутри Shadow DOM #elem, но кроме того, если в #elem есть
-	подэлементы, у которых свой Shadow DOM, то оно продолжит поиск в них</li>
-</ul>
-</div><div id="main-template"><h2>Шаблоны &lt;template&gt;</h2>
-
-<ul class="list-point">
-<li>Элемент &lt;template&gt; предназначен для хранения «образца» разметки, невидимого и предназначенного для вставки куда-либо. Содержимое читается находящимся вообще «вне документа»</li>
-</ul>
-
-<!------------------------------------------------------------->
-<h4>Пример 1</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-element.appendChild(template.<u-code>content.cloneNode(true)</u-code>); // => Hi Template
-</v-code>
-
-<v-code lang="html" title="">
-&lt;div id="element"&gt;Hi&lt;/div&gt;
-&lt;template id="template"&gt;Template&lt;/template&gt;
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Пример 2</h4>
-<!------------------------------------------------------------->
-<v-code lang="html" title="">
-&lt;div class="main"&gt;
-	&lt;div class="main-header"&gt;Main Header&lt;/div&gt;
-&lt;/div&gt;
-&lt;template id="template"&gt;
-	&lt;div class="template-header"&gt;Template Header&lt;/div&gt;
-&lt;/template&gt;
-</v-code>
-
-<v-code lang="js" title="">
-const template = document.getElementById('template');
-const instance = document.<u-code>importNode</u-code>(<u-code>template.content</u-code>, true);
-
-const main = document.querySelector('.main');
-const header = main.querySelector('.main-header');
-if (header !== null) {
-	instance.querySelector('.template-header').innerHTML = header.innerHTML;
+<v-code lang="js border" title="">
+class CustomElement extends HTMLElement {
+    constructor() {
+        super();
+        this.innerText = 'Hello World';
+    }
 }
-
-main.innerHTML = '';
-main.appendChild(instance);
+customElements.define('custom-element', CustomElement);
+// => Hello World
 </v-code>
-</div><div id="main-custom-elements"><h2>Custom Elements</h2>
+
 
 <u-message-error>document.registerElement => window.customElements.define (устаревшая конструкция)</u-message-error>
 
@@ -311,7 +198,179 @@ hello-world {
 <v-code lang="html" title="">
 &lt;hello-world id="hello"&gt;Hello, world!&lt;/hello-world&gt;
 </v-code>
-</div><div id="main-imports"><h2>HTML Imports</h2>
+</div><div id="elements-shadow-dom"><h2>Shadow DOM</h2>
+
+<v-code lang="html border" title="">
+&lt;div id="root"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="js border" title="">
+const element = document.getElementById('root');
+
+const shadowRoot = element.attachShadow({
+    mode: 'open'
+});
+
+shadowRoot.innerHTML = '<strong>Hello All</strong> People';
+element.shadowRoot.querySelector('strong').textContent = 'Hello!';
+// => Hello! People
+</v-code>
+
+
+<u-message-error>Element.createShadowRoot => Element.attachShadowe (устаревшая конструкция)</u-message-error>
+
+<ul class="list-point">
+	<li><u-text-define>Shadow DOM</u-text-define> - это средство для создания отдельного DOM-дерева внутри элемента, которое не видно снаружи без применения специальных методов. Shadow DOM - это внутренний DOM элемента, который существует отдельно от внешнего документа. В нём могут быть свои ID, свои стили и так далее. Причём снаружи его, без применения специальных техник, не видно, поэтому не возникает конфликтов</li>
+	<li>Shadow DOM - спецификация, описывающая метод объединения нескольких DOM-деревьев в одну иерархию и как эти деревья взаимодействуют друг с другом в пределах документа, что позволяет лучше скомпоновать DOM</li>
+	<li>Shadow DOM можно создать внутри любого элемента</li>
+	<li>С момента создания Shadow DOM обычное содержимое (дети) элемента не отображается, а показывается только Shadow DOM</li>
+	
+	<hr>
+	<b>&lt;content&gt;</b>
+	<li>Тег <u>&lt;content&gt;</u> влияет только на отображение, он не перемещает узлы физически. Внутри <u>&lt;content&gt;</u> показывается не элемент целиком, а только его содержимое</li>
+	<li>Внутри Shadow DOM можно использовать &lt;content&gt; много раз с разными значениями select, указывая таким образом, где конкретно какие части исходного содержимого разместить. Но при этом дублирование узлов невозможно. Если узел показан в одном &lt;content&gt;, то в следующем он будет пропущен</li>
+	<li>Например, если сначала идёт &lt;content select="h3.title"&gt;, а затем &lt;content select="h3"&gt;, то в первом &lt;content&gt; будут показаны заголовки &lt;h3&gt; с классом title, а во втором – все остальные, кроме уже показанных</li>
+	<li>Если в теге &lt;content&gt;&lt;/content&gt; есть содержимое, оно будет показано только в том случае, если узлов для вставки нет</li>
+</ul>
+
+<v-code lang="js" title="JavaScript">
+createShadowRoot();  // создание Shadow DOM
+shadowRoot();        // корень
+</v-code>
+
+<v-code lang="js" title="HTML">
+&lt;content&gt;&lt;/content&gt; <u-code-comment>// замена содержимого</u-code-comment>
+</v-code>
+
+<v-code lang="js" title="CSS">
+::shadow  // выбирает корень Shadow DOM
+>>>       // полностью игнорирует границы между DOM'ами
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Создание createShadowRoot</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var root = document.querySelector('#element').<u-code>createShadowRoot()</u-code>;
+</v-code>
+
+<v-code lang="html" title="">
+&lt;div id="element"&gt;Hi&lt;/div&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Замена содержимого &lt;content&gt;&lt;/content&gt;</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// =&gt; Shadow - заменяет содержимое в "element"
+root.innerHTML = '&lt;p&gt;Shadow&lt;/p&gt;'; 
+
+// =&gt; Hi All Shadow - выводит всё содержимое из "element"
+root.innerHTML = '&lt;h1&gt;<u-code>&lt;content&gt;&lt;/content&gt;</u-code>&lt;/h1&gt; &lt;p&gt;Shadow&lt;/p&gt;';
+
+// =&gt; Hi Shadow - вывести только &lt;h3&gt; из "element"
+root.innerHTML = '&lt;h1&gt;<u-code>&lt;content select="h3"&gt;&lt;/content&gt;</u-code>&lt;/h1&gt; &lt;p&gt;Shadow1&lt;/p&gt;';
+</v-code>
+
+<v-code lang="html" title="">
+&lt;div id="element"&gt;
+	&lt;h3&gt;Hi&lt;/h3&gt;
+	&lt;p&gt;All&lt;/p&gt;
+&lt;/div&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Корень shadowRoot</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var rootElement = document.querySelector('#element').<u-code>shadowRoot</u-code>;
+rootElement.querySelector('p').innerHTML = 'New Shadow';
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Стилизация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>По умолчанию стили внутри Shadow DOM относятся только к его содержимому</li>
+</ul>
+
+<ul class="list-point">
+	<li><u-code-text>::shadow</u-code-text> - выбирает корень Shadow DOM</li>
+	<li>Выбранный элемент сам по себе не создаёт CSS box, но служит отправной точкой для дальнейшей выборки уже внутри дерева
+	Shadow DOM. Например, <u-code-text>#elem::shadow > div</u-code-text> найдёт внутри Shadow DOM #elem элементы div первого уровня</li>
+	<li><u-code-text>>>></u-code-text> - особого вида CSS-селектор для всех элементов Shadow DOM, который полностью игнорирует границы между DOM'ами, включая
+	вложенные подэлементы, у которых тоже может быть свой Shadow DOM</li>
+	<li>Например, <u-code-text>#elem >>> span</u-code-text> найдёт все span внутри Shadow DOM #elem, но кроме того, если в #elem есть
+	подэлементы, у которых свой Shadow DOM, то оно продолжит поиск в них</li>
+</ul>
+</div><div id="elements-html-templates"><h2>Шаблоны &lt;template&gt;</h2>
+
+<v-code lang="html border" title="">
+&lt;template&gt;
+    &lt;strong&gt;&lt;/strong&gt;
+&lt;/template&gt;
+</v-code>
+
+<v-code lang="js border" title="">
+const template = document.querySelector('template');
+const templateContent = document.importNode(template.content, true);
+templateContent.querySelector('strong').innerText = 'Hello';
+console.log(templateContent); // =&gt; &lt;strong&gt;Hello&lt;/strong&gt;
+</v-code>
+
+
+<ul class="list-point">
+	<li>Элемент &lt;template&gt; предназначен для хранения «образца» разметки, невидимого и предназначенного для вставки куда-либо. Содержимое читается находящимся вообще «вне документа»</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Пример 1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+element.appendChild(template.<u-code>content.cloneNode(true)</u-code>); // => Hi Template
+</v-code>
+
+<v-code lang="html" title="">
+&lt;div id="element"&gt;Hi&lt;/div&gt;
+&lt;template id="template"&gt;Template&lt;/template&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример 2</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div class="main"&gt;
+	&lt;div class="main-header"&gt;Main Header&lt;/div&gt;
+&lt;/div&gt;
+&lt;template id="template"&gt;
+	&lt;div class="template-header"&gt;Template Header&lt;/div&gt;
+&lt;/template&gt;
+</v-code>
+
+<v-code lang="js" title="">
+const template = document.getElementById('template');
+const instance = document.<u-code>importNode</u-code>(<u-code>template.content</u-code>, true);
+
+const main = document.querySelector('.main');
+const header = main.querySelector('.main-header');
+if (header !== null) {
+	instance.querySelector('.template-header').innerHTML = header.innerHTML;
+}
+
+main.innerHTML = '';
+main.appendChild(instance);
+</v-code>
+</div><div id="elements-html-import"><h2>HTML Import</h2>
+
+<v-code lang="html border" title="">
+&lt;link rel="import" href="file.html"&gt;
+</v-code>
+
+<v-code lang="js border" title="">
+const link = document.querySelector('link[rel="import"]');
+const importedElement = link.import.querySelector('span');
+</v-code>
+
 
 <u-message-error>HTML Imports => ES modules (устаревшая конструкция)</u-message-error>
 
