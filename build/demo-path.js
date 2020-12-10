@@ -1,2 +1,2 @@
 
-const DEMO_PATH = 'svg/elements/mask';
+const DEMO_PATH = 'react-prop-types/main/use';

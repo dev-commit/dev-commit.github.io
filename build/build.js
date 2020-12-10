@@ -122,6 +122,29 @@ var arrReactjs = [
 
 
 //---------------------------------------------------------------------
+// REACT PROP-TYPES
+//---------------------------------------------------------------------
+var arrReactPropTypes = [
+    [1, 'Основы'],
+    ['react-prop-types', 'main', 'info',  emoji.theory+'Информация'],
+    ['react-prop-types', 'main', 'use',   'Использование'],
+    ['react-prop-types', 'main', 'types', 'Типы'],
+
+    [1, 'Прочее'],
+    ['react-prop-types', 'other', 'own-validator', 'Собственный валидатор'],
+];
+
+
+//---------------------------------------------------------------------
+// REACT FORMIK
+//---------------------------------------------------------------------
+var arrReactFormik = [
+    [1, 'Основы'],
+    ['react-formik', 'main', 'info', emoji.theory+'Информация'],
+];
+
+
+//---------------------------------------------------------------------
 // REACT API
 //---------------------------------------------------------------------
 var arrReactApi = [
@@ -1521,7 +1544,7 @@ var arrCypress = [
     ['cypress', 'guides',  'network-requests', emoji.favorite+'Network Requests'],
 ];
 
-// 47
+// 49
 
 const ARR_THEMES = [
     { title: 'Ассессмент',                page: 'assessment',             arr: arrAssessment      },
@@ -1547,6 +1570,9 @@ const ARR_THEMES = [
     { title: 'React Router',              page: 'react-router',           arr: arrReactRouter     },
     { title: 'Redux',                     page: 'redux',                  arr: arrRedux           },
     { title: 'Vue.js',                    page: 'vue-js',                 arr: arrVuejs           },
+
+    { title: 'React Prop-Types',          page: 'react-prop-types',       arr: arrReactPropTypes  },
+    { title: 'React Formik',              page: 'react-formik',           arr: arrReactFormik     },
 
     { title: 'HTML',                      page: 'html',                   arr: arrHTML            },
     { title: 'CSS',                       page: 'css',                    arr: arrCSS             },
