@@ -1,6 +1,10 @@
 
 // 51
 
+const ARR_THEMES_SELECTED = [
+    'gulp'
+];
+
 const ARR_THEMES = [
     { page: 'assessment',             arr: arrAssessment,      class: 'menu-other', title: 'Ассессмент' },
     { page: 'js-tasks',               arr: arrJsTasks,         class: 'menu-other', title: '🍕 Задачи' },
@@ -63,4 +67,3 @@ const ARR_THEMES = [
     { page: 'linux',                  arr: arrLinux,           class: 'menu-other', title: 'Linux' },
     { page: 'jquery',                 arr: arrJquery,          class: 'menu-other', title: 'jQuery' },
 ];
-

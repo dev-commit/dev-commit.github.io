@@ -15,11 +15,29 @@ function getMenu() {
     return html;
 }
 
-ARR_THEMES.forEach(element => {
-    if (element) {
-        getPage(element);
+if (!ARR_THEMES_SELECTED.length) {
+    ARR_THEMES.forEach(element => {
+        if (element) {
+            getPage(element);
+        }
+    })
+} else {
+    const ARR_RESULT = [];
+    const ARR_LOCAL = ARR_THEMES.filter(element => element);
+    ARR_LOCAL.forEach(element => {
+        ARR_THEMES_SELECTED.forEach(theme => {
+            if (element.page.includes(theme)) {
+                ARR_RESULT.push(element);
+            }
+        })
+    })
+
+    if (ARR_RESULT.length) {
+        ARR_RESULT.forEach(element => {
+            getPage(element);
+        })
     }
-})
+}
 
 function getPage(arrCurrent) {
     let wrapperMenu = '';
