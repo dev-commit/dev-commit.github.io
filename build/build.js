@@ -1601,7 +1601,7 @@ const ARR_THEMES = [
     // { title: 'React Prop-Types',          page: 'prop-types',            arr: arrPropTypes        },
     // { title: 'React Formik',              page: 'formik',                arr: arrFormik           },
     // { title: 'Redux Reselect',            page: 'reselect',              arr: arrReselect         },
-    { title: 'Material-UI',               page: 'material-ui',            arr: arrMaterialUI      },
+    // { title: 'Material-UI',               page: 'material-ui',           arr: arrMaterialUI       },
 
     // { title: 'HTML',                      page: 'html',                   arr: arrHTML            },
     // { title: 'CSS',                       page: 'css',                    arr: arrCSS             },
