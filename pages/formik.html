@@ -2,7 +2,7 @@
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Linux</title>
+            <title>React Formik</title>
             <meta charset="utf-8">
             <link rel="icon" type="image/png" href="../src/img/favicon.png">
             <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
@@ -16,129 +16,179 @@
                         <div id="menu-left-show"></div>
                         <a href="#menu-top">Starter</a>
                     </div>
-                    <div id="menu-build"><div class="theme">Ubuntu (Debian)</div><a href="#ubuntu-command">Команды</a><a href="#ubuntu-package">Пакеты</a><a href="#ubuntu-nodejs">🍪 Node.js</a><a href="#ubuntu-npm">🍪 Npm</a><a href="#ubuntu-setting">Настройка</a><a href="#ubuntu-other">Прочее</a></div>
+                    <div id="menu-build"><div class="theme">Основы</div><a href="#main-info">📑 Информация</a><a href="#main-use">⚡️ Использование</a><div class="theme">Основы</div><a href="#elements-validation-schema">🔰 <u-menu-unactive>validationSchema</u-menu-unactive></a><a href="#elements-validate">🔰 <u-menu-unactive>validate</u-menu-unactive></a><a href="#elements-set-field-touched">🔰 <u-menu-unactive>setFieldTouched</u-menu-unactive> (событие)</a><div class="theme">Прочее</div><a href="#other-samples">Примеры</a></div>
                 </div>
                 <div id="content-wrapper">
                     <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn & Gulp</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
-                    <div id="content"><div id="ubuntu-command"><h2>Команды</h2>
+                    <div id="content"><div id="main-info"><h2>formik</h2>
 
 <u-link-wrapper>
-	<a href="https://help.ubuntu.ru/wiki/командная_строка" target="_blank">Русскоязычная документация</a>
+	<a href="https://jaredpalmer.com/formik/" target="_blank">Formik</a>
+	<a href="https://jaredpalmer.com/formik/docs/api/withFormik" target="_blank">withFormik()</a>
 </u-link-wrapper>
 
-<v-code lang="bash" title="bash">
-<u-code>rmdir</u-code> моя_папка # удаление пустой директории
-<u-code>rm</u-code> имя_файла    # удаление файла
-<u-code>rm -R</u-code> моя_папка # удаление директории с файлами (-r - опция рекурсивного удаления )
-</v-code>
-
-<v-code lang="bash" title="">
-<u-code>wget</u-code> name_url                     # скачивание
-<u-code>sudo apt-get install</u-code> name_package # скачивание с репозитория и установка
-<u-code>sudo apt-get remove</u-code> name_package  # удаление пакета
-<u-code>sudo dpkg -i</u-code> name_package         # установка скачанного пакета с расширением .deb
-<u-code>sudo apt-get update</u-code>               # обновление
-</v-code>
-
-<v-code lang="bash" title="">
-win+пробел # смена языка
-</v-code>
-</div><div id="ubuntu-package"><h2>Пакеты</h2>
-
-<v-code lang="bash" title="">
-sudo apt-get install <u-code>git</u-code>
-sudo apt-get install <u-code>p7zip-rar rar unrar unace arj cabextract</u-code> # архиваторы
-</v-code>
-
-<v-code lang="bash" title="">
-sudo apt install <u-code>ubuntu-restricted-extras</u-code> # шрифты windows
-sudo apt install <u-code>gnome-tweak-tool</u-code>         # расширение рабочего стола
-sudo apt install <u-code>chrome-gnome-shell</u-code>       # расширения для браузеров
-</v-code>
-</div><div id="ubuntu-nodejs"><h2>Node.js</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Установка</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-sudo apt-get install <u-code>nodejs</u-code>
-sudo apt-get install <u-code>npm</u-code>
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Установка последней версии</h4>
-<!------------------------------------------------------------->
-<v-code lang="bash" title="">
-# https://nodejs.org/dist/latest/
-# из папки с архивом
-sudo tar -C /usr/local --strip-components 1 -xzf node-v12.2.0-linux-x64.tar.gz
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Удаление</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-sudo apt-get remove <u-code>nodejs</u-code>
-sudo apt-get remove <u-code>npm</u-code>
-</v-code>
-
-<u-link-wrapper>
-	<a href="http://qaru.site/questions/137083/completly-uninstall-nodejs-npm-and-node-in-ubuntu-1404" target="_blank">Полностью удалить nodejs, npm и node в ubuntu 14.04</a>
-</u-link-wrapper>
-</div><div id="ubuntu-npm"><h2>NPM-пакеты</h2>
-
-<v-code lang="bash" title="">
-sudo rm -R node_modules               # удалить папку node_modules
-sudo npm i --unsafe-perm              # установить все пакеты
-sudo npm i --save --unsafe-perm redux # установить пакет
-</v-code>
-</div><div id="ubuntu-setting"><h2>Настройки</h2>
-
-<v-code lang="bash" title="">
-Menu -> Settings -> Region & Language
-	-> Добавить русский язык
-</v-code>
-
-<v-code lang="bash" title="">
-Menu -> Settings -> Language Support 
-	-> Install (пакет для языков)
-	-> Install / Remove Language -> Русский (выбрать)
-	-> Перетащить "Русский" наверх
-	-> Apply System-Wide
-	-> Close
-	-> Перезагрузка
-</v-code>
-
-<v-code lang="bash" title="">
-Меню -> Обновления -> Настройки
-	-> Программное обеспечение Ubuntu -> Загрузить с "Сервер Российская Федерация" -> Выбрать лучший сервер
-	-> Другое ПО -> Партнеры Canonical
-	-> Обновления -> Автоматически проверять наличие обновлений
-</v-code>
-
-<v-code lang="bash" title="">
-Обзор -> Настройки -> Дополнительные настройки -> Расширения
-	-> Ubuntu appindicators (check)
-	-> Ubuntu dock (check)
-</v-code>
-</div><div id="ubuntu-other"><h2>Прочее</h2>
-
 <ul class="list-point">
-    <li><u-text-define>sudo</u-text-define> - утилита, предоставляющая привилегии root для выполнения административных операций в соответствии со своими настройками</li>
+	<li><u>Formik</u> - библиотека построенная на принципах управляемых компонентов и управления состоянием. Полноценное решение, которое может валидировать ввод, запомнить посещённые поля формы и обработать её отправку</li>
 </ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Github Desktop</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-	<li>GitHub has no desktop client for Linux but you can go for GitKraken or GitBlade or Cycligent Git Tool</li>
-	<li>При любой операции ошибка: "Error while loading shared libraries: libcurl.so.4: cannot open shared object file: No such file or directory"</li>
-</ul>
+</div><div id="main-use"><h2>Использование</h2>
 
 <v-pre-npm>
-sudo snap install github-desktop --beta --classic
-sudo snap install github-desktop --edge
+npm i --save <u-code-npm>formik</u-code-npm>
 </v-pre-npm>
+
+<v-code lang="js" title="">
+import React from 'react';
+import { withFormik } from 'formik';
+import * as Yup from 'yup';
+</v-code>
+
+<v-code lang="js" title="">
+const validationSchema = Yup.object().shape({
+    inputName: Yup.string().required('Поле обязательно для заполнения'),
+});
+</v-code>
+
+<v-code lang="js" title="">
+const Component = (values, handleChange, handleSubmit) =&gt; {
+
+    //const handleInputNameChange = (event) =&gt; {
+    //    handleChange(event);
+    //};
+
+    return (
+        &lt;form onSubmit={handleSubmit}&gt;
+            &lt;Input
+                //onChange={handleInputNameChange}
+		        onChange={handleChange}
+                value={values.inputName}
+                name='inputName'
+		        error={touched.inputName &amp;&amp; errors.inputName}
+            /&gt;
+        &lt;/form&gt;
+    );
+};
+</v-code>
+
+<v-code lang="js" title="">
+export default withFormik({
+    mapPropsToValues: () => ({
+        inputName: '',
+    }),
+    handleSubmit: async (values, { props, setStatus }) => {
+        console.log(values);
+    },
+    validationSchema,
+})(Component);
+</v-code>
+</div><div id="elements-validation-schema"><h2>validationSchema</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Заготовка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const validationSchema = Yup.object().shape({
+    //
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Типы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+field: Yup.string(),
+field: Yup.number(),
+field: Yup.boolean()
+
+field: Yup.object().shape({
+    label: Yup.string(),
+    value: Yup.number(),
+}),
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Методы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+field: Yup.string()
+    .required('Текст ошибки')
+    .nullable()
+    .min(10, 'Текст ошибки')
+</v-code>
+
+<v-code lang="js" title="">
+field: Yup.string()
+    .email('Текст ошибки')
+    .url('Текст ошибки')
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>RegExp (phone, site, password)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const EMAIL_REGEXP: RegExp = /^[-._A-Za-z0-9]+@(?:[A-Za-z0-9][-a-z0-9]+\.)+[A-Za-z]{2,}|^$/;
+
+emailPersonal: Yup.string()
+    .matches(EMAIL_REGEXP, {
+        message: 'forms.errorEmailValidation',
+        excludeEmptyString: true,
+    }),
+</v-code>
+</div><div id="elements-validate"><h2>validate</h2>
+
+<v-code lang="js" title="">
+const validate = values => {
+    const errors = {};
+
+    if (!values.companyName.name) {
+        errors.companyName = 'Error';
+    }
+
+    return errors;
+};
+
+export default withFormik({
+    mapPropsToValues: () => ({
+        companyName: '',
+    }),
+    handleSubmit: async (values) => {},
+    validate,
+    validationSchema,
+})(Component);
+</v-code>
+</div><div id="elements-set-field-touched"><h2>Событие setFieldTouched</h2>
+
+<ul class="list-point">
+    <li>Валидация происходит при <u>onBlur</u></li>
+    <li>В стандартном состоянии валидация происходит при нажании на кнопку <u>submit</u></li>
+</ul>
+
+<v-code lang="js" title="">
+const SocialAnswerForm = ({ setFieldTouched }) =&gt; {
+
+    const handleBlur = name =&gt; () =&gt; setFieldTouched(name, true);
+
+    return (
+        &lt;CRMInput
+            onBlur={handleBlur('emailPersonal')}
+            name='emailPersonal'
+        /&gt;
+    );
+};
+</v-code>
+</div><div id="other-samples"><h2>Примеры</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обработчик события без Formik</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const Component = () =&gt; {
+    const handleInputChange = (event: SyntheticInputEvent&lt;HTMLInputElement&gt;) =&gt; {
+        console.log(event.target.value);
+    };
+
+    return &lt;Input onChange={handleInputChange}
+};
+</v-code>
 </div></div>
                 </div>
             </div>

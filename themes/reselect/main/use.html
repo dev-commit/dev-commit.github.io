@@ -1,0 +1,48 @@
+<h2>Ипользование</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npm i --save-dev <u-code-npm>reselect</u-code-npm>
+</v-pre-npm>
+
+<ul class="list-point">
+    <li><u-text-define>Селектор</u-text-define> - функция, принимающая <u>state</u> и возвращающая значение, полученное на основе <u>state</u></li>
+    <li><u-code-text>reselectmapStateToProps</u-code-text> срабатывает каждый раз, когда происходит изменение <u>state</u></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { <u-code>createSelector</u-code> } from 'reselect';
+
+const getUsers = (state) => {
+	return state.users;
+}
+
+// getUsers - селектор, чтобы получить значения
+// users - придут полученнные значения из getUsers
+
+export const getUsersSelector = createSelector(getUsers, (users) => {
+	return users.filter(u => true);
+})
+</v-code>
+
+<v-code lang="js" title="">
+const mapStateToProps = (state) => {
+	return {
+		users: getUsersSelector(state)
+	}
+}
+</v-code>
+
+<v-code lang="js" title="">
+const mySelector = <u-code>createSelector</u-code>(
+	первыйСелектор, второйСелектор,
+	(значениеПервогоСелектора, значениеВторогоСелектора) => {
+		//
+	}
+)
+</v-code>

@@ -1,0 +1,53 @@
+<h2>validationSchema</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Заготовка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const validationSchema = Yup.object().shape({
+    //
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Типы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+field: Yup.string(),
+field: Yup.number(),
+field: Yup.boolean()
+
+field: Yup.object().shape({
+    label: Yup.string(),
+    value: Yup.number(),
+}),
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Методы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+field: Yup.string()
+    .required('Текст ошибки')
+    .nullable()
+    .min(10, 'Текст ошибки')
+</v-code>
+
+<v-code lang="js" title="">
+field: Yup.string()
+    .email('Текст ошибки')
+    .url('Текст ошибки')
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>RegExp (phone, site, password)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const EMAIL_REGEXP: RegExp = /^[-._A-Za-z0-9]+@(?:[A-Za-z0-9][-a-z0-9]+\.)+[A-Za-z]{2,}|^$/;
+
+emailPersonal: Yup.string()
+    .matches(EMAIL_REGEXP, {
+        message: 'forms.errorEmailValidation',
+        excludeEmptyString: true,
+    }),
+</v-code>

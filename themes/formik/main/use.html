@@ -1,0 +1,50 @@
+<h2>Использование</h2>
+
+<v-pre-npm>
+npm i --save <u-code-npm>formik</u-code-npm>
+</v-pre-npm>
+
+<v-code lang="js" title="">
+import React from 'react';
+import { withFormik } from 'formik';
+import * as Yup from 'yup';
+</v-code>
+
+<v-code lang="js" title="">
+const validationSchema = Yup.object().shape({
+    inputName: Yup.string().required('Поле обязательно для заполнения'),
+});
+</v-code>
+
+<v-code lang="js" title="">
+const Component = (values, handleChange, handleSubmit) =&gt; {
+
+    //const handleInputNameChange = (event) =&gt; {
+    //    handleChange(event);
+    //};
+
+    return (
+        &lt;form onSubmit={handleSubmit}&gt;
+            &lt;Input
+                //onChange={handleInputNameChange}
+		        onChange={handleChange}
+                value={values.inputName}
+                name='inputName'
+		        error={touched.inputName &amp;&amp; errors.inputName}
+            /&gt;
+        &lt;/form&gt;
+    );
+};
+</v-code>
+
+<v-code lang="js" title="">
+export default withFormik({
+    mapPropsToValues: () => ({
+        inputName: '',
+    }),
+    handleSubmit: async (values, { props, setStatus }) => {
+        console.log(values);
+    },
+    validationSchema,
+})(Component);
+</v-code>

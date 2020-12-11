@@ -120,25 +120,43 @@ var arrReactjs = [
 
 
 //---------------------------------------------------------------------
-// REACT PROP-TYPES
+// PROP-TYPES
 //---------------------------------------------------------------------
-var arrReactPropTypes = [
+var arrPropTypes = [
     [1, 'Основы'],
-    ['react-prop-types', 'main', 'info',  emoji.theory+'Информация'],
-    ['react-prop-types', 'main', 'use',   'Использование'],
-    ['react-prop-types', 'main', 'types', 'Типы'],
+    ['prop-types', 'main', 'info',  emoji.theory+'Информация'],
+    ['prop-types', 'main', 'use',   emoji.code+'Использование'],
+    ['prop-types', 'main', 'types', 'Типы'],
 
     [1, 'Прочее'],
-    ['react-prop-types', 'other', 'own-validator', 'Собственный валидатор'],
+    ['prop-types', 'other', 'own-validator', 'Собственный валидатор'],
 ];
 
 
 //---------------------------------------------------------------------
-// REACT FORMIK
+// FORMIK
 //---------------------------------------------------------------------
-var arrReactFormik = [
+var arrFormik = [
     [1, 'Основы'],
-    ['react-formik', 'main', 'info', emoji.theory+'Информация'],
+    ['formik', 'main', 'info', emoji.theory+'Информация'],
+    ['formik', 'main', 'use',  emoji.code+'Использование'],
+
+    [1, 'Основы'],
+    ['formik', 'elements', 'validation-schema',  emoji.chevron+setTheme(4, ['validationSchema'])], 
+    ['formik', 'elements', 'validate',           emoji.chevron+setTheme(4, ['validate'])], 
+    ['formik', 'elements', 'set-field-touched',  emoji.chevron+setTheme(4, ['setFieldTouched'])+' (событие)'], 
+
+    [1, 'Прочее'],
+    ['formik', 'other', 'samples', 'Примеры'],
+];
+
+
+//---------------------------------------------------------------------
+// RESELECT
+//---------------------------------------------------------------------
+var arrReselect = [
+    [1, 'Основы'],
+    ['reselect', 'main', 'use',  emoji.code+'Использование'],,
 ];
 
 
@@ -812,6 +830,7 @@ var arrTheory = [
     ['theory', 'development-methodologies', 'estimation', 'Эстимация'],
 
     [1, 'Прочее'],
+    ['theory', 'other', 'imports',              'Порядок импортов'],
     ['theory', 'other', 'version',              'Политика версионирования'],
     ['theory', 'other', 'name-case',            'Соглашение по именованию'],
     ['theory', 'other', 'prefix',               'Префиксы'],
@@ -1235,12 +1254,13 @@ var arrSvg = [
 
     [1, 'Элементы'],
     ['svg', 'elements', 'figure',     emoji.chevron+'Фигуры'],
-    ['svg', 'elements', 'text',       emoji.chevron+'Текст'],
-    ['svg', 'elements', 'image',      emoji.chevron+'Изображение'],
-    ['svg', 'elements', 'mask',       emoji.chevron+'Маскирование'],
-    ['svg', 'elements', 'filters',    emoji.chevron+'Фильтры'],
-    ['svg', 'elements', 'gradients',  emoji.chevron+'Градиенты'],
-    ['svg', 'elements', 'background', emoji.chevron+'Background'],
+    ['svg', 'elements', 'text',       setTheme(1, ['text'])],
+    ['svg', 'elements', 'image',      setTheme(1, ['image'])],
+    ['svg', 'elements', 'mask',       setTheme(1, ['mask'])],
+    ['svg', 'elements', 'clip-path',  setTheme(1, ['clipPath'])],
+    ['svg', 'elements', 'filters',    setTheme(1, ['filter'])],
+    ['svg', 'elements', 'gradients',  setTheme(1, ['linearGradient', 'radialGradient'])],
+    ['svg', 'elements', 'background', setTheme(1, ['background'])],
 ];
 
 
@@ -1542,65 +1562,66 @@ var arrCypress = [
     ['cypress', 'guides',  'network-requests', emoji.favorite+'Network Requests'],
 ];
 
-// 49
+// 50
 
 const ARR_THEMES = [
-    // { title: 'Ассессмент',                page: 'assessment',             arr: arrAssessment      },
+    { title: 'Ассессмент',                page: 'assessment',             arr: arrAssessment      },
 
-    // { title: 'Теория',                    page: 'theory',                 arr: arrTheory          },
-    // { title: 'Паттерны',                  page: 'theory-patterns',        arr: arrDesignPatterns  },
-    // { title: 'Парадигмы',                 page: 'theory-paradigms',       arr: arrParadigms       },
-    // { title: 'Алгоритмы',                 page: 'theory-algoritms',       arr: arrAlgoritms       },
-    // { title: 'Структуры данных',          page: 'theory-data-structures', arr: arrDataStructures  },
+    { title: 'Теория',                    page: 'theory',                 arr: arrTheory          },
+    { title: 'Паттерны',                  page: 'theory-patterns',        arr: arrDesignPatterns  },
+    { title: 'Парадигмы',                 page: 'theory-paradigms',       arr: arrParadigms       },
+    { title: 'Алгоритмы',                 page: 'theory-algoritms',       arr: arrAlgoritms       },
+    { title: 'Структуры данных',          page: 'theory-data-structures', arr: arrDataStructures  },
 
-    // { title: 'JavaScript',                page: 'js',                     arr: arrJavaScript      },
-    // { title: 'JavaScript: Объекты',       page: 'js-objects',             arr: arrJsObjects       },
-    // { title: 'JavaScript: Классы',        page: 'js-class',               arr: arrJsClass         },
-    // { title: 'JavaScript: Асинхронность', page: 'js-async',               arr: arrJsAsync         },
-    // { title: 'JavaScript: WebAPI',        page: 'js-web-api',             arr: arrJsWebApi        },
-    // { title: 'JavaScript: WebComponents', page: 'js-web-components',      arr: arrJsWebComponents },
-    // { title: 'JavaScript: Сеть',          page: 'js-network',             arr: arrJsNetwork       },
-    // { title: 'JavaScript: Задачи',        page: 'js-tasks',               arr: arrJsTasks         },
+    { title: 'JavaScript',                page: 'js',                     arr: arrJavaScript      },
+    { title: 'JavaScript: Объекты',       page: 'js-objects',             arr: arrJsObjects       },
+    { title: 'JavaScript: Классы',        page: 'js-class',               arr: arrJsClass         },
+    { title: 'JavaScript: Асинхронность', page: 'js-async',               arr: arrJsAsync         },
+    { title: 'JavaScript: WebAPI',        page: 'js-web-api',             arr: arrJsWebApi        },
+    { title: 'JavaScript: WebComponents', page: 'js-web-components',      arr: arrJsWebComponents },
+    { title: 'JavaScript: Сеть',          page: 'js-network',             arr: arrJsNetwork       },
+    { title: 'JavaScript: Задачи',        page: 'js-tasks',               arr: arrJsTasks         },
 
-    // { title: 'React.js',                  page: 'react-js',               arr: arrReactjs         },
-    // { title: 'React API',                 page: 'react-api',              arr: arrReactApi        },
-    // { title: 'React Hooks',               page: 'react-hooks',            arr: arrReactHooks      },
-    // { title: 'React Router',              page: 'react-router',           arr: arrReactRouter     },
-    // { title: 'Redux',                     page: 'redux',                  arr: arrRedux           },
-    // { title: 'Vue.js',                    page: 'vue-js',                 arr: arrVuejs           },
+    { title: 'React.js',                  page: 'react-js',               arr: arrReactjs         },
+    { title: 'React API',                 page: 'react-api',              arr: arrReactApi        },
+    { title: 'React Hooks',               page: 'react-hooks',            arr: arrReactHooks      },
+    { title: 'React Router',              page: 'react-router',           arr: arrReactRouter     },
+    { title: 'Redux',                     page: 'redux',                  arr: arrRedux           },
+    { title: 'Vue.js',                    page: 'vue-js',                 arr: arrVuejs           },
 
-    // { title: 'React Prop-Types',          page: 'react-prop-types',       arr: arrReactPropTypes  },
-    // { title: 'React Formik',              page: 'react-formik',           arr: arrReactFormik     },
+    { title: 'React Prop-Types',          page: 'prop-types',            arr: arrPropTypes        },
+    { title: 'React Formik',              page: 'formik',                arr: arrFormik           },
+    { title: 'Redux Reselect',            page: 'reselect',              arr: arrReselect         },
 
-    // { title: 'HTML',                      page: 'html',                   arr: arrHTML            },
-    // { title: 'CSS',                       page: 'css',                    arr: arrCSS             },
-    // { title: 'Sass',                      page: 'sass',                   arr: arrSass            },
-    // { title: 'Bootstrap',                 page: 'bootstrap',              arr: arrBootstrap       },
-    // { title: 'SVG',                       page: 'svg',                    arr: arrSvg             },
-    // { title: 'Flexbox',                   page: 'css-flexbox',            arr: arrCssFlexbox      },
-    // { title: 'CSS Grid',                  page: 'css-grid',               arr: arrCssGrid         },
+    { title: 'HTML',                      page: 'html',                   arr: arrHTML            },
+    { title: 'CSS',                       page: 'css',                    arr: arrCSS             },
+    { title: 'Sass',                      page: 'sass',                   arr: arrSass            },
+    { title: 'Bootstrap',                 page: 'bootstrap',              arr: arrBootstrap       },
+    { title: 'SVG',                       page: 'svg',                    arr: arrSvg             },
+    { title: 'Flexbox',                   page: 'css-flexbox',            arr: arrCssFlexbox      },
+    { title: 'CSS Grid',                  page: 'css-grid',               arr: arrCssGrid         },
 
-    // { title: 'Material-UI',               page: 'material-ui',            arr: arrMaterialUI      },
-    // { title: 'Тестирование',              page: 'testing',                arr: arrTesting         },
-    // { title: 'Тестирование React',        page: 'react-testing',          arr: arrReactTesting    },
-    // { title: 'Webpack',                   page: 'webpack',                arr: arrWebpack         },
-    // { title: 'NPM',                       page: 'npm',                    arr: arrNpm             },
-    // { title: 'Git',                       page: 'git',                    arr: arrGit             },
-    // { title: 'Linux',                     page: 'linux',                  arr: arrLinux           },
-    // { title: 'Прочее',                    page: 'other',                  arr: arrOther           },
-    // { title: 'jQuery',                    page: 'jquery',                 arr: arrJquery          },
-    // { title: 'Canvas',                    page: 'canvas',                 arr: arrCanvas          },
-    // { title: 'Flow',                      page: 'flow',                   arr: arrFlow            },
-    // { title: 'Ramda',                     page: 'ramda',                  arr: arrRamda           },
-    // { title: 'Typescript',                page: 'typescript',             arr: arrTypescript      },
-    // { title: 'Jest',                      page: 'jest',                   arr: arrJest            },
-    // { title: 'Enzyme',                    page: 'enzyme',                 arr: arrEnzyme          },
-    // { title: 'Cypress',                   page: 'cypress',                arr: arrCypress         },
+    { title: 'Material-UI',               page: 'material-ui',            arr: arrMaterialUI      },
+    { title: 'Тестирование',              page: 'testing',                arr: arrTesting         },
+    { title: 'Тестирование React',        page: 'react-testing',          arr: arrReactTesting    },
+    { title: 'Webpack',                   page: 'webpack',                arr: arrWebpack         },
+    { title: 'NPM',                       page: 'npm',                    arr: arrNpm             },
+    { title: 'Git',                       page: 'git',                    arr: arrGit             },
+    { title: 'Linux',                     page: 'linux',                  arr: arrLinux           },
+    { title: 'Прочее',                    page: 'other',                  arr: arrOther           },
+    { title: 'jQuery',                    page: 'jquery',                 arr: arrJquery          },
+    { title: 'Canvas',                    page: 'canvas',                 arr: arrCanvas          },
+    { title: 'Flow',                      page: 'flow',                   arr: arrFlow            },
+    { title: 'Ramda',                     page: 'ramda',                  arr: arrRamda           },
+    { title: 'Typescript',                page: 'typescript',             arr: arrTypescript      },
+    { title: 'Jest',                      page: 'jest',                   arr: arrJest            },
+    { title: 'Enzyme',                    page: 'enzyme',                 arr: arrEnzyme          },
+    { title: 'Cypress',                   page: 'cypress',                arr: arrCypress         },
 
-    // { title: 'Node.js',                   page: 'node-js',                arr: arrNodejs          },
-    // { title: 'PHP',                       page: 'php',                    arr: arrPhp             },
-    // { title: 'mySQL',                     page: 'mysql',                  arr: arrMySql           },
-    // { title: 'Python',                    page: 'python',                 arr: arrPython          },
+    { title: 'Node.js',                   page: 'node-js',                arr: arrNodejs          },
+    { title: 'PHP',                       page: 'php',                    arr: arrPhp             },
+    { title: 'mySQL',                     page: 'mysql',                  arr: arrMySql           },
+    { title: 'Python',                    page: 'python',                 arr: arrPython          },
 ];
 
 ARR_THEMES.forEach((item) => {
