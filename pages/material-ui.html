@@ -16,11 +16,169 @@
                         <div id="menu-left-show"></div>
                         <a href="#menu-top">Starter</a>
                     </div>
-                    <div id="menu-build"><a href="#main-spacing"><u-menu>spacing</u-menu></a><a href="#main-with-styles"><u-menu>makeStyles</u-menu> <u-menu>withStyles</u-menu></a><a href="#main-css-in-js">CSS in JS</a></div>
+                    <div id="menu-build"><div class="theme">Основы</div><a href="#main-use">⚡️ Использование</a><div class="theme">Методы</div><a href="#methods-with-styles">🔰 <u-menu>withStyles</u-menu></a><a href="#methods-make-styles">🔰 <u-menu>makeStyles</u-menu></a><div class="theme">Прочее</div><a href="#other-spacing"><u-menu>spacing</u-menu></a><a href="#other-classes-props">Передача classes</a><a href="#other-classes-override">Переопределение стилей из classes</a><a href="#other-css-in-js">Варианты CSS in JS</a></div>
                 </div>
                 <div id="content-wrapper">
                     <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn & Gulp</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
-                    <div id="content"><div id="main-spacing"><h2>Spacing</h2>
+                    <div id="content"><div id="main-use"><h2>Ипользование</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npm i --save <u-code-npm>@material-ui/core</u-code-npm>
+</v-pre-npm>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты импортов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import Button from '@material-ui/core/Button';
+import { Button } from '@material-ui/core';
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Простой пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { Button } from '@material-ui/core';
+
+const Material = () =&gt; {
+    return (
+        &lt;Button variant="contained" color="primary"&gt;
+            Hello World
+        &lt;/Button&gt;
+    );
+}
+
+export default Material;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Стилизация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="Material.jsx">
+import { withStyles } from '@material-ui/core/styles';
+import { Button } from '@material-ui/core';
+import styles from './MaterialStyles';
+
+const Material = ({ classes }) =&gt; {
+    return (
+        &lt;div className={classes.container}&gt;
+            &lt;Button
+                variant="contained"
+                color="primary"
+                onClick={() =&gt; { alert('clicked') <span v-pre>}}</span>
+                classes=<span v-pre>{{</span> root: classes.root <span v-pre>}}</span>
+            &gt;
+                Hello World
+            &lt;/Button&gt;
+        &lt;/div&gt;
+    );
+}
+
+export default withStyles(styles)(Material);
+</v-code>
+
+<v-code lang="js" title="MaterialStyles.css">
+const MaterialStyles = () => ({
+    container: {
+        border: '2px solid blue',
+    },
+    root: {
+        color: 'yellow' 
+    }
+});
+
+export default MaterialStyles;
+</v-code>
+
+</div><div id="methods-with-styles"><h2>withStyles</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Простой пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="Component.jsx">
+import { <u-code>withStyles</u-code> } from '@material-ui/core/styles';
+import <u-code>cn</u-code> from 'classnames';
+import styles from './ComponentStyles';
+
+const Component = ({ classes }) => {
+	return (
+		&lt;&gt;
+			&lt;div className={classes.wrapper}&gt;&lt;/div&gt;
+			&lt;div className={cn(classes.one, classes.two)}&gt;&lt;/div&gt;
+			&lt;OtherComponent classes=<span v-pre>{{</span> root: classes.test <span v-pre>}}</span> /&gt;
+		&lt;/&gt;
+	);
+};
+
+export default withStyles(styles)(Component);
+</v-code>
+
+<v-code lang="css" title="ComponentStyles.js">
+const ComponentStyles = () => ({
+    wrapper: {
+		mardin: '10px',
+	},
+	one: { },
+	two: { }
+});
+
+export default ComponentStyles;
+</v-code>
+</div><div id="methods-make-styles"><h2>makeStyles</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Простой пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { <u-code>makeStyles</u-code> } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme => ({
+	label: {
+		mardin: '10px',
+	},
+}));
+
+const Component = () => {
+	const classes = useStyles();
+
+	return (
+		&lt;&gt;
+			&lt;div className={classes.label}&gt;&lt;/div&gt;
+		&lt;/&gt;
+	);
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Усложненный пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import makeStyles from '@material-ui/core/styles/makeStyles';
+
+export const useStyles = makeStyles({
+    statusButton: ({ color, selected }) =&gt; ({
+        '&amp;$statusButton': {
+            'backgroundColor': selected ? color : 'transparent',
+            'color': selected ? WHITE : HEADER_CELL,
+            '&amp;:hover': {
+                backgroundColor: color,
+                color: WHITE,
+            },
+        },
+    }),
+});
+
+const StatusButton = ({color, selected}) =&gt; {
+    const btnClasses = useStyles({ color, selected });
+    return (
+        &lt;Element classes=<span v-pre>{{</span> root: btnClasses.statusButton <span v-pre>}}</span> /&gt;
+    );
+};
+</v-code>
+</div><div id="other-spacing"><h2>Spacing</h2>
 
 <v-code lang="bash" title="">
 spacing() == spacing(1)
@@ -102,55 +260,100 @@ spacing(14.25) # 114px
 spacing(14.5)  # 116px
 spacing(14.75) # 118px
 </v-code>
-</div><div id="main-with-styles"><h2>makeStyles and withStyles</h2>
+</div><div id="other-classes-props"><h2>Передача classes</h2>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>makeStyles</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Из родительного компонента пропом можно передать <u>clasess</u> в дочерний компонент. При этому у дочернего не должно быть стилей <u>withStyles</u></li>
+    <li>Если у дочернего компонента будут свои стили, то будет предупреждение: <i>Material-UI: the key wrapper provided to the classes prop is not implemented in Component. You can only override one of the following</i></li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;Component classes={classes} /&gt;
+</v-code>
+
+<ul class="list-point">
+    <li>Если у дочернего компонента есть класс <u>root</u>, его можно переопределить из родительского, передав в пропе класс родительского компонента <u>classes.paperRoot</u></li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;Component classes=<span v-pre>{{</span> root: classes.paperRoot <span v-pre>}}</span> /&gt;
+</v-code>
+</div><div id="other-classes-override"><h2>Переопределение стилей из classes</h2>
+
+<!------------------------------------------------------------->
+<h4>Место использования компонента</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;MyCheckbox className={classes.checkbox} /&gt;
+</v-code>
 
 <v-code lang="js" title="">
-import { <u-code>makeStyles</u-code> } from '@material-ui/core/styles';
-const useStyles = makeStyles(theme => ({
-	label: {
-		mardin: '10px',
-	},
-}));
-const MyComponent = () => {
-	const classes = useStyles();
-	return (&lt;label className={classes.label} /&gt;);
+checkbox: {
+    padding: '10px',
 }
 </v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>withStyles</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="MyComponent.js">
-import { <u-code>withStyles</u-code> } from '@material-ui/core/styles';
-import styles from './MyComponentStyles';
-const MyComponent = () => {
-	return (&lt;label className={classes.label} /&gt;);
-};
-export default withStyles(styles)(CRMRadio);
+<!------------------------------------------------------------->
+<h4>Базовый компонент</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;Checkbox className={classes.root} /&gt;
 </v-code>
-
-<v-code lang="css" title="MyComponentStyles.js">
-const MyComponentStyles = () => ({
-    label: {
-		mardin: '10px',
-    }
-});
-export default MyComponentStyles;
-</v-code>
-
-</div><div id="main-css-in-js"><h2>CSS in JS</h2>
 
 <v-code lang="js" title="">
-label: {
-    backgroundColor: '#fff',
-    '& span.MuiFormControlLabel-label': {
-        backgroundColor: 'yellow',
+root: {
+    color: 'blue',
+}
+</v-code>
+
+<ul class="list-point">
+    <li>В итоговом варианте, стили объеднятся</li>
+</ul>
+
+<v-code lang="js" title="">
+root: {
+    padding: '10px',
+    color: 'blue
+}
+</v-code>
+
+
+</div><div id="other-css-in-js"><h2>Варианты CSS-in-JS</h2>
+
+<v-code lang="js" title="">
+import { grey } from '@material-ui/core/colors/';
+
+const MaterialStyles = ({
+    spacing,
+    typography: { fontSize }
+}) => ({
+    container: {
+        border: '2px solid blue',
+        minWidth: '100vw',
+        transform: 'translate(8px, 14px) scale(1)',
+        '& div': {
+            padding: spacing(),
+            backgroundColor: grey[500],
+        },
+        '&:hover': {
+            //
+        },
+        '& div.MuiBackdrop-root': {
+            //
+        },
+        '& .MuiPaper-root': {
+            //
+        },
     },
-},
+    '@media (max-width: 1130px) and (min-width: 600px)': {
+        //
+    },
+    '@supports (backdrop-filter: blur(5px))': {
+        //
+    }
+});
+
+export default MaterialStyles;
 </v-code>
 </div></div>
                 </div>
