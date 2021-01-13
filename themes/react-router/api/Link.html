@@ -1,12 +1,17 @@
-<h2>Link. NavLink</h2>
+<h2>&lt;Link /&gt; &lt;NavLink /&gt;</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Link</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li><u-text-define>Link</u-text-define> - видоизмененная ссылка под React для редиректа на нужную страницу. Предотвращает обновление страницы, в отличии от обычной ссылке</li>
-	<li><u-code-text>exact</u-code-text> - компонент будет рендериться только по указанному адресу, а не по всем адресам, связанным с ним</li>
-</ul>
+<div class="v-method-wrapper">
+    <v-method before="" method="&lt;Link /&gt;" after="" arg="">
+    Видоизмененная ссылка под React для редиректа на нужную страницу. Предотвращает обновление страницы, в отличии от обычной ссылки
+    </v-method>
+	<v-method-arg arg="to">Местоположение ссылки</v-method-arg>
+	<v-method-arg arg="component">Компонент для рендера</v-method-arg>
+	<v-method-arg arg="exact">Если true, активный класс / стиль будет применяться только в том случае, если местоположение точно совпадает</v-method-arg>
+	<v-method-arg arg="replace">Если true, нажатие на ссылку заменит текущую запись в стеке истории, а не добавит новую</v-method-arg>
+</div>
 
 <v-code lang="js" title="">
 import { BrowserRouter, Link } from 'react-router-dom';

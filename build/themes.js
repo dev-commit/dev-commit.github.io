@@ -280,11 +280,14 @@ var arrRedux = [
 // REACT-ROUTER
 //---------------------------------------------------------------------
 var arrReactRouter = [
+    [1, 'Основное'],
+    ['react-router', 'main', 'info',                   emoji.theory+'Информация'],
+
     [1, 'API'],
-    ['react-router', 'api', 'Link',          emoji.chevron+setTheme(1, ['Link', 'NavLink'])],
-    ['react-router', 'api', 'BrowserRouter', emoji.chevron+setTheme(1, ['BrowserRouter'])],
-    ['react-router', 'api', 'Switch',        emoji.chevron+setTheme(1, ['Switch'])],
-    ['react-router', 'api', 'Route',         emoji.chevron+setTheme(1, ['Route'])],
+    ['react-router', 'api', 'Link',          emoji.chevron+setTheme(1, ['&lt;Link /&gt;', '&lt;NavLink /&gt;'])],
+    ['react-router', 'api', 'BrowserRouter', emoji.chevron+setTheme(1, ['&lt;BrowserRouter /&gt;'])],
+    ['react-router', 'api', 'Switch',        emoji.chevron+setTheme(1, ['&lt;Switch /&gt;'])],
+    ['react-router', 'api', 'Route',         emoji.chevron+setTheme(1, ['&lt;Route /&gt;'])],
 
     [1, 'Варианты'],
     ['react-router', 'variants', 'pattern',         emoji.code+'Шаблон'],

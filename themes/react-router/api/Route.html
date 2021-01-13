@@ -1,11 +1,20 @@
-<h2>Route</h2>
+<h2>&lt;Route /&gt;</h2>
 
-<ul class="list-point">
-    <li><u-text-define>Route</u-text-define> - отображение UI, следит чтобы совпадали пути между компонентом и адресной строкой</li>
-    <li><u-code-text>Route</u-code-text> технически является компонентом, но не создаёт DOM-элемента</li>
-	<li><u-code-text>exact</u-code-text> - компонент будет рендериться только по указанному адресу, а не по всем адресам, связанным с ним</li>
-</ul>
+<div class="v-method-wrapper">
+    <v-method before="" method="&lt;Route /&gt;" after="" arg="">
+    Отображение UI, следит чтобы совпадали пути между компонентом и адресной строкой.<br>
+    Route технически является компонентом, но не создаёт DOM-элемента
+    </v-method>
+
+    <v-method-arg arg="path">Любой действительный URL-путь или массив путей</v-method-arg>
+    <v-method-arg arg="component">Компонент React для рендеринга только при совпадении местоположения</v-method-arg>
+    <v-method-arg arg="exact">Компонент будет рендериться только по указанному адресу, а не по всем адресам, связанным с ним</v-method-arg>
+</div>
 
 <v-code lang="js" title="">
-&lt;<u-code>Route</u-code> path='/' exact component=HomePage /&gt;
+&lt;<u-code>Route</u-code>
+    path='/'
+    component=HomePage
+    exact
+/&gt;
 </v-code>

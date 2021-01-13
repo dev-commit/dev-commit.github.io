@@ -1,2 +1,2 @@
 
-const DEMO_PATH = 'react-router/variants/url-parameters';
+const DEMO_PATH = 'react-router/api/Switch';
