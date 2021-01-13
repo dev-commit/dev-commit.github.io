@@ -281,18 +281,19 @@ var arrRedux = [
 //---------------------------------------------------------------------
 var arrReactRouter = [
     [1, 'Основное'],
-    ['react-router', 'main', 'info',                   emoji.theory+'Информация'],
+    ['react-router', 'main', 'info',                  emoji.theory+'Информация'],
 
     [1, 'API'],
-    ['react-router', 'api', 'Link',          emoji.chevron+setTheme(1, ['&lt;Link /&gt;', '&lt;NavLink /&gt;'])],
-    ['react-router', 'api', 'BrowserRouter', emoji.chevron+setTheme(1, ['&lt;BrowserRouter /&gt;'])],
-    ['react-router', 'api', 'Switch',        emoji.chevron+setTheme(1, ['&lt;Switch /&gt;'])],
-    ['react-router', 'api', 'Route',         emoji.chevron+setTheme(1, ['&lt;Route /&gt;'])],
+    ['react-router', 'api', 'Link',                   emoji.chevron+setTheme(1, ['&lt;Link /&gt;', '&lt;NavLink /&gt;'])],
+    ['react-router', 'api', 'BrowserRouter',          emoji.chevron+setTheme(1, ['&lt;BrowserRouter /&gt;'])],
+    ['react-router', 'api', 'Switch',                 emoji.chevron+setTheme(1, ['&lt;Switch /&gt;'])],
+    ['react-router', 'api', 'Route',                  emoji.chevron+setTheme(1, ['&lt;Route /&gt;'])],
 
     [1, 'Варианты'],
-    ['react-router', 'variants', 'pattern',         emoji.code+'Шаблон'],
-    ['react-router', 'variants', 'url-parameters',  emoji.pizza+'URL Parameters'],
-    ['react-router', 'variants', 'page-404',        emoji.pizza+'Page 404'],
+    ['react-router', 'variants', 'pattern',           emoji.code+'Шаблон'],
+    ['react-router', 'variants', 'url-parameters',    emoji.pizza+'URL Parameters'],
+    ['react-router', 'variants', 'query-parameters',  emoji.pizza+'Query Parameters'],
+    ['react-router', 'variants', 'page-404',          emoji.pizza+'Page 404'],
 
     [1, 'Пакеты'],
     ['react-router', 'packages', 'react-router',      setTheme(2, ['react-router', 'react-router-dom'])],
