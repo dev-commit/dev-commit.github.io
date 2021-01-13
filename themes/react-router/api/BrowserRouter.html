@@ -1,0 +1,21 @@
+<h2>BrowserRouter</h2>
+
+<ul class="list-point">
+    <li><u-text-define>BrowserRouter</u-text-define> - router. Использует html5 history api и следит за тем чтобы UI был синхронизирован с тем что написано в адресной строке</li>
+    <li><u-code-text>BrowserRouter</u-code-text> технически является компонентом, но не создаёт DOM-элемента</li>
+</ul>
+
+<v-code lang="js" title="">
+import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+
+const App = () =&gt; (
+	&lt;&gt;
+		&lt;<u-code>BrowserRouter</u-code> basename="/root/"&gt;
+			&lt;NavLink to="/" exact&gt;Home&lt;/NavLink&gt;
+			&lt;Switch&gt;
+				&lt;Route path='/' exact component=HomePage /&gt;
+			&lt;/Switch&gt;
+		&lt;/<u-code>BrowserRouter</u-code>&gt;
+	&lt;/&gt;
+)
+</v-code>

@@ -2,7 +2,7 @@
 // 51
 
 const ARR_THEMES_SELECTED = [
-    //
+    'react-router'
 ];
 
 const ARR_THEMES = [

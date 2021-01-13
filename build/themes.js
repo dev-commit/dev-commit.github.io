@@ -280,11 +280,19 @@ var arrRedux = [
 // REACT-ROUTER
 //---------------------------------------------------------------------
 var arrReactRouter = [
-    ['react-router', 'main', 'react-router',      setTheme(2, ['react-router', 'react-router-dom'])],
-    ['react-router', 'main', 'basic-routing',     emoji.cookie+'Basic Routing'],
-    ['react-router', 'main', 'style-active-link', emoji.cookie+'Style Active Link'],
-    ['react-router', 'main', 'url-parameters',    emoji.cookie+'URL Parameters'],
-    ['react-router', 'main', 'page-404',          'Page 404'],
+    [1, 'API'],
+    ['react-router', 'api', 'Link',          emoji.chevron+setTheme(1, ['Link', 'NavLink'])],
+    ['react-router', 'api', 'BrowserRouter', emoji.chevron+setTheme(1, ['BrowserRouter'])],
+    ['react-router', 'api', 'Switch',        emoji.chevron+setTheme(1, ['Switch'])],
+    ['react-router', 'api', 'Route',         emoji.chevron+setTheme(1, ['Route'])],
+
+    [1, 'Варианты'],
+    ['react-router', 'variants', 'pattern',         emoji.code+'Шаблон'],
+    ['react-router', 'variants', 'url-parameters',  emoji.pizza+'URL Parameters'],
+    ['react-router', 'variants', 'page-404',        emoji.pizza+'Page 404'],
+
+    [1, 'Пакеты'],
+    ['react-router', 'packages', 'react-router',      setTheme(2, ['react-router', 'react-router-dom'])],
 ];
 
 

@@ -1,2 +1,2 @@
 
-const DEMO_PATH = 'material-ui/other/classes-override';
+const DEMO_PATH = 'react-router/variants/url-parameters';
