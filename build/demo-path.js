@@ -1,2 +1,2 @@
 
-const DEMO_PATH = 'react-router/api/Switch';
+const DEMO_PATH = 'redux/scheme/structure-common';
