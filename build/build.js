@@ -2,7 +2,8 @@
 // 51
 
 const ARR_THEMES_SELECTED = [
-    'redux'
+    'assessment',
+    'theory'
 ];
 
 const ARR_THEMES = [

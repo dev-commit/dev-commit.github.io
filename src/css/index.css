@@ -80,6 +80,9 @@ MENU-TOP
 	width: auto;
 	cursor: pointer;
 	border-radius: 3px;
+	white-space: nowrap;
+	overflow: hidden;
+    text-overflow: ellipsis;
 }
 #menu-top .menu:hover {
 	opacity: 0.7;
@@ -192,4 +195,19 @@ MENU-LEFT-HIDE
 }
 #menu-left.hide #menu-left-starter {
 	box-shadow: none;
+}
+
+/***************************************************
+ADAPTIVE
+/***************************************************/
+@media screen and (max-width: 900px) {
+	#menu-left {
+		width: 200px;
+	}
+	#menu-build a {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		font-size: 16px;
+	}
 }
