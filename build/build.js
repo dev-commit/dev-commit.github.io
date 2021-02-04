@@ -2,8 +2,7 @@
 // 51
 
 const ARR_THEMES_SELECTED = [
-    'assessment',
-    'theory'
+    // 'assessment',
 ];
 
 const ARR_THEMES = [
