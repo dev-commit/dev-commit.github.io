@@ -11,7 +11,7 @@ var arrAssessment = [
     ['js-objects', 'main',    'conversion',     setTheme(1, ['toString', 'valueOf'])],
     ['js',         'typing',  'typeof',         setTheme(1, ['typeof'])],
     ['js',         'typing',  'symbol',         emoji.chevron+'Symbol (ES6)'],
-    ['js',         'typing',  'hoisting',       emoji.fire+'Всплытие'],
+    ['js',         'typing',  'hoisting',                           emoji.fire+'Всплытие'],
 
     [1, 'Классы'],
     ['js-class',   'main',     'inheritance',   emoji.fire+'Наследование'],
@@ -20,37 +20,41 @@ var arrAssessment = [
     ['js-objects', 'methods',  'object-create', emoji.chevron+setTheme(4, ['Object.create'])],
     ['js-objects', 'methods',  'object-assign', emoji.chevron+setTheme(4, ['Object.assign'])],
     ['js-class',   'main',     'constructor',   emoji.chevron+setTheme(4, ['constructor'])],
-    ['js-class',   'main',     'return',        emoji.chevron+setTheme(4, ['return'])],
+    ['js-class',   'main',     'return',                            emoji.chevron+setTheme(4, ['return'])],
 
     [1, 'Основы'],
-    ['js',          'main',       'bind',                 emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
-    ['js',          'main',       'context',              emoji.baseball+'Контекст'],
-    ['js',          'function',   'arrow',                emoji.favorite+'Стрелочные функции'],
-    ['js-async',    'theory',     'event-loop',           emoji.lemon+'Event Loop'],
-    ['js-async',    'theory',     'event-loop-tasks',     emoji.lemon+'Event Loop: Tasks'],
+    ['js',          'main',       'bind',                           emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
+    ['js',          'main',       'context',                        emoji.baseball+'Контекст'],
+    ['js',          'function',   'arrow',                          emoji.favorite+'Стрелочные функции'],
+    ['js-async',    'theory',     'event-loop',                     emoji.lemon+'Event Loop'],
+    ['js-async',    'theory',     'event-loop-tasks',               emoji.lemon+'Event Loop: Tasks'],
 
     [1, 'Замыкания'],
-    ['js', 'closures', 'closures',          emoji.theory+'Замыкания'],
-    ['js', 'closures', 'environment',       emoji.theory+'Области видимости'],
-    ['js', 'closures', 'funarg',            emoji.theory+'Фунарг-проблема'],
+    ['js', 'closures', 'closures',                                  emoji.theory+'Замыкания'],
+    ['js', 'closures', 'environment',                               emoji.theory+'Области видимости'],
+    ['js', 'closures', 'funarg',                                    emoji.theory+'Фунарг-проблема'],
 
     [1, 'Практика'],
-    ['js',          'main',       'array-cycle',          emoji.boom+setTheme(1, ['map', 'forEach', '...'])],
-    ['js',          'main',       'spread-array',         emoji.code+'Spread Arr (ES6)'],
-    ['js',          'main',       'spread-obj',           emoji.code+'Spread Obj (ES-2018)'],
-    ['js',          'main',       'destructive-array',    emoji.pizza+'Деструктуризация Arr (ES6)'],
-    ['js',          'main',       'destructive-obj',      emoji.pizza+'Деструктуризация Obj (ES6)'],
-    ['js-async',    'async',      'async-func',           emoji.boom+'Async Function (ES2017)'],
+    ['js',          'main',       'array-cycle',                    emoji.boom+setTheme(1, ['map', 'forEach', '...'])],
+    ['js',          'main',       'spread-array',                   emoji.code+'Spread Arr (ES6)'],
+    ['js',          'main',       'spread-obj',                     emoji.code+'Spread Obj (ES-2018)'],
+    ['js',          'main',       'destructive-array',              emoji.pizza+'Деструктуризация Arr (ES6)'],
+    ['js',          'main',       'destructive-obj',                emoji.pizza+'Деструктуризация Obj (ES6)'],
+    ['js-async',    'async',      'async-func',                     emoji.boom+'Async Function (ES2017)'],
+
+    [1, 'Оптимизация'],
+    ['theory', 'optimization', 'info',                              emoji.theory+'Оптимизация загрузки'],
+    ['theory', 'optimization', 'critical-rendering-path',           emoji.avocado+'Critical Rendering Path'],
+    ['theory', 'optimization', 'repaint-and-reflow',                emoji.avocado+'Repaint & Reflow'],
+    ['theory', 'optimization', 'caching',                           emoji.favorite+'Кэширование'],
 
     [1, 'Теория'],
-    ['theory-paradigms', 'oop',                      'principles',              emoji.lemon+'ООП'],
-    ['theory-paradigms', 'fp',                       'concept',                 emoji.lemon+'ФП'],
-    ['theory',           'optimization',             'critical-rendering-path', emoji.avocado+'Critical Rendering Path'],
-    ['theory',           'optimization',             'repaint-and-reflow',      emoji.avocado+'Repaint & Reflow'],
-    ['theory',           'programming-principles',   'solid',                   emoji.baseball+'SOLID'],
-    ['theory-patterns',  'main',                     'info',                    emoji.theory+'Паттерны'],
-    ['theory',           'application-architecture', 'mvc',                     emoji.theory+'MVC'],
-    ['testing',          'theory',                   'pyramid',                 emoji.theory+'Пирамида тестирования'],
+    ['theory-paradigms', 'oop',                      'principles',  emoji.lemon+'ООП'],
+    ['theory-paradigms', 'fp',                       'concept',     emoji.lemon+'ФП'],
+    ['theory',           'programming-principles',   'solid',       emoji.baseball+'SOLID'],
+    ['theory-patterns',  'main',                     'info',        emoji.theory+'Паттерны'],
+    ['theory',           'application-architecture', 'mvc',         emoji.theory+'MVC'],
+    ['testing',          'theory',                   'pyramid',     emoji.theory+'Пирамида тестирования'],
 ];
 
 
@@ -568,17 +572,16 @@ var arrJsObjects = [
     ['js-objects', 'main', 'literal-notation', emoji.code+'Литеральная нотация'],
     ['js-objects', 'main', 'conversion',       setTheme(1, ['toString', 'valueOf'])],
 
-
     [1, 'Примеры'],
-    ['js-objects', 'samples', '', emoji.chevron+''],
-    ['js-objects', 'samples', '', emoji.chevron+''],
-    ['js-objects', 'samples', '', emoji.chevron+''],
-
+    ['js-objects', 'samples', 'sort-elements-obj',         emoji.baseball+'Сортировка элементов массива'],
+    ['js-objects', 'samples', 'flat-array-from-obj',       emoji.baseball+'Плоский массив из объекта'],
+    ['js-objects', 'samples', 'setting-object-properties', emoji.baseball+'Задание свойств объекта'],
+    ['js-objects', 'samples', 'methods-various-obj',       emoji.baseball+'Метод для разных объектов'],
+    ['js-objects', 'samples', 'return-obj',                emoji.baseball+'Функция, возвращающая объект'],
 
     [1, 'Прочее'],
     ['js-objects', 'other', 'constructor',  'Конструктор создания объекта'],
     ['js-objects', 'other', 'prototype',    'Прототип'],
-    ['js-objects', 'other', 'samples',      'Примеры'],
 ];
 
 
@@ -849,6 +852,7 @@ var arrTheory = [
     ['theory', 'deployment', 'software-deployment',    emoji.baseball+'Software Deployment'],
 
     [1, 'Оптимизация'],
+    ['theory', 'optimization', 'info',                    emoji.theory+'Оптимизация загрузки'],
     ['theory', 'optimization', 'critical-rendering-path', emoji.avocado+'Critical Rendering Path'],
     ['theory', 'optimization', 'repaint-and-reflow',      emoji.avocado+'Repaint & Reflow'],
     ['theory', 'optimization', 'caching',                 emoji.favorite+'Кэширование'],
