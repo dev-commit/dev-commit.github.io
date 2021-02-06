@@ -20,6 +20,22 @@ var arr = new Array('Tony', 'Anne'); // объявление массива (к�
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Методы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Получить плоский массив из объекта</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4><u-code-list>Array.prototype.flatMap()</u-code-list></h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const checkedRows = {
+	'0': [1,2,3],
+	'1': [4,5,6],
+}
+
+const b = Object.values(checkedRows).flatMap(value => value);
+// => [1, 2, 3, 4, 5, 6]
+</v-code>
 
 <!------------------------------------------------------------->
 <h4><u-code-list>push</u-code-list> <u-code-list>pop</u-code-list> <u-code-list>unshift</u-code-list> <u-code-list>shift</u-code-list></h4>

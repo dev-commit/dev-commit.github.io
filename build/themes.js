@@ -544,12 +544,18 @@ const commentProto = ' <u-code-comment>__proto__</u-code-comment>';
 
 var arrJsObjects = [
     [1, 'Методы'],
-    ['js-objects', 'methods', 'object-create',      emoji.chevron+setTheme(4, ['Object.create'])+commentProto],
-    ['js-objects', 'methods', 'object-assign',      emoji.chevron+setTheme(4, ['Object.assign'])],
-    ['js-objects', 'methods', 'set-prototype-of',   emoji.chevron+setTheme(4, ['Object.setPrototypeOf'])+commentProto],
-    ['js-objects', 'methods', 'get-prototype-of',   emoji.chevron+setTheme(4, ['Object.getPrototypeOf'])+commentProto],
-    ['js-objects', 'methods', 'is-prototype-of',    emoji.chevron+setTheme(4, ['isPrototypeOf'])+commentProto],
-    ['js-objects', 'methods', 'instanceof',         emoji.chevron+setTheme(4, ['instanceof'])],
+    ['js-objects', 'methods', 'object-create',       emoji.chevron+setTheme(4, ['Object.create'])+commentProto],
+    ['js-objects', 'methods', 'object-assign',       emoji.chevron+setTheme(4, ['Object.assign'])],
+    ['js-objects', 'methods', 'object-entries',      emoji.chevron+setTheme(4, ['Object.entries()'])],
+    ['js-objects', 'methods', 'object-from-entries', emoji.chevron+setTheme(4, ['Object.fromEntries()'])],
+    ['js-objects', 'methods', 'object-values',       emoji.chevron+setTheme(4, ['Object.values()'])],
+    ['js-objects', 'methods', 'object-keys',         emoji.chevron+setTheme(4, ['Object.keys'])],
+
+    ['js-objects', 'methods', 'set-prototype-of',    emoji.chevron+setTheme(4, ['Object.setPrototypeOf'])+commentProto],
+    ['js-objects', 'methods', 'get-prototype-of',    emoji.chevron+setTheme(4, ['Object.getPrototypeOf'])+commentProto],
+
+    ['js-objects', 'methods', 'is-prototype-of',     emoji.chevron+setTheme(4, ['isPrototypeOf'])+commentProto],
+    ['js-objects', 'methods', 'instanceof',          emoji.chevron+setTheme(4, ['instanceof'])],
 
     ['js-objects', 'main', 'for',              'Перебор объекта'],
     ['js-objects', 'main', 'check-property',   'Проверка наличия свойства'],
@@ -560,6 +566,13 @@ var arrJsObjects = [
     ['js-objects', 'main', 'info',             emoji.theory+'Теория'],
     ['js-objects', 'main', 'literal-notation', emoji.code+'Литеральная нотация'],
     ['js-objects', 'main', 'conversion',       setTheme(1, ['toString', 'valueOf'])],
+
+
+    [1, 'Примеры'],
+    ['js-objects', 'samples', '', emoji.chevron+''],
+    ['js-objects', 'samples', '', emoji.chevron+''],
+    ['js-objects', 'samples', '', emoji.chevron+''],
+
 
     [1, 'Прочее'],
     ['js-objects', 'other', 'constructor',  'Конструктор создания объекта'],
