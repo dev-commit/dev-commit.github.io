@@ -6,7 +6,7 @@
 var arrAssessment = [
     [1, 'Типизация'],
     ['js',         'typing',  'typing',                             emoji.theory+'Типизация'],
-    ['js',         'typing',  'type-data',                          moji.theory+'Типы данных'],
+    ['js',         'typing',  'type-data',                          emoji.theory+'Типы данных'],
     ['js',         'typing',  'type-casting',                       emoji.code+'Сравнение типов'],
     ['js-objects', 'main',    'conversion',                         setTheme(1, ['toString', 'valueOf'])],
     ['js',         'typing',  'typeof',                             setTheme(1, ['typeof'])],
@@ -15,7 +15,7 @@ var arrAssessment = [
 
     [1, 'Классы'],
     ['js-class',   'main',     'inheritance',                       emoji.fire+'Наследование'],
-    ['js-class',   'main',     'prototype',                         moji.fire+setTheme(1, ['__proto__', 'prototype'])],
+    ['js-class',   'main',     'prototype',                         emoji.fire+setTheme(1, ['__proto__', 'prototype'])],
     ['js-class',   'main',     'new',                               emoji.fire+setTheme(1, ['new'])],
     ['js-objects', 'methods',  'object-create',                     emoji.chevron+setTheme(4, ['Object.create'])],
     ['js-objects', 'methods',  'object-assign',                     emoji.chevron+setTheme(4, ['Object.assign'])],
