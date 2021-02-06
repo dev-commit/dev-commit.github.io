@@ -7,52 +7,106 @@
     <li>Всегда называйте компоненты с заглавной буквы. Если компонент начинается с маленькой буквы, React принимает его за DOM-тег. Например, <u-code-text>&lt;div /&gt;</u-code-text> это div-тег из HTML, а <u-code-text>&lt;Welcome /&gt;</u-code-text> это уже наш компонент <u-code-text>Welcome</u-code-text>, который должен быть в области видимости</li>
 </ul>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Виды компонентов</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-two><template v-slot:first>
-<ul class="list-point">
-	<li><u-text-define>Stateful Component</u-text-define> (компоненты с состоянием) - делают что-то с данными и работают со стором</li>
-	<ul class="list-point">
-		<li><b>Название: </b>Умные компоненты</li>
-		<li><b>Директория: </b>containers</li>
-		<li><b>Реализация: </b>классы</li>
-		<li><b>Наличие state: </b>да</li>
-	</ul>
-</ul>
-</template><template v-slot:last>
-<ul class="list-point">
-	<li><u-text-define>Stateless Functional Components</u-text-define> (функциональные компоненты без состояния) - получают данные и их отрисовывают</li>
-	<ul class="list-point">
-		<li><b>Название: </b>Глупые компоненты</li>
-		<li><b>Директория: </b>components</li>
-		<li><b>Реализация: </b>функции</li>
-		<li><b>Наличие state: </b>нет</li>
-	</ul>
-</ul>
-</template></v-two>
 
-<img src="/img/react/components-type.png" width="650px">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Классовые компоненты: import React</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import React from 'react';
+class App extends <u-code>React.Component</u-code> { ... }
+</v-code>
+
+<v-code lang="js" title="">
+import { Component } from 'react';
+class App extends <u-code>Component</u-code> { ... }
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Классовые компоненты: задание state</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Использование конструктора в компоненте необходимо когда <u>state зависит от props</u> и для нормализации props нужны дополнительные алгоритмы</li>
+</ul>
+
+<v-two-code type="js;js" comment="Свойство;Конструктор">
+<template v-slot:first>
+class App extends React.Component {
+	state = {
+	    name: 'Tony'
+	}
+}
+</template>
+<template v-slot:last>
+class App extends React.Component {
+	constructor(props) {
+	    super(props);
+	    this.state = {
+	        name: 'Tony'
+	    };
+	}
+}
+</template>
+</v-two-code>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Функциональные и классовые компоненты</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-two-code type="js;js" comment="Функциональный;Классовый">
 <template v-slot:first>
-function Welcome(props) {
+const App = (props) => {
 	return &lt;h1&gt;Привет, {props.name}&lt;/h1&gt;;
 }
 // функция получает данные через props
 // возвращает React-элемент
 </template>
 <template v-slot:last>
-class Welcome extends React.Component {
+class App extends React.Component {
 	render() {
 		return &lt;h1&gt;Привет, {this.props.name}&lt;/h1&gt;;
 	}
 }
 </template>
 </v-two-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Компоненты с пропсами</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="Классовый компонент;Функциональный компонент">
+<template v-slot:first>
+class App extends React.Component {
+	<u-code>render()</u-code> {
+		return (
+			&lt;div&gt;
+				&lt;Button name="Кнопка" /&gt;
+			&lt;/div&gt;
+		);
+	}
+}
+
+class Button extends React.Component {
+	<u-code>render()</u-code> {
+		return &lt;button&gt;{<u-code>this.props.name</u-code>}&lt;/button&gt;;
+	}
+}
+</template>
+<template v-slot:last>
+const App = () => {
+	return (
+		&lt;div&gt;
+			&lt;Button name="Кнопка" /&gt;
+		&lt;/div&gt;
+	);
+}
+
+const Button = (props) => {
+	return &lt;button&gt;{props.name}&lt;/button&gt;;
+}
+</template>
+</v-two-code>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Импорт и экспорт</h3>
@@ -65,6 +119,7 @@ class Welcome extends React.Component {
 class App extends React.Component { ... }
 <u-code>export default</u-code> App;
 </v-code>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Классовые компоненты на jsx и js</h3>
@@ -95,85 +150,10 @@ ReactDOM.render(
 </template>
 </v-two-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Композиция компонентов</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-	<li>Компоненты могут ссылаться на другие компоненты в возвращённом ими дереве. Это позволяет нам использовать одну и ту же абстракцию - компоненты - на любом уровне нашего приложения</li>
-	<li>компонент App может отрендерить компонент Child несколько раз</li>
-</ul>
-
-<v-code lang="js" title="">
-function App() {
-	return (
-		&lt;div&gt;
-			&lt;Child /&gt;
-			&lt;Child /&gt;
-		&lt;/div&gt;
-	);
-}
-</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Компоненты с пропсами</h3>
+<h3>Структура классового компонента</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-two-code type="js;js" comment="Классовый компонент;Функциональный компонент">
-<template v-slot:first>
-class App extends React.Component {
-	<u-code>render()</u-code> {
-		return (
-			&lt;div&gt;
-				&lt;Button name="Кнопка" /&gt;
-			&lt;/div&gt;
-		);
-	}
-}
-class Button extends React.Component {
-	<u-code>render()</u-code> {
-		return &lt;button&gt;{<u-code>this.props.name</u-code>}&lt;/button&gt;;
-	}
-}
-</template>
-<template v-slot:last>
-function App() {
-	return (
-		&lt;div&gt;
-			&lt;Button name="Кнопка" /&gt;
-		&lt;/div&gt;
-	);
-}
-function Button(props) {
-	return &lt;button&gt;{props.name}&lt;/button&gt;;
-}
-</template>
-</v-two-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Классовые компонент: задание state</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-two-code type="js;js" comment="Свойство;Конструктор">
-<template v-slot:first>
-class App extends React.Component {
-	state = {
-	    name: 'Tony'
-	}
-}
-</template>
-<template v-slot:last>
-class App extends React.Component {
-	constructor(props) {
-	    super(props);
-	    this.state = {
-	        name: 'Tony'
-	    };
-	}
-}
-</template>
-</v-two-code>
-
-<!------------------------------------------------------------->
-<h4>Структура компонента</h4>
-<!------------------------------------------------------------->
 <v-code lang="js" title="">
 Component =  {
     state: Object

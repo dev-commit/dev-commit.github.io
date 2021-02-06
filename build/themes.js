@@ -66,6 +66,7 @@ var arrReactjs = [
     ['theory',   'web',   'virtual-dom',                              emoji.theory+'Virtual DOM'],
     ['react-js', 'info',  'reconciliation',                           emoji.theory+'Reconciliation Algorithm'],
     ['react-js', 'info',  'fiber',                                    emoji.theory+'React Fiber'],
+    ['react-js', 'info',  'patterns',                                 emoji.theory+'Шаблоны проектирования'],
     ['react-js', 'info',  'structure',                                emoji.code+'Структура'],
     ['react-js', 'info',  'components',                               emoji.cookie+'Компоненты'],
     ['react-js', 'info',  'props',                                    emoji.cookie+'Пропсы'],
@@ -111,6 +112,7 @@ var arrReactjs = [
     //--------------------------------------------------------------------
     [1, 'Прочее'],
     ['react-js', 'other',  'react-developer-tools', 'React Developer Tools'],
+    ['react-js', 'other',  'components',            'Компоненты'],
     ['react-js', 'other',  'samples',               'Примеры'],
 
     [1, 'React Plugins'],
@@ -835,6 +837,7 @@ var arrTheory = [
     [1, 'Оптимизация'],
     ['theory', 'optimization', 'critical-rendering-path', emoji.avocado+'Critical Rendering Path'],
     ['theory', 'optimization', 'repaint-and-reflow',      emoji.avocado+'Repaint & Reflow'],
+    ['theory', 'optimization', 'caching',                 emoji.favorite+'Кэширование'],
 
     [1, 'MVC ...'],
     ['theory', 'application-architecture', 'info', emoji.theory+'Шаблоны проектирования'],
@@ -1054,7 +1057,7 @@ var arrJsTasks = [
 
     [1, 'Асинхронность'],
     ['js-task', 'algoritms', 'retrier',              emoji.code+setTheme(4, ['Retrier (запросы по URL)'])],
-    ['js-task', 'algoritms', 'promise-make-request', emoji.code+setTheme(4, ['Promise Make Request'])],
+    ['js-task', 'algoritms', 'promise-make-request', emoji.code+setTheme(4, ['Promise Make Concurrent Request'])],
     ['js-task', 'algoritms', 'cancel-timeout',       emoji.code+setTheme(4, ['setTimeout: отмена всех'])],
     ['js-task', 'algoritms', 'settimeout-for-var',   emoji.code+setTheme(4, ['setTimeout: в for без let'])],
 
