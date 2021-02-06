@@ -243,11 +243,12 @@ var arrRedux = [
     ['redux', 'code', 'react-redux', emoji.code+'React-Redux'],
 
     [1, 'Элементы'], 
-    ['redux', 'elements',    'view',        emoji.cookie+'1. View'],
-    ['redux', 'elements',    'action',      emoji.cookie+'2. Action'],
-    ['redux', 'elements',    'middleware',  emoji.cookie+'3. Middleware'],
-    ['redux', 'elements',    'reducer',     emoji.cookie+'4. Reducer'],
-    ['redux', 'elements',    'store',       emoji.cookie+'5. Store'],
+    ['redux', 'elements',    'execution-order', emoji.theory+'Порядок выполнения'],
+    ['redux', 'elements',    'view',            emoji.cookie+'1. View'],
+    ['redux', 'elements',    'action',          emoji.cookie+'2. Action'],
+    ['redux', 'elements',    'middleware',      emoji.cookie+'3. Middleware'],
+    ['redux', 'elements',    'reducer',         emoji.cookie+'4. Reducer'],
+    ['redux', 'elements',    'store',           emoji.cookie+'5. Store'],
 
     [1, 'Методы'],
     //--------------------------------------------------------------------

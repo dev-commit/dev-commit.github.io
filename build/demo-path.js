@@ -1,2 +1,2 @@
 
-const DEMO_PATH = 'js-task/algoritms/promise-make-request';
+const DEMO_PATH = 'redux/elements/execution-order';
