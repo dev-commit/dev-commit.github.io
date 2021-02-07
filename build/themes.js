@@ -67,13 +67,12 @@ var arrReactjs = [
     //--------------------------------------------------------------------
     [1, 'Реконсиляция'],
     ['theory',   'web',   'virtual-dom',              emoji.theory+'Virtual DOM (Общее)'],
-    ['react-js', 'reconciler',  'virtual-dom-react',  emoji.theory+'Virtual DOM (React)'],
-    ['react-js', 'reconciler',  'reconciliation',     emoji.theory+'Reconciliation Algorithm'],
-    ['react-js', 'reconciler',  'fiber',              emoji.theory+'React Fiber'],
+    ['react-js', 'reconciler',  'virtual-dom-react',  emoji.lemon+'Virtual DOM (React)'],
+    ['react-js', 'reconciler',  'reconciliation',     emoji.lemon+'Reconciliation Algorithm'],
+    ['react-js', 'reconciler',  'fiber',              emoji.lemon+'React Fiber'],
 
     [1, 'Информация'],
     ['react-js', 'info',  'info',                                     emoji.theory+'Информация'],
-
     ['react-js', 'info',  'patterns',                                 emoji.theory+'Шаблоны проектирования'],
     ['react-js', 'info',  'structure',                                emoji.code+'Структура'],
     ['react-js', 'info',  'components',                               emoji.cookie+'Компоненты'],

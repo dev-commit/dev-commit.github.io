@@ -1,2 +1,2 @@
 
-const DEMO_PATH = 'react-js/reconciler/virtual-dom-react';
+const DEMO_PATH = 'react-js/reconciler/fiber';

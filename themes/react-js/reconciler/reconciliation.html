@@ -2,6 +2,7 @@
 
 <ul class="list-point">
     <li><u-text-define>Reconciliation Algorithm</u-text-define> (алгоритм согласования) - алгоритм сравнения в React</li>
+    <li>Вычисление разницы между двумя Virtual DOM. Если компонент в дереве заменен на другой, то всё поддерево считается новым. Дальнейшее сравнение вглубь не происходит</li>
 </ul>
 
 <ol class="list-num">
@@ -10,6 +11,30 @@
 	<li>Разработчик может указать, какие дочерние элементы могут оставаться стабильными между разными рендерами с помощью пропа <u-code-text>key</u-code-text></li>
 </ol>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Re-render</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <b>Re-render разделяется на 2 этапа</b>
+    <li>Reconciler (Сверка). Работает как Call Stack</li>
+    <li>Render (Переписовка): ReactDOM, React Native</li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Время обновления</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Чтобы изменения происходили плавно, нужно обновлять анимацию 60 раз в секунду, т.е. каждые 16 ms (миллисекунд).</li>
+</ul>
+
+<v-code lang="js" title="">
+1 секунда = 1000 миллисекунд
+1000 миллисекунд / 60 = 16 миллисекунд
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Правила</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ol class="list-num">
 	<b>Правила</b>
     <li>Алгоритм не будет пытаться сопоставить поддеревья компонентов разных типов. Если вы заметите за собой, что пытаетесь чередовать компоненты разных типов с очень схожим выводом, то желательно сделать их компонентами одного типа</li>
