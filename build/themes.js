@@ -65,11 +65,15 @@ var arrReactjs = [
     //--------------------------------------------------------------------
     [2, 'React.js'],
     //--------------------------------------------------------------------
+    [1, 'Реконсиляция'],
+    ['theory',   'web',   'virtual-dom',              emoji.theory+'Virtual DOM (Общее)'],
+    ['react-js', 'reconciler',  'virtual-dom-react',  emoji.theory+'Virtual DOM (React)'],
+    ['react-js', 'reconciler',  'reconciliation',     emoji.theory+'Reconciliation Algorithm'],
+    ['react-js', 'reconciler',  'fiber',              emoji.theory+'React Fiber'],
+
     [1, 'Информация'],
     ['react-js', 'info',  'info',                                     emoji.theory+'Информация'],
-    ['theory',   'web',   'virtual-dom',                              emoji.theory+'Virtual DOM'],
-    ['react-js', 'info',  'reconciliation',                           emoji.theory+'Reconciliation Algorithm'],
-    ['react-js', 'info',  'fiber',                                    emoji.theory+'React Fiber'],
+
     ['react-js', 'info',  'patterns',                                 emoji.theory+'Шаблоны проектирования'],
     ['react-js', 'info',  'structure',                                emoji.code+'Структура'],
     ['react-js', 'info',  'components',                               emoji.cookie+'Компоненты'],
@@ -420,8 +424,9 @@ var arrJsAsync = [
 var arrJsNetwork = [
     [1, 'Клиент-сервер'],
     ['js-network', 'theory', 'info',          emoji.theory+'Информация'],
-    ['js-network', 'theory', 'http',          emoji.theory+'HTTP'],
-    ['js-network', 'theory', 'https',         emoji.theory+'HTTPS'],
+    ['js-network', 'theory', 'http',          emoji.coconut+'HTTP'],
+    ['js-network', 'theory', 'http2',         emoji.coconut+'HTTP/2'],
+    ['js-network', 'theory', 'https',         emoji.coconut+'HTTPS'],
     ['js-network', 'theory', 'soap',          emoji.theory+'SOAP'],
     ['js-network', 'theory', 'rest',          emoji.boom+'1. REST API'],
     ['js-network', 'theory', 'rest-json-api', emoji.boom+'2. REST JSON API'],
@@ -733,7 +738,7 @@ var arrVuejs = [
     ['vue-js', 'main',  'structure-code',  emoji.code+'Пример кода vue-cli'],
     ['vue-js', 'main',  'instance-vue',    emoji.code+'Экземпляр Vue'],
     ['vue-js', 'main',  'lifecycle-hooks', 'Хуки жизненного цикла'],
-    ['theory', 'web',   'virtual-dom',     'Virtual DOM'],
+    ['theory', 'web',   'virtual-dom',     'Virtual DOM (Общее)'],
 
     [1, 'Реактивность'],
     ['vue-js', 'reactivity', 'reactivity',   'Реактивность'],

@@ -1,2 +1,2 @@
 
-const DEMO_PATH = 'redux/elements/execution-order';
+const DEMO_PATH = 'react-js/reconciler/virtual-dom-react';
