@@ -585,6 +585,7 @@ var arrJsObjects = [
     ['js-objects', 'samples', 'return-obj',                emoji.baseball+'Функция, возвращающая объект'],
 
     [1, 'Прочее'],
+    ['js-objects', 'other', 'compare',       emoji.lemon+'Сравнение объектов'],
     ['js-objects', 'other', 'constructor',  'Конструктор создания объекта'],
     ['js-objects', 'other', 'prototype',    'Прототип'],
 ];

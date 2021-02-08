@@ -2,7 +2,7 @@
 // 51
 
 const ARR_THEMES_SELECTED = [
-    // 'assessment',
+    'js-objects',
 ];
 
 const ARR_THEMES = [
