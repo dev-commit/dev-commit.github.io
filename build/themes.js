@@ -47,6 +47,7 @@ var arrAssessment = [
     ['theory', 'optimization', 'critical-rendering-path',           emoji.avocado+'Critical Rendering Path'],
     ['theory', 'optimization', 'repaint-and-reflow',                emoji.avocado+'Repaint & Reflow'],
     ['theory', 'optimization', 'caching',                           emoji.favorite+'Кэширование'],
+    ['theory', 'optimization', 'tree-shaking',                      emoji.favorite+'Tree shaking'],
 
     [1, 'Теория'],
     ['theory-paradigms', 'oop',                      'principles',  emoji.lemon+'ООП'],
@@ -860,6 +861,7 @@ var arrTheory = [
     ['theory', 'optimization', 'critical-rendering-path', emoji.avocado+'Critical Rendering Path'],
     ['theory', 'optimization', 'repaint-and-reflow',      emoji.avocado+'Repaint & Reflow'],
     ['theory', 'optimization', 'caching',                 emoji.favorite+'Кэширование'],
+    ['theory', 'optimization', 'tree-shaking',            emoji.favorite+'Tree shaking'],
 
     [1, 'MVC ...'],
     ['theory', 'application-architecture', 'info', emoji.theory+'Шаблоны проектирования'],
