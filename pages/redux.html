@@ -536,9 +536,45 @@ const reducerStarter = (state = { name: '' }, action) => {
 };
 </v-code>
 
-<!------------------------------------------------------------->
-<h4>Чистые функции</h4>
-<!------------------------------------------------------------->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Редьюсер - Чистая функция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Redux принимает переданное в него состояние (state) и отдаёт его каждому reducer в цикле. Если есть какие-либо изменения он ожидает получить новый объект из reducer функции (также он рассчитывает получить старый объект обратно, если изменений не было).</li>
+    <li>Дальше Redux проверяет, изменилось ли старое состояние путём обычного сравнения, а так как мы мутировали свойство старого объекта вместо создания нового, внутри нашего reducer, то старое и новое состояние будут ссылаться на один и тот же объект. Поэтому Redux думает, что ничего не изменилось!</li>
+</ul>
+
+<v-code lang="js" title="">
+const initState = { a: 1 };
+
+const reducer = (state) => {
+	state.a = 3;  // мутируем исходный объект initState
+	return state; // возвращаем обратно initState
+}
+
+const newState = reducer(initState);
+console.log(newState, initState); // {a: 3} {a: 3}
+// newState === initState // true
+</v-code>
+
+<v-code lang="js" title="">
+Новый объект  = Новое состояние
+Старый объект = Не изменённое состояние
+// Вот поэтому редюсеры должны быть "Чистыми функциями" в Redux
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Глубокое сравнение объектов (deep-compare)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>deep-compare - единственный способ узнать равны ли два объекта в JavaScript</li>
+    <li><a href="https://stackoverflow.com/questions/1068834/object-comparison-in-javascript" target="_blank">Object comparison in JavaScript (stackoverflow)</a></li>
+    <li><u>Минусы</u>: из-за больших объектов, затратаная операция для больших приложений</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Чистые функции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li><u-text-define>Чистые функции</u-text-define> (pure functions)</li>
     <li>Возвращает один и тот же результат для одинаковых входных данных</li>
