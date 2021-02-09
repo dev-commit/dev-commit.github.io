@@ -56,7 +56,29 @@ makeConcurrentRequest(urls)
 </v-code>
 
 
-<v-details title="<u-text-underline>Решение 2 (реализация на React)</u-text-underline>">
+<v-details title="<u-text-underline>Решение 2 (Promise.all)</u-text-underline>">
+<v-code lang="js" title="">
+const makeConcurrentRequest = async (urls) => {
+    const res = await Promise.all(urls.map(res => {
+		return fetch(res).then(res => res.json())
+	 }))
+
+	 return res;
+};
+
+const urls = [
+    'https://jsonplaceholder.typicode.com/todos/1',
+    'https://jsonplaceholder.typicode.com/todos/2',
+    'https://jsonplaceholder.typicode.com/todos/3'
+]
+
+makeConcurrentRequest(urls)
+    .then((result) => console.log(result));
+</v-code>
+</v-details>
+
+
+<v-details title="<u-text-underline>Решение 3 (реализация на React)</u-text-underline>">
 <ul class="list-point">
 	<li>С каждым изменением setFilmsName будет происходить дополнительный перерендер</li>
 </ul>
