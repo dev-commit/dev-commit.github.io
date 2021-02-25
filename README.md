@@ -1,60 +1,20 @@
 
-### CHECK
-- `<v-iframe />`          # Не рендерится контент после (только в webnotes)
-- `<v-code />`            # Отступы внутри блока кода если используется `<em>` или другие теги в начале
-- `<link-page-wrapper />` # Оформить навигацию по теме
-- `<u-code-wrapper />`    # Отступы внутри блока кода обертки 
-
-```
-<u-code-wrapper>
-Отступ сверху, если не использовать TAB
-</u-code-wrapper>
+## Available Scripts
+```bash
+http-server  # start app
 ```
 
-### DELETE
-- var
+```bash
+npm run build  # [node.js] build full pages
+npm run pages  # [node.js] build pages
+```
 
-### VUE.JS v-pre
-- count
-- name
-- alias
-- lastName
-- firstName
-- doubleValue
-- messText
-- value
-- message
-- age
-- view
-- text
-- link
+## Fix
+- none
 
-### React API
-
-`ReactDOM`
-- hydrate()
-- unmountComponentAtNode()
-- findDOMNode()
-
-`Задержка (Suspense)`
-- React.lazy
-- React.Suspense
-
-`Поверхностный рендерер`
-- shallowRenderer.render()
-- shallowRenderer.getRenderOutput()
-
-`Свойства класса`
-- defaultProps
-- displayName
-
-`Элементы DOM`
-- checked
-- className
-- htmlFor
-- onChange
-- selected
-- style
-- suppressContentEditableWarning
-- suppressHydrationWarning
-- value
+## Todo
+- Добавить SUB-TITLE
+- Переписать на Parcel
+- Ссылка на главную
+- Сворачивание меню
+- Подсвечивание элемента меню в BUILD

@@ -1,0 +1,106 @@
+<h2>Размеры и прокрутка страницы</h2>
+
+<v-code lang="js" title="">
+let a = document.documentElement.<u-code>clientWidth</u-code>; // ширина минус прокрутка
+let a = window.<u-code>innerWidth</u-code>;                    // вся ширина окна
+</v-code>
+
+<!------------------------------------------------------------->
+<h4><u-code-list>clientWidth</u-code-list> и <u-code-list>clientHeight</u-code-list></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>clientWidth/Height</u-text-define> - ширина/высота видимой области окна</li>
+    <li>Если есть полоса прокрутки, возвращают именно ширину/высоту внутри неё, доступную для документа</li>
+</ul>
+
+<img src="/__img__/dom/document-client-width.png" width="450px">
+
+<v-code lang="js" title="">
+var a = document.body.clientWidth;             // ширина документа (если body margin:0, совпадает с innerWidth)
+var a = document.body.clientHeight;            // высота документа (по контенту body)
+
+var a = document.documentElement.clientWidth;  // ширина документа (совпадает с innerWidth)
+var a = document.documentElement.clientHeight; // высота документа (совпадает с innerHeight)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4><u-code-list>innerWidth</u-code-list> и <u-code-list>innerHeight</u-code-list></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>innerWidth/Height</u-text-define> - хранят текущий размер окна браузера</li>
+    <li>Если есть полоса прокрутки, игнорируют её наличие</li>
+</ul>
+
+<v-code lang="js" title="">
+var a = window.innerWidth;  // ширина
+var a = window.innerHeight; // высота
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Получение текущей прокрутки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Свойства можно только читать, а менять нельзя</li>
+</ul>
+
+<div class="v-method-wrapper">
+    <v-method before="window." method="pageYOffset" after="" arg="">
+    текущая прокрутка сверху
+    </v-method>
+    <v-method before="window." method="pageXOffset" after="" arg="">
+    текущая прокрутка слева
+    </v-method>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Изменение прокрутки: scrollTo, scrollBy, scrollIntoView</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Чтобы прокрутить страницу при помощи JavaScript, её DOM должен быть полностью загружен</li>
+</ul>
+
+
+<div class="v-method-wrapper">
+    <v-method before="window." method="scrollBy" after="" arg="(x, y)">
+    прокручивает страницу относительно текущих координат
+    </v-method>
+	<v-method-arg arg="x">координата</v-method-arg>
+	<v-method-arg arg="y">координата</v-method-arg>
+</div>
+
+
+<div class="v-method-wrapper">
+    <v-method before="window." method="scrollTo" after="" arg="(pageX, pageX)">
+    прокручивает страницу к указанным координатам относительно документа. Абсолютные координаты. Эквивалентен установке свойств scrollLeft/scrollTop. Координаты (0,0) - прокрутка в начало документа
+    </v-method>
+	<v-method-arg arg="pageX">координата</v-method-arg>
+	<v-method-arg arg="pageX">координата</v-method-arg>
+</div>
+
+
+<div class="v-method-wrapper">
+    <v-method before="elem." method="scrollIntoView" after="" arg="(top)">
+	вызывается на элементе и прокручивает страницу так, чтобы элемент оказался вверху, если параметр top равен true, и внизу, если top равен false. Причем, если параметр top не указан, то он считается равным true
+    </v-method>
+
+	<v-method-arg arg="top">параметр: true (элемент вверху); false (элемент внизу)</v-method-arg>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>Ширина/высота страницы с учётом прокрутки</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>documentElement.scrollWidth/scrollHeight</u-code-text> работает некорректно</li>
+</ul>
+
+<v-code lang="js" title="">
+var scrollHeight = Math.max(
+	document.body.scrollHeight, document.documentElement.scrollHeight,
+	document.body.offsetHeight, document.documentElement.offsetHeight,
+	document.body.clientHeight, document.documentElement.clientHeight
+);
+alert( 'Высота с учетом прокрутки: ' + scrollHeight );
+</v-code>

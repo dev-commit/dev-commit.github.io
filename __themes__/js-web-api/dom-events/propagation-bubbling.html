@@ -1,0 +1,93 @@
+<h2>3. Фаза всплытия</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Всплытие</u-text-define> - когда на элементе происходит событие, обработчики сначала срабатывают на нём, потом на его родителе, затем выше и так далее, вверх по цепочке предков</li>
+    <li>События «всплывают» от внутреннего элемента вверх через родителей подобно тому, как всплывает пузырёк воздуха в воде</li>
+    <li>Всплытие идёт с «целевого» элемента наверх. По умолчанию событие будет всплывать до элемента html, а затем до объекта document, а иногда даже до window, вызывая все обработчики на своём пути</li>
+</ul>
+
+<hr>
+
+<v-code lang="html" title="">
+&lt;!-- 3 вложенных элемента FORM > DIV > P с обработчиком на каждом --&gt;
+&lt;form onclick="alert('form')"&gt;FORM
+	&lt;div onclick="alert('div')"&gt;DIV
+		&lt;p onclick="alert('p')"&gt;P&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/form&gt;
+</v-code>
+
+<ol class="list-num">
+    <b>Клик на &lt;p&gt; вызовет обработчик onclick</b>
+    <li>1. Сначала на самом &lt;p&gt;</li>
+    <li>2. Потом на внешнем &lt;div&gt;</li>
+    <li>3. Затем на внешнем &lt;form&gt;</li>
+    <li>4. И так далее вверх по цепочке до самого <u>document</u></li>
+</ol>
+
+<hr>
+
+<img src="/__img__/dom/propagation/bubbling1.png" width="350px">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>event.target</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Всегда можно узнать, на каком конкретно элементе произошло событие</li>
+    <li>Самый глубокий элемент, который вызывает событие, называется <u>целевым элементом</u> - он доступен через <u-code-text>event.target</u-code-text></li>
+</ul>
+
+<ul class="list-point">
+	<b>Отличие event.currentTarget от this</b>
+    <li><u-code-text>event.target</u-code-text> – это «целевой» элемент, на котором произошло событие, в процессе всплытия он неизменен</li>
+    <li><u-code-text>this</u-code-text> – это «текущий» элемент, до которого дошло всплытие, на нём сейчас выполняется обработчик</li>
+    <li>Возможна и ситуация, когда <u-code-text>event.target</u-code-text> и <u-code-text>this</u-code-text> – один и тот же элемент, например, если клик был непосредственно на самом элементе form, не на его подэлементе</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li>Если стоит только один обработчик <u>form.onclick</u>, то он «поймает» все клики внутри формы. Где бы ни был клик внутри - он всплывёт до элемента <u>form</u>, на котором сработает обработчик</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;form id="form"&gt;FORM
+	&lt;div&gt;DIV
+		&lt;p&gt;P&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+	form.onclick = function(event) {
+		event.target.style.backgroundColor = 'yellow';
+		alert('event.target: '+event.target.tagName);
+		alert('this: '+this.tagName);
+	};
+&lt;/script&gt;	
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Прекращение всплытия</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Всплытие идёт с «целевого» элемента наверх. Любой промежуточный обработчик может решить, что событие полностью обработано, и остановить всплытие</li>
+    <li>Если у элемента есть несколько обработчиков на одно событие, то даже при прекращении всплытия все они будут выполнены
+    <li><b>Недостаток</b>: при использовании систем аналитики где необходимо учитывать все клики, события с <u>stopPropagation</u> не будут учитываться</li>
+</ul>
+
+<div class="v-method-wrapper">
+    <v-method before="event." method="stopPropagation" after="" arg="()">
+    Прекращение всплытия, но на текущем элементе все обработчики будут вызваны
+    </v-method>
+
+   	<v-method before="event." method="stopImmediatePropagation" after="" arg="()">
+    Прекращение всплытия и остановка обработки событий на текущем элементе
+    </v-method>
+</div>
+
+<v-code lang="html" title="">
+&lt;body onclick="alert('Сюда всплытие не дойдёт'')"&gt;
+	&lt;button onclick="event.stopPropagation()"&gt;Кнопка&lt;/button&gt;
+&lt;/body&gt;
+</v-code>
+

@@ -1,0 +1,44 @@
+<h2>Атрибуты</h2>
+
+<img src="/__img__/dom/attr.png" width="500px">
+
+<ul class="list-point">
+    <li>При чтении HTML браузер генерирует DOM-модель. При этом большинство стандартных HTML-атрибутов становятся свойствами соответствующих объектов</li>
+    <li>HTML-атрибуты и DOM-свойства обычно, но не всегда соответствуют друг другу</li>
+    <li>Узел DOM – это объект, поэтому, как и любой объект в JavaScript, он может содержать пользовательские свойства и методы</li>
+    <li>Стандартные свойства и атрибуты <u>синхронизируются</u>: установка атрибута автоматически ставит свойство DOM. Некоторые свойства синхронизируются в обе стороны</li>
+</ul>
+
+<v-code lang="js" title="">
+let a = element.<u-code>attributes</u-code>;         // псевдо-массив объектов-атрибутов типа Attr со свойствами name и value
+let a = element.<u-code>hasAttribute</u-code>('id'); // проверить наличие атрибута
+let a = element.<u-code>getAttribute</u-code>('id'); // получить значение атрибута
+element.<u-code>setAttribute</u-code>('id', 'new');  // установить атрибут
+element.<u-code>removeAttribute</u-code>('id');      // удалить атрибут
+</v-code>
+
+<v-code lang="js" title="Перебор атрибутов">
+let attrs = document.querySelector('#element').attributes;
+for (var i = 0; i < attrs.length; i++) {
+    console.log( attrs[i].name + " = " + attrs[i].value );
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пользовательские атрибуты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Для нестандартных атрибутов DOM-свойство не создаётся. То есть, если назначить элементу <u-code-text>img</u-code-text> атрибут <u-code-text>href</u-code-text> то свойство <u-code-text>img.href</u-code-text> от этого не появится</li>
+    <li>С помощью нестандартных атрибутов можно привязать к элементу данные, которые будут доступны в JavaScript</li>
+    <li>Нестандартный атрибут не попадёт в свойство, поэтому нужно обязательно использовать getAttribute</li>
+    <li>Стандарт HTML5 специально разрешает атрибуты <u-code-text>data-*</u-code-text> и резервирует их для пользовательских данных. К таким атрибутам можно обратиться не только как к атрибутам, но и как к свойствам, при помощи специального свойства <u-code-text>dataset</u-code-text></li>
+</ul>
+
+<v-code lang="html" title="Перебор атрибутов">
+&lt;div id="elem" data-about="Elephant" data-user-location="street"&gt;&lt;/div&gt;
+&lt;script&gt;
+	// Название data-user-location трансформировалось в dataset.userLocation. Дефис превращается в большую букву
+	let a = elem.<u-code>dataset</u-code>.about; // => Elephant
+	let a = elem.<u-code>dataset</u-code>.userLocation; // => street
+&lt;/script&gt;
+</v-code>

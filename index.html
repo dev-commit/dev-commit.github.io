@@ -1,41 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" type="image/png" href="src/img/favicon.png">
+    <title>Dev Commit</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="src/img/favicon.png">
 <style>
-	body {
-		background-color: #f8f9fa;
-		padding: 20px 50px;
-	}
-	#root {
-		display: flex;
-		flex-wrap: wrap;
-	}
-	a {
-		display: flex;
-		align-items: center;
-		color: black;
-		padding: 7px 10px;
-		margin: 5px;
-		text-decoration: none;
-		font-family: sans-serif;
-		background-color: #fff;
-		box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
-	}
+#checkPages {
+    position: absolute;
+    bottom: 35px;
+    right: 35px;
+}
+.button {
+    border: 1px solid rgba(0,0,0,0.8);
+    border-radius: 3px;
+    outline: none;
+    background: #fff;
+    padding: 5px 10px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.button:hover,
+.button.active {
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+}
 </style>
 </head>
 <body>
-	<div id="root"></div>
 
-	<script src="build/themes.js"></script>
-	<script src="build/build.js"></script>
-	<script src="by/build-logic.js"></script>
+    <div id="container">
+        <div id="wrapper">
 
-	<script>
-		root.innerHTML = getMenu();
-	</script>
+            <div id="checkPages">
+                <button class="button" :class="{ active: page == 'pages' }" @click="switchPage('pages')">PAGE MODE</button>
+                <button class="button" :class="{ active: page == 'build' }" @click="switchPage('build')">BUILD MODE</button>
+            </div>
+
+
+            <div id="links">
+                <ul>
+                    <slot v-for="itemLink in linksContent">
+                        <li v-if="itemLink">
+                            <a :href="page+'/'+itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                        </li>
+                        <li v-else class="splitter"></li>
+                    </slot>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="src/css/basic.css">
+    <link rel="stylesheet" type="text/css" href="src/css/index.css">
+
+    <!-- Libraries -->
+    <script src="src/libs/vue.js"></script>
+
+    <!-- JavaScript -->
+    <script src="__modules__/__links__.js"></script>
+    <script>
+        new Vue({
+            el: '#container',
+            data: {
+                linksContent: ARR_LINKS,
+                page: 'pages'
+            },
+            methods: {
+                switchPage(page) {
+                    this.page = page;
+                },
+            }
+        });
+    </script>
 </body>
-</html>
-
+</html>    

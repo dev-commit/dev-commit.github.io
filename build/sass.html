@@ -1,0 +1,815 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Sass</title>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+        
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../__modules__/build-sass.js"></script>
+        </head>
+        <body>
+        
+            <div id="container">
+                <div id="menu">
+                    <div id="top">
+                        <a href="#links" class="link">
+                            <div class="img"></div>
+                            <span v-html="'Sass'"></span>
+                        </a>
+                    </div>
+                    <h4>🥥 Основное</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__sass/main/info"
+                href="#sass/main/info"
+            >Информация</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__sass/main/variables"
+                href="#sass/main/variables"
+            >Переменные (SassScript)</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__sass/main/cascade"
+                href="#sass/main/cascade"
+            >Вложенности</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__sass/main/color"
+                href="#sass/main/color"
+            >Операции над цветами</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__sass/main/operations"
+                href="#sass/main/operations"
+            >Операции</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__sass/main/mixin"
+                href="#sass/main/mixin"
+            >@mixin</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__sass/main/extend"
+                href="#sass/main/extend"
+            >@extend</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__sass/main/import"
+                href="#sass/main/import"
+            >@import</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__sass/main/each"
+                href="#sass/main/each"
+            >@each</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__sass/main/at-root"
+                href="#sass/main/at-root"
+            >@at-root</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__sass/main/if-else"
+                href="#sass/main/if-else"
+            >Условия if-else</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__sass/main/for"
+                href="#sass/main/for"
+            >Циклы For, While</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__sass/main/other"
+                href="#sass/main/other"
+            >Дополнительно</a>
+        </li>
+    </ul>
+                </div>
+        
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a :href="itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="sass/main/info"><h2>Информация</h2>
+
+<ul class="list-point">
+    <li><em>1996</em> - CSS</li>
+    <li><em>2006</em> - Sass</li>
+    <li><em>2009</em> - Less</li>
+    <li><em>2010</em> - Stylus</li>
+    <li><em>2013</em> - PostCSS</li>
+</ul>
+
+
+</div><div id="sass/main/variables"><h2>Переменные (SassScript)</h2>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+$width: 1000px;
+$bg-color: green;
+#main {
+	width: $width;
+	background-color: $bg-color;
+}
+</template>
+<template v-slot:last>
+#main {
+	width: 1000px;
+	background-color: green;
+}
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Вложенность переменных</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Переменная доступна только на текущем уровне вложенности, чтобы была видна везде, дописать <u-code-text>!global</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+$bg-color: green !global;
+</v-code>
+
+
+</div><div id="sass/main/cascade"><h2>Вложенности</h2>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+#main {
+	width: 100px;
+	p, div {
+		color: black;
+	}
+}
+</template>
+<template v-slot:last>
+#main {
+  width: 100px;
+}
+#main p, #main div {
+	color: black;
+}
+</template>
+</v-two-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Расширить родительский селектор</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+a {
+	color: blue;
+	&:hover {
+		color: green;
+	}
+}
+</template>
+<template v-slot:last>
+a {
+	color: blue;
+}
+a:hover {
+	color: green;
+}
+</template>
+</v-two-code>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+#main {
+	color: black;
+	&-sidebar {
+		color: orange;
+	}
+}
+</template>
+<template v-slot:last>
+#main {
+	color: black;
+}
+#main-sidebar {
+	color: orange;
+}
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Свойства в пространстве имен</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+#main {
+	font:{
+		family: fantasy;
+		size: 28px;
+		weight:bold;
+	}
+}
+</template>
+<template v-slot:last>
+#main {
+	font-family: fantasy;
+	font-size: 28px;
+	font-weight: bold;
+}
+</template>
+</v-two-code>
+</div><div id="sass/main/color"><h2>Операции над цветами</h2>
+
+<v-code lang="bash" title="">
+lighten($color,10%)         # осветляет исходный цвет
+darken($color,10%)          # затемняет исходный цвет
+saturate($color,70%)        # увеличивает насыщенность цвета от исходного
+desaturate($color,70%)      # уменьшает насыщенность цвета от исходного
+transparentize($color,0.2)  # добавляет к исходному цвету альфа-канал
+opacify($color, 0.1)        # задание менее прозрачного цвета
+transparentize($color, 0.4) # задание более прозрачного цвета
+rgba(#333, 0.75)            # перевод из hex в rgba
+</v-code>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+$color: rgba(255, 0, 0, 0.7);
+
+#main {
+	color: opacify($color, 0.1);
+	color: transparentize($color, 0.5);
+}
+</template>
+<template v-slot:last>
+#main {
+	color: rgba(255, 0, 0, 0.8);
+	color: rgba(255, 0, 0, 0.2);
+}
+</template>
+</v-two-code>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+#main {
+	color: rgba(#333, 0.75);
+}
+</template>
+<template v-slot:last>
+#main {
+	color: rgba(51, 51, 51, 0.75);
+}
+</template>
+</v-two-code>
+</div><div id="sass/main/operations"><h2>Операции</h2>
+
+<v-code lang="css" title="">
++ - / %
+> < <= >= == !=
+</v-code>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+$one: 50px;
+$two: 2;
+#main {
+	padding:{
+		top: $one + 200;
+		bottom: $one / $two;
+		left: $two + px;
+		right: 243px - 231px;
+	}
+	background: trans + parent;
+}
+</template>
+<template v-slot:last>
+#main {
+	padding-top: 250px;
+	padding-bottom: 25px;
+	padding-left: 2px;
+	padding-right: 12px;
+	background: transparent;
+}
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Интерполяция - использование переменных в селекторах и названиях свойств</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+$cn: content;
+#{$cn}: "con"+"tent";
+</template>
+<template v-slot:last>
+content: "content";
+</template>
+</v-two-code>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+$in: интер;
+.item {
+	content: "#{$in}поляция";
+}
+</template>
+<template v-slot:last>
+.item {
+	content: "интерполяция";
+}
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сложение цветов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При сложении rgba значение прозрачности должно быть одинаковым</li>
+</ul>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+$color1: #440203 + #550506;
+$color2: #010203 * 2;
+$color3: rgba(180, 0, 0, 0.75) + rgba(20, 225, 0, 0.75);
+</template>
+<template v-slot:last>
+background-color: #990709;
+background-color: #020406;
+background-color: rgba(200, 225, 0, 0.75);
+</template>
+</v-two-code>
+</div><div id="sass/main/mixin"><h2>Миксины, примеси (@mixin)</h2>
+
+<ul class="list-point">
+    <li><u>Миксины</u> - позволяют сделать блок стилей, который может быть использован повторно в любом месте документа</li>
+</ul>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+@mixin large-text {
+	font:{
+		family: Arial;
+		size: 30px;
+		weight: bold;
+	}
+	color: red;
+}
+p {
+	@include large-text;
+}
+</template>
+<template v-slot:last>
+p {
+	font-family: Arial;
+	font-size: 30px;
+	font-weight: bold;
+	color: red;
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Миксины можно подключать друг в друга</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+@mixin large-text {
+	...
+	@include small-text;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Миксины могут принимать аргументы, которые передаются при подключении миксина</h4>
+<!------------------------------------------------------------->
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+@mixin my-border($color, $width) {
+	border:{
+		color:$color;
+		width:$width;
+		style:dashed;
+	}
+}
+p {
+	@include my-border(red, 2px);
+}
+</template>
+<template v-slot:last>
+p {
+	border-color: red;
+	border-width: 2px;
+	border-style: dashed;
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Значение аргумента по умолчанию</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+@mixin my-border($color, $width:10px) {
+	border:{
+		color:$color;
+		width:$width;
+		style:dashed;
+	}
+}
+p {
+	@include my-border(red);
+}
+</v-code>
+
+</div><div id="sass/main/extend"><h2>Наследование (@extend)</h2>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+.error {
+	border: 1px solid #f00;
+	background-color: #fdd;
+}
+.criticalError {
+	@extend .error;
+	border-width: 3px;
+}
+</template>
+<template v-slot:last>
+.error, .criticalError {
+	border: 1px solid #f00;
+	background-color: #fdd;
+}
+.criticalError {
+	border-width: 3px;
+}
+</template>
+</v-two-code>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+.hoverlink {
+	@extend a:hover;
+}
+a:hover {
+	text-decoration: underline;
+}
+</template>
+<template v-slot:last>
+a:hover, .hoverlink {
+	text-decoration: underline;
+}
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Селекторы-шаблоны</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+%item-base {
+	color: green;
+}
+.item1 {
+	@extend %item-base;
+	margin: 10px;
+}
+.item2 {
+	@extend %item-base;
+	margin: 20px;
+}
+</template>
+<template v-slot:last>
+.item1, .item2 {
+	color: green;
+}
+.item1 {
+	margin: 10px;
+}
+.item2 {
+	margin: 20px;
+}
+</template>
+</v-two-code>
+</div><div id="sass/main/import"><h2>Импорт других SASS файлов (@import)</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сконвертируется в css как @import если</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Расширение css</li>
+    <li>Media-параметры</li>
+    <li>Присутствует http</li>
+    <li>Присутствует url</li>
+</ul>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+@import "main.css";
+@import "main" screen;
+@import "http://foo.com/main";
+@import url(main);
+</template>
+<template v-slot:last>
+@import url(main.css);
+@import "main" screen;
+@import "http://foo.com/main";
+@import url(main);
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Импортируется в sass файл если</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+1. Расширение sass                           @import "main.sass";
+2. Расширение scss                           @import "main.scss";
+3. Файлы css (main.css)                      @import "main";
+4. Файлы-фрагмены (_main.sass / _main.scss)  @import "main";
+</v-code>
+
+<v-code lang="css" title="">
+@import "example.scss";
+@import "example1", "example2";
+</v-code>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+/* файл example.scss */
+.example {
+	color: green;
+}
+/* файл style.scss */
+#main {
+	@import "example";
+}
+</template>
+<template v-slot:last>
+/* файл style.css */
+#main .example {
+	color: green;
+}
+</template>
+</v-two-code>
+
+</div><div id="sass/main/each"><h2>Директива @each</h2>
+
+<ul class="list-point">
+    <li>Если требуемся пройтись по списку значений</li>
+    <li>Устанавливает переменную в каждое из значений списка или карты и выводит содержащиеся в ней стили</li>
+</ul>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+@each $animal in cat,dog,mouse,tiger,wolf {
+	.#{$animal}-icon {
+		background-image:url(/img/#{$animal}.png);
+	}
+}
+</template>
+<template v-slot:last>
+.cat-icon   { background-image: url(/img/cat.png); }
+.dog-icon   { background-image: url(/img/dog.png); }
+.mouse-icon { background-image: url(/img/mouse.png); }
+.tiger-icon { background-image: url(/img/tiger.png); }
+.wolf-icon  { background-image: url(/img/wolf.png); }
+</template>
+</v-two-code>
+</div><div id="sass/main/at-root"><h2>Директива @at-root</h2>
+
+<ul class="list-point">
+    <li>Изымает одно или несколько правил из родительского селектора в корневой уровень документа. Можно использовать с селекторами первого уровня вложенности</li>
+    <li>Поднимает содержимые в ней правила в корень, отменяя цепочку от родителя</li>
+</ul>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+.parent {
+	color: red;
+		@at-root .child{
+			color: green;
+		}
+}
+</template>
+<template v-slot:last>
+.parent {
+	color: red;
+}
+.child {
+	color: green;
+}
+</template>
+</v-two-code>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+.parent {
+	color: red;
+		@at-root {
+			.child1{
+				color: green;
+			}
+			.child2{
+				color: orange;
+			}
+		}
+}
+</template>
+<template v-slot:last>
+.parent {
+	color: red;
+}
+.child1 {
+	color: green;
+}
+.child2 {
+	color: orange;
+}
+</template>
+</v-two-code>
+</div><div id="sass/main/if-else"><h2>Условия if-else</h2>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+p {
+	@if 1+1 == 2 {
+		color: red;
+	}
+}
+</template>
+<template v-slot:last>
+p {
+	color: red;
+}
+</template>
+</v-two-code>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+$type: monster;
+p {
+	@if $type == ocean {
+		color: red;
+	}
+	@else if $type == monster {
+		color: orange;
+	}
+	@else {
+		color: blue;
+	}
+}
+</template>
+<template v-slot:last>
+p {
+	color: orange;
+}
+</template>
+</v-two-code>
+
+
+</div><div id="sass/main/for"><h2>Циклы For, While</h2>
+
+<v-code lang="css" title="">
+@for $i from through <u-code-comment># диапазон включает значение начала и конца</u-code-comment>
+@for $i from to      <u-code-comment># диапазон включает значение начала и не включает значение конца</u-code-comment>
+</v-code>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+@for $i from 1 through 3 {
+	.item-#{$i} {
+		width: 2em * $i;
+		background-image: url(img/#{$i}.jpg);
+	}
+}
+</template>
+<template v-slot:last>
+.item-1 {
+	width: 2em;
+	background-image: url(img/1.jpg);
+}
+.item-2 {
+	width: 4em;
+	background-image: url(img/2.jpg);
+}
+.item-3 {
+	width: 6em;
+	background-image: url(img/3.jpg);
+}
+</template>
+</v-two-code>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+$i: 7;
+@while $i > 0 {
+	.item-#{$i} {
+		width: 1em * $i;
+	}
+	$i: $i - 3;
+}
+</template>
+<template v-slot:last>
+.item-7 {
+	width: 7em;
+}
+.item-4 {
+	width: 4em;
+}
+.item-1 {
+	width: 1em;
+}
+</template>
+</v-two-code>
+</div><div id="sass/main/other"><h2>Дополнительно</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+1. Gulp Sass
+2. Приложение Prepros
+3. RubyInstaller
+	установить RubyInstaller
+	gem install sass                  (установка sass)
+	sass -v                           (проверка версии)
+	sass --watch style.scss:style.css (отслеживать изменения в sass, из директории)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файлы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+style.sass
+style.scss
+style.css
+</v-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../__modules__/__links__.js"></script>
+            <script src="../src/vue/build.js"></script>
+        </body>
+    </html>    

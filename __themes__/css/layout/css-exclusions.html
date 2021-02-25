@@ -1,0 +1,46 @@
+<h2>CSS Exclusions (IE)</h2>
+
+<ul class="list-point">
+    <li>Обтекание элемента, который находится вне потока и спозиционирован поверх контента с помощью <u>absolute</u>, <u>relative</u>, <u>fixed</u></li>
+</ul>
+
+<ul class="list-point">
+    <li><u-code-text>wrap-flow</u-code-text> - задаёт область исключения, а также способ, которым содержимое должно обтекать его</li>
+    <li><u-code-text>wrap-margin</u-code-text> - устанавливает границу или отступ вокруг области исключения</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>wrap-flow</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+element {
+	-ms-wrap-flow: start;
+	-ms-wrap-flow: end;
+	-ms-wrap-flow: maximum;
+	-ms-wrap-flow: minimum;
+	-ms-wrap-flow: clear;
+	-ms-wrap-flow: both;
+}
+</v-code>
+
+<ul class="list-point">
+    <li><u-code-text>start</u-code-text> - будет огибать содержимое вокруг начала области исключения, оставив конец области пустым</li>
+    <li><u-code-text>end</u-code-text> - будет огибать содержимое в конце области исключения</li>
+    <li><u-code-text>maximum</u-code-text> - содержимое будет обёрнуто вокруг области исключения, где бы не было найдено более широкое пространство в области контейнера</li>
+    <li><u-code-text>minimum</u-code-text> - текст будет проходить через самое узкое пространство, доступное вокруг зоны исключения</li>
+    <li><u-code-text>clear</u-code-text> - очистит правую и левую часть области исключения, позволяет обтекаемому тексту находится только сверху и снизу области исключения</li>
+    <li><u-code-text>both</u-code-text> - обтекание со всех сторон</li>
+</ul>
+
+<img src="/__img__/css/wrap-flow.png" width="850px">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>wrap-margin</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+element {
+	-ms-wrap-margin: 10px;                /* Корректно */
+	-ms-wrap-margin: -10px;               /* Некорректно */
+	-ms-wrap-margin: 10px 20px 10px 30px; /* Некорректно */
+}
+</v-code>

@@ -1,0 +1,51 @@
+<h2>CSS Masking / CSS Masks</h2>
+
+<ul class="list-point">
+    <li>Маскирование</li>
+</ul>
+
+<u-link-wrapper>
+    <a href="https://drafts.fxtf.org/css-masking-1/#the-mask-image" target="_blank">Спецификация</a>
+    <a href="http://mpbox.ru/manuals/css-extensions/webkit/properties/webkit-mask-box-image.html" target="_blank">Описание свойств</a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mask-image" target="_blank">Mask Image</a>
+</u-link-wrapper>
+
+<v-code lang="bash" title="">
+-webkit-mask
+-webkit-mask-attachment
+-webkit-mask-clip
+-webkit-mask-composite
+-webkit-mask-image
+-webkit–mask-origin
+-webkit-mask-position
+–webkit-mask-position-x
+–webkit-mask-position-y
+-webkit-mask-repeat
+-webkit-mask-size
+-webkit-mask-box-image
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>-webkit-mask-box-image</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<img src="/__img__/css/css-masking1.png" width="600px">
+
+<v-code lang="html" title="html">
+&lt;img
+    class="img masking"
+    src="https://images.unsplash.com/photo-1607274134639-043342705e6f"
+&gt;
+</v-code>
+
+<v-code lang="css" title="css">
+.masking {
+	<u-code>-webkit-mask-box-image</u-code>: url(https://www.flaticon.com/svg/static/icons/svg/1384/1384017.svg);
+}
+.img {
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+}
+</v-code>

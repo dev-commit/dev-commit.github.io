@@ -1,0 +1,350 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Other</title>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+        
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../__modules__/build-other.js"></script>
+        </head>
+        <body>
+        
+            <div id="container">
+                <div id="menu">
+                    <div id="top">
+                        <a href="#links" class="link">
+                            <div class="img"></div>
+                            <span v-html="'Other'"></span>
+                        </a>
+                    </div>
+                    <h4>🥥 Технологии</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__other/technology/jira"
+                href="#other/technology/jira"
+            >Jira</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__other/technology/emmet"
+                href="#other/technology/emmet"
+            >Emmet</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__other/technology/react-native"
+                href="#other/technology/react-native"
+            >React.Native</a>
+        </li>
+    </ul><h4>🥥 Информация</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__other/main/code-editors"
+                href="#other/main/code-editors"
+            >Редакторы кода</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__other/main/chrome-mobile-version"
+                href="#other/main/chrome-mobile-version"
+            >Chrome: Мобильная версия</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__other/main/server-online"
+                href="#other/main/server-online"
+            >Server Online</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__other/main/photoshop"
+                href="#other/main/photoshop"
+            >Adobe Photoshop</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__other/main/denwer"
+                href="#other/main/denwer"
+            >Denwer</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__other/main/google-chrome"
+                href="#other/main/google-chrome"
+            >Google Chrome</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__other/main/windows"
+                href="#other/main/windows"
+            >Windows</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__other/main/trash"
+                href="#other/main/trash"
+            >Свалка</a>
+        </li>
+    </ul>
+                </div>
+        
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a :href="itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="other/technology/jira"><h2>Jira</h2>
+
+<v-code lang="bash" title="">
+1. TODO             # Assign to me
+2. IN PROGRESS      # Start Progress
+3. REVIEW           # Завершена, на ревью
+4. READY FOR QA     # После ревью и мерджа в develop
+5. IN QA            # На тестировании
+6. IN DEV           # На dev-стенде
+7. READY FOR STAGE  # Готова к заливке на stage-стенд
+8. ON STAGE         # На stage-стенде
+9. DONE             # Закрыта
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Жизненный цикл (workflow) задачи</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>OPEN</u-code-text> - создание задачи (PM)</li>
+    <li><u-code-text>IN PROGRESS</u-code-text> - назначение задачи</li>
+    <li><u-code-text>RESOLVED</u-code-text> - завершение задачи</li>
+    <li><u-code-text>REOPENED</u-code-text> - открытие задачи заново (PM)</li>
+    <li><u-code-text>CLOSED</u-code-text> - закрытие задачи (PM)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Доска</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>BACKLOG</u-code-text> - все задачи без оценки</li>
+    <li><u-code-text>TODO</u-code-text> - после оценки</li>
+    <li><u-code-text>REJECTED</u-code-text> - от тестировщика в случае нахождения багов</li>
+    <li><u-code-text>IN PROGRESS</u-code-text> - разработчик берет в разработку</li>
+    <li><u-code-text>REVIEW / TESTING / TO VERIFY</u-code-text> - разработчик закончил</li>
+    <li><u-code-text>DONE</u-code-text> - переводит тестировщик</li>
+</ul>
+</div><div id="other/technology/emmet"><h2>Emmet</h2>
+
+<v-code lang="bash" title="">
+bgzc # background-size: cover;
+</v-code>
+
+</div><div id="other/technology/react-native"><h2>React.Native</h2>
+
+<ul class="list-point">
+    <li>Библиотека Expo</li>
+    <li>OTA updates (обновление версий)</li>
+    <li>Работает только с npm4, с 5 версией уже не работает (симлинк)</li>
+</ul>
+</div><div id="other/main/code-editors"><h2>Редакторы кода</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Visual Studio Code</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Плагины</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Live Server (live reload)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>CodeSandbox</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Отключение Prettier</h4>
+<!------------------------------------------------------------->
+<img src="/__img__/other/codesandbox.png" width="550px">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Sublime Text</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+Ctrl + Shift + P # в строке вводим menu, выбираем пункт View: Toggle Menu
+Ctrl + F2        # отметка (по ней же и снимается)
+Ctrl + KU        # Uppercase
+Ctrl + KL        # Lowercase
+Ctrl + Shift + D # продублировать строку
+Ctrl + /         # комментарий
+</v-code>
+
+<v-code lang="bash" title="">
+Ctrl + Shift + P # Package Control
+Preferences -> Package Control -> Install Package -> NamePackage
+Preferences -> Package Control -> Remove Package  -> NamePackage
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Packages</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Emmet</li>
+	<li>SCSS</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Themes</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Material-Theme-Palenight</li>
+	<li>Material-Theme-Palenight.sublime-theme</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Atom</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Плагины</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+Ctrl + Shift + P # палитра команд
+Ctrl + Alt + B   # atom-beautify
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Сниппеты</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+emmet-snippets-compatibility               # плагин для сниппетов в html, чтобы не срабатыват emmet
+Палитра команд -> Editor: Log Cursor Scope # определение типа файла
+</v-code>
+</div><div id="other/main/chrome-mobile-version"><h2>Chrome: Мобильная версия</h2>
+
+<ul class="list-point">
+    <li>Телефон -> Режим разработки</li>
+    <li>О телефоне -> Версия ПО -> Отладка по USB</li>
+</ul>
+
+<img src="/__img__/other/chrome-mobile-version.png">
+</div><div id="other/main/server-online"><h2>Server Online</h2>
+
+<u-link-wrapper>
+	<a href="https://firebase.google.com/" target="_blank">Firebase</a>
+	<a href="https://my-json-server.typicode.com/" target="_blank">My-Json-Server</a>
+	<a href="https://www.telerik.com/fiddler" target="_blank">Fiddler (подмена запроса)</a>
+</u-link-wrapper>
+</div><div id="other/main/photoshop"><h2>Adobe Photoshop</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Работа с PSD-макетом</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Панель со слоями (видимость слоев, текстовые слои)</li>
+    <li>Панель инструментов (Рамка, Пипетка, Заливка, Текст, Линейка)</li>
+    <li>Файл -> Экспортировать -> Сохранить для Web (jpg, png)</li>
+    <li>Перевод единицы измерения px (Редактирование -> Настройки -> Единицы измерения и линейки</li>
+</ul>
+</div><div id="other/main/denwer"><h2>Denwer</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Изменение кодировки на utf-8</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+C:\WebServers\usr\local\apache\conf\httpd.conf
+"AddDefaultCharset windows-1251" -> "AddDefaultCharset utf-8"
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Настройки php</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+C:\WebServers\usr\local\php5\php.ini
+post_max_size = 8M
+</v-code>
+</div><div id="other/main/google-chrome"><h2>Google Chrome</h2>
+
+<v-code lang="bash" title="">
+Ctrl + F5         # перезагрузка без кэша
+Ctrl +            # увеличение шрифта консоли
+Ctrl + R          # перезагрузка
+Ctrl + Shift + R  # жесткая перезагрузка
+</v-code>
+</div><div id="other/main/windows"><h2>Windows</h2>
+
+<v-code lang="bash" title="">
+Win+Shift+S   # скриншот (версия 10)
+</v-code>
+
+</div><div id="other/main/trash"><h2>Свалка</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сокращения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u>i18n</u> - Internationalization</li>
+    <li><u>L10n</u> - Localization</li>
+    <li><u>a11y</u> - Accessibility</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Виды разработки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Заказная разработка</li>
+    <li>Аутсорс</li>
+    <li>Аутстаф</li>
+</ul>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../__modules__/__links__.js"></script>
+            <script src="../src/vue/build.js"></script>
+        </body>
+    </html>    

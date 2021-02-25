@@ -1,0 +1,125 @@
+<h2>__proto__ и prototype</h2>
+
+<v-two-fix><template v-slot:first>
+
+<ul class="list-point">
+    <li><u-text-define>__proto__</u-text-define> - свойство <u-text-underline>объекта</u-text-underline> <u-code-text>Object.prototype</u-code-text>, хранящее ссылку на свойство <u-code-text>prototype</u-code-text> конструктора</li>
+    <hr>
+
+    <li><u-text-define>prototype</u-text-define> - свойство <u-text-underline>функции</u-text-underline> с единственным свойством <u-code-text>constructor</u-code-text>, которое ссылается на саму функцию</li>
+ 	<li><b>Используется:</b> как прототип при создании новых объектов оператором <u-code-text>new</u-code-text></li>
+	<li><b>Цель:</b> указывать <u-code-text>__proto__</u-code-text> для новых объектов. При создании объекта через <u-code-text>new</u-code-text>, в его прототип <u-code-text>__proto__</u-code-text> записывается ссылка из <u-code-text>prototype</u-code-text> функции-конструктора</li>
+	<hr>
+
+    <li><u-text-define>constructor</u-text-define> - свойство, ссылающеется на саму функцию</li>
+</ul>
+
+</template><template v-slot:last>
+<img src="/__img__/js/prototype/prototype.png" width="650">
+</template></v-two-fix>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>__proto__</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При обращении к любому свойству объекта, оно в первую очередь ищется в самом объекте. Но если его там нет, поиск происходит в свойстве <u-code-text>__proto__</u-code-text>. Если его нет и там, оно ищется дальше по цепочке (<u>prototype chain</u>)</li>
+	<li>__proto__ - наследование на уровне объектов</li>
+</ul>
+
+<img src="/__img__/js/prototype/prototype-chain.png">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>prototype</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>
+		<img src="/__img__/js/prototype/prototype-prop.png">
+	</li>
+	<li><u>Прототип</u> - ссылка на другой объект, предоставляющий методы и свойства</li>
+	<li>Есть у каждой функции, кроме стрелочной</li>
+	<li>Имеет смысл только у <u>конструктора</u>, когда есть вызов <u-code-text>new</u-code-text></li>
+	<li>Значением prototype может быть только объект</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Схемы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<img src="/__img__/js/prototype/prototype-scheme.png" width="650px">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Перетирание прототипа</h4>
+<!------------------------------------------------------------->
+
+<ul class="list-point">
+    <li>При создании объекта его <u-code-text>__proto__</u-code-text> 1 раз получает ссылку на <u-code-text>prototype</u-code-text> функции конструктора</li>
+    <li>Эта ссылка остаётся при <u-code-text>Fn.prototype = {};</u-code-text> и по-прежнему указывает на старое значение, но к функции конструктору уже не имеет отношения</li>
+    <li>При <u-code-text>Fn.prototype = {}</u-code-text> не просто добавили объект, а поменяли ссылку и новые отнаследованные объекты получат уже ее</li>
+</ul>
+
+<img src="/__img__/js/prototype/prototype-clear-link.jpg" width="400px">
+
+<v-two-code type="js;js" comment="Всё стандартно;Перетирание протоипа">
+<template v-slot:first>
+function Fn() {}
+
+Fn.prototype = {
+	isConnected: true
+};
+
+let connect = new Fn();
+
+console.log(connect.isConnected); // => true
+
+Fn.prototype.isConnected = false;
+
+console.log(connect.isConnected); // => false
+</template>
+<template v-slot:last>
+function Fn() {}
+
+Fn.prototype = {
+    isConnected: true
+};
+
+let connect = new Fn();
+
+console.log(connect.isConnected); // true
+
+Fn.prototype = {};
+
+console.log(connect.isConnected); // true
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function User() {
+    this.name = 'Tony';
+}
+function Admin() {
+    this.id = 77;
+}
+Admin.<u-code>prototype</u-code> = new User();
+// Admin.__proto__ = new User();
+var admin = new Admin(); // => Admin {id: 77, __proto__: User name: "Tony"}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3</h4>
+<!------------------------------------------------------------->
+<img src="/__img__/js/prototype/proto-tree.jpg" class="center" height="250px">
+
+<v-code lang="js" title="">
+function User() {
+    this.name = 'Tony';
+}
+User.prototype.myFunc = function() {}
+Object.prototype.myFuncObject = function() {}
+let obj = new User();
+</v-code>

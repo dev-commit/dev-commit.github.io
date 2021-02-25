@@ -1,0 +1,704 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>jQuery</title>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+        
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../__modules__/build-jquery.js"></script>
+        </head>
+        <body>
+        
+            <div id="container">
+                <div id="menu">
+                    <div id="top">
+                        <a href="#links" class="link">
+                            <div class="img"></div>
+                            <span v-html="'jQuery'"></span>
+                        </a>
+                    </div>
+                    <h4>🥥 События</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__jquery/actions/handling-events"
+                href="#jquery/actions/handling-events"
+            >Обработчики событий</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__jquery/actions/hover-toggle"
+                href="#jquery/actions/hover-toggle"
+            >События hover() и toggle()</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__jquery/actions/event-object"
+                href="#jquery/actions/event-object"
+            >Объект события eventObject()</a>
+        </li>
+    </ul><h4>🥥 Основное</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__jquery/main/info"
+                href="#jquery/main/info"
+            >Информация</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__jquery/main/ajax"
+                href="#jquery/main/ajax"
+            >AJAX</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__jquery/main/css"
+                href="#jquery/main/css"
+            >CSS</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__jquery/main/methods"
+                href="#jquery/main/methods"
+            >Методы</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__jquery/main/attributes"
+                href="#jquery/main/attributes"
+            >Атрибуты. Object this</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__jquery/main/input"
+                href="#jquery/main/input"
+            >Input</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__jquery/main/include"
+                href="#jquery/main/include"
+            >Подключение файлов</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__jquery/main/is"
+                href="#jquery/main/is"
+            >Псевдо-селекторы :visible и :hidden</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__jquery/main/animation"
+                href="#jquery/main/animation"
+            >Анимация</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__jquery/main/get-element"
+                href="#jquery/main/get-element"
+            >Выборка элементов</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__jquery/main/samples"
+                href="#jquery/main/samples"
+            >Примеры</a>
+        </li>
+    </ul>
+                </div>
+        
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a :href="itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="jquery/actions/handling-events"><h2>Обработчики событий</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Полная загрузка страницы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+$(window).on('load', function () {
+	console.log("Window Loaded");
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обработчики событий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// обработчик события щелчка мыши
+$('.item').on('click', function(){
+	//
+});
+</v-code>
+
+<v-code lang="js" title="">
+// обработчик события изменения значения input
+$('input').on('change', function(){
+	//
+});
+</v-code>
+
+<v-code lang="js" title="">
+// выполняется после загрузки всех элементов (если скрипт подключен в head)
+$(document).ready(function(){
+    // обработчик события щелчка мыши
+    $('.item').on('click', function(){
+		// id выбранного элемента
+		const id = this.id;
+    });
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Удаление обработчиков событий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+Метод <b>.off()</b> удаляет обработчики событий, назначенные методом <b>.on</b>
+<v-code lang="js" title="">
+$(document).off('scroll');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Делегирование обработчиков событий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p>Применяется при необходимости добавить обработчик события на динамически добавленный элемент</p>
+
+<v-code lang="html" title="">
+&lt;button&gt;Click me&lt;/button&gt;
+&lt;div class="container"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+$('button').on('click',function(){
+    $('.container').append('&lt;div class="item" id="item-1"&gt;&lt;/div&gt;');
+    $('.container').append('&lt;div class="item" id="item-2"&gt;&lt;/div&gt;');
+});
+$('.container').on('click', '.item', function(){
+	console.log(this.id);
+});
+</v-code></div><div id="jquery/actions/hover-toggle"><h2>События hover() и toggle()</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>hover()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// событие hover() - наведение мыши (объединяет в себе mouseover и mouseout)
+$('#box').hover(function() {
+    // наведение мыши
+},function() {
+    // увод мыши
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>toggle()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// переключатель (2 положения)
+$('#formHide').toggle(function() {
+    $('#form').fadeOut(1000);
+	$(this).text('Развернуть форму');
+}, function() {
+    $('#form').fadeIn(1000);
+	$(this).text('Свернуть форму');
+});
+</v-code>
+</div><div id="jquery/actions/event-object"><h2>Объект события eventObject()</h2>
+
+<v-code lang="js" title="">
+eventObject(); передает параметр с информацией
+	screenX  - координаты щелчка по оси X (от края монитора)
+	screenY  - координаты щелчка по оси Y (по высоте)
+	pageX    - координаты щелчка по оси X (для браузера)
+	pageY    - координаты щелчка по оси Y (для браузера)
+	altKey   - была ли нажата клавиша ALT
+	ctrlKey  - была ли нажата клавиша CTRL
+	shiftKey - была ли нажата клавиша SHIFT
+	target   - какой объект отреагировал на событие
+</v-code>
+
+<v-code lang="js" title="">
+$('#box').click(function(eventObject) {
+    alert(eventObject.shiftKey);
+});
+</v-code>
+
+<v-code lang="js" title="">
+$('#box').click(function(eventObject) {
+	const myObject = eventObject.target; // сохранили объект
+    alert(myObject.id); // вывести значение атрибута ID для объекта
+});
+</v-code></div><div id="jquery/main/info"><h2>Информация</h2>
+
+<v-code lang="js" title="">
+jquery();            // функция
+$();                 // сокращенная запись
+const box = $('#box'); // сохранение объекта в переменную
+$(function() {
+	// анонимная функция
+});
+</v-code>
+</div><div id="jquery/main/ajax"><h2>AJAX</h2>
+
+<!------------------------------------------------------------->
+<h4>Короткая запись</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+$.get("scripts/script.php", {name:name}, function(data) {
+	//
+});
+$.get("scripts/script.php", {name: "Tom", time: "2pm"}, function(data) {
+	//
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Полная запись</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+$.ajax({
+	type: "GET",
+	url: "scripts/script.php",
+	data: { name:name, message:message },
+	async: true,
+	success: function (data, textStatus) {
+		console.log(data);
+	}
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Передача JSON данных из PHP</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+&lt;?php
+	$name = 'Андрей';
+	$email = 'and@mail.ru';
+	$arr = array($name, $price);
+	echo json_encode($arr);
+?&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Прием JSON данных из PHP</h4>
+<!------------------------------------------------------------->
+Выполняем код, который мы получили в виде строки / json объекта
+<v-code lang="js" title="">
+const data = eval(data);
+const name = data[0];
+const price = data[1];
+</v-code>
+</div><div id="jquery/main/css"><h2>CSS</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>css();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const a = $('#box').css('color');    // получить css свойство
+$('#box').css('color', 'orange');  // изменить css свойство
+$('#box').css({
+	'color':'orange',
+	'font-size':'25px'
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>addClass(); removeClass();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+$('#box').addClass('newClass');    // добавление класса
+$('#box').removeClass('newClass'); // удаление класса
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>toggleClass();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+Переключатель классов. Добавляет элементу указанный класс, если его нет. Иначе удаляет
+<v-code lang="js" title="">
+$('#box').toggleClass('open');
+</v-code>
+</div><div id="jquery/main/methods"><h2>Методы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>text(); html();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const text = $('#box').text();        // получить текст
+const html = $('#box').html();        // получить html
+$('#box').text('Измененный текст'); // изменить текст
+$('#box').html('Измененный html');  // изменить html
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>before(); after(); prepend(); append();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+$('#box').before('content');  // добавляет контент до выбранного элемента
+$('#box').after('content');   // добавляет контент после выбранного элемента
+$('#box').prepend('content'); // добавляет контент внутрь выбранного элемента до остального кода
+$('#box').append('content');  // добавляет контент внутрь выбранного элемента после остального кода
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>each();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+$('img').each(function() {
+	if ($(this).width() < 400) {
+	    $(this).fadeOut(3000);
+	}
+});
+// $(this) - текущий элемент при переборе
+</v-code>
+
+<v-code lang="js" title="">
+// получить id всех блоков в box
+$('#box').each(function() {
+	const id = $(this).attr("id");
+})
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>size(); get();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const a = $('div').size(); // возвращает кол-во элементов в выборке
+const a = $('div').get(0); // позволяет получить доступ к конкретному элементу в выборке
+                         // 0 - индекс 1 элемента
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>clone(); remove();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const a = $('#box').clone(); // клонирует выбранный элемент
+const a = $('#box').remove(); // удаляет элемент из DOM дерева но позволяет сохранить его для дальнейшего использования
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>width(); height();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const width = $('#box').width();   // получить ширину
+const height = $('#box').height(); // получить высоту
+$('#box').width(100);            // задать ширину
+$('#box').height(100);           // задать высоту
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>offset();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+$('.item').offset().top; // координаты объекта
+</v-code>
+</div><div id="jquery/main/attributes"><h2>Атрибуты. Object this</h2>
+
+<v-code lang="js" title="">
+const name   = this.name;
+const id     = this.id;
+const name   = $(this).attr("name");
+const id     = $(this).attr("id");
+const class_ = $(this).attr("class");
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>attr(); removeAttr();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const id = $('#box').attr("id"); // получить атрибут
+$('#box').attr('size', 4);       // изменить атрибут
+$('#box').removeAttr('title');   // удалить атрибут
+// Начиная с jQuery 1.6, метод .attr() возвращает undefined
+// для тех атрибутов, значение которых не было задано.
+// Для получения и выставления таких опций как checked, selected, или disabled
+// используйте метод .prop()
+</v-code>
+</div><div id="jquery/main/input"><h2>Input</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>&lt;input type="text"&gt; и &lt;textarea&gt;&lt;/textarea&gt; (текстовое поле)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const text = $('#text').val();   // читаем value
+$('#text').val('new content'); // записываем value
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>&lt;input type="checkbox"&gt; (галочка)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const checkbox = $('#checkbox').prop('checked'); // читаем (true/false)
+$('#checkbox').prop('checked', true);          // устанавливаем значение checked (true/false)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>&lt;input type="radio"&gt; (переключатель)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const radio = $('input[name=radio]:checked').prop('id'); // получаем id выбранного radio
+const radio = $('#radio1').prop('checked');        // проверяем по id выбран ли radio (true/false)
+$('#radio1').prop('checked', true);              // устанавливаем checked по id
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>&lt;select&gt;&lt;/select&gt; (выпадающий список)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const value = $('#select').val();                      // читаем выбранный value
+const text =  $('#select option:selected').text();     // читаем выбранный text
+const text =  $('#select [value=2]').text();           // читаем text по заданному value
+$('#select [value=3]').attr('selected', 'selected'); // устанавливаем заданный элемент в selected
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Преобразование в checkbox</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js red" title="">
+// для checkbox сначала нужно перевести в число, а потому уже в булево значение
+const field = '1';
+const checkbox = Boolean(Number(field));
+$('.checkbox').prop('checked', checkbox);
+</v-code>
+</div><div id="jquery/main/include"><h2>Подключение файлов</h2>
+
+<v-code lang="js" title="">
+// подключаемые файлы
+$('header').load('include/header.html');
+
+// показывам блоки только после загрузки html
+$('#filter').load('include/filter.html', function() {
+	//
+});
+</v-code>
+
+<v-code lang="js" title="">
+// загружаем html код из файла в блок
+$.get("include/header.html", {}, function(data) {
+	$('header').html(data);
+});
+</v-code>
+</div><div id="jquery/main/is"><h2>Псевдо-селекторы :visible и :hidden</h2>
+
+<v-code lang="js" title="">
+if ($('#element').is(':visible')) {
+    // $element виден
+}
+if ($('#element').is(':hidden')) {
+    // $element не виден
+}
+</v-code>
+</div><div id="jquery/main/animation"><h2>Анимация</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>hide(); show();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Скрывает/показывает элементы на странице (за счет плавного изменения его размера и прозрачности)
+$('#box').hide(1000); // скрыть элемент
+$('#box').show(1000); // показать элемент
+//1 - скорость исчезновения (миллисекунды 1с = 1000мс)
+//2 - функция, которая будет выполнена после завершения работы
+
+$('#box').hide(1000).show(1000); // цепные функции
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>slideUp(); slideDown();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Разворачивает/сворачивает элементы на странице (за счет плавного изменения высоты элементов)
+$('#box').slideUp(1000);   // исчезновение (элемент уезжает наверх)
+$('#box').slideDown(1000); // появление (элемент выезжает вниз)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>slideToggle();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Поочередно разворачивает/сворачивает элементы на странице, как это делают .slideUp() и .slideDown()
+$('#box').slideToggle();
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>fadeIn(); fadeOut();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Скрывает/показывает элементы на странице за счет плавного изменения прозрачности
+$('#box').fadeIn(1000);  // плавное появление элемента
+$('#box').fadeOut(1000); // плавное исчезновение элемента
+//1 - время исчезновения
+//2 - функция, которая будет выполнена после исчезновения
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>fadeTo();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Плавно изменяет прозрачность элементов
+$('#box').fadeTo(1000,0.4);
+//1 - время исчезновения
+//2 - прозрачность от 0 до 1
+//3 - функция, которая будет выполнена после исчезновения
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>fadeToggle();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Поочередно скрывает/показывает элементы на странице, как это делают .fadeIn() и .fadeOut()
+$('#box').fadeToggle();
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>animate();</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+animate(); // плавное изменение css свойств элемента (анимация)
+//1 - какие свойства необходимо изменить
+//2 - за сколько необходимо изменить свойства
+//3 - функция, которая должна быть выполнена после завершения анимации
+
+box.animate({'width':'450px'}, 1000); // плавное изменение ширины
+box.animate({backgroundColor:'silver'},1000); // изменение цвета
+box.animate({backgroundColor:'#4682B4', borderColor:'#F5F5F5'},1000);
+
+backgroundColor   (background-color)    // цвет фона
+borderBottomColor (border-bottom-color) // цвет нижней границы
+borderLeftColor   (border-bottom-color) // цвет левой границы
+borderRightColor  (border-right-color)  // цвет правой границы
+borderTopColor    (border-top-color)    // цвет верхней границы
+color             (color)               // цвет текста
+outlineColor      (outline-color)       // цвет обводки
+// для цвета нужен плагин Color animation
+// нужно задать начальное значение цвета
+</v-code>
+</div><div id="jquery/main/get-element"><h2>Выборка элементов страницы</h2>
+
+<v-code lang="js" title="">
+$('p');     // по названию тега
+$('.box');  // по названию класса
+$('#box');  // по идентификатору ID
+$('div a'); // вложенные теги
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Атрибуты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+$('img[width=200]');      // по точному значению атрибута
+$('input[name=message]'); // по атрибуту (имени)
+$('a[href^=http]');       // по началу значению атрибута (^ - начинается)
+$('img[scr$=.jpg]');      // по окончанию значению атрибута ($ - заканчивается)
+$('img[scr*=moto]');      // по вхождению в значение атрибута (* - в любом месте)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Фильтры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+$('#table tr:even');       // фильтр четности - четные элементы, нумерация с "0" (0, 2 и т.д.)
+$('#table tr:odd');        // фильтр нечетности - нечетные элементы
+$('img:not(#box img)');    // фильтр отрицания. Все кроме...
+$('div:has(fieldset)');    // фильтр элементов, которые содержат другие элементы (has - имеет)
+$('p:contains(мотоцикл)'); // фильтр по содержанию определенного текста (contains - содержит)
+$('#box img:first');       // фильтр первого элемента
+$('#box img:last');        // фильтр последнего элемента
+$('div:hidden');           // фильтр для всех скрытых блоков
+$('div:visibility');       // фильтр для всех видимых блоков
+</v-code>
+</div><div id="jquery/main/samples"><h2>Примеры</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сообщения, возвращаемые от php скриптов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function echo(text) {
+    $('#echo').html(text);
+    $('#echo').slideDown(700);
+    setTimeout(function() { $('#echo').slideUp(700) }, 2700);
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Поиск по товарам</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+$('#search').keyup(function() {             // search - input[text]
+    const value = $('#search').val();         // получаем вводимые символы
+    value = value.toLowerCase();            // переводим в нижний регистр
+    $('.container').css('display', 'none'); // container - содержит блоки с названиями товаров
+    $('.container:contains("'+value+'")').css('display', 'block'); // показываем блоки
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Закрытие формы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+$(document).ready(function(){
+    const formOut = true;
+    $('#box').mouseleave(function(){ formOut = true; });
+    $('#box').mouseenter(function(){ formOut = false; });
+    $('.bg').click( function() { if (formOut) { $('.bg').fadeOut(500); } });
+});
+</v-code></div></div>
+                </div>
+            </div>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../__modules__/__links__.js"></script>
+            <script src="../src/vue/build.js"></script>
+        </body>
+    </html>    

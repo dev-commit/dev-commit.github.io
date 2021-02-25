@@ -1,0 +1,626 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>SVG</title>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+        
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../__modules__/build-svg.js"></script>
+        </head>
+        <body>
+        
+            <div id="container">
+                <div id="menu">
+                    <div id="top">
+                        <a href="#links" class="link">
+                            <div class="img"></div>
+                            <span v-html="'SVG'"></span>
+                        </a>
+                    </div>
+                    <h4>🥥 Основное</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__svg/main/info"
+                href="#svg/main/info"
+            >📑 Информация</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__svg/main/css"
+                href="#svg/main/css"
+            >⚡️ Стилизация на CSS</a>
+        </li>
+    </ul><h4>🥥 Элементы</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__svg/elements/figure"
+                href="#svg/elements/figure"
+            >🔰 Фигуры</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__svg/elements/text"
+                href="#svg/elements/text"
+            ><u-menu>text</u-menu></a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__svg/elements/image"
+                href="#svg/elements/image"
+            ><u-menu>image</u-menu></a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__svg/elements/mask"
+                href="#svg/elements/mask"
+            ><u-menu>mask</u-menu></a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__svg/elements/clip-path"
+                href="#svg/elements/clip-path"
+            ><u-menu>clipPath</u-menu></a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__svg/elements/filters"
+                href="#svg/elements/filters"
+            ><u-menu>filter</u-menu></a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__svg/elements/gradients"
+                href="#svg/elements/gradients"
+            ><u-menu>linearGradient</u-menu> <u-menu>radialGradient</u-menu></a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__svg/elements/background"
+                href="#svg/elements/background"
+            ><u-menu>background</u-menu></a>
+        </li>
+    </ul>
+                </div>
+        
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a :href="itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="svg/main/info"><h2>Информация</h2>
+
+<ul class="list-point">
+    <li><u-text-define>SVG SLIL animation</u-text-define> - анимация внутри SVG без HTML и CSS (мало используется разработчиками)</li>
+</ul>
+
+<u-link-wrapper>
+    <a href="https://www.w3schools.com/graphics/svg_intro.asp" target="_blank">w3schools.com</a>
+    <a href="http://css.yoksel.ru/tags/#svg" target="_blank">yoksel.ru</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Библиотеки</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Raphaël</li>
+    <li>SVG.js</li>
+</ul>
+</div><div id="svg/main/css"><h2>Стилизация на CSS</h2>
+
+<v-code lang="css" title="">
+svg {
+	fill: yellowgreen;
+	fill-opacity: 0.9;
+	stroke: black;
+	stroke-width: 2;
+	stroke-opacity: 0.7;
+}
+svg path {
+	d: path('M0,100 L 20,0 80,90 100,0 100,100 Z');
+}
+</v-code>
+</div><div id="svg/elements/figure"><h2>Фигуры</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Прямоугольник (rectangle)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;rect width="50px" height="50px" x="25" y="25" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/rect1.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;rect width="50px" height="50px" x="25" y="25" rx="10" ry="50" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/rect2.png" class="img200">
+</template></v-two-fix>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Окружность (circle, ellipse)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;circle cx="50" cy="50" r="25" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/circle1.png" class="img200">
+</template></v-two-fix>
+
+<ul class="list-point">
+    <li><u-code-text>&lt;g&gt;</u-code-text>Объединение объектов для задания общих свойств<u-code-text>&lt;/g&gt;</u-code-text></li>
+</ul>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;g stroke="black" stroke-width="3" fill="black"&gt;
+		&lt;circle cx="50" cy="50" r="5" /&gt;
+		&lt;circle cx="100" cy="100" r="5" /&gt;
+	&lt;/g&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/circle2.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;ellipse cx="50" cy="50" rx="35" ry="25" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/ellipse1.png" class="img200">
+</template></v-two-fix>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Линия (line, polyline)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;line x1="0" y1="0" x2="50" y2="50" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/line1.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;polyline points="0,0 50,50 25,75" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/polyline1.png" class="img200">
+</template></v-two-fix>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Полигон (polygon)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;polygon points="0,0 50,50 25,75" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/polygon1.png" class="img200">
+</template></v-two-fix>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Путь (path)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<b>Доступные команды:</b>
+	<li><b>M</b> = moveto</li>
+	<li><b>L</b> = lineto</li>
+	<li><b>H</b> = horizontal lineto</li>
+	<li><b>V</b> = vertical lineto</li>
+	<li><b>C</b> = curveto</li>
+	<li><b>S</b> = smooth curveto</li>
+	<li><b>Q</b> = quadratic Bézier curve</li>
+	<li><b>T</b> = smooth quadratic Bézier curveto</li>
+	<li><b>A</b> = elliptical Arc</li>
+	<li><b>Z</b> = closepath</li>
+</ul>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;path d="M0,100 L50,50 100,100 Z" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/path1.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100" &gt;
+	&lt;path d="M0,100 Q 50,50 100,100"&gt;&lt;/path&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/path2.png" class="img200">
+</template></v-two-fix>
+
+<ul class="list-point">
+    <li>Атрибут <u-code-text>preserveAspectRatio="none"</u-code-text> позволяет поместить фигуру целиком в <u>viewBox</u></li>
+    <li>При изменении размера блока svg размер фигуры будет меняться</li>
+</ul>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100" preserveAspectRatio="none"&gt;
+	&lt;path d="M0,100 L 20,0 80,90 100,0 100,100 Z"&gt;&lt;/path&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/path4.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100" preserveAspectRatio="none"&gt;
+	&lt;path d="M0,50 Q 25,0 50,50, 75,100, 100,50 L100,100 0,100 0,50"&gt;&lt;/path&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/path3.png" class="img200">
+</template></v-two-fix>
+</div><div id="svg/elements/text"><h2>Текст</h2>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;text x="25" y="30"&gt;I love SVG!&lt;/text&gt;
+	&lt;text x="45" y="100" transform="rotate(30 20,40)"&gt;I love SVG&lt;/text&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/text1.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;text x="10" y="30"&gt;Several lines:
+		&lt;tspan x="10" y="60"&gt;First line.&lt;/tspan&gt;
+		&lt;tspan x="10" y="90"&gt;Second line.&lt;/tspan&gt;
+	&lt;/text&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/text2.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+  &lt;a xlink:href="https://www.yandex.ru/" target="_blank"&gt;
+    &lt;text x="10" y="30"&gt;Link&lt;/text&gt;
+  &lt;/a&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/text3.png" class="img200">
+</template></v-two-fix>
+
+
+
+</div><div id="svg/elements/image"><h2>Изображение</h2>
+
+<ul class="list-point">
+    <li><u-code-text>preserveAspectRatio="xMinYMin slice"</u-code-text> аналог cover</li>
+</ul>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100" width="200px" height="200px"&gt;
+	&lt;image
+		<u-code>xlink</u-code>:href="https://images.unsplash.com/photo-1607274134639-043342705e6f"
+		width="100%"
+		height="100%"
+		<u-code>preserveAspectRatio</u-code>="xMinYMin slice"
+	&gt;
+	&lt;/image&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/image1.png" class="img200">
+</template></v-two-fix>
+</div><div id="svg/elements/mask"><h2>Маскирование</h2>
+
+<img src="/__img__/svg/masked.png" width="600px">
+
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100" width="200px" height="200px"&gt;
+<u-code-wrapper>
+	&lt;defs&gt;
+		&lt;mask id="mask"&gt;
+			&lt;circle cx="50" cy="50" r="50" fill="white" /&gt;
+			&lt;polygon points="100,0 75,10 90,20" fill="white" /&gt;
+		&lt;/mask&gt;
+    &lt;/defs&gt;
+
+</u-code-wrapper>
+	&lt;image
+		mask="url(#mask)"
+		xlink:href="https://images.unsplash.com/photo-1607274134639-043342705e6f"
+		width="100%"
+		height="100%"
+		preserveAspectRatio="xMinYMin slice"
+	&gt;
+	&lt;/image&gt;
+&lt;/svg&gt;
+</v-code>
+</div><div id="svg/elements/clip-path"><h2>clipPath</h2>
+
+<img src="/__img__/svg/clip-path.png" width="500px">
+
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100" width="200px" height="200px"&gt;
+    &lt;defs&gt;
+        &lt;<u-code>clipPath</u-code> id="clip"&gt;
+            &lt;rect width="50px" height="25px" x="25" y="25" fill="blue" /&gt;
+        &lt;/<u-code>clipPath</u-code>&gt;
+    &lt;/defs&gt;
+	
+    &lt;circle cx="50" cy="50" r="25" fill="yellowgreen" <u-code>clip-path</u-code>="url(#clip)" /&gt;
+&lt;/svg&gt;
+</v-code>
+
+<ul class="list-point">
+    <li>По центру нарисован круг. Атрибут <u>clip-path</u> ссылается на элемент <u>clipPath</u>, который содержит элемент <u>rect</u></li>
+    <li>При этом сам прямоугольник отрисован не будет. Вместо этого прямоугольник задаст область отрисовки. Так как прямоугольник перекрывает только верхнюю половину круга, нижняя половина круга исчезает</li>
+    <li>Теперь мы получили полуокружность без необходимости использования элемента path.  При обрезке каждый путь внутри <u>clipPath</u> проверяется и оценивается вместе с его свойствами <u>stroke</u> и <u>transform</u>. Другими словами, все что не находится в залитой области <u>clipPath</u> не будет отображено. Цвет, непрозрачность и т. д. не влияют на результат</li>
+</ul>
+</div><div id="svg/elements/filters"><h2>Фильтры</h2>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f1" x="0" y="0"&gt;
+			&lt;feGaussianBlur in="SourceGraphic" stdDeviation="15" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f1)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/filter1.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f2" x="0" y="0" width="200%" height="200%"&gt;
+			&lt;feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" /&gt;
+			&lt;feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" /&gt;
+			&lt;feBlend in="SourceGraphic" in2="offOut" mode="normal" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f2)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/filter2.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f3" x="0" y="0" width="200%" height="200%"&gt;
+			&lt;feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" /&gt;
+			&lt;feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" /&gt;
+			&lt;feBlend in="SourceGraphic" in2="blurOut" mode="normal" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f3)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/filter3.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f4" x="0" y="0" width="200%" height="200%"&gt;
+			&lt;feOffset result="offOut" in="SourceAlpha" dx="20" dy="20" /&gt;
+			&lt;feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" /&gt;
+			&lt;feBlend in="SourceGraphic" in2="blurOut" mode="normal" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f4)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/filter4.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f5" x="0" y="0" width="200%" height="200%"&gt;
+			&lt;feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" /&gt;
+			&lt;feColorMatrix result="matrixOut" in="offOut" type="matrix"
+				values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" /&gt;
+			&lt;feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="10" /&gt;
+			&lt;feBlend in="SourceGraphic" in2="blurOut" mode="normal" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f5)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/filter5.png" class="img200">
+</template></v-two-fix>
+</div><div id="svg/elements/gradients"><h2>Градиенты</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Linear Gradient</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%"&gt;
+			&lt;stop offset="0%"   style="stop-color:rgb(255,255,0);stop-opacity:1" /&gt;
+			&lt;stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" /&gt;
+		&lt;/linearGradient&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" fill="url(#grad1)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/gradient1.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%"&gt;
+			&lt;stop offset="0%"   style="stop-color:rgb(255,255,0);stop-opacity:1" /&gt;
+			&lt;stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" /&gt;
+		&lt;/linearGradient&gt;
+	&lt;/defs&gt;
+  &lt;rect width="100px" height="100px" x="50" y="50" fill="url(#grad2)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/gradient2.png" class="img200">
+</template></v-two-fix>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Radial Gradient</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;radialGradient id="grad3" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"&gt;
+			&lt;stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0" /&gt;
+			&lt;stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" /&gt;
+		&lt;/radialGradient&gt;
+	&lt;/defs&gt;
+  &lt;rect width="100px" height="100px" x="50" y="50" fill="url(#grad3)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/gradient3.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;radialGradient id="grad4" cx="20%" cy="30%" r="30%" fx="50%" fy="50%"&gt;
+			&lt;stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0" /&gt;
+			&lt;stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" /&gt;
+		&lt;/radialGradient&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" fill="url(#grad4)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/gradient4.png" class="img200">
+</template></v-two-fix>
+</div><div id="svg/elements/background"><h2>Background</h2>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;div class="pie"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="css" title="">
+.pie {
+	width: 200px;
+	height: 200px;
+	background: url(
+		'data:image/svg+xml,\
+		&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"&gt;\
+			&lt;circle r="100" cx="100" cy="100" fill="yellowgreen" /&gt;\
+		&lt;/svg&gt;'
+	);
+}
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/background.png" class="img200">
+</template></v-two-fix>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../__modules__/__links__.js"></script>
+            <script src="../src/vue/build.js"></script>
+        </body>
+    </html>    
