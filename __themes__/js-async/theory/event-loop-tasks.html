@@ -1,0 +1,68 @@
+<h2>Event Loop: Tasks</h2>
+
+<img src="/__img__/js/event-loop/event-loop4.png" height="450px" class="center">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Приоритетность</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li>Микро-таски (выполняются все)</li>
+    <li>Рендер-таски</li>
+    <li>Макро-таски (выполняются по одной)</li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Tasks (Macrotask) - очередь задач</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Задачи исполняются по порядку и браузер может рендерить в промежутках между ними</li>
+</ul>
+
+<ul class="list-point">
+    <b>Примеры:</b>
+    <li><u-code-list>setTimeout</u-code-list></li>
+    <li><u-code-list>setInterval</u-code-list></li>
+    <li><u-code-list>setImmediate</u-code-list></li>
+    <li><u-code-list>AJAX</u-code-list></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Microtasks - очередь микрозадач / задания "jobs"</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    Микрозадачи исполняются по порядку:
+    <li>Каждый раз после таски</li>
+    <li>Каждый раз когда пустеет стек</li>
+    <li>Могут выполняться посередине таска, если очистился стек</li>
+    <li>Рекурсивный вызов блокирует Event Loop</li>
+    <li><u-code>Promise.then</u-code> - микротаск <u-code>then</u-code>. <u-code>Promise.then.then</u-code> - 2 микротаска</li>
+    <li>Сначала выполняется <u>microtasks</u>, затем <u>tasks</u></li>
+</ul>
+
+<ul class="list-point">
+    <b>Примеры:</b>
+    <li><u-code-list>Promises</u-code-list></li>
+    <li><u-code-list>process.nextTick</u-code-list></li>
+    <li><u-code-list>Object.observe</u-code-list></li>
+    <li><u-code-list>Mutation Observer</u-code-list></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Render Tasks</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Задачи от Render оптимизируются браузером и, если он посчитает, что в этом цикле не нужно ничего перерисовывать, то Event Loop просто пойдет дальше</li>
+    <li><b>Примеры:</b> </li>
+</ul>
+
+<ul class="list-point">
+    <b>Примеры:</b>
+    <li><u-code-list>requestAnimationFrame</u-code-list></li>
+    <li><u-code-list>Style Recalculate</u-code-list></li>
+    <li><u-code-list>Layout</u-code-list></li>
+    <li><u-code-list>Paint</u-code-list></li>
+    <li><u-code-list>I/O</u-code-list></li>
+    <li><u-code-list>Рендеринг пользовательского интерфейса</u-code-list></li>
+</ul>
+
+

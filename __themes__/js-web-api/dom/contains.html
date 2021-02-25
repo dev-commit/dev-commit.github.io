@@ -1,0 +1,74 @@
+<h2>Методы contains и compareDocumentPosition</h2>
+
+<ul class="list-point">
+    <li><u-menu-code>contains</u-menu-code> - метод для проверки является ли один узел предком другого (вложенность элементов)</li>
+    <li>Возвращает <u-code-text>true</u-code-text>, если <u-code-text>parent</u-code-text> содержит <u-code-text>child</u-code-text> или <u-code-text>parent == child</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+var result = parent.<u-code>contains</u-code>(child);
+</v-code>
+
+<ul class="list-point">
+    <li><u-menu-code>compareDocumentPosition</u-menu-code> - метод для проверки порядка узлов</li>
+    <li>Метод предоставляет одновременно информацию и о содержании и об относительном порядке элементов</li>
+</ul>
+
+<v-code lang="js" title="">
+var result = nodeA.<u-code>compareDocumentPosition</u-code>(nodeB);
+</v-code>
+
+<ul class="list-point">
+    <li>Возвращаемое значение - битовая маска, биты в которой означают следующее:</li>
+</ul>
+
+<img src="/__img__/dom/compare.jpg" width="500px">
+
+<ul class="list-point">
+    <li>Понятие «предшествует» – означает не только «предыдущий сосед при общем родителе», но и имеет более общий смысл: "раньше встречается в порядке прямого обхода дерева документа</li>
+    <li>Могут быть и сочетания битов. Примеры реальных значений:</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;p&gt;...&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;1.1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script&gt;
+	var p = document.body.children[0];
+	var ul = document.body.children[1];
+	var li = ul.children[0];
+
+	// 1. &lt;ul&gt; находится после &lt;p&gt;
+	let a = ul.compareDocumentPosition(p); // 2 = 10
+
+	// 2. &lt;p&gt; находится до &lt;ul&gt;
+	let a = p.compareDocumentPosition(ul); // 4 = 100
+
+	// 3. &lt;ul&gt; родитель &lt;li&gt;
+	let a = ul.compareDocumentPosition(li); // 20 = 10100
+
+	// 4. &lt;ul&gt; потомок &lt;body&gt;
+	let a = ul.compareDocumentPosition(document.body); // 10 = 1010
+&lt;/script&gt;
+</v-code>
+
+<ul class="list-point">
+    <li>Проверить конкретное условие, например, <u-code-text>"nodeA содержит nodeB"</u-code-text>, можно при помощи битовых операций, в данном случае: <u-code-text>nodeA.compareDocumentPosition(nodeB) & 16</u-code-text>, например:</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;ul&gt;
+	&lt;li&gt;1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script&gt;
+	var body = document.body;
+	var li = document.body.children[0].children[0];
+
+	if (body.compareDocumentPosition(li) &amp; 16) {
+		alert( body + ' содержит ' + li );
+	}
+&lt;/script&gt;
+</v-code>

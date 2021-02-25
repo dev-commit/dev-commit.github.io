@@ -1,0 +1,19 @@
+<h2>align-content: stretch</h2>
+
+<ul class="list-point">
+    <li>Выравнивание многострочных элементов по вертикали (указывает, как несколько рядов должны отделяться друг от друга)</li>
+    <li>align-content отвечает за расстояние между рядами, в то время как align-items отвечает за то, как элементы в целом будут выровнены в контейнере. Когда только один ряд, align-content ни на что не влияет</li>
+</ul>
+
+<img src="/__img__/css-flexbox/align-content.jpg" height="135">
+
+<v-code lang="css" title="">
+.flex-container {
+	align-content: flex-start;       <u-code-comment># флексы располагаются в начале поперечной оси. Каждая следующая строка идёт вровень с предыдущей</u-code-comment>
+	align-content: flex-end;         <u-code-comment># флексы располагаются начиная с конца поперечной оси. Каждая предыдущая строка идёт вровень со следующей</u-code-comment>
+	align-content: center;           <u-code-comment># флексы располагаются по центру контейнер</u-code-comment>
+	align-content: space-between;    <u-code-comment># флексы равномерно располагаются с одинаковыми расстояниями между ними (первый и последний элемент прижимаются к краям контейнера)</u-code-comment>
+	align-content: space-around;     <u-code-comment># флексы равномерно располагаются с одинаковыми расстояниями вокруг них (первый и последний элемент не прижимаются к краям контейнера)</u-code-comment>
+	align-content: stretch;          <u-code-comment># флексы растягиваются, заполняя контейнер равномерно (по умолчанию)</u-code-comment>
+}
+</v-code>

@@ -1,0 +1,110 @@
+<h2>Структура</h2>
+
+<ul class="list-point">
+	<li>Один компонент <u-code-text>App</u-code-text> находится на самом верху</li>
+	<li>Существует два типа «модели» данных: пропсы <u-code-text>this.props</u-code-text> и состояние <u-code-text>this.state</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="Component App">
+import React, {Component} from 'react';
+
+export default class App extends Component {
+	<u-code-wrapper><u-code-title>Конструктор</u-code-title>
+	constructor(props) {
+		super(props);
+		<u-code>this.state</u-code> = {
+			name: 'Tony'
+		};
+	}
+	</u-code-wrapper>
+
+	<u-code-wrapper><u-code-title>Методы</u-code-title>
+	changeName(name) {
+		// синхронно
+		<u-code>this.setState</u-code>({
+			name: name
+		});
+		// асинхронно
+		<u-code>this.setState</u-code>((state, props) => ({
+			info: state.name + props.age
+		}));
+	}
+	// обработчик события
+	handleClick = () => {
+		let name = this.state.name;   // обращение к свойству
+		this.changeName('Jack');      // обращение к методу
+        this.info = 'Start Variable'; // новое свойство (не видно в render)
+	}
+	</u-code-wrapper>
+
+	<u-code-wrapper><u-code-title>Методы жизненного цикла</u-code-title>
+	componentDidMount()    { ... }
+	componentWillUnmount() { ... }
+	componentDidUpdate()   { ... }
+	</u-code-wrapper>
+
+	<u-code-wrapper><u-code-title>Рендер</u-code-title>
+	render() {
+		return (
+			&lt;h2&gt;
+				&lt;ComponentA param="data" /&gt;
+				{<u-code>this.state</u-code>.name}
+				{<u-code>this.props</u-code>.age}
+				&lt;button onClick={this.handleClick}&gt;Ok&lt;/button&gt;
+			&lt;/h2&gt;
+		);
+	}
+	</u-code-wrapper>
+}
+</v-code>
+
+<v-code lang="js" title="ReactDOM.render">
+ReactDOM.render(
+	&lt;App age="25" /&gt;,
+	document.getElementById('root')
+);
+</v-code>
+
+<v-code lang="html" title="html">
+&lt;div id="root"&gt;&lt;/div&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Структура проекта</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<img src="/__img__/react/tree3.png" class="inline" width="200px">
+<img src="/__img__/react/tree2.png" class="inline">
+<img src="/__img__/react/tree1.png" class="inline">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример структуры проекта</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="html" title="./public/index.html">
+&lt;div id="root"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="./src/index.js">
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './components/App/App';
+
+ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));
+</v-code>
+
+<v-code lang="js" title="./src/components/App/App.js">
+import React from 'react';
+import logo from '../../assets/logo.svg';
+
+export default class App extends React.Component {
+	render() {
+		return (
+			&lt;div&gt;
+				&lt;img src={logo} /&gt;
+			&lt;/div&gt;
+		);
+	}
+}
+</v-code>

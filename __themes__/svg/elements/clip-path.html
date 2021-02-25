@@ -1,0 +1,21 @@
+<h2>clipPath</h2>
+
+<img src="/__img__/svg/clip-path.png" width="500px">
+
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100" width="200px" height="200px"&gt;
+    &lt;defs&gt;
+        &lt;<u-code>clipPath</u-code> id="clip"&gt;
+            &lt;rect width="50px" height="25px" x="25" y="25" fill="blue" /&gt;
+        &lt;/<u-code>clipPath</u-code>&gt;
+    &lt;/defs&gt;
+	
+    &lt;circle cx="50" cy="50" r="25" fill="yellowgreen" <u-code>clip-path</u-code>="url(#clip)" /&gt;
+&lt;/svg&gt;
+</v-code>
+
+<ul class="list-point">
+    <li>По центру нарисован круг. Атрибут <u>clip-path</u> ссылается на элемент <u>clipPath</u>, который содержит элемент <u>rect</u></li>
+    <li>При этом сам прямоугольник отрисован не будет. Вместо этого прямоугольник задаст область отрисовки. Так как прямоугольник перекрывает только верхнюю половину круга, нижняя половина круга исчезает</li>
+    <li>Теперь мы получили полуокружность без необходимости использования элемента path.  При обрезке каждый путь внутри <u>clipPath</u> проверяется и оценивается вместе с его свойствами <u>stroke</u> и <u>transform</u>. Другими словами, все что не находится в залитой области <u>clipPath</u> не будет отображено. Цвет, непрозрачность и т. д. не влияют на результат</li>
+</ul>

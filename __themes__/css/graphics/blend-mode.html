@@ -1,0 +1,94 @@
+<h2>CSS Blend Modes</h2>
+
+<v-code lang="bash" title="">
+• normal      # обычный
+• multiply    # умножение
+• screen      # осветление
+• overlay     # перекрытие
+• darken      # замена тёмным
+• lighten     # замена светлым
+• color-dodge # осветление основы
+• color-burn  # затемнение основы
+• hard-light  # направленный свет
+• soft-light  # рассеянный свет
+• difference  # разница
+• exclusion   # исключение
+• hue         # тон
+• saturation  # насыщенность
+• color       # цвет
+• luminosity  # яркость
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>background-blend-mode</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+	<a href="https://webref.ru/css/background-blend-mode" target="_blank">background-blend-mode</a>
+	<a href="https://codepen.io/yoksel/pen/kGAsK" target="_blank">[codepen] background-blend-mode playground</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+	<li>Управляет режимами наложения слоев фона, заданного в CSS</li>
+	<li>Слои: backround-color, background-image (несколько), linear-gradient</li>
+</ul>
+
+<v-code lang="css" title="">
+div {
+	background-color: blue;
+	background-image: url(...);
+	<u-code>background-blend-mode</u-code>: multiply;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>mix-blend-mode</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+	<a href="https://webref.ru/css/mix-blend-mode" target="_blank">mix-blend-mode</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+	<li>Определяет режим наложения исходного цвета на фоновый цвет или фоновое изображение</li>
+</ul>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;div&gt;
+	&lt;h1&gt;EVEN MORE CSS SECRETS&lt;/h1&gt;
+&lt;/div&gt;
+</v-code>
+<v-code lang="css" title="">
+h1 {
+	margin: auto;
+	background-color: black;
+	color: white;
+	<u-code>mix-blend-mode</u-code>: multiply;
+}
+div {
+	background-image: url(...);
+}
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/blend-mode/blend-mode2.jpg" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;div&gt;
+	&lt;h1&gt;EVEN MORE CSS SECRETS&lt;/h1&gt;
+&lt;/div&gt;
+</v-code>
+<v-code lang="css" title="">
+h1 {
+	margin: auto;
+	background-color: white;
+	color: black;
+	<u-code>mix-blend-mode</u-code>: screen;
+}
+div {
+	background-image: url(...);
+}
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/blend-mode/blend-mode1.jpg" class="img200">
+</template></v-two-fix>

@@ -1,0 +1,73 @@
+<h2>Узлы</h2>
+
+<ul class="list-point">
+    <li>Разные DOM-узлы являются обычными JS объектами различных классов с различными свойствами</li>
+    <li>Классы DOM образуют иерархию. Основной объект в ней: Node, от которого наследуют остальные</li>
+</ul>
+
+<img src="/__img__/dom/node.png" width="500px">
+
+<!------------------------------------------------------------->
+<h4>Проверка класса</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+alert( document.body ); // [object HTMLBodyElement]
+
+alert( document.body instanceof <u-code>HTMLBodyElement</u-code> ); // true
+alert( document.body instanceof <u-code>HTMLElement</u-code> );     // true
+alert( document.body instanceof <u-code>Element</u-code> );         // true
+alert( document.body instanceof <u-code>Node</u-code> );            // true
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Свойства: tagName, nodeName, nodeType</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-list>element.nodeType</u-code-list> - тип узла (узел элемента 1 или текстовый узел 3). Доступен только на чтение</li>
+    <li><u-code-list>element.tagName</u-code-list> - название HTML-тега в верхнем регистре. Есть только у элементов <u>Element</u>. Если текстовый узел - будет undefined</li>
+    <li><u-code-list>element.nodeName</u-code-list> - название узла (узел элемента или тексовый узел). Определено для любых узлов <u>Node</u>. Для элементов оно равно <u>tagName</u>, а для не-элементов обычно содержит строку с типом узла</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1. nodeType - тип узла</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+	<li><u-code-list>Document</u-code-list> - точка входа в DOM</li>
+    <li><u-code-list>Element Node (узел-элемент)</u-code-list> - HTML-теги. Одни узлы вложены в другие, образуя <u>дочерние узлы</u>, за счет которых образована структра дерева</li>
+    <li><u-code-list>Text Node (текстовый узел)</u-code-list> <u-code-text>#text</u-code-text> - текст внутри элементов. Текстовый узел содержит исключительно строку текста и не может иметь потомков, то есть он всегда на самом нижнем уровне. Пробелы и переводы строки – это тоже текст, полноправные символы, которые учитываются в DOM</li>
+    <li><u-code-list>Comment Node (комментарий)</u-code-list> <u-code-text>#comment</u-code-text> - комментарий</li>
+</ol>
+
+<v-code lang="js" title="">
+var a = element.<u-code>nodeType</u-code>;
+</v-code>
+
+<v-code lang="js" title="Значения nodeType">
+<u-code>ELEMENT_NODE                = 1;</u-code>
+ATTRIBUTE_NODE              = 2;
+<u-code>TEXT_NODE                   = 3;</u-code>
+CDATA_SECTION_NODE          = 4;
+ENTITY_REFERENCE_NODE       = 5;
+ENTITY_NODE                 = 6;
+PROCESSING_INSTRUCTION_NODE = 7;
+COMMENT_NODE                = 8;
+DOCUMENT_NODE               = 9;
+DOCUMENT_TYPE_NODE          = 10;
+DOCUMENT_FRAGMENT_NODE      = 11;
+NOTATION_NODE               = 12;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. nodeName и tagName</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+alert( document.body.nodeName ); // BODY
+alert( document.body.tagName );  // BODY
+</v-code>
+
+<u-message-info>
+	<p>У браузера есть два режима обработки документа: HTML и XML-режим. Обычно используется режим HTML</p>
+	<p>XML-режим включается, когда браузер получает XML-документ через <u>XMLHttpRequest</u> (технология AJAX) или при наличии заголовка <u-code-text>Content-Type: application/xml+xhtml</u-code-text></p>
+	<p>В XML-режиме сохраняется регистр и nodeName может выдать «body» или даже «bOdY» – в точности как указано в документе. XML-режим используют очень редко</p>
+</u-message-info>
+

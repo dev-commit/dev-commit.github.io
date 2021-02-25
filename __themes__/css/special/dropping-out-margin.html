@@ -1,0 +1,29 @@
+<h2>Выпадение внешних отступов</h2>
+
+<ul class="list-point">
+    <li>В вертикальном направлении margin вложенного блока может выпадать из родительского и отталкивать оба блока</li>
+</ul>
+
+<img src="/__img__/css/dropping-out-margin.png" width="500px">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Как бороться с выпаданием?</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Родительскому блоку можно задать одно из следующих свойств: </li>
+</ul>
+
+<v-code lang="css" title="">
+element {
+	/* 1. использовать осторожно */
+	overflow: hidden; 
+
+	/* 2. padding-top или padding-bottom */
+	padding-top: 1px;
+	padding-bottom: 1px;
+
+	/* 3. border-top или border-bottom */
+	border-top: 1px solid transparent;
+	border-bottom: 1px solid transparent;	
+}
+</v-code>

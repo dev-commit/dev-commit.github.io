@@ -1,0 +1,129 @@
+<h2>Мультивставка: insertAdjacentHTML и DocumentFragment</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>insertAdjacentHTML</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Обычные методы вставки работают с одним узлом. Но есть и способы вставлять множество узлов одновременно</li>
+</ul>
+
+<ul class="list-point" style="list-style: none">
+    <li>
+    	<u-code-list>elem.</u-code-list>
+    	<u-code-npm>insertAdjacentHTML</u-code-npm>
+    	<u-code-text>(where, html)</u-code-text>
+    	- вставка строки HTML в любое место документа, в том числе и между узлами
+    </li>
+    <li>
+    	<u-code-list>elem.</u-code-list>
+    	<u-code-npm>insertAdjacentElement</u-code-npm>
+    	<u-code-text>(where, newElem)</u-code-text>
+    	- вставка элемента newElem</li>
+    <li>
+    	<u-code-list>elem.</u-code-list>
+    	<u-code-npm>insertAdjacentText</u-code-npm>
+    	<u-code-text>(where, text)</u-code-text>
+    	- создаёт текстовый узел из строки text и вставляет его в указанное место относительно elem
+    </li>
+
+	<ul class="list-point">
+		<li><u-code-text>where</u-code-text> - куда по отношению к elem вставлять строку</li>
+		<ol class="list-num">
+			<li><u-code>beforeBegin</u-code> - перед elem.</li>
+			<li><u-code>afterBegin</u-code> - внутрь elem, в самое начало</li>
+			<li><u-code>beforeEnd</u-code> - внутрь elem, в конец</li>
+			<li><u-code>afterEnd</u-code> - после elem</li>
+			<img src="/__img__/dom/insert-adjacent.png">
+		</ol>
+	</ul>
+	<hr>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>DocumentFragment</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>DocumentFragment</u-text-define> - DOM-объект, который похож на обычный DOM-узел, но им не является</li>
+    <li>У DocumentFragment нет обычных свойств DOM-узлов, таких как innerHTML, tagName и т.п. Это не узел</li>
+    <li>Когда DocumentFragment вставляется в DOM, то он исчезает, а вместо него вставляются его дети. Это свойство является особенностью DocumentFragment</li>
+    <li>DocumentFragment, в отличие от insertAdjacent*, работает с коллекцией DOM-узлов</li>
+</ul>
+
+<v-code lang="js" title="">
+var fragment = document.<u-code>createDocumentFragment()</u-code>; // создание
+fragment.appendChild(node);                       // добавление узлов
+fragment.cloneNode(true);                         // клонирование
+ul.appendChild(fragment);                         // вставка
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример использования</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// создание элемента
+var div = document.createElement('div');
+div.innerText = 'element';
+
+// создание fragment и добавление элемента
+var fragment = document.<u-code>createDocumentFragment()</u-code>;
+fragment.appendChild(div);
+
+// вывод фрагмента
+document.querySelector('ul').appendChild(fragment);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>append/prepend, before/after, replaceWith</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point" style="list-style: none">
+	<li>
+		<u-code-list>node.</u-code-list>
+		<u-code-npm>append</u-code-npm>
+		<u-code-text>(...nodes)</u-code-text> 
+		- вставляет <u-code>nodes</u-code> в конец <u-code>node</u-code>
+	</li>
+	<li>
+		<u-code-list>node.</u-code-list>
+		<u-code-npm>prepend</u-code-npm>
+		<u-code-text>(...nodes)</u-code-text>
+		 - вставляет <u-code>nodes</u-code> в начало <u-code>node</u-code>
+	</li>
+	<li>
+		<u-code-list>node.</u-code-list>
+		<u-code-npm>after</u-code-npm>
+		<u-code-text>(...nodes)</u-code-text>
+		- вставляет <u-code>nodes</u-code> после узла <u-code>node</u-code>
+	</li>
+	<li>
+		<u-code-list>node.</u-code-list>
+		<u-code-npm>before</u-code-npm>
+		<u-code-text>(...nodes)</u-code-text> 
+		- вставляет <u-code>nodes</u-code> перед узлом <u-code>node</u-code>
+	</li>
+	<li>
+		<u-code-list>node.</u-code-list>
+		<u-code-npm>replaceWith</u-code-npm>
+		<u-code-text>(...nodes)</u-code-text>
+		- вставляет <u-code>nodes</u-code> вместо <u-code>node</u-code>
+	</li>
+</ul>
+
+<ul class="list-point">
+    <li>Методы ничего не возвращают</li>
+    <li>Во всех методах <u-code-text>nodes</u-code-text> - DOM-узлы или строки, в любом сочетании и количестве. Причём строки вставляются именно как текстовые узлы, в отличие от <u-code-text>insertAdjacentHTML</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+// добавим элемент в конец body
+var p = document.createElement('p');
+document.body.<u-code>append</u-code>(p);
+
+var em = document.createElement('em');
+em.<u-code>append</u-code>('Мир!');
+
+// вставить в параграф текстовый и обычный узлы
+p.<u-code>append</u-code>("Привет, ", em);
+
+// добавить элемент после тега p
+p.<u-code>after</u-code>(document.createElement('hr'))
+</v-code>

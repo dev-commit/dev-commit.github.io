@@ -1,0 +1,92 @@
+<h2>Архитектура среды выполнения JS</h2>
+
+<u-link-wrapper>
+    <a href="https://www.youtube.com/watch?v=8cV4ZvHXQL4" target="_blank">YouTube. Филип Робертс</a>
+    <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/EventLoop" target="_blank">MDN</a>
+    <a href="https://habr.com/ru/post/461401/" target="_blank">Habr</a>
+    <a href="https://medium.com/@stasonmars/полное-понимание-синхронного-и-асинхронного-javascript-с-async-await-ba5f47f4436" target="_blank">Medium</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>JS - однопоточная среда выполнения (<u>runtime</u>). <u>Call Stack</u> один и он может делать одну вещь в единицу времени. Одна инструкция за раз</li>
+    <li>Используется очередь функций обратного вызова</li>
+    <li>Суть блокирования - когда какие то функции занимают <u>Call Stack</u></li>
+    <li>Каждая веб-страница представляет из себя основной поток (<u>Main Thread</u>)</li>
+    <li>Движок браузера выполняет JavaScript в одном потоке. Он не может поставить обработку события на паузу, переключиться на другое событие, а после возобновить выполнение первого. Все события обрабатываются последовательно и каждое до конца</li>
+    <li>В каждом окне выполняется только один главный поток, который занимается выполнением JavaScript, отрисовкой и работой с DOM. Он выполняет команды последовательно, может делать только одно дело одновременно и блокируется при выводе модальных окон, таких как alert
+    <li>В браузерах события добавляются в очередь в любое время, если событие произошло, а так же если у него есть обработчик. В случае, если обработчика нет – событие потеряно. Так, клик по элементу, имеющему обработчик события по событию click , добавит событие в очередь, а если обработчика нет – то и событие в очередь не попадет</li>
+</li>
+</ul>
+
+<img src="/__img__/js/event-loop/event-loop1.png" height="500px" class="center">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Архитектура среды выполнения JS на примере движка <u>V8</u> (Chrome, Node.js)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>1. Heap (куча)</u-text-define> - структура данных, с помощью которой реализована динамически распределяемая память приложения</li>
+    <ul class="list-point">
+        <li>Куча - ссылка на определённую неструктурированную область памяти</li>
+        <li>Содержит объекты, на которые ссылаются переменные программы</li>
+        <li>memory allocation</li>
+    </ul>
+
+    <li><u-text-define>2. Call Stack</u-text-define> - <u>стек вызовов</u> LIFO структура (последний вошедший выходит первым)</li> 
+    <ul class="list-point">
+        <li>В стек помещаются и удаляются аргументы, локальные переменные функций по мере выполнения программы. Синхронные функции помещаются в стек вызова сразу. Асинхронные откладываются в специальную таблицу - <u>Event Table</u>, где ожидают дальнейшей обработки, чтобы не блокировать процесс выполнения программы. Видно какая функция какую вызвала (<u>execution context</u>)</li>
+        <li>Стек вызовов - это структура данных, которая, записывает сведения о месте в программе, где мы находимся. Если мы переходим в функцию, мы помещаем запись о ней в верхнюю часть стека. Когда мы из функции возвращаемся, мы вытаскиваем из стека самый верхний элемент и оказываемся там, откуда вызывали эту функцию. Каждая запись в стеке вызовов называется стековым кадром</li>
+        <li>Если будет достигнут максимальный размер стека (16 000), возникнет переполнение стека</li>
+    </ul>
+
+    <li><u-text-define>3. Web API</u-text-define> - <u>расширения браузера</u></li>
+    <ul class="list-point">
+        <li>Event Table и Event Queue являются частью Web API, который реализуют браузеры для того, чтобы использовать такие возможности, как асинхронные запросы, таймеры, обрабатывать DOM события и другое асинхронное поведение. Это не является стандартным функционалом JavaScript и в различных средах данное API может быть реализовано по разному</li>
+        <li>Web API - это потоки, к которым у нас нет прямого доступа, мы можем лишь выполнять обращения к ним. Они встроены в браузер, где и выполняются асинхронные действия</li>
+    </ul>
+
+    <li><u-text-define>3.1 Event Table</u-text-define> - <u>таблица</u> в которой находится информация о том, по какому событию необходимо поместить функцию в <u>Event Queue</u> (очередь событий)</li>
+
+    <li><u-text-define>3.2 Callback/Event/Task Queue</u-text-define> - <u>очередь задач/событий</u> - FIFO структура (раньше выходят элементы, которые раньше были помещены). В ней находятся асинхронные функции, для которых наступило время запуска</li>
+    
+    <li><u-text-define>3.3 Job Queue (ES6)</u-text-define> - <u>очередь заданий (микротаски)</u> Эта конструкцию можно считать слоем, расположенном поверх очереди цикла событий. Очередь заданий — это очередь, которая присоединена к концу каждого тика в очереди цикла событий</li>
+
+    <li><u-text-define>4. Event Loop</u-text-define> - <u>цикл/петля событий</u> - наблюдает за стеком вызовов и очередью коллбэков (callback queue). Если стек вызовов пуст, цикл берёт первое событие из очереди и помещает его в стек, что приводит к запуску этого события на выполнение. Подобная итерация называется тиком (tick) цикла событий. Каждое событие — это просто коллбэк</li>
+    <ul class="list-point">
+        <li>Позволяет запланировать выполнение асинхронного кода сразу после выполнения синхронного кода</li>
+    </ul>
+
+</ul>
+
+<img src="/__img__/js/event-loop/event-loop3.png" height="550px" class="center">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// queue.waitForMessage ожидает события если очередь пуста
+while(queue.waitForMessage()){ 
+    queue.processNextMessage(); 
+}
+</v-code>
+
+<v-code lang="js" title="">
+// Рекурсивный вызов микротаска повесит программу
+function startMicrotask() {
+    return Promise.resolve().then(startMicrotask);
+}
+</v-code>
+
+<v-two><template v-slot:first>
+    <v-code lang="js" title="">
+console.log('Hi');
+setTimeout(function cb1() { 
+    console.log('cb1');
+}, 5000);
+console.log('Bye');
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/js/event-loop/event-loop2.gif" height="300px" class="center">
+</template></v-two>

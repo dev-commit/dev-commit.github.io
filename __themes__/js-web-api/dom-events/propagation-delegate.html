@@ -1,0 +1,70 @@
+<h2>Делегирование событий</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Делегирование событий</u-text-define> - техника, которая использует механизм всплытия и погружения событий</li>
+	<li><b>Идея</b> в том, что если у нас есть много элементов, события на которых нужно обрабатывать похожим образом, то вместо того, чтобы назначать обработчик каждому, можно поставить один обработчик на их общего предка</li>
+	<li>Из него можно получить целевой элемент <u-code-text>event.target</u-code-text>, понять на каком именно потомке произошло событие и обработать его</li>
+	<li>Н-р, атрибут этого параметра data может хранить идентификатор для доступа к свойствам объекта</li>
+</ul>
+
+<ol class="list-num">
+	<b>Алгоритм</b>
+	<li>Вешаем обработчик на контейнер</li>
+	<li>В обработчике проверяем исходный элемент <u-code-text>event.target</u-code-text></li>
+	<li>Если событие произошло внутри нужного нам элемента, то обрабатываем его</li>
+</ol>
+
+<v-code lang="js" title="">
+parentEl.addEventListener('click', function(e) {
+	if(e.target && e.target.nodeName == 'BUTTON') {
+		// щелчок по кнопке
+	} 
+});
+</v-code>
+
+<img src="/__img__/dom/propagation/delegate1.png" width="350px">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример: Простое делегирование</h4>
+<!------------------------------------------------------------->
+<v-iframe height="346" src="https://codepen.io/Sergeenkov/embed/BaaJXGz?height=346&theme-id=0&default-tab=js,result" />
+
+<!------------------------------------------------------------->
+<h4>Пример: Использование класса и data-attr</h4>
+<!------------------------------------------------------------->
+<v-iframe height="423" src="https://codepen.io/Sergeenkov/embed/bGGvpwg?height=423&theme-id=0&default-tab=js,result" />
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Приём проектирования «Поведение»</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Делегирование событий можно использовать для добавления элементам «поведения» (behavior), декларативно задавая хитрые обработчики установкой специальных HTML-атрибутов и классов</li>
+</ul>
+
+<ol class="list-num">
+	<b>Приём проектирования «поведение» состоит из двух частей:</b>
+	<li>Элементу ставится пользовательский атрибут, описывающий его поведение</li>
+	<li>При помощи делегирования ставится обработчик на документ, который ловит все клики (или другие события) и, если элемент имеет нужный атрибут – производит соответствующее действие</li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>Поведение: «Счётчик»</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Здесь HTML-атрибут data-counter добавляет кнопкам поведение: «увеличить значение при клике»</li>
+</ul>
+
+<v-iframe height="245" src="https://codepen.io/Sergeenkov/embed/mddxPxP?height=254&theme-id=0&default-tab=js,result" />
+
+<!------------------------------------------------------------->
+<h4>Поведение: «Переключатель» (Toggler)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>При клике на элемент с атрибутом data-toggle-id будет скрываться/показываться элемент с заданным id</li>
+</ul>
+
+<v-iframe height="277" src="https://codepen.io/Sergeenkov/embed/LYYdNXY?height=277&theme-id=0&default-tab=js,result" />

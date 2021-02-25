@@ -1,0 +1,47 @@
+<h2>Виды компонентов</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Виды компонентов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two><template v-slot:first>
+<ul class="list-point">
+	<li><u-text-define>Stateful Component</u-text-define> (компоненты с состоянием) - делают что-то с данными и работают со стором</li>
+	<ul class="list-point">
+		<li><b>Название: </b>Умные компоненты</li>
+		<li><b>Директория: </b>containers</li>
+		<li><b>Реализация: </b>классы</li>
+		<li><b>Наличие state: </b>да</li>
+	</ul>
+</ul>
+</template><template v-slot:last>
+<ul class="list-point">
+	<li><u-text-define>Stateless Functional Components</u-text-define> (функциональные компоненты без состояния) - получают данные и их отрисовывают</li>
+	<ul class="list-point">
+		<li><b>Название: </b>Глупые компоненты</li>
+		<li><b>Директория: </b>components</li>
+		<li><b>Реализация: </b>функции</li>
+		<li><b>Наличие state: </b>нет</li>
+	</ul>
+</ul>
+</template></v-two>
+
+<img src="/__img__/react/components-type.png" width="650px">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Композиция компонентов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Компоненты могут ссылаться на другие компоненты в возвращённом ими дереве. Это позволяет нам использовать одну и ту же абстракцию - компоненты - на любом уровне нашего приложения</li>
+	<li>компонент App может отрендерить компонент Child несколько раз</li>
+</ul>
+
+<v-code lang="js" title="">
+function App() {
+	return (
+		&lt;div&gt;
+			&lt;Child /&gt;
+			&lt;Child /&gt;
+		&lt;/div&gt;
+	);
+}
+</v-code>

@@ -1,0 +1,67 @@
+<h2>flex: 0 1 auto</h2>
+
+<ul class="list-point">
+    <li>Блоки растягиваются на всю ширину контейнера (flex = flex-grow = 1)</li>
+</ul>
+
+<v-code lang="css" title="">
+.flex-element {
+	flex: auto;
+	flex: 1;
+	flex-grow: 1;
+}
+</v-code>
+
+<v-code lang="css" title="">
+.flex-element {
+	flex: 1 1 auto;  <u-code-comment># занимают равное место, пока влезают</u-code-comment>
+	flex: 1 1 250px; <u-code-comment># указали фиксированную минимальную ширину</u-code-comment>
+}
+</v-code>
+
+<div class="container-margin">
+
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<h2>flex-grow: 0</h2>
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<ul class="list-point">
+    <li>Определяет для flex элемента возможность растягиваться по ширине</li>
+</ul>
+
+<v-code lang="css" title="">
+.flex-element {
+	flex-grow: 2; <u-code-comment># если для всех flex-item, то это равные 2 части от container-flex (заполнят всю ширину блока)</u-code-comment>
+}
+</v-code>
+
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<h2>flex-shrink: 1</h2>
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<ul class="list-point">
+    <li>Определяет возможность блока ужиматься при необходимости</li>
+    <li>Необходимо задать ширину элемента</li>
+</ul>
+
+<v-code lang="css" title="">
+.flex-element {
+	flex-shrink: 2;
+}
+</v-code>
+
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<h2>flex-basis: auto</h2>
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<ul class="list-point">
+    <li>Базовый размер отдельно взятого блока (аналогично min-width) - размер элемента вдоль главной оси</li>
+</ul>
+
+<v-code lang="css" title="">
+.flex-element {
+	flex-basis: 20%;   <u-code-comment># вместо width</u-code-comment>
+	flex-basis: auto;  <u-code-comment># принимает значение ширины элемента</u-code-comment>
+}
+</v-code>
+
+<img src="/__img__/css-flexbox/flex-basis.png" width="600px">
+
+</div>

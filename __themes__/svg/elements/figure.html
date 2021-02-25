@@ -1,0 +1,166 @@
+<h2>Фигуры</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Прямоугольник (rectangle)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;rect width="50px" height="50px" x="25" y="25" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/rect1.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;rect width="50px" height="50px" x="25" y="25" rx="10" ry="50" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/rect2.png" class="img200">
+</template></v-two-fix>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Окружность (circle, ellipse)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;circle cx="50" cy="50" r="25" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/circle1.png" class="img200">
+</template></v-two-fix>
+
+<ul class="list-point">
+    <li><u-code-text>&lt;g&gt;</u-code-text>Объединение объектов для задания общих свойств<u-code-text>&lt;/g&gt;</u-code-text></li>
+</ul>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;g stroke="black" stroke-width="3" fill="black"&gt;
+		&lt;circle cx="50" cy="50" r="5" /&gt;
+		&lt;circle cx="100" cy="100" r="5" /&gt;
+	&lt;/g&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/circle2.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;ellipse cx="50" cy="50" rx="35" ry="25" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/ellipse1.png" class="img200">
+</template></v-two-fix>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Линия (line, polyline)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;line x1="0" y1="0" x2="50" y2="50" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/line1.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;polyline points="0,0 50,50 25,75" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/polyline1.png" class="img200">
+</template></v-two-fix>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Полигон (polygon)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;polygon points="0,0 50,50 25,75" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/polygon1.png" class="img200">
+</template></v-two-fix>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Путь (path)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<b>Доступные команды:</b>
+	<li><b>M</b> = moveto</li>
+	<li><b>L</b> = lineto</li>
+	<li><b>H</b> = horizontal lineto</li>
+	<li><b>V</b> = vertical lineto</li>
+	<li><b>C</b> = curveto</li>
+	<li><b>S</b> = smooth curveto</li>
+	<li><b>Q</b> = quadratic Bézier curve</li>
+	<li><b>T</b> = smooth quadratic Bézier curveto</li>
+	<li><b>A</b> = elliptical Arc</li>
+	<li><b>Z</b> = closepath</li>
+</ul>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100"&gt;
+	&lt;path d="M0,100 L50,50 100,100 Z" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/path1.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100" &gt;
+	&lt;path d="M0,100 Q 50,50 100,100"&gt;&lt;/path&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/path2.png" class="img200">
+</template></v-two-fix>
+
+<ul class="list-point">
+    <li>Атрибут <u-code-text>preserveAspectRatio="none"</u-code-text> позволяет поместить фигуру целиком в <u>viewBox</u></li>
+    <li>При изменении размера блока svg размер фигуры будет меняться</li>
+</ul>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100" preserveAspectRatio="none"&gt;
+	&lt;path d="M0,100 L 20,0 80,90 100,0 100,100 Z"&gt;&lt;/path&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/path4.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg viewBox="0 0 100 100" preserveAspectRatio="none"&gt;
+	&lt;path d="M0,50 Q 25,0 50,50, 75,100, 100,50 L100,100 0,100 0,50"&gt;&lt;/path&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/path3.png" class="img200">
+</template></v-two-fix>

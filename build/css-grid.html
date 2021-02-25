@@ -1,0 +1,437 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>CSS Grid</title>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+        
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../__modules__/build-css-grid.js"></script>
+        </head>
+        <body>
+        
+            <div id="container">
+                <div id="menu">
+                    <div id="top">
+                        <a href="#links" class="link">
+                            <div class="img"></div>
+                            <span v-html="'CSS Grid'"></span>
+                        </a>
+                    </div>
+                    <h4>🥥 Основное</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__css-grid/main/info"
+                href="#css-grid/main/info"
+            >Информация</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__css-grid/main/container"
+                href="#css-grid/main/container"
+            >Grid Container</a>
+        </li>
+    </ul><h4>🥥 Объединение ячеек</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__css-grid/element-union/grid-column"
+                href="#css-grid/element-union/grid-column"
+            ><u-menu>grid-column</u-menu> <u-menu>grid-row</u-menu></a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__css-grid/element-union/grid-area"
+                href="#css-grid/element-union/grid-area"
+            ><u-menu>grid-area</u-menu></a>
+        </li>
+    </ul><h4>🥥 Прочее</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__css-grid/other/align-elements"
+                href="#css-grid/other/align-elements"
+            >Выравнивание элементов</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__css-grid/other/grid-auto-flow"
+                href="#css-grid/other/grid-auto-flow"
+            ><u-menu>grid-auto-flow</u-menu></a>
+        </li>
+    </ul>
+                </div>
+        
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a :href="itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="css-grid/main/info"><h2>Информация</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Технологии разметки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+	<a href="https://drafts.csswg.org/css-flexbox/" target="_blank">CSS Flexbox Box Layout</a>
+	<a href="https://drafts.csswg.org/css-grid/" target="_blank">CSS Grid Layout</a>
+	<a href="https://drafts.csswg.org/css-align/" target="_blank">CSS Box Alignment</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Материалы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+	<a href="https://github.com/rachelandrew/gridbugs" target="_blank">Баги и Grid</a>
+	<a href="https://css-tricks.com/snippets/css/complete-guide-grid" target="_blank">Выжимка спецификации</a>
+	<a href="https://learncssgrid.com" target="_blank">Курс</a>
+	<a href="https://gridbyexample.com/" target="_blank">Полное погружение</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>IE и Grid</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>IE поддерживает Grid в старой нотации спецификации</li>
+    <li>Autoprefixer помогает реализовать основное</li>
+    <li><a href="https://medium.com/@elad/supporting-css-grid-in-internet-explorer-b38669e75d66" target="_blank">Статья по поддержке IE</a></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>CSS Grid: Основные элементы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Grid Blocks</li>
+    <li>Grid Template Areas</li>
+    <li>Grid auto-flow</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>CSS Grid: Определения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-list>Grid Track</u-code-list> - расстояние между ближайшими двумя линиями, колонка или строка</li>
+    <li><u-code-list>Grid Line</u-code-list> - линия, создаваемая Grid Track. grid-gap толщина линии</li>
+    <li><u-code-list>Grid Cell</u-code-list> - ячейка сетки</li>
+    <li><u-code-list>Grid Area</u-code-list> - область всегда прямоугольная. объединение нескольких ячеек в одну</li>
+    <li><u-code-list>Line-Based Placement</u-code-list> - позиционирование на основе линий</li>
+</ul>
+
+<img src="/__img__/css-grid/grid-scheme.jpg" height="450" class="center">
+</div><div id="css-grid/main/container"><h2>Grid Container</h2>
+
+<v-code lang="bash" title="">
+display: grid; # объявление
+</v-code>
+
+<v-code lang="bash" title="">
+grid-template-columns: 300px 300px 300px;                     # столбцы (3 штуки)
+grid-template-rows:    150px 150px 150px;                     # строки (3 штуки), можно не задавать. адаптируются под высоту контента
+grid-template:         150px 150px 150px / 300px 300px 300px; # короткая запись строки / столбцы
+grid-auto-columns:     200px;                                 # размер по умолчанию для неявно заданных столбцов
+grid-auto-rows:        200px;                                 # размер по умолчанию для неявно заданных строк
+</v-code>
+
+<v-code lang="bash" title="">
+grid-gap: 20px;         # расстояние между строками и стобцами (толщина линии)
+grid-column-gap: 20px;  # расстояние между столбцами
+grid-row-gap: 20px;     # расстояние между строками
+</v-code>
+
+<v-code lang="bash" title="">
+grid-auto-flow: row;    # порядок элементов по очереди по строкам (по умолчанию)
+grid-auto-flow: column; # порядок элементов по очереди по столбцам
+</v-code>
+
+<ul class="list-point">
+    <li>Для<u-code-text>grid-template-columns</u-code-text> и <u-code-text>grid-template-rows</u-code-text></li>
+</ul>
+
+<v-code lang="bash" title="">
+300px 300px 300px                     # 3 элемента (фиксированные величины)
+1fr 1fr 1fr                           # 3 элемента (относительные величины) fr - фракция
+500px 1fr 2fr                         # 3 элемента (смешанные величины)
+500px auto 500px                      # 3 элемента (auto - занимает ширину контента)
+repeat(3, 1fr)                        # задать повторяющийся паттерн
+minmax(150px, 250px) 1fr 1fr          # 3 элемента, первый с minmax
+minmax(100px, auto)                   # определяется автоматически по ширине элементов
+repeat(auto-fill, 200px)              # добавлять столько элементов фиксированых размеров, сколько поместится в контейнер
+repeat(auto-fill, minmax(150px, 1fr)) # когда минимальное значение 150px перескакивают колонки (может остаться пустое пространство сбоку)
+repeat(auto-fit, minmax(150px, 1fr))  # когда минимальное значение 150px перескакивают колонки (пустое пространство не оставляет, блок заполняет всю ширину)
+</v-code>
+
+<v-code lang="bash" title="">
+repeat()    # задание повторяющегося паттерна
+minmax()    # задание минимального и максимального значения
+auto-fill() # растяжение дочерних grid элементов на всю ширину родителя, если хватает элементов
+auto-fit()  # растяжение дочерних grid элементов на всю ширину родителя
+</v-code>
+
+<ul class="list-point">
+    <li><u-code-text>fr</u-code-text> можно применять к высоте, только если у родителя задана высота</li>
+</ul>
+</div><div id="css-grid/element-union/grid-column"><h2>Обращение по линиям</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обращение к линиям по номеру</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<span>Задано</span>
+<v-code lang="css" title="">
+.cards {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr; <u-code-comment># 3 столбца (4 линии)</u-code-comment>
+	grid-template-rows: 200px 200px;    <u-code-comment># 2 строки (3 линии)</u-code-comment>
+}
+ _ _ _
+|_|_|_|
+|_|_|_|
+</v-code>
+
+<p>Позиционирование первого дочернего элемента (объединение 2х столбцов и 2х строк)</p>
+<p>Объединяем столбцы от 2 линии до 4 линии</p>
+<p>Объединяем строки  от 1 линии до 3 линии</p>
+<v-code lang="css" title="">
+// полная запись
+.card:nth-child(1) {
+	grid-column-start: 2;
+	grid-column-end: 4; <u-code-comment># если написать -1 будет на всю ширину</u-code-comment>
+	grid-row-start: 1;
+	grid-row-end: 3;
+}
+</v-code>
+
+<v-code lang="css" title="">
+// короткая запись
+.card:nth-child(1) {
+	grid-column: 2 / 4;
+	grid-row: 1 / 3;
+}
+</v-code>
+
+<v-code lang="css" title="">
+// сокращенная запись
+.card:nth-child(1) {
+	grid-area: 1 / 2 / 3 / 4;
+}
+</v-code>
+
+<v-code lang="css" title="">
+grid-area:
+- grid-row-start
+- grid-column-start
+- grid-row-end
+- grid-column-end
+</v-code>
+
+<span>Если элемент занимает 1 столбец или строку, то линию окончания указывать не нужно</span>
+<v-code lang="css" title="">
+grid-column: 2 / 4;
+grid-row: 1;
+</v-code>
+
+<span>span - количество ячеек, которые нужно захватить</span>
+<v-code lang="css" title="">
+grid-column: 1 / span 2; <u-code-comment># от 1 до 3 линии (занять 2 ячейки)</u-code-comment>
+grid-column: 1 / 3;      <u-code-comment># от 1 до 3 линии (аналогично)</u-code-comment>
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обращение к линиям по имени</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<span>(результат аналогичен)</span>
+<v-code lang="css" title="">
+.cards {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: [side-start] 1fr
+                           [main-start] 1fr 1fr
+                           [main-end];
+	grid-template-rows:    [main-start] 200px 200px
+                           [main-end];
+}
+.card:nth-child(1) {
+ 	grid-column: main-start / main-end;
+ 	grid-row: main-start / main-end;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование именованных линий, не заданных явно</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+.wrapper {
+	grid-column-gap: 2em;
+	grid-row-gap: 20px;
+	grid-template-columns: 2fr 4fr;
+	grid-template-areas:
+		"header  header"
+		"sidebar content"
+		"footer  footer";
+}
+
+ <u-code-comment># определили область content и автоматически появились линии content-start и content-end</u-code-comment>
+.test {
+	z-index: 100;
+	background-color: blue;
+	grid-column: content-start;
+	grid-row: content-start / footer-end;
+}
+</v-code>
+</div><div id="css-grid/element-union/grid-area"><h2>Обращение по Grid Area</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обращение к линиям по имени (создание Grid Area)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<span>(результат аналогичен)</span>
+
+<p>Имена выбираются провизвольно, но если приписывать к именам -start или -end будет создаваться Grid Area.</p>
+<p>В .cards указали main-start и main-end для строк и столбцов, поэтому grid-area: main;</p>
+<v-code lang="css" title="">
+.cards {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: [side-start] 1fr
+                           [main-start] 1fr 1fr
+                           [main-end];
+	grid-template-rows:    [main-start] 200px 200px
+                           [main-end];
+}
+.card:nth-child(1) {
+	grid-area: main;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обращение по Grid Area</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+.cards {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: 200px 200px;
+	grid-template-areas: "header  header  menu"
+						 "content content content";
+}
+.card:nth-child(1) {
+	grid-area: header;
+}
+.card:nth-child(2) {
+	grid-area: menu;
+}
+.card:nth-child(3) {
+	grid-area: content;
+}
+</v-code>
+
+Если нужно оставить область пустой, ставим "."
+<v-code lang="css" title="">
+div {
+	grid-template-areas: "header header  menu"
+					     "  .    content content";
+}
+</v-code>
+</div><div id="css-grid/other/align-elements"><h2>Выравнивание элементов</h2>
+
+<!------------------------------------------------------------->
+<h4>У родительского элемента (горизонтальное)</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+div {
+	justify-items: stretch; <u-code-comment># блоки растягиваются по ширине (по умолчанию)</u-code-comment>
+	justify-items: start;   <u-code-comment># по левому краю.  блоки не растягиваются (только по ширине контента)</u-code-comment>
+	justify-items: end;     <u-code-comment># по правому краю. блоки не растягиваются (только по ширине контента)</u-code-comment>
+	justify-items: center;  <u-code-comment># по центру.       блоки не растягиваются (только по ширине контента)</u-code-comment>
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>У родительского элемента (вертикальное)</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+div {
+	align-items: stretch;   <u-code-comment># блоки растягиваются по высоте (по умолчанию)</u-code-comment>
+	align-items: start;     <u-code-comment># верху</u-code-comment>
+	align-items: end;       <u-code-comment># снизу</u-code-comment>
+	align-items: center;    <u-code-comment># по центру</u-code-comment>
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>У дочернего элемента (горизонтальное)</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+div {
+	justify-self: stretch;
+	justify-self: start;
+	justify-self: end;
+	justify-self: center;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>У дочернего элемента (вертикальное)</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+div {
+	align-self: stretch;
+	align-self: start;
+	align-self: end;
+	align-self: center;
+}
+</v-code>
+</div><div id="css-grid/other/grid-auto-flow"><h2>grid-auto-flow</h2>
+
+<v-code lang="css" title="">
+div {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: auto;
+	grid-auto-flow: dense
+}
+nth-child(2, 6, 9) {
+	grid-column: auto / span 2;
+}
+</v-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../__modules__/__links__.js"></script>
+            <script src="../src/vue/build.js"></script>
+        </body>
+    </html>    

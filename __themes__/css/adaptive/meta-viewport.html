@@ -1,0 +1,107 @@
+<h2>Meta Viewport</h2>
+
+<v-code lang="html" title="">
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Теория</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+	<a href="https://itchief.ru/lessons/html-and-css/meta-viewport-how-it-works" target="_blank">Статья на itchief.ru</a>
+	<a href="https://www.mydevice.io/" target="_blank">mydevice.io</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Viewport</u-text-define> - видимая пользователю область страницы (то, что может увидеть пользователь, не прибегая к прокрутке)</li>
+    <li><u-text-define>Метатег Viewport</u-text-define> - был разработан компанией Apple для того, чтобы указывать браузерам на то, в каком масштабе необходимо отображать пользователю видимую область веб-страницы. Он предназначен для того, чтобы веб-страницы отображались корректно на смартфонах, планшетах и других устройствах с высокой плотностью пикселей (>200ppi)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Значения атрибута content viewport</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css border" title="">
+&lt;meta
+	name="viewport"
+	content="
+		<u-code>width</u-code>=device-width,  /* соотношение ширины видимой области веб-страницы с CSS шириной устройства */
+		<u-code>initial-scale</u-code>=1.0    /* первоначальный масштаб веб-страницы (1.0 == 100%) */
+		<u-code>minimal-scale</u-code>=1.0    /* задаёт минимальный масштаб */
+		<u-code>maximal-scale</u-code>=1.0    /* устанавливает максимальный масштаб */
+		<u-code>user-scalable</u-code>=no     /* указывает, может ли пользователь управлять масштабом или нет */
+	"
+&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4><u-code-text>width=device-width</u-code-text></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>width=device-width</u-code-text> отвечает за то, чтобы <u>ширина видимой области веб-страницы</u> равнялась <u>CSS ширине устройству</u> (device-width). CSS ширина устройства - это не физическое разрешение экрана. Это некоторая величина независящая от разрешения экрана. Она предназначена для того, чтобы мобильный адаптивный дизайн сайта отображался на всех устройствах одинаково независимо от их плотности пикселей экрана</li>
+    <li>Н-р, смартфон iPhone 4 с физическим разрешением 640x960 имеет CSS разрешение 320x480. Это означает то, что сайт с метатегом viewport (width=device-width) на этом устройстве будет выглядить так как будто бы это устройство имеет разрешение 320x480 (в данном случае вместо device-width будет подставляться значение 320px). Т.е. на один CSS пиксель будет приходиться 4 физических пикселя (2 по горизонтали и 2 по вертикали)</li>
+</ul>
+
+<img src="/__img__/css-adaptive/physical-resolution.png" width="450px">
+
+<v-two><template v-slot:first>
+<ul class="list-point">
+    <li><b>Apple iPhone 3</b></li>
+    <li><u>Диагональ</u> 3.5"</li>
+    <li><u>Плотность пикселей</u> 163ppi</li>
+    <li><u>Физическое разрешение</u> 320x480</li>
+    <li>Такое разрешение соответствует диагонали, если его сопоставить с разрешением мониторов настольных устройств (компьютеров)</li>
+    <li>Т.е. на веб-странице этого смартфона, текст, выполненный размером 16px, будет также хорошо читаемым как на мониторе компьютера</li>
+</ul>
+</template><template v-slot:last>
+<ul class="list-point">
+    <li><b>Apple iPhone 4</b></li>
+    <li><u>Диагональ</u> 3.5"</li>
+    <li><u>Плотность пикселей</u> 326ppi</li>
+    <li><u>Физическое разрешение</u> 640x960</li>
+    <li>Более высокое разрешение при тех же размерах экрана</li>
+    <li>Это приведёт к тому, что тот же самый текст и остальные объекты веб-страницы будут выглядеть в нём при тех же условиях в 2 раза меньше</li>
+    <li>Таким образом, текст будет реально выглядеть на 8px</li>
+    <li>Чтобы сделать эту страницу пригодной для чтения, её представление необходимо увеличить в горизонтальном и вертикальном направлении в 2 раза (отмасштабировать)</li>
+</ul>
+</template></v-two>
+
+<ul class="list-point">
+    <li>CSS ширина устройства определяется в зависимости от того какую экран имеет плотность пикселей</li>
+</ul>
+
+<img src="/__img__/css-adaptive/device-width.png" width="600px">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты Viewport</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;!-- Ширина под размер устройства --&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+
+&lt;!-- Фиксированная ширина --&gt;
+&lt;meta name="viewport" content="width=600, user-scalable=yes"&gt;
+
+&lt;!-- Версия для печати --&gt;
+&lt;link href="print.css" rel="stylesheet" media="print"&gt;
+</v-code>
+
+<v-code lang="html" title="">
+&lt;!-- Указание media в html (в css указывать media не нужно) --&gt;
+
+&lt;link rel="stylesheet" href="responsive.css" media="all and (max-width: 820px)"&gt;
+&lt;link rel="stylesheet" href="responsive.css" media="(min-width: 600px) and (max-width: 980px)"&gt;
+&lt;link rel="stylesheet" href="responsive.css" media="print"&gt;
+</v-code>
+
+<v-code lang="html" title="">
+&lt;!-- viewport, без возможности его увеличения пользователем --&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;
+ 
+&lt;!-- viewport, c возможностью его увеличения пользователем --&gt;
+&lt;meta name="viewport" content="width=device-width, user-scalable=yes"&gt;
+ 
+&lt;!-- viewport, имеющий ширину 1024 пикселя --&gt;
+&lt;!-- Веб-страница, с фиксированным макетом (например, с шириной 1024px или меньше) --&gt;
+&lt;!-- будет изначально отображаться на экране мобильного просмотра без прокрутки --&gt;
+&lt;meta name="viewport" content="width=1024"&gt;
+</v-code>

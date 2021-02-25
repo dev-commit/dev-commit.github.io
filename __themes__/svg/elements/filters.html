@@ -1,0 +1,86 @@
+<h2>Фильтры</h2>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f1" x="0" y="0"&gt;
+			&lt;feGaussianBlur in="SourceGraphic" stdDeviation="15" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f1)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/filter1.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f2" x="0" y="0" width="200%" height="200%"&gt;
+			&lt;feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" /&gt;
+			&lt;feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" /&gt;
+			&lt;feBlend in="SourceGraphic" in2="offOut" mode="normal" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f2)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/filter2.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f3" x="0" y="0" width="200%" height="200%"&gt;
+			&lt;feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" /&gt;
+			&lt;feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" /&gt;
+			&lt;feBlend in="SourceGraphic" in2="blurOut" mode="normal" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f3)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/filter3.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f4" x="0" y="0" width="200%" height="200%"&gt;
+			&lt;feOffset result="offOut" in="SourceAlpha" dx="20" dy="20" /&gt;
+			&lt;feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" /&gt;
+			&lt;feBlend in="SourceGraphic" in2="blurOut" mode="normal" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f4)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/filter4.png" class="img200">
+</template></v-two-fix>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="html" title="">
+&lt;svg&gt;
+	&lt;defs&gt;
+		&lt;filter id="f5" x="0" y="0" width="200%" height="200%"&gt;
+			&lt;feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" /&gt;
+			&lt;feColorMatrix result="matrixOut" in="offOut" type="matrix"
+				values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" /&gt;
+			&lt;feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="10" /&gt;
+			&lt;feBlend in="SourceGraphic" in2="blurOut" mode="normal" /&gt;
+		&lt;/filter&gt;
+	&lt;/defs&gt;
+	&lt;rect width="100px" height="100px" x="50" y="50" filter="url(#f5)" /&gt;
+&lt;/svg&gt;
+</v-code>
+</template><template v-slot:last>
+<img src="/__img__/svg/filter5.png" class="img200">
+</template></v-two-fix>

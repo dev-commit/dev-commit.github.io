@@ -1,0 +1,103 @@
+<div class="v-method-wrapper">
+    <v-method before="git " method="rebase" after="" arg="">
+	Можно взять все изменения, которые попали в коммиты на одной из веток, и повторить их на другой (применить поверх другой).
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>rebase</u-code> master         # rebase
+git <u-code>rebase -i</u-code> master      # интерактивный rebase
+git <u-code>rebase --abort</u-code>        # отказаться от rebase (возвращает обратно HEAD)
+git <u-code>rebase --quit</u-code>         # отказаться от rebase (НЕ возвращает обратно HEAD)
+git <u-code>rebase --skip</u-code>         # пропустить коммит
+git <u-code>rebase --continue</u-code>     # продолжить rebase
+git <u-code>reflog</u-code> <i>НазваниеВетки</i>  # откатить rebase
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Описание</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>"Автоматизированный" cherry-pick. Он выполняет ту же работу, но для цепочки коммитов, тем самым как бы перенося ветку на новое место</li>
+    <li>Коммит, который не даёт изменений называется пустым. rebase автоматически пропускает этот коммит</li>
+    <li>Не сохраняет историю коммитов, в отличие от merge</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм работы ("master" to "feature")</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two><template v-slot:first>
+<!------------------------------------------------------------->
+<h4>Подготовка: feature откалывается от master</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>В обе ветки добавляются коммиты</li>
+    <li>Задача: загрузить изменения в feature из master</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Этап 1. Копирование всех коммитов feature поверх текущей вершины master (аналогично тому как это делает cherry-pick)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Берутся изменения первого коммита feature и применяются к вершине master (Для каждого из коммитов в текущей ветке берётся его дельта и сохраняется во временный файл)</li>
+    <li>Из них создается новый коммит с тем же автором и описанием</li>
+    <li>Затем точно так же копируются остальные коммиты</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Этап 2. Создание новой ветки</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>После копирования коммитов, ссылка feature переносится на вершину новосозданной ветки</li>
+    <li>Теперь ветка feature (ее копия основана на последнем состоянии master)</li>
+</ul>
+</template><template v-slot:last>
+<img src="/__img__/git/rebase.jpg" width="300px">
+</template></v-two>
+
+<img src="/__img__/git/rebase-merge.jpg" width="550px">
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Интерактивный rebase (squash commits)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При интерактивном rebase для каждого коммита можно выполнить определенную команду</li>
+</ul>
+
+<v-code lang="bash" title="">
+git <u-code>rebase -i</u-code> master  # интерактивный rebase
+</v-code>
+
+<v-code lang="bash" title="">
+# Запустится редактор со списком коммитов
+pick cb923a7 MessageCommit1
+pick 0a101a7 MessageCommit2
+pick 67e7538 MessageCommit3
+pick 3895aa6 MessageCommit4
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Команды</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>p, pick</u-code-text> - спользуем коммит без изменений (по умолчанию)</li>
+    <li><u-code-text>r, reword</u-code-text> - изменение сообщения коммита</li>
+    <li><u-code-text>e, edit</u-code-text> - отредактироват коммит (когда git дойдёт до коммита, выполнится отстановка и git предложит выполнить действия)</li>
+    <li><u-code-text>s, squash</u-code-text> - будет объединен с предыдущем коммитом в списке</li>
+    <li><u-code-text>f, fixup</u-code-text> - аналогичен squash, но не будет предлагаться изменить название коммита</li>
+    <li><u-code-text>x, exec</u-code-text> - выполнить скрипт для указанного коммита</li>
+    <li><u-code-text>b, break</u-code-text> - stop here (continue rebase later with 'git rebase --continue')</li>
+    <li><u-code-text>d, drop</u-code-text> - удаление коммита (вместо этого можно удклить строку с коммитом)</li>
+    <li><u-code-text>l, label</u-code-text> - label current HEAD with a name</li>
+    <li><u-code-text>t, reset</u-code-text> - reset HEAD to a label</li>
+    <li><u-code-text>m, merge</u-code-text> - create a merge commit using the original merge commit's message (or the oneline, if no original merge commit was specified)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>git pull</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+git <u-code>pull</u-code> origin master           # работает по merge
+git <u-code>pull --rebase</u-code> origin master  # работает по rebase
+</v-code>

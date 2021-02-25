@@ -1,0 +1,116 @@
+<h2>React Fiber Architecture</h2>
+
+<u-link-wrapper>
+    <a href="https://www.youtube.com/watch?v=4p9ISqIx1zI" target="_blank">YouTube. Лин Кларк. Как Fiber сделал React значительно быстрее</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>React Fiber</u-text-define> - переделанная реализация алгоритма reconciliation</li>
+    <li>Цель Fiber - позволить React воспользоваться <u>планированием</u></li>
+
+    <hr>
+    <li><u-text-define>Планирование</u-text-define> - это процесс, который определяет когда работа должна быть выполнена</li>
+    <li><u-text-define>Работа</u-text-define> - любые вычисления, которые должны быть выполнены. Работа – это обычно результат апдейта (например вызов setState)</li>
+
+    <hr>
+    <li><u-text-underline>Цель</u-text-underline> в увеличении производительности при разработке таких задач как анимация, организация элементов на странице и движение элементов</li>
+    <li><u-text-underline>Главная особенность</u-text-underline> - инкрементный рендеринг: способность разделять работу рендера на единицы и распределять их между множественными фреймами.</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сравнение с предыдущим алгоритмом</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Предудущий алгоритм обходит всё дерево компонент рекурсивно и вызывает все render-функции в рамках одного тика Event Loop.</li>
+</ul>
+
+<hr>
+
+<ol class="list-num">
+	<li><u-text-underline>Откладывание вызовов функций render</u-text-underline>. Появляется некоторая асинхронность. Н-р: если часть приложения находится вне экрана, то не нужно стоить ее Virtual DOM сразу</li>
+	<li><u-text-underline>Приоритезация рендеринга</u-text-underline> для более приоритетных задач: анимация пользовательских действий. Менее приоритеное: отображение большой части контента, загруженной по сети</li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Возможности</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Планировщик</h4>
+<!------------------------------------------------------------->
+<i>Инкрементный рендеринг: способность разделять работу рендера на единицы и распределять их между множественными фреймами</i>
+
+<ul class="list-point">
+    <li>Остановить работу и вернуться к ней позже</li>
+    <li>Приоритизировать разные типы работы</li>
+    <li>Переиспользовать результаты предыдущей работы</li>
+    <li>Отменить работу, если она больше не нужна</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li>При этом Virtual DOM должен быть разбит на маленькие участки для которых можно выполнять эти действия. Появляется концепция Unit of work.</li>
+    <li><u>Идея</u>: реализовать собственную стековую машину на React, не использую Call Stack V8</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Прочие</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Согласование примитивов</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Приоритеты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+Synchronous  # аналогично с Call Stack V8
+Task         # before next tick
+Animation    # before next frame
+High         # наивысший приоритет
+Low          # минимальный приоритет
+Offscreens   # объекты за пределами экрана
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Фазы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Фазу 1 можно прервать</li>
+    <li>Фазу 2 нельзя прервать</li>
+</ul>
+
+<img src="/__img__/react/reconciler/phases.png" width="700px">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Реализация Fiber</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Задача: в компоненте List есть кнопка и список с цифрами. При нажатии на кнопку, каждое число возводится в квадрат.</li>
+</ul>
+
+<img src="/__img__/react/reconciler/reconciler.png" width="650px">
+
+<ul class="list-point">
+    <li><u-text-underline>Fiber - объект</u-text-underline></li>
+    <li>У каждого компонента есть свой Fiber</li>
+</ul>
+
+<v-code lang="js" title="">
+// Для связи с инстансом
+{
+	stateNode
+}
+</v-code>
+
+<v-code lang="js" title="">
+// Fiber знает про другие Fibers в дереве
+// Отношения, которые отслеживает Fiber
+{
+	child
+	return
+	sibling
+}
+</v-code>
+

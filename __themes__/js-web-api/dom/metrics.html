@@ -1,0 +1,158 @@
+<h2>Размеры и прокрутка элементов</h2>
+
+<v-two><template v-slot:first>
+<!------------------------------------------------------------->
+<h4>offset</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-list>offsetParent</u-code-list> - «родитель по дереву рендеринга» – ближайшая ячейка таблицы, body для статического позиционирования или ближайший позиционированный элемент для других типов позиционирования</li>
+    <li><u-code-list>offsetLeft/offsetTop</u-code-list> - позиция в пикселях левого верхнего угла блока, относительно его offsetParent</li>
+    <li><u-code-list>offsetWidth/offsetHeight</u-code-list> - «внешняя» ширина/высота блока, включая рамки</li>
+</ul>
+</template><template v-slot:last>
+<!------------------------------------------------------------->
+<h4>client</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-list>clientLeft/clientTop</u-code-list> - отступ области содержимого от левого-верхнего угла элемента. Если операционная система располагает вертикальную прокрутку справа, то равны ширинам левой/верхней рамки, если же слева (ОС на иврите, арабском), то clientLeft включает в себя прокрутку</li>
+    <li><u-code-list>clientWidth/clientHeight</u-code-list> - ширина/высота содержимого вместе с полями padding, но без полосы прокрутки</li>
+</ul>
+<!------------------------------------------------------------->
+<h4>scroll</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-list>scrollWidth/scrollHeight</u-code-list> - ширина/высота содержимого, включая прокручиваемую область. Включает в себя padding и не включает полосы прокрутки</li>
+    <li><u-code-list>scrollLeft/scrollTop</u-code-list> - ширина/высота прокрученной части документа, считается от верхнего левого угла</li>
+</ul>
+</template></v-two>
+
+<ul class="list-point">
+    <li><u-text-define>Метрики</u-text-define> - ряд свойств у элементов существует, содержащих их внешние и внутренние размеры</li>
+    <li>Метрики, в отличие от свойств CSS, содержат числа, всегда в пикселях и без единиц измерения на конце</li>
+</ul>
+
+<img src="/__img__/dom/metrics1.png" width="500px">
+
+<hr><hr>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>offset</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4><u-code-list>offsetParent</u-code-list></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>В <u-text-define>offsetParent</u-text-define> находится ссылка на родительский элемент в смысле отображения на странице</li>
+    <li>Когда браузер рисует страницу, то он высчитывает дерево расположения элементов, иначе говоря «дерево геометрии» или «дерево рендеринга», которое содержит всю информацию о размерах</li>
+    <li>При этом одни элементы естественным образом рисуются внутри других. Но, к примеру, если у элемента стоит <u-code-text>position:absolute</u-code-text>, то его расположение вычисляется уже не относительно непосредственного родителя <u-code-text>parentNode</u-code-text>, а относительно ближайшего позиционированного элемента (т.е. свойство position которого не равно static), или <u-code-text>BODY</u-code-text>, если такой отсутствует</li>
+    <li>Получается, что элемент имеет в дополнение к обычному родителю в DOM – ещё одного <u>«родителя по позиционированию»</u>, то есть относительно которого он рисуется. Этот элемент и будет в свойстве <u>offsetParent</u></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4><u-code-list>offsetLeft</u-code-list> и <u-code-list>offsetTop</u-code-list></h4>
+<!------------------------------------------------------------->
+
+<img src="/__img__/dom/metrics2.png" width="500px">
+
+<ul class="list-point">
+    <li><u-text-define>offsetLeft/Top</u-text-define> - свойства задают смещение относительно <u>offsetParent</u></li>
+    <li>В примере внутренний &lt;div&gt; имеет DOM-родителя &lt;form&gt;, но offsetParent у него &lt;main&gt;, и сдвиги относительно его верхнего-левого угла будут в offsetLeft/Top:</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;main style="position: relative"&gt;
+	&lt;form&gt;
+		&lt;div id="example" style="position: absolute; left: 180px; top: 180px"&gt;...&lt;/div&gt;
+	&lt;/form&gt;
+&lt;/main&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4><u-code-list>offsetWidth</u-code-list> и <u-code-list>offsetHeight</u-code-list></h4>
+<!------------------------------------------------------------->
+
+<img src="/__img__/dom/metrics3.png" width="450px">
+
+<ul class="list-point">
+    <li><u-text-define>offsetWidth/Height</u-text-define> - содержат «внешнюю» ширину/высоту элемента, то есть его полный размер, включая рамки border</li>
+    <hr>
+    <li><u-code>offsetWidth = 390</u-code> - внешняя ширина блока, её можно получить сложением CSS-ширины (300px, но её часть на рисунке выше отнимает прокрутка, поэтому 284 + 16), полей(2*20px) и рамок (2*25px)</li>
+    <li><u-code>offsetHeight = 290</u-code> - внешняя высота блока</li>
+</ul>
+
+<ul class="list-point">
+	<b>Метрики для невидимых элементов равны нулю</b>
+    <li>Координаты и размеры в JavaScript устанавливаются только для видимых элементов</li>
+    <li>Для элементов с <u-code>display:none</u-code> или находящихся вне документа дерево рендеринга не строится. Для них метрики равны нулю. <u-code>offsetParent</u-code> для таких элементов null</li>
+</ul>
+
+<hr><hr>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>client</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4><u-code-list>clientLeft</u-code-list> и <u-code-list>clientTop</u-code-list></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>clientLeft/Top</u-text-define> - отступ внутренней части элемента от внешней. Обычно это только <u-code-text>border</u-code-text>, но если документ располагается справа налево (операционная система на арабском языке или иврите) полоса прокрутки в этом случае находится слева, и тогда свойство clientLeft включает в себя еще и ширину полосы прокрутки</li>
+</ul>
+
+<v-two><template v-slot:first>
+<ul class="list-point">
+    <li><u-code-text>clientLeft = 25</u-code-text> - ширина левой рамки</li>
+    <li><u-code-text>clientTop = 25</u-code-text> - ширина верхней рамки</li>
+</ul>
+<img src="/__img__/dom/metrics4.png" width="350px">
+</template><template v-slot:last>
+<ul class="list-point">
+    <li><u-code-text>clientLeft = 41</u-code-text> - ширина левой рамки + полоса прокрутки</li>
+    <li><u-code-text>clientTop = 25</u-code-text> - ширина верхней рамки border</li>
+</ul>
+<img src="/__img__/dom/metrics5.png" width="350px">
+</template></v-two>
+
+<!------------------------------------------------------------->
+<h4><u-code-list>clientWidth</u-code-list> <u-code-list>clientHeight</u-code-list></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>clientWidth/Height</u-text-define> - размер элемента внутри рамок <u-code-text>border</u-code-text>. Включают в себя ширину содержимого (не CSS-ширина) <u-code-text>width</u-code-text> вместе с полями <u-code-text>padding</u-code-text>, но без прокрутки</li>
+    <li>Если <u>padding</u> нет, то clientWidth/Height в точности равны размеру области содержимого, внутри рамок и полосы прокрутки</li>
+</ul>
+
+<u-message-ok>
+	<b>clientWidth = ШиринаСодержимого + Padding - Прокрутка</b>
+</u-message-ok>
+
+<img src="/__img__/dom/metrics6.png" width="400px">
+
+<hr><hr>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>scroll</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4><u-code-list>scrollWidth</u-code-list> и <u-code-list>scrollHeight</u-code-list></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>scrollWidth/Height</u-text-define> - аналоги clientWidth/clientHeight, но с учетом прокрутки</li>
+    <li>Свойства <u>clientWidth/clientHeight</u> относятся только к видимой области элемента, а <u>scrollWidth/scrollHeight</u> добавляют к ней прокрученную (которую не видно) по горизонтали/вертикали</li>
+</ul>
+
+<img src="/__img__/dom/metrics7.png" width="350px">
+
+<ul class="list-point">
+    <li><u-code>scrollHeight = 723</u-code> - полная внутренняя высота, включая прокрученную область</li>
+    <li><u-code>scrollWidth = 324</u-code> - полная внутренняя ширина, в данном случае прокрутки нет, поэтому она равна clientWidth</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4><u-code-list>scrollLeft</u-code-list> и <u-code-list>scrollTop</u-code-list></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>scrollLeft/Top</u-text-define> - ширина/высота невидимой, прокрученной в данный момент, части элемента слева и сверху</li>
+    <li>Значения <u>scrollLeft/scrollTop</u> можно изменить, и браузер выполнит прокрутку элемента</li>
+    <li><u-code-text>element.scrollTop = 100</u-code-text></li>
+</ul>
+
+<img src="/__img__/dom/metrics8.png" width="350px">
