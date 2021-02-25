@@ -15,7 +15,7 @@ const getListHTML = (id, title) => (
 
 export const getThemesHTML = (module) => {
     nodeEval(fs.readFileSync('src/js/utils.js', 'utf8'));
-    nodeEval(fs.readFileSync(`__modules__/build-${module}.js`, 'utf8'));
+    nodeEval(fs.readFileSync(`@modules/build-${module}.js`, 'utf8'));
 
     let html = '';
     let menu = '';
