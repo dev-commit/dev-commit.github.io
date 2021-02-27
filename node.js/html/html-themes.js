@@ -15,7 +15,7 @@ const getListHTML = (id, title) => (
 
 export const getThemesHTML = (module) => {
     nodeEval(fs.readFileSync('src/js/utils.js', 'utf8'));
-    nodeEval(fs.readFileSync(`__modules__/build-${module}.js`, 'utf8'));
+    nodeEval(fs.readFileSync(`@modules/build-${module}.js`, 'utf8'));
 
     let html = '';
     let menu = '';
@@ -25,7 +25,7 @@ export const getThemesHTML = (module) => {
         menu += '<ul>';
 
         themes.forEach(elements => {
-            const file = `__themes__/${elements[0]}.html`;
+            const file = `@themes/${elements[0]}.html`;
             const content = fs.readFileSync(file, 'utf8');
             const id = elements[0];
 

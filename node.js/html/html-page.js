@@ -26,7 +26,7 @@ export const getIndexHTML = ({ up, title, script, menu, content }) => (`
         
             <script src="${up}src/js/utils.js"></script>
             <!-- Own JavaScript -->
-            <script src="${up}__modules__/build-${script}.js"></script>
+            <script src="${up}@modules/build-${script}.js"></script>
         </head>
         <body>
         
@@ -74,7 +74,7 @@ export const getIndexHTML = ({ up, title, script, menu, content }) => (`
         
             <!-- JavaScript -->
             <script src="${up}src/js/init.js"></script>
-            <script src="${up}__modules__/__links__.js"></script>
+            <script src="${up}@modules/@links.js"></script>
             <script src="${up}src/vue/build.js"></script>
         </body>
     </html>    
