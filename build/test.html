@@ -1,0 +1,98 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>🥑 Test</title>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+        
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../__modules__/build-test.js"></script>
+        </head>
+        <body>
+        
+            <div id="container">
+                <div id="menu">
+                    <div id="top">
+                        <a href="#links" class="link">
+                            <div class="img"></div>
+                            <span v-html="'🥑 Test'"></span>
+                        </a>
+                    </div>
+                    <h4>🥥 Первая секция</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__test/first/one"
+                href="#test/first/one"
+            >One</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__test/first/two"
+                href="#test/first/two"
+            >Two</a>
+        </li>
+    </ul><h4>🥥 Вторая секция</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__test/second/one"
+                href="#test/second/one"
+            >One</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__test/second/two"
+                href="#test/second/two"
+            >Two</a>
+        </li>
+    </ul>
+                </div>
+        
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a :href="itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="test/first/one"><h2>First One</h2>
+</div><div id="test/first/two"><h2>First Two</h2>
+</div><div id="test/second/one"><h2>Second One</h2>
+</div><div id="test/second/two"><h2>Second Two</h2>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../__modules__/__links__.js"></script>
+            <script src="../src/vue/build.js"></script>
+        </body>
+    </html>    
