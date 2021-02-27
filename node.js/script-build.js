@@ -9,7 +9,7 @@ const PATH_PAGES = 'build';
 
 createDir(PATH_PAGES);
 
-nodeEval(fs.readFileSync('./__modules__/__links__.js', 'utf8'));
+nodeEval(fs.readFileSync('./@modules/@links.js', 'utf8'));
 
 ARR_LINKS.forEach(module => {
     if (module) {
