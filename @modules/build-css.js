@@ -85,12 +85,12 @@ ARR_MODULE = [
             ['css/main/shadow',                 setTheme(1, ['box-shadow', 'text-shadow'])],
             ['css/main/overflow',               setTheme(1, ['overflow'])],
             ['css/main/display',                setTheme(1, ['display'])],
-            ['css/main/position',               setTheme(1, ['position'])],,
+            ['css/main/position',               setTheme(1, ['position'])],
             ['css/main/background',             setTheme(1, ['background'])],
             ['css/main/lists',                  setTheme(1, ['ul', 'ol'])],
             ['css/main/calc',                   setTheme(1, ['calc()'])],
             ['css/main/scrollbar',              setTheme(1, ['scrollbar'])],
-        
+
             ['css/main/info',                   'Информация'],
             ['css/main/actions',                'События браузера'],
             ['css/main/px',                     'Единицы измерения'],
