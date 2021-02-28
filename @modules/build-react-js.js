@@ -60,9 +60,9 @@ ARR_MODULE = [
             ['react-js/lifecycle/hook-should-component-update',       emoji.chevron+'shouldComponentUpdate()'],
             ['react-js/lifecycle/hook-render',                        emoji.chevron+'render()'],
             ['react-js/lifecycle/hook-get-snapshot-before-update',    emoji.chevron+'getSnapshotBeforeUpdate()'],
-            ['react-js/lifecycle/hook-component-did-mount',           emoji.coconut+'componentDidMount()'],
-            ['react-js/lifecycle/hook-component-did-update',          emoji.coconut+'componentDidUpdate()'],
-            ['react-js/lifecycle/hook-component-will-unmount',        emoji.coconut+'componentWillUnmount()'],
+            ['react-js/lifecycle/hook-component-did-mount',           emoji.fire+'componentDidMount()'],
+            ['react-js/lifecycle/hook-component-did-update',          emoji.fire+'componentDidUpdate()'],
+            ['react-js/lifecycle/hook-component-will-unmount',        emoji.fire+'componentWillUnmount()'],
             ['react-js/lifecycle/hook-get-derived-state-from-error',  emoji.cookie+'getDerivedStateFromError()'],
             ['react-js/lifecycle/hook-component-did-catch',           emoji.cookie+'componentDidCatch()'],
         ]

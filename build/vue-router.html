@@ -138,17 +138,15 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="vue-router/main/info"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Описание</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+                    <div id="content"><div id="vue-router/main/info"><h2>Описание</h2>
 
 <ul class="list-point">
 	<li><u-text-define>Vue Router</u-text-define> - официальная библиотека маршрутизации для Vue.js</li>
 </ul>
 
-<!------------------------------------------------------------->
-<h4>Возможности</h4>
-<!------------------------------------------------------------->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Возможности</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li>Вложенные маршруты/представления</li>
 	<li>Модульная конфигурация маршрутизатора</li>
@@ -165,9 +163,7 @@
 	<li><u-text-define>&lt;router-view&gt;</u-text-define> - функциональный компонент, который отрисовывает согласованный компонент для данного пути</li>
 	<li>Иногда один и тот же URL может совпасть с несколькими маршрутами. В таких случаях приоритет определяется порядком определения маршрутов: чем раньше определён маршрут, тем выше у него приоритет</li>
 </ul>
-</div><div id="vue-router/main/src-script"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Подключение через &lt;script&gt;</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+</div><div id="vue-router/main/src-script"><h2>Подключение через &lt;script&gt;</h2>
 
 <v-code lang="html" title="">
 &lt;script src="https://unpkg.com/vue/dist/vue.js"&gt;&lt;/script&gt;
@@ -206,9 +202,7 @@ const app = new Vue({
 	router
 }).$mount('#app')
 </v-code>
-</div><div id="vue-router/main/src-npm"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Подключение через NPM</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+</div><div id="vue-router/main/src-npm"><h2>Подключение через NPM</h2>
 
 <v-code lang="bash" title="">
 npm i --save-dev vue-router 
@@ -275,17 +269,15 @@ new Vue({
     &lt;/div&gt;
 &lt;/template&gt;
 </v-code>
-</div><div id="vue-router/main/server-configuration"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Конфигурование сервера</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+</div><div id="vue-router/main/server-configuration"><h2>Конфигурование сервера</h2>
 
 <u-link-wrapper>
 	<a href="https://router.vuejs.org/ru/guide/essentials/history-mode.html#примеры-конфигурирования-серверов" target="_blank">Примеры конфигурирования серверов</a>
 </u-link-wrapper>
 
-<!------------------------------------------------------------->
-<h4>Apache (.htaccess)</h4>
-<!------------------------------------------------------------->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Apache (.htaccess)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="bash" title="">
 &lt;IfModule mod_rewrite.c&gt;
 	RewriteEngine On
@@ -296,13 +288,11 @@ new Vue({
 	RewriteRule . /index.html [L]
 &lt;/IfModule&gt;
 </v-code>
-</div><div id="vue-router/variants/path-static"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Статический путь</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+</div><div id="vue-router/variants/path-static"><h2>Статический путь</h2>
 
-<!------------------------------------------------------------->
-<h4>Ссылка</h4>
-<!------------------------------------------------------------->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ссылка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="html" title="">
 &lt;router-link to="/contact"&gt;Контакты&lt;/router-link&gt;
 </v-code>
@@ -313,9 +303,10 @@ const routes = [
 ]
 </v-code>
 
-<!------------------------------------------------------------->
-<h4>Именованный маршрут</h4>
-<!------------------------------------------------------------->
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Именованный маршрут</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="html" title="">
 &lt;router-link :to="{name: 'contact'}"&gt;Контакты&lt;/router-link&gt;
 </v-code>
@@ -325,9 +316,7 @@ const routes = [
     { path: '/contact', component: Contact, name: 'contact' }
 ]
 </v-code>
-</div><div id="vue-router/variants/path-dynamic"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Динамический путь</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+</div><div id="vue-router/variants/path-dynamic"><h2>Динамический путь</h2>
 
 <v-code lang="html" title="">
 &lt;router-link :to="'/catalog/'+i"&gt;Подробнее&lt;/router-link&gt;                      &lt;!-- неименованный путь --&gt;
@@ -352,9 +341,8 @@ export default {
         console.log(this.$route.params.id);
     }
 }
-</v-code></div><div id="vue-router/variants/path-comparison"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Сопоставление путей</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+</v-code>
+</div><div id="vue-router/variants/path-comparison"><h2>Сопоставление путей</h2>
 
 <v-code lang="js" title="">
 path: '/contact'     // contact page
