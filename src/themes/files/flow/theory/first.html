@@ -1,0 +1,51 @@
+<h2>Flow!</h2>
+
+<ul class="list-point">
+	<li><u-code>Gitflow</u-code> - модуль управления ветками. Есть две основные ветки: <u-code>master</u-code> и <u-code>develop</u-code></li>
+	<li><u-code>gitflow-avh</u-code> – инструмент для работы с Gitflow</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ветки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="bash">
+<u-code>master</u-code>      # содержится тот же код, что и в рабочей (продакт) версии проекта
+<u-code>release</u-code>     # подготовка к новому релизу проекта
+<u-code>beta</u-code>        # 
+<u-code>develop</u-code>     # происходит вся работа
+
+<u-code>feature</u-code>     # создаются в процессе работы над develop, их может быть неограниченное количество
+<u-code>improvement</u-code> # улучшение
+<u-code>bug</u-code>         # исправление багов
+<u-code>bugfix</u-code>      # исправление багов
+<u-code>hotfix</u-code>      # срочное исправление багов, найденных, например, на продакте
+<u-code>fix</u-code>         #
+</code></pre>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Рабочий процесс в Gitflow</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+	<li>Создается репозиторий</li>
+	<li>Репозиторий инициализируется</li>
+	<li>Начинается работа на ветке <u-code>develop</u-code></li>
+	<li>Возникает необходимость опробовать новую штуку – создается <u-code>feature-ветка</u-code> и делаются коммиты</li>
+	<li>Закончив работу на <u-code>feature-ветке</u-code>, вы сливаете ее с <u-code>develop</u-code></li>
+	<li>Если вы довольны текущей версией, но хотите продолжить работу, создается ветка <u-code>release</u-code>, куда перемещается текущая версия. Правка багов будет происходить на этой же ветке</li>
+	<li>Когда с веткой <u-code>release</u-code> покончено, время слить ее в master и продолжить работу с <u-code>develop</u-code></li>
+	<li>Кроме того, этот момент можно отметить на <u-code>master-ветке</u-code></li>
+</ol>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Codereview GitHub</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<pre><code class="html">
+1. Создать репозиторий
+2. Основная ветка разработки "dev"
+3. Под каждую задачу создается ветка от "dev"
+4. Создание PR (Pool Request) для слития ветки задачи с веткой "dev"
+5. Ссылка на PR руководителю
+6. Если всё ок, слитие веток, если нет, то исправление замечания
+7. Если несколько задач и несколько веток, то вливать нужно не ветки полностью а только отдельные коммиты
+</code></pre>

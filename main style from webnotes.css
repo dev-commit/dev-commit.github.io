@@ -1,0 +1,194 @@
+
+/***************************************************
+STRUCTURE
+/***************************************************/
+#container {
+	display: flex;
+	height: 100vh;
+}
+#menu-left {
+	width: 300px;
+	flex-shrink: 0;
+	overflow: auto;
+}
+#menu-top {
+	max-width: 1100px;
+	margin: auto;
+}
+#content-wrapper {
+	flex-grow: 1;
+	padding: 0px 25px;
+	overflow: auto;
+	z-index: 100;
+}
+#content {
+	max-width: 1100px;
+	margin-left: 25px;
+	margin: auto;
+}
+#content > div:after {
+	content: '</>';
+	display: block;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	margin-top: 35px;
+	border-radius: 50%;
+	background: rgba(var(--color-js), 0.15);
+	border: 2px solid rgba(var(--color-js), 0.2);
+	color: rgba(var(--color-js), 1);
+}
+
+/***************************************************
+MENU-TOP
+/***************************************************/
+#menu-top {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	padding: 15px 0px;
+}
+#menu-top .menu {
+	text-decoration: none;
+	font-size: 14px;
+	padding: 5px 10px;
+	margin: 5px;
+	font-family: FiraSans-Medium;
+	border-bottom: 2px solid transparent;
+	transition: 0.7s;
+	width: auto;
+	cursor: pointer;
+	border-radius: 3px;
+}
+#menu-top .menu:hover {
+	opacity: 0.7;
+}
+
+#menu-top .menu-html  { color: rgba(var(--color-html),  1);   background: rgba(var(--color-html),  0.2); }
+#menu-top .menu-js    { color: rgba(var(--color-js),    1);   background: rgba(var(--color-js),    0.2); }
+#menu-top .menu-php   { color: rgba(var(--color-php),   1);   background: rgba(var(--color-php),   0.2); }
+#menu-top .menu-other { color: rgba(var(--color-other), 1);   background: rgba(var(--color-other), 0.2); }
+#menu-top .menu-fw    { color: rgba(var(--color-fw),    0.55); background: rgba(var(--color-fw),    0.2); }
+
+/***************************************************
+MENU-LEFT
+/***************************************************/
+#menu-build a {
+	color: black;
+	text-decoration: none;
+	display: block;
+	cursor: pointer;
+    font-size: 14px;
+    user-select: none;
+    border-bottom: 1px solid rgba(var(--color-black), 0.2);
+    padding: 5px 15px;
+    line-height: 1.7;
+}
+#menu-build a.active {
+	background: rgba(var(--color-html), 0.1);
+	color: #4aaf2d;
+	font-weight: bold;
+}
+#menu-left .theme, #menu-left .section, #menu-left > a {
+	color: black;
+	text-decoration: none;
+	display: block;
+	cursor: pointer;
+    font-size: 14px;
+    user-select: none;
+    border-bottom: 1px solid rgba(var(--color-black), 0.2);
+    padding: 5px 15px;
+    line-height: 1.7;
+}
+#menu-left a.active {
+	background: rgba(var(--color-html), 0.1);
+	color: #4aaf2d;
+	font-weight: bold;
+}
+#menu-left .theme {
+	font-weight: bold;
+	cursor: default;
+	text-transform: uppercase;
+	color: rgba(var(--color-js), 1);
+	background: rgba(var(--color-js), 0.2);
+}
+#menu-left .section {
+	font-weight: bold;
+	cursor: default;
+	text-transform: uppercase;
+	color: rgba(var(--color-other), 1);
+	background: rgba(var(--color-other), 0.2);
+}
+
+
+/***************************************************
+MENU-LEFT
+/***************************************************/
+#menu-left-show {
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-image: url(../img/app/show.svg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin: 10px;
+	flex-shrink: 0;
+}
+#menu-left-starter {
+	display: flex;
+    font-size: 14px;
+    user-select: none;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: white;
+    box-shadow: 0px 2px 5px 0px rgba(var(--color-black), 0.2);
+}
+#menu-left-starter a {
+	display: flex;
+	align-items: center;
+	flex-grow: 1;
+	padding-left: 10px;
+	color: black;
+	text-decoration: none;
+}
+
+/***************************************************
+MENU-LEFT-HIDE
+/***************************************************/
+#menu-left.hide {
+	width: 70px;
+}
+#menu-left.hide > .theme, #menu-left.hide > a {
+	display: none;
+}
+#menu-left.hide #menu-left-starter {
+	flex-direction: column;
+	align-items: center;
+}
+#menu-left.hide #menu-left-starter a {
+	padding: 10px 20px;
+}
+#menu-left.hide #menu-left-starter {
+	box-shadow: none;
+}
+
+/***************************************************
+OTHER
+/***************************************************/
+.red {
+	background: #e8bcc7 !important;
+	padding: 10px;
+	border-radius: 5px;
+}
+.container-margin {
+	margin-left: 50px;
+}
+.link-page-wrapper a {
+	color: grey;
+}
