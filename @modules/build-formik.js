@@ -7,6 +7,12 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'Хуки',
+        themes: [
+            ['formik/hooks/useField',  emoji.chevron+setTheme(4, ['useField'])], 
+        ]
+    },
+    {
         title: 'Элементы',
         themes: [
             ['formik/elements/validation-schema',  emoji.chevron+setTheme(4, ['validationSchema'])], 
