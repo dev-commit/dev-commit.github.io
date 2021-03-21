@@ -40,6 +40,14 @@
         <li>
             <a
                 class="menu-link"
+                id="id__css-flexbox/container/gap"
+                href="#css-flexbox/container/gap"
+            ><u-menu>gap</u-menu></a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
                 id="id__css-flexbox/container/justify-content"
                 href="#css-flexbox/container/justify-content"
             ><u-menu>justify-content</u-menu></a>
@@ -124,6 +132,12 @@
                     </div>
                     <div id="content"><div id="css-flexbox/main/info"><h2>Информация</h2>
 
+<u-link-wrapper>
+    <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">A Complete Guide to Flexbox</a>
+    <a href="https://flexboxfroggy.com/#ru" target="_blank">Игра Flexbox Froggy</a>
+    <a href="https://github.com/philipwalton/flexbugs" target="_blank">Flexbugs</a>
+</u-link-wrapper>
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>CSS Flexible Box Layout Module</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -146,29 +160,41 @@
 </div><div id="css-flexbox/container/display"><h2>display: flex</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3 id="display">display</h3>
+<h3>display</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="css" title="">
 .flex-container {
-	display: flex;   <u-code-comment># задание flex</u-code-comment>
+	display: flex;        <u-code-comment># задание flex</u-code-comment>
+	display: inline-flex; <u-code-comment># задание inline-flex </u-code-comment>
 }
 </v-code>
+</div><div id="css-flexbox/container/gap"><h2>gap</h2>
 
+<ul class="list-point">
+    <li>Задает расстояние между flex-элементами</li>
+</ul>
+
+<v-code lang="css" title="">
+.flex-container {
+    gap: 10px;
+}
+</v-code>
 </div><div id="css-flexbox/container/justify-content"><h2>justify-content: flex-start</h2>
 
 <ul class="list-point">
     <li>Управляет размещением элемента вдоль главной оси (по горизонтали)</li>
 </ul>
 
-<img src="/@img/css-flexbox/justify-content.jpg" height="135">
+<img src="/@img/css-flexbox/justify-content.jpg" width="750px">
 
 <v-code lang="css" title="">
 .flex-container {
-	justify-content: flex-start;       <u-code-comment># флексы прижаты к началу строки</u-code-comment>
-	justify-content: flex-end;         <u-code-comment># флексы прижаты к концу строки</u-code-comment>
-	justify-content: center;           <u-code-comment># флексы выравниваются по центру строки</u-code-comment>
-	justify-content: space-between;    <u-code-comment># флексы равномерно располагаются с одинаковыми расстояниями между ними (первый и последний элемент прижимаются к краям контейнера)</u-code-comment>
-	justify-content: space-around;     <u-code-comment># флексы равномерно располагаются с одинаковыми расстояниями вокруг них (первый и последний элемент не прижимаются к краям контейнера)</u-code-comment>
+	justify-content: flex-start;     <u-code-comment># флексы прижаты к началу строки</u-code-comment>
+	justify-content: flex-end;       <u-code-comment># флексы прижаты к концу строки</u-code-comment>
+	justify-content: center;         <u-code-comment># флексы выравниваются по центру строки</u-code-comment>
+	justify-content: space-between;  <u-code-comment># флексы равномерно располагаются с одинаковыми расстояниями между ними (первый и последний элемент прижимаются к краям контейнера)</u-code-comment>
+	justify-content: space-around;   <u-code-comment># флексы равномерно располагаются с одинаковыми расстояниями вокруг них (первый и последний элемент не прижимаются к краям контейнера)</u-code-comment>
+	justify-content: space-evenly;   <u-code-comment># флексы распределяются таким образом, чтобы расстояние между любыми двумя элементами (и расстояние до краев) было одинаковым </u-code-comment>
 }
 </v-code>
 </div><div id="css-flexbox/container/align-items"><h2>align-items: stretch</h2>
@@ -177,7 +203,7 @@
     <li>Управляет размещением элемента вдоль второстепенной оси (по вертикали)</li>
 </ul>
 
-<img src="/@img/css-flexbox/align-items.jpg" height="135">
+<img src="/@img/css-flexbox/align-items.jpg" width="750px">
 
 <v-code lang="css" title="">
 .flex-container {
@@ -195,7 +221,7 @@
     <li>align-content отвечает за расстояние между рядами, в то время как align-items отвечает за то, как элементы в целом будут выровнены в контейнере. Когда только один ряд, align-content ни на что не влияет</li>
 </ul>
 
-<img src="/@img/css-flexbox/align-content.jpg" height="135">
+<img src="/@img/css-flexbox/align-content.jpg" width="750px">
 
 <v-code lang="css" title="">
 .flex-container {
@@ -222,7 +248,7 @@
     <li>Задаёт направление основных осей в контейнере</li>
 </ul>
 
-<img src="/@img/css-flexbox/flex-direction.jpg" height="135">
+<img src="/@img/css-flexbox/flex-direction.jpg" width="750px">
 <v-code lang="css" title="">
 .flex-container {
 	flex-direction: row;              <u-code-comment># расположение блоков по горизонтали (по умолчанию)</u-code-comment>
@@ -238,7 +264,7 @@
 <ul class="list-point">
     <li>Задает перенос флексов</li>
 </ul>
-<img src="/@img/css-flexbox/flex-wrap.jpg" height="135">
+<img src="/@img/css-flexbox/flex-wrap.jpg" width="750px">
 
 <v-code lang="css" title="">
 .flex-container {
@@ -302,13 +328,16 @@
 <h2>flex-basis: auto</h2>
 <!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
 <ul class="list-point">
-    <li>Базовый размер отдельно взятого блока (аналогично min-width) - размер элемента вдоль главной оси</li>
+    <li>Базовый размер отдельно взятого блока. Задает размер элемента вдоль главной оси</li>
+	<li>При <u-code-text>flex-direction: row</u-code-text> соответствует CSS-свойству <u-code-text>width</u-code-text></li>
+	<li>При <u-code-text>flex-direction: column</u-code-text> соответствует CSS-свойству <u-code-text>height</u-code-text></li>
 </ul>
 
 <v-code lang="css" title="">
 .flex-element {
-	flex-basis: 20%;   <u-code-comment># вместо width</u-code-comment>
-	flex-basis: auto;  <u-code-comment># принимает значение ширины элемента</u-code-comment>
+	flex-basis: 100px;  <u-code-comment># вместо width</u-code-comment>
+	flex-basis: 0;      <u-code-comment># дополнительное пространство вокруг контента не учитывается</u-code-comment>
+	flex-basis: auto;   <u-code-comment># дополнительное пространство распределяется на основе его значения flex-grow</u-code-comment>
 }
 </v-code>
 

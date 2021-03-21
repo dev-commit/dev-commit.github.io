@@ -9,6 +9,7 @@ ARR_MODULE = [
         title: 'Flex Container',
         themes: [
             ['css-flexbox/container/display',         setTheme(1, ['display'])],
+            ['css-flexbox/container/gap',             setTheme(1, ['gap'])],
             ['css-flexbox/container/justify-content', setTheme(1, ['justify-content'])],
             ['css-flexbox/container/align-items',     setTheme(1, ['align-items'])],
             ['css-flexbox/container/align-content',   setTheme(1, ['align-content'])],

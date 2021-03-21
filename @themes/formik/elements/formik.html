@@ -1,0 +1,101 @@
+<h2>Корневая обертка</h2>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-details open title="<b><u-code-text>Formik</u-code-text> <u-code-text>Form</u-code-text></b>">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { <u-code>Form</u-code>, <u-code>Formik</u-code> } from 'formik';
+
+const App = () =&gt; {
+	const initialFormData = {
+		<u-text-underline>userName</u-text-underline>: "",
+		userCount: 0
+	};
+
+	const handleSubmit = (values, actions) =&gt; {
+		// может быть асинхронное дейсвие
+		console.log(values);
+		// actions.<u>setSubmitting</u>(false);
+	};
+
+	return (
+		&lt;Formik
+			initialValues={initialFormData}
+			onSubmit={handleSubmit}
+			validationSchema={validationSchema}
+			validate={handleValidate}
+		&gt;
+			&lt;Form&gt;
+				&lt;Input name="<u-text-underline>userName</u-text-underline>" type="text" label="Name" /&gt;
+				&lt;Counter name="userCount" /&gt;
+				&lt;button type="submit"&gt;Submit&lt;/button&gt;
+			&lt;/Form&gt;
+		&lt;/Formik&gt;
+	);
+};
+</v-code>
+</v-details>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-details title="<b><u-code-text>useField</u-code-text></b>">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { <u-code>useField</u-code> } from 'formik';
+
+const Input = ({ name, type }) =&gt; {
+	const [field] = <u-code>useField</u-code>(name);
+
+	return (
+		&lt;input
+			type={type}
+			name={field.name}
+			value={field.value}
+			onChange={field.onChange}
+			onBlur={field.onBlur}
+		/&gt;
+	);
+};
+</v-code>
+</v-details>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-details open title="<b><u-code-text>validationSchema</u-code-text></b>">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import * as <u-code>Yup</u-code> from 'yup';
+
+const validationSchema = Yup.object().shape({
+    <u-text-underline>userName</u-text-underline>: Yup.string(),
+	userCount: Yup.number()
+});
+</v-code>
+</v-details>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-details title="<b><u-code-text>validateYupSchema</u-code-text></b>">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { <u-code>validateYupSchema</u-code> } from 'formik';
+
+const handleValidate = (values) => {
+	validateYupSchema(values, validationSchema, true);
+}
+</v-code>
+</v-details>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-details open title="<b><u-code-text>useFormikContext</u-code-text></b>">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { <u-code>useFormikContext</u-code> } from 'formik';
+
+const App = () => {
+	const { values, setFieldValue } = useFormikContext();
+}
+</v-code>
+</v-details>

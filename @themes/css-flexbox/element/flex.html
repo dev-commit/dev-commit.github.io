@@ -52,13 +52,16 @@
 <h2>flex-basis: auto</h2>
 <!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
 <ul class="list-point">
-    <li>Базовый размер отдельно взятого блока (аналогично min-width) - размер элемента вдоль главной оси</li>
+    <li>Базовый размер отдельно взятого блока. Задает размер элемента вдоль главной оси</li>
+	<li>При <u-code-text>flex-direction: row</u-code-text> соответствует CSS-свойству <u-code-text>width</u-code-text></li>
+	<li>При <u-code-text>flex-direction: column</u-code-text> соответствует CSS-свойству <u-code-text>height</u-code-text></li>
 </ul>
 
 <v-code lang="css" title="">
 .flex-element {
-	flex-basis: 20%;   <u-code-comment># вместо width</u-code-comment>
-	flex-basis: auto;  <u-code-comment># принимает значение ширины элемента</u-code-comment>
+	flex-basis: 100px;  <u-code-comment># вместо width</u-code-comment>
+	flex-basis: 0;      <u-code-comment># дополнительное пространство вокруг контента не учитывается</u-code-comment>
+	flex-basis: auto;   <u-code-comment># дополнительное пространство распределяется на основе его значения flex-grow</u-code-comment>
 }
 </v-code>
 
