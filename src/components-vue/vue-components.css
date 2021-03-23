@@ -113,7 +113,21 @@ v-method, v-method-arg, v-method-return
 /*******************************************
 v-details
 *******************************************/
-.v-details summary::-webkit-details-marker {
-  color: #949494;
-  margin-right: 10px;
+.v-details {
+	--color-accent: #bab495;
 }
+.v-details summary::-webkit-details-marker {
+	color: var(--color-accent);
+	margin-right: 10px;
+}
+.v-details summary::marker {
+	color: var(--color-accent);
+	margin-right: 10px;
+}
+.v-details summary {
+	font-weight: 500;
+	color: var(--color-accent);
+}
+
+/* #0ba8a0 */
+
