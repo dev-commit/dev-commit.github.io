@@ -6,6 +6,12 @@
     <a href="https://github.com/jquense/yup" target="_blank">Yup schema</a>
 </u-link-wrapper>
 
+<v-pre-npm>
+npm i --save <u-code-npm>yup</u-code-npm>
+npm i --save <u-code-npm>yup</u-code-npm> <u-code-npm>@types/yup</u-code-npm> # for TypeScript
+</v-pre-npm>
+
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Заготовка</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -17,13 +23,16 @@ const validationSchema = Yup.object().shape({
 });
 </v-code>
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Типы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 field: Yup.string(),
 field: Yup.number(),
-field: Yup.boolean()
+field: Yup.boolean(),
+field: Yup.date(),
+field: Yup.array(),
 
 field: Yup.object().shape({
     label: Yup.string(),
@@ -31,21 +40,82 @@ field: Yup.object().shape({
 }),
 </v-code>
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Методы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>General</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 field: Yup.string()
-    .required('Текст ошибки')
+    .min(10, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required')
     .nullable()
-    .min(10, 'Текст ошибки')
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>String</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+field: Yup.string()
+    .length(10, 'Text')
+    .email('Email')
+    .url('URL')
+    .uuid('Text')
+    .ensure()
+    .trim('Text')
+    .lowercase('Text')
+    .uppercase('Text')
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Number</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+field: Yup.number()
+    .lessThan(10)
+    .moreThan(10)
+    .positive('Text')
+    .negative('Text')
+    .integer('Text')
+    .truncate()
+    .round('floor' | 'ceil' | 'trunc' | 'round')
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Array</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+field: Yup.array
+    .of(type: Schema)
+    .length(10, 'Text')
+    .ensure()
+    .compact(rejector: (value) => boolean)
 </v-code>
 
 <v-code lang="js" title="">
-field: Yup.string()
-    .email('Текст ошибки')
-    .url('Текст ошибки')
+field: Yup.array().of(Yup.string()),
+field: Yup.array().of(Yup.string().min(2)),
 </v-code>
+
+<!------------------------------------------------------------->
+<h4>Object</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+field: Yup.object
+    .shape(fields: object, noSortEdges?: Array<[string, string]>)
+    .pick(keys: string[])
+    .omit(keys: string[])
+    .getDefaultFromShape(): Record < string, unknown >
+    .from(fromKey: string, toKey: string, alias: boolean = false)
+    .noUnknown(onlyKnownKeys: boolean = true, message?: string | function)
+    .camelCase()
+    .constantCase()
+</v-code>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>RegExp (phone, site, password)</h3>
