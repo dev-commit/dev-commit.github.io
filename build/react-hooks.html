@@ -866,6 +866,49 @@ const Component = ({ classes, checked }) =&gt; {
     return {Foo};
 };
 </v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><u-code-text>useMemo</u-code-text> как замена <u-code-text>useState</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://codesandbox.io/s/usememo-kak-zamena-usestate-ujxvx" target="_blank">CodeSandbox</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Для логики переключения состояния кнопки лучше использовать <u>useMemo</u>, чтобы вручную не менять через <u>useState</u></li>
+    <li><u>useMemo</u> полностью заменяет <u>useState</u></li>
+    <li><u>checkFilters</u> — проверка на то, пустые фильтры или нет, возвращает boolean</li>
+</ul>
+
+<v-code lang="js" title="">
+import { useState, useMemo } from "react";
+
+const App = () =&gt; {
+    const [value, setValue] = useState("");
+
+    const onChange = (e) =&gt; setValue(e.target.value);
+
+    const checkFilters = () =&gt; {
+        if (value) {
+            return false;
+        }
+
+        return true;
+    };
+
+    const isDisabledButton = useMemo(() =&gt; checkFilters(), [value]);
+
+    return (
+        &lt;&gt;
+            &lt;input type="text" value={value} onChange={onChange} /&gt;
+            &lt;button disabled={isDisabledButton}&gt;Click&lt;/button&gt;
+        &lt;/&gt;
+    );
+};
+
+export default App;
+</v-code>
 </div><div id="react-hooks/hooks/use-callback"><h2>Хук useCallback</h2>
 
 <div class="v-method-wrapper">
