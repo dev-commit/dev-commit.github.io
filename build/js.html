@@ -1706,15 +1706,35 @@ let result = arr.filter(item => item.<u-code>includes</u-code>('Tony')); // => [
 	<li>Метод «arr.some(callback[, thisArg])» возвращает true, если вызов callback вернёт true для какого-нибудь элемента arr</li>
 </ul>
 
+<!------------------------------------------------------------->
+<h4>Пример: использование callback-функции</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 const arr = [1, -1, 2, -2, 3];
 
-function isPositive(number) {
-  return number > 0;
+// false, не все положительные
+const result = arr.<u-code>every</u-code>(number => {
+	return number > 0;
+})
+
+// true, есть хоть одно положительное 
+const result = arr.<u-code>some</u-code>(number => {
+	return number > 0;
+})
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример: вынесение callback-функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const arr = [1, -1, 2, -2, 3];
+
+const isPositive = number => {
+	return number > 0;
 }
 
-console.log( arr.every(isPositive) ); // false, не все положительные
-console.log( arr.some(isPositive) );  // true, есть хоть одно положительное
+const result = arr.every(isPositive);
+const result = arr.some(isPositive);
 </v-code>
 </div><div id="js/main/spread-array"><h2>Spread-оператор массивов (ES6)</h2>
 

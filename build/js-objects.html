@@ -501,6 +501,9 @@ var a = rabbit instanceof Rabbit; // false
 </v-code>
 </div><div id="js-objects/main/for"><h2>Перебор объекта</h2>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Цикл <u-code-text>for in</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <div class="v-method-wrapper">
     <v-method before="for (variable" method=" in" after="object) {...}" arg="">
     Проходит через перечисляемые свойства объекта и его цепочку прототипов. Он пройдёт по каждому отдельному элементу.
@@ -517,6 +520,24 @@ for(let key <u-code>in</u-code> obj) {
 	console.log(obj[key]); // значения
 } 
 </v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><u-code-text>Object.keys</u-code-text> и <u-code-text>forEach</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+const values = {
+	name: 'Tony',
+	age: 25
+}
+
+<u-code>Object.keys</u-code>(values).<u-code>forEach</u-code>(key => {
+	const data = values[key];
+	console.log(data);
+});
+</v-code>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Перечисление всех свойств объекта</h3>

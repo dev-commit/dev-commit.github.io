@@ -749,6 +749,54 @@ field: Yup.object
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><u-code-text>.test</u-code-text> - кастомная обработка value</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const validationSchema = Yup.object().shape({
+    start: Yup.number().test("startValid", "So Big", (value) => {
+        if (value > 10) {
+            // Ошибка валидации
+            return false;
+        } else {
+            // Нет ошибки
+            return true;
+        }
+    }),
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Проверка значения на основе другого значения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Проверка через <u-code-text>lessThan</u-code-text></h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const validationSchema = Yup.object().shape({
+    start: Yup.number().lessThan(Yup.ref('end'), 'Should less than End'),
+    end: Yup.number()
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Обращение через <u-code-text>this.parent</u-code-text></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Нельзя использовать стрелочную функцию</li>
+</ul>
+
+<v-code lang="js" title="">
+const validationSchema = Yup.object().shape({
+    start: Yup.number().test("startValid", "So Big", function (value) {
+        console.log(value, this.parent.end);
+    }),
+    end: Yup.number()
+});
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>RegExp (phone, site, password)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">

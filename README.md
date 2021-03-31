@@ -27,6 +27,7 @@ npm run pages  # [node.js] build pages (после добавления ново
 
 ### Global
 - Переписать на Parcel
+- Поддержка Markdown
 - Сделать либу для установки через NPM
 
 ### Other
