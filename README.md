@@ -1,5 +1,5 @@
 
-## Available Scripts12121
+## Available Scripts
 ```bash
 http-server # start app
 ```
