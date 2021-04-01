@@ -27,7 +27,6 @@ npm run filles  # build + pages
 - Адаптивность
 
 ### Global
-- Создать .bat файл
 - Переписать на Parcel
 - Поддержка Markdown
 - Сделать либу для установки через NPM
