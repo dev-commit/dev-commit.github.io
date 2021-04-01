@@ -139,15 +139,13 @@ const App = () =&gt; {
 
     const onChange = (e) =&gt; setValue(e.target.value);
 
-    const checkFilters = () =&gt; {
+    const isDisabledButton = useMemo(() => {
         if (value) {
             return false;
         }
 
         return true;
-    };
-
-    const isDisabledButton = useMemo(() =&gt; checkFilters(), [value]);
+    }, [value]);
 
     return (
         &lt;&gt;

@@ -1,10 +1,10 @@
 {
     "name": "app",
     "version": "0.1.0",
-    "private": true,
     "scripts": {
+        "build": "node -r esm ./node.js/script-build.js",
         "pages": "node -r esm ./node.js/script-pages.js",
-        "build": "node -r esm ./node.js/script-build.js"
+        "files": "npm run build && npm run pages"
     },
     "dependencies": {
         "esm": "^3.2.25",

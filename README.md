@@ -5,8 +5,9 @@ http-server # start app
 ```
 
 ```bash
-npm run build  # [node.js] build full pages (после изменения темы)
-npm run pages  # [node.js] build pages (после добавления новой страницы)
+npm run build   # [node.js] build full pages (после изменения темы)
+npm run pages   # [node.js] build pages (после добавления новой страницы)
+npm run filles  # build + pages
 ```
 
 ---
@@ -26,6 +27,7 @@ npm run pages  # [node.js] build pages (после добавления ново
 - Адаптивность
 
 ### Global
+- Создать .bat файл
 - Переписать на Parcel
 - Поддержка Markdown
 - Сделать либу для установки через NPM

@@ -43,6 +43,7 @@ ARR_MODULE = [
     {
         title: 'Redux Plugins',
         themes: [
+            ['redux/plugins/redux-toolkit',            setTheme(2, ['@reduxjs/toolkit'])],
             ['redux/plugins/redux-devtools-extension', setTheme(2, ['redux-devtools-extension'])],
             ['redux/plugins/redux-thunk',              setTheme(2, ['redux-thunk'])],
             ['redux/plugins/redux-saga',               setTheme(2, ['redux-saga'])],
