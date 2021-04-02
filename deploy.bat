@@ -1,1 +1,1 @@
-npm run files && git add . && git commit -m "hello" && git push origin head
+npm run files && git add . && git commit -m "bash script" && git push origin head
