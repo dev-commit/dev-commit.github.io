@@ -468,18 +468,24 @@ const App = () =&gt; {
 import { <u-code>useFormikContext</u-code> } from 'formik';
 
 const ComponentWithContext = ({ name }) =&gt; {
-	const { values, errors, setFieldValue } = useFormikContext();
+	const { values, errors, initialValues, setValues, setFieldValue } = useFormikContext();
 
 	// console.log(values, errors);
 
-	const cnangeValue = () => {
-		setFieldValue(name, "Hello");
+	const changeValue = () => {
+		<u-code>setFieldValue</u-code>(name, "Hello");
+	};
+
+	// Записать во все values дефолтные значения
+	const defaultValues = () => {
+		<u-code>setValues</u-code>(<u-code>initialValues</u-code>);
 	};
 
 	return (
-		&lt;button type="button" onClick={cnangeValue}&gt;
-			Change Value
-		&lt;/button&gt;
+		&lt;&gt;
+			&lt;button type="button" onClick={changeValue}&gt;Change Value&lt;/button&gt;
+			&lt;button type="button" onClick={defaultValues}&gt;Default Values&lt;/button&gt;
+		&lt;/&gt;
 	);
 }
 </v-code>
