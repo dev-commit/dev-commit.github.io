@@ -1,34 +1,116 @@
 <h2>Базовые</h2>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Типы данных</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li><u-code-text>boolean</u-code-text> - логическое значение true или false</li>
-    <li><u-code-text>number</u-code-text> - числовое значение</li>
-    <li><u-code-text>string</u-code-text> - строки</li>
-    <li><u-code-text>array</u-code-text> - массивы</li>
-    <li><u-code-text>tuple</u-code-text> - кортежи</li>
-    <li><u-code-text>enum</u-code-text> - перечисления</li>
-    <li><u-code-text>any</u-code-text> - произвольный тип</li>
-    <li><u-code-text>null</u-code-text> и <u-code-text>undefined</u-code-text> - соответствуют значениям null и undefined в JavaScript</li>
-    <li><u-code-text>void</u-code-text> - отсутствие конкретного значения, используется в основном в качестве возвращаемого типа функций</li>
-    <li><u-code-text>never</u-code-text> - представляет отсутствие значения и используется в качестве возвращаемого типа функций, которые генерируют или возвращают ошибку</li>
-</ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Примеры</h3>
+<h3>String</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-const str:         string        = 'Hello'
-const bool:        boolean       = true
-const int:         number        = 42
-const float:       number        = 4.2
-const num:         number        = 3e10
+const str: string  = 'Hello'
 </v-code>
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Boolean</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-const nubmerArray: number[]      = [1, 2, 3]
-const nubmerArray: Array&lt;number&gt; = [1, 2, 3] // Дженерик типы - указывает из чего состоит данный объект
-const nubmerArray: string[]      = ['Hello', 'World']
+const bool: boolean = true
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Number</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Все числа в TypeScript, как и в JavaScript, являются числами с плавающей точкой</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Поддержка систем счисления</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Двоичная</li>
+    <li>Восьмеричная</li>
+    <li>Десятичная</li>
+    <li>Шестнадцатиричная</li>
+</ul>
+
+<v-code lang="js" title="">
+const decimal: number = 42;
+const decimal: number = 4.2;
+
+const hex:     number = 0xf00d;
+const binary:  number = 0b1010;
+const octal:   number = 0o744;
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Array</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Массивы являются строго типизированными: если изначально массив содержит строки, то в будущем он сможет работать только со строками</li>
+</ul>
+
+<v-code lang="js" title="">
+const list: number[] = [10, 20, 30];
+const colors: string[] = ['red', 'green', 'blue'];
+
+console.log(list[0]);
+console.log(colors[1]);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Применение типа Array&lt;&gt; (Дженерик)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Дженерик указывает из чего состоит данный объект</li>
+</ul>
+
+<v-code lang="js" title="">
+const names: Array&lt;string&gt; = ['Tom', 'Bob', 'Alice'];
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Object</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>На второй строке будет ошибка, поскольку компилятор после первой строки предполагает, что объект person будет иметь два свойства name и age</li>
+    <li>Должно быть соответствие по названиям, количеству и типу свойств</li>
+</ul>
+
+<v-code lang="js" title="">
+let person = {
+	name: 'Tom',
+	age: 23
+};
+
+person = {
+	name: 'Alice'
+};
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>null и undefined</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+let a: undefined = undefined;
+let b: null = null;
+</v-code>
+
+<ul class="list-point">
+    <li>Фактически можно присваивать значения undefined и null переменным других типов, например, number</li>
+    <li>В этом плане null и undefined выступают как подтипы других типов и полезны преимущественно в каких-то операциях, где неизвестен результат - то ли это будет число или строка, то ли это будет null. В этом случае, чтобы избежать возможной ошибки, мы можем проверить значение на undefined или null, как в JavaScript</li>
+</ul>
+
+<v-code lang="js" title="">
+let x: number = undefined;
+console.log(x);
+
+x = null;
+console.log(x);
+
+x = 5;
+console.log(x);
 </v-code>

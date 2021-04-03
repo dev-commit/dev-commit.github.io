@@ -1,0 +1,40 @@
+<h2>Типы данных</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Типы данных</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>boolean</u-code-text> - логическое значение true или false</li>
+    <li><u-code-text>number</u-code-text> - числовое значение</li>
+    <li><u-code-text>string</u-code-text> - строки</li>
+    <li><u-code-text>array</u-code-text> - массивы</li>
+    <li><u-code-text>tuple</u-code-text> - кортежи</li>
+    <li><u-code-text>enum</u-code-text> - перечисления</li>
+    <li><u-code-text>any</u-code-text> - произвольный тип</li>
+    <li><u-code-text>null</u-code-text> и <u-code-text>undefined</u-code-text> - соответствуют значениям null и undefined в JavaScript</li>
+    <li><u-code-text>void</u-code-text> - отсутствие конкретного значения, используется в основном в качестве возвращаемого типа функций</li>
+    <li><u-code-text>never</u-code-text> - представляет отсутствие значения и используется в качестве возвращаемого типа функций, которые генерируют или возвращают ошибку</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Особенности</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Если не указывать типа переменной, то TypeScript автоматически выведет тип из присваемого данной переменной значения</li>
+    <li>Так, на первой строке компилятор TS увидит, что переменной присваивается строка, поэтому для нее будет использоваться тип string. Однако на второй строке опять же компилятор выдаст ошибку, поскольку у переменной уже определен тип string. А новое значение предполагает тип number.</li>
+</ul>
+
+<v-code lang="js" title="">
+let hello = 'Hello World';
+hello = 23;
+</v-code>
+
+<ul class="list-point">
+    <li>Если переменная определяется без значения, и только впоследствии при работе программы ей присваивается значение, тогда считается, что она имеет тип any</li>
+</ul>
+
+<v-code lang="js" title="">
+let x;  // тип any
+x = 10; 
+</v-code>
+

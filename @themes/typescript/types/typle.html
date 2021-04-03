@@ -1,9 +1,22 @@
 <h2>Typle</h2>
 
 <ul class="list-point">
-    <li>Массив из разных типов данных</li>
+    <li><u-text-define>Tuples (кортежи)</u-text-define> - также, как и массивы, представляют набор элементов, для которых уже заранее известен тип. Массив из разных типов данных</li>
 </ul>
 
 <v-code lang="js" title="">
-const contact: [string, number] = ['Tony', 23]
+// определение и инициализация кортежа
+const contact: [string, number] = ['Tony', 23];
+</v-code>
+
+<v-code lang="js" title="">
+// определение кортежа - кортеж состоит из двух элементов - строки и числа
+const contact: [string, number];
+
+// инициализация кортежа
+contact = ['Tony', 23];
+
+// использование кортежа
+console.log(contact[1]); // 23
+contact[1] = 25;
 </v-code>

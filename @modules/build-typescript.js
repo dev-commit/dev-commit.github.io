@@ -9,11 +9,13 @@ ARR_MODULE = [
     {
         title: 'Типы',
         themes: [
-            ['typescript/types/basic',   emoji.chevron+setTheme(4, ['Базовые'])],
-            ['typescript/types/typle',   emoji.chevron+setTheme(4, ['Typle'])],
-            ['typescript/types/any',     emoji.chevron+setTheme(4, ['Any'])],
-            ['typescript/types/never',   emoji.chevron+setTheme(4, ['Never'])],
-            ['typescript/types/type',    emoji.chevron+setTheme(4, ['Type'])],
+            ['typescript/types/types',   'Типы данных'],
+            ['typescript/types/basic',   setTheme(1, ['number', 'string', '...'])],
+            ['typescript/types/typle',   setTheme(1, ['typle'])],
+            ['typescript/types/any',     setTheme(1, ['any'])],
+            ['typescript/types/never',   setTheme(1, ['never'])],
+            ['typescript/types/type',    setTheme(1, ['type'])],
+            ['typescript/types/enum',    setTheme(1, ['enum'])],
         ]
     },
     {
@@ -43,7 +45,6 @@ ARR_MODULE = [
     {
         title: 'Другие возможности',
         themes: [
-            ['typescript/capabilities/enums',      emoji.baseball+'Enums'],
             ['typescript/capabilities/guards',     emoji.baseball+'Guards'],
             ['typescript/capabilities/generics',   emoji.baseball+'Generics'],
             ['typescript/capabilities/operators',  emoji.baseball+'Операторы'],
