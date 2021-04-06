@@ -36,7 +36,7 @@
                 href="#typescript/main/install"
             >🍋 Установка и настройка</a>
         </li>
-    </ul><h4>🥥 Типы</h4><ul>  
+    </ul><h4>🥥 Типы данных</h4><ul>  
         <li>
             <a
                 class="menu-link"
@@ -80,17 +80,49 @@
         <li>
             <a
                 class="menu-link"
-                id="id__typescript/types/type"
-                href="#typescript/types/type"
+                id="id__typescript/types/enum"
+                href="#typescript/types/enum"
+            ><u-menu>enum</u-menu></a>
+        </li>
+    </ul><h4>🥥 Type</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__typescript/type/type"
+                href="#typescript/type/type"
             ><u-menu>type</u-menu></a>
         </li>
       
         <li>
             <a
                 class="menu-link"
-                id="id__typescript/types/enum"
-                href="#typescript/types/enum"
-            ><u-menu>enum</u-menu></a>
+                id="id__typescript/type/pick-record"
+                href="#typescript/type/pick-record"
+            ><u-menu>Pick&lt;&gt;</u-menu> <u-menu>Record&lt;&gt;</u-menu></a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__typescript/type/variants"
+                href="#typescript/type/variants"
+            >Варианты</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__typescript/type/combine"
+                href="#typescript/type/combine"
+            >Комбинация типов</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__typescript/type/react"
+                href="#typescript/type/react"
+            >React</a>
         </li>
     </ul><h4>🥥 Интерфейсы</h4><ul>  
         <li>
@@ -544,43 +576,63 @@ function infinite(): never {
 	while(true) {}
 }
 </v-code>
-</div><div id="typescript/types/type"><h2>Type</h2>
+</div><div id="typescript/types/enum"><h2>Enum</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Enum</u-text-define> - предназначен для описания набора числовых данных с помощью строковых констант</li>
+    <li>Позволяет лучше структурировать код, если присутстуют однотипные элементы</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Без значения</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+enum Season {
+	Winter, // 0
+	Spring, // 1
+	Summer, // 2
+	Autumn  // 3
+};
+
+let a: Season = Season.Summer; // 2
+let b: Season = Season[2];     // "Summer"
+
+// Изменение значения
+a = Season.Autumn;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Задание значения</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+enum SocialMedia {
+	VK = 'VK',
+	FACEBOOK = 'FACEBOOK',
+	INSTAGRAM = 'INSTAGRAM'
+}
+
+const social = SocialMedia.INSTAGRAM // "INSTAGRAM"
+</v-code>
+
+
+
+</div><div id="typescript/type/type"><h2>Type</h2>
 
 <ul class="list-point">
     <li><u-text-define>Type</u-text-define> - создание собственного типа</li>
 </ul>
 
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Варианты</h3>
+<h3>Одно значение</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-type Props = {
-	name?: string;
-	name: string;
-	isActive: boolean;
-	
-	name: string[] | undefined;
-	size: 'small' | 'long';
-	customFooter: never;
-	
-	onClick: Function;
-	onClick: VoidFunction;
-	onClick: () => void;
-	onClick: (cn: string) => void;
-	onClick: (cn: string, isOpen?: boolean) => boolean;
+type Login = string;
+type ID = string | number;
 
-	response: Promise&lt;never&gt;;
-	response: Promise&lt;void&gt;;
-	response: Promise&lt;string&gt;;
-	response: Promise&lt;boolean&gt;;
-};
-
-const App = ({ name, isActive, onClick }: Props) => {
-	//
-};
+const login: Login = 'admin';
+const id1: ID = 42
+const id2: ID = 'Hello'
 </v-code>
-
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Props для React-компонента</h3>
@@ -605,6 +657,115 @@ const Props = {
 
 App(Props);
 </v-code>
+</div><div id="typescript/type/pick-record"><h2>Pick и Record</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Pick</u-text-define> - выбрать указанные поля</li>
+    <li><u-text-define>Record</u-text-define> - </li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определение типов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Pick&lt;T, K extends keyof T&gt; = {
+	[P in K]: T[P];
+}
+type Record&lt;K extends string, T&gt; = {
+	[P in K]: T;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><u-code-text>Pick&lt;&gt;</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Dog = {
+	id: number;
+	name: string;
+	weight: number;
+	age: number;
+}
+
+// взяли только "id" и "name"
+type Doggy = <u-code>Pick</u-code>&lt;Dog, 'id' | 'name' &gt;;
+
+// эквивалентно
+// type Doggy = {
+//     id: number;
+//     name: string;
+// }
+
+const obj: Doggy = {
+    id: 23,
+    name: 'Jack'
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><u-code-text>Record&lt;&gt;</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Dog = {
+  id: number;
+  name: string;
+}
+
+type Doggy = <u-code>Record</u-code><'prop1' | 'prop2' | 'prop3', Dog>;
+
+// эквивалентно
+// type Doggy = {
+//     prop1: Dog;
+//     prop2: Dog;
+//     prop3: Dog;
+// }
+
+const obj: Doggy = {
+    prop1: {
+        id: 23,
+        name: 'Jack'
+    },
+    prop2: {
+        id: 23,
+        name: 'Jack'
+    },
+    prop3: {
+        id: 23,
+        name: 'Jack'
+    }
+}
+</v-code>
+</div><div id="typescript/type/variants"><h2>Варианты</h2>
+
+<v-code lang="js" title="">
+type Props = {
+	name?: string;
+	name: string;
+	isActive: boolean;
+	
+	name: string[] | undefined;
+	size: 'small' | 'long';
+	customFooter: never;
+	
+	onClick: Function;
+	onClick: VoidFunction;
+	onClick: () => void;
+	onClick: (cn: string) => void;
+	onClick: (cn: string, isOpen?: boolean) => boolean;
+
+	response: Promise&lt;never&gt;;
+	response: Promise&lt;void&gt;;
+	response: Promise&lt;string&gt;;
+	response: Promise&lt;boolean&gt;;
+};
+</v-code>
+
+<v-code lang="js" title="">
+const App = ({ name, isActive, onClick }: Props) => {
+	//
+};
+</v-code>
+</div><div id="typescript/type/combine"><h2>Комбинация типов</h2>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -647,23 +808,8 @@ const obj: Props = {
 }
 </v-code>
 
+</div><div id="typescript/type/react"><h2>React</h2>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Одно значение</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-type Login = string;
-type ID = string | number;
-
-const login: Login = 'admin';
-const id1: ID = 42
-const id2: ID = 'Hello'
-</v-code>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>React</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 import {
 	ReactNode,
@@ -682,46 +828,6 @@ type Props = {
 	children: JSX.Element;
 }
 </v-code>
-</div><div id="typescript/types/enum"><h2>Enum</h2>
-
-<ul class="list-point">
-    <li><u-text-define>Enum</u-text-define> - предназначен для описания набора числовых данных с помощью строковых констант</li>
-    <li>Позволяет лучше структурировать код, если присутстуют однотипные элементы</li>
-</ul>
-
-<!------------------------------------------------------------->
-<h4>Без значения</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-enum Season {
-	Winter, // 0
-	Spring, // 1
-	Summer, // 2
-	Autumn  // 3
-};
-
-let a: Season = Season.Summer; // 2
-let b: Season = Season[2];     // "Summer"
-
-// Изменение значения
-a = Season.Autumn;
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Задание значения</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-enum SocialMedia {
-	VK = 'VK',
-	FACEBOOK = 'FACEBOOK',
-	INSTAGRAM = 'INSTAGRAM'
-}
-
-const social = SocialMedia.INSTAGRAM // "INSTAGRAM"
-</v-code>
-
-
-
 </div><div id="typescript/interface/main"><h2>Основы</h2>
 
 <ul class="list-point">

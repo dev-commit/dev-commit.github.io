@@ -1,0 +1,43 @@
+<h2>Комбинация типов</h2>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Расширение типов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Props = {
+	header: string;
+} & TabsProps;
+
+type TabsProps = {
+	count: number;
+};
+
+const obj: Props = {
+	header: 'Hello',
+	count: 23,
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование одного типа в другом</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Props = {
+	header: string;
+	obj: TabsProps;
+};
+
+type TabsProps = {
+	count: number;
+};
+
+const obj: Props = {
+	header: 'Hello',
+	obj: {
+		count: 23
+	},
+}
+</v-code>
+

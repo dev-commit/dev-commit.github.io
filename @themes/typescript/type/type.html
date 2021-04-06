@@ -1,0 +1,41 @@
+<h2>Type</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Type</u-text-define> - создание собственного типа</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Одно значение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Login = string;
+type ID = string | number;
+
+const login: Login = 'admin';
+const id1: ID = 42
+const id2: ID = 'Hello'
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Props для React-компонента</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Props = {
+	name: string;
+	onClick: (cn: string, isOpen?: boolean) => boolean;
+};
+
+const App = ({ name, onClick }: Props) => {
+	onClick('Hello '+name);
+}
+
+const Props = {
+	name: 'Tony',
+	onClick: (cn: string) => {
+		console.log(cn); // => "Hello Tony"
+		return true;
+	}
+}
+
+App(Props);
+</v-code>

@@ -7,15 +7,24 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Типы',
+        title: 'Типы данных',
         themes: [
             ['typescript/types/types',   'Типы данных'],
             ['typescript/types/basic',   setTheme(1, ['number', 'string', '...'])],
             ['typescript/types/typle',   setTheme(1, ['typle'])],
             ['typescript/types/any',     setTheme(1, ['any'])],
             ['typescript/types/never',   setTheme(1, ['never'])],
-            ['typescript/types/type',    setTheme(1, ['type'])],
             ['typescript/types/enum',    setTheme(1, ['enum'])],
+        ]
+    },
+    {
+        title: 'Type',
+        themes: [
+            ['typescript/type/type',         setTheme(1, ['type'])],
+            ['typescript/type/pick-record',  setTheme(1, ['Pick&lt;&gt;', 'Record&lt;&gt;'])],
+            ['typescript/type/variants',    'Варианты'],
+            ['typescript/type/combine',     'Комбинация типов'],
+            ['typescript/type/react',       'React'],
         ]
     },
     {
