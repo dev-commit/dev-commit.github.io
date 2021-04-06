@@ -1,0 +1,77 @@
+<h2>Record&lt;&gt;</h2>
+
+
+<ul class="list-point">
+    <li><u-text-define>Record</u-text-define> - позволяет создать новый тип из объединения. Значения в объединении используются как атрибуты нового типа</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определение типа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="">
+type Record&lt;K extends string, T&gt; = {
+    [P in K]: T;
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример #1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+type Dog = {
+  id: number;
+  name: string;
+}
+
+type Doggy = <u-code>Record</u-code><'prop1' | 'prop2' | 'prop3', Dog>;
+
+// эквивалентно
+// type Doggy = {
+//     prop1: Dog;
+//     prop2: Dog;
+//     prop3: Dog;
+// }
+
+const obj: Doggy = {
+    prop1: {
+        id: 23,
+        name: 'Jack'
+    },
+    prop2: {
+        id: 23,
+        name: 'Jack'
+    },
+    prop3: {
+        id: 23,
+        name: 'Jack'
+    }
+}
+</v-code>
+
+
+<!------------------------------------------------------------->
+<h4>Пример #2</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Если я забуду кошку, то получу ошибку.</li>
+    <li>Если я добавлю кошку, которая не разрешена, я получу ошибку.</li>
+    <li>Если я позже изменю CatNames, я получу ошибку. Это особенно полезно, потому что CatNames, скорее всего, импортируется из другого файла и, вероятно, используется во многих местах.</li>
+</ul>
+
+<v-code lang="js" title="">
+type CatNames = "miffy" | "boris" | "mordred";
+
+type CatList = Record&lt;CatNames, {age: number}&gt;
+
+const cats:CatList = {
+    miffy: { age:99 },
+    boris: { age:16 },
+    mordred: { age:600 }
+}
+</v-code>

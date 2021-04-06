@@ -1,0 +1,47 @@
+<h2>Pick&lt;&gt;</h2>
+
+
+<ul class="list-point">
+    <li><u-text-define>Pick</u-text-define> - позволяет выбрать указанные поля</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определение типа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="">
+type Pick&lt;T, K extends keyof T&gt; = {
+    [P in K]: T[P];
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример #1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+type Dog = {
+	id: number;
+	name: string;
+	weight: number;
+	age: number;
+}
+
+// взяли только "id" и "name"
+type Doggy = <u-code>Pick</u-code>&lt;Dog, 'id' | 'name' &gt;;
+
+// эквивалентно
+// type Doggy = {
+//     id: number;
+//     name: string;
+// }
+
+const obj: Doggy = {
+    id: 23,
+    name: 'Jack'
+}
+</v-code>
