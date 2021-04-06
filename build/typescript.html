@@ -569,6 +569,11 @@ type Props = {
 	onClick: () => void;
 	onClick: (cn: string) => void;
 	onClick: (cn: string, isOpen?: boolean) => boolean;
+
+	response: Promise&lt;never&gt;;
+	response: Promise&lt;void&gt;;
+	response: Promise&lt;string&gt;;
+	response: Promise&lt;boolean&gt;;
 };
 
 const App = ({ name, isActive, onClick }: Props) => {
@@ -603,6 +608,47 @@ App(Props);
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Расширение типов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Props = {
+	header: string;
+} & TabsProps;
+
+type TabsProps = {
+	count: number;
+};
+
+const obj: Props = {
+	header: 'Hello',
+	count: 23,
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование одного типа в другом</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Props = {
+	header: string;
+	obj: TabsProps;
+};
+
+type TabsProps = {
+	count: number;
+};
+
+const obj: Props = {
+	header: 'Hello',
+	obj: {
+		count: 23
+	},
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Одно значение</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
@@ -612,6 +658,29 @@ type ID = string | number;
 const login: Login = 'admin';
 const id1: ID = 42
 const id2: ID = 'Hello'
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>React</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import {
+	ReactNode,
+	ReactElement,
+	SyntheticEvent,
+	HTMLAttributes,
+	CSSProperties,
+} from 'react';
+
+type Props = {
+	children: ReactNode;
+	tooltip: ReactElement;
+	onClick: (e: SyntheticEvent) => void;
+	navTab: HTMLAttributes&lt;HTMLButtonElement&gt;;
+	style?: CSSProperties;
+	children: JSX.Element;
+}
 </v-code>
 </div><div id="typescript/types/enum"><h2>Enum</h2>
 
