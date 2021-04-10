@@ -1,0 +1,31 @@
+<h2>util</h2>
+
+<ul class="list-point">
+    <li><u-text-define>util</u-text-define> - модуль наследования событий для объекта</li>
+</ul>
+
+<v-code lang="js" title="">
+const events = require('events'); // модуль отслеживания событий
+const util = require('util');     // модуль наследования событий для объекта
+</v-code>
+
+<v-code lang="js" title="">
+class Cars {
+    constructor(model) {
+        this.model = model;
+    }
+}
+
+// наследование событий для всех объектов, созданных на основе cars
+util.inherits(Cars, events.EventEmitter);
+
+const car = new Cars('BMW');
+
+car.on('speed', (speed) => {
+    console.log(speed);
+});
+
+car.emit('speed', '254km');
+
+// => 254km
+</v-code>

@@ -1,0 +1,58 @@
+<h2>require, module.exports</h2>
+
+<v-code lang="js" title="">
+// export
+const text = 'Hello';
+module.exports = text;
+
+// import
+const text = require('./data');
+</v-code>
+
+
+<v-code lang="js" title="">
+// export
+const foo = () => console.log('Hello');
+module.exports = foo;
+
+// import
+const foo = require('./data');
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Exports нескольких значений</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// export-1
+const a = 'Hello';
+const b = 'World';
+
+module.exports.a = a;
+module.exports.b = b;
+</v-code>
+
+<v-code lang="js" title="">
+// export-2
+module.exports.a = 'Hello';
+module.exports.b = 'World';
+</v-code>
+
+<v-code lang="js" title="">
+// export-3
+const a = 'Hello';
+const b = 'World';
+
+module.exports = {
+    a: a,
+    b: b,
+};
+</v-code>
+
+<v-code lang="js" title="">
+// import
+const data = require('./data');
+
+const a = data.a;
+const b = data.b;
+</v-code>
