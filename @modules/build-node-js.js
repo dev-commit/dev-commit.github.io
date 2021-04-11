@@ -3,7 +3,6 @@ ARR_MODULE = [
         title: 'Основное',
         themes: [
             ['node-js/main/info',     emoji.theory+'Информация'],
-            ['node-js/main/files',    emoji.pizza+'Файлы и директории'],
             ['node-js/main/pipe',     setTheme(1, ['.pipe'])],
             ['node-js/main/stream',   'Потоки'],
             ['node-js/main/router',   'Маршрутизация'],
@@ -21,8 +20,8 @@ ARR_MODULE = [
         title: 'Встроенные модули',
         themes: [
             ['node-js/own-modules/path',   setTheme(2, ['path'])],
-            ['node-js/own-modules/fs',     setTheme(2, ['fs'])],
-            ['node-js/own-modules/http',   setTheme(2, ['http'])],
+            ['node-js/own-modules/fs',     setTheme(2, ['fs'])+' Файлы и директории'],
+            ['node-js/own-modules/http',   setTheme(2, ['http'])+' Сервер'],
             ['node-js/own-modules/events', setTheme(2, ['events'])],
             ['node-js/own-modules/util',   setTheme(2, ['util'])],
         ]

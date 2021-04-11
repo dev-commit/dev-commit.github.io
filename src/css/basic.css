@@ -1,5 +1,7 @@
 
 @import "../libs/highlight/sawyer.css" screen;
+/* @import "../libs/highlight/styles/androidstudio.css" screen; */
+/* @import "../libs/highlight/styles/atom-one-dark.css" screen; */
 
 :root {
 	--theme-green:       74, 175, 45;
@@ -13,6 +15,7 @@
 	--color-dark-green:  42, 61, 47;     /*dark green*/
 	--color-blue:        19, 193, 247;   /*blue blue*/
 	--color-yellowgreen: 152, 195, 121;  /*yellowgreen*/
+	--color-sand:        227, 227, 168;  /*sand*/
 
 	--box-shadow:
 		0 16px 24px 2px rgba(33,37,41,.02), 
@@ -74,14 +77,19 @@ code {
     line-height: 1.5em;
     font-size: 15px;
     position: relative;
+	border: 1px solid #eceff1;
+	border-radius: 3px;
+	box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
 }
 code.border {
-	border: 2px solid rgba(var(--theme-blue), 0.45);
+	border: 1px solid rgba(var(--theme-blue), 0.2);
+	border-left: 4px solid rgba(var(--theme-blue), 0.2);
 	background: rgba(var(--theme-blue), 0.1) !important;
+	box-shadow: none;
 }
 code.none {
 	background: none;
-	border: 1px solid rgba(var(--theme-brown), 0.2);
+	border: 2px solid rgba(var(--theme-brown), 0.2);
 }
 pre a {
 	color: black;
@@ -136,12 +144,14 @@ h2 {
 h3 {
 	margin: 15px 0px 15px 0px;
 	padding: 10px;
-	color: #42b983;
+	color: #485496;
 	font-size: 18px;
 }
 h4 {
 	margin: 15px 0px 15px 0px;
+	padding: 10px;
 	padding-bottom: 5px;
+	color: rgb(107, 101, 107);
 }
 em {
 	color: #690;

@@ -1,5 +1,115 @@
 <h2>fs</h2>
 
-<v-code lang="js" title="">
+<ul class="list-point">
+    <li><u-text-define>fs</u-text-define> - работа с файлами и деректориями</li>
+</ul>
+
+<v-code lang="js border" title="">
 const fs = require('fs);
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Чтение из файла</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронно
+const fileSync  = <u-code>fs.readFileSync</u-code>('text.txt', 'utf8');
+
+// асинхронно  
+const fileASync = <u-code>fs.readFile</u-code>('text.txt', 'utf8');       
+
+// асинхронно
+<u-code>fs.readFile</u-code>('text.txt', 'utf8', (err, data) => {
+    console.log(data);
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Запись в файл</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронно
+<u-code>fs.writeFileSync</u-code>('text.txt', 'Hello \n World');
+
+// асинхронно
+<u-code>fs.writeFile</u-code>('text.txt', 'Hello \n World', (err, data) => {
+    console.log(data);
+}); 
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Удаление файла</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронно
+<u-code>fs.unlinkSync</u-code>('file.txt'); 
+
+// асинхронно
+<u-code>fs.unlink</u-code>('file.txt', () => {
+    //
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Проверка существования файла или директории</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+<u-code>fs.existsSync</u-code>('stuffs');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Создание директории</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронно
+<u-code>fs.mkdirSync</u-code>('stuff');
+
+// асинхронно
+<u-code>fs.mkdir</u-code>('stuff');
+</v-code>
+
+<ul class="list-point">
+    <li>При использовании асинхронного метода, необходимо использовать функцию обратного вызова</li>
+</ul>
+
+<v-code lang="js" title="">
+<u-code>fs.mkdir</u-code>('stuff', () => {
+	<u-code>fs.readFile</u-code>('readme.txt', 'utf8', (err, data) => {
+		<u-code>fs.writeFile</u-code>('./stuff/writeme.txt', data);
+	});
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Удаление пустой директории</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронно
+<u-code>fs.rmdirSync</u-code>('stuff');
+
+// асинхронно
+<u-code>fs.rmdir</u-code>('stuff');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Удаление непустой директории</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="">
+const rimraf = require('rimraf');
+</v-code>
+
+<v-code lang="js" title="">
+// удаление не пустой директории
+<u-code>fs.mkdirSync</u-code>('nodejs/pages');
+</v-code>
+
+<v-code lang="js" title="">
+// удаление сначала файла из папки
+<u-code>fs.unlink</u-code>('./test-folder/file.txt', () => {
+    // после этого удаление папки
+    <u-code>fs.rmdir</u-code>('test-folder', () => {
+        //
+    });
+});
 </v-code>
