@@ -401,6 +401,16 @@ const b = data.b;
 const fs = require('fs');
 </v-code>
 
+<v-code lang="js none" title="">
+fs.readFile()    // Чтение из файла
+fs.writeFile()   // Запись в файл
+fs.appendFile()  // Добавление в файл
+fs.unlink()      // Удаление файла
+fs.existsSync()  // Проверка существования файла или директории
+fs.mkdir()       // Создание директории
+fs.rmdir()       // Удаление пустой директории
+</v-code>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Чтение из файла</h3>
@@ -427,7 +437,30 @@ const fileASync = <u-code>fs.readFile</u-code>('text.txt', 'utf8');
 
 // асинхронно
 <u-code>fs.writeFile</u-code>('text.txt', 'Hello \n World', (err, data) => {
-    console.log(data);
+    if (err) {
+        throw err;
+    }
+
+    console.log('Файл создан');
+}); 
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Добавление в файл</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронно
+<u-code>fs.appendFileSync</u-code>('text.txt', '\n Hello Again!');
+</v-code>
+
+<v-code lang="js" title="">
+// асинхронно
+<u-code>fs.appendFile</u-code>('text.txt', '\n Hello Again!', (err, data) => {
+    if (err) {
+        throw err;
+    }
+
+    console.log('Файл обновлен');
 }); 
 </v-code>
 
@@ -471,6 +504,20 @@ const fileASync = <u-code>fs.readFile</u-code>('text.txt', 'utf8');
 	<u-code>fs.readFile</u-code>('readme.txt', 'utf8', (err, data) => {
 		<u-code>fs.writeFile</u-code>('./folderName/writeme.txt', data);
 	});
+});
+</v-code>
+
+<ul class="list-point">
+    <li>Можно использвать обработку <u>error</u></li>
+</ul>
+
+<v-code lang="js" title="">
+<u-code>fs.mkdir</u-code>('folderName', (err) => {
+    if (err) {
+        throw err;
+    }
+
+    console.log('Папка создана');
 });
 </v-code>
 
@@ -530,12 +577,27 @@ console.log('Отслеживаем порт 3000');
 const path = require('path');
 </v-code>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Основные методы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 const a = path.basename(__filemane);                    // Название файла
 const a = path.dirname(__filemane);                     // Имя директории
 const a = path.extname(__filemane);                     // Расширение файла
 const a = path.parse(__filemane);                       // Объект с параметрами текущего файла
 const a = path.join(__dirname, 'server', 'index.html'); // ПутьФайла/server/index.html
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Формирование пути</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// filePath1 C:\Users\user\www\folderName
+const path1 = path.join(__dirname, 'folderName');
+
+// filePath2 C:\Users\user\www\folderName\text.txt
+const path2 = path.join(__dirname, 'folderName', 'text.txt');
 </v-code>
 </div><div id="node-js/own-modules/events"><h2>events</h2>
 

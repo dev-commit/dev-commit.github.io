@@ -8,6 +8,16 @@
 const fs = require('fs');
 </v-code>
 
+<v-code lang="js none" title="">
+fs.readFile()    // Чтение из файла
+fs.writeFile()   // Запись в файл
+fs.appendFile()  // Добавление в файл
+fs.unlink()      // Удаление файла
+fs.existsSync()  // Проверка существования файла или директории
+fs.mkdir()       // Создание директории
+fs.rmdir()       // Удаление пустой директории
+</v-code>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Чтение из файла</h3>
@@ -34,7 +44,30 @@ const fileASync = <u-code>fs.readFile</u-code>('text.txt', 'utf8');
 
 // асинхронно
 <u-code>fs.writeFile</u-code>('text.txt', 'Hello \n World', (err, data) => {
-    console.log(data);
+    if (err) {
+        throw err;
+    }
+
+    console.log('Файл создан');
+}); 
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Добавление в файл</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронно
+<u-code>fs.appendFileSync</u-code>('text.txt', '\n Hello Again!');
+</v-code>
+
+<v-code lang="js" title="">
+// асинхронно
+<u-code>fs.appendFile</u-code>('text.txt', '\n Hello Again!', (err, data) => {
+    if (err) {
+        throw err;
+    }
+
+    console.log('Файл обновлен');
 }); 
 </v-code>
 
@@ -78,6 +111,20 @@ const fileASync = <u-code>fs.readFile</u-code>('text.txt', 'utf8');
 	<u-code>fs.readFile</u-code>('readme.txt', 'utf8', (err, data) => {
 		<u-code>fs.writeFile</u-code>('./folderName/writeme.txt', data);
 	});
+});
+</v-code>
+
+<ul class="list-point">
+    <li>Можно использвать обработку <u>error</u></li>
+</ul>
+
+<v-code lang="js" title="">
+<u-code>fs.mkdir</u-code>('folderName', (err) => {
+    if (err) {
+        throw err;
+    }
+
+    console.log('Папка создана');
 });
 </v-code>
 
