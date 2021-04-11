@@ -19,9 +19,9 @@ ARR_MODULE = [
     {
         title: 'Встроенные модули',
         themes: [
-            ['node-js/own-modules/path',   setTheme(2, ['path'])],
             ['node-js/own-modules/fs',     setTheme(2, ['fs'])+' Файлы и директории'],
             ['node-js/own-modules/http',   setTheme(2, ['http'])+' Сервер'],
+            ['node-js/own-modules/path',   setTheme(2, ['path'])],
             ['node-js/own-modules/events', setTheme(2, ['events'])],
             ['node-js/own-modules/util',   setTheme(2, ['util'])],
         ]
@@ -33,13 +33,7 @@ ARR_MODULE = [
             ['node-js/package/body-parser', setTheme(2, ['body-parser'])],
             ['node-js/package/nodemailer',  setTheme(2, ['nodemailer'])],
             ['node-js/package/nodemon',     setTheme(2, ['nodemon'])],
-        ]
-    },
-    {
-        title: 'Прочее',
-        themes: [
-            ['node-js/other/samples',  'Примеры'],
-            ['node-js/other/function', 'Функции'],
+            ['node-js/package/rimraf',      setTheme(2, ['rimraf'])],
         ]
     },
 ]

@@ -1,47 +1,46 @@
 <h2>express</h2>
 
-<v-code lang="bash" title="">
-npm i express          # установка пакета
-npm uninstall express  # удаление пакета
-npm i                  # установка всех пакетов из package.json
-</v-code>
+<v-pre-npm>
+npm i --save <u-code-npm>express</u-code-npm>
+</v-pre-npm>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Маршрутизация на Express</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 </v-code>
 
 <v-code lang="js" title="">
 // статическая ссылка (главная)
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
     res.send('This is home');
 });
 
 // статическая ссылка (news)
-app.get('/news', function(req, res) {
+app.get('/news', (req, res) => {
     res.send('This is news');
 });
 
 // ссылка с name статьи /news/23
-app.get('/news/:name', function(req, res) {
+app.get('/news/:name', (req, res) => {
     res.send('id=' + req.params.name);
 });
 
 // ссылка с name и id статьи /news/23
-app.get('/news/:name/:id', function(req, res) {
+app.get('/news/:name/:id', (req, res) => {
     res.send('id=' + req.params.name + req.params.id);
 });
 </v-code>
 
 <v-code lang="js" title="">
 // отображение html файла
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
-app.get('/about', function(req, res) {
+app.get('/about', (req, res) => {
     res.sendFile(__dirname + '/about.html');
 });
 </v-code>
@@ -65,21 +64,21 @@ npm i ejs
 <h4>index.js</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 // указание шаблонизатора, который будем использовать
 app.set('view engine', 'ejs');
 // ссылка на статические файлы (css, img, doc и т.д. иначе не будут загружаться)
 app.use('/public', express.static('public'));
-app.get('/news/:id', function(req, res) {
+app.get('/news/:id', (req, res) => {
     // берет шаблон news.ejs из папки views
     // передает свойство newsId = req.params.id
     // передает переменную newsParam = 234
     // передаем объект newsParam
-    var obj = {title: 'Новость', id: 4, paragraphs: ['Текст', 'Числа: 2, 4', 77]};
+    const obj = {title: 'Новость', id: 4, paragraphs: ['Текст', 'Числа: 2, 4', 77]};
     res.render('news', {newsId: req.params.id, newsParam: 234, newsObj: obj});
 });
-app.get('/about', function(req, res) {
+app.get('/about', (req, res) => {
     res.render('about');
 });
 app.listen(3000);
@@ -108,7 +107,7 @@ public - все статические файлы (css, img, doc и т.д.)
 </v-code>
 <v-code lang="html" title="">
 &lt;ul&gt;
-    &lt;% newsObj.paragraphs.forEach(function(item) { %&gt;
+    &lt;% newsObj.paragraphs.forEach((item) => { %&gt;
         &lt;li&gt;&lt;%= item %&gt;&lt;/li&gt;
     &lt;% }); %&gt;
 &lt;/ul&gt;

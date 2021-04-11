@@ -5,7 +5,7 @@
 </ul>
 
 <v-code lang="js border" title="">
-const fs = require('fs);
+const fs = require('fs');
 </v-code>
 
 
@@ -63,10 +63,10 @@ const fileASync = <u-code>fs.readFile</u-code>('text.txt', 'utf8');
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 // синхронно
-<u-code>fs.mkdirSync</u-code>('stuff');
+<u-code>fs.mkdirSync</u-code>('folderName');
 
 // асинхронно
-<u-code>fs.mkdir</u-code>('stuff');
+<u-code>fs.mkdir</u-code>('folderName');
 </v-code>
 
 <ul class="list-point">
@@ -74,9 +74,9 @@ const fileASync = <u-code>fs.readFile</u-code>('text.txt', 'utf8');
 </ul>
 
 <v-code lang="js" title="">
-<u-code>fs.mkdir</u-code>('stuff', () => {
+<u-code>fs.mkdir</u-code>('folderName', () => {
 	<u-code>fs.readFile</u-code>('readme.txt', 'utf8', (err, data) => {
-		<u-code>fs.writeFile</u-code>('./stuff/writeme.txt', data);
+		<u-code>fs.writeFile</u-code>('./folderName/writeme.txt', data);
 	});
 });
 </v-code>
@@ -86,29 +86,20 @@ const fileASync = <u-code>fs.readFile</u-code>('text.txt', 'utf8');
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 // синхронно
-<u-code>fs.rmdirSync</u-code>('stuff');
+<u-code>fs.rmdirSync</u-code>('folderName');
 
 // асинхронно
-<u-code>fs.rmdir</u-code>('stuff');
+<u-code>fs.rmdir</u-code>('folderName');
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Удаление непустой директории</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js border" title="">
-const rimraf = require('rimraf');
-</v-code>
-
-<v-code lang="js" title="">
-// удаление не пустой директории
-<u-code>fs.mkdirSync</u-code>('nodejs/pages');
-</v-code>
-
 <v-code lang="js" title="">
 // удаление сначала файла из папки
-<u-code>fs.unlink</u-code>('./test-folder/file.txt', () => {
+<u-code>fs.unlink</u-code>('./folderName/fileName.js', () => {
     // после этого удаление папки
-    <u-code>fs.rmdir</u-code>('test-folder', () => {
+    <u-code>fs.rmdir</u-code>('folderName', () => {
         //
     });
 });

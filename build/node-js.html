@@ -80,14 +80,6 @@
         <li>
             <a
                 class="menu-link"
-                id="id__node-js/own-modules/path"
-                href="#node-js/own-modules/path"
-            ><u-menu-border>path</u-menu-border></a>
-        </li>
-      
-        <li>
-            <a
-                class="menu-link"
                 id="id__node-js/own-modules/fs"
                 href="#node-js/own-modules/fs"
             ><u-menu-border>fs</u-menu-border> Файлы и директории</a>
@@ -99,6 +91,14 @@
                 id="id__node-js/own-modules/http"
                 href="#node-js/own-modules/http"
             ><u-menu-border>http</u-menu-border> Сервер</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js/own-modules/path"
+                href="#node-js/own-modules/path"
+            ><u-menu-border>path</u-menu-border></a>
         </li>
       
         <li>
@@ -148,21 +148,13 @@
                 href="#node-js/package/nodemon"
             ><u-menu-border>nodemon</u-menu-border></a>
         </li>
-    </ul><h4>🥥 Прочее</h4><ul>  
-        <li>
-            <a
-                class="menu-link"
-                id="id__node-js/other/samples"
-                href="#node-js/other/samples"
-            >Примеры</a>
-        </li>
       
         <li>
             <a
                 class="menu-link"
-                id="id__node-js/other/function"
-                href="#node-js/other/function"
-            >Функции</a>
+                id="id__node-js/package/rimraf"
+                href="#node-js/package/rimraf"
+            ><u-menu-border>rimraf</u-menu-border></a>
         </li>
     </ul>
                 </div>
@@ -194,23 +186,27 @@ node index  # запуск файла
 <h4>Взять файл article.txt и записать его в news.txt</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var fs = require('fs');
-var myReadShort = fs.createReadStream(__dirname + '/article.txt', 'utf8');
-var myWriteShort = fs.createWriteStream(__dirname + '/news.txt');
-myReadShort.pipe(myWriteShort);
+const fs = require('fs');
+
+const myReadShort = fs.createReadStream(__dirname + '/article.txt', 'utf8');
+const myWriteShort = fs.createWriteStream(__dirname + '/news.txt');
+
+myReadShort.<u-code>pipe</u-code>(myWriteShort);
 </v-code>
 
 <!------------------------------------------------------------->
 <h4>Вывод текстового файла на страницу</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var fs = require('fs');
-var http = require('http');
-var server = http.createServer(function(req, res) {
+const fs = require('fs');
+const http = require('http');
+
+const server = http.createServer(function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
-    var myReadShort = fs.createReadStream(__dirname + '/article.txt', 'utf8');
-    myReadShort.pipe(res);
+    const myReadShort = fs.createReadStream(__dirname + '/article.txt', 'utf8');
+    myReadShort.<u-code>pipe</u-code>(res);
 });
+
 server.listen(3000, '127.0.0.1');
 console.log('Отслеживаем порт 3000');
 </v-code>
@@ -219,13 +215,15 @@ console.log('Отслеживаем порт 3000');
 <h4>Вывод html на страницу</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var fs = require('fs');
-var http = require('http');
-var server = http.createServer(function(req, res) {
+const fs = require('fs');
+const http = require('http');
+
+const server = http.createServer(function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
-    var myReadShort = fs.createReadStream(__dirname + '/index.html', 'utf8');
-    myReadShort.pipe(res);
+    const myReadShort = fs.createReadStream(__dirname + '/index.html', 'utf8');
+    myReadShort.<u-code>pipe</u-code>(res);
 });
+
 server.listen(3000, '127.0.0.1');
 console.log('Отслеживаем порт 3000');
 </v-code>
@@ -234,11 +232,12 @@ console.log('Отслеживаем порт 3000');
 <h4>Вывод json на страницу</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var fs = require('fs');
-var http = require('http');
-var server = http.createServer(function(req, res) {
+const fs = require('fs');
+const http = require('http');
+
+const server = http.createServer(function(req, res) {
     res.writeHead(200, {'Content-Type': 'application/json; charset=utf-8'});
-    var obj = {
+    const obj = {
         model: 'Audi',
         speed: '234',
         wheels: 4
@@ -246,19 +245,23 @@ var server = http.createServer(function(req, res) {
     // конвертация в строку
     res.end(JSON.stringify(obj));
 });
+
 server.listen(3000, '127.0.0.1');
 console.log('Отслеживаем порт 3000');
 </v-code>
 </div><div id="node-js/main/stream"><h2>Потоки</h2>
 
 <v-code lang="js" title="">
-var fs = require('fs');
+const fs = require('fs');
+
 // поток на чтение
-var myReadShort = fs.createReadStream(__dirname + '/article.txt', 'utf8');
+const myReadShort = fs.createReadStream(__dirname + '/article.txt', 'utf8');
+
 // поток на запись
-var myWriteShort = fs.createWriteStream(__dirname + '/news.txt');
+const myWriteShort = fs.createWriteStream(__dirname + '/news.txt');
+
 // обработчик чтения данных
-myReadShort.on('data', function(chunk) {
+myReadShort.on('data', (chunk) => {
 	console.log('Данные получены: \n' + chunk);
 	// записываем в новый файл
 	myWriteShort.write(chunk);
@@ -266,12 +269,16 @@ myReadShort.on('data', function(chunk) {
 </v-code>
 </div><div id="node-js/main/router"><h2>Маршрутизация</h2>
 
-Проверка url и вывод страницы 404, если страница не найдена
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Проверка url и вывод страницы 404, если страница не найдена</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var fs = require('fs');
-var http = require('http');
-var server = http.createServer(function(req, res) {
+const fs = require('fs');
+const http = require('http');
+
+const server = http.createServer((req, res) => {
     console.log('url: ' + req.url);
+
     if (req.url === '/index' || req.url === '/') {
         res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
         fs.createReadStream(__dirname + '/index.html').pipe(res);
@@ -283,20 +290,22 @@ var server = http.createServer(function(req, res) {
         fs.createReadStream(__dirname + '/404.html').pipe(res);
     }
 });
+
 server.listen(3000, '127.0.0.1');
 console.log('Отслеживаем порт 3000');
-</v-code></div><div id="node-js/main/url"><h2>Данные из url</h2>
+</v-code>
+</div><div id="node-js/main/url"><h2>Данные из url</h2>
 
 <v-code lang="js" title="">
-app.get('/news/:id', function(req, res) {
+app.get('/news/:id', (req, res) => {
     console.log(req.query);
     res.render('news');
 });
 </v-code>
 
-<v-code lang="html" title="">
-http://127.0.0.1:3000/news/some?filter=id&city=penza  - запрос
-{ filter: 'id', city: 'penza' }                       - результат
+<v-code lang="bash" title="">
+http://127.0.0.1:3000/news/some?filter=id&city=penza  # запрос
+{ filter: 'id', city: 'penza' }                       # результат
 </v-code>
 </div><div id="node-js/modules/structure"><h2>Структура модуля</h2>
 
@@ -312,31 +321,39 @@ http://127.0.0.1:3000/news/some?filter=id&city=penza  - запрос
 </v-code>
 </div><div id="node-js/modules/require"><h2>require, module.exports</h2>
 
-<v-code lang="js" title="">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Экспорт одного значения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-two-code type="js;js" comment="Переменная;Функция">
+<template v-slot:first>
 // export
 const text = 'Hello';
 module.exports = text;
 
 // import
 const text = require('./data');
-</v-code>
-
-
-<v-code lang="js" title="">
+</template>
+<template v-slot:last>
 // export
 const foo = () => console.log('Hello');
 module.exports = foo;
 
 // import
 const foo = require('./data');
-</v-code>
+</template>
+</v-two-code>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Exports нескольких значений</h3>
+<h3>Экспорт нескольких значений</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Экспорт 1</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
-// export-1
 const a = 'Hello';
 const b = 'World';
 
@@ -344,14 +361,18 @@ module.exports.a = a;
 module.exports.b = b;
 </v-code>
 
+<!------------------------------------------------------------->
+<h4>Экспорт 2</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
-// export-2
 module.exports.a = 'Hello';
 module.exports.b = 'World';
 </v-code>
 
+<!------------------------------------------------------------->
+<h4>Экспорт 3</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
-// export-3
 const a = 'Hello';
 const b = 'World';
 
@@ -361,29 +382,14 @@ module.exports = {
 };
 </v-code>
 
+<!------------------------------------------------------------->
+<h4>Испорт</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
-// import
 const data = require('./data');
 
 const a = data.a;
 const b = data.b;
-</v-code>
-</div><div id="node-js/own-modules/path"><h2>path</h2>
-
-<u-link-wrapper>
-	<a href="https://nodejs.org/api/path.html" target="_blank">Документация</a>
-</u-link-wrapper>
-
-<v-code lang="js border" title="">
-const path = require('path');
-</v-code>
-
-<v-code lang="js" title="">
-const a = path.basename(__filemane);                    // Название файла
-const a = path.dirname(__filemane);                     // Имя директории
-const a = path.extname(__filemane);                     // Расширение файла
-const a = path.parse(__filemane);                       // Объект с параметрами текущего файла
-const a = path.join(__dirname, 'server', 'index.html'); // ПутьФайла/server/index.html
 </v-code>
 </div><div id="node-js/own-modules/fs"><h2>fs</h2>
 
@@ -392,7 +398,7 @@ const a = path.join(__dirname, 'server', 'index.html'); // ПутьФайла/se
 </ul>
 
 <v-code lang="js border" title="">
-const fs = require('fs);
+const fs = require('fs');
 </v-code>
 
 
@@ -450,10 +456,10 @@ const fileASync = <u-code>fs.readFile</u-code>('text.txt', 'utf8');
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 // синхронно
-<u-code>fs.mkdirSync</u-code>('stuff');
+<u-code>fs.mkdirSync</u-code>('folderName');
 
 // асинхронно
-<u-code>fs.mkdir</u-code>('stuff');
+<u-code>fs.mkdir</u-code>('folderName');
 </v-code>
 
 <ul class="list-point">
@@ -461,9 +467,9 @@ const fileASync = <u-code>fs.readFile</u-code>('text.txt', 'utf8');
 </ul>
 
 <v-code lang="js" title="">
-<u-code>fs.mkdir</u-code>('stuff', () => {
+<u-code>fs.mkdir</u-code>('folderName', () => {
 	<u-code>fs.readFile</u-code>('readme.txt', 'utf8', (err, data) => {
-		<u-code>fs.writeFile</u-code>('./stuff/writeme.txt', data);
+		<u-code>fs.writeFile</u-code>('./folderName/writeme.txt', data);
 	});
 });
 </v-code>
@@ -473,29 +479,20 @@ const fileASync = <u-code>fs.readFile</u-code>('text.txt', 'utf8');
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 // синхронно
-<u-code>fs.rmdirSync</u-code>('stuff');
+<u-code>fs.rmdirSync</u-code>('folderName');
 
 // асинхронно
-<u-code>fs.rmdir</u-code>('stuff');
+<u-code>fs.rmdir</u-code>('folderName');
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Удаление непустой директории</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js border" title="">
-const rimraf = require('rimraf');
-</v-code>
-
-<v-code lang="js" title="">
-// удаление не пустой директории
-<u-code>fs.mkdirSync</u-code>('nodejs/pages');
-</v-code>
-
 <v-code lang="js" title="">
 // удаление сначала файла из папки
-<u-code>fs.unlink</u-code>('./test-folder/file.txt', () => {
+<u-code>fs.unlink</u-code>('./folderName/fileName.js', () => {
     // после этого удаление папки
-    <u-code>fs.rmdir</u-code>('test-folder', () => {
+    <u-code>fs.rmdir</u-code>('folderName', () => {
         //
     });
 });
@@ -522,6 +519,23 @@ const server = http.createServer((req, res) => {
 
 server.listen(3000, '127.0.0.1');
 console.log('Отслеживаем порт 3000');
+</v-code>
+</div><div id="node-js/own-modules/path"><h2>path</h2>
+
+<u-link-wrapper>
+	<a href="https://nodejs.org/api/path.html" target="_blank">Документация</a>
+</u-link-wrapper>
+
+<v-code lang="js border" title="">
+const path = require('path');
+</v-code>
+
+<v-code lang="js" title="">
+const a = path.basename(__filemane);                    // Название файла
+const a = path.dirname(__filemane);                     // Имя директории
+const a = path.extname(__filemane);                     // Расширение файла
+const a = path.parse(__filemane);                       // Объект с параметрами текущего файла
+const a = path.join(__dirname, 'server', 'index.html'); // ПутьФайла/server/index.html
 </v-code>
 </div><div id="node-js/own-modules/events"><h2>events</h2>
 
@@ -577,48 +591,47 @@ car.emit('speed', '254km');
 </v-code>
 </div><div id="node-js/package/express"><h2>express</h2>
 
-<v-code lang="bash" title="">
-npm i express          # установка пакета
-npm uninstall express  # удаление пакета
-npm i                  # установка всех пакетов из package.json
-</v-code>
+<v-pre-npm>
+npm i --save <u-code-npm>express</u-code-npm>
+</v-pre-npm>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Маршрутизация на Express</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 </v-code>
 
 <v-code lang="js" title="">
 // статическая ссылка (главная)
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
     res.send('This is home');
 });
 
 // статическая ссылка (news)
-app.get('/news', function(req, res) {
+app.get('/news', (req, res) => {
     res.send('This is news');
 });
 
 // ссылка с name статьи /news/23
-app.get('/news/:name', function(req, res) {
+app.get('/news/:name', (req, res) => {
     res.send('id=' + req.params.name);
 });
 
 // ссылка с name и id статьи /news/23
-app.get('/news/:name/:id', function(req, res) {
+app.get('/news/:name/:id', (req, res) => {
     res.send('id=' + req.params.name + req.params.id);
 });
 </v-code>
 
 <v-code lang="js" title="">
 // отображение html файла
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
-app.get('/about', function(req, res) {
+app.get('/about', (req, res) => {
     res.sendFile(__dirname + '/about.html');
 });
 </v-code>
@@ -642,21 +655,21 @@ npm i ejs
 <h4>index.js</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 // указание шаблонизатора, который будем использовать
 app.set('view engine', 'ejs');
 // ссылка на статические файлы (css, img, doc и т.д. иначе не будут загружаться)
 app.use('/public', express.static('public'));
-app.get('/news/:id', function(req, res) {
+app.get('/news/:id', (req, res) => {
     // берет шаблон news.ejs из папки views
     // передает свойство newsId = req.params.id
     // передает переменную newsParam = 234
     // передаем объект newsParam
-    var obj = {title: 'Новость', id: 4, paragraphs: ['Текст', 'Числа: 2, 4', 77]};
+    const obj = {title: 'Новость', id: 4, paragraphs: ['Текст', 'Числа: 2, 4', 77]};
     res.render('news', {newsId: req.params.id, newsParam: 234, newsObj: obj});
 });
-app.get('/about', function(req, res) {
+app.get('/about', (req, res) => {
     res.render('about');
 });
 app.listen(3000);
@@ -685,7 +698,7 @@ public - все статические файлы (css, img, doc и т.д.)
 </v-code>
 <v-code lang="html" title="">
 &lt;ul&gt;
-    &lt;% newsObj.paragraphs.forEach(function(item) { %&gt;
+    &lt;% newsObj.paragraphs.forEach((item) => { %&gt;
         &lt;li&gt;&lt;%= item %&gt;&lt;/li&gt;
     &lt;% }); %&gt;
 &lt;/ul&gt;
@@ -703,12 +716,18 @@ public - все статические файлы (css, img, doc и т.д.)
 </v-code>
 </div><div id="node-js/package/body-parser"><h2>body-parser</h2>
 
-<v-code lang="html" title="">
-npm i body-parser
-https://www.npmjs.com/package/body-parser
-</v-code>
+<v-pre-npm>
+npm i --save <u-code-npm>body-parser</u-code-npm>
+</v-pre-npm>
 
+<u-link-wrapper>
+    <a href="https://github.com/expressjs/body-parser" target="_blank">Github</a>
+</u-link-wrapper>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>view/about.ejs</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="html" title="">
 &lt;form method="post" action="/about"&gt;
     &lt;input type="email" name="email" placeholder="Email"&gt;
@@ -722,106 +741,51 @@ https://www.npmjs.com/package/body-parser
 <h3>index.js</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');                           // подключение пакета
-var urlencodedParser = bodyParser.urlencoded({ extended: false }); // принимаем данные из post-запроса
+const express = require('express');
+const bodyParser = require('body-parser');
+
+// принимаем данные из post-запроса
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+const app = express();
 app.set('view engine', 'ejs');
-app.get('/about', function(req, res) {
+app.get('/about', (req, res) => {
     res.render('about');
 });
-app.post('/about', urlencodedParser, function(req, res) {  // обработка данных из формы
-    if (!req.body) return res.sendStatus(400);             // если не переданы данные из формы
-    console.log(req.body);                                 // все данные
-    console.log(req.body.email);                           // только email
-    console.log(req.body.password);                        // только password
+
+app.post('/about', urlencodedParser, (req, res) => {   // обработка данных из формы
+    if (!req.body) return res.sendStatus(400);         // если не переданы данные из формы
+    console.log(req.body);                             // все данные
+    console.log(req.body.email);                       // только email
+    console.log(req.body.password);                    // только password
     res.render('about');
 });
+
 app.listen(3000);
 </v-code>
 </div><div id="node-js/package/nodemailer"><h2>nodemailer</h2>
 
-<v-code lang="html" title="">
-https://www.npmjs.com/package/nodemailer
-</v-code>
+<v-pre-npm>
+npm i --save <u-code-npm>nodemailer</u-code-npm>
+</v-pre-npm>
+
+<u-link-wrapper>
+    <a href="https://nodemailer.com/about/" target="_blank">Документация</a>
+</u-link-wrapper>
 </div><div id="node-js/package/nodemon"><h2>nodemon</h2>
 
-<v-code lang="bash" title="">
-npm i --save-dev nodemon
-</v-code>
+<v-pre-npm>
+npm i --save-dev <u-code-npm>nodemon</u-code-npm>
+</v-pre-npm>
 
-</div><div id="node-js/other/samples"><h2>Примеры</h2>
+</div><div id="node-js/package/rimraf"><h2>rimraf</h2>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Exports функции 1</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-things.js
-<v-code lang="js" title="">
-function things(name) {
-    return `Привет, ${name}`;
-}
-module.exports = things;
-</v-code>
-index.js
-<v-code lang="js" title="">
-var things = require('./things');
-var a = things('Tony');
-console.log(a);
-</v-code>
+<v-pre-npm>
+npm i --save <u-code-npm>rimraf</u-code-npm>
+</v-pre-npm>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Exports функции 2</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-greet.js
-<v-code lang="js" title="">
-module.exports = function(greeting) {
-    return function(name) {
-        return `${greeting}, ${name}`;
-    }
-}
-</v-code>
-
-index.js
-<v-code lang="js" title="">
-const getGreet = require('./greet');
-const greet = getGreet('Привет');
-console.log(greet('Tony'));
-console.log(greet('Harvey'));
-console.log(greet('Andy'));
-</v-code>
-
-Результат
-<v-code lang="js" title="">
-// => Привет, Tony
-// => Привет, Harvey
-// => Привет, Andy
-</v-code>
-</div><div id="node-js/other/function"><h2>Функции</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Именованная функция</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-var name = function() {
-	console.log('text');
-};
-
-name();
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Вызов функции через другую функцию</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-var name = function() {
-	console.log('text');
-};
-
-function call(func) {
-	func();
-}
-
-call(name);
+<v-code lang="js border" title="">
+const rimraf = require('rimraf');
 </v-code>
 </div></div>
                 </div>
