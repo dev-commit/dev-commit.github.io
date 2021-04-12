@@ -597,6 +597,25 @@ git <u-code>rebase --continue</u-code>     # продолжить rebase
 git <u-code>reflog</u-code> <i>НазваниеВетки</i>  # откатить rebase
 </v-code>
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм работы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li>Есть 2 ветки: <u>develop</u> и <u>feature</u></li>
+    <li>Необходимо актуализаировать ветку <u>feature</u>: подтянуть последние изменения из <u>develop</u></li>
+</ul>
+
+<v-code lang="js border" title="">
+git checkout develop   # перейти в ветку develop (не обязательно)
+git fetch origin       # взять последние изменени для develop
+git checkout feature   # перейти в ветку feature
+git rebase -i master   # взять последние изменения из develop
+git rebase --continue  # продолжить rebase (если были конфликты и их решили)
+</v-code>
+
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Описание</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
