@@ -22,7 +22,7 @@ export const getIndexHTML = ({ up, title, script, menu, content }) => (`
         <head>
             <title>${title}</title>
             <meta charset="UTF-8">
-            <link rel="icon" type="image/png" href="${up}src/img/favicon.png">
+            <link rel="icon" type="image/png" href="${up}src/img/favicon.svg">
         
             <script src="${up}src/js/utils.js"></script>
             <!-- Own JavaScript -->
