@@ -612,7 +612,14 @@ git checkout develop   # перейти в ветку develop (не обязат
 git fetch origin       # взять последние изменени для develop
 git checkout feature   # перейти в ветку feature
 git rebase -i develop  # взять последние изменения из develop
-git rebase --continue  # продолжить rebase (если были конфликты и их решили)
+
+# если конфликты, то решить их
+git rebase --continue  # продолжить rebase
+git add .
+git commit -m 'message'
+
+# если не было конфликтов
+git push origin HEAD
 </v-code>
 
 
