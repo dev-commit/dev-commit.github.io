@@ -2205,8 +2205,8 @@ someFn(); // 10 - и при статической и при динамичес�
 </div>
 
 <v-code lang="js border" title="">
-const newArray = arr.map((currentValue, index, array) => { 
-	// Возвращает элемент для newArray 
+const newArray = arr.map((currentValue, index, array) => {
+	// Возвращает элемент для newArray
 }[, thisArg]);
 </v-code>
 
@@ -2311,6 +2311,9 @@ arr.reduce(callback[, initialValue])
 	<li>Если нет <u-code>initialValue</u-code>, то оно равно первому элементу массива, а перебор начинается со второго</li>
 </ul>
 
+<!------------------------------------------------------------->
+<h4>Пример 1: Сумма элементов массива</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 // сумма элементов массива
 const arr = [1, 2, 3, 4, 5];
@@ -2323,6 +2326,38 @@ const result = arr.reduce((sum, current) => {
 
 console.log(result); // 15
 </v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример 2: перебор объекта</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const data = {
+	name: 'Tony',
+	age: 23,
+	stars: 100,
+};
+
+const res = Object.keys(data).reduce(
+	(result, key) => {
+		const value = data[key];
+		result[key] = value;
+		return result;
+	},
+	{ greet: 'Hello' }
+);
+
+console.log(res);
+</v-code>
+
+<v-code lang="js" title="">
+// {
+// 	greet: 'Hello',
+// 	name: 'Tony',
+// 	age: 23,
+// 	stars: 100,
+// }
+</v-code>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>filter</h3>
@@ -2406,7 +2441,7 @@ const result = arr.<u-code>every</u-code>(number => {
 	return number > 0;
 })
 
-// true, есть хоть одно положительное 
+// true, есть хоть одно положительное
 const result = arr.<u-code>some</u-code>(number => {
 	return number > 0;
 })
