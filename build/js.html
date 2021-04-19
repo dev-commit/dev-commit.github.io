@@ -1560,15 +1560,18 @@ arr.forEach((currentValue, index, array) => {
 <ul class="list-point">
 	<li>Ничего не возвращает, используется только для перебора</li>
 </ul>
+
 <v-code lang="js" title="">
 const arr = ['Яблоко', 'Апельсин', 'Груша'];
 arr.forEach((element, index, arr) => {
 	console.log(element, index, arr);
 });
+</v-code>
 
-// => 'Яблоко'   0  Array(3)
-// => 'Апельсин' 1  Array(3)
-// => 'Груша'    2  Array(3)
+<v-code lang="js" title="">
+// 'Яблоко'   0  Array(3)
+// 'Апельсин' 1  Array(3)
+// 'Груша'    2  Array(3)
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -1593,7 +1596,7 @@ arr.forEach((element, index, arr) => {
 </div>
 
 <v-code lang="js border" title="">
-array.reduceRight(function(previousValue, currentValue, index, array) {
+array.reduceRight((previousValue, currentValue, index, array) => {
 	// ...
 });
 </v-code>
@@ -1709,8 +1712,8 @@ console.log(result); // => [1, 2, 3]
 
 <v-code lang="js" title="">
 // Поиск вхождения подстроки в массив
-let arr = ['Tony', 'Jack', 'Nick', 'Tony and Jane'];
-let result = arr.filter(item => item.<u-code>includes</u-code>('Tony')); // => ["Tony", "Tony and Jane"]
+const arr = ['Tony', 'Jack', 'Nick', 'Tony and Jane'];
+const result = arr.filter(item => item.<u-code>includes</u-code>('Tony')); // => ["Tony", "Tony and Jane"]
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
