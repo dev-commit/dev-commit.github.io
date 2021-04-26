@@ -35,7 +35,7 @@
 
 <v-code lang="js" title="">
 function testFn() {
-	var <u-code>localVar</u-code> = 10;
+	const <u-code>localVar</u-code> = 10;
 
 	function innerFn(innerParam) {
 		alert(innerParam + <u-code>localVar</u-code>);
@@ -44,7 +44,7 @@ function testFn() {
 	return innerFn;
 }
  
-var someFn = testFn();
+const someFn = testFn();
 someFn(20); // 30
 </v-code>
 
@@ -62,14 +62,16 @@ someFn(20); // 30
 </ul>
 
 <v-code lang="js" title="">
-var x = 10;
+const x = 10;
+
 function someFn() {
 	alert(x);
 }
+
 someFn(); // 10 - и при статической и при динамической Scope
  
 (function () {
-	var x = 20;
+	const x = 20;
 	someFn(); // 10 - при статической, 20 - при динамической Scope
 })();
  
@@ -77,7 +79,7 @@ someFn(); // 10 - и при статической и при динамичес�
 // в качестве параметра
  
 (function (funArg) {
-	var x = 30;
+	const x = 30;
 	funArg(); // 10 - при статической, 30 - при динамической Scope
 })(someFn);
 </v-code>

@@ -20,14 +20,14 @@
 
 <v-code lang="js" title="">
 localStorage.<u-code>setItem</u-code>('id', '77');   // добавляет в localStorage новый ключ со значением (а если такой ключ уже существует, то перезаписывает новым значением)
-var a = localStorage.<u-code>getItem</u-code>('id'); // получить значение
+const a = localStorage.<u-code>getItem</u-code>('id'); // получить значение
 localStorage.<u-code>removeItem</u-code>('id');      // удаление ключа
 localStorage.<u-code>clear</u-code>();               // очистка всего хранилища
 </v-code>
 
 <v-code lang="js" title="">
 localStorage["Ключ"] = "Значение"; // установка значения
-var a = localStorage["Ключ"];      // получение значения
+const a = localStorage["Ключ"];      // получение значения
 delete localStorage["Ключ"];       // удаление значения
 </v-code>
 
@@ -42,14 +42,14 @@ if (localStorage.getItem('key') !== null) {...}
 <h4>Объекты и массивы</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var obj = {
+const obj = {
 	item1: 1,
 	item2: [123, "two", 3.0],
 	item3: "hello"
 };
 
-localStorage.setItem("key", JSON.stringify(obj));        // сериализация объекта и запись в хранилище по ключу "key"
-var returnObj = JSON.parse(localStorage.getItem("key")); // из json в объект
+localStorage.setItem("key", JSON.stringify(obj));          // сериализация объекта и запись в хранилище по ключу "key"
+const returnObj = JSON.parse(localStorage.getItem("key")); // из json в объект
 </v-code>
 
 <!------------------------------------------------------------->
@@ -72,7 +72,7 @@ try {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 sessionStorage.<u-code>setItem</u-code>('key', 'value');   // сохранение данных в sessionStorage
-var data = sessionStorage.<u-code>getItem</u-code>('key'); // получение данных из sessionStorage
+const data = sessionStorage.<u-code>getItem</u-code>('key'); // получение данных из sessionStorage
 sessionStorage.<u-code>removeItem</u-code>('key');         // удаление ключа
 sessionStorage.<u-code>clear</u-code>();                   // очистка всего хранилища
 </v-code>

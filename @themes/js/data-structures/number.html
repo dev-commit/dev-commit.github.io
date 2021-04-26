@@ -54,7 +54,7 @@ alert( isFinite(NaN) );      // false
 alert( 1 / 0 );     // Infinity
 alert( 12345 / 0 ); // Infinity
 alert( -1 / 0 );    // -Infinity
-var x = Infinity;   // Infinity можно присвоить и в явном виде
+const x = Infinity;   // Infinity можно присвоить и в явном виде
 </v-code>
 
 <!------------------------------------------------------------->
@@ -82,10 +82,10 @@ alert( NaN + 1 ); // NaN
 parseInt("11000", 2);              // переводит строку с двоичной записью числа в число
 n.toString(2);                     // получает для числа n запись в 2-ной системе в виде строки
 
-var access = parseInt("11000", 2); // получаем число из строки
+const access = parseInt("11000", 2); // получаем число из строки
 alert(access);                     // 24, число с таким 2-ным представлением
 
-var access2 = access.toString(2); // обратно двоичную строку из числа
+const access2 = access.toString(2); // обратно двоичную строку из числа
 alert(access2);                   // 11000
 </v-code>
 
@@ -116,13 +116,13 @@ console.log(a ** 3); // 8 (возведение в степень 3)
 </ul>
 
 <v-code lang="js" title="">
-var i = 1;
-var a = ++i;
+const i = 1;
+const a = ++i;
 alert(a); // 2
 </v-code>
 
 <v-code lang="js" title="">
-var i = 1;
-var a = i++;
+const i = 1;
+const a = i++;
 alert(a); // 1
 </v-code>

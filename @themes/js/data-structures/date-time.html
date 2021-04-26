@@ -12,15 +12,15 @@ new <u-code>Date</u-code>(year, month, date, hours, minutes, seconds, ms)
 </v-code>
 
 <v-code lang="js" title="">
-var selectDate = new Date(2012,0,1,0,0,0); // объявление для заданной даты
-var nowDate = new Date();                  // текущее дата и время на компьютере пользователя
+const selectDate = new Date(2012,0,1,0,0,0); // объявление для заданной даты
+const nowDate = new Date();                  // текущее дата и время на компьютере пользователя
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Установка значений</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var selectDate = new Date(2012,0,1,0,0,0);
+const selectDate = new Date(2012,0,1,0,0,0);
 </v-code>
 <v-code lang="js" title="">
 selectDate.<u-code>setMinutes</u-code>(25);                 // установка минут
@@ -32,17 +32,17 @@ setSeconds.<u-code>setSeconds</u-code>(25);                 // установк�
 <h3>Получение значений</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var nowDate = new Date();
+const nowDate = new Date();
 </v-code>
 <v-code lang="js" title="">
-var yearFull = nowDate.<u-code>getFullYear()</u-code>;      // год (4 цифры)
-var month    = nowDate.<u-code>getMonth()</u-code>;         // месяц (от 0 до 1)
-var day      = nowDate.<u-code>getDate()</u-code>;          // число месяца (от 1 до 31)
-var dayWeek  = nowDate.<u-code>getDay()</u-code>;           // день недели (от 0-воскресенье до 6-суббота)
-var hour     = nowDate.<u-code>getHours()</u-code>;         // час
-var minutes  = nowDate.<u-code>getMinutes()</u-code>;       // минуты
-var seconds  = nowDate.<u-code>getSeconds()</u-code>;       // секунды
-var mseconds = nowDate.<u-code>getMilliseconds()</u-code>;  // миллисекунды
+const yearFull = nowDate.<u-code>getFullYear()</u-code>;      // год (4 цифры)
+const month    = nowDate.<u-code>getMonth()</u-code>;         // месяц (от 0 до 1)
+const day      = nowDate.<u-code>getDate()</u-code>;          // число месяца (от 1 до 31)
+const dayWeek  = nowDate.<u-code>getDay()</u-code>;           // день недели (от 0-воскресенье до 6-суббота)
+const hour     = nowDate.<u-code>getHours()</u-code>;         // час
+const minutes  = nowDate.<u-code>getMinutes()</u-code>;       // минуты
+const seconds  = nowDate.<u-code>getSeconds()</u-code>;       // секунды
+const mseconds = nowDate.<u-code>getMilliseconds()</u-code>;  // миллисекунды
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -62,10 +62,10 @@ var mseconds = nowDate.<u-code>getMilliseconds()</u-code>;  // миллисек�
 </ul>
 
 <v-code lang="js" title="">
-var msUTC = Date.parse('2012-01-26T13:51:50.417Z'); // зона UTC
+const msUTC = Date.parse('2012-01-26T13:51:50.417Z'); // зона UTC
 alert( msUTC ); // 1327571510417 (число миллисекунд)
 
-var ms = Date.parse('2012-01-26T13:51:50.417-07:00'); // С таймзоной -07:00 GMT
+const ms = Date.parse('2012-01-26T13:51:50.417-07:00'); // С таймзоной -07:00 GMT
 alert( ms ); // 1327611110417 (число миллисекунд)
 </v-code>
 
@@ -81,9 +81,9 @@ alert( +new Date() ); // valueOf: кол-во миллисекунд, проше
 <h3>toLocaleString</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var date = new Date(2014, 11, 31, 12, 30, 0);
+const date = new Date(2014, 11, 31, 12, 30, 0);
 
-var options = {
+const options = {
 	era: 'long',
 	year: 'numeric',
 	month: 'long',
@@ -100,16 +100,16 @@ alert( date.<u-code>toLocaleString</u-code>("en-US", options) ); // Wednesday, D
 </v-code>
 
 <v-code lang="js" title="">
-var a = nowDate.<u-code>toLocaleTimeString()</u-code>; // время с учетом локализации
-var a = nowDate.<u-code>toLocaleDateString()</u-code>; // дата с учетом локализации
+const a = nowDate.<u-code>toLocaleTimeString()</u-code>; // время с учетом локализации
+const a = nowDate.<u-code>toLocaleDateString()</u-code>; // дата с учетом локализации
 </v-code>
 
 <v-code lang="js" title="">
 // вывод зависит от браузера
-var d = new Date();
-var a = d.<u-code>toString()</u-code>;     // возвращает дату целиком 'Wed Jan 26 2011 16:40:50 GMT+0300'
-var a = d.<u-code>toDateString()</u-code>; // возвращает только дату
-var a = d.<u-code>toTimeString()</u-code>; // возвращает только время
+const d = new Date();
+const a = d.<u-code>toString()</u-code>;     // возвращает дату целиком 'Wed Jan 26 2011 16:40:50 GMT+0300'
+const a = d.<u-code>toDateString()</u-code>; // возвращает только дату
+const a = d.<u-code>toTimeString()</u-code>; // возвращает только время
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -120,26 +120,26 @@ var a = d.<u-code>toTimeString()</u-code>; // возвращает только 
 	<li>Существуют также UTC-варианты этих методов, возвращающие день, месяц, год и т.п. для зоны GMT+0 (UTC): getUTCFullYear(), getUTCMonth(), getUTCDay() и т.д.</li>
 </ul>
 <v-code lang="js" title="">
-var a = nowDate.getHours();          // время по гринвичу (GMT)
-var a = nowDate.<u-code>getUTCHours()</u-code>;       // время в формате UTC
-var a = nowDate.<u-code>getTimezoneOffset()</u-code>; // возвращает разницу между местным и UTC-временем, в минутах.
+const a = nowDate.getHours();          // время по гринвичу (GMT)
+const a = nowDate.<u-code>getUTCHours()</u-code>;       // время в формате UTC
+const a = nowDate.<u-code>getTimezoneOffset()</u-code>; // возвращает разницу между местным и UTC-временем, в минутах.
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Другие методы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var a = nowDate.<u-code>toTimeString()</u-code>; // вывод времени в виде строки
-var a = nowDate.<u-code>toDateString()</u-code>; // вывод даты в виде строки
+const a = nowDate.<u-code>toTimeString()</u-code>; // вывод времени в виде строки
+const a = nowDate.<u-code>toDateString()</u-code>; // вывод даты в виде строки
 </v-code>
 
 <v-code lang="js" title="">
-var selectDate = new Date(2012,0,1,0,0,0);
-var a = selectDate.<u-code>getTime()</u-code>;  // возвращает число миллисекунд, прошедших с 1 января 1970 года GMT+0
+const selectDate = new Date(2012,0,1,0,0,0);
+const a = selectDate.<u-code>getTime()</u-code>;  // возвращает число миллисекунд, прошедших с 1 января 1970 года GMT+0
 </v-code>
 
 <v-code lang="js" title="">
-var timeInMs = <u-code>Date.now</u-code>();     // возвращает количество миллисекунд, прошедших с 1 января 1970 года 00:00:00 по UTC.
+const timeInMs = <u-code>Date.now</u-code>();     // возвращает количество миллисекунд, прошедших с 1 января 1970 года 00:00:00 по UTC.
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -150,25 +150,25 @@ var timeInMs = <u-code>Date.now</u-code>();     // возвращает коли
 <h4>Вывод текщей даты</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var weekday = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-var month = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
-var nowDate = new Date();
-var nowDay   = weekday[nowDate.getDay()];
-var nowDate  = nowDate.getDate();
-var nowMonth = month[nowDate.getMonth()];
+const weekday = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+const month = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
+const nowDate = new Date();
+const nowDay   = weekday[nowDate.getDay()];
+const nowDate  = nowDate.getDate();
+const nowMonth = month[nowDate.getMonth()];
 </v-code>
 
 <!------------------------------------------------------------->
 <h4>Разность дат</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var start = new Date; // засекли время
+const start = new Date; // засекли время
 
 // что-то сделать
-for (var i = 0; i < 100000; i++) {
-  var doSomething = i * i * i;
+for (let i = 0; i < 100000; i++) {
+  const doSomething = i * i * i;
 }
 
-var end = new Date; // конец измерения
+const end = new Date; // конец измерения
 console.log( "Цикл занял " + (end - start) + " ms" );
 </v-code>

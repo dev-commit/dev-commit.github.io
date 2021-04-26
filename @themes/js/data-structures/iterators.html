@@ -18,8 +18,9 @@
 <h4>Перебор через for...of</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var arr = ['js', 'python', 'ruby'];
-for(var item of arr) {
+const arr = ['js', 'python', 'ruby'];
+
+for(let item of arr) {
     console.log(item);
 }
 </v-code>
@@ -28,8 +29,9 @@ for(var item of arr) {
 <h4>Перебор через встроенный итератор</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var arr = ['js', 'python', 'ruby'];
-var iterator = arr[<u-code>Symbol.iterator</u-code>]();
+const arr = ['js', 'python', 'ruby'];
+const iterator = arr[<u-code>Symbol.iterator</u-code>]();
+
 console.log(iterator.<u-code>next()</u-code>); // {value: "js", done: false}
 console.log(iterator.<u-code>next()</u-code>); // {value: "python", done: false}
 console.log(iterator.<u-code>next()</u-code>); // {value: "ruby", done: false}
@@ -40,9 +42,10 @@ console.log(iterator.<u-code>next()</u-code>); // {value: undefined, done: true}
 <h4>Перебор через встроенный итератор в цикле</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var arr = ['js', 'python', 'ruby'];
-var iterator = arr[Symbol.iterator]();
-var next = iterator.next();
+const arr = ['js', 'python', 'ruby'];
+const iterator = arr[Symbol.iterator]();
+const next = iterator.next();
+
 // по похожему алгоритму работает for...of
 while (!next.done) {
     console.log(next.value);

@@ -84,7 +84,7 @@ function sum(a) {
 		return a + b;
 	}
 }
-var s = sum(10);
+const s = sum(10);
 console.log(s(15));
 
 // в функции "s" можно производить вычисления с переменными, объявленными в функции sum, 
@@ -96,14 +96,15 @@ console.log(s(15));
 <h4>Пример 2</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var func = function() {
-	var i = 10;
+const func = function() {
+	const i = 10;
 	return function() {
 		return i;
 	}
 }
-var anotherFunc = function() {
-	var i = 20;
+
+const anotherFunc = function() {
+	const i = 20;
 	console.log(func()());
 }
 anotherFunc();
@@ -115,25 +116,27 @@ anotherFunc();
 <v-two-code type="js;js" comment="js;js">
 <template v-slot:first>
 function counter() {
-	var count = 0;
+	const count = 0;
 	return function() {
 		count++;
 		console.log(count);
 	}
 }
-var plus = counter();
+
+const plus = counter();
 plus(); // 1
 plus(); // 2
 plus(); // 3
 </template>
 <template v-slot:last>
 function counter() {
-	var count = 0;
+	const count = 0;
 	return function() {
 		return count++;
 	}
 }
-var plus = counter();
+
+const plus = counter();
 console.log(plus()); // 0
 console.log(plus()); // 1
 console.log(plus()); // 2
@@ -141,14 +144,14 @@ console.log(plus()); // 2
 </v-two-code>
 
 <v-code lang="js" title="">
-var counter = (function() {
-	var count = 0;
+const counter = (function() {
+	const count = 0;
 	return function() {
 		return count++;
 	}
 })();
+
 console.log(counter()); // 0
 console.log(counter()); // 1 
 console.log(counter()); // 2 
 </v-code>
-

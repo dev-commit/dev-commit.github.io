@@ -65,10 +65,10 @@ set
 <h3>Методы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var a = set.<u-code>size</u-code>;          // кол-во элементо в set
-var a = set.<u-code>has</u-code>('button'); // проверка наличия значения
-set.<u-code>delete</u-code>('active');      // удаление элемента 
-set.<u-code>clear</u-code>();               // очистка set
+const a = set.<u-code>size</u-code>;          // кол-во элементо в set
+const a = set.<u-code>has</u-code>('button'); // проверка наличия значения
+set.<u-code>delete</u-code>('active');        // удаление элемента 
+set.<u-code>clear</u-code>();                 // очистка set
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -77,14 +77,14 @@ set.<u-code>clear</u-code>();               // очистка set
 <v-code lang="js" title="">
 const set = new Set();
 set.add({className: 'button'}); 
-var a = set.has({className: 'button'}); // false
+const a = set.has({className: 'button'}); // false
 // в метод add отправляется ссылка на один объект
 // в метод has отправляется ссылка на другой объект
 
 const set = new Set();
 const buttonRef = {className: 'button'};
 set.add(buttonRef); 
-var a = set.has(buttonRef); // true
+const a = set.has(buttonRef); // true
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

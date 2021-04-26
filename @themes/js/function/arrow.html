@@ -55,7 +55,7 @@
 <!------------------------------------------------------------->
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var person = {
+const person = {
 	name: 'Tony',
 	greet: () => {
 		// this - объект из контекста window
@@ -65,7 +65,7 @@ var person = {
 person.greet();
 </template>
 <template v-slot:last>
-var person = {
+const person = {
 	name: 'Tony',
 	greet: function() {
 		// this - это person
@@ -86,7 +86,7 @@ person.greet();
 <!------------------------------------------------------------->
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var add = (x, y) => x + y;
+const add = (x, y) => x + y;
 </template>
 <template v-slot:last>
 function add(x, y) {
@@ -104,10 +104,10 @@ function add(x, y) {
 
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var square = x => x*x;
+const square = x => x*x;
 </template>
 <template v-slot:last>
-var square = function(x) {
+const square = function(x) {
 	return x*x;
 }
 </template>
@@ -118,10 +118,10 @@ var square = function(x) {
 <!------------------------------------------------------------->
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var giveMeAnswer = () => 42;
+const giveMeAnswer = () => 42;
 </template>
 <template v-slot:last>
-var giveMeAnswer = function() {
+const giveMeAnswer = function() {
 	return 42;
 }
 </template>
@@ -132,10 +132,10 @@ var giveMeAnswer = function() {
 <!------------------------------------------------------------->
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var log = () => console.log('hi');
+const log = () => console.log('hi');
 </template>
 <template v-slot:last>
-var log = function() {
+const log = function() {
 	console.log('hi');
 }
 </template>
@@ -149,14 +149,14 @@ var log = function() {
 </ul>
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var multiply = (x, y) => {
-	var result = x*y;
+const multiply = (x, y) => {
+	const result = x*y;
 	return result;
 }
 </template>
 <template v-slot:last>
-var multiply = function(x, y) {
-	var result = x*y;
+const multiply = function(x, y) {
+	const result = x*y;
 	return result;
 }
 </template>
@@ -171,10 +171,10 @@ var multiply = function(x, y) {
 
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var getPerson = () => ({ name:'Jack' });
+const getPerson = () => ({ name:'Jack' });
 </template>
 <template v-slot:last>
-var getPerson = function() {
+const getPerson = function() {
 	return { name:'Jack' }
 }
 </template>

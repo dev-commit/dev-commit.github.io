@@ -11,7 +11,7 @@
 <h4>1. Создание</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var myWorker = new Worker("worker.js");
+const myWorker = new Worker("worker.js");
 </v-code>
 
 <!------------------------------------------------------------->
@@ -33,7 +33,7 @@ myWorker.postMessage(imageData);
 <v-code lang="js" title="">
 onmessage = function(e) {
 	console.log('Message received from main script');
-	var workerResult = 'Result: ' + (e.data[0] * e.data[1]);
+	const workerResult = 'Result: ' + (e.data[0] * e.data[1]);
 	console.log('Posting message back to main script');
 	postMessage(workerResult);
 }

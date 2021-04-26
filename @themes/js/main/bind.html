@@ -52,20 +52,20 @@ func.<u-code>bind</u-code>(person, 'HelloZ', 'WorldZ')(); // bind с аргум�
 <h4>Потеря контекста</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="Потеря контекста">
-var user = {
+const user = {
 	userName: 'Tony',
 	userGreet() {
 		console.log('Hi ' + this.userName);
 	}
 };
-var newUser = user.userGreet; 
+const newUser = user.userGreet; 
 newUser(); // => "Hi undefined"
 </v-code>
 <v-code lang="js" title="Привязка call">
 newUser.call(user); // => "Hi Tony"
 </v-code>
 <v-code lang="js" title="Привязка bind">
-var func = newUser.bind(user);
+const func = newUser.bind(user);
 func(); // => "Hi Tony" 
 </v-code>
 
@@ -73,7 +73,7 @@ func(); // => "Hi Tony"
 <h4>Привязать всё</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-for (var prop in user) {
+for (let prop in user) {
 	if (typeof user[prop] == 'function') {
 		user[prop] = user[prop].bind(user);
 	}
@@ -87,7 +87,7 @@ for (var prop in user) {
 function showFullName() {
 	alert( this.firstName + " " + this.lastName );
 }
-var user = {
+const user = {
 	firstName: "Василий",
 	lastName: "Петров"
 };
@@ -98,9 +98,9 @@ showFullName.call(user) // => "Василий Петров" (функция вы
 <h4>Максимальный элемент массива</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var arr = [1, 2, 3, 77, 4];
-var max = Math.max.apply(null, arr); // 77 (контекстом будет объект Math)
-var max = Math.max.apply(Math, arr); // 77 (контекстом будет объект Math) - аналогично
+const arr = [1, 2, 3, 77, 4];
+const max = Math.max.apply(null, arr); // 77 (контекстом будет объект Math)
+const max = Math.max.apply(Math, arr); // 77 (контекстом будет объект Math) - аналогично
 // в данном случае в качестве контекста можно передавать что угодно, 
 // поскольку в своей внутренней реализации метод Math.max не использует this
 </v-code>

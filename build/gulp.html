@@ -171,10 +171,12 @@ module.exports.dev = dev;
 <h3>Простой пример task</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var gulp = require('gulp');
+const gulp = require('gulp');
+
 gulp.task('mytask', function() {
 	console.log('Привет, я таск!');
 });
+
 gulp mytask - запуск из консоли
 </v-code>	
 
@@ -182,13 +184,14 @@ gulp mytask - запуск из консоли
 <h3>Структура task</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var gulp = require('gulp');         // подключение пакета 
-gulp.task('mytask', function() {    // инструкция
-	gulp.src('source-files') // взяли файлы
-	.pipe(plugin())                 // выполнили действие над ними (вызов команды, плагина)
-	.pipe(gulp.dest('folder'))      // выгрузили результат работы плагина (только папка)
+const gulp = require('gulp');     // подключение пакета
+
+gulp.task('mytask', function() {  // инструкция
+	gulp.src('source-files')      // взяли файлы
+	.pipe(plugin())               // выполнили действие над ними (вызов команды, плагина)
+	.pipe(gulp.dest('folder'))    // выгрузили результат работы плагина (только папка)
 });
-</v-code>	
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Аргументы task</h3>

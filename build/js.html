@@ -758,7 +758,7 @@ typeof NaN          // "number"
 </v-code>
 
 <v-code lang="js" title="">
-var bar = function foo() {};
+const bar = function foo() {};
 typeof foo(); // Uncaught ReferenceError: foo is not defined
 typeof bar;   // => "function"
 typeof bar()  // => "undefined"
@@ -1421,20 +1421,20 @@ func.<u-code>bind</u-code>(person, 'HelloZ', 'WorldZ')(); // bind с аргум�
 <h4>Потеря контекста</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="Потеря контекста">
-var user = {
+const user = {
 	userName: 'Tony',
 	userGreet() {
 		console.log('Hi ' + this.userName);
 	}
 };
-var newUser = user.userGreet; 
+const newUser = user.userGreet; 
 newUser(); // => "Hi undefined"
 </v-code>
 <v-code lang="js" title="Привязка call">
 newUser.call(user); // => "Hi Tony"
 </v-code>
 <v-code lang="js" title="Привязка bind">
-var func = newUser.bind(user);
+const func = newUser.bind(user);
 func(); // => "Hi Tony" 
 </v-code>
 
@@ -1442,7 +1442,7 @@ func(); // => "Hi Tony"
 <h4>Привязать всё</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-for (var prop in user) {
+for (let prop in user) {
 	if (typeof user[prop] == 'function') {
 		user[prop] = user[prop].bind(user);
 	}
@@ -1456,7 +1456,7 @@ for (var prop in user) {
 function showFullName() {
 	alert( this.firstName + " " + this.lastName );
 }
-var user = {
+const user = {
 	firstName: "Василий",
 	lastName: "Петров"
 };
@@ -1467,9 +1467,9 @@ showFullName.call(user) // => "Василий Петров" (функция вы
 <h4>Максимальный элемент массива</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var arr = [1, 2, 3, 77, 4];
-var max = Math.max.apply(null, arr); // 77 (контекстом будет объект Math)
-var max = Math.max.apply(Math, arr); // 77 (контекстом будет объект Math) - аналогично
+const arr = [1, 2, 3, 77, 4];
+const max = Math.max.apply(null, arr); // 77 (контекстом будет объект Math)
+const max = Math.max.apply(Math, arr); // 77 (контекстом будет объект Math) - аналогично
 // в данном случае в качестве контекста можно передавать что угодно, 
 // поскольку в своей внутренней реализации метод Math.max не использует this
 </v-code>
@@ -1934,7 +1934,8 @@ cumputeScore([3, 4]);
 function getScores() {
 	return [3, 4, 5];
 }
-var [low, mid, high] = getScores();
+
+const [low, mid, high] = getScores();
 </v-code>
 
 <!------------------------------------------------------------->
@@ -1960,8 +1961,9 @@ console.log(startX, startY); // => 22, 77
 <h4>Быстрый обмен значений переменнных</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var yes = 'Yes';
-var no = 'No';
+const yes = 'Yes';
+const no = 'No';
+
 [yes, no] = [no, yes];
 </v-code>
 </div><div id="js/main/destructive-obj"><h2>Деструтивное присваивание объектов (ES6) - деструктуризация</h2>
@@ -2196,7 +2198,7 @@ alert( isFinite(NaN) );      // false
 alert( 1 / 0 );     // Infinity
 alert( 12345 / 0 ); // Infinity
 alert( -1 / 0 );    // -Infinity
-var x = Infinity;   // Infinity можно присвоить и в явном виде
+const x = Infinity;   // Infinity можно присвоить и в явном виде
 </v-code>
 
 <!------------------------------------------------------------->
@@ -2224,10 +2226,10 @@ alert( NaN + 1 ); // NaN
 parseInt("11000", 2);              // переводит строку с двоичной записью числа в число
 n.toString(2);                     // получает для числа n запись в 2-ной системе в виде строки
 
-var access = parseInt("11000", 2); // получаем число из строки
+const access = parseInt("11000", 2); // получаем число из строки
 alert(access);                     // 24, число с таким 2-ным представлением
 
-var access2 = access.toString(2); // обратно двоичную строку из числа
+const access2 = access.toString(2); // обратно двоичную строку из числа
 alert(access2);                   // 11000
 </v-code>
 
@@ -2258,14 +2260,14 @@ console.log(a ** 3); // 8 (возведение в степень 3)
 </ul>
 
 <v-code lang="js" title="">
-var i = 1;
-var a = ++i;
+const i = 1;
+const a = ++i;
 alert(a); // 2
 </v-code>
 
 <v-code lang="js" title="">
-var i = 1;
-var a = i++;
+const i = 1;
+const a = i++;
 alert(a); // 1
 </v-code>
 </div><div id="js/data-structures/string"><h2>Строки</h2>
@@ -2275,24 +2277,24 @@ alert(a); // 1
 </ul>
 
 <v-code lang="js" title="">
-var a = str.<u-code>length</u-code>;       // длина строки 
+const a = str.<u-code>length</u-code>;       // длина строки 
 77.<u-code>toString()</u-code>;            // преобразование в строку
-var arr = str.<u-code>split</u-code>(';'); // преобразование строки с заданным разделителем в массив
-var str = str.<u-code>trim</u-code>();     // обрезает пробелы с начала и конца строки
+const arr = str.<u-code>split</u-code>(';'); // преобразование строки с заданным разделителем в массив
+const str = str.<u-code>trim</u-code>();     // обрезает пробелы с начала и конца строки
 </v-code>
 
 <v-code lang="js" title="">
-var name = name.<u-code>toUpperCase</u-code>(); // верхний регистр
-var name = name.<u-code>toLowerCase</u-code>(); // нижний регистр
+const name = name.<u-code>toUpperCase</u-code>(); // верхний регистр
+const name = name.<u-code>toLowerCase</u-code>(); // нижний регистр
 </v-code>
 
 <!------------------------------------------------------------->
 <h4>Поиск в строке совпадений с образцом</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var pos = str.<u-code>indexOf</u-code>('name');     // с начала (-1 не найдено)
-var pos = str.indexOf('name', 2);  // поиск начат с позиции 2
-var pos = str.<u-code>lastIndexOf</u-code>('name'); // с конца (-1 не найдено)
+const pos = str.<u-code>indexOf</u-code>('name');     // с начала (-1 не найдено)
+const pos = str.indexOf('name', 2);  // поиск начат с позиции 2
+const pos = str.<u-code>lastIndexOf</u-code>('name'); // с конца (-1 не найдено)
 </v-code>
 
 <!------------------------------------------------------------->
@@ -2303,36 +2305,38 @@ var pos = str.<u-code>lastIndexOf</u-code>('name'); // с конца (-1 не н
 	<li>Отрицательные значения отсчитываются от конца строки</li>
 </ul>
 <v-code lang="js" title="">
-var root = str.<u-code>slice</u-code>(1, 7);        // вырезать с 1 позиции до 7 позиции не включая
-var root = 'testme'.slice(-2);     // 'me', от 2 позиции с конца
-var root = 'testme'.slice(1, -1);  // "estm", от 1 позиции до первой с конца 
+const root = str.<u-code>slice</u-code>(1, 7);        // вырезать с 1 позиции до 7 позиции не включая
+const root = 'testme'.slice(-2);     // 'me', от 2 позиции с конца
+const root = 'testme'.slice(1, -1);  // "estm", от 1 позиции до первой с конца 
 </v-code>
 
 <u-code-list>substring</u-code-list>
+
 <ul class="list-point">
 	<li>Отрицательные аргументы интерпретируются как равные нулю</li>
 	<li>Слишком большие значения усекаются до длины строки</li>
 	<li>Если start > end, то аргументы меняются местами, т.е. возвращается участок строки между start и end</li>
 </ul>
+
 <v-code lang="js" title="">
-var root = str.<u-code>substring</u-code>(1, 7);       // вырезать с 1 позиции до 7 позиции не включая
-var root = str.substring(1);          // вырезать с 1 позиции до конца строки
-var root = 'testme'.substring(-2);    // 'testme', -2 становится 0
-var root = 'testme'.substring(4, -1); // 'test', -1 становится 0 -> получили substring(4, 0), 4 > 0, так что аргументы меняются местами -> substring(0, 4) = "test"
+const root = str.<u-code>substring</u-code>(1, 7);       // вырезать с 1 позиции до 7 позиции не включая
+const root = str.substring(1);          // вырезать с 1 позиции до конца строки
+const root = 'testme'.substring(-2);    // 'testme', -2 становится 0
+const root = 'testme'.substring(4, -1); // 'test', -1 становится 0 -> получили substring(4, 0), 4 > 0, так что аргументы меняются местами -> substring(0, 4) = "test"
 </v-code>
 
 <u-code-list>substr</u-code-list>
 <v-code lang="js" title="">
-var root = str.<u-code>substr</u-code>(1, 4);   // вырезать с 1 позиции 4 символа
-var root = str.substr(1);      // вырезать с 1 позиции до конца строки
+const root = str.<u-code>substr</u-code>(1, 4);   // вырезать с 1 позиции 4 символа
+const root = str.substr(1);      // вырезать с 1 позиции до конца строки
 </v-code>
 
 <!------------------------------------------------------------->
 <h4>charAt, charCodeAt</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var root = <u-code>charAt</u-code>(2);     // возвращает символ строки по индексу 
-var root = <u-code>charCodeAt</u-code>(2); // возвращает код символа строки по индексу (все русские буквы находятся в диапазоне от 1040 до 1103)
+const root = <u-code>charAt</u-code>(2);     // возвращает символ строки по индексу 
+const root = <u-code>charCodeAt</u-code>(2); // возвращает код символа строки по индексу (все русские буквы находятся в диапазоне от 1040 до 1103)
 </v-code>
 
 <v-code lang="js" title="">
@@ -2348,7 +2352,7 @@ alert( "" [0] );       // undefined
 <h4>Перебор строки</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-for (var i=0; i <= str.length-1; i++) {
+for (let i=0; i <= str.length-1; i++) {
 	console.log(str[i]);
 }
 </v-code>
@@ -2357,8 +2361,8 @@ for (var i=0; i <= str.length-1; i++) {
 <h4>Длина числа</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var id = 100;
-var a = id.toString().length;
+const id = 100;
+const a = id.toString().length;
 </v-code>
 
 <!------------------------------------------------------------->
@@ -2382,8 +2386,9 @@ alert('привет \n мир');  // вывод переноса строки
 <h4>Проверка на заполненное поле</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var login = '';
-var password = '';
+const login = '';
+const password = '';
+
 isFormValid() {
 	return login.length > 0 && password.length > 0;
 }
@@ -2527,11 +2532,11 @@ const str2 = JSON.stringify(user, null, 4); // => отформатированн
 <h3>Объявление</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var arr = [];                        // объявление пустого массива
-var arr = ['Tony', 'Anne'];          // объявление массива из заполненных элементов
-var arr = [,,'Tony'];                // пропуск элементов
-var arr = new Array(5);              // объявление массива из пустых элементов с длиной 5 (конструктор)
-var arr = new Array('Tony', 'Anne'); // объявление массива (конструктор)
+const arr = [];                        // объявление пустого массива
+const arr = ['Tony', 'Anne'];          // объявление массива из заполненных элементов
+const arr = [,,'Tony'];                // пропуск элементов
+const arr = new Array(5);              // объявление массива из пустых элементов с длиной 5 (конструктор)
+const arr = new Array('Tony', 'Anne'); // объявление массива (конструктор)
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -2558,10 +2563,10 @@ const b = Object.values(checkedRows).flatMap(value => value);
 <h4><u-code-list>push</u-code-list> <u-code-list>pop</u-code-list> <u-code-list>unshift</u-code-list> <u-code-list>shift</u-code-list></h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-arr.<u-code>push</u-code>('Jack', 'Tony');            // добавляет элементы в конец
-arr.<u-code>unshift</u-code>('Jack', 'Tony');         // добавляет элементы в начало
-arr.<u-code>pop</u-code>();                           // удаляет и возвращает последний элемент
-arr.<u-code>shift</u-code>();                         // удаляет и возвращает первый элемент
+arr.<u-code>push</u-code>('Jack', 'Tony');    // добавляет элементы в конец
+arr.<u-code>unshift</u-code>('Jack', 'Tony'); // добавляет элементы в начало
+arr.<u-code>pop</u-code>();                   // удаляет и возвращает последний элемент
+arr.<u-code>shift</u-code>();                 // удаляет и возвращает первый элемент
 </v-code>
 
 <!------------------------------------------------------------->
@@ -2585,32 +2590,32 @@ console.log(pets.<u-code>includes</u-code>('at'));    // => false
 <h4><u-code-list>indexOf</u-code-list> <u-code-list>lastIndexOf</u-code-list></h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var a = colors.<u-code>indexOf</u-code>('white');     // возвращает первый индекс, по которому элемент может быть найден в массиве или -1, если индекса нет
-var a = colors.<u-code>lastIndexOf</u-code>('white'); // возвращает последний индекс, по которому данный элемент может быть найден в массиве или -1, если такого индекса нет
+const a = colors.<u-code>indexOf</u-code>('white');     // возвращает первый индекс, по которому элемент может быть найден в массиве или -1, если индекса нет
+const a = colors.<u-code>lastIndexOf</u-code>('white'); // возвращает последний индекс, по которому данный элемент может быть найден в массиве или -1, если такого индекса нет
 </v-code>
 
 <!------------------------------------------------------------->
 <h4><u-code-list>join</u-code-list> <u-code-list>split</u-code-list></h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var a = arr.<u-code>join</u-code>('.');               // преобразование массива в строку с заданным разделителем
-var arr = str.<u-code>split</u-code>(';');            // преобразование строки с заданным разделителем в массив 
+const str = arr.<u-code>join</u-code>('.');  // преобразование массива в строку с заданным разделителем
+const arr = str.<u-code>split</u-code>(';'); // преобразование строки с заданным разделителем в массив
 </v-code>
 
 <!------------------------------------------------------------->
 <h4><u-code-list>slice</u-code-list></h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var arr2 = arr1.<u-code>slice</u-code>(1, 7);         // копировать с 1 до 7 не включая, если не указан второй аргумент, то до конца
-var arr2 = arr1.<u-code>slice</u-code>(1);            // копировать с 1 до конца
-var arr2 = arr.<u-code>slice</u-code>(-2);            // копировать c 2 элемента с конца и дальше
-var arr2 = arr.<u-code>slice</u-code>();              // копировать весь массив
+const arr2 = arr1.<u-code>slice</u-code>(1, 7); // копировать с 1 до 7 не включая, если не указан второй аргумент, то до конца
+const arr2 = arr1.<u-code>slice</u-code>(1);    // копировать с 1 до конца
+const arr2 = arr.<u-code>slice</u-code>(-2);    // копировать c 2 элемента с конца и дальше
+const arr2 = arr.<u-code>slice</u-code>();      // копировать весь массив
 </v-code>
 
 <!------------------------------------------------------------->
 <h4><u-code-list>splice</u-code-list></h4>
 <!------------------------------------------------------------->
-<v-code lang="js" title="">               
+<v-code lang="js" title="">
 arr.<u-code>splice</u-code>(3, 2);                     // удалить с 3 индекса 2 элемента
 arr.<u-code>splice</u-code>(2, 0, 'Алина', 'Марина');  // добавление элементов
 arr.<u-code>splice</u-code>(1, 2, 'Алексей", "Билл');  // замена элементов (заменить 2 удаленных элемента на Алексей, Билл)
@@ -2621,25 +2626,29 @@ arr.<u-code>splice</u-code>(-1, 1);                    // удалить с по
 <h4><u-code-list>length</u-code-list> <u-code-list>reverse</u-code-list> <u-code-list>concat</u-code-list></h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var a = arr.<u-code>length</u-code>;                  // длина массива (индекс последнего элемента)
-arr.<u-code>reverse</u-code>();                       // меняет порядок элементов в массиве на обратный
-var arr = arr1.<u-code>concat</u-code>(arr2, arr3);   // создаёт новый массив, в который копируются элементы из массивов
+const a = arr.<u-code>length</u-code>;                  // длина массива (индекс последнего элемента)
+arr.<u-code>reverse</u-code>();                         // меняет порядок элементов в массиве на обратный
+const arr = arr1.<u-code>concat</u-code>(arr2, arr3);   // создаёт новый массив, в который копируются элементы из массивов
 </v-code>
 
 <!------------------------------------------------------------->
 <h4><u-code-list>sort</u-code-list></h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-arr.<u-code>sort</u-code>();                          // сортировка по алфавиту, преобразуя элементы к строке
+arr.<u-code>sort</u-code>(); // сортировка по алфавиту, преобразуя элементы к строке
 </v-code>
 
 <v-code lang="js" title="">
 // свой порядок сортировки (сортировка чисел)
-var arr = [1, 12, 2];
-arr.sort(function(a, b) {
-  if (a > b) return 1;
-  if (a < b) return -1;	
+const arr = [1, 12, 2];
+
+arr.sort((a, b) => {
+	if (a > b) return 1;
+	if (a < b) return -1;
 });
+
+<!-- arr.sort((a, b) => a - b); -->
+
 console.log(arr);  // 1, 2, 15
 </v-code>
 
@@ -2648,8 +2657,8 @@ console.log(arr);  // 1, 2, 15
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 // проверка на массив
-var a = Array.<u-code>isArray</u-code>([1,2,3]); // true
-var b = Array.<u-code>isArray</u-code>("not array"); // false
+const a = Array.<u-code>isArray</u-code>([1,2,3]); // true
+const b = Array.<u-code>isArray</u-code>("not array"); // false
 </v-code>
 
 
@@ -2657,10 +2666,10 @@ var b = Array.<u-code>isArray</u-code>("not array"); // false
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-arr['someIndex'] = 'someValue';       // использование строки в виде индекса
-arr.length = 10;                      // все элементы больше 10 индекса будут удалены
-delete arr[4];                        // присваивание элементу по индексу 4 undefined
-var a = Array.isArray(arr);           // проверка на массив
+arr['someIndex'] = 'someValue'; // использование строки в виде индекса
+arr.length = 10;                // все элементы больше 10 индекса будут удалены
+delete arr[4];                  // присваивание элементу по индексу 4 undefined
+const a = Array.isArray(arr);   // проверка на массив
 </v-code>
 
 
@@ -2668,13 +2677,13 @@ var a = Array.isArray(arr);           // проверка на массив
 <h3>Массивы обьектов</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var a = new Array(
-	{"name":"Андрей", "email":"andry@mail.ru"},
-	{"name":"Анна",   "email":"anna@mail.ru"}
+const a = new Array(
+	{ 'name': 'Андрей', 'email': 'andry@mail.ru' },
+	{ 'name': 'Анна',   'email': 'anna@mail.ru' }
 );
 
-console.log(a[0].name);  // "Андрей"
-console.log(a[1].email); // "anna@mail.ru"
+console.log(a[0].name);  // 'Андрей'
+console.log(a[1].email); // 'anna@mail.ru'
 </v-code>
 
 <!------------------------------------------------------------->
@@ -2682,19 +2691,20 @@ console.log(a[1].email); // "anna@mail.ru"
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 // перебор массива
-for (var i=0; i<=arr.length-1; i++) {
+for (let i=0; i<=arr.length-1; i++) {
 	console.log(arr[i]);
 }
 </v-code>
 
 <v-code lang="js" title="">
 // перебор массива и удаление выбранного элемента
-var id = 12;
-for (var i=0; i<=arr.length-1; i++) {
+const id = 12;
+
+for (let i=0; i<=arr.length-1; i++) {
 	if (id == arr[i]) {
-		arr.splice(i, 1); 
+		arr.splice(i, 1);
 		break;
-	} 
+	}
 }
 </v-code>
 
@@ -2731,8 +2741,9 @@ arr.splice(arr.indexOf(String(id)), 1);
 <h4>Перебор через for...of</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var arr = ['js', 'python', 'ruby'];
-for(var item of arr) {
+const arr = ['js', 'python', 'ruby'];
+
+for(let item of arr) {
     console.log(item);
 }
 </v-code>
@@ -2741,8 +2752,9 @@ for(var item of arr) {
 <h4>Перебор через встроенный итератор</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var arr = ['js', 'python', 'ruby'];
-var iterator = arr[<u-code>Symbol.iterator</u-code>]();
+const arr = ['js', 'python', 'ruby'];
+const iterator = arr[<u-code>Symbol.iterator</u-code>]();
+
 console.log(iterator.<u-code>next()</u-code>); // {value: "js", done: false}
 console.log(iterator.<u-code>next()</u-code>); // {value: "python", done: false}
 console.log(iterator.<u-code>next()</u-code>); // {value: "ruby", done: false}
@@ -2753,9 +2765,10 @@ console.log(iterator.<u-code>next()</u-code>); // {value: undefined, done: true}
 <h4>Перебор через встроенный итератор в цикле</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var arr = ['js', 'python', 'ruby'];
-var iterator = arr[Symbol.iterator]();
-var next = iterator.next();
+const arr = ['js', 'python', 'ruby'];
+const iterator = arr[Symbol.iterator]();
+const next = iterator.next();
+
 // по похожему алгоритму работает for...of
 while (!next.done) {
     console.log(next.value);
@@ -2841,10 +2854,11 @@ console.log(num.next().value);
 <h3>Массив</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var names = ['HTML', 'CSS', 'JavaScript'];
-var nameLengths = names.map(function(name) {
+const names = ['HTML', 'CSS', 'JavaScript'];
+const nameLengths = names.map(function(name) {
 	return name.length;
 });
+
 // получили массив с длинами
 alert(nameLengths); // 4,3,10
 </v-code>
@@ -2872,16 +2886,16 @@ const map = new Map([
 const map = new Map();
 
 map.<u-code>set</u-code>(42, 'Ответ на главный вопрос'); // установить значение
-var a = map.<u-code>get</u-code>(42);                    // получить значение по ключу
-var a = map.<u-code>size</u-code>;                       // получить кол-во элементов
-var a = map.<u-code>has</u-code>(42);                    // проверка наличия значения по ключу
+const a = map.<u-code>get</u-code>(42);                    // получить значение по ключу
+const a = map.<u-code>size</u-code>;                       // получить кол-во элементов
+const a = map.<u-code>has</u-code>(42);                    // проверка наличия значения по ключу
 
 map.<u-code>delete</u-code>(42);                         // удалить значение по ключу
 map.<u-code>clear</u-code>();                            // очистка map
 
-var a = map.<u-code>keys</u-code>();                     // возвращает перебираемый объект с ключами
-var a = map.<u-code>values</u-code>();                   // возвращает перебираемый объект с значениями
-var a = map.<u-code>entries</u-code>();                  // возвращает массив массивов
+const a = map.<u-code>keys</u-code>();                     // возвращает перебираемый объект с ключами
+const a = map.<u-code>values</u-code>();                   // возвращает перебираемый объект с значениями
+const a = map.<u-code>entries</u-code>();                  // возвращает массив массивов
 </v-code>
 
 <h3>Перебор map</h3>
@@ -3013,10 +3027,10 @@ set
 <h3>Методы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var a = set.<u-code>size</u-code>;          // кол-во элементо в set
-var a = set.<u-code>has</u-code>('button'); // проверка наличия значения
-set.<u-code>delete</u-code>('active');      // удаление элемента 
-set.<u-code>clear</u-code>();               // очистка set
+const a = set.<u-code>size</u-code>;          // кол-во элементо в set
+const a = set.<u-code>has</u-code>('button'); // проверка наличия значения
+set.<u-code>delete</u-code>('active');        // удаление элемента 
+set.<u-code>clear</u-code>();                 // очистка set
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -3025,14 +3039,14 @@ set.<u-code>clear</u-code>();               // очистка set
 <v-code lang="js" title="">
 const set = new Set();
 set.add({className: 'button'}); 
-var a = set.has({className: 'button'}); // false
+const a = set.has({className: 'button'}); // false
 // в метод add отправляется ссылка на один объект
 // в метод has отправляется ссылка на другой объект
 
 const set = new Set();
 const buttonRef = {className: 'button'};
 set.add(buttonRef); 
-var a = set.has(buttonRef); // true
+const a = set.has(buttonRef); // true
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -3149,15 +3163,15 @@ new <u-code>Date</u-code>(year, month, date, hours, minutes, seconds, ms)
 </v-code>
 
 <v-code lang="js" title="">
-var selectDate = new Date(2012,0,1,0,0,0); // объявление для заданной даты
-var nowDate = new Date();                  // текущее дата и время на компьютере пользователя
+const selectDate = new Date(2012,0,1,0,0,0); // объявление для заданной даты
+const nowDate = new Date();                  // текущее дата и время на компьютере пользователя
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Установка значений</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var selectDate = new Date(2012,0,1,0,0,0);
+const selectDate = new Date(2012,0,1,0,0,0);
 </v-code>
 <v-code lang="js" title="">
 selectDate.<u-code>setMinutes</u-code>(25);                 // установка минут
@@ -3169,17 +3183,17 @@ setSeconds.<u-code>setSeconds</u-code>(25);                 // установк�
 <h3>Получение значений</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var nowDate = new Date();
+const nowDate = new Date();
 </v-code>
 <v-code lang="js" title="">
-var yearFull = nowDate.<u-code>getFullYear()</u-code>;      // год (4 цифры)
-var month    = nowDate.<u-code>getMonth()</u-code>;         // месяц (от 0 до 1)
-var day      = nowDate.<u-code>getDate()</u-code>;          // число месяца (от 1 до 31)
-var dayWeek  = nowDate.<u-code>getDay()</u-code>;           // день недели (от 0-воскресенье до 6-суббота)
-var hour     = nowDate.<u-code>getHours()</u-code>;         // час
-var minutes  = nowDate.<u-code>getMinutes()</u-code>;       // минуты
-var seconds  = nowDate.<u-code>getSeconds()</u-code>;       // секунды
-var mseconds = nowDate.<u-code>getMilliseconds()</u-code>;  // миллисекунды
+const yearFull = nowDate.<u-code>getFullYear()</u-code>;      // год (4 цифры)
+const month    = nowDate.<u-code>getMonth()</u-code>;         // месяц (от 0 до 1)
+const day      = nowDate.<u-code>getDate()</u-code>;          // число месяца (от 1 до 31)
+const dayWeek  = nowDate.<u-code>getDay()</u-code>;           // день недели (от 0-воскресенье до 6-суббота)
+const hour     = nowDate.<u-code>getHours()</u-code>;         // час
+const minutes  = nowDate.<u-code>getMinutes()</u-code>;       // минуты
+const seconds  = nowDate.<u-code>getSeconds()</u-code>;       // секунды
+const mseconds = nowDate.<u-code>getMilliseconds()</u-code>;  // миллисекунды
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -3199,10 +3213,10 @@ var mseconds = nowDate.<u-code>getMilliseconds()</u-code>;  // миллисек�
 </ul>
 
 <v-code lang="js" title="">
-var msUTC = Date.parse('2012-01-26T13:51:50.417Z'); // зона UTC
+const msUTC = Date.parse('2012-01-26T13:51:50.417Z'); // зона UTC
 alert( msUTC ); // 1327571510417 (число миллисекунд)
 
-var ms = Date.parse('2012-01-26T13:51:50.417-07:00'); // С таймзоной -07:00 GMT
+const ms = Date.parse('2012-01-26T13:51:50.417-07:00'); // С таймзоной -07:00 GMT
 alert( ms ); // 1327611110417 (число миллисекунд)
 </v-code>
 
@@ -3218,9 +3232,9 @@ alert( +new Date() ); // valueOf: кол-во миллисекунд, проше
 <h3>toLocaleString</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var date = new Date(2014, 11, 31, 12, 30, 0);
+const date = new Date(2014, 11, 31, 12, 30, 0);
 
-var options = {
+const options = {
 	era: 'long',
 	year: 'numeric',
 	month: 'long',
@@ -3237,16 +3251,16 @@ alert( date.<u-code>toLocaleString</u-code>("en-US", options) ); // Wednesday, D
 </v-code>
 
 <v-code lang="js" title="">
-var a = nowDate.<u-code>toLocaleTimeString()</u-code>; // время с учетом локализации
-var a = nowDate.<u-code>toLocaleDateString()</u-code>; // дата с учетом локализации
+const a = nowDate.<u-code>toLocaleTimeString()</u-code>; // время с учетом локализации
+const a = nowDate.<u-code>toLocaleDateString()</u-code>; // дата с учетом локализации
 </v-code>
 
 <v-code lang="js" title="">
 // вывод зависит от браузера
-var d = new Date();
-var a = d.<u-code>toString()</u-code>;     // возвращает дату целиком 'Wed Jan 26 2011 16:40:50 GMT+0300'
-var a = d.<u-code>toDateString()</u-code>; // возвращает только дату
-var a = d.<u-code>toTimeString()</u-code>; // возвращает только время
+const d = new Date();
+const a = d.<u-code>toString()</u-code>;     // возвращает дату целиком 'Wed Jan 26 2011 16:40:50 GMT+0300'
+const a = d.<u-code>toDateString()</u-code>; // возвращает только дату
+const a = d.<u-code>toTimeString()</u-code>; // возвращает только время
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -3257,26 +3271,26 @@ var a = d.<u-code>toTimeString()</u-code>; // возвращает только 
 	<li>Существуют также UTC-варианты этих методов, возвращающие день, месяц, год и т.п. для зоны GMT+0 (UTC): getUTCFullYear(), getUTCMonth(), getUTCDay() и т.д.</li>
 </ul>
 <v-code lang="js" title="">
-var a = nowDate.getHours();          // время по гринвичу (GMT)
-var a = nowDate.<u-code>getUTCHours()</u-code>;       // время в формате UTC
-var a = nowDate.<u-code>getTimezoneOffset()</u-code>; // возвращает разницу между местным и UTC-временем, в минутах.
+const a = nowDate.getHours();          // время по гринвичу (GMT)
+const a = nowDate.<u-code>getUTCHours()</u-code>;       // время в формате UTC
+const a = nowDate.<u-code>getTimezoneOffset()</u-code>; // возвращает разницу между местным и UTC-временем, в минутах.
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Другие методы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var a = nowDate.<u-code>toTimeString()</u-code>; // вывод времени в виде строки
-var a = nowDate.<u-code>toDateString()</u-code>; // вывод даты в виде строки
+const a = nowDate.<u-code>toTimeString()</u-code>; // вывод времени в виде строки
+const a = nowDate.<u-code>toDateString()</u-code>; // вывод даты в виде строки
 </v-code>
 
 <v-code lang="js" title="">
-var selectDate = new Date(2012,0,1,0,0,0);
-var a = selectDate.<u-code>getTime()</u-code>;  // возвращает число миллисекунд, прошедших с 1 января 1970 года GMT+0
+const selectDate = new Date(2012,0,1,0,0,0);
+const a = selectDate.<u-code>getTime()</u-code>;  // возвращает число миллисекунд, прошедших с 1 января 1970 года GMT+0
 </v-code>
 
 <v-code lang="js" title="">
-var timeInMs = <u-code>Date.now</u-code>();     // возвращает количество миллисекунд, прошедших с 1 января 1970 года 00:00:00 по UTC.
+const timeInMs = <u-code>Date.now</u-code>();     // возвращает количество миллисекунд, прошедших с 1 января 1970 года 00:00:00 по UTC.
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -3287,26 +3301,26 @@ var timeInMs = <u-code>Date.now</u-code>();     // возвращает коли
 <h4>Вывод текщей даты</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var weekday = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-var month = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
-var nowDate = new Date();
-var nowDay   = weekday[nowDate.getDay()];
-var nowDate  = nowDate.getDate();
-var nowMonth = month[nowDate.getMonth()];
+const weekday = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+const month = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
+const nowDate = new Date();
+const nowDay   = weekday[nowDate.getDay()];
+const nowDate  = nowDate.getDate();
+const nowMonth = month[nowDate.getMonth()];
 </v-code>
 
 <!------------------------------------------------------------->
 <h4>Разность дат</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var start = new Date; // засекли время
+const start = new Date; // засекли время
 
 // что-то сделать
-for (var i = 0; i < 100000; i++) {
-  var doSomething = i * i * i;
+for (let i = 0; i < 100000; i++) {
+  const doSomething = i * i * i;
 }
 
-var end = new Date; // конец измерения
+const end = new Date; // конец измерения
 console.log( "Цикл занял " + (end - start) + " ms" );
 </v-code>
 </div><div id="js/client-storage/web-storage"><h2>Web Storage: Local Storage и Session Storage</h2>
@@ -3331,14 +3345,14 @@ console.log( "Цикл занял " + (end - start) + " ms" );
 
 <v-code lang="js" title="">
 localStorage.<u-code>setItem</u-code>('id', '77');   // добавляет в localStorage новый ключ со значением (а если такой ключ уже существует, то перезаписывает новым значением)
-var a = localStorage.<u-code>getItem</u-code>('id'); // получить значение
+const a = localStorage.<u-code>getItem</u-code>('id'); // получить значение
 localStorage.<u-code>removeItem</u-code>('id');      // удаление ключа
 localStorage.<u-code>clear</u-code>();               // очистка всего хранилища
 </v-code>
 
 <v-code lang="js" title="">
 localStorage["Ключ"] = "Значение"; // установка значения
-var a = localStorage["Ключ"];      // получение значения
+const a = localStorage["Ключ"];      // получение значения
 delete localStorage["Ключ"];       // удаление значения
 </v-code>
 
@@ -3353,14 +3367,14 @@ if (localStorage.getItem('key') !== null) {...}
 <h4>Объекты и массивы</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var obj = {
+const obj = {
 	item1: 1,
 	item2: [123, "two", 3.0],
 	item3: "hello"
 };
 
-localStorage.setItem("key", JSON.stringify(obj));        // сериализация объекта и запись в хранилище по ключу "key"
-var returnObj = JSON.parse(localStorage.getItem("key")); // из json в объект
+localStorage.setItem("key", JSON.stringify(obj));          // сериализация объекта и запись в хранилище по ключу "key"
+const returnObj = JSON.parse(localStorage.getItem("key")); // из json в объект
 </v-code>
 
 <!------------------------------------------------------------->
@@ -3383,7 +3397,7 @@ try {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 sessionStorage.<u-code>setItem</u-code>('key', 'value');   // сохранение данных в sessionStorage
-var data = sessionStorage.<u-code>getItem</u-code>('key'); // получение данных из sessionStorage
+const data = sessionStorage.<u-code>getItem</u-code>('key'); // получение данных из sessionStorage
 sessionStorage.<u-code>removeItem</u-code>('key');         // удаление ключа
 sessionStorage.<u-code>clear</u-code>();                   // очистка всего хранилища
 </v-code>
@@ -3406,7 +3420,7 @@ sessionStorage.<u-code>clear</u-code>();                   // очистка в�
 <h4>Глобальная переменная</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var db = null;
+const db = null;
 </v-code>
 
 <!------------------------------------------------------------->
@@ -3679,7 +3693,7 @@ function sum(a) {
 		return a + b;
 	}
 }
-var s = sum(10);
+const s = sum(10);
 console.log(s(15));
 
 // в функции "s" можно производить вычисления с переменными, объявленными в функции sum, 
@@ -3691,14 +3705,15 @@ console.log(s(15));
 <h4>Пример 2</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var func = function() {
-	var i = 10;
+const func = function() {
+	const i = 10;
 	return function() {
 		return i;
 	}
 }
-var anotherFunc = function() {
-	var i = 20;
+
+const anotherFunc = function() {
+	const i = 20;
 	console.log(func()());
 }
 anotherFunc();
@@ -3710,25 +3725,27 @@ anotherFunc();
 <v-two-code type="js;js" comment="js;js">
 <template v-slot:first>
 function counter() {
-	var count = 0;
+	const count = 0;
 	return function() {
 		count++;
 		console.log(count);
 	}
 }
-var plus = counter();
+
+const plus = counter();
 plus(); // 1
 plus(); // 2
 plus(); // 3
 </template>
 <template v-slot:last>
 function counter() {
-	var count = 0;
+	const count = 0;
 	return function() {
 		return count++;
 	}
 }
-var plus = counter();
+
+const plus = counter();
 console.log(plus()); // 0
 console.log(plus()); // 1
 console.log(plus()); // 2
@@ -3736,17 +3753,17 @@ console.log(plus()); // 2
 </v-two-code>
 
 <v-code lang="js" title="">
-var counter = (function() {
-	var count = 0;
+const counter = (function() {
+	const count = 0;
 	return function() {
 		return count++;
 	}
 })();
+
 console.log(counter()); // 0
 console.log(counter()); // 1 
 console.log(counter()); // 2 
 </v-code>
-
 </div><div id="js/closures/environment"><h2>Лексическая и динамическая область видимости</h2>
 
 <ul class="list-point">
@@ -3819,7 +3836,7 @@ bar(); // EC - LE ER.outer - bar.[[Evironment]]
 
 <v-code lang="js" title="">
 function testFn() {
-	var <u-code>localVar</u-code> = 10;
+	const <u-code>localVar</u-code> = 10;
 
 	function innerFn(innerParam) {
 		alert(innerParam + <u-code>localVar</u-code>);
@@ -3828,7 +3845,7 @@ function testFn() {
 	return innerFn;
 }
  
-var someFn = testFn();
+const someFn = testFn();
 someFn(20); // 30
 </v-code>
 
@@ -3846,14 +3863,16 @@ someFn(20); // 30
 </ul>
 
 <v-code lang="js" title="">
-var x = 10;
+const x = 10;
+
 function someFn() {
 	alert(x);
 }
+
 someFn(); // 10 - и при статической и при динамической Scope
  
 (function () {
-	var x = 20;
+	const x = 20;
 	someFn(); // 10 - при статической, 20 - при динамической Scope
 })();
  
@@ -3861,7 +3880,7 @@ someFn(); // 10 - и при статической и при динамичес�
 // в качестве параметра
  
 (function (funArg) {
-	var x = 30;
+	const x = 30;
 	funArg(); // 10 - при статической, 30 - при динамической Scope
 })(someFn);
 </v-code>
@@ -4185,7 +4204,7 @@ my(1, 2, 3, 4);
 <!------------------------------------------------------------->
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var person = {
+const person = {
 	name: 'Tony',
 	greet: () => {
 		// this - объект из контекста window
@@ -4195,7 +4214,7 @@ var person = {
 person.greet();
 </template>
 <template v-slot:last>
-var person = {
+const person = {
 	name: 'Tony',
 	greet: function() {
 		// this - это person
@@ -4216,7 +4235,7 @@ person.greet();
 <!------------------------------------------------------------->
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var add = (x, y) => x + y;
+const add = (x, y) => x + y;
 </template>
 <template v-slot:last>
 function add(x, y) {
@@ -4234,10 +4253,10 @@ function add(x, y) {
 
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var square = x => x*x;
+const square = x => x*x;
 </template>
 <template v-slot:last>
-var square = function(x) {
+const square = function(x) {
 	return x*x;
 }
 </template>
@@ -4248,10 +4267,10 @@ var square = function(x) {
 <!------------------------------------------------------------->
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var giveMeAnswer = () => 42;
+const giveMeAnswer = () => 42;
 </template>
 <template v-slot:last>
-var giveMeAnswer = function() {
+const giveMeAnswer = function() {
 	return 42;
 }
 </template>
@@ -4262,10 +4281,10 @@ var giveMeAnswer = function() {
 <!------------------------------------------------------------->
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var log = () => console.log('hi');
+const log = () => console.log('hi');
 </template>
 <template v-slot:last>
-var log = function() {
+const log = function() {
 	console.log('hi');
 }
 </template>
@@ -4279,14 +4298,14 @@ var log = function() {
 </ul>
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var multiply = (x, y) => {
-	var result = x*y;
+const multiply = (x, y) => {
+	const result = x*y;
 	return result;
 }
 </template>
 <template v-slot:last>
-var multiply = function(x, y) {
-	var result = x*y;
+const multiply = function(x, y) {
+	const result = x*y;
 	return result;
 }
 </template>
@@ -4301,10 +4320,10 @@ var multiply = function(x, y) {
 
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var getPerson = () => ({ name:'Jack' });
+const getPerson = () => ({ name:'Jack' });
 </template>
 <template v-slot:last>
-var getPerson = function() {
+const getPerson = function() {
 	return { name:'Jack' }
 }
 </template>
@@ -4351,7 +4370,7 @@ alert( pow(2, 3) ); // 8
 </ul>
 
 <v-code lang="js" title="">
-var f = function sayHi(name) {
+const f = function sayHi(name) {
   alert( sayHi ); // изнутри функции - видно (выведет код функции)
 };
 
@@ -4364,7 +4383,7 @@ function f(n) {
   return n ? n * f(n - 1) : 1;
 };
 
-var g = f;
+const g = f;
 f = null;
 
 alert( g(5) ); // запуск функции с новым именем - ошибка при выполнении!
@@ -4372,11 +4391,11 @@ alert( g(5) ); // запуск функции с новым именем - ош�
 // этой функции уже нет, f = null
 </template>
 <template v-slot:last>
-var f = function factorial(n) {
+const f = function factorial(n) {
 	return n ? n*factorial(n-1) : 1;
 };
 
-var g = f;  // скопировали ссылку на функцию-факториал в g
+const g = f;  // скопировали ссылку на функцию-факториал в g
 f = null;
 
 alert( g(5) ); // 120, работает!
@@ -4406,7 +4425,7 @@ alert( g(5) ); // 120, работает!
 <h4>Очистка памяти</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var user = {
+const user = {
     name: 'Tony'
 }
 user = null;
@@ -4646,39 +4665,39 @@ Math.floor(num);   // округляет число в меньшую сторо
 </v-code>
 
 <v-code lang="js" title="">
-var rand = Math.random();                   // генерация случайного числа от 0 (включительно) до 1 (не включая)
-var rand = Math.round(Math.random() * 100); // от 0 до 100
+const rand = Math.random();                   // генерация случайного числа от 0 (включительно) до 1 (не включая)
+const rand = Math.round(Math.random() * 100); // от 0 до 100
 </v-code>
 
 <v-code lang="js" title="">
-var a = Math.pow(4,2);        // степень 4 в 2
-var a = Math.sqrt(400);       // квадратный корень числа
-var a = Math.abs(-7);         // модуль
-var a = Math.max(1, 2, 3, 4); // большее число из аргументов
-var a = Math.min(1, 2, 3, 4); // меньшее число из аргументов
-var a = Math.exp(2);          // возведение часла "e" в указанную степень
-var a = Math.log(5);          // натуральный логарифм числа
+const a = Math.pow(4,2);        // степень 4 в 2
+const a = Math.sqrt(400);       // квадратный корень числа
+const a = Math.abs(-7);         // модуль
+const a = Math.max(1, 2, 3, 4); // большее число из аргументов
+const a = Math.min(1, 2, 3, 4); // меньшее число из аргументов
+const a = Math.exp(2);          // возведение часла "e" в указанную степень
+const a = Math.log(5);          // натуральный логарифм числа
 </v-code>
 
 <v-code lang="js" title="">
-var a = Math.PI;              // число PI
-var a = Math.E;               // чисто E
+const a = Math.PI;              // число PI
+const a = Math.E;               // чисто E
 </v-code>
 
 <v-code lang="js" title="">
-var a = Math.sin(1);          // синус (радиан)
-var a = Math.cos(1);          // косинус
-var a = Math.tan(1);          // тангенс
-var a = Math.atan(1);         // арктангенс
-var a = Math.asin(1);         // арксинус
-var a = Math.acos(1);         // арккосинус
+const a = Math.sin(1);          // синус (радиан)
+const a = Math.cos(1);          // косинус
+const a = Math.tan(1);          // тангенс
+const a = Math.atan(1);         // арктангенс
+const a = Math.asin(1);         // арксинус
+const a = Math.acos(1);         // арккосинус
 </v-code>
 
 <!------------------------------------------------------------->
 <h4>Пример Random(min, max)</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-function mtRand(min, max) {
+const mtRand = (min, max) => {
 	return Math.floor(Math.random() * (max - min + 1));
 	//return Math.random() * (max - min) + min;
 }
@@ -4689,12 +4708,13 @@ function mtRand(min, max) {
 <h3>Создание исключений</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var calculate = function(n) {
+const calculate = function(n) {
 	if (n>10) {
 		throw new Error('n должно быть больше 10');
 	}
 	return n;
 }
+
 calculate(20);
 </v-code>
 
@@ -4716,12 +4736,13 @@ try {
 </v-code>
 
 <v-code lang="js" title="">
-var calculate = function(n) {
+const calculate = function(n) {
 	if (n>10) {
 		throw new Error('n должно быть больше 10');
 	}
 	return n;
 }
+
 try {
 	calculate(20);
 } catch(e) {
@@ -4734,14 +4755,15 @@ try {
 <h3>Цикл for</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-for (var i = 1; i < 10; i++) {  
+for (let i = 1; i < 10; i++) {  
     console.log(i); 
 }
 </v-code>
 
 <h3>Цикл while</h3>
 <v-code lang="js" title="">
-var i = 0;  
+let i = 0;
+
 while (i < 10) {  
     console.log(i); 
     i++;  
@@ -4752,7 +4774,8 @@ while (i < 10) {
 <h3>Цикл do while</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var i = 0;  
+let i = 0;
+
 do {  
     console.log(i); 
     i++;  
@@ -4763,6 +4786,9 @@ do {
 break    // выход из цикла
 continue // прекращает выполнение текущей итерации цикла и переходит на следующую
 </v-code>
+
+
+
 </div><div id="js/other/conditional-statements"><h2>Условные операторы</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -4813,7 +4839,7 @@ if (year < 2011) {
 <h3>Использование</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var a = `
+const a = `
 	первая строка
 	вторая строка
 `;
@@ -4823,8 +4849,8 @@ var a = `
 <h3>Интерполяция</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var a = 'text'; 
-var b = `строка текста ${a} строка текста`;
+const a = 'text'; 
+const b = `строка текста ${a} строка текста`;
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -4835,7 +4861,7 @@ var b = `строка текста ${a} строка текста`;
 </ul>
 
 <v-code lang="js" title="">
-var name = 'Tony';
+const name = 'Tony';
 console.log(upperName`Hello ${name}`);
 
 // literals - массив строковых литералов
@@ -4873,7 +4899,7 @@ typeof new String('string'); // "object"
 
 <v-code lang="js" title="">
 // позволяет достать строку из объекта
-var str = new String('string');
+const str = new String('string');
 console.log(str.valueOf()); 
 </v-code>
 
@@ -4884,8 +4910,8 @@ console.log(str.valueOf());
 </ul>
 
 <v-code lang="js" title="">
-var user = 'Tony';          // создали строку (примитив)
-var a = user.toUpperCase(); // TONY
+const user = 'Tony';          // создали строку (примитив)
+const a = user.toUpperCase(); // TONY
 // был создан временный объект new String
 // вызван метод
 // new String уничтожен, результат возвращён
@@ -5132,8 +5158,9 @@ text text text
 </div><div id="js/other/method-chaining"><h2>Method Chaining (Цепные вызовы методов)</h2>
 
 <v-code lang="js" title="">
-var str1 = 'Hello';
-var str2 = str1
+const str1 = 'Hello';
+
+const str2 = str1
     .replace('a', 'b')
     .concat(' add')
     .toUpperCase();
@@ -5151,7 +5178,7 @@ var str2 = str1
 <h4>1. Создание</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var myWorker = new Worker("worker.js");
+const myWorker = new Worker("worker.js");
 </v-code>
 
 <!------------------------------------------------------------->
@@ -5173,7 +5200,7 @@ myWorker.postMessage(imageData);
 <v-code lang="js" title="">
 onmessage = function(e) {
 	console.log('Message received from main script');
-	var workerResult = 'Result: ' + (e.data[0] * e.data[1]);
+	const workerResult = 'Result: ' + (e.data[0] * e.data[1]);
 	console.log('Posting message back to main script');
 	postMessage(workerResult);
 }
@@ -5210,9 +5237,10 @@ console.error('Ошибка');
 <h4>Выполнение кода</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var a = 1;
+const a = 1;
+
 (function() {
-	var a = 2;
+	const a = 2;
 	eval('alert(a)'); // 2
 })()
 </v-code>
@@ -5221,14 +5249,14 @@ var a = 1;
 <h4>Вызов eval возвращает последнее вычисленное выражение</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var a = eval('1+1'); // 2
+const a = eval('1+1'); // 2
 </v-code>
 
 <!------------------------------------------------------------->
 <h4>При вызове eval имеет полный доступ к локальным переменным (<u>не рекомендуется</u>)</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var x = 5;
+const x = 5;
 eval("alert(x); x = 10"); // 5, доступ к старому значению
 alert(x);                 // 10, значение изменено внутри eval
 </v-code>
@@ -5238,7 +5266,7 @@ alert(x);                 // 10, значение изменено внутри 
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 "use strict";
-eval("var a = 5; function f() { }");
+eval("const a = 5; function f() { }");
 alert(a); // ошибка, переменная не определена
 // функция f тоже не видна снаружи
 // eval имеет свою область видимости, а к внешним переменным обращается через замыкание, аналогично тому, как работают обычные функции
@@ -5248,9 +5276,10 @@ alert(a); // ошибка, переменная не определена
 <h4>Запуск скрипта в глобальной области</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var a = 1;
+const a = 1;
+
 (function( {
-	var a = 2;
+	const a = 2;
 	<u-code>window.eval</u-code>(' alert(a) '); // 1, выполнено глобально везде
 })();
 </v-code>
@@ -5261,7 +5290,7 @@ var a = 1;
 </ul>
 
 <v-code lang="js" title="">
-var promise = Notification.requestPermission();
+const promise = Notification.requestPermission();
 </v-code>
 </div><div id="js/other/ecmascript"><h2 id="ecmascript">ECMAScript</h2>
 
@@ -5298,7 +5327,6 @@ function pow(x, n) {
 </v-code>
 </div><div id="js/other/samples"><h2>Примеры</h2>
 
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>DOMParser</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -5308,8 +5336,8 @@ $.ajax({
     url: "code.html",
     async: false,  
     success: function (data) {
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(data, 'text/html');
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data, 'text/html');
         document.querySelector('#code').appendChild(doc.querySelector('#code'));
     }          
 });

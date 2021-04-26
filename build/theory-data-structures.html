@@ -799,10 +799,11 @@ alert(`Hello ${user.group}`);
 <h3>Массив</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var names = ['HTML', 'CSS', 'JavaScript'];
-var nameLengths = names.map(function(name) {
+const names = ['HTML', 'CSS', 'JavaScript'];
+const nameLengths = names.map(function(name) {
 	return name.length;
 });
+
 // получили массив с длинами
 alert(nameLengths); // 4,3,10
 </v-code>
@@ -830,16 +831,16 @@ const map = new Map([
 const map = new Map();
 
 map.<u-code>set</u-code>(42, 'Ответ на главный вопрос'); // установить значение
-var a = map.<u-code>get</u-code>(42);                    // получить значение по ключу
-var a = map.<u-code>size</u-code>;                       // получить кол-во элементов
-var a = map.<u-code>has</u-code>(42);                    // проверка наличия значения по ключу
+const a = map.<u-code>get</u-code>(42);                    // получить значение по ключу
+const a = map.<u-code>size</u-code>;                       // получить кол-во элементов
+const a = map.<u-code>has</u-code>(42);                    // проверка наличия значения по ключу
 
 map.<u-code>delete</u-code>(42);                         // удалить значение по ключу
 map.<u-code>clear</u-code>();                            // очистка map
 
-var a = map.<u-code>keys</u-code>();                     // возвращает перебираемый объект с ключами
-var a = map.<u-code>values</u-code>();                   // возвращает перебираемый объект с значениями
-var a = map.<u-code>entries</u-code>();                  // возвращает массив массивов
+const a = map.<u-code>keys</u-code>();                     // возвращает перебираемый объект с ключами
+const a = map.<u-code>values</u-code>();                   // возвращает перебираемый объект с значениями
+const a = map.<u-code>entries</u-code>();                  // возвращает массив массивов
 </v-code>
 
 <h3>Перебор map</h3>
@@ -971,10 +972,10 @@ set
 <h3>Методы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var a = set.<u-code>size</u-code>;          // кол-во элементо в set
-var a = set.<u-code>has</u-code>('button'); // проверка наличия значения
-set.<u-code>delete</u-code>('active');      // удаление элемента 
-set.<u-code>clear</u-code>();               // очистка set
+const a = set.<u-code>size</u-code>;          // кол-во элементо в set
+const a = set.<u-code>has</u-code>('button'); // проверка наличия значения
+set.<u-code>delete</u-code>('active');        // удаление элемента 
+set.<u-code>clear</u-code>();                 // очистка set
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -983,14 +984,14 @@ set.<u-code>clear</u-code>();               // очистка set
 <v-code lang="js" title="">
 const set = new Set();
 set.add({className: 'button'}); 
-var a = set.has({className: 'button'}); // false
+const a = set.has({className: 'button'}); // false
 // в метод add отправляется ссылка на один объект
 // в метод has отправляется ссылка на другой объект
 
 const set = new Set();
 const buttonRef = {className: 'button'};
 set.add(buttonRef); 
-var a = set.has(buttonRef); // true
+const a = set.has(buttonRef); // true
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

@@ -4,12 +4,13 @@
 <h3>Создание исключений</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var calculate = function(n) {
+const calculate = function(n) {
 	if (n>10) {
 		throw new Error('n должно быть больше 10');
 	}
 	return n;
 }
+
 calculate(20);
 </v-code>
 
@@ -31,12 +32,13 @@ try {
 </v-code>
 
 <v-code lang="js" title="">
-var calculate = function(n) {
+const calculate = function(n) {
 	if (n>10) {
 		throw new Error('n должно быть больше 10');
 	}
 	return n;
 }
+
 try {
 	calculate(20);
 } catch(e) {

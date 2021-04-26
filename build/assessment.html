@@ -681,7 +681,7 @@ typeof NaN          // "number"
 </v-code>
 
 <v-code lang="js" title="">
-var bar = function foo() {};
+const bar = function foo() {};
 typeof foo(); // Uncaught ReferenceError: foo is not defined
 typeof bar;   // => "function"
 typeof bar()  // => "undefined"
@@ -1378,20 +1378,20 @@ func.<u-code>bind</u-code>(person, 'HelloZ', 'WorldZ')(); // bind с аргум�
 <h4>Потеря контекста</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="Потеря контекста">
-var user = {
+const user = {
 	userName: 'Tony',
 	userGreet() {
 		console.log('Hi ' + this.userName);
 	}
 };
-var newUser = user.userGreet; 
+const newUser = user.userGreet; 
 newUser(); // => "Hi undefined"
 </v-code>
 <v-code lang="js" title="Привязка call">
 newUser.call(user); // => "Hi Tony"
 </v-code>
 <v-code lang="js" title="Привязка bind">
-var func = newUser.bind(user);
+const func = newUser.bind(user);
 func(); // => "Hi Tony" 
 </v-code>
 
@@ -1399,7 +1399,7 @@ func(); // => "Hi Tony"
 <h4>Привязать всё</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-for (var prop in user) {
+for (let prop in user) {
 	if (typeof user[prop] == 'function') {
 		user[prop] = user[prop].bind(user);
 	}
@@ -1413,7 +1413,7 @@ for (var prop in user) {
 function showFullName() {
 	alert( this.firstName + " " + this.lastName );
 }
-var user = {
+const user = {
 	firstName: "Василий",
 	lastName: "Петров"
 };
@@ -1424,9 +1424,9 @@ showFullName.call(user) // => "Василий Петров" (функция вы
 <h4>Максимальный элемент массива</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var arr = [1, 2, 3, 77, 4];
-var max = Math.max.apply(null, arr); // 77 (контекстом будет объект Math)
-var max = Math.max.apply(Math, arr); // 77 (контекстом будет объект Math) - аналогично
+const arr = [1, 2, 3, 77, 4];
+const max = Math.max.apply(null, arr); // 77 (контекстом будет объект Math)
+const max = Math.max.apply(Math, arr); // 77 (контекстом будет объект Math) - аналогично
 // в данном случае в качестве контекста можно передавать что угодно, 
 // поскольку в своей внутренней реализации метод Math.max не использует this
 </v-code>
@@ -1597,7 +1597,7 @@ func.call(context, arg1, arg2, ...)
 <!------------------------------------------------------------->
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var person = {
+const person = {
 	name: 'Tony',
 	greet: () => {
 		// this - объект из контекста window
@@ -1607,7 +1607,7 @@ var person = {
 person.greet();
 </template>
 <template v-slot:last>
-var person = {
+const person = {
 	name: 'Tony',
 	greet: function() {
 		// this - это person
@@ -1628,7 +1628,7 @@ person.greet();
 <!------------------------------------------------------------->
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var add = (x, y) => x + y;
+const add = (x, y) => x + y;
 </template>
 <template v-slot:last>
 function add(x, y) {
@@ -1646,10 +1646,10 @@ function add(x, y) {
 
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var square = x => x*x;
+const square = x => x*x;
 </template>
 <template v-slot:last>
-var square = function(x) {
+const square = function(x) {
 	return x*x;
 }
 </template>
@@ -1660,10 +1660,10 @@ var square = function(x) {
 <!------------------------------------------------------------->
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var giveMeAnswer = () => 42;
+const giveMeAnswer = () => 42;
 </template>
 <template v-slot:last>
-var giveMeAnswer = function() {
+const giveMeAnswer = function() {
 	return 42;
 }
 </template>
@@ -1674,10 +1674,10 @@ var giveMeAnswer = function() {
 <!------------------------------------------------------------->
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var log = () => console.log('hi');
+const log = () => console.log('hi');
 </template>
 <template v-slot:last>
-var log = function() {
+const log = function() {
 	console.log('hi');
 }
 </template>
@@ -1691,14 +1691,14 @@ var log = function() {
 </ul>
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var multiply = (x, y) => {
-	var result = x*y;
+const multiply = (x, y) => {
+	const result = x*y;
 	return result;
 }
 </template>
 <template v-slot:last>
-var multiply = function(x, y) {
-	var result = x*y;
+const multiply = function(x, y) {
+	const result = x*y;
 	return result;
 }
 </template>
@@ -1713,10 +1713,10 @@ var multiply = function(x, y) {
 
 <v-two-code type="js;js" comment="arrow function;function">
 <template v-slot:first>
-var getPerson = () => ({ name:'Jack' });
+const getPerson = () => ({ name:'Jack' });
 </template>
 <template v-slot:last>
-var getPerson = function() {
+const getPerson = function() {
 	return { name:'Jack' }
 }
 </template>
@@ -1981,7 +1981,7 @@ function sum(a) {
 		return a + b;
 	}
 }
-var s = sum(10);
+const s = sum(10);
 console.log(s(15));
 
 // в функции "s" можно производить вычисления с переменными, объявленными в функции sum, 
@@ -1993,14 +1993,15 @@ console.log(s(15));
 <h4>Пример 2</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var func = function() {
-	var i = 10;
+const func = function() {
+	const i = 10;
 	return function() {
 		return i;
 	}
 }
-var anotherFunc = function() {
-	var i = 20;
+
+const anotherFunc = function() {
+	const i = 20;
 	console.log(func()());
 }
 anotherFunc();
@@ -2012,25 +2013,27 @@ anotherFunc();
 <v-two-code type="js;js" comment="js;js">
 <template v-slot:first>
 function counter() {
-	var count = 0;
+	const count = 0;
 	return function() {
 		count++;
 		console.log(count);
 	}
 }
-var plus = counter();
+
+const plus = counter();
 plus(); // 1
 plus(); // 2
 plus(); // 3
 </template>
 <template v-slot:last>
 function counter() {
-	var count = 0;
+	const count = 0;
 	return function() {
 		return count++;
 	}
 }
-var plus = counter();
+
+const plus = counter();
 console.log(plus()); // 0
 console.log(plus()); // 1
 console.log(plus()); // 2
@@ -2038,17 +2041,17 @@ console.log(plus()); // 2
 </v-two-code>
 
 <v-code lang="js" title="">
-var counter = (function() {
-	var count = 0;
+const counter = (function() {
+	const count = 0;
 	return function() {
 		return count++;
 	}
 })();
+
 console.log(counter()); // 0
 console.log(counter()); // 1 
 console.log(counter()); // 2 
 </v-code>
-
 </div><div id="js/closures/environment"><h2>Лексическая и динамическая область видимости</h2>
 
 <ul class="list-point">
@@ -2121,7 +2124,7 @@ bar(); // EC - LE ER.outer - bar.[[Evironment]]
 
 <v-code lang="js" title="">
 function testFn() {
-	var <u-code>localVar</u-code> = 10;
+	const <u-code>localVar</u-code> = 10;
 
 	function innerFn(innerParam) {
 		alert(innerParam + <u-code>localVar</u-code>);
@@ -2130,7 +2133,7 @@ function testFn() {
 	return innerFn;
 }
  
-var someFn = testFn();
+const someFn = testFn();
 someFn(20); // 30
 </v-code>
 
@@ -2148,14 +2151,16 @@ someFn(20); // 30
 </ul>
 
 <v-code lang="js" title="">
-var x = 10;
+const x = 10;
+
 function someFn() {
 	alert(x);
 }
+
 someFn(); // 10 - и при статической и при динамической Scope
  
 (function () {
-	var x = 20;
+	const x = 20;
 	someFn(); // 10 - при статической, 20 - при динамической Scope
 })();
  
@@ -2163,7 +2168,7 @@ someFn(); // 10 - и при статической и при динамичес�
 // в качестве параметра
  
 (function (funArg) {
-	var x = 30;
+	const x = 30;
 	funArg(); // 10 - при статической, 30 - при динамической Scope
 })(someFn);
 </v-code>
@@ -2623,7 +2628,8 @@ cumputeScore([3, 4]);
 function getScores() {
 	return [3, 4, 5];
 }
-var [low, mid, high] = getScores();
+
+const [low, mid, high] = getScores();
 </v-code>
 
 <!------------------------------------------------------------->
@@ -2649,8 +2655,9 @@ console.log(startX, startY); // => 22, 77
 <h4>Быстрый обмен значений переменнных</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var yes = 'Yes';
-var no = 'No';
+const yes = 'Yes';
+const no = 'No';
+
 [yes, no] = [no, yes];
 </v-code>
 </div><div id="js/main/destructive-obj"><h2>Деструтивное присваивание объектов (ES6) - деструктуризация</h2>

@@ -1307,7 +1307,7 @@ let a = document.querySelectorAll(':hover');                // вернёт сп
 </v-code>
 <v-code lang="js" title="js">
 let elems = document.querySelectorAll('#links a');
-for (var i = 0; i < elems.length; i++) {
+for (let i = 0; i < elems.length; i++) {
     if (elems[i].<u-code>matches</u-code>('a[href$="zip"]')) {
         console.log(elems[i].href);
     }
@@ -1371,7 +1371,7 @@ var result = document.evaluate(
     null
 );
 
-for (var i = 0; i < result.snapshotLength; i++) {
+for (let i = 0; i < result.snapshotLength; i++) {
     alert( result.snapshotItem(i).outerHTML );
 }
 </v-code>
@@ -2093,7 +2093,7 @@ element.<u-code>removeAttribute</u-code>('id');      // удалить атри�
 
 <v-code lang="js" title="Перебор атрибутов">
 let attrs = document.querySelector('#element').attributes;
-for (var i = 0; i < attrs.length; i++) {
+for (let i = 0; i < attrs.length; i++) {
     console.log( attrs[i].name + " = " + attrs[i].value );
 }
 </v-code>
