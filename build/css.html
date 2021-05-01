@@ -136,6 +136,46 @@
         <li>
             <a
                 class="menu-link"
+                id="id__css/color-module/colors-hex"
+                href="#css/color-module/colors-hex"
+            >1. HEX</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__css/color-module/colors-rgb"
+                href="#css/color-module/colors-rgb"
+            >2. RGB</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__css/color-module/colors-hsl"
+                href="#css/color-module/colors-hsl"
+            >3. HSL</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__css/color-module/colors-hwb"
+                href="#css/color-module/colors-hwb"
+            >4. HWB</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__css/color-module/colors-stanfart"
+                href="#css/color-module/colors-stanfart"
+            >5. Стандартные</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
                 id="id__css/color-module/colors-func"
                 href="#css/color-module/colors-func"
             >🐼 Цветовые функции</a>
@@ -813,7 +853,38 @@ body {
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>2. Привязка переменных</h4>
+<h4>2. Переопределение переменных</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+body {
+    --color: yellowgreen;
+}
+button {
+    color: var(--color);
+}
+button:hover {
+    --color: skyblue;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Локальный fallback</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+:root {
+    --color-green: green;
+    --color-blue: blue;
+    --color-red: red;
+}
+body {
+    color: var(--color-green, blue);
+    color: var(--color-green, var(--color-blue));
+    color: var(--color-green, var(--color-blue, var(--color-red, red)));
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>4. Привязка переменных</h4>
 <!------------------------------------------------------------->
 <v-code lang="css" title="">
 :root {
@@ -827,21 +898,7 @@ body {
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>3. Локальный fallback</h4>
-<!------------------------------------------------------------->
-<v-code lang="css" title="">
-:root {
-    --color: blue;
-}
-body {
-    background-color: var(--color, green);
-    font-size: var(--a, 1rem);
-    color: var(--b, var(--c, var(--d, red)));
-}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>4. Переменные в calc()</h4>
+<h4>5. Переменные в calc()</h4>
 <!------------------------------------------------------------->
 <v-code lang="css" title="">
 :root {
@@ -854,7 +911,7 @@ body {
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>5. Переопределение переменной в @media</h4>
+<h4>6. Переопределение переменной в @media</h4>
 <!------------------------------------------------------------->
 <v-code lang="css" title="">
 :root {
@@ -864,12 +921,36 @@ body {
     background-color: var(--color);
 }
 @media (max-width: 700px) {
-    :root { --color: yellowgreen; }
+    :root {
+        --color: yellowgreen;
+    }
 }
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>6. Переменные в SVG</h4>
+<h4>7. Цветовые функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+:root {
+    --hue: 285;
+    --saturation: 100%;
+    --lightness: 60%;
+    --opacity: 0.7;
+}
+.item {
+    --hue: 400;
+
+    background-color: hsla(
+        var(--hue),
+        var(--saturation),
+        var(--lightness),
+        var(--opacity)
+    );
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>8. Переменные в SVG</h4>
 <!------------------------------------------------------------->
 <v-code lang="html" title="html">
 &lt;svg height="100" width="100"&gt;
@@ -998,27 +1079,52 @@ article h3 + p {
 }
 </template>
 </v-two-code>
-</div><div id="css/color-module/colors"><h2>Цвета в CSS</h2>
+</div><div id="css/color-module/colors"><h2>Цветовые схемы</h2>
 
 <u-link-wrapper>
 	<a href="https://drafts.csswg.org/css-color/" target="_blank">CSS Color Module Level 4</a>
 </u-link-wrapper>
 
 <v-code lang="css border" title="">
+/* 1. Hexadecimal Colors (HEX) */
 div {
-    color: #F00;                       /* hex */
-    color: #FF0000;                    /* hex */
-    color: #FF0000F2;                  /* hex (rrggbbaa) */
-    color: rgb(0, 255, 0);             /* rgb */
-    color: rgba(0, 255, 0, 0.4);       /* rgba */
-    color: hsl(120, 100%, 50%);        /* hsl */
-    color: hsla(120, 100%, 75%, 0.4);  /* hsla */
-    color: hwb(90, 0%, 0%, 0.4);       /* hwb */
-    color: yellowgreen;                /* named-color */
+    color: #F00;       /* Сокращенный */
+    color: #FF0000;    /* Полный */
+    color: #FF0000F2;  /* Rrggbbaa Hex Color Notation */
 }
 </v-code>
 
-<v-code lang="js border" title="">
+<v-code lang="css border" title="">
+/* 2. RGB / RGBA colors */
+div {
+    color: rgb(0, 255, 0);
+    color: rgba(0, 255, 0, 0.4);
+}
+</v-code>
+
+<v-code lang="css border" title="">
+/* 3. HSL / HSLA colors */
+div {
+    color: hsl(120, 100%, 50%);
+    color: hsla(120, 100%, 75%, 0.4);
+}
+</v-code>
+
+<v-code lang="css border" title="">
+/* 4. HWB colors */
+div {
+    color: hwb(90, 0%, 0%, 0.4);
+}
+</v-code>
+
+<v-code lang="css border" title="">
+/* 5. Predefined / Cross-browser color names */
+div {
+    color: yellowgreen;
+}
+</v-code>
+
+<v-code lang="js none" title="">
 &lt;color&gt; =
 	&lt;hex-color&gt; | &lt;named-color&gt; | currentcolor | transparent
 	&lt;rgb()&gt; | &lt;rgba()&gt; | &lt;hsl()&gt; | &lt;hsla()&gt; | &lt;hwb()&gt; |
@@ -1026,16 +1132,17 @@ div {
 	&lt;color()&gt; | &lt;device-cmyk()&gt; |
 	&lt;system-color&gt;
 </v-code>
+</div><div id="css/color-module/colors-hex"><h2>HEX</h2>
 
-<ol class="list-num">
-    <li>Hexadecimal Colors</li>
-    <li>Rrggbbaa Hex Color Notation</li>
-    <li>RGB colors</li>
-    <li>RGBA colors</li>
-    <li>HSL colors</li>
-    <li>HSLA colors</li>
-    <li>Predefined/Cross-browser color names</li>
-</ol>
+<v-two-code type="plaintext;bash" comment=";">
+<template v-slot:first>
+# <span style="color: red">2F</span> - <span style="color: green">96</span> - <span style="color: blue">4A</span> - BF
+</template>
+<template v-slot:last>
+#2F964ABF
+</template>
+</v-two-code>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Hexadecimal Colors (Шестнадцатеричные цвета)</h3>
@@ -1045,13 +1152,13 @@ div {
 </ul>
 
 <v-code lang="css" title="">
-#p1 {background-color: #ff0000;}   /* red */
-#p2 {background-color: #00ff00;}   /* green */
-#p3 {background-color: #0000ff;}   /* blue */
+div { color: #ff0000; }  /* red */
+div { color: #00ff00; }  /* green */
+div { color: #0000ff; }  /* blue */
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>rrggbbaa hex color notation (CSS Color Module Level 4)</h3>
+<h3>RRBBBBAA HEX Color Notation (CSS Color Module Level 4)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-two-code type="bash;bash" comment="">
 <template v-slot:first>
@@ -1080,26 +1187,31 @@ div {
 0%   # 00
 </template>
 </v-two-code>
+</div><div id="css/color-module/colors-rgb"><h2>RGB</h2>
 
-<v-code lang="plaintext" title="">
-# <span style="color: red">2F</span> - <span style="color: green">96</span> - <span style="color: blue">4A</span> - BF
+<v-code lang="bash border" title="Функция">
+rgb(
+	red,    # 0 - 255 или 0% - 100%
+	green,  # 0 - 255 или 0% - 100%
+	blue,   # 0 - 255 или 0% - 100%
+	alpha   # 0  - 1
+);
 </v-code>
+
+<ul class="list-point">
+    <li><u-text-define>red</u-text-define> (красный) - интенсивность цвета</li>
+    <li><u-text-define>green</u-text-define> (зеленый) - интенсивность цвета</li>
+    <li><u-text-define>blue</u-text-define> (синий) - интенсивность цвета</li>
+    <li><u-text-define>alpha</u-text-define> (прозрачность) - альфа-канал</li>
+</ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>RGB цвета</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li>Каждый параметр (красный, зеленый и синий) определяет интенсивность цвета и может быть целым числом между 0 и 255 или процентным значением (от 0% до 100%)</li>
-</ul>
-
-<v-code lang="js border" title="Функция">
-rgb(red, green, blue);
-</v-code>
-
 <v-code lang="css" title="">
-#p1 {background-color: rgb(255, 0, 0);}   /* red */
-#p2 {background-color: rgb(0, 255, 0);}   /* green */
-#p3 {background-color: rgb(0, 0, 255);}   /* blue */
+div { color: rgb(255, 0, 0); }  /* red */
+div { color: rgb(0, 255, 0); }  /* green */
+div { color: rgb(0, 0, 255); }  /* blue */
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -1116,31 +1228,39 @@ rgba(red, green, blue, alpha);
 </v-code>
 
 <v-code lang="css" title="">
-#p1 {background-color: rgba(255, 0, 0, 0.3);}   /* red with opacity */
-#p2 {background-color: rgba(0, 255, 0, 0.3);}   /* green with opacity */
-#p3 {background-color: rgba(0, 0, 255, 0.3);}   /* blue with opacity */
+div { color: rgba(255, 0, 0, 0.3); }   /* red with opacity */
+div { color: rgba(0, 255, 0, 0.3); }   /* green with opacity */
+div { color: rgba(0, 0, 255, 0.3); }   /* blue with opacity */
 </v-code>
+
+
+
+</div><div id="css/color-module/colors-hsl"><h2>HSL</h2>
+
+<v-code lang="bash border" title="Функция">
+hsla(
+	hue,         # 0  - 360 градусов
+	saturation,  # 0% - 100%
+	lightness,   # 0% - 100%
+	alpha        # 0  - 1
+);
+</v-code>
+
+<ul class="list-point">
+    <li><u-text-define>hue</u-text-define> (оттенок) - позиция цвета на цветовом круге. 0 (или 360)-красный, 120-зеленый, 240-синий</li>
+    <li><u-text-define>saturation</u-text-define> (насыщенность) - насколько насыщенным (ярким) будет цвет. 0% означает оттенок серого и 100%-полный цвет</li>
+    <li><u-text-define>lightness</u-text-define> (осветление) - насколько светлым или темным будет цвет. 0%-черный, 100%-белый</li>
+    <li><u-text-define>alpha</u-text-define> (прозрачность) - альфа-канал</li>
+</ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>HSL цвета</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li>HSL означает оттенок, насыщенность и легкость и представляет собой цилиндрическое-координатное представление цветов</li>
-    <li>Hue-это градус на цветном колесе (от 0 до 360)-0 (или 360)-красный, 120-зеленый, 240-синий. Насыщенность – это процентное значение; 0% означает оттенок серого и 100%-полный цвет. Легкость также процент; 0%-черный, 100%-белый</li>
-</ul>
-
-<v-code lang="js border" title="Функция">
-hsl(hue, saturation, lightness);
-// Hue (тон)
-// Saturation(насыщенность)
-// Lightness (яркость)
-</v-code>
-
 <v-code lang="css" title="">
-#p1 {background-color: hsl(120, 100%, 50%);}   /* green */
-#p2 {background-color: hsl(120, 100%, 75%);}   /* light green */
-#p3 {background-color: hsl(120, 100%, 25%);}   /* dark green */
-#p4 {background-color: hsl(120, 60%, 70%);}    /* pastel green */
+div { color: hsl(120, 100%, 50%); }   /* green */
+div { color: hsl(120, 100%, 75%); }   /* light green */
+div { color: hsl(120, 100%, 25%); }   /* dark green */
+div { color: hsl(120, 60%,  70%); }   /* pastel green */
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -1156,32 +1276,33 @@ hsla(hue, saturation, lightness, alpha);
 </v-code>
 
 <v-code lang="css" title="">
-#p1 {background-color: hsla(120, 100%, 50%, 0.3);}   /* green with opacity */
-#p2 {background-color: hsla(120, 100%, 75%, 0.3);}   /* light green with opacity */
-#p3 {background-color: hsla(120, 100%, 25%, 0.3);}   /* dark green with opacity */
-#p4 {background-color: hsla(120, 60%, 70%, 0.3);}    /* pastel green with opacity */
+div { color: hsla(120, 100%, 50%, 0.3); }  /* green */
+div { color: hsla(120, 100%, 75%, 0.3); }  /* light green */
+div { color: hsla(120, 100%, 25%, 0.3); }  /* dark green */
+div { color: hsla(120, 60%,  70%, 0.3); }  /* pastel green */
 </v-code>
+</div><div id="css/color-module/colors-hwb"><h2>HWB</h2>
 
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>HWB</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <u-link-wrapper>
-    <a href="https://drafts.csswg.org/css-color/#the-hwb-notation">CSS Color Module Level 4 (hwb notation)</a>
+    <a href="https://drafts.csswg.org/css-color/#the-hwb-notation" target="_blank">CSS Color Module Level 4 (hwb notation)</a>
 </u-link-wrapper>
 
 <v-code lang="js border" title="Функция">
-hwb(hue, whiteness, blackness);
+hwb(
+	hue,
+	whiteness,
+	blackness,
+	alpha
+);
 </v-code>
 
 <v-code lang="css" title="">
-#p {background-color: hwb(90, 0%, 0%, 0.4);}
+div {
+	color: hwb(90, 0%, 0%, 0.4);
+}
 </v-code>
+</div><div id="css/color-module/colors-stanfart"><h2>Стандартные/кросс-браузерные имена цветов</h2>
 
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Стандартные/кросс-браузерные имена цветов</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li>140 цветовые имена предопределены в спецификации цвета HTML и CSS</li>
 </ul>
@@ -1198,9 +1319,9 @@ hwb(hue, whiteness, blackness);
 <ul class="list-point">
     <li><u>hue()</u></li>
     <li><u>saturation()</u></li>
-    <li><u>lightness</u></li>
-    <li><u>whiteness</u></li>
-    <li><u>blackness</u></li>
+    <li><u>lightness()</u></li>
+    <li><u>whiteness()</u></li>
+    <li><u>blackness()</u></li>
 </ul>
 </div><div id="css/color-module/linear-gradient"><h2>linear-gradient</h2>
 

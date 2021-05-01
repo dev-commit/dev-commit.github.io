@@ -1,0 +1,46 @@
+<h2>HSL</h2>
+
+<v-code lang="bash border" title="Функция">
+hsla(
+	hue,         # 0  - 360 градусов
+	saturation,  # 0% - 100%
+	lightness,   # 0% - 100%
+	alpha        # 0  - 1
+);
+</v-code>
+
+<ul class="list-point">
+    <li><u-text-define>hue</u-text-define> (оттенок) - позиция цвета на цветовом круге. 0 (или 360)-красный, 120-зеленый, 240-синий</li>
+    <li><u-text-define>saturation</u-text-define> (насыщенность) - насколько насыщенным (ярким) будет цвет. 0% означает оттенок серого и 100%-полный цвет</li>
+    <li><u-text-define>lightness</u-text-define> (осветление) - насколько светлым или темным будет цвет. 0%-черный, 100%-белый</li>
+    <li><u-text-define>alpha</u-text-define> (прозрачность) - альфа-канал</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>HSL цвета</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+div { color: hsl(120, 100%, 50%); }   /* green */
+div { color: hsl(120, 100%, 75%); }   /* light green */
+div { color: hsl(120, 100%, 25%); }   /* dark green */
+div { color: hsl(120, 60%,  70%); }   /* pastel green */
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>HSLA цвета</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Значения цвета HSLA являются расширением значений цвета HSL с альфа-каналом, который определяет непрозрачность объекта</li>
+    <li>Параметр Alpha является числом между 0,0 (полностью прозрачным) и 1,0 (полностью непрозрачным)</li>
+</ul>
+
+<v-code lang="js border" title="Функция">
+hsla(hue, saturation, lightness, alpha);
+</v-code>
+
+<v-code lang="css" title="">
+div { color: hsla(120, 100%, 50%, 0.3); }  /* green */
+div { color: hsla(120, 100%, 75%, 0.3); }  /* light green */
+div { color: hsla(120, 100%, 25%, 0.3); }  /* dark green */
+div { color: hsla(120, 60%,  70%, 0.3); }  /* pastel green */
+</v-code>
