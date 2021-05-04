@@ -1,0 +1,41 @@
+<h2>Position</h2>
+
+<ul class="list-point">
+    <li><u-code-text>static</u-code-text> - статичное (стандартное позиционирование)</li>
+    <li><u-code-text>relative</u-code-text> - относительное (положение устанавливается относительно его исходного места)</li>
+    <li><u-code-text>absolute</u-code-text> - абсолютное (отсчёт координат ведётся от края окна браузера, если у родителя не установлено position: relative)</li>
+    <li><u-code-text>fixed</u-code-text> - фиксированное (привязывается к указанной свойствами left, top, right и bottom точке на экране)</li>
+    <li><u-code-text>sticky</u-code-text> - сочетание относительного и фиксированного позиционирования</li>
+</ul>
+
+<v-code lang="css" title="">
+div {
+	position: static;
+	position: relative;
+	position: absolute;
+	position: fixed;
+	position: sticky;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Задачи</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Определение вычисленного значения</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><b>Вопрос</b>: Какое вычисленное значение для свойства <u>display</u> будет в коде</li>
+</ul>
+
+<v-code lang="css" title="">
+span {
+	display: inline-block;
+	position: absolute;
+}
+</v-code>
+
+<ul class="list-point">
+    <li><b>Ответ</b>: <u>block</u>. При использовании <u>position: absolute</u> браузер делает этот элемент блочным</li>
+</ul>
