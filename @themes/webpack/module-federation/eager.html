@@ -1,0 +1,59 @@
+<h2>Eager Troubleshooting</h2>
+
+<u-link-wrapper>
+    <a href="https://webpack.js.org/concepts/module-federation/#troubleshooting" target="_blank">Webpack Doc Troubleshooting</a>
+<u-link-wrapper/>
+
+<v-code lang="js" title="">
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const deps = require("./package.json").dependencies;
+
+module.exports = {
+    plugins: [
+        new ModuleFederationPlugin({
+            shared: {
+                ...deps,
+                react: {
+                    singleton: true,
+                    requiredVersion: deps.react,
+
+                    <u-code>eager</u-code>: false,
+                    <u-code>eager</u-code>: true,
+                },
+            },
+        }),
+    ],
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>eager: false или не указан</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-message-error>
+<u>Uncaught Error</u>: Shared module is not available for eager consumption: <br>
+<i>webpack/sharing/consume/default/react/react</i>
+</u-message-error>
+
+<!------------------------------------------------------------->
+<h4>Решение: добавить динамический импорт</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="index.js">
+import('./bootstrap');
+</v-code>
+
+<v-code lang="js" title="bootstrap.js">
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>eager: true</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="index.js">
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));
+</v-code>
