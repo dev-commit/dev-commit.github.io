@@ -8,6 +8,15 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'Module Federation',
+        themes: [
+            ['webpack/module-federation/info',                    emoji.theory+'Информация'],
+            ['webpack/module-federation/semver',                  emoji.theory+'Semver'],
+            ['webpack/module-federation/code',                    emoji.code+'Код'],
+            ['webpack/module-federation/ModuleFederationPlugin',  setTheme(1, ['ModuleFederationPlugin'])],
+        ]
+    },
+    {
         title: 'plugins',
         themes: [
             ['webpack/plugins/webpack',                 setTheme(2, ['webpack', 'webpack-cli'])],

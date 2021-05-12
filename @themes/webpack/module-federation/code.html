@@ -1,0 +1,37 @@
+<h2>Код</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>import</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="webpack.config.js">
+module.exports = {
+    plugins = [
+        new ModuleFederationPlugin({
+            name: 'header',
+            exposes: {
+                './App': './src/App',
+            },
+        }),
+    ];
+};
+</v-code>
+
+<v-code lang="js" title="import">
+// Обычный импорт
+import Header from 'header/App';
+
+// Динамический импорт
+const Header = React.lazy(() => import('header/App'));
+</v-code>
+
+<v-code lang="js" title="component">
+const App = () =&gt; (
+	&lt;&gt;
+        &lt;Header /&gt;
+
+		&lt;React.Suspense fallback={null}&gt;
+			&lt;Header /&gt;
+		&lt;/React.Suspense&gt;
+	&lt;/&gt;
+)
+</v-code>

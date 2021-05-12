@@ -1,0 +1,76 @@
+<h2>Webpack 5. Module Federation (MF)</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Терминология</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Host (consumers)</u-text-define> - бандл, который первый инициализировался во время загрузки страницы (корень)</li>
+    <li><u-text-define>Remote (consumable)</u-text-define> - другой бандл, чьи некоторые части может импортировать host (лист)</li>
+    <li><u-text-define>Omnidirectional host</u-text-define> - бандл, который одновременно может быть и host и remote (внутренний узел)</li>
+    <li><u-text-define>Exposed modules</u-text-define> - модули, которые будут доступны другим приложениям для импорта</li>
+    <li><u-text-define>Shared modules</u-text-define> - модули, которые могут быть общими для всего приложения (н-р: React)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ссылки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <p><b>Павел Черторогов</b></p>
+    <a href="https://www.youtube.com/watch?v=pcY8-pDGLkI" target="_blank">Видео</a>
+    <a href="https://github.com/nodkz/module-federation-demo" target="_blank">Демо</a>
+    <a href="https://nodkz.github.io/conf-talks/talks/2020.10.26-webpack-federation/index.html#/" target="_blank">Презентация</a>
+
+    <p><b>Статьи</b></p>
+    <a href="https://habr.com/ru/post/506634/" target="_blank">Статья на Хабре на русском</a>
+    <a href="https://scriptedalchemy.medium.com/webpack-5-module-federation-stitching-two-simple-bundles-together-fe4e6a069716" target="_blank">Статья от Zack Jackson</a>
+    <a href="https://medium.com/@eymaslive/webpack-5-module-federation-1f53a9f1cf08" target="_blank">Webpack 5 - Module Federation</a>
+
+    <p><b>Примеры</b></p>
+    <a href="https://github.com/module-federation/module-federation-examples" target="_blank">Официальные примеры</a>
+    <a href="https://github.com/mizx/mfe-webpack-demo" target="_blank">Пример от mizx</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Теория</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Общее</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Webpack 5 (октябрь 2020)</li>
+    <li>Разработал Zack Jackson совместно с другими разработчиками</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Функционал</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Позволяет одному Webpack-приложению ДИНАМИЧЕСКИ подгружать код из другого Webpack-приложения, расположенного на другом хосте</li>
+    <li>MF - core webpack-plugin, который позволяет импортировать chunk'и из стороннего Webpack Bundle В РАНТАЙМЕ</li>
+    <li>Все что может сбандлить Webpack (css, images, fonts, ...) с MF может быть зашарено между микрофронтендами</li>
+    <li>MF может ШАРИТЬ между собой ОБЩИЕ ЗАВИСИМОСТИ, если совпадает semver. К примеру, если React уже загружен, то он не будет поторно грузиться со стороннего Webpack приложения</li>
+    <li>MF могут быть разернуты на разных доменах и ДЕПЛОИТЬСЯ НЕЗАВИСИМО</li>
+    <li>Сборка происходит на лету при запуске приложения в браузере</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Цели</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Нет перезагрузки страниц при переходе между микрофронтендами</li>
+    <li>Не грузить vendor code, который уже предоствлен другой Webpack-сборкой (н-р: React)</li>
+    <li>Каждый микрофронтенд может быть standalone (без внешних зависимостей)</li>
+    <li>Не нужно пересобирать основное приложение, если применяется shared-модуль (н-р: Навигация)</li>
+    <li>Оркестрация должана происходить на стороне пользователя, позвляя загружать чанки без "умного сервера" (чтобы спокойно раздаваться с CDN и не только)</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Резюме</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>У каждого микрофронтенда может быть свой репозиторий</li>
+    <li>Независимые билды и деплой</li>
+    <li>Микрофронтенд может быть запущен как standalone SPA</li>
+    <li>В браузере все работает как монолит</li>
+</ul>

@@ -1,0 +1,59 @@
+<h2>ModuleFederationPlugin</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>webpack.config.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
+// const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+
+const deps = require('./package.json').dependencies;
+</v-code>
+
+<v-code lang="js" title="">
+module.exports = {
+    plugins = [
+        new ModuleFederationPlugin({
+            <u-code-wrapper>
+            // название для импорта 'header/App'
+            <u-code-npm>name</u-code-npm>: 'header',
+
+            // в этом файле будет весь экспорт приложения для внешних получателей
+            // remoteEntry.js - другой бандл, чьи некоторые части может импортировать host
+            <u-code-npm>filename</u-code-npm>: 'remoteEntry.js',
+
+            // модули, которые доступны для импорта в текущем модуле
+            <u-code-npm>remotes</u-code-npm>: {
+                home: "home@http://localhost:3001/remoteEntry.js",
+            },
+
+            // модули, которые будут доступны другим приложениям для импорта
+            <u-code-npm>exposes</u-code-npm>: {
+                './App': './src/App',
+            },
+
+            // модули, которые могут быть общими для всего приложения
+            <u-code-npm>shared</u-code-npm>: {
+                ...deps,
+                react: {
+                    // позволяет оставаться на текущей версии библиотеки,
+                    // даже если подгрузился remote с более новой версией
+                    singleton: true,
+                    requiredVersion: deps.react,
+                    eager: true,
+                },
+            },
+
+            // назначит вывод сборки переменной 'header'
+            <u-code-npm>library</u-code-npm>: { type: 'var', name: 'header' },
+            </u-code-wrapper>
+        }),
+    ];
+
+    entry: './src/index',
+
+    output: {
+        publicPath: 'http://localhost:3003/',
+    },
+};
+</v-code>
