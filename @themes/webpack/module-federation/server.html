@@ -1,0 +1,80 @@
+<h2>Сервер</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><u-code-text>concurrently</u-code-text> <u-code-text>wsrun</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash none" title="">
+yarn install
+yarn start
+</v-code>
+
+<v-code lang="js" title="package.json">
+{
+    "name": "starter",
+    "private": true,
+    "scripts": {
+        "start": "concurrently \"wsrun --parallel start\" \"wsrun --parallel serve\"",
+        "build": "yarn workspaces run build",
+        "serve": "wsrun --parallel serve"
+    },
+    "workspaces": [
+        "packages/*"
+    ],
+    "devDependencies": {
+        "concurrently": "^5.1.0",
+        "wsrun": "^5.2.0"
+    }
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><u-code-text>lerna</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash none" title="">
+yarn install
+yarn serve
+</v-code>
+
+<v-code lang="js" title="package.json">
+{
+    "name": "starter",
+    "private": true,
+    "scripts": {
+        "start": "lerna run --parallel start",
+        "build": "lerna run build",
+        "serve": "lerna run --parallel serve",
+        "clean": "lerna run --parallel clean"
+    },
+    "workspaces": [
+        "packages/*"
+    ],
+    "devDependencies": {
+        "lerna": "3.22.1"
+    }
+}
+</v-code>
+
+<v-code lang="js" title="lerna.json">
+{
+    "version": "0.0.0",
+    "npmClient": "yarn",
+    "packages": [
+        "packages/*"
+    ],
+    "useWorkspaces": true
+}
+</v-code>
+
+<hr>
+
+<ul class="list-point">
+    <li>При установке через npm, нужно выполнить "npm i" в каждом дочернем модуле</li>
+    <li>Параллельно нужно запустить скрипты "start" и "serve"</li>
+</ul>
+
+<v-code lang="bash none" title="">
+npm i          # в корневом модуле
+npm i          # в каждом дочернем модуле
+npm run start  # запуск приложения
+npm run serve  # запуск сервера
+</v-code>

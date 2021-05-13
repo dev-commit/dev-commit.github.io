@@ -13,6 +13,7 @@ ARR_MODULE = [
             ['webpack/module-federation/info',                    emoji.theory+'Информация'],
             ['webpack/module-federation/semver',                  emoji.theory+'Semver'],
             ['webpack/module-federation/code',                    emoji.code+'Код'],
+            ['webpack/module-federation/server',                  emoji.code+'Сервер'],
             ['webpack/module-federation/eager',                   emoji.code+'Eager Troubleshooting'],
             ['webpack/module-federation/ModuleFederationPlugin',  setTheme(1, ['ModuleFederationPlugin'])],
         ]
