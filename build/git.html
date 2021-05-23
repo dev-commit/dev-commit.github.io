@@ -312,7 +312,7 @@
 <h3>1. Клонирование ветки PR</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="bash" title="">
-git <u-code>clone</u-code> https://github.com/Andersen-soft/front.CRM.git
+git <u-code>clone</u-code> https://github.com/AccountName/repo-name.git
 git <u-code>fetch origin</u-code>
 git <u-code>checkout</u-code> название_ветки
 git <u-code>pull</u-code>
@@ -322,7 +322,7 @@ git <u-code>pull</u-code>
 <h3>2. Создание ветки на локальном репозитории и загрузка на удаленный репозиторий</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="bash" title="">
-git <u-code>clone</u-code> https://github.com/Andersen-soft/front.CRM.git
+git <u-code>clone</u-code> https://github.com/AccountName/repo-name.git
 git <u-code>checkout -b</u-code> features
 git <u-code>add .</u-code>
 git <u-code>commit -m</u-code> 'text'
@@ -567,9 +567,16 @@ git <u-code>checkout -b</u-code> bug/3-a origin/bug/3-a
 <h3>Опция <u-code-text>--orphan</u-code-text></h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="bash" title="">
-git <u-code>checkout --orphan</u-code> NEW_BRANCH   # Создание новой ветики без родительского коммита. При этом все файлы из рабочей директории будут на месте
-git <u-code>checkout --orphan</u-code> NEW_BRANCH && git <u-code>reset --hard</u-code>  # Создание новой пустой ветки
-git <u-code>checkout --orphan</u-code> NEW_BRANCH TARGET_REFERENCE  # Создание новой ветики с определенного коммита. При этом будет создана новая ветка без родительского коммита и в индексе Git будут находится все файлы из выбраного целевого коммита
+# Создание новой ветики без родительского коммита. При этом все файлы из рабочей директории будут на месте
+git <u-code>checkout --orphan</u-code> NEW_BRANCH
+
+# Создание новой пустой ветки
+git <u-code>checkout --orphan</u-code> NEW_BRANCH && git <u-code>reset --hard</u-code>
+
+# Создание новой ветики с определенного коммита
+# При этом будет создана новая ветка без родительского коммита и в индексе Git будут находится
+# все файлы из выбраного целевого коммита
+git <u-code>checkout --orphan</u-code> NEW_BRANCH TARGET_REFERENCE
 </v-code>
 </div><div id="git/command/merge"><div class="v-method-wrapper">
     <v-method before="git " method="merge" after="" arg="">

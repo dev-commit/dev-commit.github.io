@@ -21,7 +21,14 @@ git <u-code>checkout -b</u-code> bug/3-a origin/bug/3-a
 <h3>Опция <u-code-text>--orphan</u-code-text></h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="bash" title="">
-git <u-code>checkout --orphan</u-code> NEW_BRANCH   # Создание новой ветики без родительского коммита. При этом все файлы из рабочей директории будут на месте
-git <u-code>checkout --orphan</u-code> NEW_BRANCH && git <u-code>reset --hard</u-code>  # Создание новой пустой ветки
-git <u-code>checkout --orphan</u-code> NEW_BRANCH TARGET_REFERENCE  # Создание новой ветики с определенного коммита. При этом будет создана новая ветка без родительского коммита и в индексе Git будут находится все файлы из выбраного целевого коммита
+# Создание новой ветики без родительского коммита. При этом все файлы из рабочей директории будут на месте
+git <u-code>checkout --orphan</u-code> NEW_BRANCH
+
+# Создание новой пустой ветки
+git <u-code>checkout --orphan</u-code> NEW_BRANCH && git <u-code>reset --hard</u-code>
+
+# Создание новой ветики с определенного коммита
+# При этом будет создана новая ветка без родительского коммита и в индексе Git будут находится
+# все файлы из выбраного целевого коммита
+git <u-code>checkout --orphan</u-code> NEW_BRANCH TARGET_REFERENCE
 </v-code>
