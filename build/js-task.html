@@ -3060,13 +3060,14 @@ p
     })
     .catch(err => {
         console.log('err'); // err
+        return 'ok';
     })
     .finally((data) => {
         console.log(data); // undefined
         return 1;
     })
     .then((data) => {
-        console.log(data); // undefined
+        console.log(data); // 'ok'
     })
 </v-code>
 </div><div id="js-task/custom/async-await"><h2>Async Await</h2>
