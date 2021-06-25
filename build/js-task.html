@@ -404,13 +404,21 @@
                 href="#js-task/custom/arrays"
             >🍕 <u-menu-unactive>Массивы</u-menu-unactive></a>
         </li>
+    </ul><h4>🥥 TypeScript</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-task/typescript/interface-recursion"
+                href="#js-task/typescript/interface-recursion"
+            ><u-menu-unactive>Рекурсия в интерфейсе</u-menu-unactive></a>
+        </li>
     </ul><h4>🥥 Прочее</h4><ul>  
         <li>
             <a
                 class="menu-link"
                 id="id__js-task/other/undefined-check"
                 href="#js-task/other/undefined-check"
-            >⚡️ <u-menu-unactive>Проверка на "undefined"</u-menu-unactive></a>
+            ><u-menu-unactive>Проверка на "undefined"</u-menu-unactive></a>
         </li>
     </ul>
                 </div>
@@ -2555,7 +2563,7 @@ function f () {
 <h4>#3</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-const a = 1;
+let a = 1;
 
 function b() {
     // перезаписывается не глобальная переменная, а локальная функция
@@ -3240,7 +3248,37 @@ console.log(b); // [99, 2, 3]
 
 a = 4;
 console.log(b); // [99, 2, 3]
-</v-code></div><div id="js-task/other/undefined-check"><h2>Проверка на "undefined"</h2>
+</v-code></div><div id="js-task/typescript/interface-recursion"><h2>Рекурсия в интерфейсе</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Задание</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Напишите интерфейс для функции и интерфейс для CameraGroup</li>
+    <li>Что из себя представляет структура данных CameraGroup?</li>
+    <li>Напишите реализацию интерфейса CameraGroup</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Решение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+interface CameraGroup {
+    id: number
+    camera_groups: CameraGroup[]
+}
+
+const cameraGroupsReducer = (acc: number[], group: CameraGroup): number[] => {
+    acc.push(group.id);
+
+    if (group.camera_groups.length) {
+        group.camera_groups.reduce(cameraGroupsReducer, acc);
+    }
+
+    return acc;
+};
+</v-code>
+</div><div id="js-task/other/undefined-check"><h2>Проверка на "undefined"</h2>
 
 <v-code lang="js" title="">
 var a;

@@ -1,0 +1,30 @@
+<h2>Рекурсия в интерфейсе</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Задание</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Напишите интерфейс для функции и интерфейс для CameraGroup</li>
+    <li>Что из себя представляет структура данных CameraGroup?</li>
+    <li>Напишите реализацию интерфейса CameraGroup</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Решение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+interface CameraGroup {
+    id: number
+    camera_groups: CameraGroup[]
+}
+
+const cameraGroupsReducer = (acc: number[], group: CameraGroup): number[] => {
+    acc.push(group.id);
+
+    if (group.camera_groups.length) {
+        group.camera_groups.reduce(cameraGroupsReducer, acc);
+    }
+
+    return acc;
+};
+</v-code>

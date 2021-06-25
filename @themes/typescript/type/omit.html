@@ -1,0 +1,44 @@
+<h2>Omit</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Omit</u-text-define> - вспомогательный тип Omit позволяет создавать новые типы на основе существующих методом исключения некоторых свойств из исходного типа</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определение типа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="">
+Omit&lt;Type, Keys&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// тип
+type Person = {
+    name: string;
+    age: number;
+    address: string;
+};
+
+// создаем новый тип без свойства "address"
+type NewPerson = Omit<Person, "address">;
+
+// равносильно
+type NewPerson = {
+	name: string;
+	age: number;
+}
+
+// использование
+const person: NewPerson = {
+    name: 'Tony',
+    age: 23
+}
+</v-code>
+
+<v-code lang="js" title="">
+// исключение нескольких значений
+type NewPerson = Omit<Person, "address" | "age">;
+</v-code>

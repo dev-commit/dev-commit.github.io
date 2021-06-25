@@ -17,7 +17,7 @@ ARR_MODULE = [
             ['js-task/algoritms/shallow-equal',            emoji.fire+setTheme(4, ['Shallow Equal'])],
             ['js-task/algoritms/sum-brackets',             emoji.fire+setTheme(4, ['Сумма скобок sum(1)(2)(3)'])],
             ['js-task/algoritms/closing-brackets',         emoji.fire+setTheme(4, ['Проверить закрывающиеся скобки'])],
-        
+
             ['js-task/algoritms/compose',                  emoji.code+setTheme(4, ['Compose'])],
             ['js-task/algoritms/memoization',              emoji.code+setTheme(4, ['Memoization'])],
             ['js-task/algoritms/duplicate',                emoji.code+setTheme(4, ['Duplicate'])],
@@ -25,7 +25,7 @@ ARR_MODULE = [
             ['js-task/algoritms/palindrome',               emoji.code+setTheme(4, ['Палиндром'])],
             ['js-task/algoritms/sum-sequence',             emoji.code+setTheme(4, ['Сумма последовательности'])],
             ['js-task/algoritms/function-count',           emoji.code+setTheme(4, ['Функция считает свои вызовы'])],
-        
+
             ['js-task/algoritms/event-emitter',            emoji.cup+setTheme(4, ['EventEmitter'])],
             ['js-task/algoritms/series',                   emoji.cup+setTheme(4, ['Series'])],
             ['js-task/algoritms/shop-queue',               emoji.cup+setTheme(4, ['Магазин с кассами'])],
@@ -80,9 +80,15 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'TypeScript',
+        themes: [
+            ['js-task/typescript/interface-recursion', setTheme(4, ['Рекурсия в интерфейсе'])],
+        ]
+    },
+    {
         title: 'Прочее',
         themes: [
-            ['js-task/other/undefined-check',    emoji.code+setTheme(4, ['Проверка на "undefined"'])],
+            ['js-task/other/undefined-check',    setTheme(4, ['Проверка на "undefined"'])],
         ]
     },
 ]

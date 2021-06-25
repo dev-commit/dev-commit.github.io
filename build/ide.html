@@ -1,0 +1,89 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>IDE</title>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.svg">
+        
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@modules/build-ide.js"></script>
+        </head>
+        <body>
+        
+            <div id="container">
+                <div id="menu">
+                    <div id="top">
+                        <a href="#links" class="link">
+                            <div class="img"></div>
+                            <span v-html="'IDE'"></span>
+                        </a>
+                    </div>
+                    <h4>🥥 VSCode</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__ide/vscode/info"
+                href="#ide/vscode/info"
+            >Информация</a>
+        </li>
+    </ul><h4>🥥 Atom</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__ide/atom/info"
+                href="#ide/atom/info"
+            >Информация</a>
+        </li>
+    </ul><h4>🥥 Sublime Text</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__ide/sublime-text/info"
+                href="#ide/sublime-text/info"
+            >Информация</a>
+        </li>
+    </ul>
+                </div>
+        
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a :href="itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="ide/vscode/info"><h2>Информация VSCode</h2>
+</div><div id="ide/atom/info"><h2>Информация Atom</h2>
+</div><div id="ide/sublime-text/info"><h2>Информация Sublime Text</h2>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue/build.js"></script>
+        </body>
+    </html>    

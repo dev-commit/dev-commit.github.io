@@ -23,6 +23,7 @@ ARR_MODULE = [
             ['typescript/type/type',      setTheme(1, ['type'])],
             ['typescript/type/pick',      setTheme(1, ['Pick&lt;&gt;'])],
             ['typescript/type/record',    setTheme(1, ['Record&lt;&gt;'])],
+            ['typescript/type/omit',      setTheme(1, ['Omit&lt;&gt;'])],
             ['typescript/type/variants',  'Варианты'],
             ['typescript/type/combine',   'Комбинация типов'],
             ['typescript/type/react',     'React'],

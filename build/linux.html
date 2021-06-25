@@ -20,7 +20,23 @@
                             <span v-html="'Linux'"></span>
                         </a>
                     </div>
-                    <h4>🥥 Ubuntu (Debian)</h4><ul>  
+                    <h4>🥥 WSL</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__linux/wsl/info"
+                href="#linux/wsl/info"
+            >📑 Информация</a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__linux/wsl/nvm"
+                href="#linux/wsl/nvm"
+            >⚡️ Установка NVM</a>
+        </li>
+    </ul><h4>🥥 Ubuntu (Debian)</h4><ul>  
         <li>
             <a
                 class="menu-link"
@@ -82,7 +98,48 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="linux/ubuntu/command"><h2>Команды</h2>
+                    <div id="content"><div id="linux/wsl/info"><h2>Информация</h2>
+
+<ul class="list-point">
+    <li><u-text-define>WSL</u-text-define> - создает программный слой в среде Windows 10 для обеспечения функционирования приложений Linux</li>
+</ul>
+</div><div id="linux/wsl/nvm"><h2>Установка NVM</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка NVM</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://github.com/nvm-sh/nvm" target="_blank">https://github.com/nvm-sh/nvm</a>
+</u-link-wrapper>
+
+<v-code lang="bash" title="">
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh
+</v-code>
+
+<ul class="list-point">
+    <li>Скопировать последние 3 строчки после установки и выполнить</li>
+</ul>
+
+<v-code lang="bash" title="">
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Команды</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+nvm -v               # Проверить версию NVM
+nvm ls               # Проверка (?)
+nvm --help           # Справка
+nvm ls-remote        # Список версий Node.js
+nvm install v14.17.1 # Установить последнюю версию из списка
+node -v              # Проверить версию Node.js
+npm -v               # Проверить версию NPM
+npm run lint         # Запустить линтер
+</v-code>
+</div><div id="linux/ubuntu/command"><h2>Команды</h2>
 
 <u-link-wrapper>
 	<a href="https://help.ubuntu.ru/wiki/командная_строка" target="_blank">Русскоязычная документация</a>

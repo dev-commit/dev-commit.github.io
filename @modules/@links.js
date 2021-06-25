@@ -59,6 +59,7 @@ const ARR_LINKS = [
     { page: 'npm',                     theme: 'crimson',  title: 'NPM & Yarn' },
     { page: 'ramda',                   theme: 'crimson',  title: 'Ramda' },
     null,
+    { page: 'ide',                     theme: 'blue',     title: 'IDE' },
     { page: 'other',                   theme: 'brown',    title: 'Other' },
     { page: 'node-js',                 theme: 'brown',    title: 'Node.js' },
     { page: 'php',                     theme: 'brown',    title: 'PHP' },
