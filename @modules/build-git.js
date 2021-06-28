@@ -10,7 +10,7 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Команды Основные',
+        title: 'Основное',
         themes: [
             ['git/command/init',         setTheme(1, ['init'])],
             ['git/command/clone',        setTheme(1, ['clone'])],
@@ -30,7 +30,7 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Команды Дополнительно',
+        title: 'Дополнительно',
         themes: [
             ['git/command/diff',         setTheme(1, ['diff'])],
             ['git/command/config',       setTheme(1, ['config'])],
