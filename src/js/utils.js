@@ -21,11 +21,11 @@ function setTheme(tag, arr) {
     let resultTag = '';
 
     switch(tag) {
-        case 1: resultTag = 'u-menu'; break;
-        case 2: resultTag = 'u-menu-border'; break;
-        case 3: resultTag = 'u-menu-accent'; break;
-        case 3: resultTag = 'u-menu-accent'; break;
+        case 1: resultTag = 'u-menu';          break;
+        case 2: resultTag = 'u-menu-border';   break;
+        case 3: resultTag = 'u-menu-accent';   break;
         case 4: resultTag = 'u-menu-unactive'; break;
+        case 5: resultTag = 'u-menu-outline';    break;
     }
 
     let result = arr.map(function(element) {
@@ -62,7 +62,7 @@ function setClipboard() {
         element.addEventListener('click', (e) => {
             copyToClipboard(e.target);
         })
-    })    
+    })
 }
 
 // Clear current selection

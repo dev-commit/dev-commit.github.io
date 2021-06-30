@@ -13,6 +13,7 @@ git@github.com:anton-sergeenkov/repo.git      # соединение по SSH
 https://github.com/anton-sergeenkov/repo.git  # соединение по HTTPS
 </v-code>
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>SSH</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -21,17 +22,15 @@ https://github.com/anton-sergeenkov/repo.git  # соединение по HTTPS
 <h4>1. Git Bash</h4>
 <!------------------------------------------------------------->
 <u-link-wrapper>
-	<a href="https://git-scm.com/" target="_blank">Git</a>
+	<a href="https://git-scm.com/" target="_blank">https://git-scm.com/</a>
 </u-link-wrapper>
 
-<v-code lang="bash" title="">
-# 1. Install Git
+<ul class="list-point">
+    <li>1. Install Git</li>
 
-# 2. Open Git Bash
-	<u-code-wrapper>
-	$ cd путь_до_папки ($ cd и перетащить папку)
-	</u-code-wrapper>
-</v-code>
+    <li>2. Open Git Bash</li>
+	<u-code-text>$ cd путь_до_папки ($ cd и перетащить папку)</u-code-text>
+</ul>
 
 <!------------------------------------------------------------->
 <h4>2. Generating a new SSH key</h4>
@@ -40,20 +39,16 @@ https://github.com/anton-sergeenkov/repo.git  # соединение по HTTPS
 	<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank">Generating a new SSH key</a>
 </u-link-wrapper>
 
-<v-code lang="bash" title="">
-# 1. Generating a new SSH key
-	<u-code-wrapper>
-	$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-	</u-code-wrapper>
-# 2. Adding your SSH key to the ssh-agent
-	<u-code-wrapper>
-	$ eval $(ssh-agent -s)
-	</u-code-wrapper>
-# 3. Add your SSH private key to the ssh-agent
-	<u-code-wrapper>
-	$ ssh-add ~/.ssh/id_rsa
-	</u-code-wrapper>
-</v-code>
+<ul class="list-point">
+    <li>1. Generating a new SSH key</li>
+	<u-code-text>$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</u-code-text>
+
+    <li>2. Adding your SSH key to the ssh-agent</li>
+	<u-code-text>$ eval $(ssh-agent -s)</u-code-text>
+
+    <li>3. Add your SSH private key to the ssh-agent</li>
+	<u-code-text>$ ssh-add ~/.ssh/id_rsa</u-code-text>
+</ul>
 
 <!------------------------------------------------------------->
 <h4>3. Add the SSH key to your GitHub account</h4>
@@ -62,22 +57,20 @@ https://github.com/anton-sergeenkov/repo.git  # соединение по HTTPS
 	<a href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account" target="_blank">Adding a new SSH key to your GitHub account</a>
 </u-link-wrapper>
 
-<v-code lang="bash" title="">
-# 1. Copy the SSH key to your clipboard
-	<u-code-wrapper>
-	$ clip < ~/.ssh/id_rsa.pub
-	</u-code-wrapper>
-# 2. https://github.com/ -> Settings -> SSH and GPG keys -> New SSH key
-	- ввести название ключа
-	- вставить ключ скопированный в буфер обмена на 1 этапе
+<ul class="list-point">
+	<li>1. Copy the SSH key to your clipboard</li>
+	<u-code-text>$ clip < ~/.ssh/id_rsa.pub</u-code-text>
 
-# 3. https://github.com/ -> Репозиторий -> Clone or download -> Use SSH -> Скопировать строку
+	<li>2. https://github.com/ -> Settings -> SSH and GPG keys -> New SSH key</li>
+	<li>Ввести название ключа</li>
+	<li>Вставить ключ скопированный в буфер обмена на 1 этапе</li>
 
-# 4. Git Bash
-	<u-code-wrapper>
-	$ git clone git@github.com:name_account/name_repo.git
-	</u-code-wrapper>
-</v-code>
+	<li>3. https://github.com/ -> Репозиторий -> Clone or download -> Use SSH -> Скопировать строку</li>
+
+	<li>4. Git Bash</li>
+	<u-code-text>$ git clone git@github.com:name_account/name_repo.git</u-code-text>
+</ul>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>HTTPS / HTTP</h3>

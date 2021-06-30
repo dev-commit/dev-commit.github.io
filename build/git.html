@@ -60,7 +60,7 @@
                 href="#git/usecase/other"
             >Прочее</a>
         </li>
-    </ul><h4>🥥 Основное</h4><ul>  
+    </ul><h4>🥥 #1</h4><ul>  
         <li>
             <a
                 class="menu-link"
@@ -104,6 +104,14 @@
         <li>
             <a
                 class="menu-link"
+                id="id__git/command/pull"
+                href="#git/command/pull"
+            ><u-menu>pull</u-menu></a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
                 id="id__git/command/fetch"
                 href="#git/command/fetch"
             ><u-menu>fetch</u-menu></a>
@@ -112,11 +120,11 @@
         <li>
             <a
                 class="menu-link"
-                id="id__git/command/pull"
-                href="#git/command/pull"
-            ><u-menu>pull</u-menu></a>
+                id="id__git/command/reset"
+                href="#git/command/reset"
+            ><u-menu>reset</u-menu></a>
         </li>
-      
+    </ul><h4>🥥 #2</h4><ul>  
         <li>
             <a
                 class="menu-link"
@@ -156,6 +164,14 @@
                 href="#git/command/cherry-pick"
             ><u-menu>cherry-pick</u-menu></a>
         </li>
+    </ul><h4>🥥 #3</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__git/command/stash"
+                href="#git/command/stash"
+            ><u-menu>stash</u-menu></a>
+        </li>
       
         <li>
             <a
@@ -168,19 +184,11 @@
         <li>
             <a
                 class="menu-link"
-                id="id__git/command/stash"
-                href="#git/command/stash"
-            ><u-menu>stash</u-menu></a>
+                id="id__git/command/status"
+                href="#git/command/status"
+            ><u-menu>status</u-menu></a>
         </li>
       
-        <li>
-            <a
-                class="menu-link"
-                id="id__git/command/reset"
-                href="#git/command/reset"
-            ><u-menu>reset</u-menu></a>
-        </li>
-    </ul><h4>🥥 Дополнительно</h4><ul>  
         <li>
             <a
                 class="menu-link"
@@ -203,14 +211,6 @@
                 id="id__git/command/help"
                 href="#git/command/help"
             ><u-menu>help</u-menu></a>
-        </li>
-      
-        <li>
-            <a
-                class="menu-link"
-                id="id__git/command/status"
-                href="#git/command/status"
-            ><u-menu>status</u-menu></a>
         </li>
       
         <li>
@@ -378,8 +378,19 @@ git <u-code>merge</u-code> develop    # merge из develop в свою ветк�
 </div><div id="git/usecase/reset-changes"><h2>Отмена изменений</h2>
 
 <v-code lang="bash" title="">
-# отменить все изменения
-# убрать из индексации все файлы и директории, 
+# Удалить ветку
+git <u-code>branch</u-code> -D <i>НазваниеВетки</i>
+
+# Сбросить коммиты до начального в ветке
+git <u-code>reset</u-code> --hard HEAD
+
+# Изменить коммит
+git <u-code>commit</u-code> --amend
+</v-code>
+
+<v-code lang="bash" title="">
+# Отменить все изменения.
+# Убрать из индексации все файлы и директории,
 # которые возможно уже были проиндексировалы с помощью git add
 git <u-code>reset</u-code> --hard HEAD
 </v-code>
@@ -410,7 +421,8 @@ git <u-code>clean</u-code> -fd
 # Просмотреть, а затем удалить ВСЕ непроиндексированные файлы и папки, включая игнорируемые Git-ом
 git <u-code>clean</u-code> -ndx
 git <u-code>clean</u-code> -fdx
-</v-code></div><div id="git/usecase/other"><h2>Прочее</h2>
+</v-code>
+</div><div id="git/usecase/other"><h2>Прочее</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Изменение регистра</h3>
@@ -499,7 +511,18 @@ git <u-code>push origin --delete</u-code> НазваниеВетки            
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li><u-code-text>-f</u-code-text> <u-code-text>--force</u-code-text> Usually, the command refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it</li>
-</ul></div><div id="git/command/fetch"><div class="v-method-wrapper">
+</ul></div><div id="git/command/pull"><div class="v-method-wrapper">
+    <v-method before="git " method="pull" after="" arg="">
+    Добавление новых файлов из Working Directory в систему контроля версий (в индекс Staging Area для последующего коммита). Индексирование файлов. Сборка слепка коммита. Получить изменения из удаленного git-репозитория в локальный репозиторий
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>pull origin</u-code>        # Замерджить все ветки с удаленного репозитория
+git <u-code>pull origin</u-code> master # Аналогично предыдущему, но накатывается только ветка master
+git <u-code>pull origin HEAD</u-code>   # Накатить текущую ветку, не вводя ее длинное имя
+</v-code>
+</div><div id="git/command/fetch"><div class="v-method-wrapper">
     <v-method before="fetch " method="fetch" after="" arg="">
     Скачать все ветки с удаленного репозитория
     </v-method>
@@ -510,16 +533,18 @@ git <u-code>fetch --all</u-code>         #
 git <u-code>fetch origin</u-code>        # скачать все ветки с origin, но не мерджить их в локальный репозиторий
 git <u-code>fetch origin</u-code> master # аналогично предыдущему, но только для одной заданной ветки
 </v-code>
-</div><div id="git/command/pull"><div class="v-method-wrapper">
-    <v-method before="git " method="pull" after="" arg="">
-    Добавление новых файлов из Working Directory в систему контроля версий (в индекс Staging Area для последующего коммита). Индексирование файлов. Сборка слепка коммита. Получить изменения из удаленного git-репозитория в локальный репозиторий
+</div><div id="git/command/reset"><div class="v-method-wrapper">
+    <v-method before="fetch " method="reset" after="" arg="">
+    Отмена изменений. Изменяет указатель HEAD и, опционально, состояние индекса
     </v-method>
 </div>
 
 <v-code lang="bash" title="">
-git <u-code>pull origin</u-code>        # Замерджить все ветки с удаленного репозитория
-git <u-code>pull origin</u-code> master # Аналогично предыдущему, но накатывается только ветка master
-git <u-code>pull origin HEAD</u-code>   # Накатить текущую ветку, не вводя ее длинное имя
+git <u-code>reset</u-code>
+git <u-code>reset HEAD^2</u-code>             # отменить 2 коммита
+git <u-code>reset --hard HEAD^1</u-code>      # откатиться на заданное кол-во коммитов
+git <u-code>reset --hard</u-code> <i>HashCommit</i>  # откатиться к конкретному коммиту и удалить последующие (хэш смотрим в «git log»)
+git <u-code>reset HEAD</u-code> <i>ИмяФайла</i>      # если изменения были индексированны и нужно откатиться перед самим коммитом
 </v-code>
 </div><div id="git/command/branch"><div class="v-method-wrapper">
     <v-method before="git " method="branch" after="" arg="">
@@ -730,15 +755,6 @@ git <u-code>pull --rebase</u-code> origin master  # работает по rebase
 <v-code lang="bash" title="">
 git <u-code>cherry-pick</u-code> <i>HashCommit1</i> <i>HashCommit2</i>
 </v-code>
-</div><div id="git/command/revert"><div class="v-method-wrapper">
-    <v-method before="git " method="revert" after="" arg="">
-	Полная противоположность git cherry-pick. Она создаёт "антикоммит" для указанного коммита, таким образом отменяя изменения, внесённые в нём
-    </v-method>
-</div>
-
-<v-code lang="bash" title="">
-git <u-code>revert</u-code>
-</v-code>
 </div><div id="git/command/stash"><div class="v-method-wrapper">
     <v-method before="git " method="stash" after="" arg="">
     Сменить ветку, не теряя текущих незакоммиченных правок
@@ -752,18 +768,23 @@ git <u-code>stash</u-code>
 # вернуть ветку
 git <u-code>stash pop</u-code>
 </v-code>
-</div><div id="git/command/reset"><div class="v-method-wrapper">
-    <v-method before="fetch " method="reset" after="" arg="">
-    Отмена изменений. Изменяет указатель HEAD и, опционально, состояние индекса
+</div><div id="git/command/revert"><div class="v-method-wrapper">
+    <v-method before="git " method="revert" after="" arg="">
+	Полная противоположность git cherry-pick. Она создаёт "антикоммит" для указанного коммита, таким образом отменяя изменения, внесённые в нём
     </v-method>
 </div>
 
 <v-code lang="bash" title="">
-git <u-code>reset</u-code>
-git <u-code>reset HEAD^2</u-code>             # отменить 2 коммита
-git <u-code>reset --hard HEAD^1</u-code>      # откатиться на заданное кол-во коммитов
-git <u-code>reset --hard</u-code> <i>HashCommit</i>  # откатиться к конкретному коммиту и удалить последующие (хэш смотрим в «git log»)
-git <u-code>reset HEAD</u-code> <i>ИмяФайла</i>      # если изменения были индексированны и нужно откатиться перед самим коммитом
+git <u-code>revert</u-code>
+</v-code>
+</div><div id="git/command/status"><div class="v-method-wrapper">
+    <v-method before="git " method="status" after="" arg="">
+    Текущее состояния файлов в рабочей директории и индексе: какие файлы изменены, но не добавлены в индекс; какие ожидают коммита в индексе
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>status</u-code>
 </v-code>
 </div><div id="git/command/diff"><div class="v-method-wrapper">
     <v-method before="git " method="diff" after="" arg="">
@@ -808,15 +829,6 @@ git config --global core.safecrlf warn
 git commit <u-code>-h</u-code>
 git <u-code>help</u-code> commit
 </v-code>
-</div><div id="git/command/status"><div class="v-method-wrapper">
-    <v-method before="git " method="status" after="" arg="">
-    Текущее состояния файлов в рабочей директории и индексе: какие файлы изменены, но не добавлены в индекс; какие ожидают коммита в индексе
-    </v-method>
-</div>
-
-<v-code lang="bash" title="">
-git <u-code>status</u-code>
-</v-code>
 </div><div id="git/command/log"><div class="v-method-wrapper">
     <v-method before="git " method="log" after="" arg="">
     Показывает выполненные операции
@@ -848,17 +860,25 @@ git <u-code>clean -df</u-code> #
 </div><div id="git/main/command"><h2>Прочее</h2>
 
 <v-code lang="bash" title="">
-git <u-code>show</u-code> d8578edf8458ce06fbc5bb76a58c5ca4a58c5ca4  # изменения, сделанные в заданном коммите
-git <u-code>rm</u-code>                                             # удаление файлов из индекса и рабочей директории
-git <u-code>mv</u-code>                                             # способ переместить файл, а затем выполнить git add для нового файла и git rm для старого
-git <u-code>shortlog</u-code> -s -n                                 # количество сделанных коммитов у данного пользователя
+# Изменения, сделанные в заданном коммите
+git <u-code>show</u-code> <i>НомерКоммита</i>
+
+# Удаление файлов из индекса и рабочей директории
+git <u-code>rm</u-code>
+
+# Способ переместить файл, а затем выполнить git add для нового файла и git rm для старого
+git <u-code>mv</u-code>
+
+# Количество сделанных коммитов у данного пользователя
+git <u-code>shortlog</u-code> -s -n
 </v-code>
 
 <!------------------------------------------------------------->
 <h4>Terminal</h4>
 <!------------------------------------------------------------->
 <v-code lang="bash" title="">
-<u-code>ls</u-code> # получить список файлов
+# Получить список файлов
+<u-code>ls</u-code>
 </v-code>
 </div><div id="git/github/terminal-connect"><h2>Подключение по SSH</h2>
 
@@ -875,6 +895,7 @@ git@github.com:anton-sergeenkov/repo.git      # соединение по SSH
 https://github.com/anton-sergeenkov/repo.git  # соединение по HTTPS
 </v-code>
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>SSH</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -883,17 +904,15 @@ https://github.com/anton-sergeenkov/repo.git  # соединение по HTTPS
 <h4>1. Git Bash</h4>
 <!------------------------------------------------------------->
 <u-link-wrapper>
-	<a href="https://git-scm.com/" target="_blank">Git</a>
+	<a href="https://git-scm.com/" target="_blank">https://git-scm.com/</a>
 </u-link-wrapper>
 
-<v-code lang="bash" title="">
-# 1. Install Git
+<ul class="list-point">
+    <li>1. Install Git</li>
 
-# 2. Open Git Bash
-	<u-code-wrapper>
-	$ cd путь_до_папки ($ cd и перетащить папку)
-	</u-code-wrapper>
-</v-code>
+    <li>2. Open Git Bash</li>
+	<u-code-text>$ cd путь_до_папки ($ cd и перетащить папку)</u-code-text>
+</ul>
 
 <!------------------------------------------------------------->
 <h4>2. Generating a new SSH key</h4>
@@ -902,20 +921,16 @@ https://github.com/anton-sergeenkov/repo.git  # соединение по HTTPS
 	<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank">Generating a new SSH key</a>
 </u-link-wrapper>
 
-<v-code lang="bash" title="">
-# 1. Generating a new SSH key
-	<u-code-wrapper>
-	$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-	</u-code-wrapper>
-# 2. Adding your SSH key to the ssh-agent
-	<u-code-wrapper>
-	$ eval $(ssh-agent -s)
-	</u-code-wrapper>
-# 3. Add your SSH private key to the ssh-agent
-	<u-code-wrapper>
-	$ ssh-add ~/.ssh/id_rsa
-	</u-code-wrapper>
-</v-code>
+<ul class="list-point">
+    <li>1. Generating a new SSH key</li>
+	<u-code-text>$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</u-code-text>
+
+    <li>2. Adding your SSH key to the ssh-agent</li>
+	<u-code-text>$ eval $(ssh-agent -s)</u-code-text>
+
+    <li>3. Add your SSH private key to the ssh-agent</li>
+	<u-code-text>$ ssh-add ~/.ssh/id_rsa</u-code-text>
+</ul>
 
 <!------------------------------------------------------------->
 <h4>3. Add the SSH key to your GitHub account</h4>
@@ -924,22 +939,20 @@ https://github.com/anton-sergeenkov/repo.git  # соединение по HTTPS
 	<a href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account" target="_blank">Adding a new SSH key to your GitHub account</a>
 </u-link-wrapper>
 
-<v-code lang="bash" title="">
-# 1. Copy the SSH key to your clipboard
-	<u-code-wrapper>
-	$ clip < ~/.ssh/id_rsa.pub
-	</u-code-wrapper>
-# 2. https://github.com/ -> Settings -> SSH and GPG keys -> New SSH key
-	- ввести название ключа
-	- вставить ключ скопированный в буфер обмена на 1 этапе
+<ul class="list-point">
+	<li>1. Copy the SSH key to your clipboard</li>
+	<u-code-text>$ clip < ~/.ssh/id_rsa.pub</u-code-text>
 
-# 3. https://github.com/ -> Репозиторий -> Clone or download -> Use SSH -> Скопировать строку
+	<li>2. https://github.com/ -> Settings -> SSH and GPG keys -> New SSH key</li>
+	<li>Ввести название ключа</li>
+	<li>Вставить ключ скопированный в буфер обмена на 1 этапе</li>
 
-# 4. Git Bash
-	<u-code-wrapper>
-	$ git clone git@github.com:name_account/name_repo.git
-	</u-code-wrapper>
-</v-code>
+	<li>3. https://github.com/ -> Репозиторий -> Clone or download -> Use SSH -> Скопировать строку</li>
+
+	<li>4. Git Bash</li>
+	<u-code-text>$ git clone git@github.com:name_account/name_repo.git</u-code-text>
+</ul>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>HTTPS / HTTP</h3>
@@ -1076,6 +1089,8 @@ Branches -> Local Branches -> пкм по ветке -> Delete - удалить 
 	<li><u-code-list>beta</u-code-list> - beta</li>
 	<li><u-code-list>develop</u-code-list> - происходит вся работа</li>
 </ul>
+
+<hr>
 
 <ul class="list-point">
 	<li><u-code-list>feature</u-code-list> - создаются в процессе работы над develop, их может быть неограниченное количество</li>

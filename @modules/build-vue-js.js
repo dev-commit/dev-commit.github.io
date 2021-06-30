@@ -52,17 +52,17 @@ ARR_MODULE = [
     {
         title: 'DOM',
         themes: [
-            ['vue-js/dom/event',  setTheme(1, ['$event'])+' - доступ к событию'],
-            ['vue-js/dom/refs',   setTheme(1, ['$refs'])+' - ссылка на DOM элемент'],
+            ['vue-js/dom/event',  setTheme(1, ['$event'])],
+            ['vue-js/dom/refs',   setTheme(1, ['$refs'])],
         ]
     },
     {
         title: 'Реактивность',
         themes: [
             ['vue-js/reactivity/reactivity',   'Реактивность'],
-            ['vue-js/reactivity/set',          setTheme(1, ['vm.$set'])+' - добаление реакт. элементов'],
-            ['vue-js/reactivity/next-tick',    setTheme(1, ['vm.$nextTick'])+' - обновление'],
-            ['vue-js/reactivity/force-update', setTheme(1, ['vm.$forceUpdate'])+' - переотрисовка'],
+            ['vue-js/reactivity/set',          setTheme(1, ['vm.$set'])],
+            ['vue-js/reactivity/next-tick',    setTheme(1, ['vm.$nextTick'])],
+            ['vue-js/reactivity/force-update', setTheme(1, ['vm.$forceUpdate'])],
         ]
     },
     {

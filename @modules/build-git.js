@@ -10,32 +10,37 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Основное',
+        title: '#1',
         themes: [
             ['git/command/init',         setTheme(1, ['init'])],
             ['git/command/clone',        setTheme(1, ['clone'])],
             ['git/command/add',          setTheme(1, ['add'])],
             ['git/command/commit',       setTheme(1, ['commit'])],
             ['git/command/push',         setTheme(1, ['push'])],
-            ['git/command/fetch',        setTheme(1, ['fetch'])],
             ['git/command/pull',         setTheme(1, ['pull'])],
+            ['git/command/fetch',        setTheme(1, ['fetch'])],
+            ['git/command/reset',        setTheme(1, ['reset'])],
+        ]
+    },
+    {
+        title: '#2',
+        themes: [
             ['git/command/branch',       setTheme(1, ['branch'])],
             ['git/command/checkout',     setTheme(1, ['checkout'])],
             ['git/command/merge',        setTheme(1, ['merge'])],
             ['git/command/rebase',       setTheme(1, ['rebase'])],
             ['git/command/cherry-pick',  setTheme(1, ['cherry-pick'])],
-            ['git/command/revert',       setTheme(1, ['revert'])],
-            ['git/command/stash',        setTheme(1, ['stash'])],
-            ['git/command/reset',        setTheme(1, ['reset'])],
         ]
     },
     {
-        title: 'Дополнительно',
+        title: '#3',
         themes: [
+            ['git/command/stash',        setTheme(1, ['stash'])],
+            ['git/command/revert',       setTheme(1, ['revert'])],
+            ['git/command/status',       setTheme(1, ['status'])],
             ['git/command/diff',         setTheme(1, ['diff'])],
             ['git/command/config',       setTheme(1, ['config'])],
             ['git/command/help',         setTheme(1, ['help'])],
-            ['git/command/status',       setTheme(1, ['status'])],
             ['git/command/log',          setTheme(1, ['log'])],
             ['git/command/clean',        setTheme(1, ['clean'])],
             ['git/main/command',         setTheme(1, ['...'])],

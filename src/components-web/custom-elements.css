@@ -3,12 +3,15 @@ all
 *******************************************/
 u-code-text, u-code-flat, u-code-list, u-code-comment, u-code, u-text-define,
 u-text-header, u-code-wrapper, u-link-wrapper, u-code-npm, u-code-title, u-code-accent,
-u-menu, u-menu-accent, u-menu-code, u-menu-border, u-text-underline, u-text-accent,
+u-text-underline, u-text-accent,
 u-block-left-padding, u-block-code, u-clipboard {
 	margin: 0;
 	padding: 0;
 	border: 0;
 	display: inline;
+}
+u-menu, u-menu-accent, u-menu-code, u-menu-border, u-menu-outline {
+	display: inline-block;
 }
 u-code-wrapper, u-link-wrapper, u-block-left-padding, u-block-code {
 	display: block;
@@ -112,12 +115,12 @@ u-block-code {
 /*******************************************
 menu
 *******************************************/
-u-menu, u-menu-accent, u-menu-code, u-menu-border {
-	padding: 2px 5px;
+u-menu, u-menu-accent, u-menu-code, u-menu-border, u-menu-outline {
+	padding: 0px 5px;
 	color: black !important;
 }
 u-menu {
-    background: rgba(245, 224, 66, 0.3);
+    background-color: rgba(245, 224, 66, 0.3);
     border: 1px solid rgba(245, 224, 66, 1);
     border-radius: 3px;
 }
@@ -125,7 +128,7 @@ u-menu-unactive {
     text-decoration: underline;
 }
 u-menu-accent {
-	background: rgba(var(--theme-green), 0.35);
+	background-color: rgba(var(--theme-green), 0.35);
 	color: rgba(var(--color-dark-green), 1) !important;
 	border-radius: 3px;
 }
@@ -135,10 +138,14 @@ u-menu-code {
 	border-radius: 3px;
 }
 u-menu-border {
-	background: rgba(245, 224, 66, 0.3);
+	background-color: rgba(245, 224, 66, 0.3);
     border: 1px solid #cce3a8;
     border-radius: 0px 3px 3px 0px;
     border-left: 5px solid #cce3a8;
+}
+u-menu-outline {
+	border: 1px solid #6d45ff;
+    border-radius: 3px;
 }
 
 /*******************************************

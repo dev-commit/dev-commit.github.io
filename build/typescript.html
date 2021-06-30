@@ -84,37 +84,37 @@
                 href="#typescript/types/enum"
             ><u-menu>enum</u-menu></a>
         </li>
-    </ul><h4>🥥 Type</h4><ul>  
+    </ul><h4>🥥 Операторы</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__typescript/operators/pick"
+                href="#typescript/operators/pick"
+            ><u-menu-outline>Pick</u-menu-outline></a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__typescript/operators/record"
+                href="#typescript/operators/record"
+            ><u-menu-outline>Record</u-menu-outline></a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__typescript/operators/omit"
+                href="#typescript/operators/omit"
+            ><u-menu-outline>Omit</u-menu-outline></a>
+        </li>
+    </ul><h4>🥥 <u-menu-accent>type</u-menu-accent></h4><ul>  
         <li>
             <a
                 class="menu-link"
                 id="id__typescript/type/type"
                 href="#typescript/type/type"
             ><u-menu>type</u-menu></a>
-        </li>
-      
-        <li>
-            <a
-                class="menu-link"
-                id="id__typescript/type/pick"
-                href="#typescript/type/pick"
-            ><u-menu>Pick&lt;&gt;</u-menu></a>
-        </li>
-      
-        <li>
-            <a
-                class="menu-link"
-                id="id__typescript/type/record"
-                href="#typescript/type/record"
-            ><u-menu>Record&lt;&gt;</u-menu></a>
-        </li>
-      
-        <li>
-            <a
-                class="menu-link"
-                id="id__typescript/type/omit"
-                href="#typescript/type/omit"
-            ><u-menu>Omit&lt;&gt;</u-menu></a>
         </li>
       
         <li>
@@ -140,7 +140,7 @@
                 href="#typescript/type/react"
             >React</a>
         </li>
-    </ul><h4>🥥 Интерфейсы</h4><ul>  
+    </ul><h4>🥥 <u-menu-accent>interface</u-menu-accent></h4><ul>  
         <li>
             <a
                 class="menu-link"
@@ -606,7 +606,7 @@ function infinite(): never {
 enum Season {
 	Winter, // 0
 	Spring, // 1
-	Summer, // 2
+	<u-code>Summer</u-code>, // 2
 	Autumn  // 3
 };
 
@@ -629,57 +629,11 @@ enum SocialMedia {
 
 const social = SocialMedia.INSTAGRAM // "INSTAGRAM"
 </v-code>
-
-
-
-</div><div id="typescript/type/type"><h2>Type</h2>
-
-<ul class="list-point">
-    <li><u-text-define>Type</u-text-define> - создание собственного типа</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Одно значение</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-type Login = string;
-type ID = string | number;
-
-const login: Login = 'admin';
-const id1: ID = 42
-const id2: ID = 'Hello'
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Props для React-компонента</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-type Props = {
-	name: string;
-	onClick: (cn: string, isOpen?: boolean) => boolean;
-};
-
-const App = ({ name, onClick }: Props) => {
-	onClick('Hello '+name);
-}
-
-const Props = {
-	name: 'Tony',
-	onClick: (cn: string) => {
-		console.log(cn); // => "Hello Tony"
-		return true;
-	}
-}
-
-App(Props);
-</v-code>
-</div><div id="typescript/type/pick"><h2>Pick&lt;&gt;</h2>
-
+</div><div id="typescript/operators/pick"><h2>Pick</h2>
 
 <ul class="list-point">
     <li><u-text-define>Pick</u-text-define> - позволяет выбрать указанные поля</li>
 </ul>
-
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Определение типа</h3>
@@ -689,7 +643,6 @@ type Pick&lt;T, K extends keyof T&gt; = {
     [P in K]: T[P];
 }
 </v-code>
-
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
@@ -720,13 +673,11 @@ const obj: Doggy = {
     name: 'Jack'
 }
 </v-code>
-</div><div id="typescript/type/record"><h2>Record&lt;&gt;</h2>
-
+</div><div id="typescript/operators/record"><h2>Record</h2>
 
 <ul class="list-point">
     <li><u-text-define>Record</u-text-define> - позволяет создать новый тип из объединения. Значения в объединении используются как атрибуты нового типа</li>
 </ul>
-
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Определение типа</h3>
@@ -736,7 +687,6 @@ type Record&lt;K extends string, T&gt; = {
     [P in K]: T;
 }
 </v-code>
-
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
@@ -776,7 +726,6 @@ const obj: Doggy = {
 }
 </v-code>
 
-
 <!------------------------------------------------------------->
 <h4>Пример #2</h4>
 <!------------------------------------------------------------->
@@ -797,7 +746,7 @@ const cats:CatList = {
     mordred: { age:600 }
 }
 </v-code>
-</div><div id="typescript/type/omit"><h2>Omit</h2>
+</div><div id="typescript/operators/omit"><h2>Omit</h2>
 
 <ul class="list-point">
     <li><u-text-define>Omit</u-text-define> - вспомогательный тип Omit позволяет создавать новые типы на основе существующих методом исключения некоторых свойств из исходного типа</li>
@@ -840,6 +789,47 @@ const person: NewPerson = {
 <v-code lang="js" title="">
 // исключение нескольких значений
 type NewPerson = Omit<Person, "address" | "age">;
+</v-code>
+</div><div id="typescript/type/type"><h2>Type</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Type</u-text-define> - создание собственного типа</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Одно значение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Login = string;
+type ID = string | number;
+
+const login: Login = 'admin';
+const id1: ID = 42
+const id2: ID = 'Hello'
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Props для React-компонента</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Props = {
+	name: string;
+	onClick: (cn: string, isOpen?: boolean) => boolean;
+};
+
+const App = ({ name, onClick }: Props) => {
+	onClick('Hello '+name);
+}
+
+const Props = {
+	name: 'Tony',
+	onClick: (cn: string) => {
+		console.log(cn); // => "Hello Tony"
+		return true;
+	}
+}
+
+App(Props);
 </v-code>
 </div><div id="typescript/type/variants"><h2>Варианты</h2>
 
