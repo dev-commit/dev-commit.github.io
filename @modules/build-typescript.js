@@ -3,9 +3,19 @@ ARR_MODULE = [
         title: 'Основное',
         themes: [
             ['typescript/main/info',    emoji.theory+'Информация'],
-            ['typescript/main/install', emoji.lemon+'Установка и настройка'],
+            ['typescript/main/install', 'Установка и настройка'],
         ]
     },
+
+    {
+        title: 'Примеры',
+        themes: [
+            ['typescript/samples/types',   emoji.fire+setTheme(4, ['Типы данных'])],
+            ['typescript/samples/props',   emoji.chevron+setTheme(4, ['Props'])],
+            ['typescript/samples/samples', emoji.chevron+setTheme(4, ['Примеры'])],
+        ]
+    },
+
     {
         title: 'Типы данных',
         themes: [
@@ -37,7 +47,6 @@ ARR_MODULE = [
         accent: true,
         themes: [
             ['typescript/type/type',      emoji.favorite+setTheme(1, ['type'])],
-            ['typescript/type/variants',  emoji.favorite+'Варианты'],
             ['typescript/type/combine',   emoji.favorite+'Комбинация типов'],
         ]
     },

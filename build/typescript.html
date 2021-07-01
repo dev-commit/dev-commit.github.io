@@ -34,7 +34,31 @@
                 class="menu-link"
                 id="id__typescript/main/install"
                 href="#typescript/main/install"
-            >🍋 Установка и настройка</a>
+            >Установка и настройка</a>
+        </li>
+    </ul><h4>🥥 Примеры</h4><ul>  
+        <li>
+            <a
+                class="menu-link"
+                id="id__typescript/samples/types"
+                href="#typescript/samples/types"
+            >🔥 <u-menu-unactive>Типы данных</u-menu-unactive></a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__typescript/samples/props"
+                href="#typescript/samples/props"
+            >🔰 <u-menu-unactive>Props</u-menu-unactive></a>
+        </li>
+      
+        <li>
+            <a
+                class="menu-link"
+                id="id__typescript/samples/samples"
+                href="#typescript/samples/samples"
+            >🔰 <u-menu-unactive>Примеры</u-menu-unactive></a>
         </li>
     </ul><h4>🥥 Типы данных</h4><ul>  
         <li>
@@ -131,14 +155,6 @@
                 id="id__typescript/type/type"
                 href="#typescript/type/type"
             >⭐️ <u-menu>type</u-menu></a>
-        </li>
-      
-        <li>
-            <a
-                class="menu-link"
-                id="id__typescript/type/variants"
-                href="#typescript/type/variants"
-            >⭐️ Варианты</a>
         </li>
       
         <li>
@@ -413,6 +429,179 @@ declare module 'querystring' {
 }
 </v-code>
 </ul>
+</div><div id="typescript/samples/types"><h2>Типы данных</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Array</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js border;js" comment="Описание;Вызов">
+<template v-slot:first>
+type Fields = {
+	field1: Array&lt;string&gt;; // массив строк
+    field2: string[];      // массив строк (аналогично)
+};
+</template>
+<template v-slot:last>
+const a: Fields = {
+    field1: ['a', 'b'],
+    field2: ['a', 'b'],
+}
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Function</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js border;js" comment="Описание;Вызов">
+<template v-slot:first>
+type Fields = {
+	onClick1: Function;
+	onClick2: VoidFunction;
+	onClick3: () => void;
+	onClick4: (cn: string) => void;
+	onClick5: (cn: string, isOpen?: boolean) => boolean;
+};
+</template>
+<template v-slot:last>
+const a: Fields = {
+    onClick1: () => {},
+    onClick2: () => {},
+    onClick3: () => {},
+    onClick4: (cn) => {},
+    onClick5: (cn, isOpen) => { return true },
+}
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Promise</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js border;js" comment="Описание;Вызов">
+<template v-slot:first>
+type Fields = {
+	p1: Promise&lt;void&gt;;
+	p2: Promise&lt;string&gt;;
+	p3: Promise&lt;boolean&gt;;
+	p4: Promise&lt;never&gt;;
+};
+</template>
+<template v-slot:last>
+const a: Fields = {
+    p1: new Promise((resolve) => { console.log('Ok') }),
+    p2: new Promise((resolve) => { return 'Ok' }),
+    p3: new Promise((resolve) => { return true }),
+    p4: new Promise((resolve) => { throw new Error('Error') }),
+}
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>String</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js border;js" comment="Описание;Вызов">
+<template v-slot:first>
+type Fields = {
+	name1?: string;              // необязательное поле
+	name2: string;               // строка
+	name3: string[];             // массив строк
+	name4: string[] | undefined; // массив строк или undefined
+	name5: 'Tony' | 'Jack';      // 'Tony' или 'Jack'
+};
+</template>
+<template v-slot:last>
+const a: Fields = {
+    // name1: 'Tony',
+    name2: 'Tony',
+    name3: ['Tony', 'Jack'],
+    name4: undefined,
+    name5: 'Tony',
+}
+</template>
+</v-two-code>
+</div><div id="typescript/samples/props"><h2>Props</h2>
+
+<v-code lang="js" title="">
+type Props = {
+	name: string;
+	isActive: boolean;
+	onClick: () => void;
+};
+</v-code>
+
+<v-code lang="js" title="">
+const App = ({ name, isActive, onClick }: Props) => {
+	//
+};
+</v-code>
+</div><div id="typescript/samples/samples"><h2>Примеры</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Массив объектов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// Объект с ключом "name"
+type FieldType = {
+	name: string;
+};
+</v-code>
+
+<v-code lang="js" title="">
+// Массив, состоящий из FieldType
+// Массив объектов
+type MyFields1 = FieldType[];
+// Массив объектов (аналогичная запись)
+type MyFields2 = Array&lt;FieldType&gt;;
+</v-code>
+
+<v-code lang="js" title="">
+// Результат: массив объектов
+const fields: MyFields2 = [
+	{ name: 'name' },
+	{ name: 'age' },
+];
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Тип принимает агрумент</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<i>AllowedValues строка</i>
+<v-code lang="js" title="">
+// Объект с ключом "name" и разрешенными значениями "T"
+type FieldType&lt;T = string&gt; = {
+	name: T;
+};
+
+// Разрешенные значения для ключа "name"
+type AllowedValues = 'name' | 'age' | 'count';
+
+// Массив объектов
+type MyFields = FieldType&lt;AllowedValues&gt;[];
+
+// Результат: массив объетов с разрешенными значениями
+const fields: MyFields = [
+	{ name: 'name' },
+	{ name: 'age' },
+	// { name: 'date' }, // error
+];
+</v-code>
+
+<i>AllowedValues объект</i>
+<v-code lang="js" title="">
+type AllowedValues = {
+	id: string;
+	name?: string;
+};
+
+const fields: MyFields = [
+	{
+		name: {
+			id: '1',
+			name: 'Jack'
+		}
+	},
+];
+</v-code>
 </div><div id="typescript/types/types"><h2>Типы данных</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -873,144 +1062,6 @@ const Props = {
 
 App(Props);
 </v-code>
-</div><div id="typescript/type/variants"><h2>Варианты</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>1. Типы данных</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<!------------------------------------------------------------->
-<h4>Array</h4>
-<!------------------------------------------------------------->
-<v-two-code type="js border;js" comment="Описание;Вызов">
-<template v-slot:first>
-type Fields = {
-	field1: Array&lt;string&gt;; // массив строк
-    field2: string[];      // массив строк (аналогично)
-};
-</template>
-<template v-slot:last>
-const a: Fields = {
-    field1: ['a', 'b'],
-    field2: ['a', 'b'],
-}
-</template>
-</v-two-code>
-
-<!------------------------------------------------------------->
-<h4>Function</h4>
-<!------------------------------------------------------------->
-<v-two-code type="js border;js" comment="Описание;Вызов">
-<template v-slot:first>
-type Fields = {
-	onClick1: Function;
-	onClick2: VoidFunction;
-	onClick3: () => void;
-	onClick4: (cn: string) => void;
-	onClick5: (cn: string, isOpen?: boolean) => boolean;
-};
-</template>
-<template v-slot:last>
-const a: Fields = {
-    onClick1: () => {},
-    onClick2: () => {},
-    onClick3: () => {},
-    onClick4: (cn) => {},
-    onClick5: (cn, isOpen) => { return true },
-}
-</template>
-</v-two-code>
-
-<!------------------------------------------------------------->
-<h4>Promise</h4>
-<!------------------------------------------------------------->
-<v-two-code type="js border;js" comment="Описание;Вызов">
-<template v-slot:first>
-type Fields = {
-	response1: Promise&lt;void&gt;;
-	response2: Promise&lt;string&gt;;
-	response3: Promise&lt;boolean&gt;;
-	response4: Promise&lt;never&gt;;
-};
-</template>
-<template v-slot:last>
-const a: Fields = {
-    response1: new Promise((resolve) => { console.log('Ok') }),
-    response2: new Promise((resolve) => { return 'Ok' }),
-    response3: new Promise((resolve) => { return true }),
-    response4: new Promise((resolve) => { throw new Error('Error') }),
-}
-</template>
-</v-two-code>
-
-<!------------------------------------------------------------->
-<h4>String</h4>
-<!------------------------------------------------------------->
-<v-two-code type="js border;js" comment="Описание;Вызов">
-<template v-slot:first>
-type Fields = {
-	name1?: string;              // необязательное поле
-	name2: string;               // строка
-	name3: string[];             // массив строк
-	name4: string[] | undefined; // массив строк или undefined
-	name5: 'Tony' | 'Jack';      // 'Tony' или 'Jack'
-};
-</template>
-<template v-slot:last>
-const a: Fields = {
-    // name1: 'Tony',
-    name2: 'Tony',
-    name3: ['Tony', 'Jack'],
-    name4: undefined,
-    name5: 'Tony',
-}
-</template>
-</v-two-code>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>2. Props</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-type Props = {
-	name: string;
-	isActive: boolean;
-	onClick: () => void;
-};
-</v-code>
-
-<v-code lang="js" title="">
-const App = ({ name, isActive, onClick }: Props) => {
-	//
-};
-</v-code>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>3. Массив объектов</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-// Объект с ключом "name"
-type FieldType = {
-	name: string;
-};
-</v-code>
-
-<v-code lang="js" title="">
-// Массив, состоящий из FieldType
-// Массив объектов
-type MyFields1 = FieldType[];
-// Массив объектов (аналогичная запись)
-type MyFields2 = Array&lt;FieldType&gt;;
-</v-code>
-
-<v-code lang="js" title="">
-// Результат: массив объектов
-const fields: MyFields2 = [
-	{ name: 'name' },
-	{ name: 'age' },
-];
-</v-code>
 </div><div id="typescript/type/combine"><h2>Комбинация типов</h2>
 
 
@@ -1383,21 +1434,23 @@ const root: HTMLElement | null = document.querySelector(':root');
 </div><div id="typescript/function/main"><h2>Основы</h2>
 
 <v-code lang="js" title="">
-// void - функция ничего не вернет
+// 1. void - функция ничего не вернет
 function sayMyName(name: string): void {
 	console.log(name)
 }
 </v-code>
 
 <v-code lang="js" title="">
+// 2. Возвращает number
 function add(a: number, b: number): number {
 	return a + b
 }
 </v-code>
 
 <v-code lang="js" title="">
-function toUpperCase(str: string): string {
-	return str.toUpperCase()
+// 3. Vожно не использовать `_params` внутри foo()
+const foo = (_params: string) => {
+	//
 }
 </v-code>
 </div><div id="typescript/function/functions-overload"><h2>Перегрузка функций</h2>
