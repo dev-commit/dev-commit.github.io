@@ -14,25 +14,30 @@ ARR_MODULE = [
             ['typescript/types/typle',   setTheme(1, ['typle'])],
             ['typescript/types/any',     setTheme(1, ['any'])],
             ['typescript/types/never',   setTheme(1, ['never'])],
-            ['typescript/types/enum',    setTheme(1, ['enum'])],
+        ]
+    },
+    {
+        title: 'Методы',
+        themes: [
+            ['typescript/methods/pick',     setTheme(5, ['Pick'])],
+            ['typescript/methods/exclude',  setTheme(5, ['Exclude'])],
+            ['typescript/methods/record',   setTheme(5, ['Record'])],
+            ['typescript/methods/omit',     setTheme(5, ['Omit'])],
         ]
     },
     {
         title: 'Операторы',
         themes: [
-            ['typescript/operators/pick',      setTheme(5, ['Pick'])],
-            ['typescript/operators/record',    setTheme(5, ['Record'])],
-            ['typescript/operators/omit',      setTheme(5, ['Omit'])],
+            ['typescript/operators/keyof',    setTheme(5, ['keyof'])],
+            ['typescript/operators/typeof',   setTheme(5, ['typeof'])],
         ]
     },
     {
         title: setTheme(3, ['type']),
         themes: [
-            ['typescript/type/type',      setTheme(1, ['type'])],
-
-            ['typescript/type/variants',  'Варианты'],
-            ['typescript/type/combine',   'Комбинация типов'],
-            ['typescript/type/react',     'React'],
+            ['typescript/type/type',      emoji.favorite+setTheme(1, ['type'])],
+            ['typescript/type/variants',  emoji.favorite+'Варианты'],
+            ['typescript/type/combine',   emoji.favorite+'Комбинация типов'],
         ]
     },
     {
@@ -45,26 +50,45 @@ ARR_MODULE = [
         ]
     },
     {
+        title: setTheme(3, ['generics']),
+        themes: [
+            ['typescript/generics/main',       emoji.favorite+'Основы'],
+            ['typescript/generics/principle',  emoji.favorite+'Принцип работы'],
+        ]
+    },
+    {
+        title: setTheme(3, ['enum']),
+        themes: [
+            ['typescript/enum/main',  emoji.favorite+'Основы'],
+        ]
+    },
+    {
+        title: 'React',
+        accent: true,
+        themes: [
+            ['typescript/react/types',         'Типы'],
+            ['typescript/react/samples-types', 'Примеры типизации'],
+        ]
+    },
+    {
         title: 'Функции',
         themes: [
-            ['typescript/function/main',               emoji.cookie+'Основы'],
-            ['typescript/function/functions-overload', emoji.cookie+'Перегрузка функций'],
+            ['typescript/function/main',               'Основы'],
+            ['typescript/function/functions-overload', 'Перегрузка функций'],
         ]
     },
     {
         title: 'Классы',
         themes: [
-            ['typescript/class/main',         emoji.coconut+'Основы'],
-            ['typescript/class/modificator',  emoji.coconut+'Модификаторы полей'],
-            ['typescript/class/abstract',     emoji.coconut+'Абстрактные классы'],
+            ['typescript/class/main',         'Основы'],
+            ['typescript/class/modificator',  'Модификаторы полей'],
+            ['typescript/class/abstract',     'Абстрактные классы'],
         ]
     },
     {
-        title: 'Другие возможности',
+        title: 'Прочее',
         themes: [
-            ['typescript/capabilities/guards',     emoji.baseball+'Guards'],
-            ['typescript/capabilities/generics',   emoji.baseball+'Generics'],
-            ['typescript/capabilities/operators',  emoji.baseball+'Операторы'],
+            ['typescript/other/guards', 'Guards'],
         ]
     },
 ]

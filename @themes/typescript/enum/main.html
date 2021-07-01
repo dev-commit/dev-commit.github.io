@@ -1,0 +1,77 @@
+<h2>Основы</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Enum</u-text-define> - предназначен для описания набора числовых данных с помощью строковых констант</li>
+    <li>Позволяет лучше структурировать код, если присутстуют однотипные элементы</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Без значения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+enum Season {
+	Winter, // 0
+	Spring, // 1
+	<u-code>Summer</u-code>, // 2
+	Autumn  // 3
+};
+
+let a: Season = Season.Summer; // 2
+let b: Season = Season[2];     // "Summer"
+
+// Изменение значения
+a = Season.Autumn;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Задание значения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+enum SocialMedia {
+	VK = 'VK',
+	FACEBOOK = 'FACEBOOK',
+	INSTAGRAM = 'INSTAGRAM'
+}
+
+const social = SocialMedia.INSTAGRAM // "INSTAGRAM"
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ограничения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="Допустимо;Недопустимая вложенность">
+<template v-slot:first>
+export enum FormFieldEnum {
+    name = 'name',
+    age = 'age'
+}
+</template>
+<template v-slot:last>
+export enum FormFieldEnum {
+    filters = {
+        age = 'age'
+    }
+    name = 'name'
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Пример</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+enum FormFieldEnum {
+    filter = 'filter',
+    name = 'name',
+    age = 'age'
+}
+</v-code>
+
+<v-code lang="js" title="">
+const FormField = {
+    [FormFieldEnum.filter]: {
+        [FormFieldEnum.age]: 'age'
+    },
+    [FormFieldEnum.name]: 'name'
+}
+</v-code>

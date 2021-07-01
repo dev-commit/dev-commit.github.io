@@ -1,0 +1,35 @@
+<h2>Принцип работы</h2>
+
+<u-link-wrapper>
+	<a href="https://canonium.com/articles/typescript-generics" target="_blank">https://canonium.com/articles/typescript-generics</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Принцип работы дженериков, хорошо объясним проведя аналогию работы функций и их входных параметров.</li>
+    <li>Допустим у нас есть функция print, которая принимает на вход два параметра title и info:</li>
+</ul>
+
+<v-code lang="js" title="">
+const print = (title, info) =&gt; {
+    //
+}
+
+print('Имя', 'Вася');
+</v-code>
+
+<ul class="list-point">
+    <li>В теле функции строка Имя, которую мы передаем, имеет псевдоним title, а строка Вася-info</li>
+    <li>А теперь давайте рассмотрим аналогию с дженериками:</li>
+</ul>
+
+<v-code lang="js" title="">
+const print = &lt;T, K&gt;(title: T, info: K) =&gt; {
+    //
+}
+
+print&lt;string, number&gt;('Возраст', 25);
+</v-code>
+
+<ul class="list-point">
+    <li>Тип string, который передается в дженерик получает псевдоним T, и теперь все T в параметрах, а также в теле функции будут иметь тип string. В случае с number и псевдонимом К все тоже самое.</li>
+</ul>

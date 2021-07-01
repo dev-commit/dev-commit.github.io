@@ -1,7 +1,7 @@
 
 const getMenuHTML = () => (`
     <slot v-for="itemTitle in themesContent">
-        <h4 v-html="themesEmoji+' '+itemTitle.title"></h4>
+        <h4 v-html="themesEmoji+' '+itemTitle.title" :class="{ accent: itemTitle.accent }"></h4>
         <ul>
             <li v-for="(itemTheme, i) in itemTitle.themes">
                 <a
@@ -23,13 +23,13 @@ export const getIndexHTML = ({ up, title, script, menu, content }) => (`
             <title>${title}</title>
             <meta charset="UTF-8">
             <link rel="icon" type="image/png" href="${up}src/img/favicon.svg">
-        
+
             <script src="${up}src/js/utils.js"></script>
             <!-- Own JavaScript -->
             <script src="${up}@modules/build-${script}.js"></script>
         </head>
         <body>
-        
+
             <div id="container">
                 <div id="menu">
                     <div id="top">
@@ -40,7 +40,7 @@ export const getIndexHTML = ({ up, title, script, menu, content }) => (`
                     </div>
                     ${menu ? menu : getMenuHTML()}
                 </div>
-        
+
                 <div id="wrapper">
                     <div id="links">
                         <ul>
@@ -55,29 +55,29 @@ export const getIndexHTML = ({ up, title, script, menu, content }) => (`
                     <div id="content">${content ? content : ''}</div>
                 </div>
             </div>
-        
+
             <!-- CSS -->
             <link rel="stylesheet" type="text/css" href="${up}src/css/basic.css">
             <link rel="stylesheet" type="text/css" href="${up}src/css/index.css">
-        
+
             <!-- Libraries -->
             <script src="${up}src/libs/highlight/highlight.pack.js"></script>
             <script src="${up}src/libs/vue.js"></script>
-        
+
             <!-- Custom Elements -->
             <script src="${up}src/components-web/custom-elements.js"></script>
             <link rel="stylesheet" type="text/css" href="${up}src/components-web/custom-elements.css">
-        
+
             <!-- Vue.js Components -->
             <script src="${up}src/components-vue/vue-components.js"></script>
             <link rel="stylesheet" type="text/css" href="${up}src/components-vue/vue-components.css">
-        
+
             <!-- JavaScript -->
             <script src="${up}src/js/init.js"></script>
             <script src="${up}@modules/@links.js"></script>
             <script src="${up}src/vue/build.js"></script>
         </body>
-    </html>    
+    </html>
 `)
 
 // const a1 = getIndexHTML({

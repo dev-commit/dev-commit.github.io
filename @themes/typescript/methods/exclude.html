@@ -1,0 +1,20 @@
+<h2>Exclude</h2>
+
+<v-code lang="js" title="">
+type User = {
+	_id: number
+	name: string
+	email: string
+	createdAt: Date
+}
+
+// Создать новый тип из существующего, не включая некоторые поля
+
+// Указываем, какие поля нужно не забирать (_id и createdAt)
+type UserKeysNoMeta1 = <u-code>Exclude</u-code>&lt;keyof User, '_id' | 'createdAt'&gt; // 'name' | 'email'
+// Указываем, какие поля нужно забрать (name, email)
+type UserKeysNoMeta2 = <u-code>Pick</u-code>&lt;User, 'name' | 'email'&gt; // 'name' | 'email'
+
+let u1: UserKeysNoMeta1 = 'name'
+// u1 = '_id'
+</v-code>
