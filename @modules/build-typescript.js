@@ -33,7 +33,8 @@ ARR_MODULE = [
         ]
     },
     {
-        title: setTheme(3, ['type']),
+        title: 'type',
+        accent: true,
         themes: [
             ['typescript/type/type',      emoji.favorite+setTheme(1, ['type'])],
             ['typescript/type/variants',  emoji.favorite+'Варианты'],
@@ -41,7 +42,8 @@ ARR_MODULE = [
         ]
     },
     {
-        title: setTheme(3, ['interface']),
+        title: 'interface',
+        accent: true,
         themes: [
             ['typescript/interface/main',             emoji.favorite+'Основы'],
             ['typescript/interface/inherit',          emoji.favorite+'Наследование интерфейсов'],
@@ -50,21 +52,22 @@ ARR_MODULE = [
         ]
     },
     {
-        title: setTheme(3, ['generics']),
+        title: 'generics',
+        accent: true,
         themes: [
             ['typescript/generics/main',       emoji.favorite+'Основы'],
             ['typescript/generics/principle',  emoji.favorite+'Принцип работы'],
         ]
     },
     {
-        title: setTheme(3, ['enum']),
+        title: 'enum',
+        accent: true,
         themes: [
             ['typescript/enum/main',  emoji.favorite+'Основы'],
         ]
     },
     {
         title: 'React',
-        accent: true,
         themes: [
             ['typescript/react/types',         'Типы'],
             ['typescript/react/samples-types', 'Примеры типизации'],
