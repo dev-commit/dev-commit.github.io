@@ -10,7 +10,8 @@ ARR_MODULE = [
         ]
     },
     {
-        title: '#1',
+        title: 'Команды',
+        accent: true,
         themes: [
             ['git/command/init',         setTheme(1, ['init'])],
             ['git/command/clone',        setTheme(1, ['clone'])],
@@ -20,21 +21,13 @@ ARR_MODULE = [
             ['git/command/pull',         setTheme(1, ['pull'])],
             ['git/command/fetch',        setTheme(1, ['fetch'])],
             ['git/command/reset',        setTheme(1, ['reset'])],
-        ]
-    },
-    {
-        title: '#2',
-        themes: [
+            // ['', ''],
             ['git/command/branch',       setTheme(1, ['branch'])],
             ['git/command/checkout',     setTheme(1, ['checkout'])],
             ['git/command/merge',        setTheme(1, ['merge'])],
             ['git/command/rebase',       setTheme(1, ['rebase'])],
             ['git/command/cherry-pick',  setTheme(1, ['cherry-pick'])],
-        ]
-    },
-    {
-        title: '#3',
-        themes: [
+            // ['', ''],
             ['git/command/stash',        setTheme(1, ['stash'])],
             ['git/command/revert',       setTheme(1, ['revert'])],
             ['git/command/status',       setTheme(1, ['status'])],
