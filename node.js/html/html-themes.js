@@ -2,7 +2,7 @@ const nodeEval = require('node-eval');
 const fs = require('fs');
 
 const getListHTML = (id, title) => (
-    `  
+    `
         <li>
             <a
                 class="menu-link"
@@ -25,12 +25,14 @@ export const getThemesHTML = (module) => {
         menu += '<ul>';
 
         themes.forEach(elements => {
-            const file = `@themes/${elements[0]}.html`;
-            const content = fs.readFileSync(file, 'utf8');
-            const id = elements[0];
+            if (elements[0]) {
+                const file = `@themes/${elements[0]}.html`;
+                const content = fs.readFileSync(file, 'utf8');
+                const id = elements[0];
 
-            menu += getListHTML(id, elements[1]);
-            html += `<div id="${id}">${content}</div>`;
+                menu += getListHTML(id, elements[1]);
+                html += `<div id="${id}">${content}</div>`;
+            }
         })
 
         menu += '</ul>';
