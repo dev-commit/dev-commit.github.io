@@ -2,9 +2,11 @@ ARR_MODULE = [
     {
         title: 'Use Case',
         themes: [
+            ['git/usecase/rebase',         emoji.code+setTheme(4, ['1. Rebase'])],
+            ['git/usecase/merge',          emoji.code+setTheme(4, ['2. Merge'])],
+            ['git/usecase/squash-commit',  emoji.code+setTheme(4, ['3. Squash Commit'])],
+
             ['git/usecase/common',            'Общее'],
-            ['git/usecase/squash-commit',     'Squash Commit'],
-            ['git/usecase/resolve-conflists', 'Разрешение конфликтов merge'],
             ['git/usecase/reset-changes',     'Отмена изменений'],
             ['git/usecase/other',             'Прочее'],
         ]

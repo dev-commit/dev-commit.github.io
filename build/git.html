@@ -24,9 +24,17 @@
         <li>
             <a
                 class="menu-link"
-                id="id__git/usecase/common"
-                href="#git/usecase/common"
-            >Общее</a>
+                id="id__git/usecase/rebase"
+                href="#git/usecase/rebase"
+            >⚡️ <u-menu-unactive>1. Rebase</u-menu-unactive></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__git/usecase/merge"
+                href="#git/usecase/merge"
+            >⚡️ <u-menu-unactive>2. Merge</u-menu-unactive></a>
         </li>
     
         <li>
@@ -34,15 +42,15 @@
                 class="menu-link"
                 id="id__git/usecase/squash-commit"
                 href="#git/usecase/squash-commit"
-            >Squash Commit</a>
+            >⚡️ <u-menu-unactive>3. Squash Commit</u-menu-unactive></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__git/usecase/resolve-conflists"
-                href="#git/usecase/resolve-conflists"
-            >Разрешение конфликтов merge</a>
+                id="id__git/usecase/common"
+                href="#git/usecase/common"
+            >Общее</a>
         </li>
     
         <li>
@@ -306,7 +314,97 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="git/usecase/common"><h2>Общее</h2>
+                    <div id="content"><div id="git/usecase/rebase"><h2>Rebase</h2>
+
+<ul class="list-point">
+    <li>Разрешение конфликтов разницы "develop" и "feature"</li>
+</ul>
+
+<v-code lang="bash border" title="">
+git <u-code>fetch</u-code> origin
+git <u-code>rebase</u-code> -i origin/develop
+</v-code>
+
+<ul class="list-point">
+    <li>Если есть конфликты merge, откроется редактор</li>
+    <li>Пофиксить конфликты</li>
+    <li>Если несколько коммитов, то вызвать <u>git rebase --continue</u> и фиксим следующий коммит</li>
+    <li>Если есть конфликт, то его нужно фиксить в каждом коммите</li>
+</ul>
+
+<v-code lang="bash border" title="">
+git <u-code>add</u-code> .
+git <u-code>rebase</u-code> --continue
+</v-code>
+
+<v-code lang="js" title="">
+git <u-code>log</u-code>
+git <u-code>push</u-code> --force
+</v-code>
+
+<v-code lang="bash" title="">
+git merge —abort
+git reset --hard HEAD
+git pull
+</v-code>
+</div><div id="git/usecase/merge"><h2>Merge</h2>
+
+<ul class="list-point">
+    <li>Разрешение конфликтов разницы "develop" и "feature"</li>
+</ul>
+
+<v-code lang="bash border" title="">
+git <u-code>checkout</u-code> develop # перейти в develop, если в ней есть обновления
+git <u-code>pull</u-code>             # обновить ветку develop
+git <u-code>checkout</u-code> feature # перейти в feature
+git <u-code>merge</u-code> develop    # merge из develop в свою ветку. ветка feature станет актуальной
+</v-code>
+
+<ul class="list-point">
+    <li>Появятся конфликты в файлах, поправить конфликты</li>
+</ul>
+</div><div id="git/usecase/squash-commit"><h2>Squash Commit</h2>
+
+<ul class="list-point">
+    <li>Хорошая практика сквошить коммиты в один, чтобы на задачку был один коммит</li>
+    <li>Вообще засквошить можно когда угодно, потом форс-пушем долить, но после того как проверен PR этого уже делать не нужно будет, все правки после ревью доливаются отдельными коммитами</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Локальный репозиторий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+git <u-code>checkout</u-code> develop                        # перейти в develop, если в ней есть обновления
+git <u-code>pull</u-code>                                    # обновить ветку develop
+git <u-code>checkout</u-code> <i>ветка</i>                          # перейти в рабочую ветку
+git <u-code>merge-base</u-code> dev HEAD                     # номер коммита к которому нужно откатиться
+git <u-code>reset</u-code> <i>номер_коммита</i>                     # откатывает всё что он сделал до того момента как откололся с develop
+git <u-code>add</u-code> .                                   # индексация изменений
+git <u-code>commit</u-code> -m <i>'Номер_таски: название таски'</i> # commit
+git <u-code>push</u-code> origin HEAD                        # push
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Удаленный репозиторий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+git <u-code>push --force origin HEAD</u-code>
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сквош коммитов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+git <u-code>fetch</u-code>
+git <u-code>reset</u-code> --soft origin/develop
+git <u-code>add</u-code> .
+git <u-code>commit</u-code> -m 'text'
+git <u-code>push</u-code> --force origin head
+</v-code>
+</div><div id="git/usecase/common"><h2>Общее</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>1. Клонирование ветки PR</h3>
@@ -337,44 +435,6 @@ git <u-code>add .</u-code>
 git <u-code>commit -m</u-code> 'text'
 git <u-code>push origin HEAD</u-code>
 </v-code>
-</div><div id="git/usecase/squash-commit"><h2>Squash Commit</h2>
-
-<ul class="list-point">
-    <li>Хорошая практика сквошить коммиты в один, чтобы на задачку был один коммит</li>
-    <li>Вообще засквошить можно когда угодно, потом форс-пушем долить, но после того как проверен PR этого уже делать не нужно будет, все правки после ревью доливаются отдельными коммитами</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Локальный репозиторий</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-git <u-code>checkout</u-code> develop                        # перейти в develop, если в ней есть обновления
-git <u-code>pull</u-code>                                    # обновить ветку develop
-git <u-code>checkout</u-code> <i>ветка</i>                          # перейти в рабочую ветку
-git <u-code>merge-base</u-code> dev HEAD                     # номер коммита к которому нужно откатиться
-git <u-code>reset</u-code> <i>номер_коммита</i>                     # откатывает всё что он сделал до того момента как откололся с develop
-git <u-code>add</u-code> .                                   # индексация изменений
-git <u-code>commit</u-code> -m <i>'Номер_таски: название таски'</i> # commit
-git <u-code>push</u-code> origin HEAD                        # push
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Удаленный репозиторий</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-git <u-code>push --force origin HEAD</u-code>
-</v-code>
-</div><div id="git/usecase/resolve-conflists"><h2>Разрешение конфликтов разницы "develop" и "feature"</h2>
-
-<v-code lang="bash" title="">
-git <u-code>checkout</u-code> develop # перейти в develop, если в ней есть обновления
-git <u-code>pull</u-code>             # обновить ветку develop
-git <u-code>checkout</u-code> feature # перейти в feature
-git <u-code>merge</u-code> develop    # merge из develop в свою ветку. ветка feature станет актуальной
-
-# появятся конфликты в файлах, поправить конфликты
-</v-code>
-
 </div><div id="git/usecase/reset-changes"><h2>Отмена изменений</h2>
 
 <v-code lang="bash" title="">

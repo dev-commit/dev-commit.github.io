@@ -1,0 +1,33 @@
+<h2>Rebase</h2>
+
+<ul class="list-point">
+    <li>Разрешение конфликтов разницы "develop" и "feature"</li>
+</ul>
+
+<v-code lang="bash border" title="">
+git <u-code>fetch</u-code> origin
+git <u-code>rebase</u-code> -i origin/develop
+</v-code>
+
+<ul class="list-point">
+    <li>Если есть конфликты merge, откроется редактор</li>
+    <li>Пофиксить конфликты</li>
+    <li>Если несколько коммитов, то вызвать <u>git rebase --continue</u> и фиксим следующий коммит</li>
+    <li>Если есть конфликт, то его нужно фиксить в каждом коммите</li>
+</ul>
+
+<v-code lang="bash border" title="">
+git <u-code>add</u-code> .
+git <u-code>rebase</u-code> --continue
+</v-code>
+
+<v-code lang="js" title="">
+git <u-code>log</u-code>
+git <u-code>push</u-code> --force
+</v-code>
+
+<v-code lang="bash" title="">
+git merge —abort
+git reset --hard HEAD
+git pull
+</v-code>

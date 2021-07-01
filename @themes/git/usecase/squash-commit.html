@@ -5,6 +5,7 @@
     <li>Вообще засквошить можно когда угодно, потом форс-пушем долить, но после того как проверен PR этого уже делать не нужно будет, все правки после ревью доливаются отдельными коммитами</li>
 </ul>
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Локальный репозиторий</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -19,9 +20,22 @@ git <u-code>commit</u-code> -m <i>'Номер_таски: название та�
 git <u-code>push</u-code> origin HEAD                        # push
 </v-code>
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Удаленный репозиторий</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="bash" title="">
 git <u-code>push --force origin HEAD</u-code>
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сквош коммитов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+git <u-code>fetch</u-code>
+git <u-code>reset</u-code> --soft origin/develop
+git <u-code>add</u-code> .
+git <u-code>commit</u-code> -m 'text'
+git <u-code>push</u-code> --force origin head
 </v-code>
