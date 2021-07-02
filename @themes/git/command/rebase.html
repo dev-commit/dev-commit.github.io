@@ -4,9 +4,13 @@
     </v-method>
 </div>
 
-<v-code lang="bash" title="">
-git <u-code>rebase</u-code> master         # rebase
-git <u-code>rebase -i</u-code> master      # интерактивный rebase
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Команды</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash border" title="">
+git <u-code>rebase</u-code> develop        # rebase
+git <u-code>rebase -i</u-code> develop     # интерактивный rebase
 git <u-code>rebase --abort</u-code>        # отказаться от rebase (возвращает обратно HEAD)
 git <u-code>rebase --quit</u-code>         # отказаться от rebase (НЕ возвращает обратно HEAD)
 git <u-code>rebase --skip</u-code>         # пропустить коммит
@@ -18,25 +22,39 @@ git <u-code>reflog</u-code> <i>НазваниеВетки</i>  # откатит�
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Алгоритм работы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
 <ul class="list-point">
     <li>Есть 2 ветки: <u>develop</u> и <u>feature</u></li>
     <li>Необходимо актуализаировать ветку <u>feature</u>: подтянуть последние изменения из <u>develop</u></li>
 </ul>
 
-<v-code lang="bash none" title="">
-git checkout develop   # перейти в ветку develop (не обязательно)
-git fetch origin       # взять последние изменени для develop
-git checkout feature   # перейти в ветку feature
-git rebase -i develop  # взять последние изменения из develop
+<v-code lang="bash" title="">
+git <u-code>checkout</u-code> develop   # перейти в ветку develop
+git <u-code>fetch</u-code> origin       # взять последние изменени для develop
+git <u-code>checkout</u-code> feature   # перейти в ветку feature
+</v-code>
 
-# если конфликты, то решить их
-git rebase --continue  # продолжить rebase
-git add .
-git commit -m 'message'
+<v-code lang="bash" title="">
+git <u-code>rebase</u-code> -i develop        # взять последние изменения из develop
+git <u-code>rebase</u-code> -i origin/develop # взять последние изменения из origin/develop
+</v-code>
 
-# если не было конфликтов
+<ul class="list-point">
+    <li>Если есть конфликты merge, откроется редактор</li>
+    <li>Пофиксить конфликты</li>
+    <li>Если несколько коммитов, то вызвать <u>git rebase --continue</u> и фиксим следующий коммит</li>
+    <li>Если есть конфликт, то его нужно фиксить в каждом коммите</li>
+</ul>
+
+<v-code lang="bash" title="">
+git <u-code>add</u-code> .
+git <u-code>rebase --continue</u-code>
+git <u-code>commit</u-code> -m 'message'
+</v-code>
+
+<v-code lang="bash" title="">
+# Если не было конфликтов
 git push origin HEAD
+git --force push origin HEAD
 </v-code>
 
 
@@ -107,7 +125,7 @@ pick 3895aa6 MessageCommit4
 <h4>Команды</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-    <li><u-code-text>p, pick</u-code-text> - спользуем коммит без изменений (по умолчанию)</li>
+    <li><u-code-text>p, pick</u-code-text> - используем коммит без изменений (по умолчанию)</li>
     <li><u-code-text>r, reword</u-code-text> - изменение сообщения коммита</li>
     <li><u-code-text>e, edit</u-code-text> - отредактироват коммит (когда git дойдёт до коммита, выполнится отстановка и git предложит выполнить действия)</li>
     <li><u-code-text>s, squash</u-code-text> - будет объединен с предыдущем коммитом в списке</li>
