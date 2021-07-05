@@ -5,9 +5,16 @@
 </div>
 
 <v-code lang="bash" title="">
-git <u-code>reset</u-code>
-git <u-code>reset HEAD^2</u-code>             # отменить 2 коммита
-git <u-code>reset --hard HEAD^1</u-code>      # откатиться на заданное кол-во коммитов
-git <u-code>reset --hard</u-code> <i>HashCommit</i>  # откатиться к конкретному коммиту и удалить последующие (хэш смотрим в «git log»)
-git <u-code>reset HEAD</u-code> <i>ИмяФайла</i>      # если изменения были индексированны и нужно откатиться перед самим коммитом
+git <u-code>reset</u-code> HEAD~          # отменить 1 коммит
+git <u-code>reset</u-code> HEAD~1         # отменить 1 коммит
+git <u-code>reset</u-code> HEAD^          # отменить 1 коммит
+git <u-code>reset</u-code> HEAD^1         # отменить 1 коммит
+git <u-code>reset</u-code> HEAD^2         # отменить 2 коммита
+git <u-code>reset</u-code> <i>HashCommit</i>     # откатиться к конкретному коммиту (хэш из "git log")
+git <u-code>reset</u-code> HEAD <i>ИмяФайла</i>  # если изменения были индексированны и нужно откатиться перед самим коммитом
+</v-code>
+
+<v-code lang="bash" title="">
+git <u-code>reset</u-code> <u-code-npm>--soft</u-code-npm> HEAD~  # откатиться к коммиту и <u>ОСТАВИТЬ</u> последующие
+git <u-code>reset</u-code> <u-code-npm>--hard</u-code-npm> HEAD~  # откатиться к коммиту и <u>УДАЛИТЬ</u> последующие
 </v-code>

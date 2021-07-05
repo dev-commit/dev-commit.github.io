@@ -74,7 +74,7 @@
                 class="menu-link"
                 id="id__git/command/merge"
                 href="#git/command/merge"
-            ><u-menu-border>merge</u-menu-border></a>
+            ><u-menu-accent>merge</u-menu-accent></a>
         </li>
     
         <li>
@@ -82,7 +82,7 @@
                 class="menu-link"
                 id="id__git/command/rebase"
                 href="#git/command/rebase"
-            ><u-menu-border>rebase</u-menu-border></a>
+            ><u-menu-accent>rebase</u-menu-accent></a>
         </li>
     
         <li>
@@ -90,7 +90,7 @@
                 class="menu-link"
                 id="id__git/command/reset"
                 href="#git/command/reset"
-            ><u-menu-border>reset</u-menu-border></a>
+            ><u-menu-accent>reset</u-menu-accent></a>
         </li>
     
         <li>
@@ -171,14 +171,6 @@
                 id="id__git/command/cherry-pick"
                 href="#git/command/cherry-pick"
             ><u-menu>cherry-pick</u-menu></a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__git/command/reset"
-                href="#git/command/reset"
-            ><u-menu>reset</u-menu></a>
         </li>
     
         <li>
@@ -509,8 +501,8 @@ git <u-code>mv -f</u-code> OldFileNameCase newfilenamecase
 </div>
 
 <v-code lang="bash" title="">
-git <u-code>merge</u-code> features # слияние "features" в текущую ветку
-git <u-code>merge --abort</u-code>  # 
+git <u-code>merge</u-code> develop   # слияние "develop" в текущую ветку
+git <u-code>merge --abort</u-code>   # отмена merge
 </v-code>
 </div><div id="git/command/rebase"><div class="v-method-wrapper">
     <v-method before="git " method="rebase" after="" arg="">
@@ -541,35 +533,41 @@ git <u-code>reflog</u-code> <i>НазваниеВетки</i>  # откатит�
     <li>Необходимо актуализаировать ветку <u>feature</u>: подтянуть последние изменения из <u>develop</u></li>
 </ul>
 
-<v-code lang="bash" title="">
+<v-code lang="bash none" title="">
 git <u-code>checkout</u-code> develop   # перейти в ветку develop
-git <u-code>fetch</u-code> origin       # взять последние изменени для develop
+git <u-code>fetch</u-code> origin       # подтянуть последние изменени для develop
+git <u-code>pull</u-code>               # взять последние изменени для develop
 git <u-code>checkout</u-code> feature   # перейти в ветку feature
 </v-code>
 
 <v-code lang="bash" title="">
-git <u-code>rebase -i</u-code> develop        # взять последние изменения из develop
-git <u-code>rebase -i</u-code> origin/develop # взять последние изменения из origin/develop
+git <u-code>rebase</u-code> -i develop        # взять последние изменения из develop
+git <u-code>rebase</u-code> -i origin/develop # взять последние изменения из origin/develop
 </v-code>
 
 <ul class="list-point">
     <li>Если есть конфликты merge, откроется редактор</li>
     <li>Пофиксить конфликты</li>
-    <li>Если несколько коммитов, то вызвать <u>git rebase --continue</u> и фиксим следующий коммит</li>
-    <li>Если есть конфликт, то его нужно фиксить в каждом коммите</li>
 </ul>
 
 <v-code lang="bash" title="">
-git <u-code>add</u-code> .
-git <u-code>rebase --continue</u-code>
-git <u-code>commit</u-code> -m 'message'
+git <u-code>add</u-code> .             # добавить измеенные файлы в <u>staged</u>
+git <u-code>rebase</u-code> --continue # если несколько коммитов, топреходим к фиксу следующего коммита
 </v-code>
 
-<v-code lang="bash" title="">
-# Если не было конфликтов
-git <u-code>push</u-code> origin HEAD
-git <u-code>--force push</u-code> origin HEAD
+<ul class="list-point">
+    <li>Если есть конфликт, то его нужно фиксить в каждом коммите</li>
+    <li>После фикса всех коммитов и добавления в <u>staged</u> Working Tree будет чистое: не нужно ничего коммитить</li>
+</ul>
+
+<v-code lang="bash none" title="">
+git <u-code>push</u-code> origin head         # отправка изменений на удаленный репозиторий
+git <u-code>push</u-code> --force origin head # отправка изменений на удаленный репозиторий
 </v-code>
+
+<ul class="list-point">
+    <li>На удаленном репозитории не добавляется новый коммит</li>
+</ul>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -666,11 +664,18 @@ git <u-code>pull --rebase</u-code> origin master  # работает по rebase
 </div>
 
 <v-code lang="bash" title="">
-git <u-code>reset</u-code>
-git <u-code>reset HEAD^2</u-code>             # отменить 2 коммита
-git <u-code>reset --hard HEAD^1</u-code>      # откатиться на заданное кол-во коммитов
-git <u-code>reset --hard</u-code> <i>HashCommit</i>  # откатиться к конкретному коммиту и удалить последующие (хэш смотрим в «git log»)
-git <u-code>reset HEAD</u-code> <i>ИмяФайла</i>      # если изменения были индексированны и нужно откатиться перед самим коммитом
+git <u-code>reset</u-code> HEAD~          # отменить 1 коммит
+git <u-code>reset</u-code> HEAD~1         # отменить 1 коммит
+git <u-code>reset</u-code> HEAD^          # отменить 1 коммит
+git <u-code>reset</u-code> HEAD^1         # отменить 1 коммит
+git <u-code>reset</u-code> HEAD^2         # отменить 2 коммита
+git <u-code>reset</u-code> <i>HashCommit</i>     # откатиться к конкретному коммиту (хэш из "git log")
+git <u-code>reset</u-code> HEAD <i>ИмяФайла</i>  # если изменения были индексированны и нужно откатиться перед самим коммитом
+</v-code>
+
+<v-code lang="bash" title="">
+git <u-code>reset</u-code> <u-code-npm>--soft</u-code-npm> HEAD~  # откатиться к коммиту и <u>ОСТАВИТЬ</u> последующие
+git <u-code>reset</u-code> <u-code-npm>--hard</u-code-npm> HEAD~  # откатиться к коммиту и <u>УДАЛИТЬ</u> последующие
 </v-code>
 </div><div id="git/command/init"><div class="v-method-wrapper">
     <v-method before="git " method="init" after="" arg="">
@@ -755,9 +760,9 @@ git <u-code>push origin --delete</u-code> НазваниеВетки            
 </div>
 
 <v-code lang="bash" title="">
-git <u-code>pull origin</u-code>        # Замерджить все ветки с удаленного репозитория
-git <u-code>pull origin</u-code> master # Аналогично предыдущему, но накатывается только ветка master
-git <u-code>pull origin HEAD</u-code>   # Накатить текущую ветку, не вводя ее длинное имя
+git <u-code>pull</u-code> origin        # замерджить все ветки с удаленного репозитория
+git <u-code>pull</u-code> origin master # замержить ветку master
+git <u-code>pull</u-code> origin HEAD   # замерджить текущую ветку
 </v-code>
 </div><div id="git/command/fetch"><div class="v-method-wrapper">
     <v-method before="fetch " method="fetch" after="" arg="">
@@ -840,19 +845,6 @@ git <u-code>checkout --orphan</u-code> NEW_BRANCH TARGET_REFERENCE
 <v-code lang="bash" title="">
 git <u-code>cherry-pick</u-code> <i>HashCommit1</i> <i>HashCommit2</i>
 </v-code>
-</div><div id="git/command/reset"><div class="v-method-wrapper">
-    <v-method before="fetch " method="reset" after="" arg="">
-    Отмена изменений. Изменяет указатель HEAD и, опционально, состояние индекса
-    </v-method>
-</div>
-
-<v-code lang="bash" title="">
-git <u-code>reset</u-code>
-git <u-code>reset HEAD^2</u-code>             # отменить 2 коммита
-git <u-code>reset --hard HEAD^1</u-code>      # откатиться на заданное кол-во коммитов
-git <u-code>reset --hard</u-code> <i>HashCommit</i>  # откатиться к конкретному коммиту и удалить последующие (хэш смотрим в «git log»)
-git <u-code>reset HEAD</u-code> <i>ИмяФайла</i>      # если изменения были индексированны и нужно откатиться перед самим коммитом
-</v-code>
 </div><div id="git/command/stash"><div class="v-method-wrapper">
     <v-method before="git " method="stash" after="" arg="">
     Сменить ветку, не теряя текущих незакоммиченных правок
@@ -874,6 +866,7 @@ git <u-code>stash pop</u-code>
 
 <v-code lang="bash" title="">
 git <u-code>revert</u-code>
+git <u-code>revert</u-code> commit-sha1  # сделать коммит, который отменяет какой-то коммит (если изменения были запушены)
 </v-code>
 </div><div id="git/command/status"><div class="v-method-wrapper">
     <v-method before="git " method="status" after="" arg="">
@@ -934,10 +927,10 @@ git <u-code>help</u-code> commit
 </div>
 
 <v-code lang="bash" title="">
-git <u-code>log</u-code>           # 
-git <u-code>log --oneline</u-code> # посмотреть все коммиты
+git <u-code>log</u-code>                  #
+git <u-code>log</u-code> --oneline        # посмотреть все коммиты
+git <u-code>log</u-code> --pretty=oneline # история коммитов
 </v-code>
-
 </div><div id="git/command/clean"><div class="v-method-wrapper">
     <v-method before="git " method="clean" after="" arg="">
 	Удалить файлы не относящиеся к репозиторию. Это могут быть результаты сборки проекта или файлы конфликтов слияний
