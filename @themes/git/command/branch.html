@@ -4,20 +4,51 @@
     </v-method>
 </div>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Команды</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Список веток</h4>
+<!------------------------------------------------------------->
 <v-code lang="bash" title="">
-git <u-code>branch</u-code>                   # список веток с указанием текущей
-git <u-code>branch -a</u-code>                # список веток с указанием remotes/origin
-git <u-code>branch</u-code> features          # создание новой ветки "features" (ответвиться от текущей)
-git <u-code>branch --delete</u-code> features # удаление ветки "features"
-git <u-code>branch -d</u-code> features       # удаление ветки "features" (после мерджа)
-git <u-code>branch -D</u-code> features       # удаление ветки "features" (тупиковая ветвь)
+git <u-code>branch</u-code>     # список веток с указанием текущей
+git <u-code>branch -a</u-code>  # список веток с указанием remotes/origin
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Создание новой ветки</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+git <u-code>branch</u-code> <i>НазваниеВетки</i>       # создание новой ветки (ответвиться от текущей)
+git <u-code>checkout -b</u-code> <i>НазваниеВетки</i>  # создание новой ветки и переключение на нее
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Удаление ветки</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+# Удаление ветки из локального репозитория
+git <u-code>branch --delete</u-code> <i>НазваниеВетки</i> # удаление ветки
+git <u-code>branch -d</u-code> <i>НазваниеВетки</i>       # удаление ветки (после мерджа)
+git <u-code>branch -D</u-code> <i>НазваниеВетки</i>       # удаление ветки (тупиковая ветвь)
 </v-code>
 
 <v-code lang="bash" title="">
-git <u-code>checkout -b</u-code> features          # создание новой ветки "features" и переключение на нее
+# Удаление ветки из удаленного репозитория
+git <u-code>push origin --delete</u-code> <i>НазваниеВетки</i>
+git <u-code>push origin</u-code> :<i>НазваниеВетки</i>
 </v-code>
 
+<!------------------------------------------------------------->
+<h4>Переименование локальной ветки</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>-m</u-code-text> происходит от слова move (или mv)</li>
+    <li><u-code-text>mv</u-code-text> используется для переименования файлов в Linux</li>
+</ul>
+
 <v-code lang="bash" title="">
-git <u-code>push origin --delete</u-code> features # удаление ветки в удаленном репозитории
-git <u-code>push origin</u-code> :features         # удаление ветки в удаленном репозитории
+git <u-code>branch</u-code> -m new-name          # если находимся на ветке для переименования
+git <u-code>branch</u-code> -m old-name new-name # если находимся на другой ветке
 </v-code>

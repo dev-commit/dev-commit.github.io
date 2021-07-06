@@ -32,17 +32,17 @@
         <li>
             <a
                 class="menu-link"
-                id="id__git/usecase/common"
-                href="#git/usecase/common"
-            >Общее</a>
+                id="id__git/usecase/reset-changes"
+                href="#git/usecase/reset-changes"
+            >⚡️ <u-menu-unactive>Отмена изменений</u-menu-unactive></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__git/usecase/reset-changes"
-                href="#git/usecase/reset-changes"
-            >Отмена изменений</a>
+                id="id__git/usecase/common"
+                href="#git/usecase/common"
+            >Общее</a>
         </li>
     
         <li>
@@ -224,17 +224,9 @@
         <li>
             <a
                 class="menu-link"
-                id="id__git/main/command"
-                href="#git/main/command"
-            ><u-menu>...</u-menu></a>
-        </li>
-    </ul><h4>🥥 Категории</h4><ul>
-        <li>
-            <a
-                class="menu-link"
-                id="id__git/categories/tags"
-                href="#git/categories/tags"
-            >Метки</a>
+                id="id__git/command/tag"
+                href="#git/command/tag"
+            ><u-menu-outline>tag</u-menu-outline></a>
         </li>
     </ul><h4>🥥 GitHub</h4><ul>
         <li>
@@ -335,46 +327,7 @@ git <u-code>commit</u-code> -m 'Message'       # коммит
 git <u-code>push</u-code> origin HEAD          # push
 git <u-code>push</u-code> --force origin HEAD  # push force (скорее всего имеено force)
 </v-code>
-</div><div id="git/usecase/common"><h2>Общее</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>1. Клонирование ветки PR</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-git <u-code>clone</u-code> https://github.com/AccountName/repo-name.git
-git <u-code>fetch origin</u-code>
-git <u-code>checkout</u-code> название_ветки
-git <u-code>pull</u-code>
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>2. Создание ветки на локальном репозитории и загрузка на удаленный репозиторий</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-git <u-code>clone</u-code> https://github.com/AccountName/repo-name.git
-git <u-code>checkout -b</u-code> features
-git <u-code>add .</u-code>
-git <u-code>commit -m</u-code> 'text'
-git <u-code>push origin HEAD</u-code>
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>3. Добавление на удаленный репозиторий</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-git <u-code>add .</u-code>
-git <u-code>commit -m</u-code> 'text'
-git <u-code>push origin HEAD</u-code>
-</v-code>
 </div><div id="git/usecase/reset-changes"><h2>Отмена изменений</h2>
-
-<v-code lang="bash" title="">
-# Удалить ветку
-git <u-code>branch</u-code> -D <i>НазваниеВетки</i>
-
-# Изменить коммит
-git <u-code>commit</u-code> --amend
-</v-code>
 
 <v-code lang="bash" title="">
 # Сбросить коммиты до начального в ветке
@@ -412,6 +365,37 @@ git <u-code>clean</u-code> -fd
 git <u-code>clean</u-code> -ndx
 git <u-code>clean</u-code> -fdx
 </v-code>
+</div><div id="git/usecase/common"><h2>Общее</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Клонирование ветки PR</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+git <u-code>clone</u-code> https://github.com/AccountName/repo-name.git
+git <u-code>fetch origin</u-code>
+git <u-code>checkout</u-code> название_ветки
+git <u-code>pull</u-code>
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Создание ветки на локальном репозитории и загрузка на удаленный репозиторий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+git <u-code>clone</u-code> https://github.com/AccountName/repo-name.git
+git <u-code>checkout -b</u-code> features
+git <u-code>add .</u-code>
+git <u-code>commit -m</u-code> 'text'
+git <u-code>push origin HEAD</u-code>
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Добавление на удаленный репозиторий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+git <u-code>add .</u-code>
+git <u-code>commit -m</u-code> 'text'
+git <u-code>push origin HEAD</u-code>
+</v-code>
 </div><div id="git/usecase/other"><h2>Прочее</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -424,7 +408,24 @@ git <u-code>clean</u-code> -fdx
 <v-code lang="js" title="">
 # Изменить название файла для того, чтобы Git видел изменения
 git <u-code>mv -f</u-code> OldFileNameCase newfilenamecase
-</v-code> 
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Прочее</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+# Изменения, сделанные в заданном коммите
+git <u-code>show</u-code> <i>НомерКоммита</i>
+
+# Удаление файлов из индекса и рабочей директории
+git <u-code>rm</u-code>
+
+# Способ переместить файл, а затем выполнить <u>git add</u> для нового файла и <u>git rm</u> для старого
+git <u-code>mv</u-code>
+
+# Количество сделанных коммитов у данного пользователя
+git <u-code>shortlog</u-code> -s -n
+</v-code>
 </div><div id="git/command/merge"><div class="v-method-wrapper">
     <v-method before="git " method="merge" after="" arg="">
     Слияние веток
@@ -640,7 +641,7 @@ git <u-code>init</u-code>
 </div>
 
 <v-code lang="bash" title="">
-git <u-code>clone</u-code> git@github.com:anton-sergeenkov/repo.git
+git <u-code>clone</u-code> https://github.com/AccountName/repo-name.git
 </v-code>
 </div><div id="git/command/add"><div class="v-method-wrapper">
     <v-method before="git " method="add" after="" arg="">
@@ -728,22 +729,53 @@ git <u-code>fetch origin</u-code> master # аналогично предыдущ
     </v-method>
 </div>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Команды</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Список веток</h4>
+<!------------------------------------------------------------->
 <v-code lang="bash" title="">
-git <u-code>branch</u-code>                   # список веток с указанием текущей
-git <u-code>branch -a</u-code>                # список веток с указанием remotes/origin
-git <u-code>branch</u-code> features          # создание новой ветки "features" (ответвиться от текущей)
-git <u-code>branch --delete</u-code> features # удаление ветки "features"
-git <u-code>branch -d</u-code> features       # удаление ветки "features" (после мерджа)
-git <u-code>branch -D</u-code> features       # удаление ветки "features" (тупиковая ветвь)
+git <u-code>branch</u-code>     # список веток с указанием текущей
+git <u-code>branch -a</u-code>  # список веток с указанием remotes/origin
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Создание новой ветки</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+git <u-code>branch</u-code> <i>НазваниеВетки</i>       # создание новой ветки (ответвиться от текущей)
+git <u-code>checkout -b</u-code> <i>НазваниеВетки</i>  # создание новой ветки и переключение на нее
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Удаление ветки</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+# Удаление ветки из локального репозитория
+git <u-code>branch --delete</u-code> <i>НазваниеВетки</i> # удаление ветки
+git <u-code>branch -d</u-code> <i>НазваниеВетки</i>       # удаление ветки (после мерджа)
+git <u-code>branch -D</u-code> <i>НазваниеВетки</i>       # удаление ветки (тупиковая ветвь)
 </v-code>
 
 <v-code lang="bash" title="">
-git <u-code>checkout -b</u-code> features          # создание новой ветки "features" и переключение на нее
+# Удаление ветки из удаленного репозитория
+git <u-code>push origin --delete</u-code> <i>НазваниеВетки</i>
+git <u-code>push origin</u-code> :<i>НазваниеВетки</i>
 </v-code>
 
+<!------------------------------------------------------------->
+<h4>Переименование локальной ветки</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>-m</u-code-text> происходит от слова move (или mv)</li>
+    <li><u-code-text>mv</u-code-text> используется для переименования файлов в Linux</li>
+</ul>
+
 <v-code lang="bash" title="">
-git <u-code>push origin --delete</u-code> features # удаление ветки в удаленном репозитории
-git <u-code>push origin</u-code> :features         # удаление ветки в удаленном репозитории
+git <u-code>branch</u-code> -m new-name          # если находимся на ветке для переименования
+git <u-code>branch</u-code> -m old-name new-name # если находимся на другой ветке
 </v-code>
 </div><div id="git/command/checkout"><div class="v-method-wrapper">
     <v-method before="git " method="checkout" after="" arg="">
@@ -895,30 +927,12 @@ git <u-code>clean -df</u-code> #
     <li><u-code-text>-f</u-code-text> - обязательная опция, без нее гит откажется что-либо удалять</li>
 </ul>
 
-</div><div id="git/main/command"><h2>Прочее</h2>
+</div><div id="git/command/tag"><div class="v-method-wrapper">
+    <v-method before="git " method="tag" after="" arg="">
+    Создает метку
+    </v-method>
+</div>
 
-<v-code lang="bash" title="">
-# Изменения, сделанные в заданном коммите
-git <u-code>show</u-code> <i>НомерКоммита</i>
-
-# Удаление файлов из индекса и рабочей директории
-git <u-code>rm</u-code>
-
-# Способ переместить файл, а затем выполнить git add для нового файла и git rm для старого
-git <u-code>mv</u-code>
-
-# Количество сделанных коммитов у данного пользователя
-git <u-code>shortlog</u-code> -s -n
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Terminal</h4>
-<!------------------------------------------------------------->
-<v-code lang="bash" title="">
-# Получить список файлов
-<u-code>ls</u-code>
-</v-code>
-</div><div id="git/categories/tags"><h2>Метки</h2>
 
 <u-link-wrapper>
     <a href="https://git-scm.com/book/ru/v2/Основы-Git-Работа-с-метками" target="_blank">Работа с метками</a>
