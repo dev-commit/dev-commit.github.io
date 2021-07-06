@@ -4,7 +4,23 @@
     </v-method>
 </div>
 
-<v-code lang="bash" title="">
+<v-code lang="bash border" title="">
 git <u-code>merge</u-code> develop   # слияние "develop" в текущую ветку
 git <u-code>merge --abort</u-code>   # отмена merge
 </v-code>
+
+
+<ul class="list-point">
+    <li>Разрешение конфликтов разницы "develop" и "feature"</li>
+</ul>
+
+<v-code lang="bash step" title="#1">
+git <u-code>checkout</u-code> develop  # перейти в develop, если в ней есть обновления
+git <u-code>pull</u-code>              # обновить ветку develop
+git <u-code>checkout</u-code> feature  # перейти в feature
+git <u-code>merge</u-code> develop     # merge из develop в свою ветку. ветка feature станет актуальной
+</v-code>
+
+<ul class="list-point">
+    <li>Появятся конфликты в файлах, поправить конфликты</li>
+</ul>

@@ -24,17 +24,17 @@ git <u-code>reflog</u-code> <i>НазваниеВетки</i>  # откатит�
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li>Есть 2 ветки: <u>develop</u> и <u>feature</u></li>
-    <li>Необходимо актуализаировать ветку <u>feature</u>: подтянуть последние изменения из <u>develop</u></li>
+    <li>Необходимо актуализаировать ветку <u>feature</u>: подтянуть последние изменения из <u>develop</u> и решить конфликты если они есть</li>
 </ul>
 
-<v-code lang="bash none" title="">
+<v-code lang="bash step" title="#1">
 git <u-code>checkout</u-code> develop   # перейти в ветку develop
 git <u-code>fetch</u-code> origin       # подтянуть последние изменени для develop
 git <u-code>pull</u-code>               # взять последние изменени для develop
 git <u-code>checkout</u-code> feature   # перейти в ветку feature
 </v-code>
 
-<v-code lang="bash" title="">
+<v-code lang="bash step" title="#2">
 git <u-code>rebase</u-code> -i develop        # взять последние изменения из develop
 git <u-code>rebase</u-code> -i origin/develop # взять последние изменения из origin/develop
 </v-code>
@@ -44,7 +44,7 @@ git <u-code>rebase</u-code> -i origin/develop # взять последние и
     <li>Пофиксить конфликты</li>
 </ul>
 
-<v-code lang="bash" title="">
+<v-code lang="bash step" title="#3">
 git <u-code>add</u-code> .             # добавить измеенные файлы в <u>staged</u>
 git <u-code>rebase</u-code> --continue # если несколько коммитов, топреходим к фиксу следующего коммита
 </v-code>
@@ -54,7 +54,7 @@ git <u-code>rebase</u-code> --continue # если несколько комми�
     <li>После фикса всех коммитов и добавления в <u>staged</u> Working Tree будет чистое: не нужно ничего коммитить</li>
 </ul>
 
-<v-code lang="bash none" title="">
+<v-code lang="bash step" title="#4">
 git <u-code>push</u-code> origin head         # отправка изменений на удаленный репозиторий
 git <u-code>push</u-code> --force origin head # отправка изменений на удаленный репозиторий
 </v-code>

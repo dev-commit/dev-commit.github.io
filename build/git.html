@@ -24,25 +24,9 @@
         <li>
             <a
                 class="menu-link"
-                id="id__git/usecase/rebase"
-                href="#git/usecase/rebase"
-            >⚡️ <u-menu-unactive>1. Rebase</u-menu-unactive></a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__git/usecase/merge"
-                href="#git/usecase/merge"
-            >⚡️ <u-menu-unactive>2. Merge</u-menu-unactive></a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
                 id="id__git/usecase/squash-commit"
                 href="#git/usecase/squash-commit"
-            >⚡️ <u-menu-unactive>3. Squash Commit</u-menu-unactive></a>
+            >⚡️ <u-menu-unactive>Squash Commit</u-menu-unactive></a>
         </li>
     
         <li>
@@ -244,6 +228,14 @@
                 href="#git/main/command"
             ><u-menu>...</u-menu></a>
         </li>
+    </ul><h4>🥥 Категории</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__git/categories/tags"
+                href="#git/categories/tags"
+            >Метки</a>
+        </li>
     </ul><h4>🥥 GitHub</h4><ul>
         <li>
             <a
@@ -314,95 +306,34 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="git/usecase/rebase"><h2>Rebase</h2>
-
-<ul class="list-point">
-    <li>Разрешение конфликтов разницы "develop" и "feature"</li>
-</ul>
-
-<v-code lang="bash border" title="">
-git <u-code>fetch</u-code> origin
-git <u-code>rebase</u-code> -i origin/develop
-</v-code>
-
-<ul class="list-point">
-    <li>Если есть конфликты merge, откроется редактор</li>
-    <li>Пофиксить конфликты</li>
-    <li>Если несколько коммитов, то вызвать <u>git rebase --continue</u> и фиксим следующий коммит</li>
-    <li>Если есть конфликт, то его нужно фиксить в каждом коммите</li>
-</ul>
-
-<v-code lang="bash border" title="">
-git <u-code>add</u-code> .
-git <u-code>rebase</u-code> --continue
-</v-code>
-
-<v-code lang="js" title="">
-git <u-code>log</u-code>
-git <u-code>push</u-code> --force
-</v-code>
-
-<v-code lang="bash none" title="">
-git merge --abort
-git reset --hard HEAD
-git pull
-</v-code>
-</div><div id="git/usecase/merge"><h2>Merge</h2>
-
-<ul class="list-point">
-    <li>Разрешение конфликтов разницы "develop" и "feature"</li>
-</ul>
-
-<v-code lang="bash border" title="">
-git <u-code>checkout</u-code> develop # перейти в develop, если в ней есть обновления
-git <u-code>pull</u-code>             # обновить ветку develop
-git <u-code>checkout</u-code> feature # перейти в feature
-git <u-code>merge</u-code> develop    # merge из develop в свою ветку. ветка feature станет актуальной
-</v-code>
-
-<ul class="list-point">
-    <li>Появятся конфликты в файлах, поправить конфликты</li>
-</ul>
-</div><div id="git/usecase/squash-commit"><h2>Squash Commit</h2>
+                    <div id="content"><div id="git/usecase/squash-commit"><h2>Squash Commit</h2>
 
 <ul class="list-point">
     <li>Хорошая практика сквошить коммиты в один, чтобы на задачку был один коммит</li>
     <li>Вообще засквошить можно когда угодно, потом форс-пушем долить, но после того как проверен PR этого уже делать не нужно будет, все правки после ревью доливаются отдельными коммитами</li>
 </ul>
 
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Локальный репозиторий</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-git <u-code>checkout</u-code> develop                        # перейти в develop, если в ней есть обновления
-git <u-code>pull</u-code>                                    # обновить ветку develop
-git <u-code>checkout</u-code> <i>ветка</i>                          # перейти в рабочую ветку
-git <u-code>merge-base</u-code> dev HEAD                     # номер коммита к которому нужно откатиться
-git <u-code>reset</u-code> <i>номер_коммита</i>                     # откатывает всё что он сделал до того момента как откололся с develop
-git <u-code>add</u-code> .                                   # индексация изменений
-git <u-code>commit</u-code> -m <i>'Номер_таски: название таски'</i> # commit
-git <u-code>push</u-code> origin HEAD                        # push
+<v-code lang="bash step" title="#1">
+git <u-code>checkout</u-code> develop   # перейти в ветку develop
+git <u-code>fetch</u-code> origin       # подтянуть последние изменени для develop
+git <u-code>pull</u-code>               # взять последние изменени для develop
+git <u-code>checkout</u-code> feature   # перейти в ветку feature
 </v-code>
 
+<v-code lang="bash step" title="#2">
+# первый вариант (первый этап делать не нужно)
+git <u-code>reset</u-code> --soft origin/develop # берётся ветки из удаленного репозитория
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Удаленный репозиторий</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-git <u-code>push --force origin HEAD</u-code>
+# второй вариант
+git <u-code>merge-base</u-code> dev HEAD         # номер коммита к которому нужно откатиться
+git <u-code>reset</u-code> <i>номер_коммита</i>         # откатывает всё что он сделал до того момента как откололся с develop
 </v-code>
 
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Сквош коммитов</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-git <u-code>fetch</u-code>
-git <u-code>reset</u-code> --soft origin/develop
-git <u-code>add</u-code> .
-git <u-code>commit</u-code> -m 'text'
-git <u-code>push</u-code> --force origin head
+<v-code lang="bash step" title="#3">
+git <u-code>add</u-code> .                     # индексация изменений
+git <u-code>commit</u-code> -m 'Message'       # коммит
+git <u-code>push</u-code> origin HEAD          # push
+git <u-code>push</u-code> --force origin HEAD  # push force (скорее всего имеено force)
 </v-code>
 </div><div id="git/usecase/common"><h2>Общее</h2>
 
@@ -500,10 +431,26 @@ git <u-code>mv -f</u-code> OldFileNameCase newfilenamecase
     </v-method>
 </div>
 
-<v-code lang="bash" title="">
+<v-code lang="bash border" title="">
 git <u-code>merge</u-code> develop   # слияние "develop" в текущую ветку
 git <u-code>merge --abort</u-code>   # отмена merge
 </v-code>
+
+
+<ul class="list-point">
+    <li>Разрешение конфликтов разницы "develop" и "feature"</li>
+</ul>
+
+<v-code lang="bash step" title="#1">
+git <u-code>checkout</u-code> develop  # перейти в develop, если в ней есть обновления
+git <u-code>pull</u-code>              # обновить ветку develop
+git <u-code>checkout</u-code> feature  # перейти в feature
+git <u-code>merge</u-code> develop     # merge из develop в свою ветку. ветка feature станет актуальной
+</v-code>
+
+<ul class="list-point">
+    <li>Появятся конфликты в файлах, поправить конфликты</li>
+</ul>
 </div><div id="git/command/rebase"><div class="v-method-wrapper">
     <v-method before="git " method="rebase" after="" arg="">
 	Можно взять все изменения, которые попали в коммиты на одной из веток, и повторить их на другой (применить поверх другой).
@@ -530,17 +477,17 @@ git <u-code>reflog</u-code> <i>НазваниеВетки</i>  # откатит�
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li>Есть 2 ветки: <u>develop</u> и <u>feature</u></li>
-    <li>Необходимо актуализаировать ветку <u>feature</u>: подтянуть последние изменения из <u>develop</u></li>
+    <li>Необходимо актуализаировать ветку <u>feature</u>: подтянуть последние изменения из <u>develop</u> и решить конфликты если они есть</li>
 </ul>
 
-<v-code lang="bash none" title="">
+<v-code lang="bash step" title="#1">
 git <u-code>checkout</u-code> develop   # перейти в ветку develop
 git <u-code>fetch</u-code> origin       # подтянуть последние изменени для develop
 git <u-code>pull</u-code>               # взять последние изменени для develop
 git <u-code>checkout</u-code> feature   # перейти в ветку feature
 </v-code>
 
-<v-code lang="bash" title="">
+<v-code lang="bash step" title="#2">
 git <u-code>rebase</u-code> -i develop        # взять последние изменения из develop
 git <u-code>rebase</u-code> -i origin/develop # взять последние изменения из origin/develop
 </v-code>
@@ -550,7 +497,7 @@ git <u-code>rebase</u-code> -i origin/develop # взять последние и
     <li>Пофиксить конфликты</li>
 </ul>
 
-<v-code lang="bash" title="">
+<v-code lang="bash step" title="#3">
 git <u-code>add</u-code> .             # добавить измеенные файлы в <u>staged</u>
 git <u-code>rebase</u-code> --continue # если несколько коммитов, топреходим к фиксу следующего коммита
 </v-code>
@@ -560,7 +507,7 @@ git <u-code>rebase</u-code> --continue # если несколько комми�
     <li>После фикса всех коммитов и добавления в <u>staged</u> Working Tree будет чистое: не нужно ничего коммитить</li>
 </ul>
 
-<v-code lang="bash none" title="">
+<v-code lang="bash step" title="#4">
 git <u-code>push</u-code> origin head         # отправка изменений на удаленный репозиторий
 git <u-code>push</u-code> --force origin head # отправка изменений на удаленный репозиторий
 </v-code>
@@ -970,6 +917,57 @@ git <u-code>shortlog</u-code> -s -n
 <v-code lang="bash" title="">
 # Получить список файлов
 <u-code>ls</u-code>
+</v-code>
+</div><div id="git/categories/tags"><h2>Метки</h2>
+
+<u-link-wrapper>
+    <a href="https://git-scm.com/book/ru/v2/Основы-Git-Работа-с-метками" target="_blank">Работа с метками</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Git использует два основных типа тегов: легковесные и аннотированные</li>
+    <li><u-text-define>Легковесный тег</u-text-define> - это что-то очень похожее на ветку, которая не изменяется - просто указатель на определённый коммит</li>
+    <li><u-text-define>Аннотированные</u-text-define> - теги хранятся в базе данных Git как полноценные объекты. Они имеют контрольную сумму, содержат имя автора, его e-mail и дату создания, имеют комментарий и могут быть подписаны и проверены с помощью GNU Privacy Guard (GPG)</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм работы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Информация о метках</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+git <u-code>tag</u-code>          # просмотр списка меток
+git <u-code>show</u-code> v1.0.0  # показать коммит, отмеченный меткой
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Создание метки</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+npm <u-code>version</u-code> 1.0.0                   # автоматически повышает версию и создаёт тег (сделать для первой версии релиза)
+git <u-code>tag</u-code> v1.0.0 -a -m 'description'  # создание аннотированной ссылки
+git <u-code>tag</u-code> v1.0.0                      # создание легковесной ссылки
+git <u-code>tag</u-code> v1.0.0 <i>НомерКоммита</i>         # создание легковесной ссылки по номеру коммита
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Push метки</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+git <u-code>push</u-code> origin v1.0.0  # запушить тег
+git <u-code>push</u-code> origin --tags  # запушить все теги
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>4. Удаление метки</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+git <u-code>tag</u-code> -d v1.0.0                  # удалить тег из локального репозитория
+git <u-code>push</u-code> origin :refs/tags/v1.0.0  # обновление удаленного тэга пустым значением, что при водит к его удалению
+git <u-code>push</u-code> origin --delete v1.0.0    # удалить тег из удалённого репозитория
 </v-code>
 </div><div id="git/github/terminal-connect"><h2>Подключение по SSH</h2>
 

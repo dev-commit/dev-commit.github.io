@@ -2,10 +2,7 @@ ARR_MODULE = [
     {
         title: 'Use Case',
         themes: [
-            ['git/usecase/rebase',         emoji.code+setTheme(4, ['1. Rebase'])],
-            ['git/usecase/merge',          emoji.code+setTheme(4, ['2. Merge'])],
-            ['git/usecase/squash-commit',  emoji.code+setTheme(4, ['3. Squash Commit'])],
-
+            ['git/usecase/squash-commit',  emoji.code+setTheme(4, ['Squash Commit'])],
             ['git/usecase/common',            'Общее'],
             ['git/usecase/reset-changes',     'Отмена изменений'],
             ['git/usecase/other',             'Прочее'],
@@ -40,6 +37,12 @@ ARR_MODULE = [
             ['git/command/log',          setTheme(1, ['log'])],
             ['git/command/clean',        setTheme(1, ['clean'])],
             ['git/main/command',         setTheme(1, ['...'])],
+        ]
+    },
+    {
+        title: 'Категории',
+        themes: [
+            ['git/categories/tags', 'Метки'],
         ]
     },
     {
