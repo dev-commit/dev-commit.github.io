@@ -80,33 +80,9 @@
         <li>
             <a
                 class="menu-link"
-                id="id__git/command/init"
-                href="#git/command/init"
-            ><u-menu>init</u-menu></a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__git/command/clone"
-                href="#git/command/clone"
-            ><u-menu>clone</u-menu></a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__git/command/add"
-                href="#git/command/add"
-            ><u-menu>add</u-menu></a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__git/command/commit"
-                href="#git/command/commit"
-            ><u-menu>commit</u-menu></a>
+                id="id__git/command/branch"
+                href="#git/command/branch"
+            ><u-menu-accent>branch</u-menu-accent></a>
         </li>
     
         <li>
@@ -136,14 +112,6 @@
         <li>
             <a
                 class="menu-link"
-                id="id__git/command/branch"
-                href="#git/command/branch"
-            ><u-menu>branch</u-menu></a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
                 id="id__git/command/checkout"
                 href="#git/command/checkout"
             ><u-menu>checkout</u-menu></a>
@@ -155,6 +123,38 @@
                 id="id__git/command/cherry-pick"
                 href="#git/command/cherry-pick"
             ><u-menu>cherry-pick</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__git/command/init"
+                href="#git/command/init"
+            ><u-menu>init</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__git/command/clone"
+                href="#git/command/clone"
+            ><u-menu>clone</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__git/command/add"
+                href="#git/command/add"
+            ><u-menu>add</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__git/command/commit"
+                href="#git/command/commit"
+            ><u-menu>commit</u-menu></a>
         </li>
     
         <li>
@@ -620,104 +620,6 @@ git <u-code>reset</u-code> HEAD <i>ИмяФайла</i>  # если измене
 git <u-code>reset</u-code> <u-code-npm>--soft</u-code-npm> HEAD~  # откатиться к коммиту и <u>ОСТАВИТЬ</u> последующие
 git <u-code>reset</u-code> <u-code-npm>--hard</u-code-npm> HEAD~  # откатиться к коммиту и <u>УДАЛИТЬ</u> последующие
 </v-code>
-</div><div id="git/command/init"><div class="v-method-wrapper">
-    <v-method before="git " method="init" after="" arg="">
-    Инициализация пустого локального git-репозитория. Создаёт в текущем каталоге новый подкаталог с именем .git
-    </v-method>
-</div>
-
-<v-code lang="bash" title="">
-git <u-code>init</u-code>
-</v-code>
-</div><div id="git/command/clone"><div class="v-method-wrapper">
-    <v-method before="git " method="clone" after="" arg="">
-	Создание локальной копии удаленного git-репозитория (выполняется 1 раз)
-    </v-method>
-</div>
-
-<v-code lang="bash" title="">
-git <u-code>clone</u-code> https://github.com/AccountName/repo-name.git
-</v-code>
-</div><div id="git/command/add"><div class="v-method-wrapper">
-    <v-method before="git " method="add" after="" arg="">
-    Добавление новых файлов из Working Directory в систему контроля версий (в индекс Staging Area для последующего коммита). Индексирование файлов. Сборка слепка коммита
-    </v-method>
-</div>
-
-<v-code lang="bash" title="">
-git <u-code>add</u-code> .                                                      # индексирование всех файлов
-git <u-code>add</u-code> index.html                                             # индексирование одного файла
-git <u-code>remote add</u-code> origin git@github.com:anton-sergeenkov/repo.git # добавление к локальному репозиторию ссылки на удаленный репозиторий
-</v-code>
-</div><div id="git/command/commit"><div class="v-method-wrapper">
-    <v-method before="git " method="commit" after="" arg="">
-    Создание слепка (snapshot) директории и зафиксировать изменения файлов. Сохранение изменений в локальном репозитории. Берёт все данные, добавленные в индекс с помощью git add, и сохраняет их слепок во внутренней базе данных, а затем сдвигает указатель текущей ветки на этот слепок
-    </v-method>
-</div>
-
-<v-code lang="bash" title="">
-git <u-code>commit</u-code>                   # 
-git <u-code>commit -a</u-code>                # добавление всех изменений в индекс без использования git add
-git <u-code>commit -m</u-code> 'text'         # передача сообщения коммита без запуска полноценного редактора
-git <u-code>commit -a -m</u-code> 'text'      #
-git <u-code>commit --amend</u-code>           # откроется редактор для правки последнего коммита
-git <u-code>commit --amend -m</u-code> 'text' # перезапишется последний коммит
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Опции</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li><u-code-text>-m &lt;msg&gt;</u-code-text> <u-code-text>--message=&lt;msg&gt;</u-code-text> - Use the given &lt;msg&gt; as the commit message. If multiple -m options are given, their values are concatenated as separate paragraphs. The -m option is mutually exclusive with -c, -C, and -F</li>
-</ul>
-</div><div id="git/command/push"><div class="v-method-wrapper">
-    <v-method before="git " method="push" after="" arg="">
-    Отправка изменений на удаленный git-репозиторий
-    </v-method>
-</div>
-
-<v-code lang="bash" title="">
-git <u-code>push origin HEAD</u-code>                                  # запушить текущую ветку, не вводя целиком ее название
-git <u-code>push --force origin HEAD</u-code>                          # запушить текущую ветку и переписать историю на сервере
-
-git <u-code>push origin</u-code>                                       # замерджить все ветки локального репозитория на удаленный репозиторий 
-git <u-code>push origin</u-code> master                                # аналогично предыдущему, но делается пуш только ветки master
-
-git <u-code>push --set-upstream origin</u-code> master                 # отправка изменений на удаленный git-репозиторий
-git <u-code>push -u origin</u-code> master                             # 
-git <u-code>push -f</u-code>                                           # залить на сервер измененные коммиты
-git <u-code>push</u-code> https://github.com/Eclerrr/readme.git master # 
-
-git <u-code>push origin --delete</u-code> НазваниеВетки                # удаление ветки из удаленного репозитория 
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Опции</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li><u-code-text>-f</u-code-text> <u-code-text>--force</u-code-text> Usually, the command refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it</li>
-</ul></div><div id="git/command/pull"><div class="v-method-wrapper">
-    <v-method before="git " method="pull" after="" arg="">
-    Добавление новых файлов из Working Directory в систему контроля версий (в индекс Staging Area для последующего коммита). Индексирование файлов. Сборка слепка коммита. Получить изменения из удаленного git-репозитория в локальный репозиторий
-    </v-method>
-</div>
-
-<v-code lang="bash" title="">
-git <u-code>pull</u-code> origin        # замерджить все ветки с удаленного репозитория
-git <u-code>pull</u-code> origin master # замержить ветку master
-git <u-code>pull</u-code> origin HEAD   # замерджить текущую ветку
-</v-code>
-</div><div id="git/command/fetch"><div class="v-method-wrapper">
-    <v-method before="fetch " method="fetch" after="" arg="">
-    Скачать все ветки с удаленного репозитория
-    </v-method>
-</div>
-
-<v-code lang="bash" title="">
-git <u-code>fetch --all</u-code>         # 
-git <u-code>fetch origin</u-code>        # скачать все ветки с origin, но не мерджить их в локальный репозиторий
-git <u-code>fetch origin</u-code> master # аналогично предыдущему, но только для одной заданной ветки
-</v-code>
 </div><div id="git/command/branch"><div class="v-method-wrapper">
     <v-method before="git " method="branch" after="" arg="">
     Список веток с указанием текущей
@@ -772,6 +674,54 @@ git <u-code>push origin</u-code> :<i>НазваниеВетки</i>
 git <u-code>branch</u-code> -m new-name          # если находимся на ветке для переименования
 git <u-code>branch</u-code> -m old-name new-name # если находимся на другой ветке
 </v-code>
+</div><div id="git/command/push"><div class="v-method-wrapper">
+    <v-method before="git " method="push" after="" arg="">
+    Отправка изменений на удаленный git-репозиторий
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>push origin HEAD</u-code>                                  # запушить текущую ветку, не вводя целиком ее название
+git <u-code>push --force origin HEAD</u-code>                          # запушить текущую ветку и переписать историю на сервере
+
+git <u-code>push origin</u-code>                                       # замерджить все ветки локального репозитория на удаленный репозиторий 
+git <u-code>push origin</u-code> master                                # аналогично предыдущему, но делается пуш только ветки master
+
+git <u-code>push --set-upstream origin</u-code> master                 # отправка изменений на удаленный git-репозиторий
+git <u-code>push -u origin</u-code> master                             # 
+git <u-code>push -f</u-code>                                           # залить на сервер измененные коммиты
+git <u-code>push</u-code> https://github.com/Eclerrr/readme.git master # 
+
+git <u-code>push origin --delete</u-code> НазваниеВетки                # удаление ветки из удаленного репозитория 
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Опции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>-f</u-code-text> <u-code-text>--force</u-code-text> Usually, the command refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it</li>
+</ul></div><div id="git/command/pull"><div class="v-method-wrapper">
+    <v-method before="git " method="pull" after="" arg="">
+    Добавление новых файлов из Working Directory в систему контроля версий (в индекс Staging Area для последующего коммита). Индексирование файлов. Сборка слепка коммита. Получить изменения из удаленного git-репозитория в локальный репозиторий
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>pull</u-code> origin        # замерджить все ветки с удаленного репозитория
+git <u-code>pull</u-code> origin master # замержить ветку master
+git <u-code>pull</u-code> origin HEAD   # замерджить текущую ветку
+</v-code>
+</div><div id="git/command/fetch"><div class="v-method-wrapper">
+    <v-method before="fetch " method="fetch" after="" arg="">
+    Скачать все ветки с удаленного репозитория
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>fetch --all</u-code>         # 
+git <u-code>fetch origin</u-code>        # скачать все ветки с origin, но не мерджить их в локальный репозиторий
+git <u-code>fetch origin</u-code> master # аналогично предыдущему, но только для одной заданной ветки
+</v-code>
 </div><div id="git/command/checkout"><div class="v-method-wrapper">
     <v-method before="git " method="checkout" after="" arg="">
     Переключение на ветку
@@ -819,6 +769,56 @@ git <u-code>checkout --orphan</u-code> NEW_BRANCH TARGET_REFERENCE
 <v-code lang="bash" title="">
 git <u-code>cherry-pick</u-code> <i>HashCommit1</i> <i>HashCommit2</i>
 </v-code>
+</div><div id="git/command/init"><div class="v-method-wrapper">
+    <v-method before="git " method="init" after="" arg="">
+    Инициализация пустого локального git-репозитория. Создаёт в текущем каталоге новый подкаталог с именем .git
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>init</u-code>
+</v-code>
+</div><div id="git/command/clone"><div class="v-method-wrapper">
+    <v-method before="git " method="clone" after="" arg="">
+	Создание локальной копии удаленного git-репозитория (выполняется 1 раз)
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>clone</u-code> https://github.com/AccountName/repo-name.git
+</v-code>
+</div><div id="git/command/add"><div class="v-method-wrapper">
+    <v-method before="git " method="add" after="" arg="">
+    Добавление новых файлов из Working Directory в систему контроля версий (в индекс Staging Area для последующего коммита). Индексирование файлов. Сборка слепка коммита
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>add</u-code> .                                                      # индексирование всех файлов
+git <u-code>add</u-code> index.html                                             # индексирование одного файла
+git <u-code>remote add</u-code> origin git@github.com:anton-sergeenkov/repo.git # добавление к локальному репозиторию ссылки на удаленный репозиторий
+</v-code>
+</div><div id="git/command/commit"><div class="v-method-wrapper">
+    <v-method before="git " method="commit" after="" arg="">
+    Создание слепка (snapshot) директории и зафиксировать изменения файлов. Сохранение изменений в локальном репозитории. Берёт все данные, добавленные в индекс с помощью git add, и сохраняет их слепок во внутренней базе данных, а затем сдвигает указатель текущей ветки на этот слепок
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>commit</u-code>                   # 
+git <u-code>commit -a</u-code>                # добавление всех изменений в индекс без использования git add
+git <u-code>commit -m</u-code> 'text'         # передача сообщения коммита без запуска полноценного редактора
+git <u-code>commit -a -m</u-code> 'text'      #
+git <u-code>commit --amend</u-code>           # откроется редактор для правки последнего коммита
+git <u-code>commit --amend -m</u-code> 'text' # перезапишется последний коммит
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Опции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>-m &lt;msg&gt;</u-code-text> <u-code-text>--message=&lt;msg&gt;</u-code-text> - Use the given &lt;msg&gt; as the commit message. If multiple -m options are given, their values are concatenated as separate paragraphs. The -m option is mutually exclusive with -c, -C, and -F</li>
+</ul>
 </div><div id="git/command/stash"><div class="v-method-wrapper">
     <v-method before="git " method="stash" after="" arg="">
     Сменить ветку, не теряя текущих незакоммиченных правок
@@ -905,6 +905,10 @@ git <u-code>log</u-code>                  #
 git <u-code>log</u-code> --oneline        # посмотреть все коммиты
 git <u-code>log</u-code> --pretty=oneline # история коммитов
 </v-code>
+
+<ul class="list-point">
+    <li><u-code-text>W+Q</u-code-text> для выхода из лога</li>
+</ul>
 </div><div id="git/command/clean"><div class="v-method-wrapper">
     <v-method before="git " method="clean" after="" arg="">
 	Удалить файлы не относящиеся к репозиторию. Это могут быть результаты сборки проекта или файлы конфликтов слияний
