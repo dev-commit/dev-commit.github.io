@@ -2,10 +2,18 @@ ARR_MODULE = [
     {
         title: 'NPM',
         themes: [
-            ['npm/npm/info',         'Информация'],
-            ['npm/npm/command',      'Команды'],
+            ['npm/npm/info',         emoji.theory+'Информация'],
+            ['npm/npm/command',      emoji.code+'Команды'],
+
+            ['npm/npm/linux',        'Linux'],
             ['npm/npm/shortcut',     'Сокращения'],
-            ['npm/npm/package-json', 'package.json'],
+        ]
+    },
+    {
+        title: 'package.json',
+        themes: [
+            ['npm/package-json/scripts',       emoji.code+'Скрипты'],
+            ['npm/package-json/dependencies', 'Виды зависимостей'],
         ]
     },
     {

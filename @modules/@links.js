@@ -51,7 +51,7 @@ const ARR_LINKS = [
     { page: 'sass',                    theme: 'green',    title: 'Sass' },
     { page: 'bootstrap',               theme: 'green',    title: 'Bootstrap' },
     null,
-    { page: 'git',                     theme: 'crimson',  title: '🥥 Git' },
+    { page: 'git',                     theme: 'blue',     title: '🥥 Git' },
     { page: 'typescript',              theme: 'crimson',  title: '🍋 TypeScript' },
     { page: 'flow',                    theme: 'crimson',  title: '🍋 Flow' },
     { page: 'webpack',                 theme: 'crimson',  title: '🥥 Webpack' },

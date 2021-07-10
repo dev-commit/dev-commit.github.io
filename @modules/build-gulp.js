@@ -12,7 +12,8 @@ ARR_MODULE = [
     {
         title: 'Parcel',
         themes: [
-            ['gulp/parcel/info',       'Информация'],
+            ['gulp/parcel/info',  'Информация'],
+            ['gulp/parcel/error', 'Ошибки'],
         ]
     },
 ]

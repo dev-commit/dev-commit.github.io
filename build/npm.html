@@ -26,7 +26,7 @@
                 class="menu-link"
                 id="id__npm/npm/info"
                 href="#npm/npm/info"
-            >Информация</a>
+            >📑 Информация</a>
         </li>
     
         <li>
@@ -34,7 +34,15 @@
                 class="menu-link"
                 id="id__npm/npm/command"
                 href="#npm/npm/command"
-            >Команды</a>
+            >⚡️ Команды</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__npm/npm/linux"
+                href="#npm/npm/linux"
+            >Linux</a>
         </li>
     
         <li>
@@ -44,13 +52,21 @@
                 href="#npm/npm/shortcut"
             >Сокращения</a>
         </li>
+    </ul><h4>🥥 package.json</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__npm/package-json/scripts"
+                href="#npm/package-json/scripts"
+            >⚡️ Скрипты</a>
+        </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__npm/npm/package-json"
-                href="#npm/npm/package-json"
-            >package.json</a>
+                id="id__npm/package-json/dependencies"
+                href="#npm/package-json/dependencies"
+            >Виды зависимостей</a>
         </li>
     </ul><h4>🥥 NPM Packages</h4><ul>
         <li>
@@ -96,40 +112,53 @@ git        # репозиторий (установка для Package manager B
 </v-code>
 </div><div id="npm/npm/command"><h2>Команды</h2>
 
+<!------------------------------------------------------------->
+<h4>Инициализация</h4>
+<!------------------------------------------------------------->
 <v-code lang="bash" title="">
-npm <u-code>init</u-code>                   # инициализация проекта (создание package.json)
-npm <u-code>init</u-code> -y                # инициализация проекта с параметрами по умолчанию
-npm <u-code>i</u-code>                      # установить все пакеты из package.json
-npm <u-code>up</u-code>                     # обновить все пакеты из package.json
-npm <u-code>i</u-code> package              # установить package (не должен добавляться в package.json)
-npm <u-code>i --save</u-code> package       # установить package и добавить запись в секцию dependencies package.json 
-npm <u-code>i --save-dev</u-code> package   # установить package и добавить запись в секцию devDependencies package.json
-npm <u-code>i --g</u-code> package          # установить package глобально
-npm <u-code>r</u-code> package              # удалить package
-npm <u-code>up</u-code> package             # обновить package
-npm <u-code>run</u-code> package            # запустить package
+npm <u-code>init</u-code>     # инициализация проекта (создание package.json)
+npm <u-code>init</u-code> -y  # инициализация проекта с параметрами по умолчанию
 </v-code>
 
+<!------------------------------------------------------------->
+<h4>Установка пакетов</h4>
+<!------------------------------------------------------------->
 <v-code lang="bash" title="">
-npm i -g <em>npm-check-updates</em> # проверка обновлений всех пакетов в package.json
-<em>ncu</em>                        # проверить какие пакеты устарели
-<em>ncu -u</em>                     # обновить версию в package.json
-npm i <em>npm</em>                  # обновление npm
-npm <em>up</em>                     # обновить все модули
-npm <em>-v</em>                     # проверить версию npm
+npm <u-code>i</u-code>                          # установить все пакеты из package.json
+npm <u-code>i</u-code> <i>PackageName</i>              # установить package (не должен добавляться в package.json)
+npm <u-code>i --save</u-code> <i>PackageName</i>       # установить package и добавить запись в секцию dependencies package.json
+npm <u-code>i --save-dev</u-code> <i>PackageName</i>   # установить package и добавить запись в секцию devDependencies package.json
+npm <u-code>i --g</u-code> <i>PackageName</i>          # установить package глобально
 </v-code>
 
-<ul class="list-point">
-	<li><em>devDependencies</em> - пакеты, которые нужны для разработки</li>
-	<li><em>dependencies</em> - пакеты, от которых проект зависит непосредственно (библиотеки)</li>
-	<li><em>devDependencies</em> и <em>dependencies</em> - устанавливаются в node_modules</li>
-	<li>При вызове <em>npm install</em>, npm установит пакеты указанные в dependencies, но не в devDependencies</li>
-	<li>Если сделать <em>npm install</em> внутри папки, в которой есть package.json, то установятся и те, и другие</li>
-</ul>
+<!------------------------------------------------------------->
+<h4>Обновление пакетов</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+npm <u-code>up</u-code>                      # обновить все пакеты из package.json
+npm <u-code>up</u-code> <i>PackageName</i>          # обновить конктерный пакет package
+npm <u-code>i -g npm-check-updates</u-code>  # проверка обновлений всех пакетов в package.json
+</v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Linux</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>Удаление пакетов</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+npm <u-code>r</u-code> <i>PackageName</i>  # удалить package
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Прочее</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+npm <u-code>i</u-code> npm            # обновление npm
+npm <u-code>-v</u-code>               # проверить версию npm
+npm <u-code>run</u-code> <i>PackageName</i>  # запустить package
+<u-code>ncu</u-code>                  # проверить какие пакеты устарели
+<u-code>ncu -u</u-code>               # обновить версию в package.json
+</v-code>
+</div><div id="npm/npm/linux"><h2>Linux</h2>
+
 <v-code lang="bash" title="">
 sudo npm i <u-code>--unsafe-perm</u-code>                      # установка всех пакетов из package.json
 sudo npm i --save-dev <u-code>--unsafe-perm node-sass</u-code> # установка пакета node-sass
@@ -157,27 +186,37 @@ npm i package D
 c   # config
 ls  # list
 </v-code>
-</div><div id="npm/npm/package-json"><h2>package.json</h2>
+</div><div id="npm/package-json/scripts"><h2>Скрипты</h2>
 
-<v-code lang="json" title="">
+<v-code lang="bash" title="">
 {
 	"scripts": {
 		"hello": "echo \"hi\"",                                      # вывод в консоль
 		"start": "node index.js",                                    # вызов js
 		"server": "node ./node_modules/http-server/bin/http-server", # вызов npm-модуля http-server
 		"server": "http-server",                                     # аналогично
-		"webpack": "webpack <u-code>-w</u-code>"                                      # watcher
+		"webpack": "webpack <u-code>-w</u-code>"                                     # watcher
 	}
 }
 </v-code>
 
 <v-code lang="bash" title="">
-<u-code>node</u-code>           # выполнение кода в консоли
-<u-code>node index.js</u-code>  # выполнение файла index.js
-<u-code>npm start</u-code>      # выполнение скрипта из package.json
-<u-code>npm server</u-code>     # выполнение скрипта из package.json (аналогично)
-<u-code>npm run server</u-code> # выполнение скрипта из package.json (аналогично)
-</v-code></div><div id="npm/npm-package/http-server"><h2>http-server</h2>
+node           # выполнение кода в консоли
+node index.js  # выполнение файла index.js
+npm start      # выполнение скрипта из package.json
+npm server     # выполнение скрипта из package.json (аналогично)
+npm run server # выполнение скрипта из package.json (аналогично)
+</v-code>
+</div><div id="npm/package-json/dependencies"><h2>Виды зависимостей</h2>
+
+<ul class="list-point">
+	<li><u-text-define>devDependencies</u-text-define> - пакеты, которые нужны для разработки</li>
+	<li><u-text-define>dependencies</u-text-define> - пакеты, от которых проект зависит непосредственно (библиотеки)</li>
+	<li><em>devDependencies</em> и <em>dependencies</em> - устанавливаются в node_modules</li>
+	<li>При вызове <em>npm install</em>, npm установит пакеты указанные в dependencies, но не в devDependencies</li>
+	<li>Если сделать <em>npm install</em> внутри папки, в которой есть package.json, то установятся и те, и другие</li>
+</ul>
+</div><div id="npm/npm-package/http-server"><h2>http-server</h2>
 
 <v-code lang="bash npm" title="">
 npm i <u-code>http-server</u-code> -g

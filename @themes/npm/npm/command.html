@@ -1,40 +1,47 @@
 <h2>Команды</h2>
 
+<!------------------------------------------------------------->
+<h4>Инициализация</h4>
+<!------------------------------------------------------------->
 <v-code lang="bash" title="">
-npm <u-code>init</u-code>                   # инициализация проекта (создание package.json)
-npm <u-code>init</u-code> -y                # инициализация проекта с параметрами по умолчанию
-npm <u-code>i</u-code>                      # установить все пакеты из package.json
-npm <u-code>up</u-code>                     # обновить все пакеты из package.json
-npm <u-code>i</u-code> package              # установить package (не должен добавляться в package.json)
-npm <u-code>i --save</u-code> package       # установить package и добавить запись в секцию dependencies package.json 
-npm <u-code>i --save-dev</u-code> package   # установить package и добавить запись в секцию devDependencies package.json
-npm <u-code>i --g</u-code> package          # установить package глобально
-npm <u-code>r</u-code> package              # удалить package
-npm <u-code>up</u-code> package             # обновить package
-npm <u-code>run</u-code> package            # запустить package
+npm <u-code>init</u-code>     # инициализация проекта (создание package.json)
+npm <u-code>init</u-code> -y  # инициализация проекта с параметрами по умолчанию
 </v-code>
 
+<!------------------------------------------------------------->
+<h4>Установка пакетов</h4>
+<!------------------------------------------------------------->
 <v-code lang="bash" title="">
-npm i -g <em>npm-check-updates</em> # проверка обновлений всех пакетов в package.json
-<em>ncu</em>                        # проверить какие пакеты устарели
-<em>ncu -u</em>                     # обновить версию в package.json
-npm i <em>npm</em>                  # обновление npm
-npm <em>up</em>                     # обновить все модули
-npm <em>-v</em>                     # проверить версию npm
+npm <u-code>i</u-code>                          # установить все пакеты из package.json
+npm <u-code>i</u-code> <i>PackageName</i>              # установить package (не должен добавляться в package.json)
+npm <u-code>i --save</u-code> <i>PackageName</i>       # установить package и добавить запись в секцию dependencies package.json
+npm <u-code>i --save-dev</u-code> <i>PackageName</i>   # установить package и добавить запись в секцию devDependencies package.json
+npm <u-code>i --g</u-code> <i>PackageName</i>          # установить package глобально
 </v-code>
 
-<ul class="list-point">
-	<li><em>devDependencies</em> - пакеты, которые нужны для разработки</li>
-	<li><em>dependencies</em> - пакеты, от которых проект зависит непосредственно (библиотеки)</li>
-	<li><em>devDependencies</em> и <em>dependencies</em> - устанавливаются в node_modules</li>
-	<li>При вызове <em>npm install</em>, npm установит пакеты указанные в dependencies, но не в devDependencies</li>
-	<li>Если сделать <em>npm install</em> внутри папки, в которой есть package.json, то установятся и те, и другие</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Linux</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>Обновление пакетов</h4>
+<!------------------------------------------------------------->
 <v-code lang="bash" title="">
-sudo npm i <u-code>--unsafe-perm</u-code>                      # установка всех пакетов из package.json
-sudo npm i --save-dev <u-code>--unsafe-perm node-sass</u-code> # установка пакета node-sass
+npm <u-code>up</u-code>                      # обновить все пакеты из package.json
+npm <u-code>up</u-code> <i>PackageName</i>          # обновить конктерный пакет package
+npm <u-code>i -g npm-check-updates</u-code>  # проверка обновлений всех пакетов в package.json
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Удаление пакетов</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+npm <u-code>r</u-code> <i>PackageName</i>  # удалить package
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Прочее</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+npm <u-code>i</u-code> npm            # обновление npm
+npm <u-code>-v</u-code>               # проверить версию npm
+npm <u-code>run</u-code> <i>PackageName</i>  # запустить package
+<u-code>ncu</u-code>                  # проверить какие пакеты устарели
+<u-code>ncu -u</u-code>               # обновить версию в package.json
 </v-code>
