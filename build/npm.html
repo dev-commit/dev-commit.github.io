@@ -40,6 +40,30 @@
         <li>
             <a
                 class="menu-link"
+                id="id__npm/npm/package-version"
+                href="#npm/npm/package-version"
+            >⚡️ Установка версии пакета</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__npm/npm/nvm"
+                href="#npm/npm/nvm"
+            >Node Version Manager</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__npm/npm/package-publishing"
+                href="#npm/npm/package-publishing"
+            >Публикация пакета</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
                 id="id__npm/npm/linux"
                 href="#npm/npm/linux"
             >Linux</a>
@@ -48,9 +72,9 @@
         <li>
             <a
                 class="menu-link"
-                id="id__npm/npm/shortcut"
-                href="#npm/npm/shortcut"
-            >Сокращения</a>
+                id="id__npm/npm-package/http-server"
+                href="#npm/npm-package/http-server"
+            ><u-menu-border>http-server</u-menu-border></a>
         </li>
     </ul><h4>🥥 package.json</h4><ul>
         <li>
@@ -68,14 +92,6 @@
                 href="#npm/package-json/dependencies"
             >Виды зависимостей</a>
         </li>
-    </ul><h4>🥥 NPM Packages</h4><ul>
-        <li>
-            <a
-                class="menu-link"
-                id="id__npm/npm-package/http-server"
-                href="#npm/npm-package/http-server"
-            ><u-menu-border>http-server</u-menu-border></a>
-        </li>
     </ul><h4>🥥 Yarn</h4><ul>
         <li>
             <a
@@ -83,6 +99,14 @@
                 id="id__npm/yarn/main"
                 href="#npm/yarn/main"
             >Основное</a>
+        </li>
+    </ul><h4>🥥 Терминал</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__npm/terminal/command"
+                href="#npm/terminal/command"
+            >⚡️ Команды</a>
         </li>
     </ul>
                 </div>
@@ -112,6 +136,9 @@ git        # репозиторий (установка для Package manager B
 </v-code>
 </div><div id="npm/npm/command"><h2>Команды</h2>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Команды</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <!------------------------------------------------------------->
 <h4>Инициализация</h4>
 <!------------------------------------------------------------->
@@ -148,6 +175,24 @@ npm <u-code>r</u-code> <i>PackageName</i>  # удалить package
 </v-code>
 
 <!------------------------------------------------------------->
+<h4>Проверка версий зависимостей</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+npm <u-code>view</u-code> <i>PackageName</i>           # вывод списка версий пакета
+npm <u-code>view</u-code> <i>PackageName</i> versions  # вывод текущей версии пакета
+npm <u-code>outdated</u-code>                   # вывод текущей и новой версии всех пакетов
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>.npmrc</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+npm <u-code>set registry</u-code> http://myrepositiryurl   # установить registry в .npmrc
+npm <u-code>get registry</u-code>                          # получить registry из .npmrc
+npm <u-code>config ls -l</u-code>                          # содержимое файла .npmrc
+</v-code>
+
+<!------------------------------------------------------------->
 <h4>Прочее</h4>
 <!------------------------------------------------------------->
 <v-code lang="bash" title="">
@@ -157,34 +202,99 @@ npm <u-code>run</u-code> <i>PackageName</i>  # запустить package
 <u-code>ncu</u-code>                  # проверить какие пакеты устарели
 <u-code>ncu -u</u-code>               # обновить версию в package.json
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сокращения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+install     |  <u-code>i</u-code>
+uninstall   |  <u-code>r</u-code>
+update      |  <u-code>up</u-code>
+--save      |  <u-code>S</u-code>
+--save-dev  |  <u-code>D</u-code>
+</v-code>
+
+<v-code lang="bash" title="">
+config      | <u-code>c</u-code>
+list        | <u-code>ls</u-code>
+</v-code>
+</div><div id="npm/npm/package-version"><h2>Установка версии пакета</h2>
+
+<v-code lang="bash" title="">
+npm i <i>PackageName</i>         #
+npm i <i>PackageName</i><u-code>@4.16.1</u-code>  # конкретная версия
+npm i <i>PackageName</i><u-code>@^</u-code>       # последняя версия
+</v-code>
+
+<ul class="list-point">
+    <li><b><u-code-text>~</u-code-text></b> (тильда) подбирает последнюю минорную версию пакета (последнюю цифру), например <u>~7.3.3</u> найдет последнюю <u>7.3.x</u>, допустим <u>7.3.12</u> но не <u>7.4.0</u></li>
+    <li><b><u-code-text>^</u-code-text></b> (крышка) подбирает последнюю мажорную версию пакета (среднюю цифру), например <u>^7.3.3</u> найдет последнюю <u>7.x.x</u>, допустим <u>7.4.0</u> но не <u>8.0.0</u></li>
+</ul>
+
+<v-code lang="bash" title="">
+npm i <i>PackageName</i>
+</v-code>
+
+<ul class="list-point">
+    <li>Пакета нет в package.json - установится последняя версия</li>
+    <li>Пакет есть в package.json <u-code-text>PackageName": "1.0.0"</u-code-text> - установится версия <u>1.0.0</u></li>
+    <li>Пакет есть в package.json <u-code-text>PackageName": "^1.0.0"</u-code-text> - установится последняя версия</li>
+</ul>
+</div><div id="npm/npm/nvm"><h2>Node Version Manager</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Node Version Manager (NVM)</u-text-define> - скрипт bash, который упрощает управление несколькими версиями Node.js</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоитм</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Выполнение скрипта</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><a href="https://github.com/nvm-sh/nvm" target="_blank">https://github.com/nvm-sh/nvm</a></li>
+    <li><u-code-text>curl https://raw.githubusercontent.com/creationix/nvm/v0.31.3/install.sh</u-code-text></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. Установка программы для Windows</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><a href="https://github.com/coreybutler/nvm-windows" target="_blank">https://github.com/coreybutler/nvm-windows</a></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Установка Node</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+nvm install node  # установить последнюю версию узла
+nvm install 10    # установить версию
+nvm use 10        # переключиться на версию
+</v-code>
+</div><div id="npm/npm/package-publishing"><h2>Публикация пакета</h2>
+
+<v-code lang="bash" title="">
+npm init     # инициализация проекта
+npm login    # вход в аккаунт (при наборе пароля, он не будет показан)
+npm whoami   # проверить текущий логин
+npm publish  # публикация проекта
+</v-code>
 </div><div id="npm/npm/linux"><h2>Linux</h2>
 
 <v-code lang="bash" title="">
 sudo npm i <u-code>--unsafe-perm</u-code>                      # установка всех пакетов из package.json
 sudo npm i --save-dev <u-code>--unsafe-perm node-sass</u-code> # установка пакета node-sass
 </v-code>
-</div><div id="npm/npm/shortcut"><h2>Сокращения</h2>
+</div><div id="npm/npm-package/http-server"><h2>http-server</h2>
 
-<v-two-code type="bash;bash" comment=";">
-<template v-slot:first>
-npm install package
-npm uninstall package
-npm update package
-npm install package --save
-npm install package --save-dev
-</template>
-<template v-slot:last>
-npm i package
-npm r package
-npm up package
-npm i package S
-npm i package D
-</template>
-</v-two-code>
+<v-code lang="bash npm" title="">
+npm i <u-code>http-server</u-code> -g
+</v-code>
 
-<v-code lang="bash" title="">
-c   # config
-ls  # list
+<v-code lang="bash" title="terminal">
+ http-server './'
 </v-code>
 </div><div id="npm/package-json/scripts"><h2>Скрипты</h2>
 
@@ -216,15 +326,6 @@ npm run server # выполнение скрипта из package.json (анал
 	<li>При вызове <em>npm install</em>, npm установит пакеты указанные в dependencies, но не в devDependencies</li>
 	<li>Если сделать <em>npm install</em> внутри папки, в которой есть package.json, то установятся и те, и другие</li>
 </ul>
-</div><div id="npm/npm-package/http-server"><h2>http-server</h2>
-
-<v-code lang="bash npm" title="">
-npm i <u-code>http-server</u-code> -g
-</v-code>
-
-<v-code lang="bash" title="terminal">
- http-server './'
-</v-code>
 </div><div id="npm/yarn/main"><h2>Основное</h2>
 
 <v-code lang="bash" title="">
@@ -236,6 +337,15 @@ yarn add --dev name_package   # установка в "devDependencies" (npm i -
 
 <v-code lang="bash" title="">
 yarn add @material-ui/icons -W
+</v-code>
+</div><div id="npm/terminal/command"><h2>Команды</h2>
+
+<v-code lang="bash" title="">
+cd /D d:/    # на диск D
+cd ..        # на директорию вверх
+cd /Folder   # в папку
+cd /         # в корень
+ls           # получить список файлов
 </v-code>
 </div></div>
                 </div>

@@ -1,5 +1,8 @@
 <h2>Команды</h2>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Команды</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <!------------------------------------------------------------->
 <h4>Инициализация</h4>
 <!------------------------------------------------------------->
@@ -36,6 +39,24 @@ npm <u-code>r</u-code> <i>PackageName</i>  # удалить package
 </v-code>
 
 <!------------------------------------------------------------->
+<h4>Проверка версий зависимостей</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+npm <u-code>view</u-code> <i>PackageName</i>           # вывод списка версий пакета
+npm <u-code>view</u-code> <i>PackageName</i> versions  # вывод текущей версии пакета
+npm <u-code>outdated</u-code>                   # вывод текущей и новой версии всех пакетов
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>.npmrc</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+npm <u-code>set registry</u-code> http://myrepositiryurl   # установить registry в .npmrc
+npm <u-code>get registry</u-code>                          # получить registry из .npmrc
+npm <u-code>config ls -l</u-code>                          # содержимое файла .npmrc
+</v-code>
+
+<!------------------------------------------------------------->
 <h4>Прочее</h4>
 <!------------------------------------------------------------->
 <v-code lang="bash" title="">
@@ -44,4 +65,20 @@ npm <u-code>-v</u-code>               # проверить версию npm
 npm <u-code>run</u-code> <i>PackageName</i>  # запустить package
 <u-code>ncu</u-code>                  # проверить какие пакеты устарели
 <u-code>ncu -u</u-code>               # обновить версию в package.json
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сокращения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+install     |  <u-code>i</u-code>
+uninstall   |  <u-code>r</u-code>
+update      |  <u-code>up</u-code>
+--save      |  <u-code>S</u-code>
+--save-dev  |  <u-code>D</u-code>
+</v-code>
+
+<v-code lang="bash" title="">
+config      | <u-code>c</u-code>
+list        | <u-code>ls</u-code>
 </v-code>
