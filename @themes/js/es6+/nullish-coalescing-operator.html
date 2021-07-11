@@ -1,0 +1,133 @@
+<h2>Оператор объединения с null '??'</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Теория</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://learn.javascript.ru/nullish-coalescing-operator" target="_blank">Learn JavaScript</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Выражения «определено», если оно отличается от <u>null</u> или <u>undefined</u></li>
+    <li>Оператор <u-code-text>??</u-code-text> позволяет выбрать первое «определённое» значение из списка, если оно НЕ <u>null/undefined</u></li>
+    <li>Используется для присвоения переменным значений по умолчанию</li>
+</ul>
+
+<hr>
+
+<u-message-info>
+    <ul class="list-point">
+        Результат выражения <u-code-text>a ?? b</u-code-text> будет следующим:
+        <li><u-code-text>a</u-code-text>, если значение <u-code-text>a</u-code-text> определено</li>
+        <li><u-code-text>b</u-code-text>, если значение <u-code-text>a</u-code-text> не определено</li>
+    </ul>
+</u-message-info>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сравнение с <u-code-text>||</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>||</u-code-text> - возвращает первое истинное значение</li>
+    <li><u-code-text>??</u-code-text> - возвращает первое определённое значение</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li>Оператор <u>||</u> не различает <u>false</u>, <u>0</u>, <u>пустую строку</u>, <u>null/undefined</u>. Для него они все одинаковые, т.е. являются ложными значениями. Если первым аргументом для оператора <u>||</u> будет любое из перечисленных значений, то в качестве результата получим второй аргумент</li>
+    <li>Однако на практике часто требуется использовать значение по умолчанию только тогда, когда переменная является <u>null/undefined</u></li>
+</ul>
+
+<v-code lang="js" title="">
+const height = 0;
+
+console.log(height || 100); // 100
+console.log(height ?? 100); // 0
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Приоритет</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Оператор <u-code-text>??</u-code-text> имеет довольно низкий приоритет: <u>5</u>, согласно <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#table" target="_blank">Таблице на MDN</a></li>
+    <li>Оператор <u-code-text>??</u-code-text> вычисляется до <u-code-text>=</u-code-text> и <u-code-text>?</u-code-text>, но после большинства других операций, таких как <u-code-text>+</u-code-text>, <u-code-text>*</u-code-text></li>
+    <li>Из этого следует, что если нужно выбрать значение при помощи оператора <u-code-text>??</u-code-text> вместе с другими операторами в выражении, следует добавить круглые скобки</li>
+</ul>
+
+<v-code lang="js" title="">
+const height = null;
+const width = null;
+
+// важно: используйте круглые скобки
+const area = (height ?? 100) * (width ?? 50);
+
+console.log(area); // 5000
+</v-code>
+
+<ul class="list-point">
+    <li>Иначе, если опустить скобки, то оператор <u-code-text>*</u-code-text> выполнится первым, так как у него приоритет выше, чем у <u-code-text>??</u-code-text>, а это приведёт к неправильным результатам</li>
+</ul>
+
+<v-code lang="js" title="">
+// без круглых скобок
+const area = height ?? 100 * width ?? 50;
+
+// ...то же самое, что предыдущее выражение (вероятно, это не то, что нам нужно):
+const area = height ?? (100 * width) ?? 50;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование <u-code-text>??</u-code-text> вместе с <u-code-text>&&</u-code-text> или <u-code-text>||</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>По соображениям безопасности JavaScript запрещает использование оператора <u>??</u> вместе с <u>&&</u> и <u>||</u>, если только приоритет явно не указан в круглых скобках</li>
+</ul>
+
+<v-code lang="js" title="">
+const x = 1 && 2 ?? 3; // Синтаксическая ошибка
+const x = (1 && 2) ?? 3; // Работает без ошибок
+console.log(x); // 2
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример #1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// будет height=100, если переменная height равна null или undefined
+const height = height ?? 100;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример #2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// через ??
+const result = a ?? b;
+// через тернарный опрератор
+const result = (a !== null && a !== undefined) ? a : b;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример #3</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Можно записать последовательность из операторов <u>??</u>, чтобы получить первое значение из списка, которое не является <u>null/undefined<u></li>
+</ul>
+
+<v-code lang="js" title="">
+const firstName = null;
+const lastName = null;
+const nickName = "Суперкодер";
+
+// Показывает первое определённое значение
+
+// через ??
+console.log(firstName ?? lastName ?? nickName ?? "Аноним"); // Суперкодер
+// через ||
+console.log(firstName || lastName || nickName || "Аноним"); // Суперкодер
+</v-code>

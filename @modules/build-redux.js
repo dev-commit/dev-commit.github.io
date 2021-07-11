@@ -52,4 +52,10 @@ ARR_MODULE = [
             ['redux/plugins/redux-logger',             setTheme(2, ['redux-logger'])],
         ]
     },
+    {
+        title: 'Прочее',
+        themes: [
+            ['redux/other/constants-name', 'Название констант'],
+        ]
+    },
 ]

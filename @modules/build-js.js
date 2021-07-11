@@ -12,6 +12,13 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'ES6+',
+        themes: [
+            ['js/es6+/nullish-coalescing-operator', 'Оператор '+setTheme(1, ['??'])],
+            ['js/es6+/optional-chaining',           'Оператор '+setTheme(1, ['?.'])],
+        ]
+    },
+    {
         title: 'Модули',
         themes: [
             ['js/modules/module-system', 'Модульная система'],
@@ -80,12 +87,12 @@ ARR_MODULE = [
             ['js/other/math',                   'Math'],
             ['js/other/exceptions',             'Исключения'],
             ['js/other/cycle',                  'Циклы'],
-            ['js/other/conditional-statements', 'Условные операторы'],  
+            ['js/other/conditional-statements', 'Условные операторы'],
             ['js/other/pattern-string',         'Шаблонные строки (ES6)'],
             ['js/other/object-wrappers',        'Autoboxing (Object Wrappers)'],
             ['js/other/proxy',                  'Proxy (ES6)'],
             ['js/other/asynchronous-scripts',   'Асинхронные скрипты: defer/async'],
-        
+
             ['js/other/method-chaining',        'Цепные вызовы методов'],
             ['js/other/web-workers',            'Web Workers'],
             ['js/other/console',                setTheme(1, ['console'])],

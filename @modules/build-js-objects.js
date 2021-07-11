@@ -10,13 +10,13 @@ ARR_MODULE = [
             ['js-objects/methods/object-from-entries', emoji.chevron+setTheme(4, ['Object.fromEntries()'])],
             ['js-objects/methods/object-values',       emoji.chevron+setTheme(4, ['Object.values()'])],
             ['js-objects/methods/object-keys',         emoji.chevron+setTheme(4, ['Object.keys'])],
-        
+
             ['js-objects/methods/set-prototype-of',    emoji.chevron+setTheme(4, ['Object.setPrototypeOf'])+commentProto],
             ['js-objects/methods/get-prototype-of',    emoji.chevron+setTheme(4, ['Object.getPrototypeOf'])+commentProto],
-        
+
             ['js-objects/methods/is-prototype-of',     emoji.chevron+setTheme(4, ['isPrototypeOf'])+commentProto],
             ['js-objects/methods/instanceof',          emoji.chevron+setTheme(4, ['instanceof'])],
-        
+
             ['js-objects/main/for',              'Перебор объекта'],
             ['js-objects/main/check-property',   'Проверка наличия свойства'],
             ['js-objects/main/descriptor',       'Дескрипторы свойств'],
@@ -34,6 +34,7 @@ ARR_MODULE = [
     {
         title: 'Примеры',
         themes: [
+            ['js-objects/samples/key-remove',                emoji.fire+'Удаление ключа'],
             ['js-objects/samples/sort-elements-obj',         emoji.baseball+'Сортировка элементов массива'],
             ['js-objects/samples/flat-array-from-obj',       emoji.baseball+'Плоский массив из объекта'],
             ['js-objects/samples/setting-object-properties', emoji.baseball+'Задание свойств объекта'],
@@ -50,5 +51,3 @@ ARR_MODULE = [
         ]
     },
 ]
-
-

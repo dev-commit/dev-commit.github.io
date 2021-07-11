@@ -1,0 +1,98 @@
+<h2>Удаление ключа</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование <u>Lodash</u></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <u>Lodash</u> функция <u-code-text>omit</u-code-text>
+</ul>
+
+<v-code lang="bash" title="">
+import { omit } from 'lodash';
+
+const obj = {
+    'Cow' : 'Moo',
+    'Cat' : 'Meow',
+    'Dog' : 'Bark'
+};
+
+const a = omit(obj, 'Cow'); //It will return a new object
+=> {'Cat' : 'Meow', 'Dog' : 'Bark'}  //result
+</v-code>
+
+<ul class="list-point">
+    <li>Если вы хотите изменить текущий объект, назначьте возвращаемый объект текущему объекту</li>
+</ul>
+
+<v-code lang="js" title="">
+obj = omit(obj,'Cow');
+</v-code>
+
+<ul class="list-point">
+    <li>Подключение через <u-code-text>_</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+import _ from 'lodash'
+const a = _.omit(obj, 'Cow');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Чистый JavaScript</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Использование delete (не иммутабельно)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const thisIsObject= {
+    'Cow' : 'Moo',
+    'Cat' : 'Meow',
+    'Dog' : 'Bark'
+};
+
+delete thisIsObject['Cow'];
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование Object.entries</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const obj = {
+    key1: "value1",
+    key2: "value1",
+    key3: "value2",
+    key4: "value3"
+}
+</v-code>
+
+<ul class="list-point">
+    <li>Нужно удалить все ключи с значением <u>value1</u></li>
+</ul>
+
+<v-code lang="js" title="">
+Object.entries(obj).forEach(n => n[1] === 'value1' && delete obj[n[0]]);
+</v-code>
+
+<ul class="list-point">
+    <li>Или, если на самом деле надо не удалять свойства из имеющегося объекта, а собрать новый</li>
+</ul>
+
+<v-code lang="js" title="">
+Object.entries(obj).reduce((acc, [ k, v ]) => (v !== 'value1' && (acc[k] = v), acc), {});
+// или
+Object.fromEntries(Object.entries(obj).filter(n => n[1] !== 'value1'));
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование деструктуризации</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const myObject = {
+    a: 1,
+    b: 2,
+    c: 3
+};
+
+const { a, ...noA } = myObject;
+</v-code>
