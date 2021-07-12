@@ -127,5 +127,3 @@ Vue.component('v-details', {
 const app = new Vue({
 	el: '#content'
 })
-
-
