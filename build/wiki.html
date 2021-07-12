@@ -196,6 +196,9 @@
 </v-code>
 </div><div id="@wiki/main/snippets"><h2>Сниппеты</h2>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Atom</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li><u-code-text>=links-wrapper</u-code-text></li>
     <li><u-code-text>=two</u-code-text></li>
@@ -387,28 +390,33 @@ class App extends Component {
 </u-message-error>
 </div><div id="@wiki/vue-components/v-two"><h2><u-code-text>v-two</u-code-text></h2>
 
-<ul class="list-point">
-    <li><u-code>=two</u-code></li>
-</ul>
+<v-code lang="html step" title="">
+&lt;v-two&gt;&lt;template v-slot:first&gt;
+    Content Left
+&lt;/template&gt;&lt;template v-slot:last&gt;
+    Content Right
+&lt;/template&gt;&lt;/v-two&gt;
+</v-code>
 
 <v-two><template v-slot:first>
 Content Left
 </template><template v-slot:last>
 Content Right
-</template></v-two></div><div id="@wiki/vue-components/v-two-fix"><h2><u-code-text>v-two-fix</u-code-text></h2>
+</template></v-two>
+</div><div id="@wiki/vue-components/v-two-fix"><h2><u-code-text>v-two-fix</u-code-text></h2>
 
 <ul class="list-point">
     <li>Первая колонка растягивается на всю ширину</li>
     <li>Вторая колонка под ширину контента</li>
 </ul>
 
-<v-code lang="html" title="">
+<v-code lang="html step" title="">
 &lt;v-two-fix&gt;&lt;template v-slot:first&gt;
 &lt;v-code lang="js" title=""&gt;
-...
+    Content Left
 &lt;/v-code&gt;
 &lt;/template&gt;&lt;template v-slot:last&gt;
-...
+    Content Right
 &lt;/template&gt;&lt;/v-two-fix&gt;
 </v-code>
 
@@ -417,12 +425,20 @@ Content Right
 ctx.fillRect(0,0,100,100);
 </v-code>
 </template><template v-slot:last>
-<img src="img/starter.png" class="img200">
-</template></v-two-fix></div><div id="@wiki/vue-components/v-two-code"><h2><u-code-text>v-two-code</u-code-text></h2>
+<img src="/@img/wiki/starter.png" width="200px">
+</template></v-two-fix>
+</div><div id="@wiki/vue-components/v-two-code"><h2><u-code-text>v-two-code</u-code-text></h2>
 
-<ul class="list-point">
-    <li><u-code>=two-code</u-code></li>
-</ul>
+<v-code lang="html step" title="">
+&lt;v-two-code type="js;js" comment="comment;comment"&gt;
+&lt;template v-slot:first&gt;
+const a = 23;
+&lt;/template&gt;
+&lt;template v-slot:last&gt;
+const b = 25;
+&lt;/template&gt;
+&lt;/v-two-code&gt;
+</v-code>
 
 <v-two-code type="js;js" comment="comment;comment">
 <template v-slot:first>
@@ -431,15 +447,12 @@ const gulp = require('gulp')
 <template v-slot:last>
 const server = require('browser-sync')
 </template>
-</v-two-code></div><div id="@wiki/vue-components/v-code"><h2><u-code-text>v-code</u-code-text></h2>
+</v-two-code>
+</div><div id="@wiki/vue-components/v-code"><h2><u-code-text>v-code</u-code-text></h2>
 
-<ul class="list-point">
-    <li><u-code>=xcode</u-code></li>
-</ul>
-
-<v-code lang="html" title="">
+<v-code lang="html step" title="">
 &lt;v-code lang="js" title="Комментарий"&gt;
-const gulp = require('gulp')
+const gulp = require('gulp');
 &lt;/v-code&gt;
 </v-code>
 
@@ -448,7 +461,7 @@ const gulp = require('gulp')
 </v-code>
 </div><div id="@wiki/vue-components/v-pre-npm"><h2><u-code-text>v-pre-npm</u-code-text></h2>
 
-<v-code lang="html" title="">
+<v-code lang="html step" title="">
 &lt;v-pre-npm&gt;
 npm i --save-dev &lt;u-code-npm&gt;gulp&lt;/u-code-npm&gt;
 &lt;/v-pre-npm&gt;
@@ -463,7 +476,7 @@ npm i --save-dev <u-code-npm>flow-bin</u-code-npm>
 	<u-code-text>v-method-return</u-code-text>
 </h2>
 
-<v-code lang="html" title="">
+<v-code lang="html step" title="">
 &lt;div class="v-method-wrapper"&gt;
     &lt;v-method before="element" method="method" after="" arg="(arg1, arg2)"&gt;
     описание метода
@@ -486,7 +499,7 @@ npm i --save-dev <u-code-npm>flow-bin</u-code-npm>
 </div>
 </div><div id="@wiki/vue-components/v-details"><h2><u-code-text>v-details</u-code-text></h2>
 
-<v-code lang="html" title="">
+<v-code lang="html step" title="">
 &lt;v-details title="Show Content"&gt;
 Hidden Content
 &lt;/v-details&gt;
@@ -497,10 +510,9 @@ Hidden Content
 </v-details>
 </div><div id="@wiki/vue-components/v-iframe"><h2><u-code-text>v-iframe</u-code-text></h2>
 
-<v-code lang="html" title="">
+<v-code lang="html step" title="">
 &lt;v-iframe height="245" src="https://codepen.io/..." /&gt;
 </v-code>
-
 </div><div id="@wiki/class/links"><h2>Ссылки на разделы</h2>
 
 <v-code lang="html" title="">
