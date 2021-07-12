@@ -67,4 +67,5 @@ const ARR_LINKS = [
     { page: 'mysql',                   theme: 'brown',    title: 'mySql' },
     { page: 'linux',                   theme: 'brown',    title: 'Linux' },
     { page: 'jquery',                  theme: 'brown',    title: 'jQuery' },
+    { page: 'wiki',                    theme: 'blue',     title: 'Wiki' },
 ];
