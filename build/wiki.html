@@ -48,49 +48,57 @@
         <li>
             <a
                 class="menu-link"
-                id="id__@wiki/custom-elements/labels"
-                href="#@wiki/custom-elements/labels"
-            >🔰 Метки</a>
+                id="id__@wiki/custom-elements/u-text"
+                href="#@wiki/custom-elements/u-text"
+            ><u-menu>u-text-*</u-menu> <u-menu>u-code-*</u-menu> <u-menu>u-menu-*</u-menu></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__@wiki/custom-elements/code"
-                href="#@wiki/custom-elements/code"
-            >🔰 Код</a>
+                id="id__@wiki/custom-elements/u-block"
+                href="#@wiki/custom-elements/u-block"
+            ><u-menu>u-block-*</u-menu></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__@wiki/custom-elements/links"
-                href="#@wiki/custom-elements/links"
-            >🔰 Ссылки</a>
+                id="id__@wiki/custom-elements/u-link-wrapper"
+                href="#@wiki/custom-elements/u-link-wrapper"
+            ><u-menu>u-link-wrapper</u-menu></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__@wiki/custom-elements/blocks"
-                href="#@wiki/custom-elements/blocks"
-            >🔰 Блоки</a>
+                id="id__@wiki/custom-elements/u-clipboard"
+                href="#@wiki/custom-elements/u-clipboard"
+            ><u-menu>u-clipboard</u-menu></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__@wiki/custom-elements/alert"
-                href="#@wiki/custom-elements/alert"
-            >🔰 Сообщения</a>
+                id="id__@wiki/custom-elements/u-code-wrapper"
+                href="#@wiki/custom-elements/u-code-wrapper"
+            ><u-menu>u-code-wrapper</u-menu></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__@wiki/custom-elements/clipboard"
-                href="#@wiki/custom-elements/clipboard"
-            >🔰 Clipboard</a>
+                id="id__@wiki/custom-elements/u-code-title"
+                href="#@wiki/custom-elements/u-code-title"
+            ><u-menu>u-code-title</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__@wiki/custom-elements/u-message"
+                href="#@wiki/custom-elements/u-message"
+            ><u-menu>u-message</u-menu></a>
         </li>
     </ul><h4>🥥 Vue Components</h4><ul>
         <li>
@@ -241,7 +249,7 @@ const emoji = {
 Á á Ó ó É é ý и́ ы́ э́ ю́ я́
 а́ е́ и́ о́ у́ ы́ э́ ю́ я́
 </v-code>
-</div><div id="@wiki/custom-elements/labels"><h2>Метки</h2>
+</div><div id="@wiki/custom-elements/u-text"><h2>Метки</h2>
 
 <v-two><template v-slot:first>
 	<!------------------------------------------------------------->
@@ -276,93 +284,12 @@ const emoji = {
 		<li><u-menu-code>u-menu-code</u-menu-code></li>
 		<li><u-menu-border>u-menu-border</u-menu-border></li>
 		<li><u-menu-unactive>u-menu-unactive</u-menu-unactive></li>
+		<li><u-menu-outline>u-menu-outline</u-menu-outline></li>
 	</ul>
 </template></v-two>
 
 
-
-</div><div id="@wiki/custom-elements/code"><h2>Код</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3><u-code-text>&lt;u-code-wrapper&gt;</u-code-text></h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="html" title="">
-&lt;u-code-wrapper&gt;
-code
-&lt;/u-code-wrapper&gt;
-</v-code>
-
-<v-code lang="php" title="">
-&lt;?php
-    $to = 'user@example.com';
-    <u-code-wrapper>
-    $headers  = 'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-    </u-code-wrapper>
-?&gt;
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3><u-code-text>&lt;u-code-title&gt;</u-code-text></h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="html" title="">
-&lt;u-code-wrapper&gt;&lt;u-code-title&gt;Конструктор&lt;/u-code-title&gt;
-code
-&lt;/u-code-wrapper&gt;
-</v-code>
-
-<v-code lang="js" title="">
-class App extends Component {
-	<u-code-wrapper><u-code-title>Конструктор</u-code-title>
-	constructor(props) {
-		super(props);
-	}
-	</u-code-wrapper>
-}
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3><u-code-text>&lt;u-code&gt;</u-code-text></h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="html" title="">
-&lt;u-code&gt;code&lt;/u-code&gt;
-</v-code>
-
-<v-code lang="js" title="">
-constructor(props) {
-	super(props);
-	<u-code>this.state</u-code> = {
-		name: 'Tony'
-	};
-}
-</v-code>
-
-</div><div id="@wiki/custom-elements/links"><h2>Ссылки</h2>
-
-<v-code lang="html" title="">
-&lt;u-link-wrapper&gt;
-	&lt;a href="" target="_blank"&gt;&lt;/a&gt;
-&lt;/u-link-wrapper&gt;
-</v-code>
-
-<u-link-wrapper>
-	<a href="#" target="_blank">Тестовая ссылка</a>
-</u-link-wrapper>
-</div><div id="@wiki/custom-elements/blocks"><h2>Блоки</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3><u-code-text>&lt;u-block-code&gt;</u-code-text></h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<u-block-code>
-<u-link-wrapper>
-	<a href="#">Link</a>
-</u-link-wrapper>
-class <u-code>extends</u-code> HTMLElement {
-	constructor() {
-		<u-code-text>super</u-code-text>();
-	}
-}
-</u-block-code>
+</div><div id="@wiki/custom-elements/u-block"><h2>Блоки</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3><u-code-text>&lt;u-block-left-padding&gt;</u-code-text></h3>
@@ -381,13 +308,18 @@ Content
 <u-block-left-padding>
 	<span>flex-direction: row</span>
 </u-block-left-padding>
-</div><div id="@wiki/custom-elements/alert"><h2>Сообщения</h2>
+</div><div id="@wiki/custom-elements/u-link-wrapper"><h2>Ссылки</h2>
 
-<u-message-ok><code>&lt;u-message-ok&gt;text&lt;/u-message-ok&gt;</code></u-message-ok>
-<u-message-info><code>&lt;u-message-info&gt;text&lt;/u-message-info&gt;</code></u-message-info>
-<u-message-warn><code>&lt;u-message-warn&gt;text&lt;/u-message-warn&gt;</code></u-message-warn>
-<u-message-error><code>&lt;u-message-error&gt;text&lt;/u-message-error&gt;</code></u-message-error>
-</div><div id="@wiki/custom-elements/clipboard"><h2>Clipboard</h2>
+<v-code lang="html" title="">
+&lt;u-link-wrapper&gt;
+	&lt;a href="" target="_blank"&gt;&lt;/a&gt;
+&lt;/u-link-wrapper&gt;
+</v-code>
+
+<u-link-wrapper>
+	<a href="#" target="_blank">Тестовая ссылка</a>
+</u-link-wrapper>
+</div><div id="@wiki/custom-elements/u-clipboard"><h2>Clipboard</h2>
 
 <ul class="list-point">
     <li>При нажатии на блок, содержимый тест скопируется в буфер обмена</li>
@@ -400,22 +332,59 @@ Content
 </template><template v-slot:last>
 <u-clipboard>Data to copy!</u-clipboard>
 </template></v-two>
-
-<v-two><template v-slot:first>
+</div><div id="@wiki/custom-elements/u-code-wrapper"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><u-code-text>&lt;u-code-wrapper&gt;</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="html" title="">
-&lt;u-block-code&gt;
-&lt;u-code-comment&gt;Сайт&lt;/u-code-comment&gt;:   &lt;u-code-flat&gt;&lt;a href="https://ya.ru" target="_blank"&gt;https://ya.ru&lt;/a&gt;&lt;/u-code-flat&gt; ▫️
-&lt;u-code-comment&gt;Логин&lt;/u-code-comment&gt;:  &lt;u-code-flat&gt;&lt;u-clipboard&gt;Login Data&lt;/u-clipboard&gt;&lt;/u-code-flat&gt; ▫️
-&lt;u-code-comment&gt;Пароль&lt;/u-code-comment&gt;: &lt;u-code-text&gt;&lt;u-clipboard&gt;Password Data&lt;/u-clipboard&gt;&lt;/u-code-text&gt; ▫️
-&lt;/u-block-code&gt;
+&lt;u-code-wrapper&gt;
+code
+&lt;/u-code-wrapper&gt;
 </v-code>
-</template><template v-slot:last>
-<u-block-code>
-<u-code-comment>Сайт</u-code-comment>:   <u-code-flat><a href="https://ya.ru" target="_blank">https://ya.ru</a></u-code-flat> ▫️
-<u-code-comment>Логин</u-code-comment>:  <u-code-flat><u-clipboard>Login Data</u-clipboard></u-code-flat> ▫️
-<u-code-comment>Пароль</u-code-comment>: <u-code-text><u-clipboard>Password Data</u-clipboard></u-code-text> ▫️
-</u-block-code>
-</template></v-two>
+
+<v-code lang="php" title="">
+&lt;?php
+    $to = 'user@example.com';
+    <u-code-wrapper>
+    $headers  = 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    </u-code-wrapper>
+?&gt;
+</v-code>
+</div><div id="@wiki/custom-elements/u-code-title"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><u-code-text>&lt;u-code-title&gt;</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;u-code-wrapper&gt;&lt;u-code-title&gt;Конструктор&lt;/u-code-title&gt;
+code
+&lt;/u-code-wrapper&gt;
+</v-code>
+
+<v-code lang="js" title="">
+class App extends Component {
+	<u-code-wrapper><u-code-title>Конструктор</u-code-title>
+	constructor(props) {
+		super(props);
+	}
+	</u-code-wrapper>
+}
+</v-code>
+</div><div id="@wiki/custom-elements/u-message"><h2>Сообщения</h2>
+
+<u-message-ok>
+    &lt;u-message-ok&gt;text&lt;/u-message-ok&gt;
+</u-message-ok>
+
+<u-message-info>
+    &lt;u-message-info&gt;text&lt;/u-message-info&gt;
+</u-message-info>
+
+<u-message-warn>
+    &lt;u-message-warn&gt;text&lt;/u-message-warn&gt;
+</u-message-warn>
+
+<u-message-error>
+    &lt;u-message-error&gt;text&lt;/u-message-error&gt;
+</u-message-error>
 </div><div id="@wiki/vue-components/v-two"><h2><u-code-text>v-two</u-code-text></h2>
 
 <ul class="list-point">

@@ -10,12 +10,13 @@ ARR_MODULE = [
     {
     	title: 'Custom Elements',
         themes: [
-            ['@wiki/custom-elements/labels',    emoji.chevron+'Метки'],
-            ['@wiki/custom-elements/code',      emoji.chevron+'Код'],
-            ['@wiki/custom-elements/links',     emoji.chevron+'Ссылки'],
-            ['@wiki/custom-elements/blocks',    emoji.chevron+'Блоки'],
-            ['@wiki/custom-elements/alert',     emoji.chevron+'Сообщения'],
-            ['@wiki/custom-elements/clipboard', emoji.chevron+'Clipboard'],
+            ['@wiki/custom-elements/u-text',         setTheme(1, ['u-text-*', 'u-code-*', 'u-menu-*'])],
+            ['@wiki/custom-elements/u-block',        setTheme(1, ['u-block-*'])],
+            ['@wiki/custom-elements/u-link-wrapper', setTheme(1, ['u-link-wrapper'])],
+            ['@wiki/custom-elements/u-clipboard',    setTheme(1, ['u-clipboard'])],
+            ['@wiki/custom-elements/u-code-wrapper', setTheme(1, ['u-code-wrapper'])],
+            ['@wiki/custom-elements/u-code-title',   setTheme(1, ['u-code-title'])],
+            ['@wiki/custom-elements/u-message',      setTheme(1, ['u-message'])],
         ]
     },
     {
