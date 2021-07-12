@@ -1,0 +1,29 @@
+<h2>Clipboard</h2>
+
+<ul class="list-point">
+    <li>При нажатии на блок, содержимый тест скопируется в буфер обмена</li>
+</ul>
+
+<v-two><template v-slot:first>
+<v-code lang="html" title="">
+&lt;u-clipboard&gt;Data to copy!&lt;/u-clipboard&gt;
+</v-code>
+</template><template v-slot:last>
+<u-clipboard>Data to copy!</u-clipboard>
+</template></v-two>
+
+<v-two><template v-slot:first>
+<v-code lang="html" title="">
+&lt;u-block-code&gt;
+&lt;u-code-comment&gt;Сайт&lt;/u-code-comment&gt;:   &lt;u-code-flat&gt;&lt;a href="https://ya.ru" target="_blank"&gt;https://ya.ru&lt;/a&gt;&lt;/u-code-flat&gt; ▫️
+&lt;u-code-comment&gt;Логин&lt;/u-code-comment&gt;:  &lt;u-code-flat&gt;&lt;u-clipboard&gt;Login Data&lt;/u-clipboard&gt;&lt;/u-code-flat&gt; ▫️
+&lt;u-code-comment&gt;Пароль&lt;/u-code-comment&gt;: &lt;u-code-text&gt;&lt;u-clipboard&gt;Password Data&lt;/u-clipboard&gt;&lt;/u-code-text&gt; ▫️
+&lt;/u-block-code&gt;
+</v-code>
+</template><template v-slot:last>
+<u-block-code>
+<u-code-comment>Сайт</u-code-comment>:   <u-code-flat><a href="https://ya.ru" target="_blank">https://ya.ru</a></u-code-flat> ▫️
+<u-code-comment>Логин</u-code-comment>:  <u-code-flat><u-clipboard>Login Data</u-clipboard></u-code-flat> ▫️
+<u-code-comment>Пароль</u-code-comment>: <u-code-text><u-clipboard>Password Data</u-clipboard></u-code-text> ▫️
+</u-block-code>
+</template></v-two>
