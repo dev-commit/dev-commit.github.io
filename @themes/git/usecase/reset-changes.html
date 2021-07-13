@@ -1,21 +1,21 @@
 <h2>Отмена изменений</h2>
 
 <v-code lang="bash" title="">
-git <u-code>checkout</u-code> -- file.txt # Отмена изменений файла
-git <u-code>reset</u-code> HEAD file.txt  # Отмена индексации файла
+git <u-code>checkout</u-code> -- <em>file.txt</em> # Отмена изменений файла
+git <u-code>reset</u-code> HEAD <em>file.txt</em>  # Отмена индексации файла
 git <u-code>commit</u-code> --amend       # Изменение последнего коммита
 </v-code>
 
 <v-code lang="bash" title="">
 # Все три команды вместе дают один коммит - второй коммит заменяет результат первого
-git <u-code>commit</u-code> -m 'initial commit'
+git <u-code>commit</u-code> -m 'Message'
 git <u-code>add</u-code> forgotten_file
 git <u-code>commit</u-code> --amend
 </v-code>
 
 <v-code lang="bash" title="">
 git <u-code>checkout</u-code> .             # восстановить все
-git <u-code>checkout</u-code> "код коммита" # вернуть до состояния этого коммита
+git <u-code>checkout</u-code> <em>HashCommit</em>    # вернуть до состояния этого коммита
 </v-code>
 
 <v-code lang="bash" title="">

@@ -74,7 +74,6 @@ pre {
 }
 code {
 	padding: 10px 25px 25px 25px !important;
-    line-height: 1.5em;
     font-size: 15px;
     position: relative;
 	border: 1px solid #eceff1;
@@ -160,9 +159,22 @@ h4 {
 	color: rgb(107, 101, 107);
 }
 em {
-	color: #690;
+	color: rgba(var(--theme-crimson), 1);
 	font-style: normal;
+	font-weight: 500;
+	/* text-decoration: underline dotted rgba(var(--theme-crimson), 0.5); */
+	position: relative;
 }
+em:after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	border-bottom: 2px dotted rgba(var(--theme-crimson), 0.5);
+}
+
 i {
 	color: grey;
 }

@@ -20,8 +20,8 @@ git <u-code>branch -a</u-code>  # список веток с указанием 
 <h4>Создание новой ветки</h4>
 <!------------------------------------------------------------->
 <v-code lang="bash" title="">
-git <u-code>branch</u-code> <i>НазваниеВетки</i>       # создание новой ветки (ответвиться от текущей)
-git <u-code>checkout -b</u-code> <i>НазваниеВетки</i>  # создание новой ветки и переключение на нее
+git <u-code>branch</u-code> <em>feature</em>       # создание новой ветки (ответвиться от текущей)
+git <u-code>checkout -b</u-code> <em>feature</em>  # создание новой ветки и переключение на нее
 </v-code>
 
 <!------------------------------------------------------------->
@@ -29,15 +29,15 @@ git <u-code>checkout -b</u-code> <i>НазваниеВетки</i>  # созда
 <!------------------------------------------------------------->
 <v-code lang="bash" title="">
 # Удаление ветки из локального репозитория
-git <u-code>branch --delete</u-code> <i>НазваниеВетки</i> # удаление ветки
-git <u-code>branch -d</u-code> <i>НазваниеВетки</i>       # удаление ветки (после мерджа)
-git <u-code>branch -D</u-code> <i>НазваниеВетки</i>       # удаление ветки (тупиковая ветвь)
+git <u-code>branch --delete</u-code> <em>feature</em>  # удаление ветки
+git <u-code>branch -d</u-code> <em>feature</em>        # удаление ветки (после мерджа)
+git <u-code>branch -D</u-code> <em>feature</em>        # удаление ветки (тупиковая ветвь)
 </v-code>
 
 <v-code lang="bash" title="">
 # Удаление ветки из удаленного репозитория
-git <u-code>push origin --delete</u-code> <i>НазваниеВетки</i>
-git <u-code>push origin</u-code> :<i>НазваниеВетки</i>
+git <u-code>push origin --delete</u-code> <em>feature</em>
+git <u-code>push origin</u-code> :<em>feature</em>
 </v-code>
 
 <!------------------------------------------------------------->
@@ -49,6 +49,6 @@ git <u-code>push origin</u-code> :<i>НазваниеВетки</i>
 </ul>
 
 <v-code lang="bash" title="">
-git <u-code>branch</u-code> -m new-name          # если находимся на ветке для переименования
-git <u-code>branch</u-code> -m old-name new-name # если находимся на другой ветке
+git <u-code>branch</u-code> -m <em>NewName</em>          # если находимся на ветке для переименования
+git <u-code>branch</u-code> -m <em>OldName</em> <em>NewName</em> # если находимся на другой ветке
 </v-code>

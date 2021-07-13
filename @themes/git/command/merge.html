@@ -5,22 +5,31 @@
 </div>
 
 <v-code lang="bash border" title="">
-git <u-code>merge</u-code> develop   # слияние "develop" в текущую ветку
-git <u-code>merge --abort</u-code>   # отмена merge
+git <u-code>merge</u-code> <em>develop</em>         # слияние "develop" в текущую ветку
+git <u-code>merge</u-code> <em>feature</em> <em>develop</em> # замёржить в "feature" из "develop"
+git <u-code>merge --abort</u-code>         # отмена merge
 </v-code>
-
 
 <ul class="list-point">
     <li>Разрешение конфликтов разницы "develop" и "feature"</li>
 </ul>
 
 <v-code lang="bash step" title="#1">
-git <u-code>checkout</u-code> develop  # перейти в develop, если в ней есть обновления
+git <u-code>checkout</u-code> <em>develop</em>  # перейти в develop, если в ней есть обновления
 git <u-code>pull</u-code>              # обновить ветку develop
-git <u-code>checkout</u-code> feature  # перейти в feature
-git <u-code>merge</u-code> develop     # merge из develop в свою ветку. ветка feature станет актуальной
+git <u-code>checkout</u-code> <em>feature</em>  # перейти в feature
+git <u-code>merge</u-code> <em>develop</em>     # merge из develop в свою ветку. ветка feature станет актуальной
 </v-code>
 
 <ul class="list-point">
-    <li>Появятся конфликты в файлах, поправить конфликты</li>
+    <li>Если появятся конфликты в файлах - поправить их</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Описание</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При <u-code-text>merge</u-code-text> происходит создание нового <u-text-underline>merge-комита</u-text-underline> в <u>"feature"</u> ветке</li>
+    <li><u-text-underline>merge-комит</u-text-underline> будет включать изменения в <u>"develop"</u> с момента откалывания <u>"feature"</u></li>
+    <li>Merge не разрушает историю: поверх всех коммитов, которые были в ветке, добавляется еще 1 коммит с изменениями из <u>"develop"</u>. Если над <u>"feature"</u> веткой работают другие разработчики, то проблем не возникнет</li>
 </ul>

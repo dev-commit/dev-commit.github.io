@@ -5,9 +5,9 @@
 </div>
 
 <v-code lang="bash" title="">
-git <u-code>checkout</u-code> features             # переключение на ветку "features"
-git <u-code>checkout -b</u-code> features          # создание новой ветки "features" и переключение на нее
-git <u-code>checkout -b</u-code> bug/3-a origin/bug/3-a
+git <u-code>checkout</u-code> <em>features</em>             # переключение на ветку "features"
+git <u-code>checkout -b</u-code> <em>features</em>          # создание новой ветки "features" и переключение на нее
+git <u-code>checkout -b</u-code> <em>bug/3-a</em> <em>origin/bug/3-a</em>
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -22,13 +22,13 @@ git <u-code>checkout -b</u-code> bug/3-a origin/bug/3-a
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="bash" title="">
 # Создание новой ветики без родительского коммита. При этом все файлы из рабочей директории будут на месте
-git <u-code>checkout --orphan</u-code> NEW_BRANCH
+git <u-code>checkout --orphan</u-code> <em>features</em>
 
 # Создание новой пустой ветки
-git <u-code>checkout --orphan</u-code> NEW_BRANCH && git <u-code>reset --hard</u-code>
+git <u-code>checkout --orphan</u-code> <em>features</em> && git <u-code>reset --hard</u-code>
 
 # Создание новой ветики с определенного коммита
 # При этом будет создана новая ветка без родительского коммита и в индексе Git будут находится
 # все файлы из выбраного целевого коммита
-git <u-code>checkout --orphan</u-code> NEW_BRANCH TARGET_REFERENCE
+git <u-code>checkout --orphan</u-code> <em>features</em> <em>TARGET_REFERENCE</em>
 </v-code>

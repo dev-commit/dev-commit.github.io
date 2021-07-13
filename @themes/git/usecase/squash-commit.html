@@ -6,19 +6,19 @@
 </ul>
 
 <v-code lang="bash step" title="#1">
-git <u-code>checkout</u-code> develop   # перейти в ветку develop
+git <u-code>checkout</u-code> <em>develop</em>   # перейти в ветку develop
 git <u-code>fetch</u-code> origin       # подтянуть последние изменени для develop
 git <u-code>pull</u-code>               # взять последние изменени для develop
-git <u-code>checkout</u-code> feature   # перейти в ветку feature
+git <u-code>checkout</u-code> <em>feature</em>   # перейти в ветку feature
 </v-code>
 
 <v-code lang="bash step" title="#2">
 # первый вариант (первый этап делать не нужно)
-git <u-code>reset</u-code> --soft origin/develop # берётся ветки из удаленного репозитория
+git <u-code>reset</u-code> --soft origin/<em>develop</em> # берётся ветки из удаленного репозитория
 
 # второй вариант
-git <u-code>merge-base</u-code> dev HEAD         # номер коммита к которому нужно откатиться
-git <u-code>reset</u-code> <i>номер_коммита</i>         # откатывает всё что он сделал до того момента как откололся с develop
+git <u-code>merge-base</u-code> dev HEAD  # номер коммита к которому нужно откатиться
+git <u-code>reset</u-code> <em>HashCommit</em>     # откатывает всё что он сделал до того момента как откололся с develop
 </v-code>
 
 <v-code lang="bash step" title="#3">
