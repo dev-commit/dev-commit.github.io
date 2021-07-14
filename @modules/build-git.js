@@ -11,8 +11,8 @@ ARR_MODULE = [
         title: 'Команды',
         accent: true,
         themes: [
-            ['git/command/merge',        setTheme(3, ['merge'])],
             ['git/command/rebase',       setTheme(3, ['rebase'])],
+            ['git/command/merge',        setTheme(3, ['merge'])],
             ['git/command/reset',        setTheme(3, ['reset'])],
             ['git/command/branch',       setTheme(3, ['branch'])],
             ['', ''],

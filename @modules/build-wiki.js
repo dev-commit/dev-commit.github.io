@@ -32,6 +32,7 @@ ARR_MODULE = [
             ['@wiki/vue-components/v-method',    setTheme(1, ['v-method'])],
             ['@wiki/vue-components/v-details',   setTheme(1, ['v-details'])],
             ['@wiki/vue-components/v-iframe',    setTheme(1, ['v-iframe'])],
+            ['@wiki/vue-components/v-marker',    setTheme(1, ['v-marker'])],
         ]
     },
     {
