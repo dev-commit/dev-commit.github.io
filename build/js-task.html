@@ -2589,6 +2589,24 @@ var x = function a(arg) {
 x(a); // => Uncaught ReferenceError: a is not defined
 </v-code>
 
+<!------------------------------------------------------------->
+<h4>#5</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var a = 5;
+
+function foo() {
+    if (a) {
+        console.log(a);
+        var a = 10;
+    } else {
+        console.log('No');
+    }
+}
+
+foo(); // => "No"
+</v-code>
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Массив</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -2610,7 +2628,7 @@ console.log(a); // [2]
 <h3>Временная Dead Zone</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-function foo(a) {  
+function foo(a) {
     if (a > 0) {
         // a во временной dead zone
         let a = a + 10;
@@ -2629,23 +2647,23 @@ console.log(foo(20));
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-two-code type="js;js" comment="comment;comment">
 <template v-slot:first>
-var a = 1; 
-function b() { 
-    a = 10; 
-    return; 
-    function a() {} 
-} 
-b(); 
+var a = 1;
+function b() {
+    a = 10;
+    return;
+    function a() {}
+}
+b();
 console.log(a); // => 1
 </template>
 <template v-slot:last>
-var a = 1; 
-function b() { 
-    a = 10;     
-    return; 
+var a = 1;
+function b() {
+    a = 10;
+    return;
     let a;
-} 
-b(); 
+}
+b();
 console.log(a); // => Uncaught ReferenceError: Cannot access 'a' before initialization
 </template>
 </v-two-code>
@@ -2667,7 +2685,8 @@ function someFunction() {
 
 someFunction();
 console.log(a); // => 5
-</v-code></div><div id="js-task/custom/closure"><h2>Замыкания</h2>
+</v-code>
+</div><div id="js-task/custom/closure"><h2>Замыкания</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Исправить ошибку. Проверка должна возвращать истину</h3>
