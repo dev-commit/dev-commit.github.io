@@ -5,7 +5,6 @@ ARR_MODULE = [
             ['git/usecase/squash-commit',   emoji.code+setTheme(4, ['Squash Commit'])],
             ['git/usecase/reset-changes',   emoji.code+setTheme(4, ['Отмена изменений'])],
             ['git/usecase/common',          'Общее'],
-            ['git/usecase/other',           'Прочее'],
         ]
     },
     {
@@ -27,7 +26,9 @@ ARR_MODULE = [
             ['git/command/clone',        setTheme(1, ['clone'])],
             ['git/command/add',          setTheme(1, ['add'])],
             ['git/command/commit',       setTheme(1, ['commit'])],
+            ['git/command/remote',       setTheme(1, ['remote'])],
             ['', ''],
+            ['git/command/restore',      setTheme(1, ['restore'])],
             ['git/command/stash',        setTheme(1, ['stash'])],
             ['git/command/revert',       setTheme(1, ['revert'])],
             ['git/command/status',       setTheme(1, ['status'])],
@@ -35,26 +36,37 @@ ARR_MODULE = [
             ['git/command/config',       setTheme(1, ['config'])],
             ['git/command/help',         setTheme(1, ['help'])],
             ['git/command/log',          setTheme(1, ['log'])],
+
+            ['git/command/shortlog',          setTheme(1, ['shortlog'])],
+
             ['git/command/clean',        setTheme(1, ['clean'])],
+            ['', ''],
+            ['git/command/mv',           setTheme(1, ['mv'])],
+            ['git/command/rm',           setTheme(1, ['rm'])],
+            ['git/command/show',         setTheme(1, ['show'])],
             ['', ''],
             ['git/command/tag',          setTheme(5, ['tag'])],
         ]
     },
     {
-        title: 'GitHub',
+        title: 'Теория',
         themes: [
-            ['git/github/terminal-connect', 'Подключение по SSH'],
-            ['git/github/info',             'Теория'],
-            ['git/github/github-desktop',   'GitHub Desktop'],
-            ['git/github/smart-git',        'SmartGit'],
+            ['git/theory/info',    emoji.theory+'Информация'],
+            ['git/theory/gitflow', 'Gitflow'],
+            ['git/theory/vcs',     'Системы управления версиями'],
         ]
     },
     {
-        title: 'Теория',
+        title: 'GitHub',
         themes: [
-            ['git/theory/info',    'Информация'],
-            ['git/theory/vcs',     'Системы управления версиями'],
-            ['git/theory/gitflow', 'Gitflow'],
+            ['git/github/ssh',              'Подключение по SSH'],
+            ['git/github/github-desktop',   'GitHub Desktop'],
+        ]
+    },
+    {
+        title: 'Прочее',
+        themes: [
+            ['git/other/smart-git',        'SmartGit'],
         ]
     },
 ]

@@ -1,11 +1,22 @@
 <div class="v-method-wrapper">
     <v-method before="fetch " method="fetch" after="" arg="">
-    Скачать все ветки с удаленного репозитория
+    Получение актуальной информации о состоянии удаленных веток (указателях) на удаланном репозитории.<br>
+    Обновление веток слежения <u-text-underline>remotes/origin</u-text-underline>
     </v-method>
 </div>
 
+<ul class="list-point">
+    <li>Fetch скачивает все ветки с удаленного репозитория.</li>
+    <li>С локальными указателями веток ничего не происходит.</li>
+    <li>Если кто-то сделал push в ветку - в этот момент fetch скачает недостающие коммиты и передвинет ветки слежения.</li>
+</ul>
+
 <v-code lang="bash" title="">
-git <u-code>fetch --all</u-code>         #
-git <u-code>fetch origin</u-code>        # скачать все ветки с origin, но не мерджить их в локальный репозиторий
-git <u-code>fetch origin</u-code> <em>master</em> # аналогично предыдущему, но только для одной заданной ветки
+git <u-code>fetch --all</u-code>
+
+# скачать все ветки с "origin", но не мерджить их в локальный репозиторий
+git <u-code>fetch origin</u-code>
+
+# скачать ветку "master" с "origin", но не мерджить ее в локальный репозиторий
+git <u-code>fetch origin</u-code> <em>master</em>
 </v-code>

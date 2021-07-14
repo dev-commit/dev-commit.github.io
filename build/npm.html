@@ -127,13 +127,10 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Инструменты</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-node.js    # программная платформа для JavaScript
-npm        # Node.js Package Manager. менеджер пакетов, входящий в состав Node.js
-npx        # инструмент запуска NPM пакетов, доступный в версиях npm 5.2 и выше
-webpack    # сборщик проектов
-git        # репозиторий (установка для Package manager Bower)
-</v-code>
+<ul class="list-point">
+    <li><u-code-text>NPM</u-code-text> - Node.js Package Manager. менеджер пакетов, входящий в состав Node.js</li>
+    <li><u-code-text>NPX</u-code-text> - инструмент запуска NPM пакетов, доступный в версиях npm 5.2 и выше</li>
+</ul>
 </div><div id="npm/npm/command"><h2>Команды</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -190,6 +187,18 @@ npm <u-code>outdated</u-code>                   # вывод текущей и �
 npm <u-code>set registry</u-code> http://myrepositiryurl   # установить registry в .npmrc
 npm <u-code>get registry</u-code>                          # получить registry из .npmrc
 npm <u-code>config ls -l</u-code>                          # содержимое файла .npmrc
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Очистка кеша</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>clean</u-code-text> - удаляет все данные из папки кеша</li>
+</ul>
+
+<v-code lang="bash" title="">
+npm <u-code>cache clean --force</u-code> # очистить кеш в npm
+npm <u-code>cache verify</u-code>        # проверить кеш
 </v-code>
 
 <!------------------------------------------------------------->

@@ -4,10 +4,18 @@
     </v-method>
 </div>
 
-<v-code lang="bash" title="">
+<v-code lang="bash border" title="">
 git <u-code>checkout</u-code> <em>features</em>             # переключение на ветку "features"
 git <u-code>checkout -b</u-code> <em>features</em>          # создание новой ветки "features" и переключение на нее
 git <u-code>checkout -b</u-code> <em>bug/3-a</em> <em>origin/bug/3-a</em>
+</v-code>
+
+<v-code lang="bash" title="">
+# Откатить изменения в файле на момент последнего коммита
+git <u-code>checkout</u-code> <em>FileName</em>
+
+# Откатить изменения в файле на момент заданного коммита
+git <u-code>checkout</u-code> <em>HashCommit</em>
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -21,7 +29,8 @@ git <u-code>checkout -b</u-code> <em>bug/3-a</em> <em>origin/bug/3-a</em>
 <h3>Опция <u-code-text>--orphan</u-code-text></h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="bash" title="">
-# Создание новой ветики без родительского коммита. При этом все файлы из рабочей директории будут на месте
+# Создание новой ветики без родительского коммита
+# При этом все файлы из рабочей директории будут на месте
 git <u-code>checkout --orphan</u-code> <em>features</em>
 
 # Создание новой пустой ветки
