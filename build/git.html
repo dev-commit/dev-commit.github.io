@@ -280,9 +280,17 @@
         <li>
             <a
                 class="menu-link"
+                id="id__git/theory/principle"
+                href="#git/theory/principle"
+            >⚡️ Принцип работы</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
                 id="id__git/theory/gitflow"
                 href="#git/theory/gitflow"
-            >Gitflow</a>
+            >⚡️ Gitflow</a>
         </li>
     
         <li>
@@ -1146,16 +1154,36 @@ git <u-code>push</u-code> origin --delete <em>v1.0.0</em>    # удалить т
 <h3>Прочее</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li><u-text-define>GitLens</u-text-define> - расширение для VSCode</li>
 	<li>Ветка <u>gh-pages</u> предосталяет доступ к ветке в GitHub Pages <u-code>https://USER_NAME.github.io/NAME_BRANCH</u-code></li>
 </ul>
+</div><div id="git/theory/principle"><h2>Принцип работы</h2>
 
-<hr>
-
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Указатели</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li><u-code-text>origin</u-code-text> указывает на удаленный репозиторий, локально <u-code-text>origin</u-code-text> нет</li>
+    <li><u-text-define>HEAD</u-text-define> - ссылка на последний коммит и на текущую ветку ветку</li>
+    <li><u-text-define>Branch</u-text-define> - ветка-указатель на коммит. На один коммит может быть несколько веток-указателей (н-р: merge-commit)</li>
+    <li><u-text-define>remotes/origin/master</u-text-define> - указатель на каком коммите находится указатель ветки в удаленном репозитории. Ветки слежения удаленного репозитория</li>
+    <li>Локально <u>origin</u> нет</li>
 </ul>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Статусы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li><u-text-define>Untracked</u-text-define> - после добавления нового файла</li>
+    <li><u-text-define>Staged</u-text-define> - после <em>git add</em></li>
+    <li><u-text-define>Modified</u-text-define> - после изменения существующего файл</li>
+    <li><u-text-define>Commited</u-text-define> - после <em>git commit</em></li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Правила</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Каждый коммит ссылается на предыдущий. В качестве ссылки выступает хэш-сумма коммита</li>
+</ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Local Operation</h3>

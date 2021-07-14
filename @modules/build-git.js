@@ -36,9 +36,7 @@ ARR_MODULE = [
             ['git/command/config',       setTheme(1, ['config'])],
             ['git/command/help',         setTheme(1, ['help'])],
             ['git/command/log',          setTheme(1, ['log'])],
-
-            ['git/command/shortlog',          setTheme(1, ['shortlog'])],
-
+            ['git/command/shortlog',     setTheme(1, ['shortlog'])],
             ['git/command/clean',        setTheme(1, ['clean'])],
             ['', ''],
             ['git/command/mv',           setTheme(1, ['mv'])],
@@ -51,9 +49,10 @@ ARR_MODULE = [
     {
         title: 'Теория',
         themes: [
-            ['git/theory/info',    emoji.theory+'Информация'],
-            ['git/theory/gitflow', 'Gitflow'],
-            ['git/theory/vcs',     'Системы управления версиями'],
+            ['git/theory/info',       emoji.theory+'Информация'],
+            ['git/theory/principle',  emoji.code+'Принцип работы'],
+            ['git/theory/gitflow',    emoji.code+'Gitflow'],
+            ['git/theory/vcs',        'Системы управления версиями'],
         ]
     },
     {
