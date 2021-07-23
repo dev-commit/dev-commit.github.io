@@ -778,12 +778,18 @@ git <u-code>reset</u-code> HEAD <em>FileName</em>  # если изменения
 </ul>
 
 <v-code lang="bash border" title="">
-git <u-code>reset</u-code> <u-code-accent>--soft</u-code-accent> HEAD~   # <u>ОСТАВИТЬ</u> последующие коммиты
-git <u-code>reset</u-code> <u-code-accent>--hard</u-code-accent> HEAD~   # <u>УДАЛИТЬ</u> последующие коммиты
-git <u-code>reset</u-code> <u-code>--mixed</u-code> HEAD~  # (по умолчанию) смешенный reset (среднее между --soft и --hard)
+git <u-code>reset</u-code> <u-code-accent>--soft</u-code-accent> HEAD~   # мягкий: <u>ОСТАВИТЬ</u> последующие коммиты
+git <u-code>reset</u-code> <u-code-accent>--hard</u-code-accent> HEAD~   # жёсткий: <u>УДАЛИТЬ</u> последующие коммиты
+git <u-code>reset</u-code> <u-code>--mixed</u-code> HEAD~  # смешанный: среднее между --soft и --hard (по умолчанию)
 git <u-code>reset</u-code> <u-code>--keep</u-code> HEAD~   # жёсткий с сохранением изменений
-git <u-code>reset</u-code> <u-code>--merge</u-code> HEAD~  # для отмены неудачного merge
+git <u-code>reset</u-code> <u-code>--merge</u-code> HEAD~  # жёсткий для отмены неудачного merge
 </v-code>
+
+<ul class="list-point">
+    <li><u-code-text>--soft</u-code-text> - только перемещает ветку на указанный коммит. "working directory" и "index" без изменений</li>
+    <li><u-code-text>--mixed</u-code-text> - перемещает ветку на указанный коммит, сбрасывает "index", но не трогакт "working directory"</li>
+    <li><u-code-text>--hard</u-code-text> - сбрасывает "working directory" и "index" (состояние проекта переключается на указанный коммит)</li>
+</ul>
 
 <img src="/@img/git/reset-table.jpg" width="600px">
 </div><div id="git/command/branch"><div class="v-method-wrapper">
