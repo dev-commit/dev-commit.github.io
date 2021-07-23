@@ -3,7 +3,7 @@ const customElementRegistry = window.customElements;
 
 const arrText = ['u-text-underline', 'u-text-header', 'u-text-define', 'u-text-accent'];
 const arrMenu = ['u-menu', 'u-menu-accent', 'u-menu-code', 'u-menu-border', 'u-menu-unactive', 'u-menu-outline'];
-const arrCode = ['u-code', 'u-code-accent', 'u-code-text', 'u-code-flat', 'u-code-list', 'u-code-comment'];
+const arrCode = ['u-code', 'u-code-accent', 'u-code-mod', 'u-code-text', 'u-code-flat', 'u-code-list', 'u-code-comment'];
 const arrMessage = ['u-message-ok', 'u-message-info', 'u-message-warn', 'u-message-error'];
 const arrBlocks = ['u-block-left-padding'];
 
