@@ -42,6 +42,7 @@ ARR_MODULE = [
             ['git/command/mv',           setTheme(1, ['mv'])],
             ['git/command/rm',           setTheme(1, ['rm'])],
             ['git/command/show',         setTheme(1, ['show'])],
+            ['git/command/blame',        setTheme(1, ['blame'])],
             ['', ''],
             ['git/command/tag',          setTheme(5, ['tag'])],
         ]

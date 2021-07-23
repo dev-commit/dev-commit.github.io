@@ -2466,8 +2466,8 @@ alert(a); // 1
 </ul>
 
 <v-code lang="js" title="">
-const a = str.<u-code>length</u-code>;       // длина строки 
-77.<u-code>toString()</u-code>;            // преобразование в строку
+const a = str.<u-code>length</u-code>;       // длина строки
+77.<u-code>toString()</u-code>;              // преобразование в строку
 const arr = str.<u-code>split</u-code>(';'); // преобразование строки с заданным разделителем в массив
 const str = str.<u-code>trim</u-code>();     // обрезает пробелы с начала и конца строки
 </v-code>
@@ -2496,7 +2496,7 @@ const pos = str.<u-code>lastIndexOf</u-code>('name'); // с конца (-1 не 
 <v-code lang="js" title="">
 const root = str.<u-code>slice</u-code>(1, 7);        // вырезать с 1 позиции до 7 позиции не включая
 const root = 'testme'.slice(-2);     // 'me', от 2 позиции с конца
-const root = 'testme'.slice(1, -1);  // "estm", от 1 позиции до первой с конца 
+const root = 'testme'.slice(1, -1);  // "estm", от 1 позиции до первой с конца
 </v-code>
 
 <u-code-list>substring</u-code-list>
@@ -2516,16 +2516,18 @@ const root = 'testme'.substring(4, -1); // 'test', -1 становится 0 -> 
 
 <u-code-list>substr</u-code-list>
 <v-code lang="js" title="">
-const root = str.<u-code>substr</u-code>(1, 4);   // вырезать с 1 позиции 4 символа
-const root = str.substr(1);      // вырезать с 1 позиции до конца строки
+const root = str.<u-code>substr</u-code>(1, 4);  // вырезать с 1 позиции 4 символа
+const root = str.<u-code>substr</u-code>(1);     // вырезать с 1 позиции до конца строки
 </v-code>
 
 <!------------------------------------------------------------->
 <h4>charAt, charCodeAt</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-const root = <u-code>charAt</u-code>(2);     // возвращает символ строки по индексу 
-const root = <u-code>charCodeAt</u-code>(2); // возвращает код символа строки по индексу (все русские буквы находятся в диапазоне от 1040 до 1103)
+// возвращает символ строки по индексу
+const root = <u-code>charAt</u-code>(2);
+// возвращает код символа строки по индексу (все русские буквы находятся в диапазоне от 1040 до 1103)
+const root = <u-code>charCodeAt</u-code>(2);
 </v-code>
 
 <v-code lang="js" title="">

@@ -4,7 +4,7 @@ u-text-underline, u-text-header, u-text-define, u-text-accent,
 /* menu */
 u-menu, u-menu-accent, u-menu-code, u-menu-border, u-menu-unactive, u-menu-outline,
 /* code */
-u-code, u-code-npm, u-code-accent, u-code-text, u-code-flat, u-code-list, u-code-comment,
+u-code, u-code-accent, u-code-text, u-code-flat, u-code-list, u-code-comment,
 /* message */
 u-message-ok, u-message-info, u-message-warn, u-message-error,
 /* blocks */
@@ -19,7 +19,7 @@ u-code-wrapper, u-code-title, u-link-wrapper, u-clipboard
 }
 
 u-menu, u-menu-accent, u-menu-code, u-menu-border, u-menu-unactive, u-menu-outline,
-u-code-text, u-code-flat, u-code-npm
+u-code-text, u-code-flat
 {
 	display: inline-block;
 }
@@ -93,26 +93,23 @@ u-menu-outline {
 /*******************************************
 CODE
 *******************************************/
-u-code {
+u-code, u-code-accent {
 	font-family: monospace;
-	background: rgba(var(--color-sand), 0.4);
 	padding: 1.5px 5px;
-	border: 1px solid rgba(var(--color-sand), 0.7);
-	border-radius: 3px;
-}
-u-code-npm {
-	font-family: monospace;
-	padding: 2px 5px !important;
-	background: rgba(var(--theme-crimson), 0.85) !important;
-	color: white !important;
-	border-radius: 3px !important;
-	line-height: 1.5em;
+	border: 1px solid;
+	border-radius: 4px;
 	font-size: 14px;
 }
-u-code-accent {
-	background: rgba(var(--theme-crimson), 0.4);
-	padding: 2px;
+u-code {
+	background-color: rgba(var(--color-sand), 0.4);
+	border-color: rgba(var(--color-sand), 0.8);
 }
+u-code-accent {
+	background-color: rgba(var(--theme-crimson), 0.8);
+	border-color: rgba(var(--theme-crimson), 0.9);
+	color: white;
+}
+
 u-code-text {
 	font-family: monospace;
 	padding: 2px 5px;

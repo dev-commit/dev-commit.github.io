@@ -16,26 +16,26 @@ module.exports = {
         new ModuleFederationPlugin({
             <u-code-wrapper>
             // Уникальный идентификатор модуля для import .... from 'header/App'
-            <u-code-npm>name</u-code-npm>: 'header',
+            <u-code-accent>name</u-code-accent>: 'header',
 
             // Имя файла точки входа при выборке объединенного модуля
             // В этом файле будет весь экспорт приложения для внешних получателей
             // Будет связано в теге &lt;script&gt; в приложении, использующем этот модуль
             // remoteEntry.js - другой бандл, чьи некоторые части может импортировать host
-            <u-code-npm>filename</u-code-npm>: 'remoteEntry.js',
+            <u-code-accent>filename</u-code-accent>: 'remoteEntry.js',
 
             // Модули, которые доступны для импорта в текущем модуле
-            <u-code-npm>remotes</u-code-npm>: {
+            <u-code-accent>remotes</u-code-accent>: {
                 home: "home@http://localhost:3001/remoteEntry.js",
             },
 
             // Модули, которые будут доступны другим приложениям для импорта
-            <u-code-npm>exposes</u-code-npm>: {
+            <u-code-accent>exposes</u-code-accent>: {
                 './App': './src/App',
             },
 
             // Модули, которые могут быть общими для всего приложения
-            <u-code-npm>shared</u-code-npm>: {
+            <u-code-accent>shared</u-code-accent>: {
                 ...deps,
                 react: {
                     // Позволяет оставаться на текущей версии библиотеки,
@@ -55,7 +55,7 @@ module.exports = {
             },
 
             // Библиотека (?)
-            <u-code-npm>library</u-code-npm>: {
+            <u-code-accent>library</u-code-accent>: {
                 // Тип: 'var' | 'global'
                 <u-code>type</u-code>: 'var',
                 // Название

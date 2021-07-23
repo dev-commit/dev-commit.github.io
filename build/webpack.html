@@ -378,8 +378,8 @@ module.exports = {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <v-pre-npm>
-npm run <u-code-npm>start</u-code-npm>
-npm run <u-code-npm>build</u-code-npm>
+npm run <u-code-accent>start</u-code-accent>
+npm run <u-code-accent>build</u-code-accent>
 </v-pre-npm>
 
 <ul class="list-point">
@@ -732,26 +732,26 @@ module.exports = {
         new ModuleFederationPlugin({
             <u-code-wrapper>
             // Уникальный идентификатор модуля для import .... from 'header/App'
-            <u-code-npm>name</u-code-npm>: 'header',
+            <u-code-accent>name</u-code-accent>: 'header',
 
             // Имя файла точки входа при выборке объединенного модуля
             // В этом файле будет весь экспорт приложения для внешних получателей
             // Будет связано в теге &lt;script&gt; в приложении, использующем этот модуль
             // remoteEntry.js - другой бандл, чьи некоторые части может импортировать host
-            <u-code-npm>filename</u-code-npm>: 'remoteEntry.js',
+            <u-code-accent>filename</u-code-accent>: 'remoteEntry.js',
 
             // Модули, которые доступны для импорта в текущем модуле
-            <u-code-npm>remotes</u-code-npm>: {
+            <u-code-accent>remotes</u-code-accent>: {
                 home: "home@http://localhost:3001/remoteEntry.js",
             },
 
             // Модули, которые будут доступны другим приложениям для импорта
-            <u-code-npm>exposes</u-code-npm>: {
+            <u-code-accent>exposes</u-code-accent>: {
                 './App': './src/App',
             },
 
             // Модули, которые могут быть общими для всего приложения
-            <u-code-npm>shared</u-code-npm>: {
+            <u-code-accent>shared</u-code-accent>: {
                 ...deps,
                 react: {
                     // Позволяет оставаться на текущей версии библиотеки,
@@ -771,7 +771,7 @@ module.exports = {
             },
 
             // Библиотека (?)
-            <u-code-npm>library</u-code-npm>: {
+            <u-code-accent>library</u-code-accent>: {
                 // Тип: 'var' | 'global'
                 <u-code>type</u-code>: 'var',
                 // Название
@@ -791,7 +791,7 @@ module.exports = {
 </div><div id="webpack/plugins/webpack"><h2>webpack</h2>
 
 <v-pre-npm>
-npm i --save-dev <u-code-npm>webpack webpack-cli</u-code-npm>
+npm i --save-dev <u-code-accent>webpack webpack-cli</u-code-accent>
 </v-pre-npm>
 
 <ul class="list-point">
@@ -802,7 +802,7 @@ npm i --save-dev <u-code-npm>webpack webpack-cli</u-code-npm>
 </div><div id="webpack/plugins/webpack-dev-server"><h2>webpack-dev-server</h2>
 
 <v-pre-npm>
-npm i --save-dev <u-code-npm>webpack-dev-server</u-code-npm>
+npm i --save-dev <u-code-accent>webpack-dev-server</u-code-accent>
 </v-pre-npm>
 
 <u-link-wrapper>
@@ -826,7 +826,7 @@ module.exports = {
 </div><div id="webpack/plugins/babel"><h2>babel</h2>
 
 <v-pre-npm>
-npm i --save-dev <u-code-npm>babel-loader</u-code-npm> <u-code-npm>@babel/core</u-code-npm> <u-code-npm>@babel/preset-env</u-code-npm> <u-code>@babel/preset-react</u-code> <u-code>@babel/plugin-proposal-class-properties</u-code>
+npm i --save-dev <u-code-accent>babel-loader</u-code-accent> <u-code-accent>@babel/core</u-code-accent> <u-code-accent>@babel/preset-env</u-code-accent> <u-code>@babel/preset-react</u-code> <u-code>@babel/plugin-proposal-class-properties</u-code>
 </v-pre-npm>
 
 <ul class="list-point">
@@ -883,7 +883,7 @@ module.exports = {
 </div><div id="webpack/plugins/html-webpack-plugin"><h2>html-webpack-plugin</h2>
 
 <v-pre-npm>
-npm i --save-dev <u-code-npm>html-webpack-plugin</u-code-npm>
+npm i --save-dev <u-code-accent>html-webpack-plugin</u-code-accent>
 </v-pre-npm>
 
 <u-link-wrapper>
@@ -910,7 +910,7 @@ module.exports = {
 </div><div id="webpack/plugins/clean-webpack-plugin"><h2>clean-webpack-plugin</h2>
 
 <v-pre-npm>
-npm i --save-dev <u-code-npm>clean-webpack-plugin</u-code-npm>
+npm i --save-dev <u-code-accent>clean-webpack-plugin</u-code-accent>
 </v-pre-npm>
 
 <v-code lang="js" title="">
@@ -931,12 +931,12 @@ module.exports = {
 </div><div id="webpack/plugins/react"><h2>react</h2>
 
 <v-pre-npm>
-npm i --save <u-code-npm>react react-dom</u-code-npm>
+npm i --save <u-code-accent>react react-dom</u-code-accent>
 </v-pre-npm>
 </div><div id="webpack/loaders/css-loader"><h2>css-loader</h2>
 
 <v-pre-npm>
-npm i --save-dev <u-code-npm>css-loader</u-code-npm>
+npm i --save-dev <u-code-accent>css-loader</u-code-accent>
 </v-pre-npm>
 
 <ul class="list-point">
@@ -1012,13 +1012,13 @@ render() {
 
 <v-pre-npm>
 # дополнительные плагины
-<u-code-npm>react-css-modules</u-code-npm>              # возможно его заменил babel-plugin-react-css-modules
-<u-code-npm>babel-plugin-react-css-modules</u-code-npm>
+<u-code-accent>react-css-modules</u-code-accent>              # возможно его заменил babel-plugin-react-css-modules
+<u-code-accent>babel-plugin-react-css-modules</u-code-accent>
 </v-pre-npm>
 </div><div id="webpack/loaders/mini-css-extract-plugin"><h2>mini-css-extract-plugin</h2>
 
 <v-pre-npm>
-npm i --save-dev <u-code-npm>mini-css-extract-plugin</u-code-npm>
+npm i --save-dev <u-code-accent>mini-css-extract-plugin</u-code-accent>
 </v-pre-npm>
 
 <ul class="list-point">
@@ -1059,7 +1059,7 @@ module.exports = {
 </div><div id="webpack/loaders/style-loader"><h2>style-loader</h2>
 
 <v-pre-npm>
-npm i --save-dev <u-code-npm>style-loader</u-code-npm>
+npm i --save-dev <u-code-accent>style-loader</u-code-accent>
 </v-pre-npm>
 
 <ul class="list-point">
@@ -1093,8 +1093,8 @@ module.exports = {
 </div><div id="webpack/loaders/sass-loader"><h2>sass-loader</h2>
 
 <v-pre-npm>
-npm i --save-dev <u-code-npm>sass-loader</u-code-npm>
-npm i --save-dev <u-code-npm>node-sass</u-code-npm>
+npm i --save-dev <u-code-accent>sass-loader</u-code-accent>
+npm i --save-dev <u-code-accent>node-sass</u-code-accent>
 </v-pre-npm>
 
 <ul class="list-point">
@@ -1128,7 +1128,7 @@ import './style.scss';
 </v-code></div><div id="webpack/loaders/file-loader"><h2>file-loader</h2>
 
 <v-pre-npm>
-npm i --save-dev <u-code-npm>file-loader</u-code-npm>
+npm i --save-dev <u-code-accent>file-loader</u-code-accent>
 </v-pre-npm>
 
 <v-code lang="js" title="">
@@ -1161,7 +1161,7 @@ name: '[name].[ext]'
 </v-code></div><div id="webpack/loaders/image-webpack-loader"><h2>image-webpack-loader</h2>
 
 <v-pre-npm>
-npm i --save-dev <u-code-npm>image-webpack-loader</u-code-npm> # оптимизация изображений
+npm i --save-dev <u-code-accent>image-webpack-loader</u-code-accent> # оптимизация изображений
 </v-pre-npm>
 
 <u-link-wrapper>
@@ -1211,7 +1211,7 @@ module.exports = {
 </div><div id="webpack/loaders/html-loader"><h2>html-loader</h2>
 
 <v-pre-npm>
-npm i --save-dev <u-code-npm>html-loader</u-code-npm>
+npm i --save-dev <u-code-accent>html-loader</u-code-accent>
 </v-pre-npm>
 
 <v-code lang="js" title="">
@@ -1235,7 +1235,7 @@ import page from './page.html';
 </div><div id="webpack/postcss/postcss-loader"><h2>postcss-loader</h2>
 
 <v-pre-npm>
-npm i --save-dev <u-code-npm>postcss-loader</u-code-npm>
+npm i --save-dev <u-code-accent>postcss-loader</u-code-accent>
 </v-pre-npm>
 
 <u-link-wrapper>
@@ -1311,7 +1311,7 @@ module.exports = {
 </div><div id="webpack/postcss/autoprefixer"><h2>autoprefixer</h2>
 
 <v-pre-npm>
-npm i --save-dev <u-code-npm>autoprefixer</u-code-npm>
+npm i --save-dev <u-code-accent>autoprefixer</u-code-accent>
 </v-pre-npm>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -1370,7 +1370,7 @@ module.exports = {
 </div><div id="webpack/postcss/cssnano"><h2>cssnano</h2>
 
 <v-pre-npm>
-npm i --save-dev <u-code-npm>cssnano</u-code-npm>
+npm i --save-dev <u-code-accent>cssnano</u-code-accent>
 </v-pre-npm>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -1396,7 +1396,7 @@ module.exports = {
 </div><div id="webpack/postcss/css-mqpacker"><h2>css-mqpacker</h2>
 
 <v-pre-npm>
-npm i --save-dev <u-code-npm>css-mqpacker</u-code-npm>
+npm i --save-dev <u-code-accent>css-mqpacker</u-code-accent>
 </v-pre-npm>
 
 <ul class="list-point">

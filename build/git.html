@@ -264,6 +264,14 @@
         <li>
             <a
                 class="menu-link"
+                id="id__git/command/blame"
+                href="#git/command/blame"
+            ><u-menu>blame</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
                 id="id__git/command/tag"
                 href="#git/command/tag"
             ><u-menu-outline>tag</u-menu-outline></a>
@@ -633,19 +641,19 @@ git <u-code>rebase -i --autosquash</u-code> HEAD~3
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li>
-        <u-code-npm>pick<span>&nbsp;&nbsp;</span></u-code-npm>
+        <u-code-accent>pick<span>&nbsp;&nbsp;</span></u-code-accent>
         <u-code>p</u-code> - использовать коммит без изменений (по умолчанию)
     </li>
     <li>
-        <u-code-npm>reword</u-code-npm>
+        <u-code-accent>reword</u-code-accent>
         <u-code>r</u-code> - использовать текущий коммит с возможностью изменения сообщения коммита
     </li>
     <li>
-        <u-code-npm>drop<span>&nbsp;&nbsp;</span></u-code-npm>
+        <u-code-accent>drop<span>&nbsp;&nbsp;</span></u-code-accent>
         <u-code>d</u-code> - удаление коммита (вместо этого можно удалить строку с коммитом)
     </li>
     <li>
-        <u-code-npm>fixup<span>&nbsp;</span></u-code-npm>
+        <u-code-accent>fixup<span>&nbsp;</span></u-code-accent>
         <u-code>f</u-code> - будет объединен с предыдущем коммитом в списке, но без изменения сообщения коммита
     </li>
     <hr>
@@ -695,10 +703,18 @@ git <u-code>pull --rebase</u-code> origin <em>master</em>  # работает п
 </div>
 
 <v-code lang="bash border" title="">
-git <u-code>merge</u-code> <em>develop</em>         # слияние "develop" в текущую ветку
-git <u-code>merge</u-code> <em>feature</em> <em>develop</em> # замёржить в "feature" из "develop"
-git <u-code>merge --abort</u-code>         # отмена merge
+git <u-code>merge</u-code> <em>develop</em>           # слияние "develop" в текущую ветку
+git <u-code>merge</u-code> <em>feature</em> <em>develop</em>  # замёржить в "feature" из "develop"
+git <u-code>merge --abort</u-code>           # отменить merge
+git <u-code>merge --continue </u-code>       # прололжить merge
+git <u-code>merge --squash</u-code> <em>feature</em>  # засквошить коммиты при merge (не сработает "merge --abort" и "merge --continue")
 </v-code>
+
+<ul class="list-point">
+    <li>При <u-code-text>merge --squash</u-code-text> не сработает <u-code-text>merge --abort</u-code-text> и <u-code-text>merge --continue</u-code-text>, т.к. не создается <u>.git/MERGE_HEAD</u> с идентификатором коммита с которым происходит слияние</li>
+</ul>
+
+<hr>
 
 <ul class="list-point">
     <li>Разрешение конфликтов разницы "develop" и "feature"</li>
@@ -737,13 +753,14 @@ git <u-code>merge</u-code> <em>develop</em>     # merge из develop в свою
     <v-method before="fetch " method="reset" after="" arg="">
     Отмена изменений. Изменяет указатель HEAD и, опционально, состояние индекса.
     <ul class="list-point">
+        <li>Передвигает ветку на указанный коммит</li>
         <li>Сбросить коммиты до начального в ветке</li>
         <li>Убрать из индексации все файлы и директории, которые возможно уже были проиндексировалы с помощью <u>git add</u></li>
     </ul>
     </v-method>
 </div>
 
-<v-code lang="bash" title="">
+<v-code lang="bash border" title="">
 git <u-code>reset</u-code> HEAD~          # отменить 1 коммит
 git <u-code>reset</u-code> HEAD~1         # отменить 1 коммит
 git <u-code>reset</u-code> HEAD^          # отменить 1 коммит
@@ -753,10 +770,22 @@ git <u-code>reset</u-code> <em>HashCommit</em>     # откатиться к к�
 git <u-code>reset</u-code> HEAD <em>FileName</em>  # если изменения были индексированны и нужно откатиться перед самим коммитом
 </v-code>
 
-<v-code lang="bash" title="">
-git <u-code>reset</u-code> <u-code-npm>--soft</u-code-npm> HEAD~  # откатиться к коммиту и <u>ОСТАВИТЬ</u> последующие
-git <u-code>reset</u-code> <u-code-npm>--hard</u-code-npm> HEAD~  # откатиться к коммиту и <u>УДАЛИТЬ</u> последующие
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Виды reset</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Каждый вид <u>reset</u> позволяет откатиться к указанному коммиту</li>
+</ul>
+
+<v-code lang="bash border" title="">
+git <u-code>reset</u-code> <u-code-accent>--soft</u-code-accent> HEAD~   # <u>ОСТАВИТЬ</u> последующие коммиты
+git <u-code>reset</u-code> <u-code-accent>--hard</u-code-accent> HEAD~   # <u>УДАЛИТЬ</u> последующие коммиты
+git <u-code>reset</u-code> <u-code>--mixed</u-code> HEAD~  # (по умолчанию) смешенный reset (среднее между --soft и --hard)
+git <u-code>reset</u-code> <u-code>--keep</u-code> HEAD~   # жёсткий с сохранением изменений
+git <u-code>reset</u-code> <u-code>--merge</u-code> HEAD~  # для отмены неудачного merge
 </v-code>
+
+<img src="/@img/git/reset-table.jpg" width="600px">
 </div><div id="git/command/branch"><div class="v-method-wrapper">
     <v-method before="git " method="branch" after="" arg="">
     Список веток с указанием текущей
@@ -1166,6 +1195,17 @@ git <u-code>rm</u-code> <em>FileName</em>  # Удалить файл
 <v-code lang="bash" title="">
 # Изменения, сделанные в заданном коммите
 git <u-code>show</u-code> <em>HashCommit</em>
+</v-code>
+</div><div id="git/command/blame"><div class="v-method-wrapper">
+    <v-method before="git " method="blame" after="" arg="">
+    Инфорация об авторах коммита конкретного файла
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>blame</u-code> <em>FileName</em>     # показать список авторов файла
+git <u-code>blame</u-code> --date-short # укоротить дату
+git <u-code>blame</u-code> -L 5,8       # указать интересующие строки
 </v-code>
 </div><div id="git/command/tag"><div class="v-method-wrapper">
     <v-method before="git " method="tag" after="" arg="">

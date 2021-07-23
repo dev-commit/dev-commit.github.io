@@ -5,10 +5,18 @@
 </div>
 
 <v-code lang="bash border" title="">
-git <u-code>merge</u-code> <em>develop</em>         # слияние "develop" в текущую ветку
-git <u-code>merge</u-code> <em>feature</em> <em>develop</em> # замёржить в "feature" из "develop"
-git <u-code>merge --abort</u-code>         # отмена merge
+git <u-code>merge</u-code> <em>develop</em>           # слияние "develop" в текущую ветку
+git <u-code>merge</u-code> <em>feature</em> <em>develop</em>  # замёржить в "feature" из "develop"
+git <u-code>merge --abort</u-code>           # отменить merge
+git <u-code>merge --continue </u-code>       # прололжить merge
+git <u-code>merge --squash</u-code> <em>feature</em>  # засквошить коммиты при merge (не сработает "merge --abort" и "merge --continue")
 </v-code>
+
+<ul class="list-point">
+    <li>При <u-code-text>merge --squash</u-code-text> не сработает <u-code-text>merge --abort</u-code-text> и <u-code-text>merge --continue</u-code-text>, т.к. не создается <u>.git/MERGE_HEAD</u> с идентификатором коммита с которым происходит слияние</li>
+</ul>
+
+<hr>
 
 <ul class="list-point">
     <li>Разрешение конфликтов разницы "develop" и "feature"</li>

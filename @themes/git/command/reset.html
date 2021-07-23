@@ -2,13 +2,14 @@
     <v-method before="fetch " method="reset" after="" arg="">
     Отмена изменений. Изменяет указатель HEAD и, опционально, состояние индекса.
     <ul class="list-point">
+        <li>Передвигает ветку на указанный коммит</li>
         <li>Сбросить коммиты до начального в ветке</li>
         <li>Убрать из индексации все файлы и директории, которые возможно уже были проиндексировалы с помощью <u>git add</u></li>
     </ul>
     </v-method>
 </div>
 
-<v-code lang="bash" title="">
+<v-code lang="bash border" title="">
 git <u-code>reset</u-code> HEAD~          # отменить 1 коммит
 git <u-code>reset</u-code> HEAD~1         # отменить 1 коммит
 git <u-code>reset</u-code> HEAD^          # отменить 1 коммит
@@ -18,7 +19,19 @@ git <u-code>reset</u-code> <em>HashCommit</em>     # откатиться к к�
 git <u-code>reset</u-code> HEAD <em>FileName</em>  # если изменения были индексированны и нужно откатиться перед самим коммитом
 </v-code>
 
-<v-code lang="bash" title="">
-git <u-code>reset</u-code> <u-code-npm>--soft</u-code-npm> HEAD~  # откатиться к коммиту и <u>ОСТАВИТЬ</u> последующие
-git <u-code>reset</u-code> <u-code-npm>--hard</u-code-npm> HEAD~  # откатиться к коммиту и <u>УДАЛИТЬ</u> последующие
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Виды reset</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Каждый вид <u>reset</u> позволяет откатиться к указанному коммиту</li>
+</ul>
+
+<v-code lang="bash border" title="">
+git <u-code>reset</u-code> <u-code-accent>--soft</u-code-accent> HEAD~   # <u>ОСТАВИТЬ</u> последующие коммиты
+git <u-code>reset</u-code> <u-code-accent>--hard</u-code-accent> HEAD~   # <u>УДАЛИТЬ</u> последующие коммиты
+git <u-code>reset</u-code> <u-code>--mixed</u-code> HEAD~  # (по умолчанию) смешенный reset (среднее между --soft и --hard)
+git <u-code>reset</u-code> <u-code>--keep</u-code> HEAD~   # жёсткий с сохранением изменений
+git <u-code>reset</u-code> <u-code>--merge</u-code> HEAD~  # для отмены неудачного merge
 </v-code>
+
+<img src="/@img/git/reset-table.jpg" width="600px">
