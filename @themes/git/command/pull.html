@@ -10,8 +10,30 @@ git <u-code>pull</u-code> origin <em>master</em>  # замержить ветк�
 git <u-code>pull</u-code> origin HEAD    # замерджить текущую ветку
 </v-code>
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты pull</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>Через merge (по умолчанию)</h4>
+<!------------------------------------------------------------->
 <ul class="list-point">
-    <li><u-text-underline>git pull</u-text-underline> внутри выполняет 2 команды</li>
-    <li><u-code-text>git fetch origin</u-code-text></li>
-    <li><u-code-text>git merge origin/master</u-code-text></li>
+    <li><u-text-underline>git pull</u-text-underline> внутри выполняет: <u-text-underline>git fetch</u-text-underline> и <u-text-underline>git merge</u-text-underline></li>
 </ul>
+
+<v-code lang="bash" title="">
+git <u-code>pull</u-code> origin
+# или
+git <u-code>fetch</u-code> origin
+git <u-code>merge</u-code> origin/master
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Через rebase</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+git <u-code>pull</u-code> --rebase origin master
+# или
+git <u-code>fetch</u-code> origin
+git <u-code>rebase</u-code> origin/master
+</v-code>

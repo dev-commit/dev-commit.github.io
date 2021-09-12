@@ -32,6 +32,7 @@ ARR_MODULE = [
             ['typescript/methods/pick',     setTheme(5, ['Pick'])],
             ['typescript/methods/exclude',  setTheme(5, ['Exclude'])],
             ['typescript/methods/record',   setTheme(5, ['Record'])],
+            ['typescript/methods/partial',  setTheme(5, ['Partial'])],
             ['typescript/methods/omit',     setTheme(5, ['Omit'])],
         ]
     },

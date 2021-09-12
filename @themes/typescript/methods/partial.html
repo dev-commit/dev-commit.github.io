@@ -1,0 +1,35 @@
+<h2>Partial</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Partial</u-text-define> - создает тип со всеми свойствами <u>Type</u>, установленными как <u>optional</u>. Эта утилита вернет тип, представляющий все подмножества данного типа.</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определение типа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="">
+Partial&lt;Type&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+interface Todo {
+    title: string;
+    description: string;
+}
+
+function updateTodo(todo: Todo, fieldsToUpdate: Partial&lt;Todo&gt;) {
+      return { ...todo, ...fieldsToUpdate };
+}
+
+const todo1 = {
+    title: "organize desk",
+    description: "clear clutter",
+};
+
+const todo2 = updateTodo(todo1, {
+    description: "throw out trash",
+});
+</v-code>
