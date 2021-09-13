@@ -16,9 +16,9 @@ ARR_MODULE = [
             ['sass/main/import',     setTheme(1, ['@import'])],
             ['sass/main/each',       setTheme(1, ['@each'])],
             ['sass/main/at-root',    setTheme(1, ['@at-root'])],
+            ['sass/main/if-else',    setTheme(1, ['@if', '@else'])],
+            ['sass/main/for',        setTheme(1, ['@for', '@while'])],
 
-            ['sass/main/if-else',    'Условия if-else'],
-            ['sass/main/for',        'Циклы For, While'],
             ['sass/main/other',      'Дополнительно'],
         ]
     },
