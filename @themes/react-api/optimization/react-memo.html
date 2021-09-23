@@ -1,13 +1,23 @@
 <h2>React.memo</h2>
 
-<v-code lang="js" title="">
-import React, { memo } from 'react';
+<v-code lang="js border" title="">
+import { memo } from 'react';
 
-const MyComponent = React.memo(function MyComponent(props) {
-	// рендер с использованием пропсов
-});
+const App = (props) => {
+	//
+}
 
-// export default memo(MyComponent);
+export default <u-code>memo</u-code>(App);
+</v-code>
+
+<v-code lang="js border" title="">
+import { memo } from 'react';
+
+export const App = <u-code>memo</u-code>(
+    (props) => {
+        //
+    },
+);
 </v-code>
 
 <ul class="list-point">
@@ -17,14 +27,21 @@ const MyComponent = React.memo(function MyComponent(props) {
     <li>Этот метод предназначен только для <u>оптимизации производительности</u>. Не полагайтесь на него, чтобы «предотвратить» рендер, так как это может привести к ошибкам</li>
 </ul>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
+import React from 'react';
+
 function MyComponent(props) {
 	// рендер с использованием пропсов
 }
+
 function areEqual(prevProps, nextProps) {
 	// возвращает true, если nextProps рендерит
 	// тот же результат что и prevProps, иначе возвращает false
 }
+
 export default React.memo(MyComponent, areEqual);
 </v-code>
 

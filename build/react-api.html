@@ -26,7 +26,7 @@
                 class="menu-link"
                 id="id__react-api/react/component"
                 href="#react-api/react/component"
-            >🔰 <u-menu-unactive>React.Component</u-menu-unactive></a>
+            ><u-menu>React.Component</u-menu></a>
         </li>
     
         <li>
@@ -34,7 +34,7 @@
                 class="menu-link"
                 id="id__react-api/react/create-element"
                 href="#react-api/react/create-element"
-            >🔰 <u-menu-unactive>React.createElement()</u-menu-unactive></a>
+            ><u-menu>React.createElement()</u-menu></a>
         </li>
     
         <li>
@@ -42,7 +42,7 @@
                 class="menu-link"
                 id="id__react-api/react/clone-element"
                 href="#react-api/react/clone-element"
-            >🔰 <u-menu-unactive>React.cloneElement()</u-menu-unactive></a>
+            ><u-menu>React.cloneElement()</u-menu></a>
         </li>
     
         <li>
@@ -50,7 +50,7 @@
                 class="menu-link"
                 id="id__react-api/react/create-factory"
                 href="#react-api/react/create-factory"
-            >🔰 <u-menu-unactive>React.createFactory</u-menu-unactive></a>
+            ><u-menu>React.createFactory</u-menu></a>
         </li>
     
         <li>
@@ -58,7 +58,7 @@
                 class="menu-link"
                 id="id__react-api/react/is-valid-element"
                 href="#react-api/react/is-valid-element"
-            >🔰 <u-menu-unactive>React.isValidElement()</u-menu-unactive></a>
+            ><u-menu>React.isValidElement()</u-menu></a>
         </li>
     </ul><h4>🥥 Оптимизация</h4><ul>
         <li>
@@ -74,7 +74,7 @@
                 class="menu-link"
                 id="id__react-api/optimization/react-pure-component"
                 href="#react-api/optimization/react-pure-component"
-            >🔰 <u-menu-unactive>React.PureComponent</u-menu-unactive></a>
+            ><u-menu>React.PureComponent</u-menu></a>
         </li>
     
         <li>
@@ -82,7 +82,7 @@
                 class="menu-link"
                 id="id__react-api/optimization/react-memo"
                 href="#react-api/optimization/react-memo"
-            >🔰 <u-menu-unactive>React.memo</u-menu-unactive></a>
+            ><u-menu>React.memo</u-menu></a>
         </li>
     
         <li>
@@ -90,7 +90,7 @@
                 class="menu-link"
                 id="id__react-api/optimization/react-lazy"
                 href="#react-api/optimization/react-lazy"
-            >🔰 <u-menu-unactive>React.lazy</u-menu-unactive> <u-menu-unactive>React.Suspense</u-menu-unactive></a>
+            ><u-menu>React.lazy</u-menu> <u-menu>React.Suspense</u-menu></a>
         </li>
     </ul><h4>🥥 Компоненты</h4><ul>
         <li>
@@ -98,7 +98,7 @@
                 class="menu-link"
                 id="id__react-api/components/set-state"
                 href="#react-api/components/set-state"
-            >🔰 <u-menu-unactive>setState()</u-menu-unactive></a>
+            ><u-menu>setState()</u-menu></a>
         </li>
     
         <li>
@@ -106,7 +106,7 @@
                 class="menu-link"
                 id="id__react-api/components/force-update"
                 href="#react-api/components/force-update"
-            >🔰 <u-menu-unactive>forceUpdate()</u-menu-unactive></a>
+            ><u-menu>forceUpdate()</u-menu></a>
         </li>
     </ul><h4>🥥 DOM-атрибуты</h4><ul>
         <li>
@@ -114,7 +114,7 @@
                 class="menu-link"
                 id="id__react-api/dom/dangerously-set-inner-html"
                 href="#react-api/dom/dangerously-set-inner-html"
-            >🔰 <u-menu-unactive>dangerouslySetInnerHTML</u-menu-unactive></a>
+            ><u-menu>dangerouslySetInnerHTML</u-menu></a>
         </li>
     </ul>
                 </div>
@@ -364,14 +364,24 @@ ReactDOM.render(&lt;A someProps={2} /&gt;, root);
 
 </div><div id="react-api/optimization/react-memo"><h2>React.memo</h2>
 
-<v-code lang="js" title="">
-import React, { memo } from 'react';
+<v-code lang="js border" title="">
+import { memo } from 'react';
 
-const MyComponent = React.memo(function MyComponent(props) {
-	// рендер с использованием пропсов
-});
+const App = (props) => {
+	//
+}
 
-// export default memo(MyComponent);
+export default <u-code>memo</u-code>(App);
+</v-code>
+
+<v-code lang="js border" title="">
+import { memo } from 'react';
+
+export const App = <u-code>memo</u-code>(
+    (props) => {
+        //
+    },
+);
 </v-code>
 
 <ul class="list-point">
@@ -381,14 +391,21 @@ const MyComponent = React.memo(function MyComponent(props) {
     <li>Этот метод предназначен только для <u>оптимизации производительности</u>. Не полагайтесь на него, чтобы «предотвратить» рендер, так как это может привести к ошибкам</li>
 </ul>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
+import React from 'react';
+
 function MyComponent(props) {
 	// рендер с использованием пропсов
 }
+
 function areEqual(prevProps, nextProps) {
 	// возвращает true, если nextProps рендерит
 	// тот же результат что и prevProps, иначе возвращает false
 }
+
 export default React.memo(MyComponent, areEqual);
 </v-code>
 
