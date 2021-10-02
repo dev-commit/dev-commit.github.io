@@ -29,8 +29,6 @@ ARR_MODULE = [
             ['js/main/bind',                     emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
             ['js/main/context',                  emoji.baseball+'Контекст'],
             ['js/function/arrow',                emoji.favorite+'Стрелочные функции'],
-            ['js-async/theory/event-loop',       emoji.lemon+'Event Loop'],
-            ['js-async/theory/event-loop-tasks', emoji.lemon+'Event Loop: Tasks'],
         ]
     },
     {
