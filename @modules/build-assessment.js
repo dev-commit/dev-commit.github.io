@@ -47,7 +47,7 @@ ARR_MODULE = [
             ['js/main/spread-obj',         emoji.code+'Spread Obj (ES-2018)'],
             ['js/main/destructive-array',  emoji.pizza+'Деструктуризация Arr (ES6)'],
             ['js/main/destructive-obj',    emoji.pizza+'Деструктуризация Obj (ES6)'],
-            ['js-async/async/async-func',  emoji.boom+'Async Function (ES2017)'],
+            ['js/async/async-func',        emoji.boom+'Async Function (ES2017)'],
         
         ]
     },
