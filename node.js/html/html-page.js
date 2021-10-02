@@ -63,6 +63,7 @@ export const getIndexHTML = ({ up, title, script, menu, content }) => (`
             <!-- CSS -->
             <link rel="stylesheet" type="text/css" href="${up}src/css/basic.css">
             <link rel="stylesheet" type="text/css" href="${up}src/css/index.css">
+            <link rel="stylesheet" type="text/css" href="${up}src/css/themes.css">
 
             <!-- Libraries -->
             <script src="${up}src/libs/highlight/highlight.pack.js"></script>

@@ -1738,10 +1738,15 @@ const getPerson = function() {
 </div><div id="js-async/theory/event-loop"><h2>Архитектура среды выполнения JS</h2>
 
 <u-link-wrapper>
-    <a href="https://www.youtube.com/watch?v=8cV4ZvHXQL4" target="_blank">YouTube. Филип Робертс</a>
-    <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/EventLoop" target="_blank">MDN</a>
-    <a href="https://habr.com/ru/post/461401/" target="_blank">Habr</a>
-    <a href="https://medium.com/@stasonmars/полное-понимание-синхронного-и-асинхронного-javascript-с-async-await-ba5f47f4436" target="_blank">Medium</a>
+    <b>Видео</b><br>
+    <a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ" target="_blank">YouTube EN: Филип Робертс</a>
+    <a href="https://www.youtube.com/watch?v=cCOL7MC4Pl0" target="_blank">YouTube EN: Джейк Арчибальд</a>
+    <hr>
+
+    <b>Статьи</b><br>
+    <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/EventLoop" target="_blank">MDN: Параллельная модель и цикл событий</a>
+    <a href="https://habr.com/ru/post/461401/" target="_blank">Habr: Что ты такое, Event Loop? Или как устроен цикл событий в браузере Chrome</a>
+    <a href="https://stasonmars.ru/javascript/polnoe-ponimanie-syncronnogo-i-asyncronnogo-javascript-s-async-await/" target="_blank">Полное понимание синхронного и асинхронного JavaScript с Async/Await</a>
 </u-link-wrapper>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -1877,11 +1882,10 @@ console.log('Bye');
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Render Tasks</h3>
+<h3>Animation Callbacks (Render Tasks)</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li>Задачи от Render оптимизируются браузером и, если он посчитает, что в этом цикле не нужно ничего перерисовывать, то Event Loop просто пойдет дальше</li>
-    <li><b>Примеры:</b> </li>
 </ul>
 
 <ul class="list-point">
@@ -1893,8 +1897,6 @@ console.log('Bye');
     <li><u-code-list>I/O</u-code-list></li>
     <li><u-code-list>Рендеринг пользовательского интерфейса</u-code-list></li>
 </ul>
-
-
 </div><div id="js/closures/closures"><h2>Замыкания</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -3106,7 +3108,6 @@ $body.css('margin', '2px');
 <ul class="list-point">
     <li>Когда страница уже сгенерирована, нужно постоянно отслеживать ее актуальность. Для этого вы должны использовать серверный кэш с отслеживанием времени изменения отдельных частей страницы (если страница строится из множества динамически генерируемых блоков). При таком подходе в каждом ответе от сервера установлены специальные заголовки, обозначающие время изменения страницы, которые затем отправляются браузером пользователя при повторном обращении к странице сайта. Сервер при получении таких заголовков может проанализировать текущее состояние страницы (возможно, даже отрисовать её), но вместо содержимого страницы отдать заголовок «304 Not Modified», что для пользовательского браузера будет означать, что можно показать страницу из своего (браузера пользователя) кэша.</li>
     <li>Конечно, можно отправлять соответствующие заголовки без использования серверного отслеживания кэша, но в таком случае большинство пользователей получат обновление контента страницы довольно поздно. При таком подходе браузер иногда опрашивает сервер для получения обновлений, но периодичность и правила для каждого браузера настраиваются его разработчиком, поэтому надеяться на то, что ваши пользователи получат обновления вовремя, не приходится.</li>
-    <li></li>
 </ul>
 
 <hr>
@@ -4310,6 +4311,7 @@ Decoupling
             <!-- CSS -->
             <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
             <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/themes.css">
 
             <!-- Libraries -->
             <script src="../src/libs/highlight/highlight.pack.js"></script>

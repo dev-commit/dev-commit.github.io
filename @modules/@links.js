@@ -2,7 +2,7 @@
 // THEME: green, blue, crimson, brown, violet
 
 const ARR_LINKS = [
-    { page: 'assessment',              theme: 'brown',    title: 'Ассессмент' },
+    { page: 'assessment',              theme: 'brown-border',    title: 'Ассессмент' },
     { page: 'js-task',                 theme: 'brown',    title: '🍕 Задачи' },
     { page: 'theory',                  theme: 'brown',    title: '📑 Теория' },
     null,
