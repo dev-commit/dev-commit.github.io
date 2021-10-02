@@ -17,8 +17,8 @@ const ARR_LINKS = [
     { page: 'js-objects',              theme: 'blue',     title: '☁️ Objects' },
     null,
     { page: 'js',                      theme: 'green',    title: '🥥 JavaScript' },
-    { page: 'js-async',                theme: 'green',    title: 'Асинхронность' },
-    { page: 'js-network',              theme: 'green',    title: 'Сеть' },
+    { page: 'js-async',                theme: 'green',    title: 'Async' },
+    { page: 'js-network',              theme: 'green',    title: 'Network' },
     { page: 'js-web-api',              theme: 'green',    title: 'Web API' },
     null,
     { page: 'react-js',                theme: 'violet',   title: '🥥 React.js' },
@@ -69,5 +69,5 @@ const ARR_LINKS = [
     { page: 'php',                     theme: 'gray',     title: 'PHP' },
     { page: 'python',                  theme: 'gray',     title: 'Python' },
     { page: 'mysql',                   theme: 'gray',     title: 'mySql' },
-    { page: 'wiki',                    theme: 'gray',     title: 'Wiki' },
+    { page: 'wiki',                    theme: 'blue',     title: 'Wiki' },
 ];
