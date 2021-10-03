@@ -16,12 +16,20 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'Рендеринг',
+        accent: true,
+        themes: [
+            [root+'rendering/rendering',               emoji.theory+'Ренденинг'],
+            [root+'rendering/requestAnimationFrame',   setTheme(1, ['requestAnimationFrame'])],
+            [root+'rendering/repaint-and-reflow',      emoji.fire+'Repaint & Reflow'],
+            [root+'rendering/critical-rendering-path', emoji.fire+'Critical Rendering Path'],
+        ]
+    },
+    {
         title: 'Оптимизация',
         accent: true,
         themes: [
             [root+'optimization/info',                    emoji.theory+'Оптимизация загрузки'],
-            [root+'optimization/critical-rendering-path', emoji.fire+'Critical Rendering Path'],
-            [root+'optimization/repaint-and-reflow',      emoji.fire+'Repaint & Reflow'],
             [root+'optimization/caching',                 emoji.star+'Кэширование'],
             [root+'optimization/tree-shaking',            emoji.star+'Tree shaking'],
         ]

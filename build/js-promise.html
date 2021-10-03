@@ -474,7 +474,7 @@ Promise.race([p1, p2, p3])
 </div><div id="js-promise/samples/chaining"><h2>.then .catch .finally</h2>
 
 <v-code lang="js" title="">
-Promise.resolve(1);
+Promise.resolve(1)
     // Promise.resolve вернул "1"
     // => "<em>1</em>"
     <u-code>.then</u-code>(data => console.log(data))
@@ -531,12 +531,30 @@ Promise.resolve(1);
 
 <v-code lang="js" title="">
 Promise.resolve()
-    .then(() => console.log(1)) // Первый
-    .then(() => console.log(3)) // Третий
+    <u-code>.then</u-code>(() => console.log(1))  // "<em>Первый</em>"
+    <u-code>.then</u-code>(() => console.log(2))  // "<em>Третий</em>"
 
 Promise.resolve()
-    .then(() => console.log(2)) // Второй
-    .then(() => console.log(4)) // Четвертый
+    <u-code>.then</u-code>(() => console.log(11)) // "<em>Второй</em>"
+    <u-code>.then</u-code>(() => console.log(12)) // "<em>Четвертый</em>"
+</v-code>
+
+<ul class="list-point">
+    <li>При catch аналогично</li>
+</ul>
+
+<v-code lang="js" title="">
+Promise.resolve()
+	<u-code>.then</u-code>(() => console.log(1))                          // "<em>Первый</em>"
+	<u-code>.then</u-code>(() => { console.log(2); throw new Error(); })  // "<em>Третий</em>"
+	<u-code>.catch</u-code>(() => console.log(3))                         // "<em>Пятый</em>"
+	<u-code>.then</u-code>(() => console.log(4))                          // "<em>Седьмой</em>"
+
+Promise.resolve()
+	<u-code>.then</u-code>(() => console.log(11))                         // "<em>Второй</em>"
+	<u-code>.then</u-code>(() => { console.log(12); throw new Error(); }) // "<em>Четвертый</em>"
+	<u-code>.catch</u-code>(() => console.log(13))                        // "<em>Шестой</em>"
+	<u-code>.then</u-code>(() => console.log(14))                         // "<em>Восьмой</em>"
 </v-code>
 </div><div id="js-promise/samples/other"><h2>Примеры</h2>
 

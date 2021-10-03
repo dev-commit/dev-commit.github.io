@@ -1,0 +1,45 @@
+<h2>requestAnimationFrame</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="window" method="requestAnimationFrame" after="" arg="(callback, element)">
+    Указывает браузеру на то, что вы хотите произвести анимацию, и просит его запланировать перерисовку на следующем кадре анимации. В качестве параметра метод получает функцию, которая будет вызвана перед перерисовкой.
+    </v-method>
+
+	<v-method-arg arg="callback">функция, которая будет вызвана, когда придёт время обновить вашу анимацию на следующей перерисовке</v-method-arg>
+	<v-method-arg arg="element">(необязательный) - (не используется в Firefox или IE), определяющий элемент, который визуально содержит всю анимацию. Для canvas'а и WebGL'a им должен быть Canvas. Для других элементов вы можете опустить этот параметр для чуть лучшего пользовательского опыта</v-method-arg>
+
+	<v-method-return>requestID - длинное целое, являющееся уникальным идентификатором для записи, содержащей callback. Оно не равно нулю, но других предположений о его значении делать не следует. Вы можете передать его в window.cancelAnimationFrame() для отмены вызова</v-method-return>
+</div>
+
+<ul class="list-point">
+    <li><b>Примечание</b>: Ваш callback метод сам должен вызвать requestAnimationFrame() иначе анимация остановится.</li>
+    <li>Вы должны вызывать этот метод всякий раз, когда готовы обновить анимацию на экране, чтобы запросить планирование анимации. Обычно запросы происходят 60 раз в секунду, но чаще всего совпадают с частотой обновления экрана. Большинство дисплеев обновляются с частотой 60Гц.</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование requestAnimationFrame</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+let step = 1;
+
+const animate = () => {
+	const element = document.getElementById('element');
+	element.style.transform = `translateX(${step++}px)`;
+    // callback явно вызывает requestAnimationFrame
+	window.<u-code>requestAnimationFrame</u-code>(animate);
+}
+
+window.<u-code>requestAnimationFrame</u-code>(animate);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Стандартное поведение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// до рендеринга дойдёт только последний
+button.addEventListener('click', () => {
+	box.style.display = 'none';
+	box.style.display = 'block';
+	box.style.display = 'none';
+})
+</v-code>
