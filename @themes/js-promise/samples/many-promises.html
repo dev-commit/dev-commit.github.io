@@ -1,0 +1,15 @@
+<h2>Несколько Promise</h2>
+
+<ul class="list-point">
+    <li>Если несколько Promise, то "then" будет выполняться последовательно для каждого</li>
+</ul>
+
+<v-code lang="js" title="">
+Promise.resolve()
+    .then(() => console.log(1)) // Первый
+    .then(() => console.log(3)) // Третий
+
+Promise.resolve()
+    .then(() => console.log(2)) // Второй
+    .then(() => console.log(4)) // Четвертый
+</v-code>

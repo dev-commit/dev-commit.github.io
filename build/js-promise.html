@@ -72,9 +72,25 @@
         <li>
             <a
                 class="menu-link"
-                id="id__js-promise/samples/samples"
-                href="#js-promise/samples/samples"
-            >Примеры</a>
+                id="id__js-promise/samples/chaining"
+                href="#js-promise/samples/chaining"
+            ><u-menu-outline>.then</u-menu-outline> <u-menu-outline>.catch</u-menu-outline> <u-menu-outline>.finally</u-menu-outline></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-promise/samples/many-promises"
+                href="#js-promise/samples/many-promises"
+            >🔰 Несколько Promise</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-promise/samples/other"
+                href="#js-promise/samples/other"
+            >Прочее</a>
         </li>
     </ul><h4>🥥 Прочее</h4><ul>
         <li>
@@ -371,61 +387,6 @@ promise
 <v-code lang="js" title="">
 promise<u-code>.then</u-code>(functionResolve())
 </v-code>
-
-
-
-
-
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Пример</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<v-code lang="js" title="">
-const promise = Promise.resolve(1);
-
-promise
-	// Promise.resolve вернул "1"
-	.then(data => console.log(data)) // "1"
-
-	// then ничего не вернул
-	.then(data => {
-		console.log(data); // "undefined"
-		return 2;
-	})
-
-	// then вернул "2"
-	.then(data => {
-		console.log(data); // "2"
-		throw new Error('Api Error')
-	})
-
-	// предудущий then бросил ошибку
-	.then(data => console.log('Hello'))
-
-	// минуя then попадаем в catch
-	.catch(error => {
-		console.log(error.message); // "Api Error"
-		return 3;
-	})
-
-	// catch вернул "3"
-	.then(data => {
-		console.log(data); // "3"
-		return 4;
-	})
-
-	// then вернул 4, но finally пропустит его мимо себя
-	.finally(data => { 
-		console.log(data); // "undefined"
-		return 5;
-	})
-
-	// из finally вернули "5", но результат берется из предудщего then или catch
-	.then(data => console.log(data)) // "4"
-</v-code>
-
 </div><div id="js-promise/methods/method-resolve-reject"><h2>Promise.resolve(value) и Promise.reject(error)</h2>
 
 <div class="v-method-wrapper">
@@ -510,7 +471,74 @@ Promise.all([p1, p2, p3])
 Promise.race([p1, p2, p3])
 	.then(value => console.log(value));
 </v-code>
-</div><div id="js-promise/samples/samples"><h2>Примеры</h2>
+</div><div id="js-promise/samples/chaining"><h2>.then .catch .finally</h2>
+
+<v-code lang="js" title="">
+Promise.resolve(1);
+    // Promise.resolve вернул "1"
+    // => "<em>1</em>"
+    <u-code>.then</u-code>(data => console.log(data))
+<hr>
+    // then ничего не вернул
+    <u-code>.then</u-code>(data => {
+        // => "<em>undefined</em>"
+        console.log(data);
+        return 2;
+    })
+<hr>
+    // then вернул "2"
+    <u-code>.then</u-code>(data => {
+        // => "<em>2</em>"
+        console.log(data);
+        // возникновение ошибки
+        throw new Error('Api Error');
+        // не имеет значения что вернули
+        return 1;
+    })
+<hr>
+    // skip, потому что предыдущий then бросил ошибку
+    <u-code>.then</u-code>(data => console.log('Hello'))
+<hr>
+    // минуя then попадаем в catch
+    <u-code>.catch</u-code>(error => {
+        // => "<em>Api Error</em>"
+        console.log(error.message);
+        return 3;
+    })
+<hr>
+    // catch вернул "3"
+    <u-code>.then</u-code>(data => {
+        console.log(data); // "3"
+        return 4;
+    })
+<hr>
+    // then вернул 4, но finally пропустит его мимо себя
+    <u-code>.finally</u-code>(data => { 
+        // => "<em>undefined</em>"
+        console.log(data);
+        return 5;
+    })
+<hr>
+    // из finally вернули "5", но результат берется из предудщего then или catch
+    // => "<em>4</em>"
+    <u-code>.then</u-code>(data => console.log(data))
+</v-code>
+</div><div id="js-promise/samples/many-promises"><h2>Несколько Promise</h2>
+
+<ul class="list-point">
+    <li>Если несколько Promise, то "then" будет выполняться последовательно для каждого</li>
+</ul>
+
+<v-code lang="js" title="">
+Promise.resolve()
+    .then(() => console.log(1)) // Первый
+    .then(() => console.log(3)) // Третий
+
+Promise.resolve()
+    .then(() => console.log(2)) // Второй
+    .then(() => console.log(4)) // Четвертый
+</v-code>
+</div><div id="js-promise/samples/other"><h2>Примеры</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Пример #1</h3>

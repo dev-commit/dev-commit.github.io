@@ -21,7 +21,9 @@ ARR_MODULE = [
         title: 'Примеры',
         accent: true,
         themes: [
-		    [root+'samples/samples', 'Примеры'],
+		    [root+'samples/chaining',      setTheme(5, ['.then', '.catch', '.finally'])],
+            [root+'samples/many-promises', emoji.chevron+'Несколько Promise'],
+		    [root+'samples/other',         'Прочее'],
         ]
     },
     {
