@@ -120,14 +120,6 @@
         <li>
             <a
                 class="menu-link"
-                id="id__theory-data-structures/samples/intersection-array"
-                href="#theory-data-structures/samples/intersection-array"
-            >⚡️ Пересечение массивов</a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
                 id="id__theory-data-structures/samples/multiple-checks"
                 href="#theory-data-structures/samples/multiple-checks"
             >⚡️ Множественные проверки</a>
@@ -706,27 +698,6 @@ E, D, H, B, F, A, C, G
 ║ Delete    ║ O(log n)         ║ O(log n)      ║
 ║ Peek      ║ O(1)             ║ O(1)          ║
 </v-code>
-</div><div id="theory-data-structures/samples/intersection-array"><h2>Пересечение массивов</h2>
-
-<v-two-code type="js;js" comment="Неоптимально;Оптимально">
-<template v-slot:first>
-let resultArr = arr0.filter(item => {
-    return arr1.indexOf(item) !== -1
-})
-</template>
-<template v-slot:last>
-let hashMap = {};
-
-arr1.forEach(item => {
-    hashMap[item] = null;
-})
-
-let resultArr = arr0.filter(item => {
-    return typeof hashMap[item] !== undefined;
-})
-</template>
-</v-two-code>
-
 </div><div id="theory-data-structures/samples/multiple-checks"><h2>Множественные проверки</h2>
 
 <v-two-code type="js;js" comment="Неоптимально;Оптимально">

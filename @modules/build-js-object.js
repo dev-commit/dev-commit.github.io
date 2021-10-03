@@ -1,5 +1,5 @@
 
-root = 'js-objects/';
+root = 'js-object/';
 commentProto = ' <u-code-comment>__proto__</u-code-comment>';
 
 ARR_MODULE = [

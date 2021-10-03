@@ -1,0 +1,36 @@
+<h2>map</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="arr." method="map" after="" arg="(callback, thisArg)">
+    создаёт новый массив с результатом вызова указанной функции для каждого элемента массива
+    </v-method>
+
+	<v-method-arg arg="callback">
+	Функция, создающая элемент в новом массиве, принимает три аргумента:<br>
+	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
+	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
+	<u>array</u> - массив, по которому осуществляется проход<br>
+	</v-method-arg>
+
+	<v-method-arg arg="thisArg">
+	Необязательный параметр. Значение, используемое в качестве this при вызове функции callback
+	</v-method-arg>
+
+	<v-method-return>Новый массив, где каждый элемент является результатом callback функции</v-method-return>
+</div>
+
+<v-code lang="js border" title="">
+const newArray = arr.map((currentValue, index, array) => {
+	// Возвращает элемент для newArray
+}[, thisArg]);
+</v-code>
+
+<v-code lang="js" title="">
+const numbers = [1, 2, 3];
+const doubles = numbers.map((num) => {
+	return num * 2;
+});
+
+console.log(numbers); // => [1, 2, 3]
+console.log(doubles); // => [2, 4, 6]
+</v-code>

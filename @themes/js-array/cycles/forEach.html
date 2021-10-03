@@ -1,0 +1,41 @@
+<h2>forEach</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="arr." method="forEach" after="" arg="(callback, thisArg)">
+    Выполняет указанную функцию один раз для каждого элемента в массиве
+    </v-method>
+
+	<v-method-arg arg="callback">
+	Функция, которая будет вызвана для каждого элемента массива; в нее будет передано три аргумента:<br>
+	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
+	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
+	<u>array</u> - массив, по которому осуществляется проход<br>
+	</v-method-arg>
+
+	<v-method-arg arg="thisArg">
+	Необязательный параметр. Значение, используемое в качестве this при вызове функции callback
+	</v-method-arg>
+</div>
+
+<v-code lang="js border" title="">
+arr.forEach((currentValue, index, array) => {
+	// Your iterator
+}[, thisArg]);
+</v-code>
+
+<ul class="list-point">
+	<li>Ничего не возвращает, используется только для перебора</li>
+</ul>
+
+<v-code lang="js" title="">
+const arr = ['Яблоко', 'Апельсин', 'Груша'];
+arr.forEach((element, index, arr) => {
+	console.log(element, index, arr);
+});
+</v-code>
+
+<v-code lang="js" title="">
+// 'Яблоко'   0  Array(3)
+// 'Апельсин' 1  Array(3)
+// 'Груша'    2  Array(3)
+</v-code>

@@ -2373,6 +2373,10 @@ const loadFilePromise = (src) => {
 </v-code>
 </div><div id="js-task/arrays/intersection-arrays"><h2>Пересечение массивов</h2>
 
+
+<!------------------------------------------------------------->
+<h4>Цикл forEach</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 const arr1 = [1, 2, 3, 4, 5];
 const arr2 = [4, 5, 6, 7, 8];
@@ -2393,7 +2397,21 @@ console.log(arr3); // => [4, 5]
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>Используя Set()</h4>
+<h4>reduce()</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [4, 5, 6, 7, 8];
+
+const interseption = (a, b) => {
+    return a.reduce((acc, item) => b.find((i) => i === item) && acc.push(item), []);
+}
+
+interseption(arr1, arr2); // [4, 5]
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Set()</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 const a = new Set([1, 2, 3]);
@@ -2404,6 +2422,27 @@ const interseption = new Set([...a].filter(
 ));
 </v-code>
 
+<!------------------------------------------------------------->
+<h4>Структуры данных</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="Неоптимально;Оптимально">
+<template v-slot:first>
+let resultArr = arr0.filter(item => {
+    return arr1.indexOf(item) !== -1
+})
+</template>
+<template v-slot:last>
+let hashMap = {};
+
+arr1.forEach(item => {
+    hashMap[item] = null;
+})
+
+let resultArr = arr0.filter(item => {
+    return typeof hashMap[item] !== undefined;
+})
+</template>
+</v-two-code>
 </div><div id="js-task/arrays/flat-array"><h2>Превращение массива неогранчиенной вложенности в плоский</h2>
 
 <v-code lang="js" title="">

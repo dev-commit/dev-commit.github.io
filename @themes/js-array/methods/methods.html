@@ -1,25 +1,5 @@
-<h2>Массивы</h2>
+<h2>Методы</h2>
 
-<ul class="list-point">
-	<li>Массив - это объект, где в качестве ключей выбраны цифры, с дополнительными методами и свойством length</li>
-	<li>Так как это объект, то в функцию он передаётся по ссылке</li>
-	<li>Нет причин использовать массив как обычный объект, хотя технически это и возможно</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Объявление</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-const arr = [];                        // объявление пустого массива
-const arr = ['Tony', 'Anne'];          // объявление массива из заполненных элементов
-const arr = [,,'Tony'];                // пропуск элементов
-const arr = new Array(5);              // объявление массива из пустых элементов с длиной 5 (конструктор)
-const arr = new Array('Tony', 'Anne'); // объявление массива (конструктор)
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Методы</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li>Получить плоский массив из объекта</li>
 </ul>
@@ -137,65 +117,4 @@ console.log(arr);  // 1, 2, 15
 // проверка на массив
 const a = Array.<u-code>isArray</u-code>([1,2,3]); // true
 const b = Array.<u-code>isArray</u-code>("not array"); // false
-</v-code>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Примеры</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-arr['someIndex'] = 'someValue'; // использование строки в виде индекса
-arr.length = 10;                // все элементы больше 10 индекса будут удалены
-delete arr[4];                  // присваивание элементу по индексу 4 undefined
-const a = Array.isArray(arr);   // проверка на массив
-</v-code>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Массивы обьектов</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-const a = new Array(
-	{ 'name': 'Андрей', 'email': 'andry@mail.ru' },
-	{ 'name': 'Анна',   'email': 'anna@mail.ru' }
-);
-
-console.log(a[0].name);  // 'Андрей'
-console.log(a[1].email); // 'anna@mail.ru'
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Примеры</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-// перебор массива
-for (let i=0; i<=arr.length-1; i++) {
-	console.log(arr[i]);
-}
-</v-code>
-
-<v-code lang="js" title="">
-// перебор массива и удаление выбранного элемента
-const id = 12;
-
-for (let i=0; i<=arr.length-1; i++) {
-	if (id == arr[i]) {
-		arr.splice(i, 1);
-		break;
-	}
-}
-</v-code>
-
-<v-code lang="js" title="">
-// добавление нового элемента в массив
-if (arr != '') {
-	arr[arr.length] = id;
-} else {
-	arr[0] = id;
-}
-</v-code>
-
-<v-code lang="js" title="">
-// удаление элемента массива
-arr.splice(arr.indexOf(String(id)), 1);
 </v-code>

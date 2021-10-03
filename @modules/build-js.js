@@ -41,7 +41,6 @@ ARR_MODULE = [
         themes: [
             [root+'main/context',           emoji.baseball+'Контекст'],
             [root+'main/bind',              emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
-            [root+'main/array-cycle',       setTheme(1, ['map', 'forEach', '...'])],
             [root+'main/spread-array',      emoji.fire+'Spread Arr (ES6)'],
             [root+'main/spread-obj',        emoji.fire+'Spread Obj (ES-2018)'],
             [root+'main/destructive-array', emoji.fire+'Деструктуризация Arr (ES6)'],
@@ -55,7 +54,6 @@ ARR_MODULE = [
             [root+'data-structures/number',     setTheme(1, ['Number'])],
             [root+'data-structures/string',     setTheme(1, ['String'])],
             [root+'data-structures/json',       setTheme(1, ['Json'])],
-            [root+'data-structures/array',      setTheme(1, ['Array'])],
             [root+'data-structures/iterators',  setTheme(1, ['Iterators (ES6)'])],
             [root+'data-structures/map',        setTheme(1, ['Map', 'WeakMap'])],
             [root+'data-structures/set',        setTheme(1, ['Set', 'WeakSet'])],

@@ -17,6 +17,7 @@ ARR_MODULE = [
     },
     {
         title: 'Оптимизация',
+        accent: true,
         themes: [
             [root+'optimization/info',                    emoji.theory+'Оптимизация загрузки'],
             [root+'optimization/critical-rendering-path', emoji.avocado+'Critical Rendering Path'],

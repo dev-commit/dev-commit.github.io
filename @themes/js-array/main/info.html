@@ -1,0 +1,31 @@
+<h2>Информация</h2>
+
+<ul class="list-point">
+	<li>Массив - это объект, где в качестве ключей выбраны цифры, с дополнительными методами и свойством length</li>
+	<li>Так как это объект, то в функцию он передаётся по ссылке</li>
+	<li>Нет причин использовать массив как обычный объект, хотя технически это и возможно</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объявление</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const arr = [];                        // объявление пустого массива
+const arr = ['Tony', 'Anne'];          // объявление массива из заполненных элементов
+const arr = [,,'Tony'];                // пропуск элементов
+const arr = new Array(5);              // объявление массива из пустых элементов с длиной 5 (конструктор)
+const arr = new Array('Tony', 'Anne'); // объявление массива (конструктор)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Массивы обьектов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const a = new Array(
+	{ 'name': 'Андрей', 'email': 'andry@mail.ru' },
+	{ 'name': 'Анна',   'email': 'anna@mail.ru' }
+);
+
+console.log(a[0].name);  // 'Андрей'
+console.log(a[1].email); // 'anna@mail.ru'
+</v-code>

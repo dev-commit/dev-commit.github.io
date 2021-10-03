@@ -1,0 +1,57 @@
+<h2>every/some</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="arr." method="every/some" after="" arg="(callback, thisArg)">
+    проверяет, удовлетворяют ли <i><u>все/какие-нибудь</u></i> элементы массива условию, заданному в передаваемой функции
+    </v-method>
+
+	<v-method-arg arg="callback">
+	Функция проверки каждого элемента, принимает три аргумента:<br>
+	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
+	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
+	<u>array</u> - массив, по которому осуществляется проход<br>
+	</v-method-arg>
+
+	<v-method-arg arg="thisArg">
+	Необязательный параметр. Значение, используемое в качестве this при вызове функции callback
+	</v-method-arg>
+
+	<v-method-return>true если функция проверки возвращает truthy значение для <i><u>каждого/хотя бы одного</u></i> элемента массива. Иначе, false</v-method-return>
+</div>
+
+<ul class="list-point">
+	<li>Используется для проверки массива</li>
+	<li>Метод «arr.every(callback[, thisArg])» возвращает true, если вызов callback вернёт true для каждого элемента arr</li>
+	<li>Метод «arr.some(callback[, thisArg])» возвращает true, если вызов callback вернёт true для какого-нибудь элемента arr</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Пример 1: Использование callback-функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const arr = [1, -1, 2, -2, 3];
+
+// false, не все положительные
+const result = arr.<u-code>every</u-code>(number => {
+	return number > 0;
+})
+
+// true, есть хоть одно положительное
+const result = arr.<u-code>some</u-code>(number => {
+	return number > 0;
+})
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример 2: Вынесение callback-функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const arr = [1, -1, 2, -2, 3];
+
+const isPositive = number => {
+	return number > 0;
+}
+
+const result = arr.every(isPositive);
+const result = arr.some(isPositive);
+</v-code>

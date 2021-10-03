@@ -29,7 +29,6 @@ ARR_MODULE = [
     {
         title: 'Примеры',
         themes: [
-            [root+'samples/intersection-array', emoji.code+'Пересечение массивов'],
             [root+'samples/multiple-checks',    emoji.code+'Множественные проверки'],
         ]
     },

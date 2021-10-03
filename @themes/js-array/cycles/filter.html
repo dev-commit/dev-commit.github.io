@@ -1,0 +1,41 @@
+<h2>filter</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="arr." method="filter" after="" arg="(callback, thisArg)">
+    создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции
+    </v-method>
+
+	<v-method-arg arg="callback">
+	Функция, которая будет вызвана для каждого элемента массива. Если функция возвращает true, то элемент остаётся в массиве, если false, то удаляется. Три аргумента:<br>
+	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
+	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
+	<u>array</u> - массив, по которому осуществляется проход<br>
+	</v-method-arg>
+
+	<v-method-arg arg="thisArg">
+	Необязательный параметр. Значение, используемое в качестве this при вызове функции callback
+	</v-method-arg>
+
+	<v-method-return>Новый массив с элементами для которых callback вернёт true. Если ни один элемент не пройдет тест, то будет возвращен пустой массив</v-method-return>
+</div>
+
+<ul class="list-point">
+	<li>Используется для фильтрации массива через функцию</li>
+	<li>Создаёт новый массив, в который войдут только те элементы arr, для которых вызов callback(item, i, arr) возвратит true</li>
+</ul>
+
+<v-code lang="js" title="">
+// Выбор положительных элементов массива
+const arr = [1, -1, 2, -2, 3];
+const result = arr.filter(number => {
+	return number > 0;
+});
+
+console.log(result); // => [1, 2, 3]
+</v-code>
+
+<v-code lang="js" title="">
+// Поиск вхождения подстроки в массив
+const arr = ['Tony', 'Jack', 'Nick', 'Tony and Jane'];
+const result = arr.filter(item => item.<u-code>includes</u-code>('Tony')); // => ["Tony", "Tony and Jane"]
+</v-code>
