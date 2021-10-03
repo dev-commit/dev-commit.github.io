@@ -1,34 +1,36 @@
+root = 'css-flexbox/';
+
 ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            ['css-flexbox/main/info', 'Информация'],
+            [root+'main/info', 'Информация'],
         ]
     },
     {
         title: 'Flex Container',
         themes: [
-            ['css-flexbox/container/display',         setTheme(1, ['display'])],
-            ['css-flexbox/container/gap',             setTheme(1, ['gap'])],
-            ['css-flexbox/container/justify-content', setTheme(1, ['justify-content'])],
-            ['css-flexbox/container/align-items',     setTheme(1, ['align-items'])],
-            ['css-flexbox/container/align-content',   setTheme(1, ['align-content'])],
-            ['css-flexbox/container/flex-flow',       setTheme(1, ['flex-flow', 'flex-direction', 'flex-wrap'])],
+            [root+'container/display',         setTheme(1, ['display'])],
+            [root+'container/gap',             setTheme(1, ['gap'])],
+            [root+'container/justify-content', setTheme(1, ['justify-content'])],
+            [root+'container/align-items',     setTheme(1, ['align-items'])],
+            [root+'container/align-content',   setTheme(1, ['align-content'])],
+            [root+'container/flex-flow',       setTheme(1, ['flex-flow', 'flex-direction', 'flex-wrap'])],
         ]
     },
     {
         title: 'Flex Element',
         themes: [
-            ['css-flexbox/element/flex',        setTheme(1, ['flex', 'flex-grow', 'flex-shrink', 'flex-basis'])],
-            ['css-flexbox/element/order',       setTheme(1, ['order'])],
-            ['css-flexbox/element/align-self',  setTheme(1, ['align-self'])],
+            [root+'element/flex',        setTheme(1, ['flex', 'flex-grow', 'flex-shrink', 'flex-basis'])],
+            [root+'element/order',       setTheme(1, ['order'])],
+            [root+'element/align-self',  setTheme(1, ['align-self'])],
         ]
     },
     {
         title: 'Прочее',
         themes: [
-            ['css-flexbox/other/margin',  'Поведение margin'],
-            ['css-flexbox/other/samples', 'Примеры'],
+            [root+'other/margin',  'Поведение margin'],
+            [root+'other/samples', 'Примеры'],
         ]
     },
 ]

@@ -1,28 +1,29 @@
+root = 'ide/';
+
 ARR_MODULE = [
     {
         title: 'VSCode',
         themes: [
-            ['ide/vscode/info',              'Информация'],
-            ['ide/vscode/plugins',           emoji.fire+'Плагины'],
-            ['ide/vscode/snippets',          emoji.code+'Сниппеты'],
-            ['ide/vscode/settings',          emoji.code+'Настройки'],
-
-            ['ide/vscode/extension-eslint',   setTheme(1, ['ESLint'])],
-            ['ide/vscode/extension-prettier', setTheme(1, ['Prettier'])],
+            [root+'vscode/info',              'Информация'],
+            [root+'vscode/plugins',           emoji.fire+'Плагины'],
+            [root+'vscode/snippets',          emoji.code+'Сниппеты'],
+            [root+'vscode/settings',          emoji.code+'Настройки'],
+            [root+'vscode/extension-eslint',   setTheme(1, ['ESLint'])],
+            [root+'vscode/extension-prettier', setTheme(1, ['Prettier'])],
         ]
     },
     {
         title: 'Редакторы код',
         themes: [
-            ['ide/editors/atom',          'Atom'],
-            ['ide/editors/sublime-text',  'Sublime Text'],
-            ['ide/editors/codesandbox',   'CodeSandbox'],
+            [root+'editors/atom',          'Atom'],
+            [root+'editors/sublime-text',  'Sublime Text'],
+            [root+'editors/codesandbox',   'CodeSandbox'],
         ]
     },
     {
         title: 'Плагины',
         themes: [
-            ['ide/plugins/emmet',  'Emmet'],
+            [root+'plugins/emmet',  'Emmet'],
         ]
     },
 ];

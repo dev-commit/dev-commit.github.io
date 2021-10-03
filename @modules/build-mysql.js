@@ -1,9 +1,11 @@
+root = 'mysql/';
+
 ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            ['mysql/main/sql',             'SQL-запросы'],
-            ['mysql/main/create-database', 'Создание базы данных'],
+            [root+'main/sql',             'SQL-запросы'],
+            [root+'main/create-database', 'Создание базы данных'],
         ]
     },
 ]

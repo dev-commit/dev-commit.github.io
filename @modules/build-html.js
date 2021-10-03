@@ -1,45 +1,47 @@
+root = 'html/';
+
 ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            ['html/main/info',            emoji.theory+'Информация'],
-            ['html/main/semantics',       emoji.theory+'Семантика'],
-            ['html/main/content-model',   'Content Model'],
-            ['html/main/custom-elements', 'Custom Elements'],
+            [root+'main/info',            emoji.theory+'Информация'],
+            [root+'main/semantics',       emoji.theory+'Семантика'],
+            [root+'main/content-model',   'Content Model'],
+            [root+'main/custom-elements', 'Custom Elements'],
         ]
     },
     {
         title: 'Элементы',
         themes: [
-            ['html/elements/img',     emoji.cookie+'Изображения'],
-            ['html/elements/form',    emoji.cookie+'Элементы формы'],
-            ['html/elements/link',    emoji.cookie+'Ссылки'],
-            ['html/elements/video',   emoji.cookie+'Видео и аудио'],
-            ['html/elements/table',   emoji.cookie+'Таблицы'],
+            [root+'elements/img',     emoji.cookie+'Изображения'],
+            [root+'elements/form',    emoji.cookie+'Элементы формы'],
+            [root+'elements/link',    emoji.cookie+'Ссылки'],
+            [root+'elements/video',   emoji.cookie+'Видео и аудио'],
+            [root+'elements/table',   emoji.cookie+'Таблицы'],
         ]
     },
     {
         title: 'Теги',
         themes: [
-            ['html/tags/fieldset',  setTheme(1, ['&lt;fieldset&gt;', '&lt;legend&gt;'])],
-            ['html/tags/header',    setTheme(1, ['&lt;header&gt;', '&lt;section&gt;', '...'])],
-            ['html/tags/iframe',    setTheme(1, ['&lt;iframe&gt;'])],
-            ['html/tags/details',   setTheme(1, ['&lt;details&gt;', '&lt;summary&gt;'])],
-            ['html/tags/datalist',  setTheme(1, ['&lt;datalist&gt;', '&lt;option&gt;'])],
+            [root+'tags/fieldset',  setTheme(1, ['&lt;fieldset&gt;', '&lt;legend&gt;'])],
+            [root+'tags/header',    setTheme(1, ['&lt;header&gt;', '&lt;section&gt;', '...'])],
+            [root+'tags/iframe',    setTheme(1, ['&lt;iframe&gt;'])],
+            [root+'tags/details',   setTheme(1, ['&lt;details&gt;', '&lt;summary&gt;'])],
+            [root+'tags/datalist',  setTheme(1, ['&lt;datalist&gt;', '&lt;option&gt;'])],
         ]
     },
     {
         title: 'Атрибуты',
         themes: [
-            ['html/attr/tabindex',    setTheme(1, ['tabindex'])],
-            ['html/attr/aria-label',  setTheme(1, ['aria-label'])],
+            [root+'attr/tabindex',    setTheme(1, ['tabindex'])],
+            [root+'attr/aria-label',  setTheme(1, ['aria-label'])],
         ]
     },
     {
         title: 'Прочее',
         themes: [
-            ['html/other/yandex-map',  'Яндекс Карты'],
-            ['html/other/samples',     'Примеры'],
+            [root+'other/yandex-map',  'Яндекс Карты'],
+            [root+'other/samples',     'Примеры'],
         ]
     },
 ]

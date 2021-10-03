@@ -1,34 +1,48 @@
+root = 'theory-paradigms/';
+
 ARR_MODULE = [
+    {
+        title: 'Стандарты кода',
+        themes: [
+            [root+'best-practices/solid',         emoji.fire+'SOLID'],
+            [root+'best-practices/dry',           emoji.chevron+'DRY'],
+            [root+'best-practices/kiss',          emoji.chevron+'KISS'],
+            [root+'best-practices/yagni',         emoji.chevron+'YAGNI'],
+            [root+'best-practices/code-smell',    'Запахи кода'],
+            [root+'best-practices/refactoring',   'Рефакторинг'],
+            [root+'best-practices/code-standart', 'Стандарты кода'],
+        ]
+    },
     {
         title: 'ФП',
         themes: [
-            ['theory-paradigms/fp/functional',     'Информация'],
-            ['theory-paradigms/fp/concept',        'Концепции'],
-            ['theory-paradigms/fp/currying',       'Каррирование / Частичное применение функций'],
+            [root+'fp/functional',     emoji.theory+'Информация'],
+            [root+'fp/concept',        emoji.fire+'Концепции'],
+            [root+'fp/currying',       'Каррирование / Частичное применение функций'],
         ]
     },
     {
         title: 'ООП',
         themes: [
-            ['theory-paradigms/oop/principles',       'Принципы'],
-            ['theory-paradigms/oop/access-modifiers', 'Модификаторы доступа'],
+            [root+'oop/principles',       emoji.fire+'Принципы'],
+            [root+'oop/access-modifiers', 'Модификаторы доступа'],
         ]
     },
     {
         title: 'Основное',
         themes: [
-            ['theory-paradigms/main/info',           'Парадигмы'],
-            ['theory-paradigms/main/imperative',     '1. Императивное'],
-            ['theory-paradigms/main/declarative',    '2. Декларативное'],
-            ['theory-paradigms/main/composition',    'Композиция'],
+            [root+'main/info',           'Парадигмы'],
+            [root+'main/imperative',     '1. Императивное'],
+            [root+'main/declarative',    '2. Декларативное'],
+            [root+'main/composition',    'Композиция'],
         ]
     },
     {
         title: '< / >',
         themes: [
-            ['theory-paradigms/main/ddd',            'DDD'],
-            ['theory-paradigms/main/cqrs',           'CQRS'],
-            ['theory-paradigms/main/event-sourcing', 'Event Sourcing'],
+            [root+'main/ddd',            'DDD'],
+            [root+'main/cqrs',           'CQRS'],
+            [root+'main/event-sourcing', 'Event Sourcing'],
         ]
     },
 ]

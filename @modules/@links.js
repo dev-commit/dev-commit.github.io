@@ -4,7 +4,7 @@
 const ARR_LINKS = [
     { page: 'assessment',              theme: 'brown',    title: 'Ассессмент' },
     { page: 'js-task',                 theme: 'brown',    title: '🍦 Задачи' },
-    { page: 'theory',                  theme: 'brown',    title: '📑 Теория' },
+    { page: 'compilation',             theme: 'crimson',   title: '🐼' },
     null,
     { page: 'theory-algoritms',        theme: 'brown',    title: '🍦 Алгоритмы' },
     { page: 'theory-data-structures',  theme: 'brown',    title: '🍦 Структуры данных' },
@@ -61,7 +61,6 @@ const ARR_LINKS = [
     { page: 'ide',                     theme: 'blue',     title: 'IDE' },
     { page: 'node-js',                 theme: 'brown',    title: 'Node.js' },
     { page: 'linux',                   theme: 'brown',    title: 'Linux' },
-    { page: 'other',                   theme: 'brown',    title: 'Other' },
     { page: 'js-web-components',       theme: 'gray',     title: 'WebComponents' },
     { page: 'canvas',                  theme: 'gray',     title: 'Canvas' },
     { page: 'jquery',                  theme: 'gray',     title: 'jQuery' },

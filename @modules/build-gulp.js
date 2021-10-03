@@ -1,19 +1,21 @@
+root = 'gulp/';
+
 ARR_MODULE = [
     {
         title: 'Gulp',
         themes: [
-            ['gulp/gulp/npm',       'NPM'],
-            ['gulp/gulp/structure', 'Структура'],
-            ['gulp/gulp/gulp4',     'Gulp 4'],
-            ['gulp/gulp/gulpfile',  'gulpfile.js'],
-            ['gulp/gulp/other',     'Примечания'],
+            [root+'gulp/npm',       'NPM'],
+            [root+'gulp/structure', 'Структура'],
+            [root+'gulp/gulp4',     'Gulp 4'],
+            [root+'gulp/gulpfile',  'gulpfile.js'],
+            [root+'gulp/other',     'Примечания'],
         ]
     },
     {
         title: 'Parcel',
         themes: [
-            ['gulp/parcel/info',  'Информация'],
-            ['gulp/parcel/error', 'Ошибки'],
+            [root+'parcel/info',  'Информация'],
+            [root+'/parcel/error', 'Ошибки'],
         ]
     },
 ]

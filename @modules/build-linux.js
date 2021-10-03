@@ -1,20 +1,22 @@
+root = 'linux/';
+
 ARR_MODULE = [
     {
         title: 'WSL',
         themes: [
-            ['linux/wsl/info', emoji.theory+'Информация'],
-            ['linux/wsl/nvm',  emoji.code+'Установка NVM'],
+            [root+'wsl/info', emoji.theory+'Информация'],
+            [root+'wsl/nvm',  emoji.code+'Установка NVM'],
         ]
     },
     {
         title: 'Ubuntu (Debian)',
         themes: [
-            ['linux/ubuntu/command', 'Команды'],
-            ['linux/ubuntu/package', 'Пакеты'],
-            ['linux/ubuntu/nodejs',  emoji.cookie+'Node.js'],
-            ['linux/ubuntu/npm',     emoji.cookie+'Npm'],
-            ['linux/ubuntu/setting', 'Настройка'],
-            ['linux/ubuntu/other',   'Прочее'],
+            [root+'ubuntu/command', 'Команды'],
+            [root+'ubuntu/package', 'Пакеты'],
+            [root+'ubuntu/nodejs',  emoji.cookie+'Node.js'],
+            [root+'ubuntu/npm',     emoji.cookie+'Npm'],
+            [root+'ubuntu/setting', 'Настройка'],
+            [root+'ubuntu/other',   'Прочее'],
         ]
     },
 ]

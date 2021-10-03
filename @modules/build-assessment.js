@@ -54,22 +54,22 @@ ARR_MODULE = [
     {
         title: 'Оптимизация',
         themes: [
-            ['theory/optimization/info',                     emoji.theory+'Оптимизация загрузки'],
-            ['theory/optimization/critical-rendering-path',  emoji.avocado+'Critical Rendering Path'],
-            ['theory/optimization/repaint-and-reflow',       emoji.avocado+'Repaint & Reflow'],
-            ['theory/optimization/caching',                  emoji.favorite+'Кэширование'],
-            ['theory/optimization/tree-shaking',             emoji.favorite+'Tree shaking'],
+            ['compilation/optimization/info',                     emoji.theory+'Оптимизация загрузки'],
+            ['compilation/optimization/critical-rendering-path',  emoji.avocado+'Critical Rendering Path'],
+            ['compilation/optimization/repaint-and-reflow',       emoji.avocado+'Repaint & Reflow'],
+            ['compilation/optimization/caching',                  emoji.favorite+'Кэширование'],
+            ['compilation/optimization/tree-shaking',             emoji.favorite+'Tree shaking'],
         ]
     },
     {
         title: 'Теория',
         themes: [
-            ['theory-paradigms/oop/principles',      emoji.lemon+'ООП'],
-            ['theory-paradigms/fp/concept',          emoji.lemon+'ФП'],
-            ['theory/programming-principles/solid',  emoji.baseball+'SOLID'],
-            ['theory-patterns/main/info',            emoji.theory+'Паттерны'],
-            ['theory/application-architecture/mvc',  emoji.theory+'MVC'],
-            ['testing/theory/pyramid',               emoji.theory+'Пирамида тестирования'],
+            ['theory-paradigms/oop/principles',          emoji.lemon+'ООП'],
+            ['theory-paradigms/fp/concept',              emoji.lemon+'ФП'],
+            ['theory-paradigms/best-practices/solid',    emoji.baseball+'SOLID'],
+            ['theory-patterns/main/info',                emoji.theory+'Паттерны'],
+            ['testing/theory/pyramid',                   emoji.theory+'Пирамида тестирования'],
+            ['compilation/application-architecture/mvc', emoji.theory+'MVC'],
         ]
     },
 ];

@@ -1,24 +1,26 @@
+root = 'material-ui/';
+
 ARR_MODULE = [
     {
         title: 'Основы',
         themes: [
-            ['material-ui/main/use',  emoji.code+'Использование'],
+            [root+'main/use',  emoji.code+'Использование'],
         ]
     },
     {
         title: 'Методы',
         themes: [
-            ['material-ui/methods/with-styles', emoji.chevron+setTheme(1, ['withStyles'])],
-            ['material-ui/methods/make-styles', emoji.chevron+setTheme(1, ['makeStyles'])],
+            [root+'methods/with-styles', emoji.chevron+setTheme(1, ['withStyles'])],
+            [root+'methods/make-styles', emoji.chevron+setTheme(1, ['makeStyles'])],
         ]
     },
     {
         title: 'Прочее',
         themes: [
-            ['material-ui/other/spacing',          setTheme(1, ['spacing'])],
-            ['material-ui/other/classes-props',    'Передача classes'],
-            ['material-ui/other/classes-override', 'Переопределение стилей из classes'],
-            ['material-ui/other/css-in-js',        'Варианты CSS in JS'],
+            [root+'other/spacing',          setTheme(1, ['spacing'])],
+            [root+'other/classes-props',    'Передача classes'],
+            [root+'other/classes-override', 'Переопределение стилей из classes'],
+            [root+'other/css-in-js',        'Варианты CSS in JS'],
         ]
     },
 ]

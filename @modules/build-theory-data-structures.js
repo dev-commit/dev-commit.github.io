@@ -1,34 +1,36 @@
+root = 'theory-data-structures/';
+
 ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            ['theory-data-structures/main/info',  emoji.theory+'Информация'],
+            [root+'main/info',  emoji.theory+'Информация'],
         ]
     },
     {
         title: 'Структуры данных',
         themes: [
             // TODO SUB-TITLE: Линейные
-            ['theory-data-structures/structures/stack',        emoji.favorite+'Стек'],
-            ['theory-data-structures/structures/queue',        emoji.favorite+'Очередь'],
-            ['theory-data-structures/structures/list-linked',  emoji.favorite+'Связанный список'],
+            [root+'structures/stack',        emoji.favorite+'Стек'],
+            [root+'structures/queue',        emoji.favorite+'Очередь'],
+            [root+'structures/list-linked',  emoji.favorite+'Связанный список'],
 
             // TODO SUB-TITLE: Остальные
-            ['theory-data-structures/structures/set',          emoji.favorite+'Множество'],
-            ['theory-data-structures/structures/map',          emoji.favorite+'Map'],
-            ['theory-data-structures/structures/hash',         emoji.favorite+'Хэш-таблица'],
-            ['theory-data-structures/structures/list',         emoji.favorite+'Список'],
-            ['theory-data-structures/structures/graph',        emoji.favorite+'Граф'],
-            ['theory-data-structures/structures/tree',         emoji.favorite+'Дерево'],
-            ['theory-data-structures/structures/tree-prefix',  emoji.favorite+'Префиксное дерево'],
-            ['theory-data-structures/structures/heap',         emoji.favorite+'Куча'],
+            [root+'structures/set',          emoji.favorite+'Множество'],
+            [root+'structures/map',          emoji.favorite+'Map'],
+            [root+'structures/hash',         emoji.favorite+'Хэш-таблица'],
+            [root+'structures/list',         emoji.favorite+'Список'],
+            [root+'structures/graph',        emoji.favorite+'Граф'],
+            [root+'structures/tree',         emoji.favorite+'Дерево'],
+            [root+'structures/tree-prefix',  emoji.favorite+'Префиксное дерево'],
+            [root+'structures/heap',         emoji.favorite+'Куча'],
         ]
     },
     {
         title: 'Примеры',
         themes: [
-            ['theory-data-structures/samples/intersection-array', emoji.code+'Пересечение массивов'],
-            ['theory-data-structures/samples/multiple-checks',    emoji.code+'Множественные проверки'],
+            [root+'samples/intersection-array', emoji.code+'Пересечение массивов'],
+            [root+'samples/multiple-checks',    emoji.code+'Множественные проверки'],
         ]
     },
     {

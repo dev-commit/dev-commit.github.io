@@ -1,61 +1,63 @@
+root = 'redux/';
+
 ARR_MODULE = [
     {
         title: 'React Redux',
         themes: [
-            ['redux/scheme/structure-common',      emoji.fire+'Структура общая'],
-            ['redux/scheme/structure-realization', emoji.fire+'Структура реализации'],
-            ['redux/code/redux',                   emoji.code+'Redux'],
-            ['redux/code/react-redux',             emoji.code+'React-Redux'],
+            [root+'scheme/structure-common',      emoji.fire+'Структура общая'],
+            [root+'scheme/structure-realization', emoji.fire+'Структура реализации'],
+            [root+'code/redux',                   emoji.code+'Redux'],
+            [root+'code/react-redux',             emoji.code+'React-Redux'],
         ]
     },
     {
         title: 'Элементы',
         themes: [
-            ['redux/elements/execution-order', emoji.theory+'Порядок выполнения'],
-            ['redux/elements/view',            emoji.cookie+'1. View'],
-            ['redux/elements/action',          emoji.cookie+'2. Action'],
-            ['redux/elements/middleware',      emoji.cookie+'3. Middleware'],
-            ['redux/elements/reducer',         emoji.cookie+'4. Reducer'],
-            ['redux/elements/store',           emoji.cookie+'5. Store'],
+            [root+'elements/execution-order', emoji.theory+'Порядок выполнения'],
+            [root+'elements/view',            emoji.cookie+'1. View'],
+            [root+'elements/action',          emoji.cookie+'2. Action'],
+            [root+'elements/middleware',      emoji.cookie+'3. Middleware'],
+            [root+'elements/reducer',         emoji.cookie+'4. Reducer'],
+            [root+'elements/store',           emoji.cookie+'5. Store'],
         ]
     },
     {
         title: 'Методы',
         themes: [
             // TODO SUB-TITLE: Redux
-            ['redux/methods/create-store',      emoji.chevron+setTheme(4, ['createStore'])],
-            ['redux/methods/apply-middleware',  emoji.chevron+setTheme(4, ['applyMiddleware'])],
-            ['redux/methods/combine-reducers',  emoji.chevron+setTheme(4, ['combineReducers'])],
+            [root+'methods/create-store',      emoji.chevron+setTheme(4, ['createStore'])],
+            [root+'methods/apply-middleware',  emoji.chevron+setTheme(4, ['applyMiddleware'])],
+            [root+'methods/combine-reducers',  emoji.chevron+setTheme(4, ['combineReducers'])],
             // TODO SUB-TITLE: React-Redux
-            ['redux/methods/provider',          emoji.chevron+setTheme(4, ['Provider'])],
-            ['redux/methods/connect',           emoji.chevron+setTheme(4, ['connect'])],
-            ['redux/methods/hooks',             emoji.chevron+setTheme(4, ['useDispatch', 'useSelector'])],
+            [root+'methods/provider',          emoji.chevron+setTheme(4, ['Provider'])],
+            [root+'methods/connect',           emoji.chevron+setTheme(4, ['connect'])],
+            [root+'methods/hooks',             emoji.chevron+setTheme(4, ['useDispatch', 'useSelector'])],
         ]
     },
     {
         title: 'Flux и Redux',
         themes: [
-            ['redux/redux/info-flux',              emoji.theory+'Flux'],
-            ['redux/redux/info-redux',             emoji.theory+'Redux'],
-            ['redux/redux/functional-programming', emoji.theory+'Принципы FP'],
+            [root+'redux/info-flux',              emoji.theory+'Flux'],
+            [root+'redux/info-redux',             emoji.theory+'Redux'],
+            [root+'redux/functional-programming', emoji.theory+'Принципы FP'],
         ]
     },
     {
         title: 'Redux Plugins',
         themes: [
-            ['redux/plugins/redux-toolkit',            setTheme(2, ['@reduxjs/toolkit'])],
-            ['redux/plugins/redux-devtools-extension', setTheme(2, ['redux-devtools-extension'])],
-            ['redux/plugins/redux-thunk',              setTheme(2, ['redux-thunk'])],
-            ['redux/plugins/redux-saga',               setTheme(2, ['redux-saga'])],
-            ['redux/plugins/redux-form',               setTheme(2, ['redux-form'])],
-            ['redux/plugins/redux-actions',            setTheme(2, ['redux-actions'])],
-            ['redux/plugins/redux-logger',             setTheme(2, ['redux-logger'])],
+            [root+'plugins/redux-toolkit',            setTheme(2, ['@reduxjs/toolkit'])],
+            [root+'plugins/redux-devtools-extension', setTheme(2, ['redux-devtools-extension'])],
+            [root+'plugins/redux-thunk',              setTheme(2, ['redux-thunk'])],
+            [root+'plugins/redux-saga',               setTheme(2, ['redux-saga'])],
+            [root+'plugins/redux-form',               setTheme(2, ['redux-form'])],
+            [root+'plugins/redux-actions',            setTheme(2, ['redux-actions'])],
+            [root+'plugins/redux-logger',             setTheme(2, ['redux-logger'])],
         ]
     },
     {
         title: 'Прочее',
         themes: [
-            ['redux/other/constants-name', 'Название констант'],
+            [root+'other/constants-name', 'Название констант'],
         ]
     },
 ]

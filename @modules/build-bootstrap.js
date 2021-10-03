@@ -1,14 +1,16 @@
+root = 'bootstrap/';
+
 ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            ['bootstrap/main/info',   'Информация'],
+            [root+'main/info',   'Информация'],
         ]
     },
     {
         title: 'Разметка',
         themes: [
-            ['bootstrap/layout/containers', 'Контейнеры'],
+            [root+'layout/containers', 'Контейнеры'],
         ]
     },
 ]

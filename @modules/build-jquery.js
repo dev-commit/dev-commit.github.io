@@ -1,26 +1,28 @@
+root = 'jquery/';
+
 ARR_MODULE = [
     {
         title: 'События',
         themes: [
-            ['jquery/actions/handling-events', 'Обработчики событий'],
-            ['jquery/actions/hover-toggle',    'События hover() и toggle()'],
-            ['jquery/actions/event-object',    'Объект события eventObject()'],
+            [root+'actions/handling-events', 'Обработчики событий'],
+            [root+'actions/hover-toggle',    'События hover() и toggle()'],
+            [root+'actions/event-object',    'Объект события eventObject()'],
         ]
     },
     {
         title: 'Основное',
         themes: [
-            ['jquery/main/info',        'Информация'],
-            ['jquery/main/ajax',        'AJAX'],
-            ['jquery/main/css',         'CSS'],
-            ['jquery/main/methods',     'Методы'],
-            ['jquery/main/attributes',  'Атрибуты. Object this'],
-            ['jquery/main/input',       'Input'],
-            ['jquery/main/include',     'Подключение файлов'],
-            ['jquery/main/is',          'Псевдо-селекторы :visible и :hidden'],
-            ['jquery/main/animation',   'Анимация'],
-            ['jquery/main/get-element', 'Выборка элементов'],
-            ['jquery/main/samples',     'Примеры'],
+            [root+'main/info',        'Информация'],
+            [root+'main/ajax',        'AJAX'],
+            [root+'main/css',         'CSS'],
+            [root+'main/methods',     'Методы'],
+            [root+'main/attributes',  'Атрибуты. Object this'],
+            [root+'main/input',       'Input'],
+            [root+'main/include',     'Подключение файлов'],
+            [root+'main/is',          'Псевдо-селекторы :visible и :hidden'],
+            [root+'main/animation',   'Анимация'],
+            [root+'main/get-element', 'Выборка элементов'],
+            [root+'main/samples',     'Примеры'],
         ]
     },
 ]

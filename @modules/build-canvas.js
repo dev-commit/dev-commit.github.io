@@ -1,12 +1,14 @@
+root = 'canvas/';
+
 ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            ['canvas/main/info',   'Информация'],
-            ['canvas/main/html',   'HTML'],
-            ['canvas/main/basic',  'Основы'],
-            ['canvas/main/figure', 'Фигуры'],
-            ['canvas/main/other',  'Остальное'],
+            [root+'main/info',   'Информация'],
+            [root+'main/html',   'HTML'],
+            [root+'main/basic',  'Основы'],
+            [root+'main/figure', 'Фигуры'],
+            [root+'main/other',  'Остальное'],
         ]
     },
 ]

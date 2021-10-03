@@ -1,43 +1,45 @@
+root = 'js-network/';
+
 ARR_MODULE = [
     {
         title: 'Клиент-сервер',
         themes: [
-            ['js-network/theory/info',          emoji.theory+'Информация'],
-            ['js-network/theory/http',          emoji.coconut+'HTTP'],
-            ['js-network/theory/http2',         emoji.coconut+'HTTP/2'],
-            ['js-network/theory/https',         emoji.coconut+'HTTPS'],
-            ['js-network/theory/soap',          emoji.theory+'SOAP'],
-            ['js-network/theory/rest',          emoji.boom+'1. REST API'],
-            ['js-network/theory/rest-json-api', emoji.boom+'2. REST JSON API'],
-            ['js-network/theory/graphql',       emoji.boom+'3. GraphQL'],
+            [root+'theory/info',          emoji.theory+'Информация'],
+            [root+'theory/http',          emoji.coconut+'HTTP'],
+            [root+'theory/http2',         emoji.coconut+'HTTP/2'],
+            [root+'theory/https',         emoji.coconut+'HTTPS'],
+            [root+'theory/soap',          emoji.theory+'SOAP'],
+            [root+'theory/rest',          emoji.boom+'1. REST API'],
+            [root+'theory/rest-json-api', emoji.boom+'2. REST JSON API'],
+            [root+'theory/graphql',       emoji.boom+'3. GraphQL'],
         ]
     },
     {
         title: 'AJAX и технологии',
         themes: [
-            ['js-network/ajax/info',           emoji.theory+'Описание'],
-            ['js-network/ajax/xmlhttprequest', emoji.fire+'1. XMLHttpRequest'],
-            ['js-network/ajax/fetch',          emoji.fire+'2. Fetch'],
-            ['js-network/ajax/axios',          emoji.fire+'3. Axios'],
-            ['js-network/ajax/request-js',     emoji.code+'Request JS'],
-            ['js-network/ajax/response-php',   emoji.code+'Response PHP'],
+            [root+'ajax/info',           emoji.theory+'Описание'],
+            [root+'ajax/xmlhttprequest', emoji.fire+'1. XMLHttpRequest'],
+            [root+'ajax/fetch',          emoji.fire+'2. Fetch'],
+            [root+'ajax/axios',          emoji.fire+'3. Axios'],
+            [root+'ajax/request-js',     emoji.code+'Request JS'],
+            [root+'ajax/response-php',   emoji.code+'Response PHP'],
         ]
     },
     {
         title: 'Технологии',
         themes: [
-            ['js-network/tech/websocket',      emoji.lemon+'WebSocket'],
-            ['js-network/tech/cors',           emoji.lemon+'CORS'],
-            ['js-network/tech/webrtc',         emoji.lemon+'WebRTC'],
-            ['js-network/tech/jsonp',          'JSONP'],
-            ['js-network/tech/comet',          'Comet'],
+            [root+'tech/websocket',      emoji.lemon+'WebSocket'],
+            [root+'tech/cors',           emoji.lemon+'CORS'],
+            [root+'tech/webrtc',         emoji.lemon+'WebRTC'],
+            [root+'tech/jsonp',          'JSONP'],
+            [root+'tech/comet',          'Comet'],
         ]
     },
     {
         title: 'Hacking',
         themes: [
-            ['js-network/hacking/xss',            'XSS'],
-            ['js-network/hacking/sql-injection',  'SQL инъекции'],
+            [root+'hacking/xss',            'XSS'],
+            [root+'hacking/sql-injection',  'SQL инъекции'],
         ]
     },
 ]
