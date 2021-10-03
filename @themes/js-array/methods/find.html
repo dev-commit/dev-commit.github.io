@@ -1,0 +1,30 @@
+<h2>Array.prototype.find()</h2>
+
+<ul class="list-point">
+    <li><u-text-define>find()</u-text-define> - возвращает <u>значение первого найденного в массиве элемента</u>, которое удовлетворяет условию переданному в callback функции. В противном случае возвращается <u>undefined</u></li>
+    <li><u-text-define>findIndex</u-text-define> - возвращает индекс найденного в массиве элемента вместо его значения</li>
+</ul>
+
+<v-code lang="js" title="">
+const arr = ['Jack', 'Kate', 'Tony'];
+
+const result = arr.<u-code>find</u-code>((element) => {
+	if (element === 'Tony') {
+		return element;
+	}
+})
+
+console.log(result); // => Tony
+</v-code>
+
+<v-code lang="js" title="">
+const arr = ['Jack', 'Kate', 'Tony'];
+
+const result = arr.<u-code>findIndex</u-code>((element) => {
+	if (element === 'Tony') {
+		return element;
+	}
+})
+
+console.log(result); // => 2
+</v-code>

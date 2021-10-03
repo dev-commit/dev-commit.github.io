@@ -4,7 +4,7 @@ ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            [root+'main/info',                  emoji.theory+'Информация'],
+            [root+'main/info', emoji.theory+'Информация'],
         ]
     },
     {
@@ -28,7 +28,7 @@ ARR_MODULE = [
     {
         title: 'Пакеты',
         themes: [
-            [root+'packages/react-router',      setTheme(2, ['react-router', 'react-router-dom'])],
+            [root+'packages/react-router', setTheme(2, ['react-router', 'react-router-dom'])],
         ]
     },
 ]

@@ -8,13 +8,14 @@ emoji = {
     pizza:     '🍕 ',
     boom:      '💥 ',
     fire:      '🔥 ',
-    cup:       '🥤 ',
     baseball:  '⚾️ ',
     lemon:     '🍋 ',
     avocado:   '🥑 ',
     coconut:   '🥥 ',
-    favorite:  '⭐️ ',
+    star:      '⭐️ ',
     chevron:   '🔰 ',
+    icecream:  '🍦 ',
+    cloud:     '☁️ ',
 }
 
 function setTheme(tag, arr) {

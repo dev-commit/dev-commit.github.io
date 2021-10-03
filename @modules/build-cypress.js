@@ -22,7 +22,7 @@ ARR_MODULE = [
     {
         title: 'Guides',
         themes: [
-            [root+'guides/network-requests', emoji.favorite+'Network Requests'],
+            [root+'guides/network-requests', emoji.star+'Network Requests'],
         ]
     },
 ]

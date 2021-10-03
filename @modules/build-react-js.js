@@ -5,7 +5,7 @@ ARR_MODULE = [
     {
         title: 'Реконсиляция',
         themes: [
-            [root+'reconciler/virtual-dom',                 emoji.theory+'Virtual DOM (Общее)'],
+            [root+'reconciler/virtual-dom',        emoji.theory+'Virtual DOM (Общее)'],
             [root+'reconciler/virtual-dom-react',  emoji.lemon+'Virtual DOM (React)'],
             [root+'reconciler/reconciliation',     emoji.lemon+'Reconciliation Algorithm'],
             [root+'reconciler/fiber',              emoji.lemon+'React Fiber'],

@@ -5,7 +5,7 @@ ARR_MODULE = [
             ['js/typing/typing',           emoji.theory+'Типизация'],
             ['js/typing/type-data',        emoji.theory+'Типы данных'],
             ['js/typing/type-casting',     emoji.code+'Сравнение типов'],
-            ['js-object/main/conversion', setTheme(1, ['toString', 'valueOf'])],
+            ['js-object/main/conversion',  setTheme(1, ['toString', 'valueOf'])],
             ['js/typing/typeof',           setTheme(1, ['typeof'])],
             ['js/typing/symbol',           emoji.chevron+'Symbol (ES6)'],
             ['js/typing/hoisting',         emoji.fire+'Всплытие'],
@@ -17,8 +17,8 @@ ARR_MODULE = [
             ['js-class/main/inheritance',        emoji.fire+'Наследование'],
             ['js-class/main/prototype',          emoji.fire+setTheme(1, ['__proto__', 'prototype'])],
             ['js-class/main/new',                emoji.fire+setTheme(1, ['new'])],
-            ['js-object/methods/object-create', emoji.chevron+setTheme(4, ['Object.create'])],
-            ['js-object/methods/object-assign', emoji.chevron+setTheme(4, ['Object.assign'])],
+            ['js-object/methods/object-create',  emoji.chevron+setTheme(4, ['Object.create'])],
+            ['js-object/methods/object-assign',  emoji.chevron+setTheme(4, ['Object.assign'])],
             ['js-class/main/constructor',        emoji.chevron+setTheme(4, ['constructor'])],
             ['js-class/main/return',             emoji.chevron+setTheme(4, ['return'])],
         ]
@@ -28,7 +28,7 @@ ARR_MODULE = [
         themes: [
             ['js/main/bind',                     emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
             ['js/main/context',                  emoji.baseball+'Контекст'],
-            ['js/function/arrow',                emoji.favorite+'Стрелочные функции'],
+            ['js/function/arrow',                emoji.star+'Стрелочные функции'],
         ]
     },
     {

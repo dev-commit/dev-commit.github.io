@@ -54,7 +54,7 @@ ARR_MODULE = [
     {
         title: 'CSS Color Module',
         themes: [
-            [root+'color-module/colors',          emoji.favorite+'Цветовые схемы'],
+            [root+'color-module/colors',          emoji.star+'Цветовые схемы'],
             [root+'color-module/colors-hex',      '1. '+setTheme(3, ['HEX'])],
             [root+'color-module/colors-rgb',      '2. '+setTheme(3, ['RGB'])],
             [root+'color-module/colors-hsl',      '3. '+setTheme(3, ['HSL'])],
@@ -63,7 +63,7 @@ ARR_MODULE = [
             [root+'color-module/linear-gradient', setTheme(1, ['linear-gradient'])],
             [root+'color-module/conic-gradient',  setTheme(1, ['conic-gradient'])],
             [root+'color-module/color-values',    setTheme(1, ['currentColor', 'transparent'])],
-            [root+'color-module/colors-func',     emoji.favorite+'Цветовые функции'],
+            [root+'color-module/colors-func',     emoji.star+'Цветовые функции'],
         ]
     },
     {

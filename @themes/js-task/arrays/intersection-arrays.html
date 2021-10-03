@@ -1,8 +1,26 @@
 <h2>Пересечение массивов</h2>
 
+<!------------------------------------------------------------->
+<h4>reduce()</h4>
+<!------------------------------------------------------------->
+<v-code lang="js border" title="">
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [4, 5, 6, 7, 8];
+
+const interseption = (a, b) => {
+	return a.reduce((acc, item) => {
+		// уникальный элемент пушим в массив
+		b.find((i) => i === item) && acc.push(item);
+		return acc;
+	}, []);
+}
+
+const data = interseption(arr1, arr2);
+console.log(data); // [4, 5]
+</v-code>
 
 <!------------------------------------------------------------->
-<h4>Цикл forEach</h4>
+<h4>forEach</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 const arr1 = [1, 2, 3, 4, 5];
@@ -21,20 +39,6 @@ arr1.forEach(element => {
 })
 
 console.log(arr3); // => [4, 5]
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>reduce()</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-const arr1 = [1, 2, 3, 4, 5];
-const arr2 = [4, 5, 6, 7, 8];
-
-const interseption = (a, b) => {
-    return a.reduce((acc, item) => b.find((i) => i === item) && acc.push(item), []);
-}
-
-interseption(arr1, arr2); // [4, 5]
 </v-code>
 
 <!------------------------------------------------------------->

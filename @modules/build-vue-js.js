@@ -4,11 +4,11 @@ ARR_MODULE = [
     {
         title: 'Информация',
         themes: [
-            [root+'main/info',                emoji.theory+'Информация'],
-            [root+'main/structure-files',     'Структура проекта'],
-            [root+'main/structure-code',      emoji.code+'Пример кода vue-cli'],
-            [root+'main/instance-vue',        emoji.code+'Экземпляр Vue'],
-            [root+'main/lifecycle-hooks',     'Хуки жизненного цикла'],
+            [root+'main/info',                  emoji.theory+'Информация'],
+            [root+'main/structure-files',       'Структура проекта'],
+            [root+'main/structure-code',        emoji.code+'Пример кода vue-cli'],
+            [root+'main/instance-vue',          emoji.code+'Экземпляр Vue'],
+            [root+'main/lifecycle-hooks',       'Хуки жизненного цикла'],
             ['react-js/reconciler/virtual-dom', 'Virtual DOM (Общее)'],
         ]
     },
@@ -80,7 +80,7 @@ ARR_MODULE = [
     {
         title: 'Примеры',
         themes: [
-            [root+'samples/cart',   'Добавить / удалить из корзины'],
+            [root+'samples/cart', 'Добавить / удалить из корзины'],
         ]
     },
 ]

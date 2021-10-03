@@ -47,33 +47,33 @@ ARR_MODULE = [
         title: 'type',
         accent: true,
         themes: [
-            [root+'type/type',      emoji.favorite+setTheme(1, ['type'])],
-            [root+'type/combine',   emoji.favorite+'Комбинация типов'],
+            [root+'type/type',      emoji.star+setTheme(1, ['type'])],
+            [root+'type/combine',   emoji.star+'Комбинация типов'],
         ]
     },
     {
         title: 'interface',
         accent: true,
         themes: [
-            [root+'interface/main',             emoji.favorite+'Основы'],
-            [root+'interface/inherit',          emoji.favorite+'Наследование интерфейсов'],
-            [root+'interface/with-class',       emoji.favorite+'Взаимодействие с классами'],
-            [root+'interface/dynamic-key-obj',  emoji.favorite+'Динамические ключи объекта'],
+            [root+'interface/main',             emoji.star+'Основы'],
+            [root+'interface/inherit',          emoji.star+'Наследование интерфейсов'],
+            [root+'interface/with-class',       emoji.star+'Взаимодействие с классами'],
+            [root+'interface/dynamic-key-obj',  emoji.star+'Динамические ключи объекта'],
         ]
     },
     {
         title: 'generics',
         accent: true,
         themes: [
-            [root+'generics/main',       emoji.favorite+'Основы'],
-            [root+'generics/principle',  emoji.favorite+'Принцип работы'],
+            [root+'generics/main',       emoji.star+'Основы'],
+            [root+'generics/principle',  emoji.star+'Принцип работы'],
         ]
     },
     {
         title: 'enum',
         accent: true,
         themes: [
-            [root+'enum/main',  emoji.favorite+'Основы'],
+            [root+'enum/main',  emoji.star+'Основы'],
         ]
     },
     {

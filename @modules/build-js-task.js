@@ -28,9 +28,9 @@ ARR_MODULE = [
             [root+'algoritms/sum-sequence',             emoji.code+setTheme(4, ['Сумма последовательности'])],
             [root+'algoritms/function-count',           emoji.code+setTheme(4, ['Функция считает свои вызовы'])],
 
-            [root+'algoritms/event-emitter',            emoji.cup+setTheme(4, ['EventEmitter'])],
-            [root+'algoritms/series',                   emoji.cup+setTheme(4, ['Series'])],
-            [root+'algoritms/shop-queue',               emoji.cup+setTheme(4, ['Магазин с кассами'])],
+            [root+'algoritms/event-emitter',            emoji.avocado+setTheme(4, ['EventEmitter'])],
+            [root+'algoritms/series',                   emoji.avocado+setTheme(4, ['Series'])],
+            [root+'algoritms/shop-queue',               emoji.avocado+setTheme(4, ['Магазин с кассами'])],
         ]
     },
     {
@@ -57,7 +57,7 @@ ARR_MODULE = [
     {
         title: 'Массивы',
         themes: [
-            [root+'arrays/intersection-arrays',  emoji.code+setTheme(4, ['Пересечение массивов'])],
+            [root+'arrays/intersection-arrays',  emoji.fire+setTheme(4, ['Пересечение массивов'])],
             [root+'arrays/flat-array',           emoji.code+setTheme(4, ['Плоский массив'])],
             [root+'arrays/max-array-element',    emoji.code+setTheme(4, ['Максимальный элемент массива'])],
             [root+'arrays/doit',                 emoji.code+setTheme(4, ['Двумерный массив сумм'])],

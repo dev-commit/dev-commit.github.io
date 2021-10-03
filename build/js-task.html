@@ -162,7 +162,7 @@
                 class="menu-link"
                 id="id__js-task/algoritms/event-emitter"
                 href="#js-task/algoritms/event-emitter"
-            >🥤 <u-menu-unactive>EventEmitter</u-menu-unactive></a>
+            >🥑 <u-menu-unactive>EventEmitter</u-menu-unactive></a>
         </li>
     
         <li>
@@ -170,7 +170,7 @@
                 class="menu-link"
                 id="id__js-task/algoritms/series"
                 href="#js-task/algoritms/series"
-            >🥤 <u-menu-unactive>Series</u-menu-unactive></a>
+            >🥑 <u-menu-unactive>Series</u-menu-unactive></a>
         </li>
     
         <li>
@@ -178,7 +178,7 @@
                 class="menu-link"
                 id="id__js-task/algoritms/shop-queue"
                 href="#js-task/algoritms/shop-queue"
-            >🥤 <u-menu-unactive>Магазин с кассами</u-menu-unactive></a>
+            >🥑 <u-menu-unactive>Магазин с кассами</u-menu-unactive></a>
         </li>
     </ul><h4>🥥 Декораторы</h4><ul>
         <li>
@@ -274,7 +274,7 @@
                 class="menu-link"
                 id="id__js-task/arrays/intersection-arrays"
                 href="#js-task/arrays/intersection-arrays"
-            >⚡️ <u-menu-unactive>Пересечение массивов</u-menu-unactive></a>
+            >🔥 <u-menu-unactive>Пересечение массивов</u-menu-unactive></a>
         </li>
     
         <li>
@@ -2373,9 +2373,27 @@ const loadFilePromise = (src) => {
 </v-code>
 </div><div id="js-task/arrays/intersection-arrays"><h2>Пересечение массивов</h2>
 
+<!------------------------------------------------------------->
+<h4>reduce()</h4>
+<!------------------------------------------------------------->
+<v-code lang="js border" title="">
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [4, 5, 6, 7, 8];
+
+const interseption = (a, b) => {
+	return a.reduce((acc, item) => {
+		// уникальный элемент пушим в массив
+		b.find((i) => i === item) && acc.push(item);
+		return acc;
+	}, []);
+}
+
+const data = interseption(arr1, arr2);
+console.log(data); // [4, 5]
+</v-code>
 
 <!------------------------------------------------------------->
-<h4>Цикл forEach</h4>
+<h4>forEach</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 const arr1 = [1, 2, 3, 4, 5];
@@ -2394,20 +2412,6 @@ arr1.forEach(element => {
 })
 
 console.log(arr3); // => [4, 5]
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>reduce()</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-const arr1 = [1, 2, 3, 4, 5];
-const arr2 = [4, 5, 6, 7, 8];
-
-const interseption = (a, b) => {
-    return a.reduce((acc, item) => b.find((i) => i === item) && acc.push(item), []);
-}
-
-interseption(arr1, arr2); // [4, 5]
 </v-code>
 
 <!------------------------------------------------------------->

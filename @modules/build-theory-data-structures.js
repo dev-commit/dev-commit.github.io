@@ -11,19 +11,19 @@ ARR_MODULE = [
         title: 'Структуры данных',
         themes: [
             // TODO SUB-TITLE: Линейные
-            [root+'structures/stack',        emoji.favorite+'Стек'],
-            [root+'structures/queue',        emoji.favorite+'Очередь'],
-            [root+'structures/list-linked',  emoji.favorite+'Связанный список'],
+            [root+'structures/stack',        emoji.star+'Стек'],
+            [root+'structures/queue',        emoji.star+'Очередь'],
+            [root+'structures/list-linked',  emoji.star+'Связанный список'],
 
             // TODO SUB-TITLE: Остальные
-            [root+'structures/set',          emoji.favorite+'Множество'],
-            [root+'structures/map',          emoji.favorite+'Map'],
-            [root+'structures/hash',         emoji.favorite+'Хэш-таблица'],
-            [root+'structures/list',         emoji.favorite+'Список'],
-            [root+'structures/graph',        emoji.favorite+'Граф'],
-            [root+'structures/tree',         emoji.favorite+'Дерево'],
-            [root+'structures/tree-prefix',  emoji.favorite+'Префиксное дерево'],
-            [root+'structures/heap',         emoji.favorite+'Куча'],
+            [root+'structures/set',          emoji.star+'Множество'],
+            [root+'structures/map',          emoji.star+'Map'],
+            [root+'structures/hash',         emoji.star+'Хэш-таблица'],
+            [root+'structures/list',         emoji.star+'Список'],
+            [root+'structures/graph',        emoji.star+'Граф'],
+            [root+'structures/tree',         emoji.star+'Дерево'],
+            [root+'structures/tree-prefix',  emoji.star+'Префиксное дерево'],
+            [root+'structures/heap',         emoji.star+'Куча'],
         ]
     },
     {

@@ -1,0 +1,29 @@
+<h2>slice / splice</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>slice</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// копировать с 1 до 7 не включая, если не указан второй аргумент, то до конца
+const arr2 = arr1.<u-code>slice</u-code>(1, 7);
+// копировать с 1 до конца
+const arr2 = arr1.<u-code>slice</u-code>(1);
+// копировать c 2 элемента с конца и дальше
+const arr2 = arr.<u-code>slice</u-code>(-2);
+// копировать весь массив
+const arr2 = arr.<u-code>slice</u-code>();
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>splice</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// удалить с 3 индекса 2 элемента
+arr.<u-code>splice</u-code>(3, 2);
+// добавление элементов
+arr.<u-code>splice</u-code>(2, 0, 'Алина', 'Марина');
+// замена элементов (заменить 2 удаленных элемента на Алексей, Билл)
+arr.<u-code>splice</u-code>(1, 2, 'Алексей", "Билл');
+// удалить с последнего индекса-1 1 элемент (отрицательная позиция отсчитывается с конца)
+arr.<u-code>splice</u-code>(-1, 1);
+</v-code>

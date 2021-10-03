@@ -4,7 +4,7 @@ ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-		    [root+'main/info',                  emoji.theory+'Информация'],
+		    [root+'main/info', emoji.theory+'Информация'],
         ]
     },
     {
@@ -21,14 +21,14 @@ ARR_MODULE = [
         title: 'Примеры',
         accent: true,
         themes: [
-		    [root+'samples/samples',               'Примеры'],
+		    [root+'samples/samples', 'Примеры'],
         ]
     },
     {
         title: 'Прочее',
         themes: [
-		    [root+'other/chaining',              'Цепочки промисов'],
-		    [root+'other/executor',              'Внутренние свойства new Promise'],
+		    [root+'other/chaining', 'Цепочки промисов'],
+		    [root+'other/executor', 'Внутренние свойства new Promise'],
         ]
     },
 ]

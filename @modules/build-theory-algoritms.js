@@ -5,16 +5,16 @@ ARR_MODULE = [
         title: 'Big-O Notation',
         themes: [
             [root+'big-o/info',      emoji.theory+'Информация'],
-            [root+'big-o/variants',  emoji.avocado+'Варианты'],
-            [root+'big-o/structure', emoji.avocado+'Структуры данных'],
-            [root+'big-o/samples',   emoji.avocado+'Примеры'],
+            [root+'big-o/variants',  emoji.star+'Варианты'],
+            [root+'big-o/structure', emoji.star+'Структуры данных'],
+            [root+'big-o/samples',   emoji.star+'Примеры'],
         ]
     },
     {
         title: 'Основное',
         themes: [
-            [root+'main/info',            emoji.theory+'Информация'],
-            [root+'main/paradigms',       emoji.theory+'Методы разработки алгоритмов'],
+            [root+'main/info',      emoji.theory+'Информация'],
+            [root+'main/paradigms', emoji.theory+'Методы разработки алгоритмов'],
         ]
     },
     {
