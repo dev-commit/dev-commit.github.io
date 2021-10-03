@@ -19,6 +19,7 @@ ARR_MODULE = [
     },
     {
         title: 'Примеры',
+        accent: true,
         themes: [
 		    [root+'samples/samples',               'Примеры'],
         ]

@@ -52,24 +52,22 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Оптимизация',
+        title: 'Теория',
         themes: [
-            ['compilation/optimization/info',                     emoji.theory+'Оптимизация загрузки'],
-            ['compilation/optimization/critical-rendering-path',  emoji.avocado+'Critical Rendering Path'],
-            ['compilation/optimization/repaint-and-reflow',       emoji.avocado+'Repaint & Reflow'],
-            ['compilation/optimization/caching',                  emoji.favorite+'Кэширование'],
-            ['compilation/optimization/tree-shaking',             emoji.favorite+'Tree shaking'],
+            ['theory-paradigms/oop/principles',                  emoji.lemon+'ООП'],
+            ['theory-paradigms/fp/concept',                      emoji.lemon+'ФП'],
+            ['theory-paradigms/best-practices/solid',            emoji.baseball+'SOLID'],
+            ['theory-patterns/main/info',                        emoji.theory+'Паттерны'],
+            ['testing/theory/pyramid',                           emoji.theory+'Пирамида тестирования'],
+            ['compilation/deployment/info',                      emoji.theory+'CI / CD'],
         ]
     },
     {
-        title: 'Теория',
+        title: 'Прочее',
         themes: [
-            ['theory-paradigms/oop/principles',          emoji.lemon+'ООП'],
-            ['theory-paradigms/fp/concept',              emoji.lemon+'ФП'],
-            ['theory-paradigms/best-practices/solid',    emoji.baseball+'SOLID'],
-            ['theory-patterns/main/info',                emoji.theory+'Паттерны'],
-            ['testing/theory/pyramid',                   emoji.theory+'Пирамида тестирования'],
-            ['compilation/application-architecture/mvc', emoji.theory+'MVC'],
+            ['compilation/application-architecture/mvc',         'MVC'],
+            ['compilation/web/site-load',                        'Загрузка сайта'],
+            ['compilation/development-methodologies/estimation', 'Эстимация'],
         ]
     },
 ];

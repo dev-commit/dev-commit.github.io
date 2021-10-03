@@ -2,23 +2,13 @@ root = 'compilation/';
 
 ARR_MODULE = [
     {
-        title: 'Deployment',
+        title: 'CI / CD',
         themes: [
             [root+'deployment/info',                   emoji.theory+'Информация'],
             [root+'deployment/continuous-integration', emoji.baseball+'1. Continuous Integration'],
             [root+'deployment/continuous-delivery',    emoji.baseball+'2. Continuous Delivery'],
             [root+'deployment/continuous-deployment',  emoji.baseball+'3. Continuous Deployment'],
             [root+'deployment/software-deployment',    emoji.baseball+'Software Deployment'],
-        ]
-    },
-    {
-        title: 'Оптимизация',
-        themes: [
-            [root+'optimization/info',                    emoji.theory+'Оптимизация загрузки'],
-            [root+'optimization/critical-rendering-path', emoji.avocado+'Critical Rendering Path'],
-            [root+'optimization/repaint-and-reflow',      emoji.avocado+'Repaint & Reflow'],
-            [root+'optimization/caching',                 emoji.favorite+'Кэширование'],
-            [root+'optimization/tree-shaking',            emoji.favorite+'Tree shaking'],
         ]
     },
     {
@@ -42,9 +32,9 @@ ARR_MODULE = [
     {
         title: 'Методологии разработки',
         themes: [
-            [root+'development-methodologies/info',       'Методологии разработки'],
+            [root+'development-methodologies/info',       emoji.fire+'Методологии разработки'],
+            [root+'development-methodologies/agile',      emoji.fire+'Agile / Scrum / Kanban'],
             [root+'development-methodologies/waterfall',  'Waterfall'],
-            [root+'development-methodologies/agile',      'Agile / Scrum / Kanban'],
             [root+'development-methodologies/estimation', 'Эстимация'],
         ]
     },
@@ -73,9 +63,9 @@ ARR_MODULE = [
             [root+'compilation/chrome-mobile-version',  'Chrome: Мобильная версия'],
             [root+'compilation/server-online',          'Server Online'],
             [root+'compilation/photoshop',              'Adobe Photoshop'],
-            [root+'compilation/denwer',                 'Denwer'],
             [root+'compilation/google-chrome',          'Google Chrome'],
             [root+'compilation/windows',                'Windows'],
+            [root+'compilation/denwer',                 'Denwer'],
             [root+'compilation/trash',                  'Свалка'],
         ]
     },
