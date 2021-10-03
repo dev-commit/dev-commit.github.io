@@ -20,8 +20,8 @@ ARR_MODULE = [
         accent: true,
         themes: [
             [root+'optimization/info',                    emoji.theory+'Оптимизация загрузки'],
-            [root+'optimization/critical-rendering-path', emoji.avocado+'Critical Rendering Path'],
-            [root+'optimization/repaint-and-reflow',      emoji.avocado+'Repaint & Reflow'],
+            [root+'optimization/critical-rendering-path', emoji.fire+'Critical Rendering Path'],
+            [root+'optimization/repaint-and-reflow',      emoji.fire+'Repaint & Reflow'],
             [root+'optimization/caching',                 emoji.favorite+'Кэширование'],
             [root+'optimization/tree-shaking',            emoji.favorite+'Tree shaking'],
         ]
