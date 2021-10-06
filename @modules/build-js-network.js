@@ -36,6 +36,14 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'Протоколы',
+        themes: [
+            [root+'protocols/osi', emoji.theory+'Сетевая модель OSI'],
+            [root+'protocols/tcp', emoji.chevron+'TCP'],
+            [root+'protocols/udp', emoji.chevron+'UDP'],
+        ]
+    },
+    {
         title: 'Hacking',
         themes: [
             [root+'hacking/xss',            'XSS'],

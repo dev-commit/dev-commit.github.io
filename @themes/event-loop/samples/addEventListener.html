@@ -1,0 +1,42 @@
+<h2>addEventListener</h2>
+
+<v-code lang="js" title="">
+button.addEventListener('click', () => {
+    Promise.resolve().then(() => console.log('Microtask 1'));
+    console.log('Listener 1');
+});
+
+button.addEventListener('click', () => {
+    Promise.resolve().then(() => console.log('Microtask 2'));
+    console.log('Listener 2');
+});
+
+// => "Listener 1", "Listener 2", "Microtask 1", "Microtask 2"
+// button.click();
+
+// => "Listener 1", "Microtask 1", "Listener 2", "Microtask 2"
+// Клик по кнопке
+</v-code>
+
+<i>1. Клик по кнопке</i>
+<ol class="list-num">
+    <li>Первый обработчик отправляется в стек</li>
+    <li>Планируется микротаск</li>
+    <li>Выполняется console.log ('Listener 1')</li>
+    <li>Обработчик #1 заканчивает своё выполнение и уходит из стека</li>
+    <li>thВыполняется микротаск ('Microtask 1')is</li>
+    <li>Второй обработчик срабатывает аналогично</li>
+</ol>
+
+<i>2. Программный клик по кнопке</i>
+<ol class="list-num">
+    <li>В стек помещается весь скрипт</li>
+    <li>Скрипт запускает первый обработчик клика, который помещается в стек</li>
+    <li>Планируется микротаск</li>
+    <li>Выполняется console.log ('Listener 1')</li>
+    <li>Мы не можем выполнить микротаск, потому что стек не пуст, выполнение кода button.click(); еще не завершилось</li>
+    <li>Переходим ко второму обработчику клика</li>
+    <li>Выполняется console.log ('Listener 2')</li>
+    <li>Скрипт заканчивается</li>
+    <li>Выполняются колбэки промисов ('Microtask 1', 'Microtask 2')</li>
+</ol>

@@ -12,7 +12,9 @@ ARR_MODULE = [
     {
         title: 'Примеры',
         themes: [
-		    [root+'samples/samples', 'Примеры'],
+            [root+'samples/addEventListener', emoji.chevron+setTheme(5, ['addEventListener'])],
+            [root+'samples/onClick',          emoji.chevron+setTheme(5, ['onClick'])],
+		    [root+'samples/other',            'Прочее'],
         ]
     },
     {

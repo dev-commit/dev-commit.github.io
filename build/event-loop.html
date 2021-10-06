@@ -48,9 +48,25 @@
         <li>
             <a
                 class="menu-link"
-                id="id__event-loop/samples/samples"
-                href="#event-loop/samples/samples"
-            >Примеры</a>
+                id="id__event-loop/samples/addEventListener"
+                href="#event-loop/samples/addEventListener"
+            >🔰 <u-menu-outline>addEventListener</u-menu-outline></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__event-loop/samples/onClick"
+                href="#event-loop/samples/onClick"
+            >🔰 <u-menu-outline>onClick</u-menu-outline></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__event-loop/samples/other"
+                href="#event-loop/samples/other"
+            >Прочее</a>
         </li>
     </ul><h4>🥥 Рендеринг</h4><ul>
         <li>
@@ -263,7 +279,104 @@
 </template><template v-slot:last>
     <img src="/@img/js/event-loop/event-loop4.png" height="400px">
 </template></v-two>
-</div><div id="event-loop/samples/samples"><h2>Примеры</h2>
+</div><div id="event-loop/samples/addEventListener"><h2>addEventListener</h2>
+
+<v-code lang="js" title="">
+button.addEventListener('click', () => {
+    Promise.resolve().then(() => console.log('Microtask 1'));
+    console.log('Listener 1');
+});
+
+button.addEventListener('click', () => {
+    Promise.resolve().then(() => console.log('Microtask 2'));
+    console.log('Listener 2');
+});
+
+// => "Listener 1", "Listener 2", "Microtask 1", "Microtask 2"
+// button.click();
+
+// => "Listener 1", "Microtask 1", "Listener 2", "Microtask 2"
+// Клик по кнопке
+</v-code>
+
+<i>1. Клик по кнопке</i>
+<ol class="list-num">
+    <li>Первый обработчик отправляется в стек</li>
+    <li>Планируется микротаск</li>
+    <li>Выполняется console.log ('Listener 1')</li>
+    <li>Обработчик #1 заканчивает своё выполнение и уходит из стека</li>
+    <li>thВыполняется микротаск ('Microtask 1')is</li>
+    <li>Второй обработчик срабатывает аналогично</li>
+</ol>
+
+<i>2. Программный клик по кнопке</i>
+<ol class="list-num">
+    <li>В стек помещается весь скрипт</li>
+    <li>Скрипт запускает первый обработчик клика, который помещается в стек</li>
+    <li>Планируется микротаск</li>
+    <li>Выполняется console.log ('Listener 1')</li>
+    <li>Мы не можем выполнить микротаск, потому что стек не пуст, выполнение кода button.click(); еще не завершилось</li>
+    <li>Переходим ко второму обработчику клика</li>
+    <li>Выполняется console.log ('Listener 2')</li>
+    <li>Скрипт заканчивается</li>
+    <li>Выполняются колбэки промисов ('Microtask 1', 'Microtask 2')</li>
+</ol>
+</div><div id="event-loop/samples/onClick"><h2>onClick</h2>
+
+<v-code lang="html" title="">
+&lt;button id="root"&gt;start test&lt;/button&gt;
+</v-code>
+
+<v-code lang="js" title="">
+document.getElementById('root').addEventListener('click', onClick);
+
+function onClick() {
+	console.log('START');
+	setTimeout(() => console.log('TIMEOUT'), 0);
+	doHardWork();
+	Promise.resolve().then(() => console.log('RESOLVE'))
+	console.log('END');
+}
+
+// Имитируем тяжелые вычисления длительностью несколько секунд
+function doHardWork() {
+	for (var i = 0; i < 50000000; i++) {
+		var number = Math.pow(number, i);
+	}
+}
+</v-code>
+
+<v-code lang="js" title="">
+// 1. Нажали 3 раза на кнопку
+// => START, END, RESOLVE
+// => START, END, RESOLVE
+// => START, END, RESOLVE
+// => TIMEOUT, TIMEOUT, TIMEOUT
+</v-code>
+
+<ul class="list-point">
+    <li>onclick - асинхронная макротаска</li>
+    <li>3 раза кликнул, в очередь добавилось 3 onclick и они начинают по очереди входить в Call Stack</li>
+    <li>setTimeout попадают в конец очереди</li>
+</ul>
+
+<v-code lang="js" title="">
+// 2. В коде прописали 3 раза onClick()
+onClick();
+onClick();
+onClick();
+
+// => START, END
+// => START, END
+// => START, END
+// => RESOLVE, RESOLVE, RESOLVE
+// => TIMEOUT, TIMEOUT, TIMEOUT
+</v-code>
+
+<ul class="list-point">
+    <li>onClick() вызывается синхронно</li>
+</ul>
+</div><div id="event-loop/samples/other"><h2>Примеры</h2>
 
 <v-code lang="js" title="">
 // queue.waitForMessage ожидает события если очередь пуста
@@ -500,17 +613,47 @@ Chrome Dev Tools -> Сеть -> Запись активности
 
 </div><div id="event-loop/optimization/info"><h2>Оптимизация загрузки</h2>
 
+<!------------------------------------------------------------->
+<h4>Общее</h4>
+<!------------------------------------------------------------->
 <ul class="list-point">
-	<li>Разбитие на чанки JavaScript</li>
-	<li>Микросервисы</li>
-    <li>Сборщик мусора</li>
+    <li>Микросервисы</li>
     <li>Кеширование</li>
     <li>Сервис-воркеры</li>
-    <li>React.Lazy</li>
-    <li>Декоратор debounce</li>
-    <li>Мемоизация</li>
     <li>Виртуализация</li>
+    <li>Декоратор <u>debounce</u></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>JavaScript</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Разбитие на чанки JavaScript</li>
+    <li>Сборщик мусора</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>React</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Мемоизация: useMemo, useCallback</li>
+    <li>React.Lazy</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Webpack</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
     <li>Tree shaking</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Перформанс</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Chrome Dev Tools: Lighthouse</li>
+    <li>React Dev Tools</li>
+    <li>Redux Dev Tools</li>
 </ul>
 </div><div id="event-loop/optimization/caching"><h2>Кэширование</h2>
 

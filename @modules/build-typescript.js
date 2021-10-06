@@ -59,6 +59,7 @@ ARR_MODULE = [
             [root+'interface/inherit',          emoji.star+'Наследование интерфейсов'],
             [root+'interface/with-class',       emoji.star+'Взаимодействие с классами'],
             [root+'interface/dynamic-key-obj',  emoji.star+'Динамические ключи объекта'],
+            [root+'interface/samples',          'Примеры'],
         ]
     },
     {
@@ -102,6 +103,7 @@ ARR_MODULE = [
         title: 'Прочее',
         themes: [
             [root+'other/guards', 'Guards'],
+            [root+'other/ide',    'IDE'],
         ]
     },
 ]

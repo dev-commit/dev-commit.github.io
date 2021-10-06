@@ -72,9 +72,25 @@
         <li>
             <a
                 class="menu-link"
+                id="id__js-promise/samples/promise"
+                href="#js-promise/samples/promise"
+            >🔥 Promise</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-promise/samples/async"
+                href="#js-promise/samples/async"
+            >🔥 <u-menu-outline>async await</u-menu-outline> <u-menu-outline>setTimeout</u-menu-outline></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
                 id="id__js-promise/samples/chaining"
                 href="#js-promise/samples/chaining"
-            ><u-menu-outline>.then</u-menu-outline> <u-menu-outline>.catch</u-menu-outline> <u-menu-outline>.finally</u-menu-outline></a>
+            >🔰 <u-menu-outline>.then</u-menu-outline> <u-menu-outline>.catch</u-menu-outline> <u-menu-outline>.finally</u-menu-outline></a>
         </li>
     
         <li>
@@ -88,9 +104,9 @@
         <li>
             <a
                 class="menu-link"
-                id="id__js-promise/samples/other"
-                href="#js-promise/samples/other"
-            >Прочее</a>
+                id="id__js-promise/samples/race"
+                href="#js-promise/samples/race"
+            >🔰 <u-menu-outline>Promise.all</u-menu-outline> <u-menu-outline>Promise.race</u-menu-outline></a>
         </li>
     </ul><h4>🥥 Прочее</h4><ul>
         <li>
@@ -471,6 +487,270 @@ Promise.all([p1, p2, p3])
 Promise.race([p1, p2, p3])
 	.then(value => console.log(value));
 </v-code>
+</div><div id="js-promise/samples/promise"><h2>Promise</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Повесить браузер микротасками</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const badFunc = () =>  {
+    Promise.resolve(1)
+        .then(a => {
+            return badFunc();
+        })
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Promise и аргументы then</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+doSomething().then(function () {
+    return doSomethingElse();
+}).then(value =&gt; console.log(value)); // result doSomethingElse
+
+doSomething().then(function () {
+    doSomethingElse();
+}).then(value =&gt; console.log(value)) // undefined
+
+doSomething()
+    .then(doSomethingElse()) // пропускается
+    .then(value =&gt; console.log(value)); // result DoSomething
+
+doSomething()
+    .then(doSomethingElse)
+    .then(value =&gt; console.log(value)); // result doSomethingElse
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Promise и setTimeout</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function delay(value) {
+    return new Promise(function(resolve, reject){
+       setTimeout(function(){
+            resolve(100);
+        }, value);
+    });
+}
+delay(1000).then(value =&gt; console.log('Done with ' + value)); // Done with 100
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Promise Reject</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Promise.reject(1)
+    .then(() => console.log(1))
+    .then(() => console.log(2), () => console.log(3))
+    .catch(() => console.log(4))
+    .then(
+        () => {
+            console.log(5);
+            return reject(6);
+        },
+        () => console.log(7)
+    )
+    .then(() => console.log(8), () => console.log(9));
+// => 3, 5, 9
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Promise Resolve / Reject</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+console.log(1);
+
+const promise = new Promise((res, rej) => {
+  console.log(2);
+  res(77);
+})
+console.log(3);
+
+promise
+	.then(value => console.log(value))
+	.then(value => console.log(value))
+
+// => 1, 2, 3, 77, undefined
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Promise Resolve</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Promise.resolve(55)
+    .then((val) => {
+        console.log(val);
+        throw new Error();
+    })
+    .then((val) => console.log('then', val))
+    .catch((val) => {
+        console.log('catch', val);
+        return Promise.reject();
+    })
+    .then(finalHandler, finalHandler1)
+    .then(finalHandler, finalHandler1)
+    .then(finalHandler, finalHandler1);
+
+function finalHandler() {
+    console.log('finalHandler')
+}
+function finalHandler1() {
+    console.log('finalHandler1')
+}
+// => 55, catch Error, finalHandler1, finalHandler, finalHandler
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Finally</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var p = Promise.resolve(4);
+
+p
+    .then(data => {
+        console.log(data); // 4
+        throw new Error('');
+    })
+    .catch(err => {
+        console.log('err'); // err
+        return 'ok';
+    })
+    .finally((data) => {
+        console.log(data); // undefined
+        return 1;
+    })
+    .then((data) => {
+        console.log(data); // 'ok'
+    })
+</v-code>
+</div><div id="js-promise/samples/async"><h2>Async Await / Promise / setTimeout</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Promise и setTimeout</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// 1 - синхронный код
+console.log(1);
+
+Promise.resolve().then(() => {
+	// 3 - микротаска
+	console.log(3);
+	
+	// 5 - макротаска, поставится в очеред после setTimeout(() => { console.log(2); })
+	setTimeout(() => {
+		console.log(4);
+	})
+})
+
+// 4 - макротаска
+setTimeout(() => {
+	console.log(2);
+})
+
+// 2 - синхронный код
+console.log(5);
+
+// => 1, 5, 3, 2, 4
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Бесконечный Promise и setTimeout</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function a() {
+	console.log('a');
+	Promise.resolve().then(a);
+}
+
+function b() {
+	console.log('b');
+	setTimeout(b, 0);
+}
+
+a();
+b();
+
+// => a, b, a (бесконечно)
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Async Await + Promise + setTimeout</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var a = 1;
+
+var fn = async function() {
+    setTimeout(() => {
+        console.log('Пятый', a); // => 6
+        a = 2;
+    }, 0);
+
+    var promise = new Promise(function(resolve, reject) {
+        console.log('Первый', a); // => 1
+        a = 3;
+        resolve();
+    });
+
+    promise
+        .then(() => {
+            console.log('Второй', a); // => 3
+            a = 4;
+        })
+        .catch(() => {
+            console.log('Не выведет', a);
+            a = 5;  
+        })
+        .then(() => {
+            console.log('Четвертый', a); // => 4
+            a = 6;
+        });
+
+    await promise;
+
+    console.log('Третий', a); // => 4 
+}
+
+fn();
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование async await вместо Promise.all()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Использовать async await, но 2 запроса "foo1()" и "foo2()" должны работать асинхронно</li>
+</ul>
+
+<v-code lang="js" title="">
+async function foo1() {
+	return 1;
+}
+
+async function foo2() {
+	return 2;
+}
+
+async function all() {
+  const value1 = foo1(); // Promise
+  const value2 = foo2(); // Promise
+  
+  // 1 request and 2 request
+  const result1 = await value1;
+  const result2 = await value2;
+  
+  return [result1, result2];
+}
+
+async function result() {
+	const res = await all();
+	console.log(res);  // => (2) [1, 2]
+}
+
+result();
+</v-code>
 </div><div id="js-promise/samples/chaining"><h2>.then .catch .finally</h2>
 
 <v-code lang="js" title="">
@@ -556,11 +836,8 @@ Promise.resolve()
 	<u-code>.catch</u-code>(() => console.log(13))                        // "<em>Шестой</em>"
 	<u-code>.then</u-code>(() => console.log(14))                         // "<em>Восьмой</em>"
 </v-code>
-</div><div id="js-promise/samples/other"><h2>Примеры</h2>
+</div><div id="js-promise/samples/race"><h2>Promise.all / Promise.race</h2>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Пример #1</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="Объявление">
 const sleep = ms => {
     return new Promise(resolve => {
@@ -584,43 +861,6 @@ Promise.all([sleep(2000), sleep(5000)]).then(() => {
 Promise.race([sleep(2000), sleep(5000)]).then(() => {
     console.log('Race promises');
 })
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Пример #2</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-function applyForVisa(document) {
-	console.log('Обработка заявления...');
-	let promise = new Promise(function(resolve, reject) {
-		setTimeout(function() {
-			Math.random() > 0 ? resolve({}) : reject('В визе отказано');
-		}, 2000);
-	});
-	return promise;
-}
-function getVisa(visa) {
-	console.info('Виза получена');
-	return new Promise(function(resolve, reject) {
-		setTimeout(() => resolve(visa), 2000);
-	});
-}
-function bookHotel(visa) {
-	console.log(visa);
-	console.log('Бронируем отель');
-	return Promise.resolve(visa);
-	// return Promise.reject('Нет мест');
-}
-function buyTickets(booking) {
-	console.log('Покупаем билеты');
-	console.log('Бронь', booking);
-}
-applyForVisa({})
-	.then(getVisa)
-	.then(bookHotel)
-	.then(buyTickets)
-	.catch(error => console.error(error))
-	.then(() => console.log('Выведется в любом случае'));
 </v-code>
 </div><div id="js-promise/other/chaining"><h2>«Чейнинг» (цепочки промисов)</h2>
 
