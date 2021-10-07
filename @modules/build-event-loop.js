@@ -5,7 +5,7 @@ ARR_MODULE = [
         title: 'Основное',
         themes: [
 		    [root+'main/info',    emoji.theory+'Информация'],
-            [root+'main/v8',      emoji.fire+'Движок V8'],
+            [root+'main/runtime', emoji.fire+'Архитектура среды выполнения'],
 		    [root+'main/tasks',   emoji.chevron+'Виды задач'],
         ]
     },
