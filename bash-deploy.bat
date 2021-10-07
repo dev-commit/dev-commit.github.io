@@ -1,2 +1,2 @@
 npm run files && git add . && git commit -m "bash script" && git push origin head
-wait
+read -n 1
