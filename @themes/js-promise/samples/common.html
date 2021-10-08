@@ -1,17 +1,85 @@
 <h2>Общие задачи</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Promise и setTimeout</h3>
+<h3>Базовый пример на .then .catch .finally</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-function delay(value) {
-    return new Promise(function(resolve, reject){
-       setTimeout(function(){
-            resolve(100);
-        }, value);
-    });
-}
+Promise.resolve(1)
+    // Promise.resolve вернул "1"
+    // => "<em>1</em>"
+    <u-code>.then</u-code>(data => console.log(data))
 
-delay(1000)
-    .then(value =&gt; console.log(value)); // => "100"
+    // then ничего не вернул
+    <u-code>.then</u-code>(data => {
+        // => "<em>undefined</em>"
+        console.log(data);
+        return 2;
+    })
+
+    // then вернул "2"
+    <u-code>.then</u-code>(data => {
+        // => "<em>2</em>"
+        console.log(data);
+        // возникновение ошибки
+        throw new Error('Api Error');
+        // не имеет значения что вернули
+        return 1;
+    })
+
+    // skip, потому что предыдущий then бросил ошибку
+    <u-code>.then</u-code>(data => console.log('Hello'))
+
+    // минуя then попадаем в catch
+    <u-code>.catch</u-code>(error => {
+        // => "<em>Api Error</em>"
+        console.log(error.message);
+        return 3;
+    })
+
+    // catch вернул "3"
+    <u-code>.then</u-code>(data => {
+        console.log(data); // "3"
+        return 4;
+    })
+
+    // then вернул 4, но finally пропустит его мимо себя
+    <u-code>.finally</u-code>(data => { 
+        // => "<em>undefined</em>"
+        console.log(data);
+        return 5;
+    })
+
+    // из finally вернули "5", но результат берется из предудщего then или catch
+    // => "<em>4</em>"
+    <u-code>.then</u-code>(data => console.log(data))
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Общий пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Promise.resolve("1")
+    <u-code>.then</u-code>(
+        (val) => console.log('then', val),          // => "<em>1</em>"
+        (err) => console.log('catch', err)          // not execute
+    )
+    <u-code>.then</u-code>(
+        null,                                       // skip
+        (err) => console.log('catch', err)          // not execute
+    )
+    <u-code>.catch</u-code>((err) => console.log('catch', err))     // skip
+    <u-code>.then</u-code>(() => Promise.reject(2))                 // execute
+    <u-code>.catch</u-code>(null)                                   // skip
+    <u-code>.then</u-code>(
+        (val) => console.log('then', val),          // not execute
+        null                                        // skip
+    )
+    <u-code>.finally</u-code>((val) => console.log('finally', val)) // => "<em>undefined</em>"
+    <u-code>.catch</u-code>((val) => console.log('catch', val))     // => "<em>2</em>"
+    <u-code>.finally</u-code>(() => Promise.reject('3'))            // execute
+    <u-code>.then</u-code>(
+        (val) => console.log('then', val),          // not execute
+        (err) => console.log('catch', err)          // => "<em>3</em>"
+    )
+    <u-code>.catch</u-code>((val) => console.log('then', val));     // skip
 </v-code>
