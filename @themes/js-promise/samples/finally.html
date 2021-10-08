@@ -1,0 +1,25 @@
+<h2>.finally</h2>
+
+<v-code lang="js" title="">
+Promise.resolve()
+    <u-code>.then</u-code>(() => {
+    	return "1";
+    })
+
+    // .then вернул "1", но .finally пропустит его мимо себя
+    <u-code>.finally</u-code>(data => { 
+        console.log(data); // => "<em>undefined</em>"
+        return "2";
+    })
+
+    // из .finally вернули "2", но результат берется из предудщего .then или .catch
+    <u-code>.then</u-code>(data => console.log(data)) => "<em>1</em>"
+</v-code>
+
+<v-code lang="js" title="">
+Promise.reject()
+	// .finally выаполнится в любом случае: даже при возникновении ошибки
+    <u-code>.finally</u-code>(data => { 
+        console.log('finally'); // => "<em>finally</em>"
+    })
+</v-code>

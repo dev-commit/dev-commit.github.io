@@ -1,0 +1,105 @@
+<h2>.catch</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ошибка из Promise.reject</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Promise.reject("Api Error")
+    // skip из-за Promise.reject
+    <u-code>.then</u-code>(data => console.log('ok'))
+
+    // обработка ошибки
+    <u-code>.catch</u-code>(error => {
+        console.log(error); // => "<em>Api Error</em>"
+        return "1";
+    })
+
+    // catch вернул "1"
+    <u-code>.then</u-code>(data => {
+        console.log(data); // => "<em>1</em>"
+    })
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ошибка из Promise.reject из .catch</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Promise.reject()
+    // обработка Promise.reject
+    <u-code>.catch</u-code>(() => {
+        console.log('error1'); // => "<em>error1</em>"
+        return Promise.reject();
+        // аналогично
+        // return reject();
+    })
+
+    // обработка Promise.reject из предыдущего .catch
+    <u-code>.catch</u-code>(() => {
+        console.log('error2'); // => "<em>error2</em>"
+    })
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ошибка throw new Error</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Promise.resolve()
+    <u-code>.then</u-code>(data => {
+        // возникновение ошибки
+        throw new Error('Api Error');
+        // не имеет значения, что вернули
+        return 1;
+    })
+
+    // skip, потому что предыдущий then бросил ошибку
+    <u-code>.then</u-code>(data => console.log('ok'))
+
+    // обработка ошибки
+    <u-code>.catch</u-code>(error => {
+        console.log(error.message); // => "<em>Api Error</em>"
+        return "2";
+    })
+
+    // catch вернул "2"
+    <u-code>.then</u-code>(data => {
+        console.log(data); // => "<em>2</em>"
+    })
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Необработанная ошибка в Promise</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Необработанная ошибка в Promise, не влияет на работу программы</li>
+    <li>Promise не выпускает ошибку за пределы Promise</li>
+</ul>
+
+<v-code lang="js" title="">
+Promise.resolve()
+    <u-code>.then</u-code>(() => {
+        throw new Error('Api Error');
+    })
+
+// код будет работать
+setTimeout(() => {
+	console.log('setTimeout'); // => "<em>setTimeout</em>"
+}, 1000);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>null в .catch</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Promise.reject("Api Error")
+    // skip: ошибку не обработали
+    <u-code>.catch</u-code>(null)
+
+    // skip из-за необработанной ошибки
+    <u-code>.then</u-code>(data => console.log('ok'))
+		
+	// обработка ошибки
+    <u-code>.catch</u-code>(error => console.log(error)) // => "<em>Api Error</em>"
+	
+	// .then выполнится
+    <u-code>.then</u-code>(data => console.log('ok')) // => "<em>ok</em>"
+</v-code>

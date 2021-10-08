@@ -1,6 +1,28 @@
 <h2>Async Await / Promise / setTimeout</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Event Loop</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронный код
+console.log(1);
+
+const promise = new Promise((res, rej) => {
+    // это обычная функция, внутри которой синхронный код
+    console.log(2);
+    res(4);
+})
+
+// синхронный код
+console.log(3);
+
+promise.then(value => console.log(value))
+
+// => 1, 2, 3, 4
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Promise и setTimeout</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">

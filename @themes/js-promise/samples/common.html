@@ -1,0 +1,17 @@
+<h2>Общие задачи</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Promise и setTimeout</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function delay(value) {
+    return new Promise(function(resolve, reject){
+       setTimeout(function(){
+            resolve(100);
+        }, value);
+    });
+}
+
+delay(1000)
+    .then(value =&gt; console.log(value)); // => "100"
+</v-code>

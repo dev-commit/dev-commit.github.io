@@ -1,0 +1,67 @@
+<h2>.then</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Возврат / не возврат значения из .then</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Promise.resolve("1")
+    // Promise.resolve вернул "1"
+    <u-code>.then</u-code>(data => {
+    	console.log(data); // => "<em>1</em>"
+    })
+
+    // .then ничего не вернул
+    <u-code>.then</u-code>(data => {
+        console.log(data); // => "<em>undefined</em>"
+        return "2";
+    })
+
+    // .then вернул "2"
+    <u-code>.then</u-code>(data => {
+        console.log(data); // => "<em>2</em>"
+    })
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Второй аргумент .then</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Если не используется один из аргументов - можно задать <u>null</u></li>
+</ul>
+
+<v-code lang="js" title="">
+Promise.reject(1)
+	// skip
+	// обработать reject можно только в .catch
+	<u-code>.then</u-code>(data => {
+		console.log(data);
+	})
+
+	// второй аргумент .then вместо .catch
+	<u-code>.then</u-code>(null, data => console.log(data)) // => 1
+
+	// после обработки ошибки попадаем в then
+	// => "ok"
+	<u-code>.then</u-code>(() => console.log('ok'));
+</v-code>
+
+<v-code lang="js" title="">
+Promise.reject()
+	// используем колбэки для .then и для .catch
+	<u-code>.then</u-code>(
+		data => console.log('ok'),   // => skip
+		data => console.log('error') // => "<em>error</em>"
+	)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>null в .then</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Promise.resolve("1")
+	// skip
+    <u-code>.then</u-code>(null)
+
+    // придут данные из Promise.resolve
+    <u-code>.then</u-code>(data => console.log(data)) // => "<em>1</em>"
+</v-code>

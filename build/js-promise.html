@@ -72,9 +72,25 @@
         <li>
             <a
                 class="menu-link"
-                id="id__js-promise/samples/chaining"
-                href="#js-promise/samples/chaining"
-            >🔰 <u-menu-outline>.then</u-menu-outline> <u-menu-outline>.catch</u-menu-outline> <u-menu-outline>.finally</u-menu-outline></a>
+                id="id__js-promise/samples/then"
+                href="#js-promise/samples/then"
+            >🔰 <u-menu-outline>.then</u-menu-outline></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-promise/samples/catch"
+                href="#js-promise/samples/catch"
+            >🔰 <u-menu-outline>.catch</u-menu-outline></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-promise/samples/finally"
+                href="#js-promise/samples/finally"
+            >🔰 <u-menu-outline>.finally</u-menu-outline></a>
         </li>
     
         <li>
@@ -82,23 +98,31 @@
                 class="menu-link"
                 id="id__js-promise/samples/many-promises"
                 href="#js-promise/samples/many-promises"
-            >🔰 Несколько Promise</a>
+            >🍦 Несколько Promise</a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__js-promise/samples/throw-error"
-                href="#js-promise/samples/throw-error"
-            >🔰 Ошибка в Promise</a>
+                id="id__js-promise/samples/infinite-microtasks"
+                href="#js-promise/samples/infinite-microtasks"
+            >🍦 Бесконечные Микротаски</a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__js-promise/samples/promise"
-                href="#js-promise/samples/promise"
-            >Promise</a>
+                id="id__js-promise/samples/chaining"
+                href="#js-promise/samples/chaining"
+            >Базовый пример </a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-promise/samples/common"
+                href="#js-promise/samples/common"
+            >Общие задачи</a>
         </li>
     
         <li>
@@ -495,7 +519,253 @@ Promise.all([p1, p2, p3])
 Promise.race([p1, p2, p3])
 	.then(value => console.log(value));
 </v-code>
-</div><div id="js-promise/samples/chaining"><h2>.then .catch .finally</h2>
+</div><div id="js-promise/samples/then"><h2>.then</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Возврат / не возврат значения из .then</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Promise.resolve("1")
+    // Promise.resolve вернул "1"
+    <u-code>.then</u-code>(data => {
+    	console.log(data); // => "<em>1</em>"
+    })
+
+    // .then ничего не вернул
+    <u-code>.then</u-code>(data => {
+        console.log(data); // => "<em>undefined</em>"
+        return "2";
+    })
+
+    // .then вернул "2"
+    <u-code>.then</u-code>(data => {
+        console.log(data); // => "<em>2</em>"
+    })
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Второй аргумент .then</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Если не используется один из аргументов - можно задать <u>null</u></li>
+</ul>
+
+<v-code lang="js" title="">
+Promise.reject(1)
+	// skip
+	// обработать reject можно только в .catch
+	<u-code>.then</u-code>(data => {
+		console.log(data);
+	})
+
+	// второй аргумент .then вместо .catch
+	<u-code>.then</u-code>(null, data => console.log(data)) // => 1
+
+	// после обработки ошибки попадаем в then
+	// => "ok"
+	<u-code>.then</u-code>(() => console.log('ok'));
+</v-code>
+
+<v-code lang="js" title="">
+Promise.reject()
+	// используем колбэки для .then и для .catch
+	<u-code>.then</u-code>(
+		data => console.log('ok'),   // => skip
+		data => console.log('error') // => "<em>error</em>"
+	)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>null в .then</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Promise.resolve("1")
+	// skip
+    <u-code>.then</u-code>(null)
+
+    // придут данные из Promise.resolve
+    <u-code>.then</u-code>(data => console.log(data)) // => "<em>1</em>"
+</v-code>
+</div><div id="js-promise/samples/catch"><h2>.catch</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ошибка из Promise.reject</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Promise.reject("Api Error")
+    // skip из-за Promise.reject
+    <u-code>.then</u-code>(data => console.log('ok'))
+
+    // обработка ошибки
+    <u-code>.catch</u-code>(error => {
+        console.log(error); // => "<em>Api Error</em>"
+        return "1";
+    })
+
+    // catch вернул "1"
+    <u-code>.then</u-code>(data => {
+        console.log(data); // => "<em>1</em>"
+    })
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ошибка из Promise.reject из .catch</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Promise.reject()
+    // обработка Promise.reject
+    <u-code>.catch</u-code>(() => {
+        console.log('error1'); // => "<em>error1</em>"
+        return Promise.reject();
+        // аналогично
+        // return reject();
+    })
+
+    // обработка Promise.reject из предыдущего .catch
+    <u-code>.catch</u-code>(() => {
+        console.log('error2'); // => "<em>error2</em>"
+    })
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ошибка throw new Error</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Promise.resolve()
+    <u-code>.then</u-code>(data => {
+        // возникновение ошибки
+        throw new Error('Api Error');
+        // не имеет значения, что вернули
+        return 1;
+    })
+
+    // skip, потому что предыдущий then бросил ошибку
+    <u-code>.then</u-code>(data => console.log('ok'))
+
+    // обработка ошибки
+    <u-code>.catch</u-code>(error => {
+        console.log(error.message); // => "<em>Api Error</em>"
+        return "2";
+    })
+
+    // catch вернул "2"
+    <u-code>.then</u-code>(data => {
+        console.log(data); // => "<em>2</em>"
+    })
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Необработанная ошибка в Promise</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Необработанная ошибка в Promise, не влияет на работу программы</li>
+    <li>Promise не выпускает ошибку за пределы Promise</li>
+</ul>
+
+<v-code lang="js" title="">
+Promise.resolve()
+    <u-code>.then</u-code>(() => {
+        throw new Error('Api Error');
+    })
+
+// код будет работать
+setTimeout(() => {
+	console.log('setTimeout'); // => "<em>setTimeout</em>"
+}, 1000);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>null в .catch</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Promise.reject("Api Error")
+    // skip: ошибку не обработали
+    <u-code>.catch</u-code>(null)
+
+    // skip из-за необработанной ошибки
+    <u-code>.then</u-code>(data => console.log('ok'))
+		
+	// обработка ошибки
+    <u-code>.catch</u-code>(error => console.log(error)) // => "<em>Api Error</em>"
+	
+	// .then выполнится
+    <u-code>.then</u-code>(data => console.log('ok')) // => "<em>ok</em>"
+</v-code>
+</div><div id="js-promise/samples/finally"><h2>.finally</h2>
+
+<v-code lang="js" title="">
+Promise.resolve()
+    <u-code>.then</u-code>(() => {
+    	return "1";
+    })
+
+    // .then вернул "1", но .finally пропустит его мимо себя
+    <u-code>.finally</u-code>(data => { 
+        console.log(data); // => "<em>undefined</em>"
+        return "2";
+    })
+
+    // из .finally вернули "2", но результат берется из предудщего .then или .catch
+    <u-code>.then</u-code>(data => console.log(data)) => "<em>1</em>"
+</v-code>
+
+<v-code lang="js" title="">
+Promise.reject()
+	// .finally выаполнится в любом случае: даже при возникновении ошибки
+    <u-code>.finally</u-code>(data => { 
+        console.log('finally'); // => "<em>finally</em>"
+    })
+</v-code>
+</div><div id="js-promise/samples/many-promises"><h2>Несколько Promise</h2>
+
+<ul class="list-point">
+    <li>Если несколько Promise, то <u>.then</u> будет выполняться последовательно для каждого</li>
+</ul>
+
+<v-code lang="js" title="">
+Promise.resolve()
+    <u-code>.then</u-code>(() => console.log(1))  // "<em>Первый</em>"
+    <u-code>.then</u-code>(() => console.log(2))  // "<em>Третий</em>"
+
+Promise.resolve()
+    <u-code>.then</u-code>(() => console.log(11)) // "<em>Второй</em>"
+    <u-code>.then</u-code>(() => console.log(12)) // "<em>Четвертый</em>"
+</v-code>
+
+<ul class="list-point">
+    <li>При <u>.catch</u> аналогично</li>
+</ul>
+
+<v-code lang="js" title="">
+Promise.resolve()
+	<u-code>.then</u-code>(() => console.log(1))                          // "<em>Первый</em>"
+	<u-code>.then</u-code>(() => { console.log(2); throw new Error(); })  // "<em>Третий</em>"
+	<u-code>.catch</u-code>(() => console.log(3))                         // "<em>Пятый</em>"
+	<u-code>.then</u-code>(() => console.log(4))                          // "<em>Седьмой</em>"
+
+Promise.resolve()
+	<u-code>.then</u-code>(() => console.log(11))                         // "<em>Второй</em>"
+	<u-code>.then</u-code>(() => { console.log(12); throw new Error(); }) // "<em>Четвертый</em>"
+	<u-code>.catch</u-code>(() => console.log(13))                        // "<em>Шестой</em>"
+	<u-code>.then</u-code>(() => console.log(14))                         // "<em>Восьмой</em>"
+</v-code>
+</div><div id="js-promise/samples/infinite-microtasks"><h2>Бесконечные Микротаски</h2>
+
+<ul class="list-point">
+    <li>Повесить браузер микротасками</li>
+</ul>
+
+<v-code lang="js" title="">
+const foo = () =>  {
+    Promise.resolve()
+        <u-code>.then</u-code>(() => {
+            return foo();
+        })
+}
+
+foo();
+</v-code>
+</div><div id="js-promise/samples/chaining"><h2>Базовый пример на .then .catch .finally</h2>
 
 <v-code lang="js" title="">
 Promise.resolve(1)
@@ -547,93 +817,7 @@ Promise.resolve(1)
     // => "<em>4</em>"
     <u-code>.then</u-code>(data => console.log(data))
 </v-code>
-</div><div id="js-promise/samples/many-promises"><h2>Несколько Promise</h2>
-
-<ul class="list-point">
-    <li>Если несколько Promise, то "then" будет выполняться последовательно для каждого</li>
-</ul>
-
-<v-code lang="js" title="">
-Promise.resolve()
-    <u-code>.then</u-code>(() => console.log(1))  // "<em>Первый</em>"
-    <u-code>.then</u-code>(() => console.log(2))  // "<em>Третий</em>"
-
-Promise.resolve()
-    <u-code>.then</u-code>(() => console.log(11)) // "<em>Второй</em>"
-    <u-code>.then</u-code>(() => console.log(12)) // "<em>Четвертый</em>"
-</v-code>
-
-<ul class="list-point">
-    <li>При catch аналогично</li>
-</ul>
-
-<v-code lang="js" title="">
-Promise.resolve()
-	<u-code>.then</u-code>(() => console.log(1))                          // "<em>Первый</em>"
-	<u-code>.then</u-code>(() => { console.log(2); throw new Error(); })  // "<em>Третий</em>"
-	<u-code>.catch</u-code>(() => console.log(3))                         // "<em>Пятый</em>"
-	<u-code>.then</u-code>(() => console.log(4))                          // "<em>Седьмой</em>"
-
-Promise.resolve()
-	<u-code>.then</u-code>(() => console.log(11))                         // "<em>Второй</em>"
-	<u-code>.then</u-code>(() => { console.log(12); throw new Error(); }) // "<em>Четвертый</em>"
-	<u-code>.catch</u-code>(() => console.log(13))                        // "<em>Шестой</em>"
-	<u-code>.then</u-code>(() => console.log(14))                         // "<em>Восьмой</em>"
-</v-code>
-</div><div id="js-promise/samples/throw-error"><h2>Необработанная ошибка в Promise</h2>
-
-<ul class="list-point">
-    <li>Необработанная ошибка в Promise, не влияет на работу программы</li>
-    <li>Promise не выпускает ошибку за пределы Promise</li>
-</ul>
-
-<v-code lang="js" title="">
-Promise.resolve()
-    .then(() => {
-        throw new Error('Api Error');
-    })
-
-// код будет работать
-setTimeout(() => {
-	console.log('setTimeout');
-}, 1000);
-
-// => "setTimeout"
-</v-code>
-</div><div id="js-promise/samples/promise"><h2>Promise</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Повесить браузер микротасками</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-const badFunc = () =>  {
-    Promise.resolve(1)
-        .then(a => {
-            return badFunc();
-        })
-}
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Promise и аргументы then</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-doSomething().then(function () {
-    return doSomethingElse();
-}).then(value =&gt; console.log(value)); // result doSomethingElse
-
-doSomething().then(function () {
-    doSomethingElse();
-}).then(value =&gt; console.log(value)) // undefined
-
-doSomething()
-    .then(doSomethingElse()) // пропускается
-    .then(value =&gt; console.log(value)); // result DoSomething
-
-doSomething()
-    .then(doSomethingElse)
-    .then(value =&gt; console.log(value)); // result doSomethingElse
-</v-code>
+</div><div id="js-promise/samples/common"><h2>Общие задачи</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Promise и setTimeout</h3>
@@ -646,98 +830,33 @@ function delay(value) {
         }, value);
     });
 }
-delay(1000).then(value =&gt; console.log('Done with ' + value)); // Done with 100
+
+delay(1000)
+    .then(value =&gt; console.log(value)); // => "100"
 </v-code>
+</div><div id="js-promise/samples/async"><h2>Async Await / Promise / setTimeout</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Promise Reject</h3>
+<h3>Event Loop</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-Promise.reject(1)
-    .then(() => console.log(1))
-    .then(() => console.log(2), () => console.log(3))
-    .catch(() => console.log(4))
-    .then(
-        () => {
-            console.log(5);
-            return reject(6);
-        },
-        () => console.log(7)
-    )
-    .then(() => console.log(8), () => console.log(9));
-// => 3, 5, 9
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Promise Resolve / Reject</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
+// синхронный код
 console.log(1);
 
 const promise = new Promise((res, rej) => {
-  console.log(2);
-  res(77);
+    // это обычная функция, внутри которой синхронный код
+    console.log(2);
+    res(4);
 })
+
+// синхронный код
 console.log(3);
 
-promise
-	.then(value => console.log(value))
-	.then(value => console.log(value))
+promise.then(value => console.log(value))
 
-// => 1, 2, 3, 77, undefined
+// => 1, 2, 3, 4
 </v-code>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Promise Resolve</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-Promise.resolve(55)
-    .then((val) => {
-        console.log(val);
-        throw new Error();
-    })
-    .then((val) => console.log('then', val))
-    .catch((val) => {
-        console.log('catch', val);
-        return Promise.reject();
-    })
-    .then(finalHandler, finalHandler1)
-    .then(finalHandler, finalHandler1)
-    .then(finalHandler, finalHandler1);
-
-function finalHandler() {
-    console.log('finalHandler')
-}
-function finalHandler1() {
-    console.log('finalHandler1')
-}
-// => 55, catch Error, finalHandler1, finalHandler, finalHandler
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Finally</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-var p = Promise.resolve(4);
-
-p
-    .then(data => {
-        console.log(data); // 4
-        throw new Error('');
-    })
-    .catch(err => {
-        console.log('err'); // err
-        return 'ok';
-    })
-    .finally((data) => {
-        console.log(data); // undefined
-        return 1;
-    })
-    .then((data) => {
-        console.log(data); // 'ok'
-    })
-</v-code>
-</div><div id="js-promise/samples/async"><h2>Async Await / Promise / setTimeout</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Promise и setTimeout</h3>
