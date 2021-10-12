@@ -51,7 +51,7 @@ Promise.resolve()
         return 1;
     })
 
-    // skip, потому что предыдущий then бросил ошибку
+    // skip, потому что предыдущий .then бросил ошибку
     <u-code>.then</u-code>(data => console.log('ok'))
 
     // обработка ошибки
@@ -60,7 +60,7 @@ Promise.resolve()
         return "2";
     })
 
-    // catch вернул "2"
+    // .catch вернул "2"
     <u-code>.then</u-code>(data => {
         console.log(data); // => "<em>2</em>"
     })
@@ -70,8 +70,8 @@ Promise.resolve()
 <h3>Необработанная ошибка в Promise</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li>Необработанная ошибка в Promise, не влияет на работу программы</li>
-    <li>Promise не выпускает ошибку за пределы Promise</li>
+    <li>Необработанная ошибка в Promise не влияет на работу программы</li>
+    <li>Promise не выпускает ошибку за свои пределы</li>
 </ul>
 
 <v-code lang="js" title="">

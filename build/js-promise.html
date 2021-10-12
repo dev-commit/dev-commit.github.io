@@ -561,7 +561,7 @@ Promise.reject(1)
 	// второй аргумент .then вместо .catch
 	<u-code>.then</u-code>(null, data => console.log(data)) // => 1
 
-	// после обработки ошибки попадаем в then
+	// после обработки ошибки попадаем в .then
 	// => "ok"
 	<u-code>.then</u-code>(() => console.log('ok'));
 </v-code>
@@ -639,7 +639,7 @@ Promise.resolve()
         return 1;
     })
 
-    // skip, потому что предыдущий then бросил ошибку
+    // skip, потому что предыдущий .then бросил ошибку
     <u-code>.then</u-code>(data => console.log('ok'))
 
     // обработка ошибки
@@ -648,7 +648,7 @@ Promise.resolve()
         return "2";
     })
 
-    // catch вернул "2"
+    // .catch вернул "2"
     <u-code>.then</u-code>(data => {
         console.log(data); // => "<em>2</em>"
     })
@@ -658,8 +658,8 @@ Promise.resolve()
 <h3>Необработанная ошибка в Promise</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li>Необработанная ошибка в Promise, не влияет на работу программы</li>
-    <li>Promise не выпускает ошибку за пределы Promise</li>
+    <li>Необработанная ошибка в Promise не влияет на работу программы</li>
+    <li>Promise не выпускает ошибку за свои пределы</li>
 </ul>
 
 <v-code lang="js" title="">
@@ -705,13 +705,13 @@ Promise.resolve()
         return "2";
     })
 
-    // из .finally вернули "2", но результат берется из предудщего .then или .catch
+    // из .finally вернули "2", но результат берется из предыдущего .then или .catch
     <u-code>.then</u-code>(data => console.log(data)) => "<em>1</em>"
 </v-code>
 
 <v-code lang="js" title="">
 Promise.reject()
-	// .finally выаполнится в любом случае: даже при возникновении ошибки
+	// .finally выполняется в любом случае: даже при возникновении ошибки
     <u-code>.finally</u-code>(data => { 
         console.log('finally'); // => "<em>finally</em>"
     })

@@ -12,13 +12,13 @@ Promise.resolve()
         return "2";
     })
 
-    // из .finally вернули "2", но результат берется из предудщего .then или .catch
+    // из .finally вернули "2", но результат берется из предыдущего .then или .catch
     <u-code>.then</u-code>(data => console.log(data)) => "<em>1</em>"
 </v-code>
 
 <v-code lang="js" title="">
 Promise.reject()
-	// .finally выаполнится в любом случае: даже при возникновении ошибки
+	// .finally выполняется в любом случае: даже при возникновении ошибки
     <u-code>.finally</u-code>(data => { 
         console.log('finally'); // => "<em>finally</em>"
     })
