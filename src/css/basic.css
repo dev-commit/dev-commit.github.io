@@ -196,6 +196,30 @@ summary {
 }
 
 /***************************************************
+TABLE
+/***************************************************/
+table {
+	border-collapse: collapse;
+	font-size: 14px;
+}
+td, th {
+	padding: 3px 10px;
+	border: 1px solid rgba(var(--theme-gray), .4);
+}
+th {
+	background-color: rgba(var(--color-blue), .3);
+	color: rgba(0, 0, 0, .7);
+}
+table.even tr:nth-child(odd) {
+	background: #ededed;
+}
+table td.accent {
+	background-color: rgba(var(--color-sand), .5);
+	font-weight: bold;
+	color: rgba(0, 0, 0, .7);
+}
+
+/***************************************************
 LISTS
 /***************************************************/
 .list-point, .list-num, .list-none {
@@ -208,7 +232,12 @@ LISTS
 }
 .list-none {
 	list-style-type: none;
-	line-height: 2;
 	padding: 0;
-	font-size: 14px;
+}
+.list-comment {
+	list-style-type: "🤙 ";
+	line-height: 2;
+	font-size: 15px;
+	color: grey;
+	font-style: italic;
 }

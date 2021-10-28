@@ -40,7 +40,8 @@ ARR_MODULE = [
     {
     	title: 'Class',
         themes: [
-            [root+'class/links',   'Ссылки на разделы'],
+            [root+'class/list',   'Списки'],
+            [root+'class/link',   'Ссылки на разделы'],
         ]
     },
 ];

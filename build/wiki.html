@@ -176,8 +176,16 @@
         <li>
             <a
                 class="menu-link"
-                id="id__@wiki/class/links"
-                href="#@wiki/class/links"
+                id="id__@wiki/class/list"
+                href="#@wiki/class/list"
+            >Списки</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__@wiki/class/link"
+                href="#@wiki/class/link"
             >Ссылки на разделы</a>
         </li>
     </ul>
@@ -567,7 +575,66 @@ Hidden Content
     <li><v-marker marker="+" /> Плюс</li>
     <li><v-marker marker="-" /> Минус</li>
 </ul>
-</div><div id="@wiki/class/links"><h2>Ссылки на разделы</h2>
+</div><div id="@wiki/class/list"><h2>Списки</h2>
+
+<v-two><template v-slot:first>
+<v-code lang="html" title="">
+&lt;ul class="list-point"&gt;
+    &lt;li&gt;Item-1&lt;/li&gt;
+    &lt;li&gt;Item-2&lt;/li&gt;
+&lt;/ul&gt;
+</v-code>
+</template><template v-slot:last>
+<ul class="list-point">
+    <li>Item-1</li>
+    <li>Item-2</li>
+</ul>
+</template></v-two>
+
+<v-two><template v-slot:first>
+<v-code lang="html" title="">
+&lt;ol class="list-num"&gt;
+    &lt;li&gt;Item-1&lt;/li&gt;
+    &lt;li&gt;Item-2&lt;/li&gt;
+&lt;/ol&gt;
+</v-code>
+</template><template v-slot:last>
+<ol class="list-num">
+    <li>Item-1</li>
+    <li>Item-2</li>
+</ol>
+</template></v-two>
+
+<v-two><template v-slot:first>
+<v-code lang="html" title="">
+&lt;ul class="list-none"&gt;
+    &lt;li&gt;Item-1&lt;/li&gt;
+    &lt;li&gt;Item-2&lt;/li&gt;
+&lt;/ul&gt;
+</v-code>
+</template><template v-slot:last>
+<ul class="list-none">
+    <li>Item-1</li>
+    <li>Item-2</li>
+</ul>
+</template></v-two>
+
+<v-two><template v-slot:first>
+<v-code lang="html" title="">
+&lt;ul class="list-comment"&gt;
+    &lt;li&gt;Item-1&lt;/li&gt;
+    &lt;li&gt;Item-2&lt;/li&gt;
+&lt;/ul&gt;
+</v-code>
+</template><template v-slot:last>
+<ul class="list-comment">
+    <li>Item-1</li>
+    <li>Item-2</li>
+</ul>
+</template></v-two>
+</div><div id="@wiki/class/link"><h2>Ссылки на разделы</h2>
+
+<v-two><template v-slot:first>
 
 <v-code lang="html" title="">
 &lt;ul class="link-page-wrapper"&gt;
@@ -576,10 +643,14 @@ Hidden Content
 &lt;/ul&gt;
 </v-code>
 
+</template><template v-slot:last>
+
 <ul class="link-page-wrapper">
 	<li><a href="#">Ссылка 1</a></li>
 	<li><a href="#">Ссылка 2</a></li>
 </ul>
+
+</template></v-two>
 </div></div>
                 </div>
             </div>
