@@ -5,6 +5,7 @@ const ARR_LINKS = [
     { page: 'assessment',              theme: 'brown',    title: 'Ассессмент' },
     { page: 'js-task',                 theme: 'brown',    title: '🍦 Задачи' },
     { page: 'compilation',             theme: 'crimson',  title: '🐼' },
+    { page: 'english',                 theme: 'crimson',  title: 'English' },
     null,
     { page: 'theory-algoritms',        theme: 'brown',    title: '🍦 Алгоритмы' },
     { page: 'theory-data-structures',  theme: 'brown',    title: '🍦 Структуры данных' },
