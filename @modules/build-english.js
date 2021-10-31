@@ -25,12 +25,16 @@ ARR_MODULE = [
         title: 'Таблицы',
         themes: [
             [root+'tables/irregular-verbs', 'Формы неправильных глаголов'],
+            [root+'tables/country',         'Страны и национальности'],
+            [root+'tables/family',          'Семья'],
         ]
     },
     {
         title: 'Прочее',
         themes: [
-            [root+'other/other', 'Прочее'],
+            [root+'other/other',    'Прочее'],
+            [root+'other/phrases', 'Фразы'],
+            [root+'other/words',   'Слова'],
         ]
     },
 ]
