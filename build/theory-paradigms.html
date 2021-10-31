@@ -13,12 +13,16 @@
         <body>
 
             <div id="container">
-                <div id="menu">
+                <div id="menu" :class="{ hide:isHideMenu }">
                     <div id="top">
-                        <a href="#links" class="link">
-                            <div class="img"></div>
-                            <span v-html="'Парадигмы'"></span>
-                        </a>
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="link" v-html="'Парадигмы'"></a>
                     </div>
                     <h4>🥥 Стандарты кода</h4><ul>
         <li>

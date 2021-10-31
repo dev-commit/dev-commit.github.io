@@ -23,7 +23,8 @@
 	overflow: auto;
 }
 #top {
-	padding: 5px 15px;
+	display: flex;
+	padding: 10px 15px;
 	margin-bottom: 20px;
 	position: sticky;
 	top: 0;
@@ -137,14 +138,39 @@ TOP
 #top .link {
 	display: flex;
 	align-items: center;
+	flex-grow: 1;
+	padding-left: 10px;
 	text-decoration: none;
 }
 #top .img {
+	margin-right: 10px;
+	border-radius: 0;
+	cursor: pointer;
+}
+
+/*
+#top .img {
 	width: 35px;
 	height: 35px;
-	margin-right: 20px;
 	background-image: url(../img/show.svg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: contain;
+}
+
+<div class="img"></div>
+*/
+
+/***************************************************
+MENU HIDE
+/***************************************************/
+#menu.hide {
+	width: 65px;
+	overflow: hidden;
+}
+#menu.hide .link,
+#menu.hide h4,
+#menu.hide ul
+{
+	display: none;
 }

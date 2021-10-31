@@ -4,6 +4,7 @@ new Vue({
     data: {
         themesContent: null,
         themesEmoji: '🥥',
+        isHideMenu: false,
     },
     methods: {
         buildContent(file) {
@@ -25,6 +26,9 @@ new Vue({
                     setClipboard();
                 })
         },
+        toggleMenu() {
+            this.isHideMenu = !this.isHideMenu;
+        }
     },
     updated() {
         setHighlightCode();

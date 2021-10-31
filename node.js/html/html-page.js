@@ -35,12 +35,16 @@ export const getIndexHTML = ({ up, title, script, menu, content }) => (`
         <body>
 
             <div id="container">
-                <div id="menu">
+                <div id="menu" :class="{ hide:isHideMenu }">
                     <div id="top">
-                        <a href="#links" class="link">
-                            <div class="img"></div>
-                            <span v-html="'${title}'"></span>
-                        </a>
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="link" v-html="'${title}'"></a>
                     </div>
                     ${menu ? menu : getMenuHTML()}
                 </div>

@@ -13,12 +13,16 @@
         <body>
 
             <div id="container">
-                <div id="menu">
+                <div id="menu" :class="{ hide:isHideMenu }">
                     <div id="top">
-                        <a href="#links" class="link">
-                            <div class="img"></div>
-                            <span v-html="'🥥 React.js'"></span>
-                        </a>
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="link" v-html="'🥥 React.js'"></a>
                     </div>
                     <h4>🥥 Реконсиляция</h4><ul>
         <li>
