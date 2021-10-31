@@ -2,6 +2,13 @@ root = 'english/';
 
 ARR_MODULE = [
     {
+        title: 'Теория',
+        themes: [
+            [root+'theory/data', emoji.theory+'Данные'],
+            [root+'theory/levels', emoji.theory+'Уровни английского'],
+        ]
+    },
+    {
         title: 'Времена',
         themes: [
             [root+'tenses/tenses-table', 'Таблица времен'],
@@ -18,6 +25,12 @@ ARR_MODULE = [
         title: 'Таблицы',
         themes: [
             [root+'tables/irregular-verbs', 'Формы неправильных глаголов'],
+        ]
+    },
+    {
+        title: 'Прочее',
+        themes: [
+            [root+'other/other', 'Прочее'],
         ]
     },
 ]
