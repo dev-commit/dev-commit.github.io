@@ -42,10 +42,10 @@ const result = bar(2, 3); // => 2 3 "Tony"
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 Function.prototype.bind = function (context) {
-	var fun = this;
-	var arg1 = Array.prototype.slice.call(arguments, 1);
+	const fun = this;
+	const arg1 = Array.prototype.slice.call(arguments, 1);
 	return function () {
-		var arg2 = Array.prototype.slice.call(arguments);
+		const arg2 = Array.prototype.slice.call(arguments);
 		return fun.call(context, arg1.concat(arg2))
 	}
 }
@@ -53,11 +53,11 @@ Function.prototype.bind = function (context) {
 
 <v-code lang="js" title="">
 Function.prototype.bind = function (context) {
-	var arg1 = Array.prototype.slice.call(arguments, 1);
-	var fun = this;
+	const arg1 = Array.prototype.slice.call(arguments, 1);
+	const fun = this;
 
 	return function () {
-		var arg2 = Array.prototype.slice.call(arguments);
+		const arg2 = Array.prototype.slice.call(arguments);
 		return fun.apply(context, arg1.concat(arg2))
 	}
 }

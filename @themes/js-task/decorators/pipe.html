@@ -5,11 +5,11 @@
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 function pipe(){
-	var args = Array.from(arguments);
-	var result = args.shift();
+	const args = Array.from(arguments);
+	const result = args.shift();
 
 	while(args.length) {
-		var f = args.shift();
+		const f = args.shift();
 		result = f(result);
 	}
 	return result;

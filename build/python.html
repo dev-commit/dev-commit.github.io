@@ -730,12 +730,12 @@ print(mycursor.rowcount, "record(s) deleted")
 <v-code lang="js" title="">
 // JavaScript Code (SELECT)
 $.get('python/db_select.py', {}, function(data) {
-	var arr = eval(data);
-	var result = '';
-	for(var i=0; i&lt;arr.length; i++) {
-		var id   = arr[i][0];
-		var name = arr[i][1];
-		var time = arr[i][2];
+	const arr = eval(data);
+	let result = '';
+	for(let i=0; i&lt;arr.length; i++) {
+		const id   = arr[i][0];
+		const name = arr[i][1];
+		const time = arr[i][2];
 		result += `&lt;div&gt;${id} ${name} ${time}&lt;/div&gt;`;
 	}
 	$('body').append(result);

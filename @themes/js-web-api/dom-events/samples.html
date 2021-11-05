@@ -22,7 +22,7 @@ window.onkeydown = function(event) {
 <v-code lang="js" title="">
 // отслеживание изменения hash
 window.onhashchange = function() {
-    var a = location.hash.slice(1);
+    const a = location.hash.slice(1);
 }
 </v-code>
 
@@ -35,9 +35,9 @@ element.onclick = function() {
 
 <v-code lang="js" title="">
 // выбрать все input и повесить обработчик focus
-var items = document.querySelectorAll('.item');
+const items = document.querySelectorAll('.item');
 
-for(var i=0; i<=items.length-1; i++) {
+for(let i=0; i<=items.length-1; i++) {
 	items[i].addEventListener('focus', function() {
 		this.style.border = '2px solid blue';
 	})

@@ -8,13 +8,13 @@
 
 <v-code lang="js" title="">
 // объект
-var Human = {
+const Human = {
 	type: "Human",
 	head: 1,
 	legs: 2
 };
 // прототип
-var Megahuman = <u-code>Object.create</u-code>(Human);
+const Megahuman = <u-code>Object.create</u-code>(Human);
 </v-code>
 
 <v-two-code type="js;js" comment=";">
@@ -59,14 +59,14 @@ Human.<u-code>isPrototypeOf</u-code>(Megahuman); // является ли объ
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 // объект
-var Human = {
+const Human = {
 	type: "Human",
 	head: 1,
 	legs: 2
 };
 
 // прототип
-var Megahuman = Object.create(Human);
+const Megahuman = Object.create(Human);
 Megahuman.head = 2; // 2
 delete Megahuman.head;
 Megahuman.head;     // 1
@@ -76,7 +76,7 @@ Megahuman.head;     // 1
 <h3>Конструктор прототипа</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js red" title="">
-var Person = {
+const Person = {
     constructor(name, age) {
         this.name = name;
         this.age = age;
@@ -87,9 +87,9 @@ var Person = {
     }
 }
 
-var person = Object.create(Person).constructor("Jack", 25);
+const person = Object.create(Person).constructor("Jack", 25);
 
-var a = person.name;
+const a = person.name;
 person.greet();
 </v-code>
 
@@ -97,7 +97,7 @@ person.greet();
 <h4>Изменение конструктора</h4>
 <!------------------------------------------------------------->
 <v-code lang="js red" title="">
-var WebDeveloper = Object.create(Person);
+const WebDeveloper = Object.create(Person);
 
 WebDeveloper.constructor = function(name, age, skills) {
     Person.constructor.apply(this, arguments);
@@ -107,7 +107,7 @@ WebDeveloper.constructor = function(name, age, skills) {
 WebDeveloper.develop = function() {
     console.log('In Work');
 }
-var developer = Object.create(WebDeveloper).constructor('Jack', 25, ['html', 'css', 'js']);
+const developer = Object.create(WebDeveloper).constructor('Jack', 25, ['html', 'css', 'js']);
 
 console.log(developer.skills);
 developer.develop();

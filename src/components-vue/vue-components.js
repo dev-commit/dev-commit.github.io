@@ -52,15 +52,6 @@ Vue.component('v-two-fix', {
 		</div>`,
 })
 
-
-Vue.component('v-pre-npm', {
-	template: `<pre class="v-pre-npm"><code class="bash"><slot></slot></code></pre>`,
-    // template:
-	// 	`<pre class="v-pre-npm"><code class="bash">
-	// 		<slot></slot>
-	// 	</code></pre>`,
-})
-
 Vue.component('v-method', {
 	props: ['before', 'method', 'after', 'arg'],
     template:
@@ -114,6 +105,14 @@ Vue.component('v-code', {
     template: `<pre><code :class="lang"><u-code-title v-text="title" /><slot></slot></code></pre>`
 })
 
+Vue.component('v-pre-npm', {
+	template: `<pre class="v-pre-npm"><code class="bash"><slot></slot></code></pre>`,
+    // template:
+	// 	`<pre class="v-pre-npm"><code class="bash">
+	// 		<slot></slot>
+	// 	</code></pre>`,
+})
+
 Vue.component('v-details', {
 	props: ['title'],
     template: `
@@ -132,6 +131,10 @@ Vue.component('v-marker', {
 			<u-code-text v-if="marker === '-'">🟣</u-code-text>
 		</span>
 	`,
+})
+
+Vue.component('v-copy', {
+	template: `<u-code-flat><u-clipboard><slot></slot></u-clipboard></u-code-flat>`,
 })
 
 const app = new Vue({

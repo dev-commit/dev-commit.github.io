@@ -139,7 +139,7 @@ customElements.define('custom-element', CustomElement);
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-two-code type="js;js" comment="Object.create;registerElement">
 <template v-slot:first>
-var element = <u-code>Object.create(HTMLElement.prototype)</u-code>;
+const element = <u-code>Object.create(HTMLElement.prototype)</u-code>;
 element.action = function(content) {
     this.innerHTML = content;
 };
@@ -159,7 +159,7 @@ document.querySelector('my-element').action('zzz');
     }
 });
 document.querySelector('my-element').action('zzz');
-var a = document.querySelector('my-element').value;
+const a = document.querySelector('my-element').value;
 </template>
 </v-two-code>
 
@@ -171,7 +171,7 @@ var a = document.querySelector('my-element').value;
 <h3>Расширение встроенных элементов</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var element = <u-code>Object.create(HTMLButtonElement.prototype)</u-code>;
+const element = <u-code>Object.create(HTMLButtonElement.prototype)</u-code>;
 element.action = function(content) {
     this.innerHTML = content;
 };
@@ -210,7 +210,7 @@ element.createdCallback = function() {
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 // прототип с методами для нового элемента
-var MyTimerProto = <u-code>Object.create(HTMLElement.prototype)</u-code>;
+const MyTimerProto = <u-code>Object.create(HTMLElement.prototype)</u-code>;
 MyTimerProto.tick = function() { // свой метод tick
     this.innerHTML++;
 };
@@ -309,7 +309,7 @@ shadowRoot();        // корень
 <h3>Создание createShadowRoot</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var root = document.querySelector('#element').<u-code>createShadowRoot()</u-code>;
+const root = document.querySelector('#element').<u-code>createShadowRoot()</u-code>;
 </v-code>
 
 <v-code lang="html" title="">
@@ -341,7 +341,7 @@ root.innerHTML = '&lt;h1&gt;<u-code>&lt;content select="h3"&gt;&lt;/content&gt;<
 <h3>Корень shadowRoot</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var rootElement = document.querySelector('#element').<u-code>shadowRoot</u-code>;
+const rootElement = document.querySelector('#element').<u-code>shadowRoot</u-code>;
 rootElement.querySelector('p').innerHTML = 'New Shadow';
 </v-code>
 
@@ -451,7 +451,7 @@ index.html
 
 &lt;script&gt;
 	function show() {
-		var element = page.<u-code>import</u-code>.querySelector('h1');
+		const element = page.<u-code>import</u-code>.querySelector('h1');
 		document.body.appendChild(element);
 	};
 &lt;/script&gt;
@@ -465,7 +465,7 @@ page.html
 
 &lt;script&gt;
 	// доступ к импортированному документу
-    var importedDocument = document.<u-code>currentScript.ownerDocument</u-code>; 
+    const importedDocument = document.<u-code>currentScript.ownerDocument</u-code>; 
     importedDocument.querySelector('h1').innerHTML = 'Changed Text';
 &lt;/script&gt;
 </v-code>

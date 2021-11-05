@@ -51,14 +51,14 @@ $0.style.backgroundColor = 'red';
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li>DOM-коллекции, такие как <u-code-text>childNodes</u-code-text>, не являются массивами. В них нет методов массивов, таких как forEach, map, push, pop и других. Их называют <u>«коллекция»</u> или <u>«псевдомассив»</u></li>
-    <li>Для перебора коллекции используется цикл <u-code-text>for(var i=0; i&lt;elems.length; i++) ...</u-code-text></li>
+    <li>Для перебора коллекции используется цикл <u-code-text>for(let i=0; i&lt;elems.length; i++) ...</u-code-text></li>
 </ul>
 
 <ul class="list-point">
 	<b>Для использования методов массивов: </b>
 	<li>1. Применить метод массива через <u-code-text>call/apply</u-code-text></li>
 <v-code lang="js" title="">
-var elems = document.documentElement.childNodes;
+const elems = document.documentElement.childNodes;
 
 [].forEach.<u-code>call</u-code>(elems, function(elem) {
 	alert( elem ); // HEAD, текст, BODY
@@ -69,7 +69,7 @@ var elems = document.documentElement.childNodes;
 	<li>Обычно вызов <u-code-text>arr.slice(a, b)</u-code-text> делает новый массив и копирует туда элементы <u-code-text>arr</u-code-text> с индексами от <u-code-text>a</u-code-text> до <u-code-text>b-1</u-code-text> включительно. Если же вызвать его без аргументов <u-code-text>arr.slice()</u-code-text>, то он делает новый массив и копирует туда все элементы <u-code-text>arr</u-code-text></li>
 
 <v-code lang="js" title="">
-var elems = document.documentElement.childNodes;
+const elems = document.documentElement.childNodes;
 elems = <u-code>Array.prototype.slice.call</u-code>(elems); // теперь elems - массив
 
 elems.forEach(function(elem) {

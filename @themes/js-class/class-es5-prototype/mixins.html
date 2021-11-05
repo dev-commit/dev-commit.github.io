@@ -9,7 +9,7 @@
 </ul>
 
 <v-code lang="js" title="">
-var mixinGreeting = {
+const mixinGreeting = {
     greet() {
         console.log(this.name);
     }
@@ -17,7 +17,7 @@ var mixinGreeting = {
 function User(name) {
     this.name = name;
 }
-for(var key in mixinGreeting) {
+for(let key in mixinGreeting) {
     <u-code>User.prototype[key] = mixinGreeting[key];</u-code>
 }
 new User('Tony').greet(); // => Tony

@@ -949,15 +949,15 @@ b();
 <h3>Async Await + Promise + setTimeout</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var a = 1;
+const a = 1;
 
-var fn = async function() {
+const fn = async function() {
     setTimeout(() => {
         console.log('Пятый', a); // => 6
         a = 2;
     }, 0);
 
-    var promise = new Promise(function(resolve, reject) {
+    const promise = new Promise(function(resolve, reject) {
         console.log('Первый', a); // => 1
         a = 3;
         resolve();

@@ -28,14 +28,14 @@ function Admin() {
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 <u-code>Admin.prototype = Object.create(User.prototype);</u-code>
-var admin = new Admin();
+const admin = new Admin();
 </v-code>
 
 <!------------------------------------------------------------->
 <h4>2. Наследование. Без добавления в прототип Admin (результат аналогичен)</h4>
 <!------------------------------------------------------------->
 <v-code lang="js red" title="">
-var admin = Object.setPrototypeOf(new Admin(), User.prototype);
+const admin = Object.setPrototypeOf(new Admin(), User.prototype);
 </v-code>
 
 <!------------------------------------------------------------->

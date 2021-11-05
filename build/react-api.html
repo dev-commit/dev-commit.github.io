@@ -186,10 +186,10 @@ export default class App extends <u-code>Component</u-code> {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-two-code type="js;js" comment="Отдельные createElement;Родительский createElement">
 <template v-slot:first>
-var image     = React.createElement('img', { src: '...' });
-var title     = React.createElement('h1', null, 'React');
-var subtitle  = React.createElement('p', null, '...');
-var container = React.createElement(
+const image     = React.createElement('img', { src: '...' });
+const title     = React.createElement('h1', null, 'React');
+const subtitle  = React.createElement('p', null, '...');
+const container = React.createElement(
 	'div', 
 	{ className: 'container' }, 
 	image, title, subtitle
@@ -201,7 +201,7 @@ ReactDOM.render(
 );
 </template>
 <template v-slot:last>
-var container = React.createElement('div', { className: 'container' },
+const container = React.createElement('div', { className: 'container' },
 	React.createElement('img', { src: '...' }),
 	React.createElement('h1', null, 'React'),
 	React.createElement('p', null, '...'),
@@ -219,10 +219,10 @@ ReactDOM.render(
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-two-code type="js;js" comment="Полный синтаксис;Сокращенный синтаксис">
 <template v-slot:first>
-var title = React.createElement('div', null, 'Привет, мир!'),
+const title = React.createElement('div', null, 'Привет, мир!'),
 </template>
 <template v-slot:last>
-var title = e('div', null, 'Привет, мир!'),
+const title = e('div', null, 'Привет, мир!'),
 </template>
 </v-two-code>
 </div><div id="react-api/react/clone-element"><h2>React.cloneElement</h2>

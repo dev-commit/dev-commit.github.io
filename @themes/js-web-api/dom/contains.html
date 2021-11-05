@@ -6,7 +6,7 @@
 </ul>
 
 <v-code lang="js" title="">
-var result = parent.<u-code>contains</u-code>(child);
+const result = parent.<u-code>contains</u-code>(child);
 </v-code>
 
 <ul class="list-point">
@@ -15,7 +15,7 @@ var result = parent.<u-code>contains</u-code>(child);
 </ul>
 
 <v-code lang="js" title="">
-var result = nodeA.<u-code>compareDocumentPosition</u-code>(nodeB);
+const result = nodeA.<u-code>compareDocumentPosition</u-code>(nodeB);
 </v-code>
 
 <ul class="list-point">
@@ -36,9 +36,9 @@ var result = nodeA.<u-code>compareDocumentPosition</u-code>(nodeB);
 &lt;/ul&gt;
 
 &lt;script&gt;
-	var p = document.body.children[0];
-	var ul = document.body.children[1];
-	var li = ul.children[0];
+	const p = document.body.children[0];
+	const ul = document.body.children[1];
+	const li = ul.children[0];
 
 	// 1. &lt;ul&gt; находится после &lt;p&gt;
 	let a = ul.compareDocumentPosition(p); // 2 = 10
@@ -64,8 +64,8 @@ var result = nodeA.<u-code>compareDocumentPosition</u-code>(nodeB);
 &lt;/ul&gt;
 
 &lt;script&gt;
-	var body = document.body;
-	var li = document.body.children[0].children[0];
+	const body = document.body;
+	const li = document.body.children[0].children[0];
 
 	if (body.compareDocumentPosition(li) &amp; 16) {
 		alert( body + ' содержит ' + li );

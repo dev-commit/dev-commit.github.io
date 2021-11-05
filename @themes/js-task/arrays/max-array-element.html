@@ -1,9 +1,9 @@
 <h2>Максимальный элемент массива</h2>
 
 <v-code lang="js" title="">
-var arr = [1, 2, 3, 77, 4];
-var max = Math.max.apply(null, arr); // 77 (контекстом будет объект Math)
-var max = Math.max.apply(Math, arr); // 77 (контекстом будет объект Math) - аналогично
+const arr = [1, 2, 3, 77, 4];
+const max = Math.max.apply(null, arr); // 77 (контекстом будет объект Math)
+const max = Math.max.apply(Math, arr); // 77 (контекстом будет объект Math) - аналогично
 // в данном случае в качестве контекста можно передавать что угодно, 
 // поскольку в своей внутренней реализации метод Math.max не использует this
 </v-code>

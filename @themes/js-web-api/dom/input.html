@@ -8,7 +8,7 @@
 <h3>input type="text"</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var a = element.<u-code>value</u-code>;
+const a = element.<u-code>value</u-code>;
 element.<u-code>value</u-code> = 'new value';
 </v-code>
 
@@ -16,7 +16,7 @@ element.<u-code>value</u-code> = 'new value';
 <h3>input type="checkbox"</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var a = element.<u-code>checked</u-code>; 
+const a = element.<u-code>checked</u-code>; 
 element.<u-code>checked</u-code> = true;
 </v-code>
 
@@ -29,10 +29,11 @@ element.<u-code>checked</u-code> = true;
 <h3>input type="radio"</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var radio = document.querySelectorAll('input[type="radio"]');
-for(var i=0; i<=radio.length-1; i++) {
+const radio = document.querySelectorAll('input[type="radio"]');
+
+for(let i=0; i<=radio.length-1; i++) {
 	if(radio[i].<u-code>checked</u-code>) {
-		var value = radio[i].getAttribute('value');
+		const value = radio[i].getAttribute('value');
 		console.log(value);
 	}
 }
@@ -46,8 +47,9 @@ radio.<u-code>disabled</u-code> = true;
 <h3>select</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var select = document.querySelector('select');
-var a = select.<u-code>value</u-code>;
-var a = select.<u-code>options</u-code>[select.selectedIndex].value;
-var a = select.<u-code>options</u-code>[select.selectedIndex].text;
+const select = document.querySelector('select');
+
+const a = select.<u-code>value</u-code>;
+const a = select.<u-code>options</u-code>[select.selectedIndex].value;
+const a = select.<u-code>options</u-code>[select.selectedIndex].text;
 </v-code>

@@ -15,17 +15,17 @@
 
 <v-code lang="js" title="">
 function ClassParent() {}
-var parent = new ClassParent();
-var a = parent instanceof ClassParent; // true
+const parent = new ClassParent();
+const a = parent instanceof ClassParent; // true
 // parent.__proto__ == ClassParent.prototype;
 </v-code>
 
 <v-code lang="js" title="">
 // массив arr принадлежит классу Array
 // но также и является объектом Object
-var arr = [];
-var a = arr instanceof Array; // true
-var a = arr instanceof Object; // true
+const arr = [];
+const a = arr instanceof Array; // true
+const a = arr instanceof Object; // true
 // arr.__proto__.__proto__ == Object.prototype
 </v-code>
 
@@ -33,9 +33,9 @@ var a = arr instanceof Object; // true
 // сама функция-конструктор не участвует в процессе проверки, важна только цепочка прототипов для проверяемого объекта
 // это может приводить к ошибкам в проверке при изменении prototype
 function Rabbit() {}
-var rabbit = new Rabbit();
+const rabbit = new Rabbit();
 Rabbit.prototype = {}; // изменили prototype...
-var a = rabbit instanceof Rabbit; // false
+const a = rabbit instanceof Rabbit; // false
 </v-code>
 
 

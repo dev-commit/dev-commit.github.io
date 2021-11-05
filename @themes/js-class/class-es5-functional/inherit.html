@@ -13,7 +13,8 @@ function Admin() {
     <u-code>User.call(this);</u-code>
     this.id = 77;
 }
-var admin = new Admin(); // => Admin {name: "Tony", id: 77}
+
+const admin = new Admin(); // => Admin {name: "Tony", id: 77}
 </v-code>
 
 <!------------------------------------------------------------->
@@ -27,7 +28,8 @@ function User(id, name) {
 function Admin() {
 	<u-code>User.apply(this, arguments);</u-code>
 }
-var admin = new Admin(77, 'Tony'); // => Admin {id: 77, name: "Tony"}
+
+const admin = new Admin(77, 'Tony'); // => Admin {id: 77, name: "Tony"}
 </v-code>
 
 <!------------------------------------------------------------->
@@ -42,12 +44,13 @@ function User() {
 }
 function Admin() {
     User.call(this);
-    <u-code>var parentFunc = this.getName;</u-code>
+    <u-code>const parentFunc = this.getName;</u-code>
     this.getName = function() {
         <u-code>parentFunc.call(this);</u-code> // то что было в this.getName
         console.log('Jack');   // добавлено в метод getName
     }
 }
-var admin = new Admin();
+
+const admin = new Admin();
 admin.getName(); // => 'Tony', 'Jack'
 </v-code>

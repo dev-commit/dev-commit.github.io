@@ -427,7 +427,7 @@ function Admin() {
 }
 Admin.<u-code>prototype</u-code> = new User();
 // Admin.__proto__ = new User();
-var admin = new Admin(); // => Admin {id: 77, __proto__: User name: "Tony"}
+const admin = new Admin(); // => Admin {id: 77, __proto__: User name: "Tony"}
 </v-code>
 
 <!------------------------------------------------------------->
@@ -499,7 +499,7 @@ function MyFunc() {}
 MyFunc.prototype = { 
 	<u-code>constructor</u-code>: MyFunc 
 };
-var a = new MyFunc(); // => MyFunc {} __proto__: constructor: ƒ MyFunc()
+const a = new MyFunc(); // => MyFunc {} __proto__: constructor: ƒ MyFunc()
 </v-code>
 
 <!------------------------------------------------------------->
@@ -510,7 +510,7 @@ function MyFunc() {}
 MyFunc.prototype = { 
 	jumps: true 
 };
-var a = new MyFunc(); // => MyFunc {} __proto__: jumps: true 
+const a = new MyFunc(); // => MyFunc {} __proto__: jumps: true 
 </v-code>
 
 <!------------------------------------------------------------->
@@ -521,8 +521,8 @@ function User(name) {
     this.name = name;
     console.log(name);
 }
-var user1 = new User('Tony');
-var user2 = new user1.<u-code>constructor</u-code>('Jack');
+const user1 = new User('Tony');
+const user2 = new user1.<u-code>constructor</u-code>('Jack');
 </v-code></div><div id="js-class/main/return"><h2>Правила обработки return</h2>
 
 <ul class="list-point">
@@ -897,21 +897,21 @@ class Task {
 <h4>2. Class Expression (выражение класса)</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var Task = class Task {
+const Task = class Task {
 	constructor() {
 		console.log('Create a task');
 	}
 }
 
-var SubTask = class extends Task {
+const SubTask = class extends Task {
 	constructor() {
 		super();
 		console.log('Create a subtask');
 	}
 }
 
-var task = new Task();
-var subtask = new SubTask();
+const task = new Task();
+const subtask = new SubTask();
 </v-code>
 
 
@@ -926,7 +926,7 @@ function User(name) {
 		this.avatar = null;
 	}
 }
-var user = new User('Jack'); // => User {name: "Jack", avatar: "Photo", deleteAvatar: ƒ}
+const user = new User('Jack'); // => User {name: "Jack", avatar: "Photo", deleteAvatar: ƒ}
 user.deleteAvatar();
 console.log(user);           // => User {name: "Jack", avatar: null, deleteAvatar: ƒ}
 </v-code></div><div id="js-class/class-es5-functional/methods-private"><h2>Приватный метод</h2>
@@ -936,15 +936,16 @@ console.log(user);           // => User {name: "Jack", avatar: null, deleteAvat
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 function User() {
-    var privateProperty = 77;
+    const privateProperty = 77;
 	this.publicMethod = function() {
         <u-code>privateMethod</u-code>();
     }
-    var <u-code>privateMethod</u-code> = function() {
+    const <u-code>privateMethod</u-code> = function() {
         console.log('private method call' + privateProperty);
     }
 }
-var user = new User();
+
+const user = new User();
 user.publicMethod(); // => 'private method call77
 </v-code>
 
@@ -954,15 +955,16 @@ user.publicMethod(); // => 'private method call77
 <v-code lang="js" title="">
 function User() {
     this.name = 'Tony';
-    <u-code>var self = this;</u-code>
+    <u-code>const self = this;</u-code>
 	this.publicMethod = function() {
         privateMethod();
     }
-    var privateMethod = function() {
+    const privateMethod = function() {
         console.log(<u-code>self.name</u-code>);
     }
 }
-var user = new User();
+
+const user = new User();
 user.publicMethod(); // => 'Tony'
 </v-code>
 
@@ -975,25 +977,27 @@ function User() {
 	this.publicMethod = function() {
         privateMethod();
     }
-    var privateMethod = () => {
+    const privateMethod = () => {
         console.log(this.name);
     }
 }
-var user = new User();
+
+const user = new User();
 user.publicMethod(); 
 </v-code>
 </div><div id="js-class/class-es5-functional/getters-and-setters"><h2>Геттеры и сеттеры</h2>
 
 <v-code lang="js" title="">
 function User() {
-    var count = 0;
+    const count = 0;
 	this.counter = function(i) {
         // вызов без параметра, значит режим геттера, возвращаем свойство
         if (!arguments.length) return count;
         count = i;
     }
 }
-var user = new User();
+
+const user = new User();
 user.counter(77); 
 user.counter(); // => 77
 </v-code>
@@ -1012,7 +1016,8 @@ function Admin() {
     <u-code>User.call(this);</u-code>
     this.id = 77;
 }
-var admin = new Admin(); // => Admin {name: "Tony", id: 77}
+
+const admin = new Admin(); // => Admin {name: "Tony", id: 77}
 </v-code>
 
 <!------------------------------------------------------------->
@@ -1026,7 +1031,8 @@ function User(id, name) {
 function Admin() {
 	<u-code>User.apply(this, arguments);</u-code>
 }
-var admin = new Admin(77, 'Tony'); // => Admin {id: 77, name: "Tony"}
+
+const admin = new Admin(77, 'Tony'); // => Admin {id: 77, name: "Tony"}
 </v-code>
 
 <!------------------------------------------------------------->
@@ -1041,13 +1047,14 @@ function User() {
 }
 function Admin() {
     User.call(this);
-    <u-code>var parentFunc = this.getName;</u-code>
+    <u-code>const parentFunc = this.getName;</u-code>
     this.getName = function() {
         <u-code>parentFunc.call(this);</u-code> // то что было в this.getName
         console.log('Jack');   // добавлено в метод getName
     }
 }
-var admin = new Admin();
+
+const admin = new Admin();
 admin.getName(); // => 'Tony', 'Jack'
 </v-code>
 </div><div id="js-class/class-es5-prototype/info"><h2>Теория</h2>
@@ -1071,7 +1078,7 @@ function User(name) {
 <u-code>User.prototype.deleteAvatar</u-code> = function() {
 	this.avatar = null;
 }
-var user = new User('Jack'); // => User {name: "Jack", avatar: "Photo", __proto__: deleteAvatar: ƒ () }
+const user = new User('Jack'); // => User {name: "Jack", avatar: "Photo", __proto__: deleteAvatar: ƒ () }
 user.deleteAvatar();
 console.log(user);           // => User {name: "Jack", avatar: null, __proto__: deleteAvatar: ƒ ()}
 </v-code>
@@ -1116,14 +1123,14 @@ function Admin() {
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 <u-code>Admin.prototype = Object.create(User.prototype);</u-code>
-var admin = new Admin();
+const admin = new Admin();
 </v-code>
 
 <!------------------------------------------------------------->
 <h4>2. Наследование. Без добавления в прототип Admin (результат аналогичен)</h4>
 <!------------------------------------------------------------->
 <v-code lang="js red" title="">
-var admin = Object.setPrototypeOf(new Admin(), User.prototype);
+const admin = Object.setPrototypeOf(new Admin(), User.prototype);
 </v-code>
 
 <!------------------------------------------------------------->
@@ -1187,7 +1194,7 @@ function Rabbit(name) {
 </ul>
 
 <v-code lang="js" title="">
-var mixinGreeting = {
+const mixinGreeting = {
     greet() {
         console.log(this.name);
     }
@@ -1195,7 +1202,7 @@ var mixinGreeting = {
 function User(name) {
     this.name = name;
 }
-for(var key in mixinGreeting) {
+for(let key in mixinGreeting) {
     <u-code>User.prototype[key] = mixinGreeting[key];</u-code>
 }
 new User('Tony').greet(); // => Tony

@@ -260,7 +260,7 @@
 </div>
 
 <v-code lang="js" title="">
-var obj = Object.create(
+const obj = Object.create(
 	{ name: 'Tony' }
 );
 // => {} => __proto__: name: "Tony"
@@ -392,7 +392,7 @@ const a = Object.keys(obj).length;
 </div>
 
 <v-code lang="js" title="">
-var dict = Object.setPrototypeOf({}, null);
+const dict = Object.setPrototypeOf({}, null);
 </v-code>
 
 <ul class="list-point">
@@ -426,8 +426,8 @@ cat.say(); // => "cat"
 </div>
 
 <v-code lang="js" title="">
-var proto = {};
-var obj = Object.create(proto);
+const proto = {};
+const obj = Object.create(proto);
 Object.getPrototypeOf(obj) === proto; // true
 </v-code>
 </div><div id="js-object/methods/is-prototype-of"><h2>isPrototypeOf</h2>
@@ -487,17 +487,17 @@ const a = auto instanceof Object; // => true
 
 <v-code lang="js" title="">
 function ClassParent() {}
-var parent = new ClassParent();
-var a = parent instanceof ClassParent; // true
+const parent = new ClassParent();
+const a = parent instanceof ClassParent; // true
 // parent.__proto__ == ClassParent.prototype;
 </v-code>
 
 <v-code lang="js" title="">
 // массив arr принадлежит классу Array
 // но также и является объектом Object
-var arr = [];
-var a = arr instanceof Array; // true
-var a = arr instanceof Object; // true
+const arr = [];
+const a = arr instanceof Array; // true
+const a = arr instanceof Object; // true
 // arr.__proto__.__proto__ == Object.prototype
 </v-code>
 
@@ -505,9 +505,9 @@ var a = arr instanceof Object; // true
 // сама функция-конструктор не участвует в процессе проверки, важна только цепочка прототипов для проверяемого объекта
 // это может приводить к ошибкам в проверке при изменении prototype
 function Rabbit() {}
-var rabbit = new Rabbit();
+const rabbit = new Rabbit();
 Rabbit.prototype = {}; // изменили prototype...
-var a = rabbit instanceof Rabbit; // false
+const a = rabbit instanceof Rabbit; // false
 </v-code>
 </div><div id="js-object/main/for"><h2>Перебор объекта</h2>
 
@@ -1010,13 +1010,13 @@ console.log(obj); // Object {text: 'Some text', prop_7: 'Some prop'}
 </div><div id="js-object/samples/methods-various-obj"><h2>Метод для разных объектов</h2>
 
 <v-code lang="js" title="">
-var speak = function() {
+const speak = function() {
 	console.log(this.sound, this.name);
 }
 </v-code>
 
 <v-code lang="js" title="">
-var animal = {
+const animal = {
 	sound: 'Mrr',
 	name: 'Cat',
 	speak: speak
@@ -1037,7 +1037,7 @@ function createCar(property, value) {
 		}
 	};
 }
-var a = createCar('vin', 1);
+const a = createCar('vin', 1);
 </v-code>
 </div><div id="js-object/other/compare"><h2>Сравнение объектов</h2>
 
@@ -1053,15 +1053,15 @@ var a = createCar('vin', 1);
 </div><div id="js-object/other/constructor"><h2>Конструктор создания объекта</h2>
 
 <v-code lang="js" title="">
-var apple = new Object();
+const apple = new Object();
 apple.color = 'green';
 apple.shape = 'round';
 apple.describe = function() {
 	return 'An apple is ' + this.color;
 }
 
-var a = apple.color;
-var a = apple.describe();
+const a = apple.color;
+const a = apple.describe();
 </v-code>
 </div><div id="js-object/other/prototype"><h2>Создание прототипа</h2>
 
@@ -1073,13 +1073,13 @@ var a = apple.describe();
 
 <v-code lang="js" title="">
 // объект
-var Human = {
+const Human = {
 	type: "Human",
 	head: 1,
 	legs: 2
 };
 // прототип
-var Megahuman = <u-code>Object.create</u-code>(Human);
+const Megahuman = <u-code>Object.create</u-code>(Human);
 </v-code>
 
 <v-two-code type="js;js" comment=";">
@@ -1124,14 +1124,14 @@ Human.<u-code>isPrototypeOf</u-code>(Megahuman); // является ли объ
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 // объект
-var Human = {
+const Human = {
 	type: "Human",
 	head: 1,
 	legs: 2
 };
 
 // прототип
-var Megahuman = Object.create(Human);
+const Megahuman = Object.create(Human);
 Megahuman.head = 2; // 2
 delete Megahuman.head;
 Megahuman.head;     // 1
@@ -1141,7 +1141,7 @@ Megahuman.head;     // 1
 <h3>Конструктор прототипа</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js red" title="">
-var Person = {
+const Person = {
     constructor(name, age) {
         this.name = name;
         this.age = age;
@@ -1152,9 +1152,9 @@ var Person = {
     }
 }
 
-var person = Object.create(Person).constructor("Jack", 25);
+const person = Object.create(Person).constructor("Jack", 25);
 
-var a = person.name;
+const a = person.name;
 person.greet();
 </v-code>
 
@@ -1162,7 +1162,7 @@ person.greet();
 <h4>Изменение конструктора</h4>
 <!------------------------------------------------------------->
 <v-code lang="js red" title="">
-var WebDeveloper = Object.create(Person);
+const WebDeveloper = Object.create(Person);
 
 WebDeveloper.constructor = function(name, age, skills) {
     Person.constructor.apply(this, arguments);
@@ -1172,7 +1172,7 @@ WebDeveloper.constructor = function(name, age, skills) {
 WebDeveloper.develop = function() {
     console.log('In Work');
 }
-var developer = Object.create(WebDeveloper).constructor('Jack', 25, ['html', 'css', 'js']);
+const developer = Object.create(WebDeveloper).constructor('Jack', 25, ['html', 'css', 'js']);
 
 console.log(developer.skills);
 developer.develop();

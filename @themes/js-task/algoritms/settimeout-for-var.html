@@ -2,7 +2,7 @@
 
 <v-code lang="js" title="">
 // простое решение 1
-for (var i=0; i&lt;10; i++) {
+for (let i=0; i&lt;10; i++) {
     setTimeout((function(i) {
         return function() {
             console.log(i);
@@ -13,7 +13,7 @@ for (var i=0; i&lt;10; i++) {
 
 <v-code lang="js" title="">
 // простое решение 2
-for (var i=0; i&lt;10; i++) {
+for (let i=0; i&lt;10; i++) {
     (function(i) {
         setTimeout(function() {
             console.log(i);
@@ -24,7 +24,7 @@ for (var i=0; i&lt;10; i++) {
 
 <v-code lang="js" title="">
 // умное решение
-for (var i=0; i&lt;10; i++) {
+for (let i=0; i&lt;10; i++) {
     setTimeout((function(i) {
         console.log(i);
     }).bind(null, i), i*1000);

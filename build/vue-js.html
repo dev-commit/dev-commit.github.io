@@ -573,7 +573,7 @@ h1 {
 </v-code></div><div id="vue-js/main/instance-vue"><h2>Экземпляр Vue</h2>
 
 <v-code lang="js" title="">
-var app = new Vue({
+const app = new Vue({
 	<u-code>el</u-code>: '#app',             // элемент DOM дерева
 	<u-code>data</u-code>: {                 // состояние
 		name: 'Tony'
@@ -926,7 +926,7 @@ items: [
 </v-code>
 
 <v-code lang="js" title="">
-var app = new Vue({
+const app = new Vue({
 	el: '#app', 
 	data: {
 		show: false,
@@ -988,7 +988,7 @@ var app = new Vue({
 </v-code>
 
 <v-code lang="js" title="js">
-var app = new Vue({
+const app = new Vue({
 	el: '#app',
 	methods: {
 		methodOne() {
@@ -1460,7 +1460,7 @@ Vue.component('task', {
         }
     }
 })
-var app = new Vue({
+const app = new Vue({
 	el: '#app'
 })
 </v-code>
@@ -1508,7 +1508,7 @@ Vue.component('component-a', {
 <h4>Локальная регистрация</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var app = new Vue({
+const app = new Vue({
 	el: '#app',
 	components: { 
         'component-a': {
@@ -1522,7 +1522,7 @@ var app = new Vue({
 <h4>Локальная регистрация из объекта</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var ComponentA = {
+const ComponentA = {
 	template: 'content'
 }
 
@@ -1645,7 +1645,7 @@ export default {
 </v-code>
 
 <v-code lang="js" title="">
-var app = new Vue({
+const app = new Vue({
 	el: '#app',
 	data: {
 		currentView: 'orange'
@@ -1784,7 +1784,7 @@ Vue.component('task', {
 	template: '&lt;p&gt;<span v-pre>{{ message + name }}</span>&lt;/p&gt;',
 	props: ['message', 'name']
 })
-var app = new Vue({
+const app = new Vue({
 	el: '#app',
     data: {
         userName: 'Tony'
@@ -1948,7 +1948,7 @@ Vue.component('starter', {
 		}
 	}
 })
-var app = new Vue({
+const app = new Vue({
 	el: '#app'
 })
 </v-code></div><div id="vue-js/components/emit"><h2>Передача событий между компонентами</h2>
@@ -1998,7 +1998,7 @@ Vue.component('message', {
 	}
 })
 
-var app = new Vue({
+const app = new Vue({
 	el: '#app',
 	data: {
 		messages: []
@@ -2031,7 +2031,7 @@ var app = new Vue({
 </v-code>
 
 <v-code lang="js" title="">
-var app = new Vue({
+const app = new Vue({
 	el: '#app', 
 	data: {
 		value: 1
@@ -2066,7 +2066,7 @@ computed: {
 		},
 		// сеттер:
 		set: function (newValue) {
-			var names = newValue.split(' ')
+			let names = newValue.split(' ')
 			this.firstName = names[0]
 			this.lastName = names[names.length - 1]
 		}
@@ -2092,7 +2092,7 @@ computed: {
 </v-code>
 
 <v-code lang="js" title="">
-var app = new Vue({
+const app = new Vue({
 	el: '#app',
 	data: {
 		text: ''
@@ -2119,7 +2119,7 @@ var app = new Vue({
 
 <v-code lang="js" title="">
 // при изменении свойства messText, вызывается messText()
-var app = new Vue({
+const app = new Vue({
     el: '#app',
     data: {
         messText: null
@@ -2213,7 +2213,7 @@ new Vue({
 
 <v-code lang="js" title="js">
 // Создание конструктора
-var Profile = Vue.extend({
+const Profile = Vue.extend({
 	template: '<span v-pre>{{firstName}} {{lastName}}, также известный как {{alias}}</span>',
 	data: function () {
 		return {
@@ -2244,7 +2244,7 @@ new Profile().$mount('#mount-point')
 </v-code>
 
 <v-code lang="js" title="">
-var app = new Vue({
+const app = new Vue({
 	el: '#app',
 	methods: {
 		methodOne(<u-code>event</u-code>) {
@@ -2313,7 +2313,7 @@ new Vue({
 </ul>
 
 <v-code lang="js" title="">
-var vm = new Vue({
+const vm = new Vue({
 	data: {
 		message: '' // объявляем поле message, содержащее пустую строку
 	}
@@ -2327,7 +2327,7 @@ vm.message = 'Привет!' // впоследствии задаём значе
 </ul>
 
 <v-code lang="js" title="">
-var vm = new Vue({
+const vm = new Vue({
 	data: {
 		a: 1
 	}
@@ -2375,7 +2375,7 @@ Vue.<u-code>set</u-code>(vm.items, indexOfItem, newValue)
 <h4>Массивы</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var vm = new Vue({
+const vm = new Vue({
 	data: {
 		items: ['a', 'b', 'c']
 	}
@@ -2397,7 +2397,7 @@ vm.items.splice(newLength);               // реактивно
 <h4>Объекты</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var vm = new Vue({
+const vm = new Vue({
 	data: {
 		userProfile: {
 			name: 'Anika'
@@ -2421,7 +2421,7 @@ Vue.set(vm.userProfile, 'age', 27)
 </v-code>
 
 <v-code lang="js" title="">
-var vm = new Vue({
+const vm = new Vue({
 	el: '#example',
 	data: {
 		message: '123'
@@ -2510,7 +2510,7 @@ methods: {
 <h3 id="composition-mixins-basic">Основы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var mixin = {
+const mixin = {
     data() {
         return {
             mixinData: 'This is Mixin Data'
@@ -2533,7 +2533,7 @@ export default {
 </ul>
 
 <v-code lang="js" title="">
-var mixin = {
+const mixin = {
     data() {
         return {
             text: 'This is Mixin Text'
@@ -2558,7 +2558,7 @@ export default {
 </ul>
 
 <v-code lang="js" title="">
-var mixin = {
+const mixin = {
 	created: function () {
 		console.log('Вызван хук примеси')
 	}
@@ -2586,7 +2586,7 @@ export default {
 // добавляем обработчик для пользовательской опции `myOption`
 Vue.mixin({
 	created: function () {
-		var myOption = this.$options.myOption;
+		let myOption = this.$options.myOption;
 		if (myOption) {
 			console.log(myOption);
 		}
@@ -2616,7 +2616,7 @@ Vue.config.optionMergeStrategies.myOption = function (toVal, fromVal) {
 </ul>
 
 <v-code lang="js" title="">
-var strategies = Vue.config.optionMergeStrategies
+const strategies = Vue.config.optionMergeStrategies
 strategies.myOption = strategies.methods
 </v-code>
 
@@ -2772,8 +2772,8 @@ Vue.use(MyPlugin, { someOption: true })
 
 <v-code lang="js" title="">
 // При использовании CommonJS посредством Browserify или Webpack
-var Vue = require('vue')
-var VueRouter = require('vue-router')
+const Vue = require('vue')
+const VueRouter = require('vue-router')
 
 // Не забудьте этот вызов!
 Vue.use(VueRouter)
@@ -2864,7 +2864,7 @@ Vue.filter('uppercase', function(value){
 	return value.toUpperCase()
 });
 
-var app = new Vue({
+const app = new Vue({
 	el: '#app', 
 	data: {
 		message: 'Hello'

@@ -371,8 +371,8 @@ function onClick() {
 
 // Имитируем тяжелые вычисления длительностью несколько секунд
 function doHardWork() {
-	for (var i = 0; i < 50000000; i++) {
-		var number = Math.pow(number, i);
+	for (let i = 0; i < 50000000; i++) {
+		let number = Math.pow(number, i);
 	}
 }
 </v-code>
@@ -541,7 +541,7 @@ button.addEventListener('click', () => {
     <li>В ходе выполнения данного кода произойдет только один reflow и repaint:</li>
 </ul>
 <v-code lang="js" title="">
-var $body = $('body');
+const $body = $('body');
 $body.css('padding', '1px'); // reflow, repaint
 $body.css('color', 'red');   // repaint
 $body.css('margin', '2px');  // reflow, repaint
@@ -552,7 +552,7 @@ $body.css('margin', '2px');  // reflow, repaint
     <li>Однако, как описано выше, обращение к свойствам элементов вызовет принудительный reflow. То есть, если мы в приведённый блок кода добавим обращение к свойству элемента, это вызовет лишний reflow:</li>
 </ul>
 <v-code lang="js" title="">
-var $body = $('body');
+    const $body = $('body');
 $body.css('padding', '1px');
 // обращение к свойству, принудительный reflow
 $body.css('padding');

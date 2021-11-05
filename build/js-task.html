@@ -604,10 +604,10 @@ const result = bar(2, 3); // => 2 3 "Tony"
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 Function.prototype.bind = function (context) {
-	var fun = this;
-	var arg1 = Array.prototype.slice.call(arguments, 1);
+	const fun = this;
+	const arg1 = Array.prototype.slice.call(arguments, 1);
 	return function () {
-		var arg2 = Array.prototype.slice.call(arguments);
+		const arg2 = Array.prototype.slice.call(arguments);
 		return fun.call(context, arg1.concat(arg2))
 	}
 }
@@ -615,11 +615,11 @@ Function.prototype.bind = function (context) {
 
 <v-code lang="js" title="">
 Function.prototype.bind = function (context) {
-	var arg1 = Array.prototype.slice.call(arguments, 1);
-	var fun = this;
+	const arg1 = Array.prototype.slice.call(arguments, 1);
+	const fun = this;
 
 	return function () {
-		var arg2 = Array.prototype.slice.call(arguments);
+		const arg2 = Array.prototype.slice.call(arguments);
 		return fun.apply(context, arg1.concat(arg2))
 	}
 }
@@ -628,11 +628,11 @@ Function.prototype.bind = function (context) {
 
 <v-code lang="js" title="">
 Promise.all = function (promises) {
-	var res = [];
-	var count = 1;
+	const res = [];
+	const count = 1;
 
 	return new Promise (function (resolve, reject) {
-		for (var i = 0; i < promises.length; i++) {
+		for (let i = 0; i < promises.length; i++) {
 			promises[i].then(function (index, response) {
 				res[index] = response;
 				if (count === promises.length) {
@@ -739,8 +739,8 @@ function shallowEqual (obj1, obj2) {
 		return true;
 	}
 
-	var keys1 = Object.keys(obja);
-	var keys2 = Object.keys(obj2);
+	const keys1 = Object.keys(obja);
+	const keys2 = Object.keys(obj2);
 
 	if (keys1.length !== keys2.length) {
 		return false
@@ -821,7 +821,7 @@ console.log(typeof sum(100) === "function");
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 function sum(a) {
-	var currentSum = a;
+	const currentSum = a;
 	function f(b) {
 		currentSum += b;
 		return f;
@@ -937,9 +937,9 @@ test('[(&lt;&gt;])') // =&gt; false
 
 <v-code lang="js" title="">
 function test (str) {
-    var strArr = str.split('');
-    var stack = [];
-    var check = {
+    const strArr = str.split('');
+    const stack = [];
+    const check = {
         ']': '[',
         ')': '(',
         '>': '<'
@@ -949,7 +949,7 @@ function test (str) {
         if ((stack.length === 0) || !check[bracket] ) {
             stack.push(bracket);
         } else {
-            var lastElmInStack = stack[stack.length - 1];
+            const lastElmInStack = stack[stack.length - 1];
             if (lastElmInStack === check[bracket]) {
                 stack.pop();
             }
@@ -1117,15 +1117,15 @@ function mul(count1) {
 </div><div id="js-task/algoritms/memoization"><h2>Мемоизация</h2>
 
 <v-code lang="js" title="">
-var add = (a, b) => a + b;
+const add = (a, b) => a + b;
 
-var memoAdd = memo(add);
+const memoAdd = memo(add);
 console.log(memoAdd(2, 3)); // 5
 console.log(memoAdd(2, 2)); // 4
 console.log(memoAdd(2, 2)); // 4, console.log('returned cached value');
 
 function memo(add) {
-	var data = {};
+	const data = {};
 
 	return function(...arg) {
 		const key = JSON.stringify(arg);
@@ -1228,7 +1228,7 @@ parse('a.b.c.d');
 <h4>Постановка задачи</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var input = [
+const input = [
    "вертикаль", "кильватер", "апельсин", "спаниель", "австралопитек",
    "ватерполистка", "кластер", "сталкер", "стрелка"
 ];
@@ -1256,7 +1256,7 @@ var input = [
 
 <v-code lang="js" title="">
 (function findAnagram(arr) {
-    var output = {},
+    const output = {},
         i = 0,
         length = arr.length,
         hash;
@@ -1834,11 +1834,11 @@ logInfo("here is a message");
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 function pipe(){
-	var args = Array.from(arguments);
-	var result = args.shift();
+	const args = Array.from(arguments);
+	const result = args.shift();
 
 	while(args.length) {
-		var f = args.shift();
+		const f = args.shift();
 		result = f(result);
 	}
 	return result;
@@ -2254,11 +2254,11 @@ function makeConcurrentCall(urls, maxCount) {
 </div><div id="js-task/algoritms/cancel-timeout"><h2>👿 Написать функцию, которая отменяет все таймауты которые есть</h2>
 
 <v-code lang="js" title="">
-var mySetTimeout = setTimeout;
-var timeoutIds = [];
+const mySetTimeout = setTimeout;
+const timeoutIds = [];
 
 setTimeout = function(cb, ms, ...arg) {
-	var timerId = mySetTimeout(cb, ms, ...arg);
+	const timerId = mySetTimeout(cb, ms, ...arg);
 	timeoutIds.push(timerId);
 	return timerId;
 }
@@ -2275,12 +2275,12 @@ clearAllTimeouts();
 <h4>Вариант с callback</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-var mySetTimeout = setTimeout;
-var timeoutIds = new Set();
+const mySetTimeout = setTimeout;
+const timeoutIds = new Set();
 
 setTimeout = function(cb, ms, ...arg) {
-	var timerId;
-	var callback = function() {
+	const timerId;
+	const callback = function() {
 		cb(...arg);
 		timeoutIds.delete(timerId);
 	}
@@ -2295,7 +2295,7 @@ setTimeout = function(cb, ms, ...arg) {
 
 <v-code lang="js" title="">
 // простое решение 1
-for (var i=0; i&lt;10; i++) {
+for (let i=0; i&lt;10; i++) {
     setTimeout((function(i) {
         return function() {
             console.log(i);
@@ -2306,7 +2306,7 @@ for (var i=0; i&lt;10; i++) {
 
 <v-code lang="js" title="">
 // простое решение 2
-for (var i=0; i&lt;10; i++) {
+for (let i=0; i&lt;10; i++) {
     (function(i) {
         setTimeout(function() {
             console.log(i);
@@ -2317,7 +2317,7 @@ for (var i=0; i&lt;10; i++) {
 
 <v-code lang="js" title="">
 // умное решение
-for (var i=0; i&lt;10; i++) {
+for (let i=0; i&lt;10; i++) {
     setTimeout((function(i) {
         console.log(i);
     }).bind(null, i), i*1000);
@@ -2445,9 +2445,9 @@ flatten(deepArray); // => [1, 2, 3, 4, 5, 6, 7]
 </div><div id="js-task/arrays/max-array-element"><h2>Максимальный элемент массива</h2>
 
 <v-code lang="js" title="">
-var arr = [1, 2, 3, 77, 4];
-var max = Math.max.apply(null, arr); // 77 (контекстом будет объект Math)
-var max = Math.max.apply(Math, arr); // 77 (контекстом будет объект Math) - аналогично
+const arr = [1, 2, 3, 77, 4];
+const max = Math.max.apply(null, arr); // 77 (контекстом будет объект Math)
+const max = Math.max.apply(Math, arr); // 77 (контекстом будет объект Math) - аналогично
 // в данном случае в качестве контекста можно передавать что угодно, 
 // поскольку в своей внутренней реализации метод Math.max не использует this
 </v-code>
@@ -2460,8 +2460,8 @@ Math.max(...numbers);
 </div><div id="js-task/arrays/doit"><h2>Do It</h2>
 
 <v-code lang="js" title="">
-var arr = [1,2,3,5,6,7,0,-1]
-var sum = 6
+const arr = [1,2,3,5,6,7,0,-1]
+const sum = 6
 
 function doit(arr, sum) {
 	const obj = {};
@@ -2712,7 +2712,7 @@ function closure() {
 	return (function() {
 		const arr = [];
 		
-		for (var i=0; i<10; i++) {
+		for (var i=0; i < 10; i++) {
 			arr.push(function() {
 				return i
 			});
@@ -2873,7 +2873,7 @@ test();
 <h3>Объекты: копирование и null</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var a = {};
+const a = {};
 
 function clear (a) {
 	a.a=10;
@@ -2921,9 +2921,9 @@ console.log(obj1 === obj2); // true
 <h3>Обращение к объектам</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-var a = { key: 'foo' };
-var b = { key: 'bar' };
-var c = {};
+const a = { key: 'foo' };
+const b = { key: 'bar' };
+const c = {};
 c[a] === c[b]	// => true
 </v-code>
 
