@@ -35,7 +35,9 @@ ARR_MODULE = [
             [root+'vue-components/v-details',   setTheme(1, ['v-details'])],
             [root+'vue-components/v-iframe',    setTheme(1, ['v-iframe'])],
             [root+'vue-components/v-marker',    setTheme(1, ['v-marker'])],
+            [root+'vue-components/v-alert',     setTheme(1, ['v-alert'])],
             [root+'vue-components/v-copy',      setTheme(1, ['v-copy'])],
+            [root+'vue-components/v-link',      setTheme(1, ['v-link'])],
         ]
     },
     {
