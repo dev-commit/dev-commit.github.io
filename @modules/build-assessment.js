@@ -57,7 +57,7 @@ ARR_MODULE = [
             ['theory-paradigms/fp/concept',                      emoji.lemon+'ФП'],
             ['theory-paradigms/best-practices/solid',            emoji.baseball+'SOLID'],
             ['theory-patterns/main/info',                        emoji.theory+'Паттерны'],
-            ['testing/theory/pyramid',                           emoji.theory+'Пирамида тестирования'],
+            ['testing/pyramid/pyramid',                          emoji.theory+'Пирамида тестирования'],
             ['compilation/deployment/info',                      emoji.theory+'CI / CD'],
         ]
     },
