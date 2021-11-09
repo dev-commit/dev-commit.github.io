@@ -13,6 +13,7 @@ ARR_MODULE = [
         themes: [
             [root+'tenses/tenses-table', emoji.fire+'Таблица времен'],
             [root+'tenses/tobe',         emoji.star+'ToBe vs Verb'],
+            [root+'tenses/irregular-verbs', 'Формы неправильных глаголов'],
         ]
     },
     {
@@ -23,18 +24,19 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Таблицы',
+        title: 'Справочники',
         themes: [
-            [root+'tables/irregular-verbs', 'Формы неправильных глаголов'],
-            [root+'tables/country',         'Страны и национальности'],
-            [root+'tables/family',          'Семья'],
+
+            [root+'directories/country',  emoji.cookie+'Страны и национальности'],
+            [root+'directories/family',   emoji.cookie+'Семья'],
+            [root+'directories/phrases',  'Фразы'],
+            [root+'directories/words',    'Слова'],
         ]
     },
     {
         title: 'Прочее',
         themes: [
-            [root+'other/phrases', 'Фразы'],
-            [root+'other/words',   'Слова'],
+
             [root+'other/other',   'Прочее'],
         ]
     },
