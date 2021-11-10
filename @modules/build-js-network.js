@@ -2,7 +2,7 @@ root = 'js-network/';
 
 ARR_MODULE = [
     {
-        title: 'Клиент-сервер',
+        title: 'Основное',
         themes: [
             [root+'theory/info',          emoji.theory+'Информация'],
             [root+'theory/http',          emoji.coconut+'HTTP'],

@@ -1084,11 +1084,27 @@ body {
 <!------------------------------------------------------------->
 <v-code lang="css" title="">
 :root {
-    --a: 1em;
-    --b: 2;
+    --a: 2;
+    --b: 10px;
 }
 body {
+    /* font-size: 20px; */
     font-size: calc(var(--a) * var(--b));
+}
+</v-code>
+
+<ul class="list-point">
+    <li>Для преобразования числа в <u>px</u>, к примеру, достаточно умножить число на <u>1px</u> в <u>calc</u></li>
+</ul>
+
+<v-code lang="css" title="">
+:root {
+    --a: 5;
+    --b: 20;
+}
+div {
+    /* font-size: 25px; */
+    font-size: calc((var(--a) + var(--b)) * 1px);
 }
 </v-code>
 
@@ -1110,8 +1126,26 @@ body {
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>7. Цветовые функции</h4>
+<h4>7. Использование с rgba()</h4>
 <!------------------------------------------------------------->
+<v-code lang="css" title="">
+:root {
+    --color-blue: #42c8f5;
+    --color-blue--rgb: 66, 200, 245;
+}
+body {
+    color: var(--color-blue);
+    background-color: rgba(var(--color-blue--rgb), .7);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>8. Цветовые функции</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Внутри <u>body</u> происходит переопределение переменной <u>--hue</u></li>
+</ul>
+
 <v-code lang="css" title="">
 :root {
     --hue: 285;
@@ -1119,7 +1153,7 @@ body {
     --lightness: 60%;
     --opacity: 0.7;
 }
-.item {
+body {
     --hue: 400;
 
     background-color: hsla(
@@ -1132,8 +1166,12 @@ body {
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>8. Переменные в SVG</h4>
+<h4>9. Переменные в SVG</h4>
 <!------------------------------------------------------------->
+<ul class="list-point">
+    <li>SVG должна быть инлайново встроена на страницу</li>
+</ul>
+
 <v-code lang="html" title="html">
 &lt;svg height="100" width="100"&gt;
     &lt;circle cx="50" cy="50" r="50" fill="var(--color)" /&gt;
