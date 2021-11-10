@@ -153,6 +153,17 @@ Vue.component('v-alert', {
 	`,
 })
 
+Vue.component('v-path', {
+    template: `
+		<h4>
+			<u-code-text>☄️</u-code-text>
+			<i>
+				<slot></slot>
+			</i>
+		</h4>
+	`,
+})
+
 const app = new Vue({
 	el: '#content'
 })
