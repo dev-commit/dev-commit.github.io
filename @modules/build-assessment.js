@@ -29,6 +29,7 @@ ARR_MODULE = [
             ['js/main/bind',                     emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
             ['js/main/context',                  emoji.baseball+'Контекст'],
             ['js/function/arrow',                emoji.star+'Стрелочные функции'],
+            ['js/client-storage/cookie',         emoji.fire+setTheme(1, ['cookie'])],
         ]
     },
     {
@@ -44,9 +45,9 @@ ARR_MODULE = [
         themes: [
             ['js/main/spread-array',       emoji.code+'Spread Arr (ES6)'],
             ['js/main/spread-obj',         emoji.code+'Spread Obj (ES-2018)'],
-            ['js/main/destructive-array',  emoji.pizza+'Деструктуризация Arr (ES6)'],
-            ['js/main/destructive-obj',    emoji.pizza+'Деструктуризация Obj (ES6)'],
-            ['js/async/async-func',        emoji.boom+'Async Function (ES2017)'],
+            ['js/main/destructive-array',  emoji.code+'Деструктуризация Arr (ES6)'],
+            ['js/main/destructive-obj',    emoji.code+'Деструктуризация Obj (ES6)'],
+            ['js/async/async-func',        emoji.code+'Async Function (ES2017)'],
         
         ]
     },
