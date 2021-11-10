@@ -1,13 +1,13 @@
 <h2>Параллельное выполнение Promise.all и Promise.race</h2>
 
 <div class="v-method-wrapper">
-    <v-method before="" method="Promise.all" after="" arg="([iterable])">Выполнение нескольких промисов. Если какой-то из промисов завершился с ошибкой, то результатом Promise.all будет эта ошибка. При этом остальные промисы игнорируются</v-method>
+    <v-method before="Promise." method="all" after="" arg="([iterable])">Выполнение нескольких промисов. Если какой-то из промисов завершился с ошибкой, то результатом Promise.all будет эта ошибка. При этом остальные промисы игнорируются</v-method>
 	<v-method-arg arg="iterable">массив (или другой итерируемый объект) промисов</v-method-arg>
 	<v-method-return>новый промис, который ждёт, пока все переданные промисы завершатся, и переходит в состояние «выполнено» с массивом их результатов</v-method-return>
 </div>
 
 <div class="v-method-wrapper">
-    <v-method before="" method="Promise.race" after="" arg="([iterable])">Выполнение первого самого быстрого промиса. Результатом будет только первый успешно выполнившийся промис из списка. Остальные игнорируются</v-method>
+    <v-method before="Promise." method="race" after="" arg="([iterable])">Выполнение первого самого быстрого промиса. Результатом будет только первый успешно выполнившийся промис из списка. Остальные игнорируются</v-method>
 	<v-method-arg arg="iterable">массив (или другой итерируемый объект) промисов, которые нужно выполнить</v-method-arg>
 	<v-method-return>новый промис</v-method-return>
 </div>
@@ -17,46 +17,105 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
-<h4>Пример #1</h4>
+<h4>Вспомогательные данные</h4>
 <!------------------------------------------------------------->
-<v-code lang="js" title="">
-const promise1 = new Promise(function(resolve, reject) {
-	setTimeout(() => resolve('promise-1-2000'), 2000);
-})
+<v-code lang="js none" title="">
+const getResource = async (url) => {
+	const res = await fetch(url);
+	return await res.json();
+}
 
-const promise2 = new Promise(function(resolve, reject) {
-	setTimeout(() => resolve('promise-2-1000'), 1000);
-})
-
-Promise.<u-code>all</u-code>([promise1, promise2])
-	.then(value => console.log(value));
-	// => ["promise-1-2000", "promise-2-1000"]
-
-Promise.<u-code>race</u-code>([promise2, promise1])
-	.then(value => console.log(value));
-    // => "promise-2-1000"
+const URL1 = 'https://jsonplaceholder.typicode.com/todos/1';
+const URL2 = 'https://jsonplaceholder.typicode.com/todos/2';
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>Пример #2</h4>
+<h4>Promise.all</h4>
+<!------------------------------------------------------------->
+<v-two><template v-slot:first>
+<ul class="list-point">
+    <li><u>Условие</u>: Все Promise выполнены успешно</li>
+    <li><u>Выдача</u>: Все Promise</li>
+</ul>
+
+<v-code lang="js step" title="">
+const p1 = getResource(URL1);
+const p2 = getResource(URL2);
+
+Promise.all([p1, p2])
+	// Данные по "p1", "p2"
+	.then(value => console.log(value))
+	.catch(error => console.log(error.message))
+</v-code>
+</template><template v-slot:last>
+<ul class="list-point">
+	<li><u>Условие</u>: Хотя бы 1 Promise с ошибкой</li>
+    <li><u>Выдача</u>: Ошибка</li>
+</ul>
+
+<v-code lang="js step" title="">
+const p1 = getResource(URL2);
+const p2 = getResource('https://НекорректныйАдрес');
+
+Promise.all([p1, p2])
+	.then(value => console.log(value))
+	// "Failed to fetch"
+	.catch(error => console.log(error.message))
+</v-code>
+</template></v-two>
+
+<!------------------------------------------------------------->
+<h4>Promise.race</h4>
+<!------------------------------------------------------------->
+<v-two><template v-slot:first>
+<ul class="list-point">
+	<li><u>Условие</u>: Хотя бы 1 Promise без ошибки</li>
+    <li><u>Выдача</u>: Первый выполнившийся Promise без ошибки</li>
+</ul>
+
+<v-code lang="js step" title="">
+const p1 = getResource('https://НекорректныйАдрес');
+const p2 = getResource(URL2);
+
+Promise.race([p1, p2])
+	// Данные по "p2"
+	.then(value => console.log(value))
+	.catch(error => console.log(error.message))
+</v-code>
+</template><template v-slot:last>
+<ul class="list-point">
+    <li><u>Условие</u>: Все Promise с ошибкой</li>
+    <li><u>Выдача</u>: Ошибка</li>
+</ul>
+
+<v-code lang="js step" title="">
+const p1 = getResource('https://НекорректныйАдрес');
+const p2 = getResource('https://НекорректныйАдрес');
+
+Promise.race([p1, p2])
+	.then(value => console.log(value))
+	// "Failed to fetch"
+	.catch(error => console.log(error.message))
+</v-code>
+</template></v-two>
+
+<!------------------------------------------------------------->
+<h4>Пример с setTimeout</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-function go(num) {
-	return new Promise(function(resolve, reject) {
-		setTimeout(() => resolve(num), 1000);
-	})
-}
+const p1 = new Promise((resolve, reject) => {
+	setTimeout(() => resolve('promise-1-2000'), 2000);
+})
 
-let p1 = go(1);
-let p2 = go(2);
-let p3 = go(3);
+const p2 = new Promise((resolve, reject) => {
+	setTimeout(() => resolve('promise-2-1000'), 1000);
+})
 
-// выполняет все обещания даже если ошибка в первом
-// но закончится всё равно ошибкой
-Promise.all([p1, p2, p3])
+Promise.<u-code>all</u-code>([p1, p2])
 	.then(value => console.log(value));
+	// => ["promise-1-2000", "promise-2-1000"]
 
-// получить результат от первого
-Promise.race([p1, p2, p3])
+Promise.<u-code>race</u-code>([p1, p2])
 	.then(value => console.log(value));
+    // => "promise-2-1000"
 </v-code>
