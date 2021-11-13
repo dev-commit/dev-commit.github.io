@@ -1,9 +1,31 @@
 <h2>Замыкания</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>makeCounter</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+let makeCount = 0;
+
+function makeCounter() {
+	return function () {
+		return makeCount++;
+	};
+}
+
+var counter = makeCounter();
+var counter2 = makeCounter();
+
+console.log(counter()); // 0
+console.log(counter()); // 1
+
+console.log(counter2()); // 2
+console.log(counter2()); // 3
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Исправить ошибку. Проверка должна возвращать истину</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
 <v-code lang="js" title="">
 function closure() {
 	return (function() {

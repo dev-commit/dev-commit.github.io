@@ -23,6 +23,31 @@ const input = [
 </v-code>
 
 <!------------------------------------------------------------->
+<h4>Простое решение</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Сложность: O(N в квадрате)</li>
+</ul>
+
+<v-code lang="js" title="">
+console.log(anagram('finder', 'Friend')); // true
+console.log(anagram('bla', 'broom'));     // false
+
+const sortWordASC = word => word
+    .split('')
+    .sort()
+    .join('');
+
+const anagram = (word1, word2) => {
+    if (word1.length !== word2.length) {
+        return false;
+    }
+
+    return sortWordASC(word1.toLowerCase()) === sortWordASC(word2.toLowerCase());
+};
+</v-code>
+
+<!------------------------------------------------------------->
 <h4>Решение 1</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">

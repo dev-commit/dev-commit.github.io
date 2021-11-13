@@ -1,0 +1,34 @@
+<h2>Строка объектов</h2>
+
+<!------------------------------------------------------------->
+<h4>Постановка задачи</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const obj = {
+    foo: { bar: 1 },
+    buzz: "string"
+};
+</v-code>
+
+<v-code lang="js" title="">
+getData('foo.bar') (obj);                // 1
+getData('buzz')    (obj);                // => 'string'
+getData('foo.x.y') (obj);                // => undefined
+getData('foo.x')   ([]);                 // => undefined
+getData('length')  ([]);                 // => 0
+getData('foo.bar') ({ foo: { bar: 1 }}); // => 1
+getData('foo')     ([]);                 // => undefined
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Решение (не доделано?)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+export const getData = (path) => {
+    const arr = path.split(".");
+
+    return (obj) => {
+        return arr.reduce((result, current) => result?.[current], obj);
+    };
+};
+</v-code>

@@ -4,33 +4,79 @@ ARR_MODULE = [
     {
         title: 'Полифилы',
         themes: [
-            ['js-class/main/new',             emoji.cookie+setTheme(4, ['new'])],
-            [root+'polyphyls/object-create',  emoji.cookie+setTheme(4, ['Object.create'])],
-            [root+'polyphyls/bind',           emoji.cookie+setTheme(4, ['bind()'])],
-            [root+'polyphyls/promise-all',    emoji.cookie+setTheme(4, ['Promise.all'])],
-            [root+'polyphyls/map',            emoji.cookie+setTheme(4, ['Array.prototype.map'])],
-            [root+'polyphyls/filter',         emoji.cookie+setTheme(4, ['Array.prototype.filter'])],
-            [root+'polyphyls/reduce',         emoji.cookie+setTheme(4, ['Array.prototype.reduce'])],
+            ['js-class/main/new',             setTheme(3, ['new'])],
+            [root+'polyphyls/object-create',  setTheme(1, ['Object.create'])],
+            [root+'polyphyls/bind',           setTheme(1, ['bind()'])],
+            [root+'polyphyls/promise-all',    setTheme(1, ['Promise.all'])],
+            [root+'polyphyls/map',            setTheme(1, ['Array.prototype.map'])],
+            [root+'polyphyls/filter',         setTheme(1, ['Array.prototype.filter'])],
+            [root+'polyphyls/reduce',         setTheme(1, ['Array.prototype.reduce'])],
         ]
     },
     {
         title: 'Алгоритмы',
         themes: [
-            [root+'algoritms/shallow-equal',            emoji.fire+setTheme(4, ['Shallow Equal'])],
-            [root+'algoritms/sum-brackets',             emoji.fire+setTheme(4, ['Сумма скобок sum(1)(2)(3)'])],
-            [root+'algoritms/closing-brackets',         emoji.fire+setTheme(4, ['Проверить закрывающиеся скобки'])],
-
-            [root+'algoritms/compose',                  emoji.code+setTheme(4, ['Compose'])],
-            [root+'algoritms/memoization',              emoji.code+setTheme(4, ['Memoization'])],
-            [root+'algoritms/duplicate',                emoji.code+setTheme(4, ['Duplicate'])],
-            [root+'algoritms/anagram',                  emoji.code+setTheme(4, ['Анаграмма'])],
-            [root+'algoritms/palindrome',               emoji.code+setTheme(4, ['Палиндром'])],
-            [root+'algoritms/sum-sequence',             emoji.code+setTheme(4, ['Сумма последовательности'])],
-            [root+'algoritms/function-count',           emoji.code+setTheme(4, ['Функция считает свои вызовы'])],
-
-            [root+'algoritms/event-emitter',            emoji.avocado+setTheme(4, ['EventEmitter'])],
-            [root+'algoritms/series',                   emoji.avocado+setTheme(4, ['Series'])],
-            [root+'algoritms/shop-queue',               emoji.avocado+setTheme(4, ['Магазин с кассами'])],
+            [root+'algoritms/anagram',           emoji.fire+'Анаграмма'],
+            [root+'algoritms/palindrome',        emoji.code+'Палиндром'],
+            [root+'algoritms/compose',           emoji.code+'Compose'],
+            [root+'algoritms/memoization',       emoji.code+'Memoization'],
+            [root+'algoritms/duplicate',         emoji.code+'Duplicate'],
+            [],
+            [root+'algoritms/sum-brackets',       setTheme(2, ['sum(1)(2)(3)'])+' сумма скобок'],
+            [root+'algoritms/closing-brackets',   setTheme(2, ['[]()&lt;&gt;'])+' вложенные скобки'],
+            [root+'algoritms/equality-condition', setTheme(2, ['a == true && a == false'])],
+            [root+'algoritms/sum-sequence',       'Сумма последовательности'],
+            [root+'algoritms/function-count',     'Функция считает свои вызовы'],
+            [],
+            [root+'algoritms/event-emitter',     'EventEmitter'],
+            [root+'algoritms/series',            'Series'],
+            [root+'algoritms/shop-queue',        'Магазин с кассами'],
+        ]
+    },
+    {
+        title: 'Объекты',
+        accent: true,
+        themes: [
+            [root+'objects/objects',        emoji.theory+'Объекты'],
+            [root+'objects/shallow-equal',  emoji.fire+'Shallow Equal'],
+            [root+'objects/deep-equal',     'Deep Equal'],
+            [root+'objects/tree-object',    'Дерево из объекта'],
+            [root+'objects/string-object',  'Строка объектов'],
+        ]
+    },
+    {
+        title: 'Массивы',
+        accent: true,
+        themes: [
+            [root+'arrays/arrays',               emoji.theory+'Массивы'],
+            [root+'arrays/intersection-arrays',  emoji.fire+'Пересечение массивов'],
+            [root+'arrays/flat-array',           'Плоский массив'],
+            [root+'arrays/max-array-element',    'Максимальный элемент массива'],
+            [root+'arrays/array-sums',           'Двумерный массив сумм'],
+            [root+'arrays/merge-sort',           'MergeSort'],
+            [root+'arrays/array-average-value',  'Получить среднюю оценку'],
+        ]
+    },
+    {
+        title: 'Асинхронность',
+        themes: [
+            [root+'async/event-loop',                   emoji.theory+'Event Loop'],
+            [root+'algoritms/retrier',                  emoji.icecream+'Retrier (запросы по URL)'],
+            [root+'algoritms/promise-make-request',     emoji.icecream+'Promise Make Request'],
+            [root+'algoritms/cancel-timeout',           emoji.icecream+'setTimeout: отмена всех'],
+            [root+'algoritms/settimeout-for-var',       emoji.icecream+'setTimeout: в for без let'],
+            [root+'algoritms/promisification-function', emoji.icecream+'Промисификация функции'],
+        ]
+    },
+    {
+        title: 'Общие темы',
+        themes: [
+            [root+'custom/hoisting',    emoji.chevron+'Всплытие'],
+            [root+'custom/closure',     emoji.chevron+'Замыкания'],
+            [root+'custom/prototype',   emoji.chevron+'Прототипы'],
+            [root+'custom/context',     emoji.chevron+'Контекст'],
+            [root+'custom/currying',    emoji.chevron+'Каррирование'],
+            [root+'custom/js',          emoji.lemon+'JavaScript'],
         ]
     },
     {
@@ -45,48 +91,15 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Асинхронность',
-        themes: [
-            [root+'algoritms/retrier',                  emoji.code+setTheme(4, ['Retrier (запросы по URL)'])],
-            [root+'algoritms/promise-make-request',     emoji.code+setTheme(4, ['Promise Make Concurrent Request'])],
-            [root+'algoritms/cancel-timeout',           emoji.code+setTheme(4, ['setTimeout: отмена всех'])],
-            [root+'algoritms/settimeout-for-var',       emoji.code+setTheme(4, ['setTimeout: в for без let'])],
-            [root+'algoritms/promisification-function', emoji.code+setTheme(4, ['Промисификация функции'])],
-        ]
-    },
-    {
-        title: 'Массивы',
-        themes: [
-            [root+'arrays/intersection-arrays',  emoji.fire+setTheme(4, ['Пересечение массивов'])],
-            [root+'arrays/flat-array',           emoji.code+setTheme(4, ['Плоский массив'])],
-            [root+'arrays/max-array-element',    emoji.code+setTheme(4, ['Максимальный элемент массива'])],
-            [root+'arrays/doit',                 emoji.code+setTheme(4, ['Двумерный массив сумм'])],
-            [root+'arrays/merge-sort',           emoji.code+setTheme(4, ['MergeSort'])],
-            [root+'arrays/array-average-value',  emoji.code+setTheme(4, ['Получить среднюю оценку'])],
-        ]
-    },
-    {
-        title: 'Общие темы',
-        themes: [
-            [root+'custom/hoisting',    emoji.pizza+setTheme(4, ['Всплытие'])],
-            [root+'custom/closure',     emoji.pizza+setTheme(4, ['Замыкания'])],
-            [root+'custom/prototype',   emoji.pizza+setTheme(4, ['Прототипы'])],
-            [root+'custom/context',     emoji.pizza+setTheme(4, ['Контекст'])],
-            [root+'custom/currying',    emoji.pizza+setTheme(4, ['Каррирование'])],
-            [root+'custom/objects',     emoji.pizza+setTheme(4, ['Объекты'])],
-            [root+'custom/arrays',      emoji.pizza+setTheme(4, ['Массивы'])],
-        ]
-    },
-    {
         title: 'TypeScript',
         themes: [
-            [root+'typescript/interface-recursion', setTheme(4, ['Рекурсия в интерфейсе'])],
+            [root+'typescript/interface-recursion', 'Рекурсия в интерфейсе'],
         ]
     },
     {
         title: 'Прочее',
         themes: [
-            [root+'other/undefined-check',    setTheme(4, ['Проверка на "undefined"'])],
+            [root+'other/undefined-check', 'Проверка на "undefined"'],
         ]
     },
 ]

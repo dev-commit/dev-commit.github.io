@@ -1,0 +1,43 @@
+<h2>Event Loop</h2>
+
+<!------------------------------------------------------------->
+<h4><u>Async Await</u> / <u>Promise</u> / <u>setTimeout</u></h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+setTimeout(() => console.log('setTimeout'), 0);
+
+async function foo() {
+  console.log('some');
+  let data = await Promise.resolve(10); // => then(() => {})
+  console.log(data);
+}
+
+foo();
+
+console.log(20);
+
+// some
+// 20
+// 10
+// setTimeout
+</v-code>
+
+<!------------------------------------------------------------->
+<h4><u>Promise</u> / <u>setTimeout</u></h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function a() {
+    console.log(1);
+    Promise.resolve().then(a);
+}
+
+function b() {
+    console.log(2);
+    setTimeout(b);
+}
+
+b();
+a();
+
+// => 2 1 1
+</v-code>
