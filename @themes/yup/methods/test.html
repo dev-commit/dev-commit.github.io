@@ -1,0 +1,19 @@
+<h2>.test</h2>
+
+<ul class="list-point">
+    <li><u-text-define>.test</u-text-define> - кастомная обработка value</li>
+</ul>
+
+<v-code lang="js" title="">
+const validationSchema = Yup.object().shape({
+    start: Yup.number().test("startValid", "So Big", (value) => {
+        if (value > 10) {
+            // Ошибка валидации
+            return false;
+        } else {
+            // Нет ошибки
+            return true;
+        }
+    }),
+});
+</v-code>

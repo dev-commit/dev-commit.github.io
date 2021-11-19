@@ -61,14 +61,6 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Клиентское хранилище',
-        themes: [
-            [root+'client-storage/web-storage', setTheme(1, ['localStorage', 'sessionStorage'])],
-            [root+'client-storage/indexed-db',  setTheme(1, ['IndexedDB'])],
-            [root+'client-storage/cookie',      setTheme(1, ['cookie'])],
-        ]
-    },
-    {
         title: 'Замыкания',
         themes: [
             [root+'closures/closures',          emoji.theory+'Замыкания'],

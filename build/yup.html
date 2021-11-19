@@ -1,0 +1,280 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Yup</title>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@modules/build-yup.js"></script>
+        </head>
+        <body>
+
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="link" v-html="'Yup'"></a>
+                    </div>
+                    <h4>🥥 Основное</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__yup/main/info"
+                href="#yup/main/info"
+            >📑 Информация</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__yup/main/pattert"
+                href="#yup/main/pattert"
+            >Шаблон</a>
+        </li>
+    </ul><h4>🥥 Методы</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__yup/methods/types"
+                href="#yup/methods/types"
+            >🔥 Типы</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__yup/methods/methods"
+                href="#yup/methods/methods"
+            >🔥 Методы</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__yup/methods/test"
+                href="#yup/methods/test"
+            ><u-menu>.test</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__yup/methods/chain-values"
+                href="#yup/methods/chain-values"
+            >⚡️ Связанные значения</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__yup/methods/reg-exp"
+                href="#yup/methods/reg-exp"
+            >⚡️ RegExp</a>
+        </li>
+    </ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a :href="itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="yup/main/info"><h2>Установка</h2>
+
+<v-pre-npm>
+npm i --save <u-code-accent>yup</u-code-accent>
+npm i --save <u-code-accent>yup</u-code-accent> <u-code-accent>@types/yup</u-code-accent> # for TypeScript
+</v-pre-npm>
+</div><div id="yup/main/pattert"><h2>Шаблон</h2>
+
+<v-code lang="js" title="">
+import * as Yup from 'yup';
+
+const validationSchema = Yup.object().shape({
+    //
+});
+</v-code>
+</div><div id="yup/methods/types"><h2>Типы</h2>
+
+<v-code lang="js" title="">
+field: Yup.string(),
+field: Yup.number(),
+field: Yup.boolean(),
+field: Yup.date(),
+field: Yup.array(),
+
+field: Yup.object().shape({
+    label: Yup.string(),
+    value: Yup.number(),
+}),
+</v-code>
+</div><div id="yup/methods/methods"><h2>Методы</h2>
+
+<!------------------------------------------------------------->
+<h4>General</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+field: Yup.string()
+    .min(10, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required')
+    .nullable()
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>String</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+field: Yup.string()
+    .length(10, 'Text')
+    .email('Email')
+    .url('URL')
+    .uuid('Text')
+    .ensure()
+    .trim('Text')
+    .lowercase('Text')
+    .uppercase('Text')
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Number</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+field: Yup.number()
+    .lessThan(10)
+    .moreThan(10)
+    .positive('Text')
+    .negative('Text')
+    .integer('Text')
+    .truncate()
+    .round('floor' | 'ceil' | 'trunc' | 'round')
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Array</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+field: Yup.array
+    .of(type: Schema)
+    .length(10, 'Text')
+    .ensure()
+    .compact(rejector: (value) => boolean)
+</v-code>
+
+<v-code lang="js" title="">
+field: Yup.array().of(Yup.string()),
+field: Yup.array().of(Yup.string().min(2)),
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Object</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+field: Yup.object
+    .shape(fields: object, noSortEdges?: Array<[string, string]>)
+    .pick(keys: string[])
+    .omit(keys: string[])
+    .getDefaultFromShape(): Record < string, unknown >
+    .from(fromKey: string, toKey: string, alias: boolean = false)
+    .noUnknown(onlyKnownKeys: boolean = true, message?: string | function)
+    .camelCase()
+    .constantCase()
+</v-code>
+</div><div id="yup/methods/test"><h2>.test</h2>
+
+<ul class="list-point">
+    <li><u-text-define>.test</u-text-define> - кастомная обработка value</li>
+</ul>
+
+<v-code lang="js" title="">
+const validationSchema = Yup.object().shape({
+    start: Yup.number().test("startValid", "So Big", (value) => {
+        if (value > 10) {
+            // Ошибка валидации
+            return false;
+        } else {
+            // Нет ошибки
+            return true;
+        }
+    }),
+});
+</v-code>
+</div><div id="yup/methods/chain-values"><h2>Проверка значения на основе другого значения</h2>
+
+<!------------------------------------------------------------->
+<h4>Проверка через <u-code-text>lessThan</u-code-text></h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const validationSchema = Yup.object().shape({
+    start: Yup.number().lessThan(Yup.ref('end'), 'Should less than End'),
+    end: Yup.number()
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Обращение через <u-code-text>this.parent</u-code-text></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Нельзя использовать стрелочную функцию</li>
+</ul>
+
+<v-code lang="js" title="">
+const validationSchema = Yup.object().shape({
+    start: Yup.number().test("startValid", "So Big", function (value) {
+        console.log(value, this.parent.end);
+    }),
+    end: Yup.number()
+});
+</v-code>
+</div><div id="yup/methods/reg-exp"><h2>RegExp (phone, site, password)</h2>
+
+<v-code lang="js" title="">
+const EMAIL_REGEXP: RegExp = /^[-._A-Za-z0-9]+@(?:[A-Za-z0-9][-a-z0-9]+\.)+[A-Za-z]{2,}|^$/;
+
+emailPersonal: Yup.string()
+    .matches(EMAIL_REGEXP, {
+        message: 'forms.errorEmailValidation',
+        excludeEmptyString: true,
+    }),
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue/build.js"></script>
+        </body>
+    </html>

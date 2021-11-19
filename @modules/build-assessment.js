@@ -26,10 +26,10 @@ ARR_MODULE = [
     {
         title: 'Основы',
         themes: [
-            ['js/main/bind',                     emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
-            ['js/main/context',                  emoji.baseball+'Контекст'],
-            ['js/function/arrow',                emoji.star+'Стрелочные функции'],
-            ['js/client-storage/cookie',         emoji.fire+setTheme(1, ['cookie'])],
+            ['js/main/bind',                      emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
+            ['js/main/context',                   emoji.baseball+'Контекст'],
+            ['js/function/arrow',                 emoji.star+'Стрелочные функции'],
+            ['js-web-api//client-storage/cookie', emoji.fire+setTheme(1, ['cookie'])],
         ]
     },
     {

@@ -1,0 +1,185 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>JSS</title>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@modules/build-jss.js"></script>
+        </head>
+        <body>
+
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="link" v-html="'JSS'"></a>
+                    </div>
+                    <h4>🥥 Основы</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__jss/main/classes-props"
+                href="#jss/main/classes-props"
+            >Передача classes</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__jss/main/classes-override"
+                href="#jss/main/classes-override"
+            >Переопределение стилей из classes</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__jss/main/css-in-js"
+                href="#jss/main/css-in-js"
+            >Варианты CSS in JS</a>
+        </li>
+    </ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a :href="itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="jss/main/classes-props"><h2>Передача classes</h2>
+
+<ul class="list-point">
+    <li>Из родительного компонента пропом можно передать <u>clasess</u> в дочерний компонент. При этому у дочернего не должно быть стилей <u>withStyles</u></li>
+    <li>Если у дочернего компонента будут свои стили, то будет предупреждение: <i>Material-UI: the key wrapper provided to the classes prop is not implemented in Component. You can only override one of the following</i></li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;Component classes={classes} /&gt;
+</v-code>
+
+<ul class="list-point">
+    <li>Если у дочернего компонента есть класс <u>root</u>, его можно переопределить из родительского, передав в пропе класс родительского компонента <u>classes.paperRoot</u></li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;Component classes=<span v-pre>{{</span> root: classes.paperRoot <span v-pre>}}</span> /&gt;
+</v-code>
+</div><div id="jss/main/classes-override"><h2>Переопределение стилей из classes</h2>
+
+<!------------------------------------------------------------->
+<h4>Место использования компонента</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;MyCheckbox className={classes.checkbox} /&gt;
+</v-code>
+
+<v-code lang="js" title="">
+checkbox: {
+    padding: '10px',
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Базовый компонент</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;Checkbox className={classes.root} /&gt;
+</v-code>
+
+<v-code lang="js" title="">
+root: {
+    color: 'blue',
+}
+</v-code>
+
+<ul class="list-point">
+    <li>В итоговом варианте, стили объеднятся</li>
+</ul>
+
+<v-code lang="js" title="">
+root: {
+    padding: '10px',
+    color: 'blue
+}
+</v-code>
+
+
+</div><div id="jss/main/css-in-js"><h2>Варианты CSS-in-JS</h2>
+
+<v-code lang="js" title="">
+import { grey } from '@material-ui/core/colors/';
+
+const MaterialStyles = ({
+    spacing,
+    typography: { fontSize }
+}) => ({
+    container: {
+        border: '2px solid blue',
+        minWidth: '100vw',
+        transform: 'translate(8px, 14px) scale(1)',
+        '& div': {
+            padding: spacing(),
+            backgroundColor: grey[500],
+        },
+        '&:hover': {
+            //
+        },
+        '& div.MuiBackdrop-root': {
+            //
+        },
+        '& .MuiPaper-root': {
+            //
+        },
+    },
+    '@media (max-width: 1130px) and (min-width: 600px)': {
+        //
+    },
+    '@supports (backdrop-filter: blur(5px))': {
+        //
+    }
+});
+
+export default MaterialStyles;
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue/build.js"></script>
+        </body>
+    </html>

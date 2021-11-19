@@ -2,7 +2,7 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>Material-UI & JSS</title>
+            <title>Material-UI</title>
             <meta charset="UTF-8">
             <link rel="icon" type="image/png" href="../src/img/favicon.svg">
 
@@ -22,7 +22,7 @@
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="link" v-html="'Material-UI & JSS'"></a>
+                        <a href="#links" class="link" v-html="'Material-UI'"></a>
                     </div>
                     <h4>🥥 Основы</h4><ul>
         <li>
@@ -31,6 +31,14 @@
                 id="id__material-ui/main/use"
                 href="#material-ui/main/use"
             >⚡️ Использование</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__material-ui/main/spacing"
+                href="#material-ui/main/spacing"
+            ><u-menu>spacing</u-menu></a>
         </li>
     </ul><h4>🥥 Методы</h4><ul>
         <li>
@@ -47,38 +55,6 @@
                 id="id__material-ui/methods/make-styles"
                 href="#material-ui/methods/make-styles"
             >🔰 <u-menu>makeStyles</u-menu></a>
-        </li>
-    </ul><h4>🥥 Прочее</h4><ul>
-        <li>
-            <a
-                class="menu-link"
-                id="id__material-ui/other/spacing"
-                href="#material-ui/other/spacing"
-            ><u-menu>spacing</u-menu></a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__material-ui/other/classes-props"
-                href="#material-ui/other/classes-props"
-            >Передача classes</a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__material-ui/other/classes-override"
-                href="#material-ui/other/classes-override"
-            >Переопределение стилей из classes</a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__material-ui/other/css-in-js"
-                href="#material-ui/other/css-in-js"
-            >Варианты CSS in JS</a>
         </li>
     </ul>
                 </div>
@@ -167,6 +143,88 @@ const MaterialStyles = () => ({
 export default MaterialStyles;
 </v-code>
 
+</div><div id="material-ui/main/spacing"><h2>Spacing</h2>
+
+<v-code lang="bash" title="">
+spacing() == spacing(1)
+</v-code>
+
+<v-code lang="bash" title="">
+spacing(0)     # 0px
+spacing(0.25)  # 2px
+spacing(0.5)   # 4px
+spacing(0.75)  # 6px
+
+spacing(1)     # 8px
+spacing(1.25)  # 10px
+spacing(1.5)   # 12px
+spacing(1.75)  # 14px
+
+spacing(2)     # 16px
+spacing(2.25)  # 18px
+spacing(2.5)   # 20px
+spacing(2.75)  # 22px
+
+spacing(3)     # 24px
+spacing(3.25)  # 26px
+spacing(3.5)   # 28px
+spacing(3.75)  # 30px
+
+spacing(4)     # 32px
+spacing(4.25)  # 34px
+spacing(4.5)   # 36px
+spacing(4.75)  # 38px
+
+spacing(5)     # 40px
+spacing(5.25)  # 42px
+spacing(5.5)   # 44px
+spacing(5.75)  # 46px
+
+spacing(6)     # 48px
+spacing(6.25)  # 50px
+spacing(6.5)   # 52px
+spacing(6.75)  # 54px
+
+spacing(7)     # 56px
+spacing(7.25)  # 58px
+spacing(7.5)   # 60px
+spacing(7.75)  # 62px
+
+spacing(8)     # 64px
+spacing(8.25)  # 66px
+spacing(8.5)   # 68px
+spacing(8.75)  # 70px
+
+spacing(9)     # 72px
+spacing(9.25)  # 74px
+spacing(9.5)   # 76px
+spacing(9.75)  # 78px
+
+spacing(10)    # 80px
+spacing(10.25) # 82px
+spacing(10.5)  # 84px
+spacing(10.75) # 86px
+
+spacing(11)    # 88px
+spacing(11.25) # 90px
+spacing(11.5)  # 92px
+spacing(11.75) # 94px
+
+spacing(12)    # 96px
+spacing(12.25) # 98px
+spacing(12.5)  # 100px
+spacing(12.75) # 102px
+
+spacing(13)    # 104px
+spacing(13.25) # 106px
+spacing(13.5)  # 108px
+spacing(13.75) # 110px
+
+spacing(14)    # 112px
+spacing(14.25) # 114px
+spacing(14.5)  # 116px
+spacing(14.75) # 118px
+</v-code>
 </div><div id="material-ui/methods/with-styles"><h2>withStyles</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -251,183 +309,6 @@ const StatusButton = ({color, selected}) =&gt; {
         &lt;Element classes=<span v-pre>{{</span> root: btnClasses.statusButton <span v-pre>}}</span> /&gt;
     );
 };
-</v-code>
-</div><div id="material-ui/other/spacing"><h2>Spacing</h2>
-
-<v-code lang="bash" title="">
-spacing() == spacing(1)
-</v-code>
-
-<v-code lang="bash" title="">
-spacing(0)     # 0px
-spacing(0.25)  # 2px
-spacing(0.5)   # 4px
-spacing(0.75)  # 6px
-
-spacing(1)     # 8px
-spacing(1.25)  # 10px
-spacing(1.5)   # 12px
-spacing(1.75)  # 14px
-
-spacing(2)     # 16px
-spacing(2.25)  # 18px
-spacing(2.5)   # 20px
-spacing(2.75)  # 22px
-
-spacing(3)     # 24px
-spacing(3.25)  # 26px
-spacing(3.5)   # 28px
-spacing(3.75)  # 30px
-
-spacing(4)     # 32px
-spacing(4.25)  # 34px
-spacing(4.5)   # 36px
-spacing(4.75)  # 38px
-
-spacing(5)     # 40px
-spacing(5.25)  # 42px
-spacing(5.5)   # 44px
-spacing(5.75)  # 46px
-
-spacing(6)     # 48px
-spacing(6.25)  # 50px
-spacing(6.5)   # 52px
-spacing(6.75)  # 54px
-
-spacing(7)     # 56px
-spacing(7.25)  # 58px
-spacing(7.5)   # 60px
-spacing(7.75)  # 62px
-
-spacing(8)     # 64px
-spacing(8.25)  # 66px
-spacing(8.5)   # 68px
-spacing(8.75)  # 70px
-
-spacing(9)     # 72px
-spacing(9.25)  # 74px
-spacing(9.5)   # 76px
-spacing(9.75)  # 78px
-
-spacing(10)    # 80px
-spacing(10.25) # 82px
-spacing(10.5)  # 84px
-spacing(10.75) # 86px
-
-spacing(11)    # 88px
-spacing(11.25) # 90px
-spacing(11.5)  # 92px
-spacing(11.75) # 94px
-
-spacing(12)    # 96px
-spacing(12.25) # 98px
-spacing(12.5)  # 100px
-spacing(12.75) # 102px
-
-spacing(13)    # 104px
-spacing(13.25) # 106px
-spacing(13.5)  # 108px
-spacing(13.75) # 110px
-
-spacing(14)    # 112px
-spacing(14.25) # 114px
-spacing(14.5)  # 116px
-spacing(14.75) # 118px
-</v-code>
-</div><div id="material-ui/other/classes-props"><h2>Передача classes</h2>
-
-<ul class="list-point">
-    <li>Из родительного компонента пропом можно передать <u>clasess</u> в дочерний компонент. При этому у дочернего не должно быть стилей <u>withStyles</u></li>
-    <li>Если у дочернего компонента будут свои стили, то будет предупреждение: <i>Material-UI: the key wrapper provided to the classes prop is not implemented in Component. You can only override one of the following</i></li>
-</ul>
-
-<v-code lang="html" title="">
-&lt;Component classes={classes} /&gt;
-</v-code>
-
-<ul class="list-point">
-    <li>Если у дочернего компонента есть класс <u>root</u>, его можно переопределить из родительского, передав в пропе класс родительского компонента <u>classes.paperRoot</u></li>
-</ul>
-
-<v-code lang="html" title="">
-&lt;Component classes=<span v-pre>{{</span> root: classes.paperRoot <span v-pre>}}</span> /&gt;
-</v-code>
-</div><div id="material-ui/other/classes-override"><h2>Переопределение стилей из classes</h2>
-
-<!------------------------------------------------------------->
-<h4>Место использования компонента</h4>
-<!------------------------------------------------------------->
-<v-code lang="html" title="">
-&lt;MyCheckbox className={classes.checkbox} /&gt;
-</v-code>
-
-<v-code lang="js" title="">
-checkbox: {
-    padding: '10px',
-}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Базовый компонент</h4>
-<!------------------------------------------------------------->
-<v-code lang="html" title="">
-&lt;Checkbox className={classes.root} /&gt;
-</v-code>
-
-<v-code lang="js" title="">
-root: {
-    color: 'blue',
-}
-</v-code>
-
-<ul class="list-point">
-    <li>В итоговом варианте, стили объеднятся</li>
-</ul>
-
-<v-code lang="js" title="">
-root: {
-    padding: '10px',
-    color: 'blue
-}
-</v-code>
-
-
-</div><div id="material-ui/other/css-in-js"><h2>Варианты CSS-in-JS</h2>
-
-<v-code lang="js" title="">
-import { grey } from '@material-ui/core/colors/';
-
-const MaterialStyles = ({
-    spacing,
-    typography: { fontSize }
-}) => ({
-    container: {
-        border: '2px solid blue',
-        minWidth: '100vw',
-        transform: 'translate(8px, 14px) scale(1)',
-        '& div': {
-            padding: spacing(),
-            backgroundColor: grey[500],
-        },
-        '&:hover': {
-            //
-        },
-        '& div.MuiBackdrop-root': {
-            //
-        },
-        '& .MuiPaper-root': {
-            //
-        },
-    },
-    '@media (max-width: 1130px) and (min-width: 600px)': {
-        //
-    },
-    '@supports (backdrop-filter: blur(5px))': {
-        //
-    }
-});
-
-export default MaterialStyles;
 </v-code>
 </div></div>
                 </div>

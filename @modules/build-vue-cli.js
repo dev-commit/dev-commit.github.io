@@ -4,26 +4,11 @@ ARR_MODULE = [
     {
         title: 'Vue CLI',
         themes: [
-            [root+'vue-cli/info',              emoji.theory+'Информация'],
-            [root+'vue-cli/components-system', 'Компоненты системы'],
-            [root+'vue-cli/npm-command',       'Npm / Vue Command'],
-            [root+'vue-cli/import_export',     setTheme(1, ['import', 'export'])],
-            [root+'vue-cli/vscode',            'Настройка Visual Studio Code'],
-        ]
-    },
-    {
-        title: 'Плагины',
-        themes: [
-            [root+'plugins/vuetify',     'Vuetify'],
-            [root+'plugins/fontawesome', 'FontAwesome'],
-            [root+'plugins/vue-loader',  'Vue Loader'],
-        ]
-    },
-    {
-        title: 'Тестирование',
-        themes: [
-            [root+'testing/unit-testing', 'Модульное тестирование'],
-            [root+'testing/vue-devtools', 'Vue-DevTools'],
+            [root+'main/info',              emoji.theory+'Информация'],
+            [root+'main/components-system', 'Компоненты системы'],
+            [root+'main/npm-command',       'Npm / Vue Command'],
+            [root+'main/import_export',     setTheme(1, ['import', 'export'])],
+            [root+'main/vscode',            'Настройка Visual Studio Code'],
         ]
     },
 ]

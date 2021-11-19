@@ -26,10 +26,4 @@ ARR_MODULE = [
             [root+'yarn/main', 'Основное'],
         ]
     },
-    {
-        title: 'Терминал',
-        themes: [
-            [root+'terminal/command', emoji.code+'Команды'],
-        ]
-    },
 ]

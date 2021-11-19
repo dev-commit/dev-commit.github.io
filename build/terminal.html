@@ -2,13 +2,13 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>Gulp</title>
+            <title>Terminal</title>
             <meta charset="UTF-8">
             <link rel="icon" type="image/png" href="../src/img/favicon.svg">
 
             <script src="../src/js/utils.js"></script>
             <!-- Own JavaScript -->
-            <script src="../@modules/build-gulp.js"></script>
+            <script src="../@modules/build-terminal.js"></script>
         </head>
         <body>
 
@@ -22,28 +22,17 @@
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="link" v-html="'Gulp'"></a>
+                        <a href="#links" class="link" v-html="'Terminal'"></a>
                     </div>
-                    
-    <slot v-for="itemTitle in themesContent">
-        <h4 v-html="themesEmoji+' '+itemTitle.title" :class="{ accent: itemTitle.accent }"></h4>
-        <ul>
-            <slot v-for="(itemTheme, i) in itemTitle.themes">
-                <li v-if="itemTheme[0]">
-                    <a
-                        class="menu-link"
-                        :id="itemTheme[0]+'link'"
-                        :href="'#'+itemTheme[0]"
-                        @click="buildContent(itemTheme[0])"
-                        v-html="itemTheme[1]"
-                    ></a>
-                </li>
-                <hr v-else />
-            </slot>
-
-        </ul>
-    </slot>
-
+                    <h4>🥥 Основное</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__terminal/main/command"
+                href="#terminal/main/command"
+            >⚡️ Команды</a>
+        </li>
+    </ul>
                 </div>
 
                 <div id="wrapper">
@@ -57,7 +46,16 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"></div>
+                    <div id="content"><div id="terminal/main/command"><h2>Команды</h2>
+
+<v-code lang="bash" title="">
+cd /D d:/    # на диск D
+cd ..        # на директорию вверх
+cd /Folder   # в папку
+cd /         # в корень
+ls           # получить список файлов
+</v-code>
+</div></div>
                 </div>
             </div>
 
