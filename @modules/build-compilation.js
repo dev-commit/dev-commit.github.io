@@ -22,6 +22,7 @@ ARR_MODULE = [
     {
         title: 'Web',
         themes: [
+            [root+'web/i18n',                 setTheme(1, ['i18n', 'L10n', 'a11y'])],
             [root+'web/web-applications',     'Виды веб-приложений'],
             [root+'web/evolution-web-design', 'Эволюция веб-дизайна'],
             [root+'web/frameworks',           'Фреймворки'],
