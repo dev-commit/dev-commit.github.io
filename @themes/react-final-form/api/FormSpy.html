@@ -1,0 +1,31 @@
+<h2>&lt;FormSpy /&gt;</h2>
+
+
+<ul class="list-point">
+    <li>Через &lt;FormSpy /&gt; отслеживаю изменение состояния формы</li>
+    <li>По итогу "value" в &lt;Textarea&gt; меняется</li>
+    <li>"formProps.form.change()" не равносильно "&lt;Textarea onChange={} /&gt;"</li>
+    <li>onChange - событие пользователи</li>
+    <li>formProps.form.change() - сеттер</li>
+</ul>
+
+<v-code lang="js" title="">
+import { Form, FormSpy } from 'react-final-form';
+
+&lt;Form&gt;
+    {(formProps) =&gt; (
+        &lt;form&gt;
+            &lt;FormSpy
+                subscription=<span v-pre>{{ values: true }}</span>
+                onChange={(formState: FormState&lt;FormValues&gt;) =&gt; {
+                    formProps.form.change('clientField', 'Какие-то данные');
+                }}
+            /&gt;
+            &lt;Textarea
+                name="clientField"
+                value={formProps.values.clientField}
+            /&gt;
+        &lt;/form&gt;
+    )}
+&lt;/Form&gt;
+</v-code>

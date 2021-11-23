@@ -1,0 +1,139 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Day.js</title>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@modules/build-dayjs.js"></script>
+        </head>
+        <body>
+
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="link" v-html="'Day.js'"></a>
+                    </div>
+                    <h4>🥥 Основное</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__dayjs/main/info"
+                href="#dayjs/main/info"
+            >📑 Информация</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__dayjs/main/variants"
+                href="#dayjs/main/variants"
+            >⚡️ Варианты</a>
+        </li>
+    </ul><h4>🥥 Методы</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__dayjs/methods/format"
+                href="#dayjs/methods/format"
+            ><u-menu>format</u-menu></a>
+        </li>
+    </ul><h4>🥥 Прочее</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__dayjs/other/typescript"
+                href="#dayjs/other/typescript"
+            >TypeScript</a>
+        </li>
+    </ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a :href="itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="dayjs/main/info"><h2>Информация</h2>
+
+<u-link-wrapper>
+    <a href="https://day.js.org/docs/en/installation/installation" target="_blank">Документация</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Подключение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import dayjs from 'dayjs';
+</v-code>
+</div><div id="dayjs/main/variants"><h2>Варианты</h2>
+
+<v-code lang="js" title="">
+const a = dayjs().add(40, 'days').format('...');     // 
+const a = dayjs().subtract(40, 'day').format('...'); // 
+
+const a = dayjs().startOf('day');                    // 
+const a = dayjs().endOf('day');                      // конечная дата
+const a = dayjs().year();                            // 
+const a = dayjs().month();                           // 
+</v-code>
+</div><div id="dayjs/methods/format"><h2>Форматы</h2>
+
+<v-code lang="js" title="">
+dayjs().format('HH:mm DD.MM.YYYY'); // 16:55 31.12.2000
+dayjs().format('YYYY-MM-DD');       // 2000-12-31
+</v-code>
+</div><div id="dayjs/other/typescript"><h2>TypeScript</h2>
+
+<!------------------------------------------------------------->
+<h4>Задание типа в TypeScript</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { Dayjs } from 'dayjs';
+
+const foo = (current: Nullable&lt;Dayjs&gt;) => {
+    //
+}
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue/build.js"></script>
+        </body>
+    </html>

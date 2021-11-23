@@ -1,0 +1,314 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>React Final Form</title>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@modules/build-react-final-form.js"></script>
+        </head>
+        <body>
+
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="link" v-html="'React Final Form'"></a>
+                    </div>
+                    <h4>🥥 Основы</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__react-final-form/main/info"
+                href="#react-final-form/main/info"
+            >📑 Информация</a>
+        </li>
+    </ul><h4>🥥 API</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__react-final-form/api/FormSpy"
+                href="#react-final-form/api/FormSpy"
+            ><u-menu>&lt;FormSpy /&gt;</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__react-final-form/api/Field"
+                href="#react-final-form/api/Field"
+            ><u-menu>&lt;Field /&gt;</u-menu></a>
+        </li>
+    </ul><h4>🥥 Примеры</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__react-final-form/samples/simple"
+                href="#react-final-form/samples/simple"
+            >Простой пример</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__react-final-form/samples/type-form"
+                href="#react-final-form/samples/type-form"
+            >Тип для &lt;Form /&gt;</a>
+        </li>
+    </ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a :href="itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="react-final-form/main/info"><h2>Информация</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+npm i --save final-form react-final-form
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пакеты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="package.json">
+{
+    "dependencies": {
+        "final-form": "4.20.2",
+        "final-form-arrays": "3.0.2",
+        "final-form-calculate": "1.3.2",
+        "final-form-set-field-data": "1.0.2",
+
+        "react-final-form": "6.5.3",
+        "react-final-form-arrays": "3.1.3",
+    }
+}
+</v-code>
+</div><div id="react-final-form/api/FormSpy"><h2>&lt;FormSpy /&gt;</h2>
+
+
+<ul class="list-point">
+    <li>Через &lt;FormSpy /&gt; отслеживаю изменение состояния формы</li>
+    <li>По итогу "value" в &lt;Textarea&gt; меняется</li>
+    <li>"formProps.form.change()" не равносильно "&lt;Textarea onChange={} /&gt;"</li>
+    <li>onChange - событие пользователи</li>
+    <li>formProps.form.change() - сеттер</li>
+</ul>
+
+<v-code lang="js" title="">
+import { Form, FormSpy } from 'react-final-form';
+
+&lt;Form&gt;
+    {(formProps) =&gt; (
+        &lt;form&gt;
+            &lt;FormSpy
+                subscription=<span v-pre>{{ values: true }}</span>
+                onChange={(formState: FormState&lt;FormValues&gt;) =&gt; {
+                    formProps.form.change('clientField', 'Какие-то данные');
+                }}
+            /&gt;
+            &lt;Textarea
+                name="clientField"
+                value={formProps.values.clientField}
+            /&gt;
+        &lt;/form&gt;
+    )}
+&lt;/Form&gt;
+</v-code>
+</div><div id="react-final-form/api/Field"><h2>&lt;Field /&gt;</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Оборачивание компонента в <u>&lt;Field /&gt;</u></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Код</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { Field } from 'react-final-form';
+
+const App = () = {
+    return (
+        &lt;Field name={name}&gt;
+            {(fieldProps) =&gt; {
+                // eslint-disable-next-line no-console
+                console.log('fieldProps', fieldProps);
+
+                return (
+                    &lt;Component /&gt;
+                );
+            }}
+        &lt;/Field&gt;
+    );
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Структура <u>fieldProps</u></h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+{
+    "input": {
+        "name": "documentIds",
+        "value": ""
+    },
+    "meta": {
+        "active": false,
+        "data": {},
+        "dirty": false,
+        "dirtySinceLastSubmit": false,
+        "invalid": false,
+        "modified": false,
+        "modifiedSinceLastSubmit": false,
+        "pristine": true,
+        "submitFailed": false,
+        "submitSucceeded": false,
+        "submitting": false,
+        "touched": false,
+        "valid": true,
+        "validating": false,
+        "visited": false
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { Field } from 'react-final-form';
+
+const App = () = &gt; {
+    return (
+        &lt;Field name={name}&gt;
+            {(fieldProps) =&gt; {
+                const { input } = fieldProps;
+                const { onChange } = input;
+
+                // Если необходимо добавить собственную логику
+                const handleChange = (e) =&gt; {
+                    const result = e.target.value;
+                    onChange(result);
+                };
+
+                return (
+                    &lt;input onChange={handleChange} /&gt;
+                );
+            }}
+        &lt;/Field&gt;
+    );
+}
+</v-code>
+</div><div id="react-final-form/samples/simple"><h2>Простой пример</h2>
+
+<v-code lang="js" title="">
+import { Form, Field } from 'react-final-form';
+
+const App = () =&gt; {
+  const onSubmit = (values) =&gt; {
+    console.log(values);
+  };
+
+  const validate = (values) =&gt; {
+    const error = {};
+
+    if (!values.firstName) {
+      error.firstName = "Текст ошибки";
+    }
+
+    return error;
+  };
+
+  return (
+    &lt;Form
+      onSubmit={onSubmit}
+      validate={validate}
+      render={(formProps) =&gt; {
+        const { handleSubmit, errors, values } = formProps;
+
+        console.log(errors, values);
+
+        return (
+          &lt;form onSubmit={handleSubmit}&gt;
+            &lt;Field
+              name="firstName"
+              component="input"
+              placeholder="First Name"
+            /&gt;
+            &lt;button type="submit"&gt;Submit&lt;/button&gt;
+          &lt;/form&gt;
+        );
+      }}
+    /&gt;
+  );
+};
+
+export default App;
+</v-code>
+</div><div id="react-final-form/samples/type-form"><h2>Задание типа для компонента &lt;Form /&gt;</h2>
+
+<v-code lang="js" title="">
+import { withTypes } from 'react-final-form';
+import { Field } from 'react-final-form';
+
+interface FormValues {
+    firstName: string;
+}
+
+const { Form } = withTypes&lt;FormValues&gt;();
+
+const App = () =&gt; {
+    const onSubmit = (values: FormValues) =&gt; {
+        console.log(values);
+    };
+
+    return (
+        ...
+    );
+};
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue/build.js"></script>
+        </body>
+    </html>

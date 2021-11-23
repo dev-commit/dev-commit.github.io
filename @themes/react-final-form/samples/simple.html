@@ -1,0 +1,46 @@
+<h2>Простой пример</h2>
+
+<v-code lang="js" title="">
+import { Form, Field } from 'react-final-form';
+
+const App = () =&gt; {
+  const onSubmit = (values) =&gt; {
+    console.log(values);
+  };
+
+  const validate = (values) =&gt; {
+    const error = {};
+
+    if (!values.firstName) {
+      error.firstName = "Текст ошибки";
+    }
+
+    return error;
+  };
+
+  return (
+    &lt;Form
+      onSubmit={onSubmit}
+      validate={validate}
+      render={(formProps) =&gt; {
+        const { handleSubmit, errors, values } = formProps;
+
+        console.log(errors, values);
+
+        return (
+          &lt;form onSubmit={handleSubmit}&gt;
+            &lt;Field
+              name="firstName"
+              component="input"
+              placeholder="First Name"
+            /&gt;
+            &lt;button type="submit"&gt;Submit&lt;/button&gt;
+          &lt;/form&gt;
+        );
+      }}
+    /&gt;
+  );
+};
+
+export default App;
+</v-code>

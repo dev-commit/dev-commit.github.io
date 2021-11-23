@@ -1,0 +1,84 @@
+<h2>&lt;Field /&gt;</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Оборачивание компонента в <u>&lt;Field /&gt;</u></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Код</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { Field } from 'react-final-form';
+
+const App = () = {
+    return (
+        &lt;Field name={name}&gt;
+            {(fieldProps) =&gt; {
+                // eslint-disable-next-line no-console
+                console.log('fieldProps', fieldProps);
+
+                return (
+                    &lt;Component /&gt;
+                );
+            }}
+        &lt;/Field&gt;
+    );
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Структура <u>fieldProps</u></h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+{
+    "input": {
+        "name": "documentIds",
+        "value": ""
+    },
+    "meta": {
+        "active": false,
+        "data": {},
+        "dirty": false,
+        "dirtySinceLastSubmit": false,
+        "invalid": false,
+        "modified": false,
+        "modifiedSinceLastSubmit": false,
+        "pristine": true,
+        "submitFailed": false,
+        "submitSucceeded": false,
+        "submitting": false,
+        "touched": false,
+        "valid": true,
+        "validating": false,
+        "visited": false
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { Field } from 'react-final-form';
+
+const App = () = &gt; {
+    return (
+        &lt;Field name={name}&gt;
+            {(fieldProps) =&gt; {
+                const { input } = fieldProps;
+                const { onChange } = input;
+
+                // Если необходимо добавить собственную логику
+                const handleChange = (e) =&gt; {
+                    const result = e.target.value;
+                    onChange(result);
+                };
+
+                return (
+                    &lt;input onChange={handleChange} /&gt;
+                );
+            }}
+        &lt;/Field&gt;
+    );
+}
+</v-code>
