@@ -83,6 +83,7 @@ ARR_MODULE = [
     {
         title: 'Дополнительно',
         themes: [
+            [root+'other/jsdoc',                  emoji.fire+'Документирование'],
             [root+'other/garbage-collection',     'Сборщик мусора'],
             [root+'other/regexr',                 'Регулярные выражения'],
             [root+'other/math',                   'Math'],
@@ -100,7 +101,6 @@ ARR_MODULE = [
             [root+'other/eval',                   setTheme(1, ['eval'])],
             [root+'other/notifications-api',      'Notifications API'],
             [root+'other/ecmascript',             'ECMAScript'],
-            [root+'other/jsdoc',                  'Синтаксис JSDoc'],
             [root+'other/strict-mode',            'Strict Mode'],
             [root+'other/samples',                'Примеры'],
         ]

@@ -1,14 +1,40 @@
-<h2>Синтаксис JSDoc</h2>
+<h2>Документирование. Синтаксис JSDoc</h2>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 /**
-* Возвращает x в степени n, только для натуральных n
-*
-* @param {number} x Число для возведения в степень.
-* @param {number} n Показатель степени, натуральное число.
-* @return {number} x в степени n.
-*/
-function pow(x, n) {
+ * Что делает функция
+ * @param {Object} id - идентификатор
+ * @return {Boolean} - true показать, false скрыть
+ */
+const foo = (id) => {
+    return true;
+}
+</v-code>
+
+<v-code lang="js" title="">
+/** В одну строчку */
+</v-code>
+
+<v-code lang="js" title="">
+// TODO: найти лучшее решение
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+/**
+ * Возвращает x в степени n, только для натуральных n
+ * @param {number} x Число для возведения в степень.
+ * @param {number} n Показатель степени, натуральное число.
+ * @return {number} x в степени n.
+ */
+ function pow(x, n) {
 	...
 }
 </v-code>
+
+

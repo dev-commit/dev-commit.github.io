@@ -340,6 +340,14 @@
         <li>
             <a
                 class="menu-link"
+                id="id__js/other/jsdoc"
+                href="#js/other/jsdoc"
+            >🔥 Документирование</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
                 id="id__js/other/garbage-collection"
                 href="#js/other/garbage-collection"
             >Сборщик мусора</a>
@@ -463,14 +471,6 @@
                 id="id__js/other/ecmascript"
                 href="#js/other/ecmascript"
             >ECMAScript</a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__js/other/jsdoc"
-                href="#js/other/jsdoc"
-            >Синтаксис JSDoc</a>
         </li>
     
         <li>
@@ -4129,6 +4129,46 @@ f = null;
 alert( g(5) ); // 120, работает!
 </template>
 </v-two-code>
+</div><div id="js/other/jsdoc"><h2>Документирование. Синтаксис JSDoc</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+/**
+ * Что делает функция
+ * @param {Object} id - идентификатор
+ * @return {Boolean} - true показать, false скрыть
+ */
+const foo = (id) => {
+    return true;
+}
+</v-code>
+
+<v-code lang="js" title="">
+/** В одну строчку */
+</v-code>
+
+<v-code lang="js" title="">
+// TODO: найти лучшее решение
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+/**
+ * Возвращает x в степени n, только для натуральных n
+ * @param {number} x Число для возведения в степень.
+ * @param {number} n Показатель степени, натуральное число.
+ * @return {number} x в степени n.
+ */
+ function pow(x, n) {
+	...
+}
+</v-code>
+
+
 </div><div id="js/other/garbage-collection"><h2>Сборщик мусора</h2>
 
 <ul class="list-point">
@@ -5032,20 +5072,6 @@ ES5 (2009)
 ES6 (ES2015)
 ES7 (ES2016)
 ES8 (ES2017)
-</v-code>
-</div><div id="js/other/jsdoc"><h2>Синтаксис JSDoc</h2>
-
-<v-code lang="js" title="">
-/**
-* Возвращает x в степени n, только для натуральных n
-*
-* @param {number} x Число для возведения в степень.
-* @param {number} n Показатель степени, натуральное число.
-* @return {number} x в степени n.
-*/
-function pow(x, n) {
-	...
-}
 </v-code>
 </div><div id="js/other/strict-mode"><h2>Strict Mode</h2>
 
