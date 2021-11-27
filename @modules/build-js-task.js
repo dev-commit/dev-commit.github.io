@@ -17,7 +17,7 @@ ARR_MODULE = [
         title: 'Алгоритмы',
         themes: [
             [root+'algoritms/anagram',           emoji.fire+'Анаграмма'],
-            [root+'algoritms/palindrome',        emoji.code+'Палиндром'],
+            [root+'algoritms/palindrome',        emoji.fire+'Палиндром'],
             [root+'algoritms/compose',           emoji.code+'Compose'],
             [root+'algoritms/memoization',       emoji.code+'Memoization'],
             [root+'algoritms/duplicate',         emoji.code+'Duplicate'],
@@ -50,6 +50,7 @@ ARR_MODULE = [
         themes: [
             [root+'arrays/arrays',               emoji.theory+'Массивы'],
             [root+'arrays/intersection-arrays',  emoji.fire+'Пересечение массивов'],
+            [root+'arrays/sort-odd',             emoji.fire+'Сортировка нечетных значений'],
             [root+'arrays/flat-array',           'Плоский массив'],
             [root+'arrays/max-array-element',    'Максимальный элемент массива'],
             [root+'arrays/array-sums',           'Двумерный массив сумм'],

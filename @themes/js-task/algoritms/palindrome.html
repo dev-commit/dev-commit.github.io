@@ -4,19 +4,31 @@
     <li><u>Палиндром</u> - число, буквосочетание, слово или текст, одинаково читающееся в обоих направлениях</li>
 </ul>
 
+<ul class="list-point">
+    <li><u>for</u> вероятно можно заменить на <u>every</u></li>
+</ul>
+
 <v-code lang="js" title="">
-function isPalindrom(str) {
-	const length = Math.round(str.length / 2);
-	
-	for(let i = 0; i < length; i++) {
-		if (str[i] !== str[str.length - i - 1]) {
+const isPalindrom = str => {
+	// Для предложений нужны дополнительные действия
+	const resultStr = str.toLowerCase().split(' ').join('');
+
+	// Находим середину слова
+	const length = Math.round(resultStr.length / 2);
+
+	for (let i = 0; i < length; i++) {
+		if (resultStr[i] !== resultStr[resultStr.length - i - 1]) {
 			return false;
 		}
 	}
 
 	return true;
 }
+</v-code>
 
-console.log(isPalindrom('ротор'));  // true
-console.log(isPalindrom('ротор1')); // false
+<v-code lang="js" title="">
+console.log(isPalindrom('ротор'));         // true
+console.log(isPalindrom('ротор1'));        // false
+console.log(isPalindrom('дом'));           // false
+console.log(isPalindrom('А луна канула')); // true
 </v-code>
