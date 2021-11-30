@@ -25,6 +25,7 @@ ARR_MODULE = [
             [root+'algoritms/sum-brackets',       setTheme(2, ['sum(1)(2)(3)'])+' сумма скобок'],
             [root+'algoritms/closing-brackets',   setTheme(2, ['[]()&lt;&gt;'])+' вложенные скобки'],
             [root+'algoritms/equality-condition', setTheme(2, ['a == true && a == false'])],
+            [root+'algoritms/sum-pyramid',        'Сумма пирамиды'],
             [root+'algoritms/sum-sequence',       'Сумма последовательности'],
             [root+'algoritms/function-count',     'Функция считает свои вызовы'],
             [],

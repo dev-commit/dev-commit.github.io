@@ -148,6 +148,14 @@
         <li>
             <a
                 class="menu-link"
+                id="id__js-task/algoritms/sum-pyramid"
+                href="#js-task/algoritms/sum-pyramid"
+            >Сумма пирамиды</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
                 id="id__js-task/algoritms/sum-sequence"
                 href="#js-task/algoritms/sum-sequence"
             >Сумма последовательности</a>
@@ -1382,6 +1390,70 @@ console.log(a == true && a == false)
 
 
 
+</div><div id="js-task/algoritms/sum-pyramid"><h2>Сумма пирамиды</h2>
+
+<!------------------------------------------------------------->
+<h4>Постановка задачи</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>В функцию передаётся номер линии.</li>
+    <li>Посчитать сумму элементов: начинаю с первого в первой линиии и заканчивая последним в выбранной линии.</li>
+</ul>
+
+<v-code lang="bash none" title="">
+Пирамида          | Линии   | Сумма линии | Сумма всех
+------------------------------------------------------
+       1          | 1 линия | 1           | 1
+      2 3         | 2 линия | 5           | 6
+     4 5 6        | 3 линия | 15          | 21
+    7 8 9 10      | 4 линия | 34          | 55
+ 11 12 13 14 15   | 5 линия | 65          | 120
+16 17 18 19 20 21 | 6 линия | 111         | 231
+</v-code>
+
+<v-code lang="js" title="">
+const foo = number => {
+	//
+}
+
+const a1 = foo(1); // => 1
+const a2 = foo(2); // => 6
+const a3 = foo(3); // => 21
+const a4 = foo(4); // => 55
+const a5 = foo(5); // => 120
+const a6 = foo(6); // => 231
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Простое решение</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const foo = number => {
+	let counter = 0;
+	let sum = 0;
+	
+	for (let i = 1; i <= number; i++) {
+		for (let j = 1; j <= i; j++) {  
+			counter++;
+		}
+	}
+
+	for (let i = 1; i <= counter; i++) {  
+		sum += i;
+	}
+	
+	return sum;
+}
+</v-code>
+
+<v-code lang="js" title="">
+const a1 = foo(1); // => 1
+const a2 = foo(2); // => 6
+const a3 = foo(3); // => 21
+const a4 = foo(4); // => 55
+const a5 = foo(5); // => 120
+const a6 = foo(6); // => 231
+</v-code>
 </div><div id="js-task/algoritms/sum-sequence"><h2>Сумма последовательности</h2>
 
 <v-code lang="js" title="">
