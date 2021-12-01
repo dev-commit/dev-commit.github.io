@@ -31,6 +31,8 @@ ARR_MODULE = [
             [root+'methods/isArray',   setTheme(1, ['isArray'])],
             [root+'methods/flatMap',   setTheme(1, ['flatMap'])],
             [root+'methods/find',      setTheme(1, ['find', 'findIndex'])],
+            [root+'methods/from',      setTheme(1, ['Array.from'])],
+            [root+'methods/fill',      setTheme(1, ['Array.prototype.fill'])],
         ]
     },
     {

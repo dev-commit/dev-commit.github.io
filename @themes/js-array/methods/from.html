@@ -1,0 +1,40 @@
+<h2>Array.from()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="Array." method="from" after="" arg="(arrayLike, mapFn, thisArg)">
+    Метод создаёт новый экземпляр Array из массивоподобного или итерируемого объекта
+    </v-method>
+
+	<v-method-arg arg="arrayLike*">Массивоподобный или итерируемый объект, преобразуемый в массив</v-method-arg>
+	<v-method-arg arg="mapFn">Отображающая функция, вызываемая для каждого элемента массива</v-method-arg>
+	<v-method-arg arg="thisArg">Значение, используемое в качестве this при выполнении функции mapFn</v-method-arg>
+
+	<v-method-return>Новый массив</v-method-return>
+</div>
+
+<ul class="list-point">
+    <li>Необязательный параметр mapFn позволяет выполнять функцию <u>map</u> для каждого элемента создаваемого массива (или его подкласса)</li>
+    <li>Вызов <u-code-text>Array.from(obj, mapFn, thisArg)</u-code-text> эквивалентен цепочке <u-code-text>Array.from(obj).map(mapFn, thisArg)</u-code-text>, за исключением того, что он не создаёт промежуточного массива</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Массив из строки String</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const a = Array.from('foo'); // ['f', 'o', 'o']
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Аргумент mapFn</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Манипулирование элементами
+const a = Array.from([1, 2, 3], x => x + x); // [2, 4, 6]
+
+// Генерирование последовательности чисел
+const a = Array.from({ length: 5 }, (v, k) => k); // [0, 1, 2, 3, 4]
+</v-code>

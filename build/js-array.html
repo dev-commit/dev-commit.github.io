@@ -160,6 +160,22 @@
                 href="#js-array/methods/find"
             ><u-menu>find</u-menu> <u-menu>findIndex</u-menu></a>
         </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-array/methods/from"
+                href="#js-array/methods/from"
+            ><u-menu>Array.from</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-array/methods/fill"
+                href="#js-array/methods/fill"
+            ><u-menu>Array.prototype.fill</u-menu></a>
+        </li>
     </ul><h4>🥥 Примеры</h4><ul>
         <li>
             <a
@@ -530,12 +546,14 @@ console.log(pets.<u-code>includes</u-code>('at'));    // => false
 </div><div id="js-array/methods/indexOf"><h2>indexOf / lastIndexOf</h2>
 
 <v-code lang="js" title="">
-// возвращает первый индекс, по которому элемент может быть найден в массиве или -1, если индекса нет
+// возвращает первый индекс, по которому элемент может быть найден в массиве
+// или -1, если индекса нет
 const a = colors.<u-code>indexOf</u-code>('white');
 </v-code>
 
 <v-code lang="js" title="">
-// возвращает последний индекс, по которому данный элемент может быть найден в массиве или -1, если такого индекса нет 
+// возвращает последний индекс, по которому данный элемент может быть найден в массиве
+// или -1, если такого индекса нет 
 const a = colors.<u-code>lastIndexOf</u-code>('white');
 </v-code>
 </div><div id="js-array/methods/join"><h2>join / split</h2>
@@ -665,6 +683,65 @@ const result = arr.<u-code>findIndex</u-code>((element) => {
 })
 
 console.log(result); // => 2
+</v-code>
+</div><div id="js-array/methods/from"><h2>Array.from()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="Array." method="from" after="" arg="(arrayLike, mapFn, thisArg)">
+    Метод создаёт новый экземпляр Array из массивоподобного или итерируемого объекта
+    </v-method>
+
+	<v-method-arg arg="arrayLike*">Массивоподобный или итерируемый объект, преобразуемый в массив</v-method-arg>
+	<v-method-arg arg="mapFn">Отображающая функция, вызываемая для каждого элемента массива</v-method-arg>
+	<v-method-arg arg="thisArg">Значение, используемое в качестве this при выполнении функции mapFn</v-method-arg>
+
+	<v-method-return>Новый массив</v-method-return>
+</div>
+
+<ul class="list-point">
+    <li>Необязательный параметр mapFn позволяет выполнять функцию <u>map</u> для каждого элемента создаваемого массива (или его подкласса)</li>
+    <li>Вызов <u-code-text>Array.from(obj, mapFn, thisArg)</u-code-text> эквивалентен цепочке <u-code-text>Array.from(obj).map(mapFn, thisArg)</u-code-text>, за исключением того, что он не создаёт промежуточного массива</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Массив из строки String</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const a = Array.from('foo'); // ['f', 'o', 'o']
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Аргумент mapFn</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Манипулирование элементами
+const a = Array.from([1, 2, 3], x => x + x); // [2, 4, 6]
+
+// Генерирование последовательности чисел
+const a = Array.from({ length: 5 }, (v, k) => k); // [0, 1, 2, 3, 4]
+</v-code>
+</div><div id="js-array/methods/fill"><h2>Array.prototype.fill()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="[]." method="fill" after="" arg="(value*, start, end)">
+    Метод заполняет все элементы массива от начального до конечного индексов одним значением.
+    </v-method>
+
+	<v-method-arg arg="value">Значение, заполняющее массив</v-method-arg>
+	<v-method-arg arg="start = 0">Необязательный параметр. Начальный индекс</v-method-arg>
+	<v-method-arg arg="end = this.length">Необязательный параметр. Конечный индекс</v-method-arg>
+
+	<v-method-return>Изменённый массив</v-method-return>
+</div>
+
+<v-code lang="js" title="">
+[1, 2, 3].fill(4);        // [4, 4, 4]
+[1, 2, 3].fill(4, 1);     // [1, 4, 4]
+[1, 2, 3].fill(4, 1, 2);  // [1, 4, 3]
 </v-code>
 </div><div id="js-array/samples/samples"><h2>Примеры</h2>
 

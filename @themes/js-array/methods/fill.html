@@ -1,0 +1,19 @@
+<h2>Array.prototype.fill()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="[]." method="fill" after="" arg="(value*, start, end)">
+    Метод заполняет все элементы массива от начального до конечного индексов одним значением.
+    </v-method>
+
+	<v-method-arg arg="value">Значение, заполняющее массив</v-method-arg>
+	<v-method-arg arg="start = 0">Необязательный параметр. Начальный индекс</v-method-arg>
+	<v-method-arg arg="end = this.length">Необязательный параметр. Конечный индекс</v-method-arg>
+
+	<v-method-return>Изменённый массив</v-method-return>
+</div>
+
+<v-code lang="js" title="">
+[1, 2, 3].fill(4);        // [4, 4, 4]
+[1, 2, 3].fill(4, 1);     // [1, 4, 4]
+[1, 2, 3].fill(4, 1, 2);  // [1, 4, 3]
+</v-code>
