@@ -92,17 +92,17 @@
         <li>
             <a
                 class="menu-link"
-                id="id__js-array/methods/includes"
-                href="#js-array/methods/includes"
-            ><u-menu>includes</u-menu></a>
+                id="id__js-array/methods/length"
+                href="#js-array/methods/length"
+            ><u-menu>length</u-menu> <u-menu>reverse</u-menu> <u-menu>concat</u-menu></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__js-array/methods/indexOf"
-                href="#js-array/methods/indexOf"
-            ><u-menu>indexOf</u-menu> <u-menu>lastIndexOf</u-menu></a>
+                id="id__js-array/methods/sort"
+                href="#js-array/methods/sort"
+            ><u-menu>sort</u-menu></a>
         </li>
     
         <li>
@@ -124,33 +124,17 @@
         <li>
             <a
                 class="menu-link"
-                id="id__js-array/methods/length"
-                href="#js-array/methods/length"
-            ><u-menu>length</u-menu> <u-menu>reverse</u-menu> <u-menu>concat</u-menu></a>
+                id="id__js-array/methods/includes"
+                href="#js-array/methods/includes"
+            ><u-menu>includes</u-menu></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__js-array/methods/sort"
-                href="#js-array/methods/sort"
-            ><u-menu>sort</u-menu></a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__js-array/methods/isArray"
-                href="#js-array/methods/isArray"
-            ><u-menu>isArray</u-menu></a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__js-array/methods/flatMap"
-                href="#js-array/methods/flatMap"
-            ><u-menu>flatMap</u-menu></a>
+                id="id__js-array/methods/indexOf"
+                href="#js-array/methods/indexOf"
+            ><u-menu>indexOf</u-menu> <u-menu>lastIndexOf</u-menu></a>
         </li>
     
         <li>
@@ -164,6 +148,14 @@
         <li>
             <a
                 class="menu-link"
+                id="id__js-array/methods/isArray"
+                href="#js-array/methods/isArray"
+            ><u-menu>Array.isArray</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
                 id="id__js-array/methods/from"
                 href="#js-array/methods/from"
             ><u-menu>Array.from</u-menu></a>
@@ -172,9 +164,17 @@
         <li>
             <a
                 class="menu-link"
+                id="id__js-array/methods/flatMap"
+                href="#js-array/methods/flatMap"
+            ><u-menu>flatMap</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
                 id="id__js-array/methods/fill"
                 href="#js-array/methods/fill"
-            ><u-menu>Array.prototype.fill</u-menu></a>
+            ><u-menu>fill</u-menu></a>
         </li>
     </ul><h4>🥥 Примеры</h4><ul>
         <li>
@@ -526,35 +526,41 @@ arr.<u-code>unshift</u-code>('Jack', 'Tony'); // добавляет элемен
 arr.<u-code>pop</u-code>();                   // удаляет и возвращает последний элемент
 arr.<u-code>shift</u-code>();                 // удаляет и возвращает первый элемент
 </v-code>
-</div><div id="js-array/methods/includes"><h2>includes</h2>
-
-<ul class="list-point">
-    <li>Метод <u>includes()</u> определяет, содержит ли массив определённый элемент, возвращая в зависимости от этого true или false</li>
-</ul>
+</div><div id="js-array/methods/length"><h2>length / reverse / concat</h2>
 
 <v-code lang="js" title="">
-const arrNumbers = [1, 2, 3];
-console.log(arrNumbers.<u-code>includes</u-code>(2)); // => true
-console.log(arrNumbers.<u-code>includes</u-code>(5)); // => false
+// длина массива (индекс последнего элемента)
+const a = arr.<u-code>length</u-code>;
 </v-code>
 
 <v-code lang="js" title="">
-const arrPets = ['cat', 'dog', 'bat'];
-console.log(pets.<u-code>includes</u-code>('cat'));   // => true
-console.log(pets.<u-code>includes</u-code>('at'));    // => false
-</v-code>
-</div><div id="js-array/methods/indexOf"><h2>indexOf / lastIndexOf</h2>
-
-<v-code lang="js" title="">
-// возвращает первый индекс, по которому элемент может быть найден в массиве
-// или -1, если индекса нет
-const a = colors.<u-code>indexOf</u-code>('white');
+// меняет порядок элементов в массиве на обратный
+arr.<u-code>reverse</u-code>();
 </v-code>
 
 <v-code lang="js" title="">
-// возвращает последний индекс, по которому данный элемент может быть найден в массиве
-// или -1, если такого индекса нет 
-const a = colors.<u-code>lastIndexOf</u-code>('white');
+// создаёт новый массив, в который копируются элементы из массивов
+const arr = arr1.<u-code>concat</u-code>(arr2, arr3);
+</v-code>
+</div><div id="js-array/methods/sort"><h2>sort</h2>
+
+<v-code lang="js" title="">
+// сортировка по алфавиту, преобразуя элементы к строке
+arr.<u-code>sort</u-code>();
+</v-code>
+
+<v-code lang="js" title="">
+// свой порядок сортировки (сортировка чисел)
+const arr = [1, 12, 2];
+
+arr.sort((a, b) => {
+	if (a > b) return 1;
+	if (a < b) return -1;
+});
+
+<!-- arr.sort((a, b) => a - b); -->
+
+console.log(arr);  // 1, 2, 15
 </v-code>
 </div><div id="js-array/methods/join"><h2>join / split</h2>
 
@@ -596,63 +602,35 @@ arr.<u-code>splice</u-code>(1, 2, 'Алексей", "Билл');
 // удалить с последнего индекса-1 1 элемент (отрицательная позиция отсчитывается с конца)
 arr.<u-code>splice</u-code>(-1, 1);
 </v-code>
-</div><div id="js-array/methods/length"><h2>length / reverse / concat</h2>
-
-<v-code lang="js" title="">
-// длина массива (индекс последнего элемента)
-const a = arr.<u-code>length</u-code>;
-</v-code>
-
-<v-code lang="js" title="">
-// меняет порядок элементов в массиве на обратный
-arr.<u-code>reverse</u-code>();
-</v-code>
-
-<v-code lang="js" title="">
-// создаёт новый массив, в который копируются элементы из массивов
-const arr = arr1.<u-code>concat</u-code>(arr2, arr3);
-</v-code>
-</div><div id="js-array/methods/sort"><h2>sort</h2>
-
-<v-code lang="js" title="">
-// сортировка по алфавиту, преобразуя элементы к строке
-arr.<u-code>sort</u-code>();
-</v-code>
-
-<v-code lang="js" title="">
-// свой порядок сортировки (сортировка чисел)
-const arr = [1, 12, 2];
-
-arr.sort((a, b) => {
-	if (a > b) return 1;
-	if (a < b) return -1;
-});
-
-<!-- arr.sort((a, b) => a - b); -->
-
-console.log(arr);  // 1, 2, 15
-</v-code>
-</div><div id="js-array/methods/isArray"><h2>isArray</h2>
-
-<v-code lang="js" title="">
-// проверка на массив
-const a = Array.<u-code>isArray</u-code>([1, 2, 3]);   // true
-const b = Array.<u-code>isArray</u-code>('Not Array'); // false
-</v-code>
-</div><div id="js-array/methods/flatMap"><h2>Array.prototype.flatMap()</h2>
+</div><div id="js-array/methods/includes"><h2>includes</h2>
 
 <ul class="list-point">
-	<li>Получить плоский массив из объекта</li>
+    <li>Метод <u>includes()</u> определяет, содержит ли массив определённый элемент, возвращая в зависимости от этого true или false</li>
 </ul>
 
 <v-code lang="js" title="">
-const checkedRows = {
-	'0': [1,2,3],
-	'1': [4,5,6],
-}
+const arrNumbers = [1, 2, 3];
+console.log(arrNumbers.<u-code>includes</u-code>(2)); // => true
+console.log(arrNumbers.<u-code>includes</u-code>(5)); // => false
+</v-code>
 
-const b = Object.values(checkedRows).flatMap(value => value);
-// => [1, 2, 3, 4, 5, 6]
+<v-code lang="js" title="">
+const arrPets = ['cat', 'dog', 'bat'];
+console.log(pets.<u-code>includes</u-code>('cat'));   // => true
+console.log(pets.<u-code>includes</u-code>('at'));    // => false
+</v-code>
+</div><div id="js-array/methods/indexOf"><h2>indexOf / lastIndexOf</h2>
+
+<v-code lang="js" title="">
+// возвращает первый индекс, по которому элемент может быть найден в массиве
+// или -1, если индекса нет
+const a = colors.<u-code>indexOf</u-code>('white');
+</v-code>
+
+<v-code lang="js" title="">
+// возвращает последний индекс, по которому данный элемент может быть найден в массиве
+// или -1, если такого индекса нет 
+const a = colors.<u-code>lastIndexOf</u-code>('white');
 </v-code>
 </div><div id="js-array/methods/find"><h2>Array.prototype.find()</h2>
 
@@ -683,6 +661,13 @@ const result = arr.<u-code>findIndex</u-code>((element) => {
 })
 
 console.log(result); // => 2
+</v-code>
+</div><div id="js-array/methods/isArray"><h2>isArray</h2>
+
+<v-code lang="js" title="">
+// проверка на массив
+const a = Array.<u-code>isArray</u-code>([1, 2, 3]);   // true
+const b = Array.<u-code>isArray</u-code>('Not Array'); // false
 </v-code>
 </div><div id="js-array/methods/from"><h2>Array.from()</h2>
 
@@ -723,6 +708,21 @@ const a = Array.from([1, 2, 3], x => x + x); // [2, 4, 6]
 
 // Генерирование последовательности чисел
 const a = Array.from({ length: 5 }, (v, k) => k); // [0, 1, 2, 3, 4]
+</v-code>
+</div><div id="js-array/methods/flatMap"><h2>Array.prototype.flatMap()</h2>
+
+<ul class="list-point">
+	<li>Получить плоский массив из объекта</li>
+</ul>
+
+<v-code lang="js" title="">
+const checkedRows = {
+	'0': [1,2,3],
+	'1': [4,5,6],
+}
+
+const b = Object.values(checkedRows).flatMap(value => value);
+// => [1, 2, 3, 4, 5, 6]
 </v-code>
 </div><div id="js-array/methods/fill"><h2>Array.prototype.fill()</h2>
 
