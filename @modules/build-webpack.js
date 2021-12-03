@@ -18,6 +18,7 @@ ARR_MODULE = [
             [root+'module-federation/server',                  emoji.code+'Сервер'],
             [root+'module-federation/eager',                   emoji.code+'Eager Troubleshooting'],
             [root+'module-federation/ModuleFederationPlugin',  setTheme(1, ['ModuleFederationPlugin'])],
+            [root+'module-federation/sample',                  'Пример'],
         ]
     },
     {

@@ -1,0 +1,72 @@
+<h2>Пример</h2>
+
+<!------------------------------------------------------------->
+<v-path>webpack.config.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
+
+module.exports = (env, argv) => {
+    const plugins = [
+        new ModuleFederationPlugin({
+            name: 'uikit',
+            library: { type: 'var', name: 'uikit' },
+            filename: 'remoteEntry.js',
+            remotes: {},
+            exposes: require('./exposes.json'),
+            shared: {
+                react: {
+                    eager: true,
+                },
+                'react-dom': {
+                    eager: true,
+                },
+            },
+        }),
+    ];
+
+    return {
+        plugins,
+    };
+};
+</v-code>
+
+<!------------------------------------------------------------->
+<v-path>exposes.json</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+{
+	"./Accordion": "./exposes/Accordion.ts",
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<v-path>exposes</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// > exposes\Accordion.ts
+export { Accordion as default } from '../src/Accordion';
+
+// > src\Accordion\index.tsx
+export { Accordion } from './Accordion';
+
+// > src\Accordion\Accordion.tsx
+export const Accordion = () => {}
+</v-code>
+
+<!------------------------------------------------------------->
+<v-path>public\index.html</v-path>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+	&lt;% if(htmlWebpackPlugin) { %&gt;
+	&lt;script src="&lt;%= htmlWebpackPlugin.options.hosts.uiKit.url %&gt;/remoteEntry.js"&gt;&lt;/script&gt;
+	&lt;% } %&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;div id="root"&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</v-code>
