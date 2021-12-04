@@ -38,6 +38,7 @@ const ARR_LINKS = [
     null,
     { page: 'dayjs',                   theme: 'brown',    title: 'Day.js' },
     { page: 'ramda',                   theme: 'brown',    title: 'Ramda' },
+    { page: 'lodash',                  theme: 'brown',    title: 'Lodash' },
     null,
     { page: 'vue-js',                  theme: 'gray',     title: '🥥 Vue.js' },
     { page: 'vue-vuex',                theme: 'gray',     title: 'Vuex' },

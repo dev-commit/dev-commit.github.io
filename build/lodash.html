@@ -1,0 +1,170 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Lodash</title>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@modules/build-lodash.js"></script>
+        </head>
+        <body>
+
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="link" v-html="'Lodash'"></a>
+                    </div>
+                    <h4>🥥 Основное</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__lodash/main/info"
+                href="#lodash/main/info"
+            >Информация</a>
+        </li>
+    </ul><h4>🥥 Методы</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__lodash/methods/debounce"
+                href="#lodash/methods/debounce"
+            ><u-menu>debounce</u-menu></a>
+        </li>
+    </ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a :href="itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="lodash/main/info"><h2>Инормация</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npm i --save <u-code-accent>lodash</u-code-accent>
+</v-pre-npm>
+</div><div id="lodash/methods/debounce"><h2>debounce</h2>
+
+<u-link-wrapper>
+	<a href="https://lodash.com/docs/4.17.15#debounce" target="_blank">https://lodash.com/docs/4.17.15#debounce</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка и подключение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-pre-npm>
+npm i --save <u-code-accent>lodash</u-code-accent>
+# или
+npm i --save <u-code-accent>lodash.debounce</u-code-accent>
+</v-pre-npm>
+
+<v-code lang="js" title="">
+import { debounce } from 'lodash';
+// или
+import debounce from 'lodash.debounce';
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функциональный компонент</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { useState, useCallback } from 'react';
+import { debounce } from 'lodash';
+
+const App = () =&gt; {
+    const [inputSearchValue, setInputSearchValue] = useState('');
+
+    const getResponse = async value =&gt; {
+        const response = fetch('url');
+        //
+    };
+<u-code-wrapper>
+    // с useCallback через 2 секунды выводит ПОСЛЕДНЕЕ value из input
+    const debouncedGetResponse = <u-code>useCallback</u-code>(
+        <u-code-mod>debounce</u-code-mod>(value => getResponse(value), 300),
+        []
+    );
+
+    // без useCallback через 2 секунды выводит ВСЕ value из input
+    const debouncedGetResponse = <u-code-mod>debounce</u-code-mod>(value =&gt; getResponse(value), 300);
+
+</u-code-wrapper>
+    const handleInputChange = value =&gt; {
+        setInputSearchValue(value);
+        debouncedGetResponse(value);
+    }
+
+    return (
+        &lt;&gt;
+            &lt;input
+                type="text"
+                value={inputSearchValue}
+                onChange={(e) =&gt; handleInputChange(e.target.value)}
+            /&gt;
+        &lt;/&gt;
+    )
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Классовый компонент</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import debounce from 'lodash.debounce';
+
+class App extends Component {
+    constructor(props) {
+        this.handleSearch = debounce(this.handleSearch, 500);
+    }
+
+    handleSearch = (value) =&gt; {
+        //
+    };
+}
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue/build.js"></script>
+        </body>
+    </html>

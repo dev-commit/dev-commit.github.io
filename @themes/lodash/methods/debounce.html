@@ -1,0 +1,80 @@
+<h2>debounce</h2>
+
+<u-link-wrapper>
+	<a href="https://lodash.com/docs/4.17.15#debounce" target="_blank">https://lodash.com/docs/4.17.15#debounce</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка и подключение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-pre-npm>
+npm i --save <u-code-accent>lodash</u-code-accent>
+# или
+npm i --save <u-code-accent>lodash.debounce</u-code-accent>
+</v-pre-npm>
+
+<v-code lang="js" title="">
+import { debounce } from 'lodash';
+// или
+import debounce from 'lodash.debounce';
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функциональный компонент</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { useState, useCallback } from 'react';
+import { debounce } from 'lodash';
+
+const App = () =&gt; {
+    const [inputSearchValue, setInputSearchValue] = useState('');
+
+    const getResponse = async value =&gt; {
+        const response = fetch('url');
+        //
+    };
+<u-code-wrapper>
+    // с useCallback через 2 секунды выводит ПОСЛЕДНЕЕ value из input
+    const debouncedGetResponse = <u-code>useCallback</u-code>(
+        <u-code-mod>debounce</u-code-mod>(value => getResponse(value), 300),
+        []
+    );
+
+    // без useCallback через 2 секунды выводит ВСЕ value из input
+    const debouncedGetResponse = <u-code-mod>debounce</u-code-mod>(value =&gt; getResponse(value), 300);
+
+</u-code-wrapper>
+    const handleInputChange = value =&gt; {
+        setInputSearchValue(value);
+        debouncedGetResponse(value);
+    }
+
+    return (
+        &lt;&gt;
+            &lt;input
+                type="text"
+                value={inputSearchValue}
+                onChange={(e) =&gt; handleInputChange(e.target.value)}
+            /&gt;
+        &lt;/&gt;
+    )
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Классовый компонент</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import debounce from 'lodash.debounce';
+
+class App extends Component {
+    constructor(props) {
+        this.handleSearch = debounce(this.handleSearch, 500);
+    }
+
+    handleSearch = (value) =&gt; {
+        //
+    };
+}
+</v-code>
