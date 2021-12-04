@@ -4,16 +4,17 @@ ARR_MODULE = [
     {
         title: 'Хуки',
         themes: [
-            [root+'hooks/use-state',             emoji.fire+setTheme(4, ['useState'])],
-            [root+'hooks/use-effect',            emoji.fire+setTheme(4, ['useEffect'])],
-            [root+'hooks/use-ref',               emoji.fire+setTheme(4, ['useRef'])],
-            [root+'hooks/use-memo',              emoji.fire+setTheme(4, ['useMemo'])],
-            [root+'hooks/use-callback',          emoji.fire+setTheme(4, ['useCallback'])],
-            [root+'hooks/use-context',           emoji.fire+setTheme(4, ['useContext'])],
-            [root+'hooks/use-reducer',           emoji.fire+setTheme(4, ['useReducer'])],
-            [root+'hooks/use-imperative-handle', emoji.baseball+setTheme(4, ['useImperativeHandle'])],
-            [root+'hooks/use-layout-effect',     emoji.baseball+setTheme(4, ['useLayoutEffect'])],
-            [root+'hooks/use-debug-value',       emoji.baseball+setTheme(4, ['useDebugValue'])],
+            [root+'hooks/use-state',             setTheme(3, ['useState'])],
+            [root+'hooks/use-effect',            setTheme(3, ['useEffect'])],
+            [root+'hooks/use-ref',               setTheme(3, ['useRef'])],
+            [root+'hooks/use-memo',              setTheme(1, ['useMemo'])],
+            [root+'hooks/use-callback',          setTheme(1, ['useCallback'])],
+            [root+'hooks/use-context',           setTheme(1, ['useContext'])],
+            [root+'hooks/use-reducer',           setTheme(1, ['useReducer'])],
+            ['', ''],
+            [root+'hooks/use-imperative-handle', setTheme(1, ['useImperativeHandle'])],
+            [root+'hooks/use-layout-effect',     setTheme(1, ['useLayoutEffect'])],
+            [root+'hooks/use-debug-value',       setTheme(1, ['useDebugValue'])],
         ]
     },
     {
