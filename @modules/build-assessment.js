@@ -65,9 +65,9 @@ ARR_MODULE = [
     {
         title: 'Прочее',
         themes: [
-            ['compilation/application-architecture/mvc',         'MVC'],
-            ['compilation/web/site-load',                        'Загрузка сайта'],
-            ['compilation/development-methodologies/estimation', 'Эстимация'],
+            ['compilation/application-architecture/mvc',  'MVC'],
+            ['compilation/web/site-load',                 'Загрузка сайта'],
+            ['compilation/dev-flow/estimation',           'Эстимация'],
         ]
     },
 ];
