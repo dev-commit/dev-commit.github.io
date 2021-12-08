@@ -1,0 +1,105 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>react-use</title>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@modules/build-react-use.js"></script>
+        </head>
+        <body>
+
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="link" v-html="'react-use'"></a>
+                    </div>
+                    <h4>🥥 Основы</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__react-use/main/info"
+                href="#react-use/main/info"
+            >📑 Информация</a>
+        </li>
+    </ul><h4>🥥 Хуки</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__react-use/hooks/useToggle"
+                href="#react-use/hooks/useToggle"
+            ><u-menu>useToggle</u-menu></a>
+        </li>
+    </ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a :href="itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="react-use/main/info"><h2>Информация</h2>
+
+<v-pre-npm>
+npm i --save <u-code-accent>react-use</u-code-accent>
+</v-pre-npm>
+</div><div id="react-use/hooks/useToggle"><h2>useToggle</h2>
+
+<v-code lang="js" title="">
+import { useToggle } from 'react-use';
+
+const App = () =&gt; {
+    const [isOpened, toggle] = <u-code>useToggle</u-code>(false);
+
+    return (
+        &lt;Modal
+            isOpen={isOpened}
+            onClick={toggle}
+        &gt;
+            Hello
+        &lt;/Modal&gt;
+    )
+}
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue/build.js"></script>
+        </body>
+    </html>
