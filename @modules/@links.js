@@ -34,7 +34,7 @@ const ARR_LINKS = [
     { page: 'reselect',                theme: 'crimson',  title: 'Reselect' },
     { page: 'prop-types',              theme: 'crimson',  title: 'PropTypes' },
     { page: 'material-ui',             theme: 'gray',     title: 'Material-UI' },
-    { page: 'jss',                     theme: 'gray',     title: 'JSS' },
+    { page: 'jss',                     theme: 'gray',     title: 'JSS1' },
     null,
     { page: 'react-query',             theme: 'crimson',  title: 'react-query' },
     { page: 'react-use',               theme: 'crimson',  title: 'react-use' },
