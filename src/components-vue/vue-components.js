@@ -129,6 +129,7 @@ Vue.component('v-marker', {
 		<span>
 			<u-code-text v-if="marker === '+'">✔️</u-code-text>
 			<u-code-text v-if="marker === '-'">🟣</u-code-text>
+			<u-code-text v-if="marker === '*'">🚀</u-code-text>
 		</span>
 	`,
 })

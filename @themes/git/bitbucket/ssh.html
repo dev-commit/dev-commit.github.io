@@ -1,0 +1,98 @@
+<h2>SSH keys</h2>
+
+<u-link-wrapper>
+    <a href="https://confluence.atlassian.com/bitbucketserver0610/creating-ssh-keys-989761219.html" target="_blank">SSH keys</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>1. Создание нового ключа SSH</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Запустить командную строку под админом</li>
+</ul>
+
+<v-marker marker="*"></v-marker> <em>Команда на создание ключа</em>
+<v-code lang="bash step" title="">
+ssh-keygen -t rsa -C "your_email@example.com"
+</v-code>
+
+<v-marker marker="*"></v-marker> <em>Ответ консоли</em>
+<v-code lang="bash step" title="">
+Generating public/private rsa key pair.
+Enter file in which to save the key (C:\Users\user/.ssh/id_rsa):
+</v-code>
+
+<v-marker marker="*"></v-marker> <em>После нажатия enter, будет запрос на ввод и подтверждение кодовой фразы</em>
+<v-code lang="bash step" title="">
+Created directory 'C:\Users\user/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+</v-code>
+
+<v-marker marker="*"></v-marker> <em>Информация после ввода пароля</em>
+<v-code lang="bash step" title="">
+Your identification has been saved in C:\Users\user/.ssh/id_rsa.
+Your public key has been saved in C:\Users\user/.ssh/id_rsa.pub.
+The key fingerprint is: SHA256:ЗдесьБудетКлюч ЗдесьБудетEmail
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Установка ключа в аккаунт Bitbucket</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Перейти в аккаунт на Bitbucket в раздел SSH keys</li>
+    <li><a href="https://bitbucket.region.vtb.ru/plugins/servlet/ssh/account/keys" target="_blank">https://bitbucket.region.vtb.ru/plugins/servlet/ssh/account/keys</a></li>
+    <li>Выбрать <u>Add key</u> и указать <u>public key</u> из <u>C:\Users\user/.ssh/id_rsa.pub.</u></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Клонирование репозитория чеерез SSH</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>У репозитория выбрать <u>clone -> SSH</u></li>
+</ul>
+
+<v-marker marker="*"></v-marker> <em>Командная строка</em>
+<v-code lang="bash step" title="">
+git clone СкопированныйАдрес
+</v-code>
+
+<v-marker marker="*"></v-marker> <em>Вывод консоли</em>
+<v-code lang="bash step" title="">
+The authenticity of host `НазваниеХоста` can't be established.
+RSA key fingerprint is `ДанныеПоКлючу`
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+</v-code>
+
+<v-marker marker="*"></v-marker> <em>Ввод passphrase, указанного при регистрации ключа</em>
+
+<v-code lang="bash step" title="">
+Enter passphrase for key '/c/Users/user/.ssh/id_rsa':
+</v-code>
+
+<v-marker marker="*"></v-marker> <em>Клонирование репозитория</em>
+
+<v-code lang="bash step" title="">
+remote: Enumerating objects: 7715, done.
+remote: Counting objects: 100% (7715/7715), done.
+remote: Compressing objects: 100% (3142/3142), done.
+remote: Total 7715 (delta 4636), reused 7018 (delta 4132)
+Receiving objects: 100% (7715/7715), 2.45 MiB | 2.10 MiB/s, done.
+Resolving deltas: 100% (4636/4636), done.
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>4. Прочее</h4>
+<!------------------------------------------------------------->
+<v-marker marker="*"></v-marker> <em>Проверка существующих ключей SSH</em>
+
+<v-code lang="bash step" title="">
+cd %userprofile%/.ssh
+</v-code>
+
+<v-marker marker="*"></v-marker> <em>Создание резервной копию старых ключей SSH</em>
+
+<v-code lang="bash step" title="">
+mkdir key_backup
+copy id_rsa* key_backup
+</v-code>

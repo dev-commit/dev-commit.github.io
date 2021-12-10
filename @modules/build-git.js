@@ -61,8 +61,16 @@ ARR_MODULE = [
     {
         title: 'GitHub',
         themes: [
-            [root+'github/ssh',              'Подключение по SSH'],
-            [root+'github/github-desktop',   'GitHub Desktop'],
+            [root+'github/ssh',                'Подключение по SSH'],
+            [root+'github/github-desktop',     'GitHub Desktop'],
+            [root+'github/github-api',         'Github API'],
+            [root+'github/github-readme-stats', setTheme(1, ['github-readme-stats'])],
+        ]
+    },
+    {
+        title: 'Bitbucket',
+        themes: [
+            [root+'bitbucket/ssh', 'Подключение по SSH'],
         ]
     },
     {
