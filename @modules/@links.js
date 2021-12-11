@@ -71,6 +71,7 @@ const ARR_LINKS = [
     { page: 'gulp',                    theme: 'gray',     title: 'Gulp' },
     { page: 'parcel',                  theme: 'gray',     title: 'Parcel' },
     { page: 'flow',                    theme: 'gray',     title: 'Flow' },
+    { page: 'heroku',                  theme: 'gray',     title: 'Heroku' },
     null,
     { page: 'ide',                     theme: 'blue',     title: 'IDE' },
     { page: 'node-js',                 theme: 'brown',    title: 'Node.js' },

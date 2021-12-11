@@ -1,0 +1,233 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Heroku</title>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@modules/build-heroku.js"></script>
+        </head>
+        <body>
+
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="link" v-html="'Heroku'"></a>
+                    </div>
+                    <h4>🥥 Основы</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__heroku/main/info"
+                href="#heroku/main/info"
+            >📑 Информация</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__heroku/main/algoritm"
+                href="#heroku/main/algoritm"
+            >Алгоритм</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__heroku/main/code"
+                href="#heroku/main/code"
+            >Код</a>
+        </li>
+    </ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a :href="itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="heroku/main/info"><h2>Информация</h2>
+
+<u-link-wrapper>
+    <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs" target="_blank">https://devcenter.heroku.com/articles/getting-started-with-nodejs</a>
+    <a href="https://www.youtube.com/watch?v=wG7hX8Np1Pg" target="_blank">https://www.youtube.com/watch?v=wG7hX8Np1Pg</a>
+</u-link-wrapper>
+</div><div id="heroku/main/algoritm"><h2>Алгоритм</h2>
+
+<!------------------------------------------------------------->
+<h4>1. Регистрация на Heroku</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><a href="https://heroku.com/" target="_blank">https://heroku.com/</a></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. Скачать Heroku CLI</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><a href="https://devcenter.heroku.com/articles/heroku-cli" target="_blank">https://devcenter.heroku.com/articles/heroku-cli</a></li>
+    <li>Download and install -> Windows</li>
+    <li>Скачать и установить</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Консоль</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+heroku --help # проверка корректной установки
+heroku login  # залогиниться в CLI
+</v-code>
+
+<ul class="list-point">
+    <li>Открывается браузер -> Log In -> Logged In (Надпись)</li>
+</ul>
+
+<v-code lang="bash" title="">
+heroku create # создать новый проект
+</v-code>
+
+<ul class="list-point">
+    <li>В консоли появляются ссылки</li>
+    <li><a href="https://sleepy-lake-01897.herokuapp.com/" target="_blank">https://sleepy-lake-01897.herokuapp.com/</a></li>
+    <li><a href="https://git.heroku.com/sleepy-lake-01897.git" target="_blank">https://git.heroku.com/sleepy-lake-01897.git</a></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>4. Перейти на Heroku Dashboard</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><a href="https://dashboard.heroku.com/apps" target="_blank">https://dashboard.heroku.com/apps</a></li>
+    <li>Зайти в проект -> Deploy</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>5. Создать git-репозиторий</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Создать <u>.gitignore</u></li>
+    <li><u>sleepy-lake-01897</u> - название приложения</li>
+</ul>
+
+<v-code lang="bash" title="">
+git init
+git add .
+git commit -m 'starter'
+heroku git:remote -a sleepy-lake-01897
+git push heroku master
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>6. Открыть проект</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><a href="https://sleepy-lake-01897.herokuapp.com/" target="_blank">https://sleepy-lake-01897.herokuapp.com/</a></li>
+</ul>
+
+<v-code lang="bash" title="">
+heroku open # открыть проект по ссылке
+</v-code>
+</div><div id="heroku/main/code"><h2>Код</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Простой проект</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<v-path>package.json</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+{
+  "name": "app-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<v-path>index.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const express = require('express');
+
+const app = express();
+const PORT = process.env.PORT || 80;
+
+app.get('/', (req, res) =&gt; {
+    res.end(`
+        &lt;div&gt;
+            &lt;a href="/"&gt;Home&lt;/a&gt;
+            &lt;a href="/about"&gt;About&lt;/a&gt;
+            &lt;h1&gt;Home Page&lt;/h1&gt;
+        &lt;/div&gt;
+    `);
+});
+
+app.get('/about', (req, res) =&gt; {
+    res.end(`
+        &lt;div&gt;
+            &lt;a href="/"&gt;Home&lt;/a&gt;
+            &lt;a href="/about"&gt;About&lt;/a&gt;
+            &lt;h1&gt;About Page&lt;/h1&gt;
+        &lt;/div&gt;
+    `);
+});
+
+app.listen(PORT, () =&gt; {
+    console.log('Server started');
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<v-path>.gitignore</v-path>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+/node_modules
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue/build.js"></script>
+        </body>
+    </html>

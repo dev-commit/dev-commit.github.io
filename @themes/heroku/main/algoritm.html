@@ -1,0 +1,74 @@
+<h2>Алгоритм</h2>
+
+<!------------------------------------------------------------->
+<h4>1. Регистрация на Heroku</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><a href="https://heroku.com/" target="_blank">https://heroku.com/</a></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. Скачать Heroku CLI</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><a href="https://devcenter.heroku.com/articles/heroku-cli" target="_blank">https://devcenter.heroku.com/articles/heroku-cli</a></li>
+    <li>Download and install -> Windows</li>
+    <li>Скачать и установить</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Консоль</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+heroku --help # проверка корректной установки
+heroku login  # залогиниться в CLI
+</v-code>
+
+<ul class="list-point">
+    <li>Открывается браузер -> Log In -> Logged In (Надпись)</li>
+</ul>
+
+<v-code lang="bash" title="">
+heroku create # создать новый проект
+</v-code>
+
+<ul class="list-point">
+    <li>В консоли появляются ссылки</li>
+    <li><a href="https://sleepy-lake-01897.herokuapp.com/" target="_blank">https://sleepy-lake-01897.herokuapp.com/</a></li>
+    <li><a href="https://git.heroku.com/sleepy-lake-01897.git" target="_blank">https://git.heroku.com/sleepy-lake-01897.git</a></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>4. Перейти на Heroku Dashboard</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><a href="https://dashboard.heroku.com/apps" target="_blank">https://dashboard.heroku.com/apps</a></li>
+    <li>Зайти в проект -> Deploy</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>5. Создать git-репозиторий</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Создать <u>.gitignore</u></li>
+    <li><u>sleepy-lake-01897</u> - название приложения</li>
+</ul>
+
+<v-code lang="bash" title="">
+git init
+git add .
+git commit -m 'starter'
+heroku git:remote -a sleepy-lake-01897
+git push heroku master
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>6. Открыть проект</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><a href="https://sleepy-lake-01897.herokuapp.com/" target="_blank">https://sleepy-lake-01897.herokuapp.com/</a></li>
+</ul>
+
+<v-code lang="bash" title="">
+heroku open # открыть проект по ссылке
+</v-code>
