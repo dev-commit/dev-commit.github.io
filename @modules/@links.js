@@ -27,6 +27,7 @@ const ARR_LINKS = [
     { page: 'react-hooks',             theme: 'violet',   title: 'React Hooks' },
     { page: 'react-api',               theme: 'violet',   title: 'React API' },
     { page: 'react-router',            theme: 'violet',   title: 'React Router' },
+    { page: 'next-js',                 theme: 'blue',     title: 'Next.js' },
     null,
     { page: 'formik',                  theme: 'crimson',  title: 'Formik' },
     { page: 'react-final-form',        theme: 'crimson',  title: 'React Final Form' },

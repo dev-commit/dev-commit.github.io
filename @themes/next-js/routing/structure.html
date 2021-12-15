@@ -1,0 +1,40 @@
+<h2>Структура</h2>
+
+<ul class="list-point">
+    <li>Роутинг создается через файловую систему</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Структура файлов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
++ <u-code-mod>pages</u-code-mod>             # Стандартная папка для роутов
+---------------------------------------------------------------------------
+    + about          # Группировка роутов по категории "about" 
+        - <em>author.js</em>  # Роут http://.../about/author
+        - <em>index.js</em>   # Роут http://.../about
+---------------------------------------------------------------------------
+    + post           # Группировка роутов по категории "post"
+        - <em>[id].js</em>    # Динамический роут: http://.../post/42
+---------------------------------------------------------------------------
+    - <u-text-underline>index.js</u-text-underline>       # Точка входа (корневой роут)
+---------------------------------------------------------------------------
+    - <em>posts.js</em>       # Роут: http://.../posts
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Структура стандартного компонента-роута</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>React не испортируется</li>
+    <li>Название компонента не имеет значения. Главное, что <u>export default</u></li>
+</ul>
+
+<v-code lang="js" title="">
+const App = () =&gt; {
+    return (&lt;h1&gt;Hello&lt;/h1&gt;)
+}
+
+export default App;
+</v-code>
+

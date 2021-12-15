@@ -1,0 +1,40 @@
+<h2>Программное добавление роута</h2>
+
+<v-two-code type="js;js" comment="useRouter;Router">
+<template v-slot:first>
+import { <u-code>useRouter</u-code> } from 'next/router';
+
+const App = () =&gt; {
+    const router = <u-code>useRouter</u-code>();
+
+    const linkClickHandler = () =&gt; {
+        router.push('/');
+        // router.push('/posts');
+    }
+
+    return (
+        &lt;button onClick={linkClickHandler}&gt;Go&lt;/button&gt;
+    )
+}
+
+export default App;
+</template>
+<template v-slot:last>
+import <u-code>Router</u-code> from 'next/router';
+
+const App = () =&gt; {
+    const linkClickHandler = () =&gt; {
+        <u-code>Router</u-code>.push('/');
+        // Router.push('/posts');
+    }
+
+    return (
+        &lt;button onClick={linkClickHandler}&gt;Go&lt;/button&gt;
+    )
+}
+
+export default App;
+</template>
+</v-two-code>
+
+
