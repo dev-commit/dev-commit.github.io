@@ -12,6 +12,33 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'Общее',
+        themes: [
+            [root+'common/layout',       emoji.chevron+'Создание Layout'],
+            [root+'common/google-fonts', emoji.chevron+'Добавление Google Fonts'],
+        ]
+    },
+    {
+        title: 'Компоненты',
+        themes: [
+            [root+'components/Head',    setTheme(1, ['Head'])],
+        ]
+    },
+    {
+        title: 'Custom',
+        themes: [
+            [root+'custom/Document', setTheme(5, ['Document'])],
+            [root+'custom/App',      setTheme(5, ['App'])],
+        ]
+    },
+    {
+        title: 'Стили',
+        themes: [
+            [root+'styles/jsx', 'JSX'],
+            [root+'styles/css', 'CSS-файл'],
+        ]
+    },
+    {
         title: 'Роутинг',
         themes: [
             [root+'routing/structure',      emoji.theory+'Структура'],

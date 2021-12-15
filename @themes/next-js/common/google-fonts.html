@@ -1,0 +1,48 @@
+<h2>Добавление Google Fonts</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Добавление ссылки с Google Fonts</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<v-path>./pages/_document.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import Document, { Html, Head } from 'next/document';
+
+class MyDocument extends Document {
+    render() {
+        return (
+            &lt;Html&gt;
+                &lt;Head&gt;
+                    &lt;link href="https://fonts.googleapis.com/css2?family=Bakbak+One&amp;display=swap" rel="stylesheet" /&gt;
+                &lt;/Head&gt;
+            &lt;/Html&gt;
+        )
+    }
+}
+
+export default MyDocument;
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование шрифтов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<v-path>./pages/_app.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Подключение глобального CSS
+import '../styles/main.css';
+</v-code>
+
+<!------------------------------------------------------------->
+<v-path>./styles/main.css</v-path>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+body {
+    font-family: 'Bakbak One', cursive;
+}
+</v-code>

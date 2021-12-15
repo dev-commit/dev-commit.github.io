@@ -40,6 +40,62 @@
                 href="#next-js/main/install"
             >⚡️ Установка и настройка</a>
         </li>
+    </ul><h4>🥥 Общее</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__next-js/common/layout"
+                href="#next-js/common/layout"
+            >🔰 Создание Layout</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__next-js/common/google-fonts"
+                href="#next-js/common/google-fonts"
+            >🔰 Добавление Google Fonts</a>
+        </li>
+    </ul><h4>🥥 Компоненты</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__next-js/components/Head"
+                href="#next-js/components/Head"
+            ><u-menu>Head</u-menu></a>
+        </li>
+    </ul><h4>🥥 Custom</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__next-js/custom/Document"
+                href="#next-js/custom/Document"
+            ><u-menu-outline>Document</u-menu-outline></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__next-js/custom/App"
+                href="#next-js/custom/App"
+            ><u-menu-outline>App</u-menu-outline></a>
+        </li>
+    </ul><h4>🥥 Стили</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__next-js/styles/jsx"
+                href="#next-js/styles/jsx"
+            >JSX</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__next-js/styles/css"
+                href="#next-js/styles/css"
+            >CSS-файл</a>
+        </li>
     </ul><h4>🥥 Роутинг</h4><ul>
         <li>
             <a
@@ -121,6 +177,277 @@
 <v-pre-npm>
 npm <u-code-accent>create-next-app@latest</u-code-accent>
 </v-pre-npm>
+</div><div id="next-js/common/layout"><h2>Создание Layout</h2>
+
+<ul class="list-point">
+    <li>Обычный React-компонент, в который оборачивается страница или ее часть</li>
+    <li>Обычно находится в корне в директории <u>components</u></li>
+    <li>Подключается по необходимост на любую страницу</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объявление Layout</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<v-path>components/MainLayout.js</v-path>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Для примера, добавлен <u>Head</u> и <u>Link</u>, но может быть что угодно</li>
+</ul>
+
+<v-code lang="js" title="">
+import Head from 'next/head';
+import Link from 'next/link';
+
+const MainLayout = (props) =&gt; {
+    const { <u-code>children</u-code>, title = 'Next App' } = props;
+
+    return (
+        &lt;&gt;
+            &lt;Head&gt;
+                &lt;title&gt;{title}&lt;/title&gt;
+            &lt;/Head&gt;
+
+            &lt;nav&gt;
+                &lt;Link href="/"&gt;Home&lt;/Link&gt;&lt;br/&gt;
+            &lt;/nav&gt;
+
+            &lt;main&gt;
+                {<u-code>children</u-code>}
+            &lt;/main&gt;
+        &lt;/&gt;
+    )
+}
+
+export default MainLayout;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование Layout</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import <u-code>MainLayout</u-code> from '../components/MainLayout';
+
+const App = () =&gt; {
+    return (
+        &lt;MainLayout title='Helo'&gt;
+            &lt;h1&gt;App&lt;/h1&gt;
+        &lt;/MainLayout&gt;
+    )
+}
+
+export default App;
+</v-code>
+</div><div id="next-js/common/google-fonts"><h2>Добавление Google Fonts</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Добавление ссылки с Google Fonts</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<v-path>./pages/_document.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import Document, { Html, Head } from 'next/document';
+
+class MyDocument extends Document {
+    render() {
+        return (
+            &lt;Html&gt;
+                &lt;Head&gt;
+                    &lt;link href="https://fonts.googleapis.com/css2?family=Bakbak+One&amp;display=swap" rel="stylesheet" /&gt;
+                &lt;/Head&gt;
+            &lt;/Html&gt;
+        )
+    }
+}
+
+export default MyDocument;
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование шрифтов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<v-path>./pages/_app.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Подключение глобального CSS
+import '../styles/main.css';
+</v-code>
+
+<!------------------------------------------------------------->
+<v-path>./styles/main.css</v-path>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+body {
+    font-family: 'Bakbak One', cursive;
+}
+</v-code>
+</div><div id="next-js/components/Head"><h2>Head</h2>
+
+<ul class="list-point">
+    <li>Изменение раздела <em>&lt;head&gt;&lt;/head&gt;</em></li>
+</ul>
+
+<v-code lang="js" title="">
+import <u-code>Head</u-code> from 'next/head';
+
+const App = () =&gt; {
+    return (
+        &lt;&gt;
+            &lt;Head&gt;
+                &lt;title&gt;Hello&lt;/title&gt;
+                &lt;meta name='keywords' content='' /&gt;
+                &lt;meta name='description' content='' /&gt;
+                &lt;meta charSet='utf-8' /&gt;
+            &lt;/Head&gt;
+        &lt;/&gt;
+    )
+}
+
+export default App;
+</v-code>
+</div><div id="next-js/custom/Document"><h2>Custom `Document`</h2>
+
+<u-link-wrapper>
+    <a href="https://nextjs.org/docs/advanced-features/custom-document" target="_blank">https://nextjs.org/docs/advanced-features/custom-document</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Обычно используется для дополнения тегов <u>&lt;html&gt;</u> и <u>&lt;body&gt;</u> приложения</li>
+    <li>Работает в рамках всего приложения</li>
+    <li>Файл: <em>./pages/_document.js</em></li>
+</ul>
+
+<!------------------------------------------------------------->
+<v-path>./pages/_document.js</v-path>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>В примере, добавляется ссылка на Google Fonts для всего приложения</li>
+</ul>
+
+<v-code lang="js" title="">
+import <u-code>Document</u-code>, { Html, Head, Main, NextScript } from 'next/document';
+
+class MyDocument extends <u-code>Document</u-code> {
+    render() {
+        return (
+            &lt;Html&gt;
+                &lt;Head&gt;
+                    &lt;link
+                        href="https://fonts.googleapis.com/css2?family=Bakbak+One&amp;display=swap"
+                        rel="stylesheet"
+                    /&gt;
+                &lt;/Head&gt;
+                &lt;body&gt;
+                    &lt;Main /&gt;
+                    &lt;NextScript /&gt;
+                &lt;/body&gt;
+            &lt;/Html&gt;
+        )
+    }
+}
+
+export default MyDocument;
+</v-code>
+</div><div id="next-js/custom/App"><h2>Custom `App`</h2>
+
+<u-link-wrapper>
+    <a href="https://nextjs.org/docs/advanced-features/custom-app" target="_blank">https://nextjs.org/docs/advanced-features/custom-app</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Next.js использует компонент App для инициализации страниц</li>
+    <li>Файл: <em>./pages/_app.js</em></li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <b>Можно контролировать:</b>
+    <li>Сохранение макета между изменениями страницы</li>
+    <li>Сохранение состояния при навигации по страницам</li>
+    <li>Пользовательская обработка ошибок с использованием componentDidCatch</li>
+    <li>Вставить дополнительные данные на страницы</li>
+    <li>Добавить глобальный CSS</li>
+</ul>
+
+<!------------------------------------------------------------->
+<v-path>./pages/_app.js</v-path>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>В примере добавляются глобальные стили для всего приложения</li>
+</ul>
+
+<ul class="list-point">
+    <li><u-code-text>Component</u-code-text> - отображаемая страница</li>
+    <li><u-code-text>pageProps</u-code-text> - объект с исходными реквизитами, которые были предварительно загружены для страницы</li>
+</ul>
+
+<v-code lang="js" title="">
+import '../styles/main.css';
+
+const MyApp = (props) =&gt; {
+    const { <u-code>Component</u-code>, <u-code>pageProps</u-code> } = props;
+
+    return (
+        &lt;&gt;
+            &lt;Component {...pageProps} /&gt;
+        &lt;/&gt;
+    )
+}
+
+export default MyApp;
+</v-code>
+
+<v-code lang="css" title="./styles/main.css">
+body {
+    font-family: 'Bakbak One', cursive;
+}
+</v-code>
+</div><div id="next-js/styles/jsx"><h2>JSX</h2>
+
+<ul class="list-point">
+    <li><u-code-text>&lt;style jsx&gt;</u-code-text> - локальные стили</li>
+    <li><u-code-text>&lt;style jsx global&gt;</u-code-text> - глобальные стили</li>
+</ul>
+
+<v-code lang="js" title="">
+const MainLayout = () =&gt; {
+    return (
+        &lt;&gt;
+            &lt;nav&gt;...&lt;/nav&gt;
+            &lt;style jsx global&gt;{`
+                nav {
+                    border: 1px solid black;
+                }
+            `}&lt;/style&gt;
+        &lt;/&gt;
+    )
+}
+</v-code>
+</div><div id="next-js/styles/css"><h2>CSS-файл</h2>
+
+<!------------------------------------------------------------->
+<v-path>./styles/main.css</v-path>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+body {
+    font-family: 'Bakbak One', cursive;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<v-path>./pages/_app.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Подключение глобального CSS
+import '../styles/main.css';
+</v-code>
 </div><div id="next-js/routing/structure"><h2>Структура</h2>
 
 <ul class="list-point">
