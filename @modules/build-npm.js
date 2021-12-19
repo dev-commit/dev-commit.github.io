@@ -10,7 +10,15 @@ ARR_MODULE = [
             [root+'npm/nvm',                 'Node Version Manager'],
             [root+'npm/package-publishing',  'Публикация пакета'],
             [root+'npm/linux',               'Linux'],
-            [root+'npm-package/http-server', setTheme(2, ['http-server'])],
+            
+        ]
+    },
+    {
+        title: 'Пакеты',
+        themes: [
+            [root+'packages/http-server',  setTheme(2, ['http-server'])],
+            [root+'packages/json-server',  setTheme(2, ['json-server'])],
+            [root+'packages/concurrently', setTheme(2, ['concurrently'])],
         ]
     },
     {

@@ -1,0 +1,43 @@
+<h2>concurrently</h2>
+
+<u-link-wrapper>
+	<a href="https://github.com/open-cli-tools/concurrently" target="_blank">https://github.com/open-cli-tools/concurrently</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Позволяет запускать параллельно несолько скриптов</li>
+    <li>Это может быть несколько локальных серверов, запущенных параллельно</li>
+</ul>
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>concurrently</u-code-accent>
+</v-pre-npm>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файлы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<v-path>package.json</v-path>
+<!------------------------------------------------------------->
+
+<ul class="list-point">
+    <li>В примере параллельно запускается толькольный сервер для <u>Next.js</u> и для <u>json-server</u></li>
+</ul>
+
+<v-code lang="js" title="">
+{
+	"scripts": {
+		"dev": "next dev",
+		"mock": "json-server -w db.json -p 4200 -d 450",
+		"<u-code>serve</u-code>": "concurrently \"npm run dev\" \"npm run mock\""
+	},
+	"dependencies": {
+		"next": "12.0.7",
+	},
+	"devDependencies": {
+		"concurrently": "^6.4.0",
+	}
+}
+</v-code>

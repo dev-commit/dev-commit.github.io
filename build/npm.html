@@ -72,13 +72,29 @@
                 href="#npm/npm/linux"
             >Linux</a>
         </li>
+    </ul><h4>🥥 Пакеты</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__npm/packages/http-server"
+                href="#npm/packages/http-server"
+            ><u-menu-border>http-server</u-menu-border></a>
+        </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__npm/npm-package/http-server"
-                href="#npm/npm-package/http-server"
-            ><u-menu-border>http-server</u-menu-border></a>
+                id="id__npm/packages/json-server"
+                href="#npm/packages/json-server"
+            ><u-menu-border>json-server</u-menu-border></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__npm/packages/concurrently"
+                href="#npm/packages/concurrently"
+            ><u-menu-border>concurrently</u-menu-border></a>
         </li>
     </ul><h4>🥥 package.json</h4><ul>
         <li>
@@ -292,14 +308,130 @@ npm publish  # публикация проекта
 sudo npm i <u-code>--unsafe-perm</u-code>                      # установка всех пакетов из package.json
 sudo npm i --save-dev <u-code>--unsafe-perm node-sass</u-code> # установка пакета node-sass
 </v-code>
-</div><div id="npm/npm-package/http-server"><h2>http-server</h2>
+</div><div id="npm/packages/http-server"><h2>http-server</h2>
 
-<v-code lang="bash npm" title="">
-npm i <u-code>http-server</u-code> -g
-</v-code>
+<v-pre-npm>
+npm i -g <u-code-accent>http-server</u-code-accent>
+</v-pre-npm>
 
 <v-code lang="bash" title="terminal">
  http-server './'
+</v-code>
+</div><div id="npm/packages/json-server"><h2>json-server</h2>
+
+<u-link-wrapper>
+	<a href="https://github.com/typicode/json-server" target="_blank">https://github.com/typicode/json-server</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>API мок-сервер</li>
+    <li>Открывается на указанном порту, после этого можно отправдять запросы</li>
+</ul>
+
+<v-pre-npm>
+npm i -g <u-code-accent>json-server</u-code-accent>
+</v-pre-npm>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файлы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<v-path>package.json</v-path>
+<!------------------------------------------------------------->
+<v-code lang="json" title="">
+{
+	"scripts": {
+		"<u-code>mock</u-code>": "json-server -w db.json -p 4200 -d 450"
+	},
+}
+</v-code>
+
+<v-code lang="bash" title="">
+› <u-code>w</u-code> (watch)  # Наблюдение за файлом "db.json"
+› <u-code>p</u-code> (port)   # Открытие JSON-сервера на заданном 4200 порту
+› <u-code>d</u-code> (delay)  # Зедежка. Для имитации работы реальных запросов
+</v-code>
+
+<!------------------------------------------------------------->
+<v-path>db.json</v-path>
+<!------------------------------------------------------------->
+<v-code lang="json" title="">
+{
+    "posts": [
+        { "id": 1, "title": "Title1" },
+        { "id": 2, "title": "Title2" },
+    ],
+    "users": [
+        { "id": 1, "title": "User1" },
+        { "id": 2, "title": "User2" },
+    ]
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Запуск скрипта</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<i>1. Запуск скрипта</i>
+<v-code lang="bash" title="">
+npm run mock
+</v-code>
+
+<i>2. Доступные URL (Resources)</i>
+<v-code lang="bash" title="">
+http://localhost:4200/posts
+http://localhost:4200/users
+</v-code>
+
+<i>3. Отправка запроса из приложения</i>
+<v-code lang="js" title="">
+fetch('http://localhost:4200/users');
+</v-code>
+
+</div><div id="npm/packages/concurrently"><h2>concurrently</h2>
+
+<u-link-wrapper>
+	<a href="https://github.com/open-cli-tools/concurrently" target="_blank">https://github.com/open-cli-tools/concurrently</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Позволяет запускать параллельно несолько скриптов</li>
+    <li>Это может быть несколько локальных серверов, запущенных параллельно</li>
+</ul>
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>concurrently</u-code-accent>
+</v-pre-npm>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файлы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<v-path>package.json</v-path>
+<!------------------------------------------------------------->
+
+<ul class="list-point">
+    <li>В примере параллельно запускается толькольный сервер для <u>Next.js</u> и для <u>json-server</u></li>
+</ul>
+
+<v-code lang="js" title="">
+{
+	"scripts": {
+		"dev": "next dev",
+		"mock": "json-server -w db.json -p 4200 -d 450",
+		"<u-code>serve</u-code>": "concurrently \"npm run dev\" \"npm run mock\""
+	},
+	"dependencies": {
+		"next": "12.0.7",
+	},
+	"devDependencies": {
+		"concurrently": "^6.4.0",
+	}
+}
 </v-code>
 </div><div id="npm/package-json/scripts"><h2>Скрипты</h2>
 

@@ -1,0 +1,31 @@
+<h2>Sass</h2>
+
+<v-pre-npm>
+npm i --save <u-code-accent>sass</u-code-accent>
+</v-pre-npm>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>CSS Modules with Sass</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Аналогично с CSS Modules</li>
+</ul>
+
+<v-code lang="js" title="">
+import classes from '../styles/main.module.scss';
+
+const App = () => {
+    return (
+        &lt;h1 className={classes.header}&gt;...&lt;/h1&gt;
+    )
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<v-path>./styles/main.module.scss</v-path>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+.header {
+    color: yellowgreen;
+}
+</v-code>
