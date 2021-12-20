@@ -1,9 +1,77 @@
 <h2>Контекст</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>#1</h3>
+<h3>Потеря контекста</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<!------------------------------------------------------------->
+<h4>Постановка задачи</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const userService = {
+	currentStatus: 'active',
+	users: [
+		{ name: 'A', status: 'active' },
+		{ name: 'B', status: 'disabled' },
+	],
+	getFilteredUsers: function() {
+		return this.users.filter(function (user) {
+			return user.status === this.currentStatus;
+		});
+	},
+};
+
+console.log(userService.getFilteredUsers());	  
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вывод консоли</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+	<li>Без 'use strict' => <em>[]</em></li>
+	<li>'use strict' => <em>Uncaught TypeError: Cannot read properties of undefined (reading 'currentStatus')</em></li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>Решение #1 - Стрелочная функция</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+getFilteredUsers: function() {
+	return this.users.filter((user) => {
+		return user.status === this.currentStatus;
+	});
+},
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Решение #2 - call</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+getFilteredUsers: function() {
+	return this.users.filter(function(user) {
+		return function (user) {
+			return user.status === this.currentStatus;
+		}.call(userService, user);
+	});
+},
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Решение #3 - Замыкание</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+getFilteredUsers: function() {
+	const localThis = this;
+	return this.users.filter(function (user) {
+		return user.status === localThis.currentStatus;
+	});
+},
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Вариации контекста</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 function foo() {
 	return function bar() {
@@ -26,32 +94,4 @@ function foo() {
 
 const bar = foo().call();
 bar.call({ y: 20 }); // call вызывает bar 
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>#2</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-'use strict';
-
-const todo = {
-	finished: true,
-	tasks: [
-		{ task: 'Read book', done: true },
-		{ task: 'Walk', done: false },
-	],
-	getFinishedTasks() {
-		return this.tasks.filter(function (item) {
-			return item.done === this.finished;
-		});
-		// return this.tasks.filter(item => item.done === this.finished);
-	}
-};
-
-const result = todo.getFinishedTasks();
-console.log(result);
-
-// 1. без 'use strict' => []
-// 2. 'use strict' => Uncaught TypeError: Cannot read property 'finished' of undefined
-// 3. стрелочная функция => 0: {task: "Read book", done: true}
 </v-code>
