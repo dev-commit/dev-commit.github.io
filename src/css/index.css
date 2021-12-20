@@ -118,12 +118,24 @@ LINKS
 	flex-shrink: 0;
 }
 
-#links .theme-green   { color: rgba(var(--theme-green),   1);   background-color: rgba(var(--theme-green),   .2); border: 1px solid rgba(var(--theme-green),   .1); }
-#links .theme-blue    { color: rgba(var(--theme-blue),    1);   background-color: rgba(var(--theme-blue),    .2); border: 1px solid rgba(var(--theme-blue),    .1); }
-#links .theme-crimson { color: rgba(var(--theme-crimson), 1);   background-color: rgba(var(--theme-crimson), .2); border: 1px solid rgba(var(--theme-crimson), .1); }
-#links .theme-brown   { color: rgba(var(--theme-brown),   1);   background-color: rgba(var(--theme-brown),   .2); border: 1px solid rgba(var(--theme-brown),   .1); }
-#links .theme-violet  { color: rgba(var(--theme-violet),  .55); background-color: rgba(var(--theme-violet),  .2); border: 1px solid rgba(var(--theme-violet),  .1); }
-#links .theme-gray    { color: rgba(var(--theme-gray),    .7);  background-color: rgba(var(--theme-gray),    .1); border: 1px solid rgba(var(--theme-gray),    .1); }
+#links .theme-green   { --color: var(--theme-green);   --alpha-cl: 1;   --alpha-bg: .2; --alpha-bd: .1; }
+#links .theme-blue    { --color: var(--theme-blue);    --alpha-cl: 1;   --alpha-bg: .2; --alpha-bd: .1; }
+#links .theme-crimson { --color: var(--theme-crimson); --alpha-cl: 1;   --alpha-bg: .2; --alpha-bd: .1; }
+#links .theme-brown   { --color: var(--theme-brown);   --alpha-cl: 1;   --alpha-bg: .2; --alpha-bd: .1; }
+#links .theme-violet  { --color: var(--theme-violet);  --alpha-cl: .55; --alpha-bg: .2; --alpha-bd: .1; }
+#links .theme-gray    { --color: var(--theme-gray);    --alpha-cl: .7;  --alpha-bg: .1; --alpha-bd: .1; }
+
+#links .theme-green,
+#links .theme-blue,
+#links .theme-crimson,
+#links .theme-brown,
+#links .theme-violet,
+#links .theme-gray
+ {
+	color: rgba(var(--color), var(--alpha-cl));
+	background-color: rgba(var(--color), var(--alpha-bg));
+	border: 1px solid rgba(var(--color), var(--alpha-bd));
+}
 
 /***************************************************
 TOP

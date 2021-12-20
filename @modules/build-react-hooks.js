@@ -20,9 +20,9 @@ ARR_MODULE = [
     {
         title: 'Информация',
         themes: [
-            [root+'main/info',       emoji.theory+'Информация'],
-            [root+'main/own-hooks',  emoji.theory+'Создание собственных хуков'],
-            [root+'main/questions',  emoji.theory+'Ответы на вопросы']
+            [root+'main/info',          emoji.theory+'Информация'],
+            [root+'main/custom-hooks',  emoji.theory+'Кастомные хуки'],
+            [root+'main/questions',     emoji.theory+'Вопросы']
         ]
     },
 ]
