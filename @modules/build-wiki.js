@@ -42,6 +42,12 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'Структура',
+        themes: [
+            [root+'structure/login', 'Логин и пароль'],
+        ]
+    },
+    {
     	title: 'Class',
         themes: [
             [root+'class/list',   'Списки'],
