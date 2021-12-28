@@ -25,11 +25,12 @@
 	--color-light:        248, 249, 250;  /* #f8f9fa */
 	--color-orange:       253, 234, 76;   /* #fdea4c */
 	--color-gray:         166, 166, 166;  /* #a6a6a6 */
+	--color-gray-medium:  128, 128, 128;  /* #808080 */
 
 	--box-shadow:
-		0 16px 24px 2px rgba(33,37,41,.02),
-		0 6px 30px 5px rgba(33,37,41,.04),
-		0 8px 10px -5px rgba(33,37,41,.1);
+		0 16px 24px 2px  rgba(33,37,41,.02),
+		0 6px  30px 5px  rgba(33,37,41,.04),
+		0 8px  10px -5px rgba(33,37,41,.1);
 }
 
 body {
@@ -44,7 +45,7 @@ body {
     box-sizing: border-box;
 }
 *::selection {
-	background: rgba(var(--theme-blue), 0.4);
+	background: rgba(var(--theme-blue), .4);
 }
 
 /***************************************************
@@ -59,7 +60,7 @@ FONT
 SCROLLBAR
 /***************************************************/
 * {
-	scrollbar-color: rgba(var(--color-black), 0.2) rgba(var(--color-black), 0.1);
+	scrollbar-color: rgba(var(--color-black), .2) rgba(var(--color-black), .1);
 	scrollbar-width: thin;
 }
 ::-webkit-scrollbar {
@@ -67,11 +68,11 @@ SCROLLBAR
 	height: 8px;
 }
 ::-webkit-scrollbar-thumb {
-	background-color: rgba(var(--color-black), 0.2);
+	background-color: rgba(var(--color-black), .2);
 	border-radius: 2px;
 }
 ::-webkit-scrollbar-track {
-	background-color: rgba(var(--color-black), 0.1);
+	background-color: rgba(var(--color-black), .1);
 }
 
 /***************************************************
@@ -87,18 +88,18 @@ code {
     position: relative;
 	border: 1px solid #eceff1;
 	border-radius: 3px;
-	box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+	box-shadow: 0 0.125rem 0.25rem rgba(var(--color-black), .075);
 }
 code.border {
-	border: 1px solid rgba(var(--theme-blue), 0.2);
-	border-left: 4px solid rgba(var(--theme-blue), 0.2);
-	background: rgba(var(--theme-blue), 0.1) !important;
+	border: 1px solid rgba(var(--theme-blue), .2);
+	border-left: 4px solid rgba(var(--theme-blue), .2);
+	background: rgba(var(--theme-blue), .1) !important;
 	box-shadow: none;
 }
 code.step {
-	border: 1px solid rgba(var(--theme-brown), 0.2);
-	border-left: 4px solid rgba(var(--theme-brown), 0.2);
-	background: rgba(var(--theme-brown), 0.1) !important;
+	border: 1px solid rgba(var(--theme-brown), .2);
+	border-left: 4px solid rgba(var(--theme-brown), .2);
+	background: rgba(var(--theme-brown), .1) !important;
 	box-shadow: none;
 }
 code.none {
@@ -111,10 +112,10 @@ code.none u-code-title {
 }
 code.none a {
 	text-decoration: underline;
-	color: rgba(var(--theme-blue), 1);
+	color: rgb(var(--theme-blue));
 }
 pre a {
-	color: black;
+	color: rgb(var(--color-black));
 	text-decoration: none;
 }
 
@@ -173,13 +174,12 @@ h4 {
 	margin: 15px 0px 15px 0px;
 	padding: 10px;
 	padding-bottom: 5px;
-	color: rgb(107, 101, 107);
+	color: #6b656b;
 }
 em {
-	color: rgba(var(--theme-crimson), 1);
+	color: rgb(var(--theme-crimson));
 	font-style: normal;
 	font-weight: 500;
-	/* text-decoration: underline dotted rgba(var(--theme-crimson), 0.5); */
 	position: relative;
 }
 em:after {
@@ -189,11 +189,14 @@ em:after {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	border-bottom: 2px dotted rgba(var(--theme-crimson), 0.5);
+	border-bottom: 2px dotted rgba(var(--theme-crimson), .5);
 }
-
 i {
-	color: grey;
+	color: rgb(var(--color-gray-medium));
+}
+s {
+	text-decoration: none;
+	color: rgb(var(--color-gray-medium));
 }
 hr {
     height: 3px;
@@ -203,7 +206,7 @@ hr {
 	background-color: rgba(var(--theme-blue), .3);
 }
 ul a {
-	color: rgba(var(--color-light-violet), 1);
+	color: rgb(var(--color-light-violet));
 }
 summary {
 	cursor: pointer;
@@ -223,7 +226,7 @@ td, th {
 }
 th {
 	background-color: rgba(var(--color-blue), .3);
-	color: rgba(0, 0, 0, .7);
+	color: rgba(var(--color-black), .7);
 }
 table.even tr:nth-child(odd) {
 	background: #ededed;
@@ -231,7 +234,7 @@ table.even tr:nth-child(odd) {
 table td.accent {
 	background-color: rgba(var(--color-sand), .5);
 	font-weight: bold;
-	color: rgba(0, 0, 0, .7);
+	color: rgba(var(--color-black), .7);
 }
 
 /***************************************************
@@ -253,6 +256,6 @@ LISTS
 	list-style-type: "🤙 ";
 	line-height: 2;
 	font-size: 15px;
-	color: grey;
+	color: rgb(var(--color-gray-medium));
 	font-style: italic;
 }
