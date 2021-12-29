@@ -12,17 +12,22 @@ ARR_MODULE = [
     {
         title: 'API',
         themes: [
-            // [root+'api/Formik',           setTheme(1, ['Formik', 'Form', 'Field'])],
-            [root+'api/Formik',           setTheme(1, ['&lt;Formik /&gt;', '&lt;Form /&gt;', '&lt;Field /&gt;'])],
-            [root+'api/setFieldTouched',  setTheme(5, ['setFieldTouched()'])],
-            [root+'api/withFormik',       setTheme(5, ['withFormik()'])],
+            [root+'api/Formik',           setTheme(5, ['1.0'])+ ' '+setTheme(1, ['&lt;Formik /&gt;', '&lt;Form /&gt;'])],
+            [root+'api/Field',            setTheme(5, ['2.1'])+ ' '+setTheme(1, ['&lt;Field /&gt;'])],
+            [root+'api/useField',         setTheme(5, ['2.2'])+ ' '+setTheme(3, ['useField'])],
+
+            ['', ''],
+
+            [root+'api/useFormikContext', setTheme(3, ['useFormikContext'])],
+
+            [root+'api/setFieldTouched',  setTheme(5, ['setFieldTouched'])],
+            [root+'api/withFormik',       setTheme(5, ['withFormik'])],
         ]
     },
     {
         title: 'Хуки',
         themes: [
-            [root+'hooks/useField',         emoji.chevron+setTheme(4, ['useField()'])],
-            [root+'hooks/useFormikContext', emoji.chevron+setTheme(4, ['useFormikContext()'])],
+
         ]
     },
     {
