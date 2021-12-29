@@ -4,30 +4,33 @@ ARR_MODULE = [
     {
         title: 'Основы',
         themes: [
-            [root+'main/info', emoji.theory+'Информация'],
-            [root+'main/use',  emoji.code+'Использование'],
+            [root+'main/info',         emoji.theory+'Информация'],
+            [root+'main/install',      emoji.code+'Установка и настройка'],
+            [root+'main/basic-sample', emoji.fire+'Базовый пример'],
+        ]
+    },
+    {
+        title: 'API',
+        themes: [
+            // [root+'api/Formik',           setTheme(1, ['Formik', 'Form', 'Field'])],
+            [root+'api/Formik',           setTheme(1, ['&lt;Formik /&gt;', '&lt;Form /&gt;', '&lt;Field /&gt;'])],
+            [root+'api/setFieldTouched',  setTheme(5, ['setFieldTouched()'])],
+            [root+'api/withFormik',       setTheme(5, ['withFormik()'])],
         ]
     },
     {
         title: 'Хуки',
         themes: [
-            [root+'hooks/useField',         emoji.chevron+setTheme(4, ['useField'])],
-            [root+'hooks/useFormikContext', emoji.chevron+setTheme(4, ['useFormikContext'])],
+            [root+'hooks/useField',         emoji.chevron+setTheme(4, ['useField()'])],
+            [root+'hooks/useFormikContext', emoji.chevron+setTheme(4, ['useFormikContext()'])],
         ]
     },
     {
-        title: 'Элементы',
+        title: 'Валидиция',
         themes: [
-            [root+'elements/formik',             emoji.chevron+setTheme(1, ['&lt;Formik /&gt;', '&lt;Form /&gt;'])],
-            [root+'elements/validation-schema',  emoji.chevron+setTheme(4, ['validationSchema'])],
-            [root+'elements/validate',           emoji.chevron+setTheme(4, ['validate'])],
-            [root+'elements/set-field-touched',  emoji.chevron+setTheme(4, ['setFieldTouched'])+' (событие)'],
-        ]
-    },
-    {
-        title: 'Прочее',
-        themes: [
-            [root+'other/samples', 'Примеры'],
+            [root+'validation/validation-schema',  emoji.chevron+setTheme(4, ['validationSchema'])],
+            [root+'validation/validate',           emoji.chevron+setTheme(4, ['validate'])],
+
         ]
     },
 ]

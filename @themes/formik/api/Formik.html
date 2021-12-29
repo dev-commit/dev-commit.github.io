@@ -1,0 +1,56 @@
+<h2>
+    <u-code-text>&lt;Formik /&gt;</u-code-text>
+    <u-code-text>&lt;Form /&gt;</u-code-text>
+    <u-code-text>&lt;Field /&gt;</u-code-text>
+</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+import { Formik, Form, Field } from "formik";
+
+const App = () =&gt; {
+    const initialValues = {
+        userName: ""
+    };
+
+    const handleSubmit = (values) => {
+		console.log(values); // => { userName: "text" }
+    };
+
+    return (
+        &lt;<u-code>Formik</u-code>
+            initialValues={initialValues}
+            onSubmit={handleSubmit}
+        &gt;
+            &lt;<u-code>Form</u-code>&gt;
+                &lt;<u-code>Field</u-code> type="text" name="userName" /&gt;
+
+                {/* Не сработает */}
+                {/* &lt;input type="text" name="userName" /&gt; */}
+
+                &lt;button type="submit"&gt;Submit&lt;/button&gt;
+            &lt;/<u-code>Form</u-code>&gt;
+        &lt;/<u-code>Formik</u-code>&gt;
+    );
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примечание</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li>Вместо <em>&lt;Field /&gt;</em> напрямую использовать <em>&lt;input /&gt;</em> не получится</li>
+    <li>Для <em>&lt;input /&gt;</em> нужно обработать событие <u>onChange</u> и записать это в Formik</li>
+    <li>Обрабтать можно, использовав дочерний компонент наподобие <em>&lt;Field /&gt;</em> в и нем изменить значение через хук <u>useField()</u></li>
+</ul>
+
+<v-code lang="html step" title="">
+&lt;<u-code>Field</u-code> type="text" name="userName" /&gt;
+
+{/* Не сработает */}
+&lt;input type="text" name="userName" /&gt;
+</v-code>

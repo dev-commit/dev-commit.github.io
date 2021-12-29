@@ -36,9 +36,41 @@
         <li>
             <a
                 class="menu-link"
-                id="id__formik/main/use"
-                href="#formik/main/use"
-            >⚡️ Использование</a>
+                id="id__formik/main/install"
+                href="#formik/main/install"
+            >⚡️ Установка и настройка</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__formik/main/basic-sample"
+                href="#formik/main/basic-sample"
+            >🔥 Базовый пример</a>
+        </li>
+    </ul><h4>🥥 API</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__formik/api/Formik"
+                href="#formik/api/Formik"
+            ><u-menu>&lt;Formik /&gt;</u-menu> <u-menu>&lt;Form /&gt;</u-menu> <u-menu>&lt;Field /&gt;</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__formik/api/setFieldTouched"
+                href="#formik/api/setFieldTouched"
+            ><u-menu-outline>setFieldTouched()</u-menu-outline></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__formik/api/withFormik"
+                href="#formik/api/withFormik"
+            ><u-menu-outline>withFormik()</u-menu-outline></a>
         </li>
     </ul><h4>🥥 Хуки</h4><ul>
         <li>
@@ -46,7 +78,7 @@
                 class="menu-link"
                 id="id__formik/hooks/useField"
                 href="#formik/hooks/useField"
-            >🔰 <u-menu-unactive>useField</u-menu-unactive></a>
+            >🔰 <u-menu-unactive>useField()</u-menu-unactive></a>
         </li>
     
         <li>
@@ -54,47 +86,23 @@
                 class="menu-link"
                 id="id__formik/hooks/useFormikContext"
                 href="#formik/hooks/useFormikContext"
-            >🔰 <u-menu-unactive>useFormikContext</u-menu-unactive></a>
+            >🔰 <u-menu-unactive>useFormikContext()</u-menu-unactive></a>
         </li>
-    </ul><h4>🥥 Элементы</h4><ul>
+    </ul><h4>🥥 Валидиция</h4><ul>
         <li>
             <a
                 class="menu-link"
-                id="id__formik/elements/formik"
-                href="#formik/elements/formik"
-            >🔰 <u-menu>&lt;Formik /&gt;</u-menu> <u-menu>&lt;Form /&gt;</u-menu></a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__formik/elements/validation-schema"
-                href="#formik/elements/validation-schema"
+                id="id__formik/validation/validation-schema"
+                href="#formik/validation/validation-schema"
             >🔰 <u-menu-unactive>validationSchema</u-menu-unactive></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__formik/elements/validate"
-                href="#formik/elements/validate"
+                id="id__formik/validation/validate"
+                href="#formik/validation/validate"
             >🔰 <u-menu-unactive>validate</u-menu-unactive></a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__formik/elements/set-field-touched"
-                href="#formik/elements/set-field-touched"
-            >🔰 <u-menu-unactive>setFieldTouched</u-menu-unactive> (событие)</a>
-        </li>
-    </ul><h4>🥥 Прочее</h4><ul>
-        <li>
-            <a
-                class="menu-link"
-                id="id__formik/other/samples"
-                href="#formik/other/samples"
-            >Примеры</a>
         </li>
     </ul>
                 </div>
@@ -120,11 +128,199 @@
 <ul class="list-point">
 	<li><u>Formik</u> - библиотека построенная на принципах управляемых компонентов и управления состоянием. Полноценное решение, которое может валидировать ввод, запомнить посещённые поля формы и обработать её отправку</li>
 </ul>
-</div><div id="formik/main/use"><h2>Использование</h2>
+</div><div id="formik/main/install"><h2>Установка и настройка</h2>
 
 <v-pre-npm>
 npm i --save <u-code-accent>formik</u-code-accent>
 </v-pre-npm>
+
+</div><div id="formik/main/basic-sample"><h2>Базовый пример</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обёртка и компоненты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<v-details open title="<b><u-code-text>Formik</u-code-text> <u-code-text>Form</u-code-text></b>">
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { <u-code>Form</u-code>, <u-code>Formik</u-code> } from 'formik';
+
+const App = () =&gt; {
+	const initialFormData = {
+		<u-text-underline>userName</u-text-underline>: "",
+		userCount: 0
+	};
+
+	const handleSubmit = (values, actions) => {
+        // может быть асинхронное дейсвие
+		console.log(values); // => { userName: "", userCount: 0 }
+		// actions.<u>setSubmitting</u>(false);
+	};
+
+	return (
+		&lt;Formik
+			initialValues={initialFormData}
+			onSubmit={handleSubmit}
+			validationSchema={validationSchema}
+			validate={handleValidate}
+		&gt;
+			&lt;Form&gt;
+				&lt;Input name="<u-text-underline>userName</u-text-underline>" type="text" label="Name" /&gt;
+				&lt;Counter name="userCount" /&gt;
+				&lt;button type="submit"&gt;Submit&lt;/button&gt;
+			&lt;/Form&gt;
+		&lt;/Formik&gt;
+	);
+};
+</v-code>
+</v-details>
+
+<!------------------------------------------------------------->
+<v-details open title="<b><u-code-text>useField</u-code-text></b>">
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { <u-code>useField</u-code> } from 'formik';
+
+const Input = ({ name, type }) =&gt; {
+	const [field] = <u-code>useField</u-code>(name);
+
+	return (
+		&lt;input
+			type={type}
+			name={field.name}
+			value={field.value}
+			onChange={field.onChange}
+			onBlur={field.onBlur}
+		/&gt;
+	);
+};
+</v-code>
+</v-details>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Валидация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<v-details open title="<b><u-code-text>validationSchema</u-code-text></b>">
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import * as <u-code>Yup</u-code> from 'yup';
+
+const validationSchema = Yup.object().shape({
+    <u-text-underline>userName</u-text-underline>: Yup.string(),
+	userCount: Yup.number()
+});
+</v-code>
+</v-details>
+
+
+<!------------------------------------------------------------->
+<v-details title="<b><u-code-text>validateYupSchema</u-code-text></b>">
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { <u-code>validateYupSchema</u-code> } from 'formik';
+
+const handleValidate = (values) => {
+	validateYupSchema(values, validationSchema, true);
+}
+</v-code>
+</v-details>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Контекст</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<v-details open title="<b><u-code-text>useFormikContext</u-code-text></b>">
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { <u-code>useFormikContext</u-code> } from 'formik';
+
+const App = () => {
+	const { values, setFieldValue } = useFormikContext();
+}
+</v-code>
+</v-details>
+</div><div id="formik/api/Formik"><h2>
+    <u-code-text>&lt;Formik /&gt;</u-code-text>
+    <u-code-text>&lt;Form /&gt;</u-code-text>
+    <u-code-text>&lt;Field /&gt;</u-code-text>
+</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+import { Formik, Form, Field } from "formik";
+
+const App = () =&gt; {
+    const initialValues = {
+        userName: ""
+    };
+
+    const handleSubmit = (values) => {
+		console.log(values); // => { userName: "text" }
+    };
+
+    return (
+        &lt;<u-code>Formik</u-code>
+            initialValues={initialValues}
+            onSubmit={handleSubmit}
+        &gt;
+            &lt;<u-code>Form</u-code>&gt;
+                &lt;<u-code>Field</u-code> type="text" name="userName" /&gt;
+
+                {/* Не сработает */}
+                {/* &lt;input type="text" name="userName" /&gt; */}
+
+                &lt;button type="submit"&gt;Submit&lt;/button&gt;
+            &lt;/<u-code>Form</u-code>&gt;
+        &lt;/<u-code>Formik</u-code>&gt;
+    );
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примечание</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li>Вместо <em>&lt;Field /&gt;</em> напрямую использовать <em>&lt;input /&gt;</em> не получится</li>
+    <li>Для <em>&lt;input /&gt;</em> нужно обработать событие <u>onChange</u> и записать это в Formik</li>
+    <li>Обрабтать можно, использовав дочерний компонент наподобие <em>&lt;Field /&gt;</em> в и нем изменить значение через хук <u>useField()</u></li>
+</ul>
+
+<v-code lang="html step" title="">
+&lt;<u-code>Field</u-code> type="text" name="userName" /&gt;
+
+{/* Не сработает */}
+&lt;input type="text" name="userName" /&gt;
+</v-code>
+</div><div id="formik/api/setFieldTouched"><h2>Событие setFieldTouched</h2>
+
+<ul class="list-point">
+    <li>Валидация происходит при <u>onBlur</u></li>
+    <li>В стандартном состоянии валидация происходит при нажании на кнопку <u>submit</u></li>
+</ul>
+
+<v-code lang="js" title="">
+const App = ({ setFieldTouched }) => {
+    const handleBlur = (name) => {
+        setFieldTouched(name, true);
+    }
+
+    return (
+        &lt;Input
+            onBlur={handleBlur('emailPersonal')}
+            name='userName'
+        /&gt;
+    );
+};
+</v-code>
+</div><div id="formik/api/withFormik"><h2>withFormik</h2>
 
 <v-code lang="js" title="">
 import React from 'react';
@@ -304,7 +500,7 @@ const Input = ({ label, name, ...props }) =&gt; {
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>Inout с обработкой ошибок</h4>
+<h4>Input с обработкой ошибок</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 const Input = ({ name, ...props }) =&gt; {
@@ -538,108 +734,7 @@ const App = () =&gt; {
 }
 </v-code>
 </v-details>
-</div><div id="formik/elements/formik"><h2>Корневая обертка</h2>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-details open title="<b><u-code-text>Formik</u-code-text> <u-code-text>Form</u-code-text></b>">
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-import { <u-code>Form</u-code>, <u-code>Formik</u-code> } from 'formik';
-
-const App = () =&gt; {
-	const initialFormData = {
-		<u-text-underline>userName</u-text-underline>: "",
-		userCount: 0
-	};
-
-	const handleSubmit = (values, actions) =&gt; {
-		// может быть асинхронное дейсвие
-		console.log(values);
-		// actions.<u>setSubmitting</u>(false);
-	};
-
-	return (
-		&lt;Formik
-			initialValues={initialFormData}
-			onSubmit={handleSubmit}
-			validationSchema={validationSchema}
-			validate={handleValidate}
-		&gt;
-			&lt;Form&gt;
-				&lt;Input name="<u-text-underline>userName</u-text-underline>" type="text" label="Name" /&gt;
-				&lt;Counter name="userCount" /&gt;
-				&lt;button type="submit"&gt;Submit&lt;/button&gt;
-			&lt;/Form&gt;
-		&lt;/Formik&gt;
-	);
-};
-</v-code>
-</v-details>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-details title="<b><u-code-text>useField</u-code-text></b>">
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-import { <u-code>useField</u-code> } from 'formik';
-
-const Input = ({ name, type }) =&gt; {
-	const [field] = <u-code>useField</u-code>(name);
-
-	return (
-		&lt;input
-			type={type}
-			name={field.name}
-			value={field.value}
-			onChange={field.onChange}
-			onBlur={field.onBlur}
-		/&gt;
-	);
-};
-</v-code>
-</v-details>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-details open title="<b><u-code-text>validationSchema</u-code-text></b>">
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-import * as <u-code>Yup</u-code> from 'yup';
-
-const validationSchema = Yup.object().shape({
-    <u-text-underline>userName</u-text-underline>: Yup.string(),
-	userCount: Yup.number()
-});
-</v-code>
-</v-details>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-details title="<b><u-code-text>validateYupSchema</u-code-text></b>">
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-import { <u-code>validateYupSchema</u-code> } from 'formik';
-
-const handleValidate = (values) => {
-	validateYupSchema(values, validationSchema, true);
-}
-</v-code>
-</v-details>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-details open title="<b><u-code-text>useFormikContext</u-code-text></b>">
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-import { <u-code>useFormikContext</u-code> } from 'formik';
-
-const App = () => {
-	const { values, setFieldValue } = useFormikContext();
-}
-</v-code>
-</v-details>
-</div><div id="formik/elements/validation-schema"><h2>validationSchema</h2>
+</div><div id="formik/validation/validation-schema"><h2>validationSchema</h2>
 
 <u-link-wrapper>
     <a href="https://formik.org/docs/guides/validation" target="_blank">Документация: Validation</a>
@@ -654,7 +749,7 @@ const App = () => {
 <ul class="list-point">
     <li>Валидация через <u-text-underline>Yup</u-text-underline></li>
 </ul>
-</div><div id="formik/elements/validate"><h2>validate</h2>
+</div><div id="formik/validation/validate"><h2>validate</h2>
 
 <v-code lang="js" title="">
 const validate = values => {
@@ -675,40 +770,6 @@ export default withFormik({
     validate,
     validationSchema,
 })(Component);
-</v-code>
-</div><div id="formik/elements/set-field-touched"><h2>Событие setFieldTouched</h2>
-
-<ul class="list-point">
-    <li>Валидация происходит при <u>onBlur</u></li>
-    <li>В стандартном состоянии валидация происходит при нажании на кнопку <u>submit</u></li>
-</ul>
-
-<v-code lang="js" title="">
-const SocialAnswerForm = ({ setFieldTouched }) =&gt; {
-
-    const handleBlur = name =&gt; () =&gt; setFieldTouched(name, true);
-
-    return (
-        &lt;CRMInput
-            onBlur={handleBlur('emailPersonal')}
-            name='emailPersonal'
-        /&gt;
-    );
-};
-</v-code>
-</div><div id="formik/other/samples"><h2>Примеры</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Обработчик события без Formik</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-const Component = () =&gt; {
-    const handleInputChange = (event: SyntheticInputEvent&lt;HTMLInputElement&gt;) =&gt; {
-        console.log(event.target.value);
-    };
-
-    return &lt;Input onChange={handleInputChange}
-};
 </v-code>
 </div></div>
                 </div>

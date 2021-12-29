@@ -1,0 +1,21 @@
+<h2>Событие setFieldTouched</h2>
+
+<ul class="list-point">
+    <li>Валидация происходит при <u>onBlur</u></li>
+    <li>В стандартном состоянии валидация происходит при нажании на кнопку <u>submit</u></li>
+</ul>
+
+<v-code lang="js" title="">
+const App = ({ setFieldTouched }) => {
+    const handleBlur = (name) => {
+        setFieldTouched(name, true);
+    }
+
+    return (
+        &lt;Input
+            onBlur={handleBlur('emailPersonal')}
+            name='userName'
+        /&gt;
+    );
+};
+</v-code>

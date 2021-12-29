@@ -25,13 +25,13 @@ ARR_MODULE = [
         title: 'Методы',
         themes: [
             // TODO SUB-TITLE: Redux
-            [root+'methods/create-store',      emoji.chevron+setTheme(4, ['createStore'])],
-            [root+'methods/apply-middleware',  emoji.chevron+setTheme(4, ['applyMiddleware'])],
-            [root+'methods/combine-reducers',  emoji.chevron+setTheme(4, ['combineReducers'])],
+            [root+'methods/create-store',      setTheme(1, ['createStore'])],
+            [root+'methods/apply-middleware',  setTheme(1, ['applyMiddleware'])],
+            [root+'methods/combine-reducers',  setTheme(1, ['combineReducers'])],
             // TODO SUB-TITLE: React-Redux
-            [root+'methods/provider',          emoji.chevron+setTheme(4, ['Provider'])],
-            [root+'methods/connect',           emoji.chevron+setTheme(4, ['connect'])],
-            [root+'methods/hooks',             emoji.chevron+setTheme(4, ['useDispatch', 'useSelector'])],
+            [root+'methods/provider',          setTheme(3, ['Provider'])],
+            [root+'methods/connect',           setTheme(3, ['connect'])],
+            [root+'methods/hooks',             setTheme(3, ['useDispatch', 'useSelector'])],
         ]
     },
     {
