@@ -165,6 +165,10 @@ Vue.component('v-path', {
 	`,
 })
 
+Vue.component('v-tree', {
+    template: `<pre><code class="bash v-tree"><slot></slot></code></pre>`
+})
+
 const app = new Vue({
 	el: '#content'
 })
