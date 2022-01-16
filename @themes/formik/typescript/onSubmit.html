@@ -1,0 +1,22 @@
+<h2>onSubmit</h2>
+
+<u-link-wrapper>
+	<a href="https://codesandbox.io/s/formik-yup-schemaof-iobrw" target="_blank">CodeSandbox</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+type Person = {
+  userName: string | undefined;
+};
+
+const getValidationSchema = (): Yup.SchemaOf&lt;Person&gt; =>
+  Yup.object({
+    userName: Yup.string()
+  });
+
+const App = () => {
+  const validationSchema = getValidationSchema();
+
+  return (...);
+};
+</v-code>

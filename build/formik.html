@@ -96,13 +96,13 @@
                 href="#formik/api/withFormik"
             ><u-menu-outline>withFormik</u-menu-outline></a>
         </li>
-    </ul><h4>🥥 Хуки</h4><ul></ul><h4>🥥 Валидиция</h4><ul>
+    </ul><h4>🥥 Валидиция</h4><ul>
         <li>
             <a
                 class="menu-link"
                 id="id__formik/validation/validation-schema"
                 href="#formik/validation/validation-schema"
-            >🔰 <u-menu-unactive>validationSchema</u-menu-unactive></a>
+            ><u-menu>validationSchema</u-menu></a>
         </li>
     
         <li>
@@ -110,7 +110,23 @@
                 class="menu-link"
                 id="id__formik/validation/validate"
                 href="#formik/validation/validate"
-            >🔰 <u-menu-unactive>validate</u-menu-unactive></a>
+            ><u-menu-border>validate</u-menu-border></a>
+        </li>
+    </ul><h4>🥥 TypeScript</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__formik/typescript/onSubmit"
+                href="#formik/typescript/onSubmit"
+            ><u-menu>onSubmit</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__formik/typescript/validationSchema"
+                href="#formik/typescript/validationSchema"
+            ><u-menu>validationSchema</u-menu></a>
         </li>
     </ul>
                 </div>
@@ -822,6 +838,68 @@ export default withFormik({
     validationSchema,
 })(Component);
 </v-code>
+</div><div id="formik/typescript/onSubmit"><h2>onSubmit</h2>
+
+<u-link-wrapper>
+	<a href="https://codesandbox.io/s/formik-yup-schemaof-iobrw" target="_blank">CodeSandbox</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+type Person = {
+  userName: string | undefined;
+};
+
+const getValidationSchema = (): Yup.SchemaOf&lt;Person&gt; =>
+  Yup.object({
+    userName: Yup.string()
+  });
+
+const App = () => {
+  const validationSchema = getValidationSchema();
+
+  return (...);
+};
+</v-code>
+</div><div id="formik/typescript/validationSchema"><h2>validationSchema</h2>
+
+<v-code lang="js" title="">
+interface Person = {
+	userName: string | undefined;
+};
+</v-code>
+
+<v-code lang="js" title="">
+const App = () =&gt; {
+    const <u-code>handleSubmit</u-code> = (
+        values: Person,
+        formik: FormikHelpers&lt;Person&gt;,
+    ): void =&gt; {
+        //
+    };
+
+    return (
+        &lt;FormikWrapper onSubmit={handleSubmit}&gt;
+            &lt;Component /&gt;
+            &lt;button type="submit"&gt;Submit&lt;/button&gt;
+        &lt;/FormikWrapper&gt;
+    );
+};
+</v-code>
+
+<v-code lang="js" title="">
+export interface IFormikWrapperProps {
+    <u-code>onSubmit</u-code>: FormikConfig&lt;Person&gt;['onSubmit'];
+}
+
+const FormikWrapper: React.FC&lt;IFormikWrapperProps&gt; = props =&gt; {
+    return (
+        &lt;Formik onSubmit={props.onSubmit}&gt;
+            &lt;Form&gt;{props.children}&lt;/Form&gt;
+        &lt;/Formik&gt;
+    );
+};
+</v-code>
+
 </div></div>
                 </div>
             </div>

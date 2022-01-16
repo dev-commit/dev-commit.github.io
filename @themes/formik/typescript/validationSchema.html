@@ -1,0 +1,40 @@
+<h2>validationSchema</h2>
+
+<v-code lang="js" title="">
+interface Person = {
+	userName: string | undefined;
+};
+</v-code>
+
+<v-code lang="js" title="">
+const App = () =&gt; {
+    const <u-code>handleSubmit</u-code> = (
+        values: Person,
+        formik: FormikHelpers&lt;Person&gt;,
+    ): void =&gt; {
+        //
+    };
+
+    return (
+        &lt;FormikWrapper onSubmit={handleSubmit}&gt;
+            &lt;Component /&gt;
+            &lt;button type="submit"&gt;Submit&lt;/button&gt;
+        &lt;/FormikWrapper&gt;
+    );
+};
+</v-code>
+
+<v-code lang="js" title="">
+export interface IFormikWrapperProps {
+    <u-code>onSubmit</u-code>: FormikConfig&lt;Person&gt;['onSubmit'];
+}
+
+const FormikWrapper: React.FC&lt;IFormikWrapperProps&gt; = props =&gt; {
+    return (
+        &lt;Formik onSubmit={props.onSubmit}&gt;
+            &lt;Form&gt;{props.children}&lt;/Form&gt;
+        &lt;/Formik&gt;
+    );
+};
+</v-code>
+
