@@ -54,7 +54,15 @@
                 class="menu-link"
                 id="id__formik/api/Formik"
                 href="#formik/api/Formik"
-            ><u-menu-outline>1.0</u-menu-outline> <u-menu>&lt;Formik /&gt;</u-menu> <u-menu>&lt;Form /&gt;</u-menu></a>
+            ><u-menu-outline>1.0</u-menu-outline> <u-menu>&lt;Formik /&gt;</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__formik/api/Form"
+                href="#formik/api/Form"
+            ><u-menu-outline>2.0</u-menu-outline> <u-menu>&lt;Form /&gt;</u-menu></a>
         </li>
     
         <li>
@@ -62,7 +70,7 @@
                 class="menu-link"
                 id="id__formik/api/Field"
                 href="#formik/api/Field"
-            ><u-menu-outline>2.1</u-menu-outline> <u-menu>&lt;Field /&gt;</u-menu></a>
+            ><u-menu-outline>3.1</u-menu-outline> <u-menu>&lt;Field /&gt;</u-menu></a>
         </li>
     
         <li>
@@ -70,7 +78,7 @@
                 class="menu-link"
                 id="id__formik/api/useField"
                 href="#formik/api/useField"
-            ><u-menu-outline>2.2</u-menu-outline> <u-menu-accent>useField</u-menu-accent></a>
+            ><u-menu-outline>3.2</u-menu-outline> <u-menu-accent>useField</u-menu-accent></a>
         </li>
     
         <li>
@@ -267,24 +275,21 @@ const App = () => {
 }
 </v-code>
 </v-details>
-</div><div id="formik/api/Formik"><h2>
-    <u-code-text>&lt;Formik /&gt;</u-code-text>
-    <u-code-text>&lt;Form /&gt;</u-code-text>
-</h2>
+</div><div id="formik/api/Formik"><h2><u-code-text>&lt;Formik /&gt;</u-code-text></h2>
 
 <ul class="list-point">
     <li>Обёртка для всех компонентов</li>
 </ul>
 
 <v-code lang="js" title="">
-import { Formik, Form, Field } from "formik";
+import { Formik } from "formik";
 
 const App = () =&gt; {
     const initialValues = {
         <em>userName</em>: ""
     };
 
-    const handleSubmit = (values) => {
+    const handleSubmit = (values, formik) => {
 		console.log(values); // => { <em>userName</em>: "text" }
     };
 
@@ -293,12 +298,44 @@ const App = () =&gt; {
             initialValues={initialValues}
             onSubmit={handleSubmit}
         &gt;
-            &lt;<u-code>Form</u-code>&gt;
+            <u-code-light>⚡️ &lt;Form /&gt; и поля для обработки</u-code-light>
+        &lt;/<u-code>Formik</u-code>&gt;
+    );
+};
+</v-code>
 
-<u-code-wrapper><u-code-comment>// Поля для обработки</u-code-comment></u-code-wrapper>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>formikProps</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const App = () =&gt; {
+    return (
+        &lt;<u-code>Formik</u-code>&gt;
+            {(<u-code>formikProps</u-code>) =&gt; {
+                console.log(formikProps);
+                return (<u-code-light>⚡️ &lt;Form /&gt; и поля для обработки</u-code-light>)
+            }}
+        &lt;/<u-code>Formik</u-code>&gt;
+    );
+};
+</v-code>
+</div><div id="formik/api/Form"><h2><u-code-text>&lt;Form /&gt;</u-code-text></h2>
+
+<ul class="list-point">
+    <li>Обертка для формы</li>
+</ul>
+
+<v-code lang="js" title="">
+import { Formik, Form } from "formik";
+
+const App = () =&gt; {
+    return (
+        &lt;Formik&gt;
+            &lt;<u-code>Form</u-code>&gt;
+            	<u-code-light>⚡️ Поля для обработки</u-code-light>
                 &lt;button type="submit"&gt;Submit&lt;/button&gt;
             &lt;/<u-code>Form</u-code>&gt;
-        &lt;/<u-code>Formik</u-code>&gt;
+        &lt;/Formik&gt;
     );
 };
 </v-code>

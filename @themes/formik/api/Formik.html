@@ -1,21 +1,18 @@
-<h2>
-    <u-code-text>&lt;Formik /&gt;</u-code-text>
-    <u-code-text>&lt;Form /&gt;</u-code-text>
-</h2>
+<h2><u-code-text>&lt;Formik /&gt;</u-code-text></h2>
 
 <ul class="list-point">
     <li>Обёртка для всех компонентов</li>
 </ul>
 
 <v-code lang="js" title="">
-import { Formik, Form, Field } from "formik";
+import { Formik } from "formik";
 
 const App = () =&gt; {
     const initialValues = {
         <em>userName</em>: ""
     };
 
-    const handleSubmit = (values) => {
+    const handleSubmit = (values, formik) => {
 		console.log(values); // => { <em>userName</em>: "text" }
     };
 
@@ -24,11 +21,23 @@ const App = () =&gt; {
             initialValues={initialValues}
             onSubmit={handleSubmit}
         &gt;
-            &lt;<u-code>Form</u-code>&gt;
+            <u-code-light>⚡️ &lt;Form /&gt; и поля для обработки</u-code-light>
+        &lt;/<u-code>Formik</u-code>&gt;
+    );
+};
+</v-code>
 
-<u-code-wrapper><u-code-comment>// Поля для обработки</u-code-comment></u-code-wrapper>
-                &lt;button type="submit"&gt;Submit&lt;/button&gt;
-            &lt;/<u-code>Form</u-code>&gt;
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>formikProps</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const App = () =&gt; {
+    return (
+        &lt;<u-code>Formik</u-code>&gt;
+            {(<u-code>formikProps</u-code>) =&gt; {
+                console.log(formikProps);
+                return (<u-code-light>⚡️ &lt;Form /&gt; и поля для обработки</u-code-light>)
+            }}
         &lt;/<u-code>Formik</u-code>&gt;
     );
 };
