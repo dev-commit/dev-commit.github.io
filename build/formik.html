@@ -136,6 +136,14 @@
                 href="#formik/typescript/validationSchema"
             ><u-menu>validationSchema</u-menu></a>
         </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__formik/typescript/FormikProps"
+                href="#formik/typescript/FormikProps"
+            ><u-menu>FormikProps</u-menu></a>
+        </li>
     </ul>
                 </div>
 
@@ -305,14 +313,14 @@ const App = () =&gt; {
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>formikProps</h3>
+<h3>props</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 const App = () =&gt; {
     return (
         &lt;<u-code>Formik</u-code>&gt;
-            {(<u-code>formikProps</u-code>) =&gt; {
-                console.log(formikProps);
+            {(<u-code>props</u-code>) =&gt; {
+                console.log(props);
                 return (<u-code-light>⚡️ &lt;Form /&gt; и поля для обработки</u-code-light>)
             }}
         &lt;/<u-code>Formik</u-code>&gt;
@@ -877,36 +885,16 @@ export default withFormik({
 </v-code>
 </div><div id="formik/typescript/onSubmit"><h2>onSubmit</h2>
 
-<u-link-wrapper>
-	<a href="https://codesandbox.io/s/formik-yup-schemaof-iobrw" target="_blank">CodeSandbox</a>
-</u-link-wrapper>
-
-<v-code lang="js" title="">
-type Person = {
-  userName: string | undefined;
-};
-
-const getValidationSchema = (): Yup.SchemaOf&lt;Person&gt; =>
-  Yup.object({
-    userName: Yup.string()
-  });
-
-const App = () => {
-  const validationSchema = getValidationSchema();
-
-  return (...);
-};
-</v-code>
-</div><div id="formik/typescript/validationSchema"><h2>validationSchema</h2>
-
 <v-code lang="js" title="">
 interface Person = {
-	userName: string | undefined;
+  userName: string | undefined;
 };
 </v-code>
 
 <v-code lang="js" title="">
-const App = () =&gt; {
+import { FormikHelpers } from 'formik';
+
+const App = () => {
     const <u-code>handleSubmit</u-code> = (
         values: Person,
         formik: FormikHelpers&lt;Person&gt;,
@@ -936,7 +924,55 @@ const FormikWrapper: React.FC&lt;IFormikWrapperProps&gt; = props =&gt; {
     );
 };
 </v-code>
+</div><div id="formik/typescript/validationSchema"><h2>validationSchema</h2>
 
+<u-link-wrapper>
+    <a href="https://codesandbox.io/s/formik-yup-schemaof-iobrw" target="_blank">CodeSandbox</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+type Person = {
+    userName: string | undefined;
+};
+</v-code>
+
+<v-code lang="js" title="">
+import * as Yup from 'yup';
+
+const getValidationSchema = (): Yup.SchemaOf&lt;Person&gt; =>
+    Yup.object({
+        userName: Yup.string()
+    });
+
+const App = () => {
+    const validationSchema = getValidationSchema();
+
+    return (...);
+};
+</v-code>
+</div><div id="formik/typescript/FormikProps"><h2>FormikProps</h2>
+
+<v-code lang="js" title="">
+interface Person = {
+  userName: string | undefined;
+};
+</v-code>
+
+<v-code lang="js" title="">
+import { FormikProps } from 'formik';
+
+const App = () => {
+    return (
+    	&lt;Formik&gt;
+			{(formikProps: <u-code>FormikProps</u-code>&lt;Person&gt;) =&gt; (
+				&lt;Form&gt;
+					//
+				&lt;/Form&gt;
+			)}
+    	&lt;/Formik&gt;
+    );
+};
+</v-code>
 </div></div>
                 </div>
             </div>

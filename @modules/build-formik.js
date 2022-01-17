@@ -34,8 +34,7 @@ ARR_MODULE = [
         themes: [
             [root+'typescript/onSubmit',         setTheme(1, ['onSubmit'])],
             [root+'typescript/validationSchema', setTheme(1, ['validationSchema'])],
+            [root+'typescript/FormikProps',      setTheme(1, ['FormikProps'])],
         ]
     },
 ]
-
-
