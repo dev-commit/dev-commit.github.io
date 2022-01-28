@@ -1,0 +1,52 @@
+<h2><u-code-text>&lt;Link /&gt;</u-code-text></h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="&lt;Link /&gt;" after="" arg="">
+    Видоизмененная ссылка под React для редиректа на нужную страницу. Предотвращает обновление страницы, в отличии от обычной ссылки
+    </v-method>
+	<v-method-arg arg="to">Местоположение ссылки</v-method-arg>
+	<v-method-arg arg="end">Гарантирует, что этот компонент не будет сопоставлен как «активный», когда совпадают пути его потомков. Например, чтобы отобразить ссылку, которая активна только в корне веб-сайта, а не в каких-либо других URL-адресах</v-method-arg>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>&lt;Link /&gt;</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { Link } from 'react-router-dom';
+
+const App = () = (
+	&lt;&gt;
+		&lt;<u-code>Link</u-code> to="/"&gt;Home&lt;/<u-code>Link</u-code>&gt;
+		&lt;<u-code>Link</u-code> to="/about/"&gt;About&lt;/<u-code>Link</u-code>&gt;
+	&lt;/&gt;
+);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Настройка сервера Webpack</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>При переходе по <u-code-text>Link</u-code-text> изменяется url, но физически этой страницы нет. Поэтому нужно настроить сервер</li>
+</ul>
+
+<v-code lang="js" title="webpack.config.js">
+module.exports = {
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'build'),
+		<u-code-wrapper>
+		publicPath: '/'
+		</u-code-wrapper>
+	},
+	devServer: {
+		contentBase: './dist',
+		<u-code-wrapper>
+		historyApiFallback: {
+			disableDotRule: true
+		},
+		</u-code-wrapper>
+		stats: 'errors-only',
+		port: 3000
+	}
+}
+</v-code>

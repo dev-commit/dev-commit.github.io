@@ -1,0 +1,37 @@
+<h2><u-code-text>useNavigate()</u-code-text></h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useNavigate" after="" arg="()">
+    Программная навигация по странице
+    </v-method>
+</div>
+
+<v-code lang="js border" title="">
+navigate('/about'); // на конкретную страницу (about)
+navigate(-1);       // на 1 страницу назад
+navigate(-2);       // на 2 страницы назад
+</v-code>
+
+<v-code lang="js" title="">
+import { BrowserRouter, Link, Routes, Route, <u-code>useNavigate</u-code> } from 'react-router-dom';
+
+const Navigate = () =&gt; {
+    const navigate = <u-code>useNavigate</u-code>();
+
+    const handleClick = () =&gt; {
+        <u-code>navigate</u-code>(-1);
+    };
+
+    return &lt;button onClick={handleClick}&gt;Click&lt;/button&gt;;
+};
+
+const App = () =&gt; (
+    &lt;BrowserRouter&gt;
+        &lt;Link to="/navigate"&gt;Navigate&lt;/Link&gt;
+
+        &lt;Routes&gt;
+            &lt;Route path="navigate" element={&lt;Navigate /&gt;} /&gt;
+        &lt;/Routes&gt;
+    &lt;BrowserRouter/&gt;
+);
+</v-code>

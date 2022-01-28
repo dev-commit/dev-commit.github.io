@@ -1,0 +1,22 @@
+<h2><u-code-text>&lt;BrowserRouter /&gt;</u-code-text></h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="&lt;BrowserRouter /&gt;" after="" arg="">
+	Роутер. Использует html5 history api и следит за тем чтобы UI был синхронизирован с тем что написано в адресной строке.<br>
+	BrowserRouter технически является компонентом, но не создаёт DOM-элемента
+    </v-method>
+	<v-method-arg arg="basename">Базовый URL для всех местоположений. Если ваше приложение обслуживается из подкаталога на вашем сервере, вам нужно установить это в подкаталог. Правильно отформатированное базовое имя должно иметь косую черту в начале, но не в конце</v-method-arg>
+</div>
+
+<v-code lang="js" title="">
+import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
+
+const App = () =&gt; (
+	&lt;<u-code>BrowserRouter</u-code> basename="/root/"&gt;
+		&lt;Link to="/about"&gt;About&lt;/Link&gt;
+		&lt;Routes&gt;
+			&lt;Route path="about" element={&lt;About /&gt;} /&gt;
+		&lt;/Routes&gt;
+	&lt;/<u-code>BrowserRouter</u-code>&gt;
+)
+</v-code>

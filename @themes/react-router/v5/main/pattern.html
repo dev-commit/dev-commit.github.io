@@ -1,0 +1,68 @@
+<h2>Basic Routing</h2>
+
+<i>./src/containers/App.jsx</i>
+<v-code lang="js" title="">
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import routesConfig from '../routes/routesConfig';
+import Header from '../components/Header';
+
+const App = () =&gt;(
+	&lt;&gt;
+		&lt;<u-code>BrowserRouter</u-code>&gt;
+			&lt;Header /&gt;
+			&lt;<u-code>Switch</u-code>&gt;
+				{routesConfig.map((route, index) =&gt; (
+					&lt;<u-code>Route</u-code>
+						key={index}
+						path={route.path}
+						exact={route.exact}
+						component={route.component}
+					/&gt;
+				))}
+			&lt;/<u-code>Switch</u-code>&gt;
+		&lt;/<u-code>BrowserRouter</u-code>&gt;
+	&lt;/&gt;
+)
+
+export default App;
+</v-code>
+
+<i>./src/routes/routesConfig.js</i>
+<v-code lang="js" title="">
+import HomePage from '../containers/HomePage';
+import PeoplePage from '../containers/PeoplePage';
+import PersonPage from '../containers/PersonPage';
+
+const routesConfig = [
+    {
+        path: '/',
+        exact: true,
+        component: HomePage
+    },
+    {
+        path: '/people',
+        exact: true,
+        component: PeoplePage
+    },
+    {
+        path: '/people/:id',
+        component: PersonPage
+    },
+];
+
+export default routesConfig;
+</v-code>
+
+<i>./src/components/Header/Header.jsx</i>
+<v-code lang="js" title="">
+import { NavLink } from 'react-router-dom';
+
+const Header = () =&gt; (
+	&lt;ul&gt;
+		&lt;li&gt;&lt;<u-code>NavLink</u-code> to="/" exact&gt;Home&lt;/<u-code>NavLink</u-code>&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;<u-code>NavLink</u-code> to="/people"&gt;People&lt;/<u-code>NavLink</u-code>&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+);
+
+export default Header;
+</v-code>
