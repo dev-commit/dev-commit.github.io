@@ -102,7 +102,7 @@ Vue.component('v-iframe', {
 
 Vue.component('v-code', {
 	props: ['lang', 'title'],
-    template: `<pre><code :class="lang"><u-code-title v-text="title" /><slot></slot></code></pre>`
+    template: `<pre><code :class="lang"><u-code-title v-if="title" v-text="title" /><slot></slot></code></pre>`
 })
 
 Vue.component('v-pre-npm', {
@@ -167,6 +167,17 @@ Vue.component('v-path', {
 
 Vue.component('v-tree', {
     template: `<pre><code class="bash v-tree"><slot></slot></code></pre>`
+})
+
+Vue.component('v-sandbox', {
+	props: ['url', 'title'],
+    template: `
+		<div class="v-sandbox">
+			<span class="element">
+				⭐️ <a :href="url" target="_blank" v-html="!title ? 'CodeSandbox' : title"></a>
+			</span>
+		</div>
+	`
 })
 
 const app = new Vue({
