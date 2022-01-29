@@ -14,9 +14,6 @@ npm run filles  # build + pages
 
 ## Todo
 
-### Переменные в стилях
-- `--theme` заменить на `--color`
-
 ### Themes
 - `<v-copy>` не работает в build
 

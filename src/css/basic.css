@@ -4,18 +4,15 @@
 /* @import "../libs/highlight/styles/atom-one-dark.css" screen; */
 
 :root {
-	--theme-green:          74, 175, 45;    /* #4aaf2d */
-	--theme-blue:           11, 168, 160;   /* #0ba8a0 */
-	--theme-crimson:        191, 122, 190;  /* #bf7abe */
-	--theme-brown:          179, 183, 104;  /* #b3b768 */
-	--theme-violet:         71, 7, 183;     /* #4707b7 */
-	--theme-gray:           150, 150, 150;  /* #969696 */
-	--theme-orange:         245, 224, 66;   /* #f5e042 */
-
+	--color-crimson:        191, 122, 190;  /* #bf7abe */
 	--color-red:            226, 131, 174;  /* #e283ae */
 	--color-orange:         233, 105, 0;    /* #e96900 */
-	--color-yellow:         253, 234, 76;   /* #fdea4c */
-	--color-yellow-light:   227, 227, 168;  /* #e3e3a8 */
+	--color-yellow:         245, 224, 66;   /* #f5e042 */
+	--color-yellow-light:   253, 234, 76;   /* #fdea4c */
+	--color-brown:          179, 183, 104;  /* #b3b768 */
+	--color-brown-light:    227, 227, 168;  /* #e3e3a8 */
+	--color-green:          74, 175, 45;    /* #4aaf2d */
+	--color-blue-green:     11, 168, 160;   /* #0ba8a0 */
 	--color-green-blue:     0, 201, 167;    /* #00c9a7 */
 	--color-green-light:    152, 195, 121;  /* #98c379 */
 	--color-blue-gray:      44, 62, 80;     /* #2c3e50 */
@@ -23,12 +20,14 @@
 	--color-blue:           19, 193, 247;   /* #13c1f7 */
 	--color-blue-light:     136, 222, 249;  /* #88def9 */
 	--color-blue-lighter:   236, 241, 241;  /* #ecf1f1 */
-	--color-violet:         98, 65, 234;    /* #6241ea */
-	--color-violet-light:   254, 246, 255;  /* #fef6ff */
+	--color-violet:         71, 7, 183;     /* #4707b7 */
+	--color-violet-light:   98, 65, 234;    /* #6241ea */
+	--color-violet-lighter: 254, 246, 255;  /* #fef6ff */
 	
 	--color-black:          0, 0, 0;        /* #000000 */
 	--color-gray-darker:    107, 107, 107;  /* #6b6b6b */
 	--color-gray-dark:      128, 128, 128;  /* #808080 */
+	--color-semidark:       150, 150, 150;  /* #969696 */
 	--color-gray-medium:    166, 166, 166;  /* #a6a6a6 */
 	--color-gray-light:     221, 221, 221;  /* #dddddd */
 	--color-gray-lighter:   248, 249, 250;  /* #f8f9fa */
@@ -52,7 +51,7 @@ body {
     box-sizing: border-box;
 }
 *::selection {
-	background: rgba(var(--theme-blue), .4);
+	background: rgba(var(--color-blue-green), .4);
 }
 
 /***************************************************
@@ -98,14 +97,14 @@ code {
 	box-shadow: 0 0.125rem 0.25rem rgba(var(--color-black), .075);
 }
 code.border {
-	--color: var(--theme-blue);
+	--color: var(--color-blue-green);
 	border: 1px solid rgba(var(--color), .2);
 	border-left: 4px solid rgba(var(--color), .2);
 	background: rgba(var(--color), .1) !important;
 	box-shadow: none;
 }
 code.step {
-	--color: var(--theme-brown);
+	--color: var(--color-brown);
 	border: 1px solid rgba(var(--color), .2);
 	border-left: 4px solid rgba(var(--color), .2);
 	background: rgba(var(--color), .1) !important;
@@ -121,7 +120,7 @@ code.none u-code-title {
 }
 code.none a {
 	text-decoration: underline;
-	color: rgb(var(--theme-blue));
+	color: rgb(var(--color-blue-green));
 }
 pre a {
 	color: rgb(var(--color-black));
@@ -186,7 +185,7 @@ h4 {
 	color: rgb(var(--color-gray-darker));
 }
 em {
-	color: rgb(var(--theme-crimson));
+	color: rgb(var(--color-crimson));
 	font-style: normal;
 	font-weight: 500;
 	position: relative;
@@ -198,7 +197,7 @@ em:after {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	border-bottom: 2px dotted rgba(var(--theme-crimson), .5);
+	border-bottom: 2px dotted rgba(var(--color-crimson), .5);
 }
 i {
 	color: rgb(var(--color-gray-dark));
@@ -223,7 +222,7 @@ hr {
 	background-color: rgba(var(--color-gray-medium), .3);
 }
 ul a {
-	color: rgb(var(--color-violet));
+	color: rgb(var(--color-violet-light));
 }
 summary {
 	cursor: pointer;
@@ -239,7 +238,7 @@ table {
 }
 td, th {
 	padding: 3px 10px;
-	border: 1px solid rgba(var(--theme-gray), .4);
+	border: 1px solid rgba(var(--color-semidark), .4);
 }
 th {
 	background-color: rgba(var(--color-blue), .3);
@@ -249,7 +248,7 @@ table.even tr:nth-child(odd) {
 	background: rgba(var(--color-gray-lighter));
 }
 table td.accent {
-	background-color: rgba(var(--color-yellow-light), .5);
+	background-color: rgba(var(--color-brown-light), .5);
 	font-weight: bold;
 	color: rgba(var(--color-black), .7);
 }
