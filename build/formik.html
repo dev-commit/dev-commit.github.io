@@ -744,6 +744,8 @@ const Child = () =&gt; {
 </v-code>
 </div><div id="formik/api/withFormik"><h2>withFormik</h2>
 
+<v-sandbox url="https://codesandbox.io/s/formik-withformik-ijecv" />
+
 <u-link-wrapper>
 	<a href="https://formik.org/docs/api/withFormik" target="_blank">Документация</a>
 </u-link-wrapper>
@@ -754,50 +756,18 @@ const Child = () =&gt; {
     </v-method>
 </div>
 
-
-<v-code lang="js" title="">
-import React from 'react';
+<v-code lang="js border" title="">
 import { withFormik } from 'formik';
-import * as Yup from 'yup';
-</v-code>
 
-<v-code lang="js" title="">
-const validationSchema = Yup.object().shape({
-    inputName: Yup.string().required('Поле обязательно для заполнения'),
-});
-</v-code>
-
-<v-code lang="js" title="">
-const Component = (values, handleChange, handleSubmit) =&gt; {
-
-    //const handleInputNameChange = (event) =&gt; {
-    //    handleChange(event);
-    //};
-
-    return (
-        &lt;form onSubmit={handleSubmit}&gt;
-            &lt;Input
-                //onChange={handleInputNameChange}
-		        onChange={handleChange}
-                value={values.inputName}
-                name='inputName'
-		        error={touched.inputName &amp;&amp; errors.inputName}
-            /&gt;
-        &lt;/form&gt;
-    );
+const App = (props) =&gt; {
+    //
 };
-</v-code>
 
-<v-code lang="js" title="">
-export default withFormik({
-    mapPropsToValues: () => ({
-        inputName: '',
-    }),
-    handleSubmit: async (values, { props, setStatus }) => {
-        console.log(values);
-    },
-    validationSchema,
-})(Component);
+export default <u-code>withFormik</u-code>({
+    mapPropsToValues: () => {...},
+    handleSubmit: () => {...},
+    ...
+})(App);
 </v-code>
 </div><div id="formik/api/setFieldTouched"><h2>Событие setFieldTouched</h2>
 

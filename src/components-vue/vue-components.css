@@ -32,7 +32,7 @@ v-pre-npm
 	left: 0;
 	width: 3px;
 	height: 100%;
-	background: #bf7abe;
+	background: rgb(var(--theme-crimson));
 }
 
 /*******************************************
@@ -40,9 +40,9 @@ v-method, v-method-arg, v-method-return
 *******************************************/
 .v-method-wrapper {
 	font-size: 0px;
-	background: #fef6ff;
+	background: rgb(var(--color-violet-light));
 	padding: 20px;
-	border-left: 4px solid #00c9a7;
+	border-left: 4px solid rgb(var(--color-green-blue));
 	line-height: 2;
 	margin: 10px 0px;
 }
@@ -52,19 +52,19 @@ v-method, v-method-arg, v-method-return
 	}
 	.v-method-wrapper .expression {
 		padding: 4px;
-		color: #e96900;
-		background: rgba(179, 183, 104, 0.2);
+		color: rgb(var(--color-orange));
+		background: rgba(var(--theme-brown), .2);
 	}
 	.v-method-wrapper .method {
-		background: #00c9a7;
-		color: #fff;
+		background: rgb(var(--color-green-blue));
+		color: rgb(var(--color-white));
 		padding: 4px;
-		text-shadow: 0px 0px 2px #000;
+		text-shadow: 0px 0px 2px rgb(var(--color-black));
 	}
 	.v-method-wrapper .text {
 		margin-left: 4px;
 	    font-family: FiraSans-Regular;
-	    color: rgba(0,0,0,0.7);
+	    color: rgba(var(--color-black), .7);
 	}
 
 
@@ -75,18 +75,18 @@ v-method, v-method-arg, v-method-return
 		content: '⚡️';
 		padding: 2px 7px;
 		font-size: 15px;
-		color: #bf7abe;
+		color: rgb(var(--theme-crimson));
 	}
 	.v-method-arg--wrapper .arg {
 		padding: 2px 4px;
 		border-radius: 3px;
-		background: #fff;
-		border: 1px solid #e96900;
-		color: #e96900;
+		background: rgb(var(--color-white));
+		border: 1px solid rgb(var(--color-orange));
+		color: rgb(var(--color-orange));
 	}
 	.v-method-arg--wrapper .text {
 		font-family: FiraSans-Regular;
-		color: rgba(0,0,0,0.7);
+		color: rgba(var(--color-black), .7);
 	}
 
 
@@ -97,24 +97,24 @@ v-method, v-method-arg, v-method-return
 		content: '🍩';
 		padding: 2px 7px;
 		font-size: 15px;
-		color: #bf7abe;
+		color: rgb(var(--theme-crimson));
 	}
 	.v-method-return--wrapper .arg {
 		padding: 2px 4px;
 		border-radius: 3px;
 		font-weight: bold;
-		color: #e96900;
+		color: rgb(var(--color-orange));
 	}
 	.v-method-return--wrapper .text {
 		font-family: FiraSans-Regular;
-		color: rgba(0,0,0,0.7);
+		color: rgba(var(--color-black), .7);
 	}
 
 /*******************************************
 v-details
 *******************************************/
 .v-details {
-	--color: rgba(var(--color-violet-light), .7);
+	--color: rgba(var(--color-violet), .7);
 }
 .v-details summary::-webkit-details-marker {
 	color: var(--color);
@@ -153,7 +153,7 @@ v-codesandbox
 	line-height: 2.2;
 }
 .v-sandbox .element {
-	background-color: rgba(var(--color-violet-light), .7);
+	background-color: rgba(var(--color-violet), .7);
 	padding: 3px 5px;
 	border-radius: 5px;
 }

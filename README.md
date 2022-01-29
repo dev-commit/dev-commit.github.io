@@ -15,8 +15,7 @@ npm run filles  # build + pages
 ## Todo
 
 ### Переменные в стилях
-- `src\components-web\custom-elements.css`
-- `src\components-vue\vue-components.css`
+- `--theme` заменить на `--color`
 
 ### Themes
 - `<v-copy>` не работает в build
