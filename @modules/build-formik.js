@@ -21,15 +21,11 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'События',
-        themes: [
-            [root+'actions/setFieldTouched',  setTheme(2, ['onBlur', 'setFieldTouched'])],
-        ]
-    },
-    {
         title: 'Валидиция',
         themes: [
-            [root+'validation/validation-schema',  setTheme(2, ['validationSchema'])],
+            [root+'validation/info',               emoji.theory+'Информация'],
+            [root+'validation/validation-schema',  setTheme(1, ['validationSchema'])],
+            [root+'validation/setFieldTouched',    setTheme(1, ['onBlur', 'setFieldTouched'])],
             [root+'validation/validate',           setTheme(2, ['validate'])],
         ]
     },
