@@ -1,8 +1,14 @@
 <h2><u-code-text>&lt;Formik /&gt;</u-code-text></h2>
 
-<ul class="list-point">
-    <li>Обёртка для всех компонентов</li>
-</ul>
+<u-link-wrapper>
+	<a href="https://formik.org/docs/api/formik" target="_blank">Документация</a>
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="&lt;Formik /&gt;" after="" arg="">
+        Обёртка для всех компонентов
+    </v-method>
+</div>
 
 <v-code lang="js" title="">
 import { Formik } from "formik";
@@ -12,8 +18,10 @@ const App = () =&gt; {
         <em>userName</em>: ""
     };
 
-    const handleSubmit = (values, formik) => {
+    const handleSubmit = (values, actions) => {
+        // может быть асинхронное дейсвие
 		console.log(values); // => { <em>userName</em>: "text" }
+        // actions.setSubmitting(false);
     };
 
     return (
@@ -28,7 +36,7 @@ const App = () =&gt; {
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>props</h3>
+<h3>Props для &lt;Formik /&gt;</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 const App = () =&gt; {

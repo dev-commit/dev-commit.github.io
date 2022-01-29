@@ -12,12 +12,12 @@ ARR_MODULE = [
     {
         title: 'API',
         themes: [
-            [root+'api/Formik',           setTheme(5, ['1.0'])+ ' '+setTheme(1, ['&lt;Formik /&gt;'])],
-            [root+'api/Form',             setTheme(5, ['2.0'])+ ' '+setTheme(1, ['&lt;Form /&gt;'])],
-            [root+'api/Field',            setTheme(5, ['3.1'])+ ' '+setTheme(1, ['&lt;Field /&gt;'])],
-            [root+'api/useField',         setTheme(5, ['3.2'])+ ' '+setTheme(3, ['useField'])],
+            [root+'api/Formik',           setTheme(1, ['&lt;Formik /&gt;'])],
+            [root+'api/Form',             setTheme(1, ['&lt;Form /&gt;'])],
+            [root+'api/Field',            setTheme(1, ['&lt;Field /&gt;'])],
+            [root+'api/useField',         setTheme(3, ['useField()'])],
+            [root+'api/useFormikContext', setTheme(3, ['useFormikContext()'])],
             ['', ''],
-            [root+'api/useFormikContext', setTheme(3, ['useFormikContext'])],
             [root+'api/setFieldTouched',  setTheme(5, ['setFieldTouched'])],
             [root+'api/withFormik',       setTheme(5, ['withFormik'])],
         ]

@@ -6,20 +6,55 @@
 	<a href="https://formik.org/docs/api/useField" target="_blank">Документация</a>
 </u-link-wrapper>
 
+<div class="v-method-wrapper">
+    <v-method before="" method="useField" after="" arg="()">
+		Хук
+		<ul class="list-point">
+			<li>Автоматически подключает входные данные к Formik</li>
+			<li><u>Вызывается из дочернего компонента</u></li>
+			<li>Можно использовать для создания собственных пользовательских примитивов ввода</li>
+		</ul>
+    </v-method>
+	<v-method-return>Array</v-method-return>
+</div>
+
+<!------------------------------------------------------------->
+<h4>Array</h4>
+<!------------------------------------------------------------->
+<v-details title="field">
 <ul class="list-point">
-    <li><u-text-define>useField</u-text-define> - настраиваемый хук React, который автоматически поможет подключить входные данные к Formik</li>
-    <li>Можно использовать для создания собственных пользовательских примитивов ввода</li>
+	<li><u-code-text>name</u-code-text> Имя элемента (атрибут name)</li>
+	<li><u-code-text>value</u-code-text> Текущее value</li>
+	<li><u-code-text>onChange</u-code-text> Function</li>
+	<li><u-code-text>onBlur</u-code-text> Function</li>
 </ul>
+</v-details>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Подключение и параметры</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-import { <u-code>useField</u-code> } from 'formik';
-</v-code>
+<v-details title="meta">
+<ul class="list-point">
+	<li><u-code-text>value</u-code-text> Текущее value</li>
+	<li><u-code-text>error</u-code-text> undefined</li>
+	<li><u-code-text>touched</u-code-text> false</li>
+	<li><u-code-text>initialValue</u-code-text> value, заданное по умолчанию</li>
+	<li><u-code-text>initialTouched</u-code-text> false</li>
+	<li><u-code-text>initialError</u-code-text> undefined</li>
+</ul>
+</v-details>
 
-<v-code lang="js" title="">
-const App = () => {
+<v-details title="helpers">
+<ul class="list-point">
+	<li><u-code-text>setValue</u-code-text> Function</li>
+	<li><u-code-text>setTouched</u-code-text> Function</li>
+	<li><u-code-text>setError</u-code-text> Function</li>
+</ul>
+</v-details>
+
+
+
+<v-code lang="js border" title="">
+import { useField } from 'formik';
+
+const Child = () => {
 	// простой вариант
 	const [field, meta, helpers] = <u-code>useField</u-code>(props);
 	// деструктуризация
@@ -27,33 +62,6 @@ const App = () => {
 }
 </v-code>
 
-<v-code lang="js none" title="">
-› <u-code-text>field</u-code-text> = {
-	name: "Имя элемента (атрибут name)",
-	value: "Текущее value",
-	onChange: ƒ (),
-	onBlur: ƒ ()
-}
-</v-code>
-
-<v-code lang="js none" title="">
-› <u-code-text>meta</u-code-text> = {
-	value: "Текущее value",
-	error: undefined,
-	touched: false,
-	initialValue: "value, заданное по умолчанию",
-	initialTouched: false,
-	initialError: undefined
-}
-</v-code>
-
-<v-code lang="js none" title="">
-› <u-code-text>helpers</u-code-text> = {
-	setValue: ƒ (),
-	setTouched: ƒ (),
-	setError: ƒ ()
-}
-</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Варианты</h3>
@@ -64,7 +72,7 @@ const App = () => {
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 const Input = ({ name, type }) =&gt; {
-	const [field] = <u-code>useField</u-code>(name);
+	const [<u-code-accent>field</u-code-accent>] = <u-code>useField</u-code>(name);
 
 	return (
 		&lt;input
@@ -88,7 +96,7 @@ const Input = ({ name, type }) =&gt; {
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 const Input = ({ name, type }) =&gt; {
-	const [field, meta, { setValue }] = useField(name);
+	const [<u-code-accent>field</u-code-accent>, , { <u-code-accent>setValue</u-code-accent> }] = useField(name);
 
 	const handleChange = (e) =&gt; {
 		<u-code>setValue</u-code>(e.target.value);
@@ -116,7 +124,7 @@ const Input = ({ name, type }) =&gt; {
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 const Input = ({ label, name, ...props }) =&gt; {
-	const [field] = <u-code>useField</u-code>(name);
+	const [<u-code-accent>field</u-code-accent>] = <u-code>useField</u-code>(name);
 
 	return (
 		&lt;label&gt;
@@ -137,8 +145,8 @@ const Input = ({ label, name, ...props }) =&gt; {
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 const Input = ({ name, ...props }) =&gt; {
-	const [field, meta] = <u-code>useField</u-code>(name);
-	const hasError = Boolean(meta.touched) &amp;&amp; Boolean(meta.error);
+	const [<u-code-accent>field</u-code-accent>, <u-code-accent>meta</u-code-accent>] = <u-code>useField</u-code>(name);
+	const hasError = Boolean(<u-code>meta</u-code>.touched) &amp;&amp; Boolean(<u-code>meta</u-code>.error);
 
 	return (
 		&lt;&gt;
@@ -161,7 +169,7 @@ const Input = ({ name, ...props }) =&gt; {
 const Counter = ({ name }) =&gt; {
 	// вместо прямого использования значений в "field"
 	// используем "meta" и "helpers"
-	const [field, , { setValue }] = <u-code>useField</u-code>(name);
+	const [<u-code-accent>field</u-code-accent>, , { <u-code-accent>setValue</u-code-accent> }] = <u-code>useField</u-code>(name);
 
 	// console.log(field.value);
 

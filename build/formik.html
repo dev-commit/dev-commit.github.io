@@ -54,7 +54,7 @@
                 class="menu-link"
                 id="id__formik/api/Formik"
                 href="#formik/api/Formik"
-            ><u-menu-outline>1.0</u-menu-outline> <u-menu>&lt;Formik /&gt;</u-menu></a>
+            ><u-menu>&lt;Formik /&gt;</u-menu></a>
         </li>
     
         <li>
@@ -62,7 +62,7 @@
                 class="menu-link"
                 id="id__formik/api/Form"
                 href="#formik/api/Form"
-            ><u-menu-outline>2.0</u-menu-outline> <u-menu>&lt;Form /&gt;</u-menu></a>
+            ><u-menu>&lt;Form /&gt;</u-menu></a>
         </li>
     
         <li>
@@ -70,7 +70,7 @@
                 class="menu-link"
                 id="id__formik/api/Field"
                 href="#formik/api/Field"
-            ><u-menu-outline>3.1</u-menu-outline> <u-menu>&lt;Field /&gt;</u-menu></a>
+            ><u-menu>&lt;Field /&gt;</u-menu></a>
         </li>
     
         <li>
@@ -78,7 +78,7 @@
                 class="menu-link"
                 id="id__formik/api/useField"
                 href="#formik/api/useField"
-            ><u-menu-outline>3.2</u-menu-outline> <u-menu-accent>useField</u-menu-accent></a>
+            ><u-menu-accent>useField()</u-menu-accent></a>
         </li>
     
         <li>
@@ -86,7 +86,7 @@
                 class="menu-link"
                 id="id__formik/api/useFormikContext"
                 href="#formik/api/useFormikContext"
-            ><u-menu-accent>useFormikContext</u-menu-accent></a>
+            ><u-menu-accent>useFormikContext()</u-menu-accent></a>
         </li>
     
         <li>
@@ -284,9 +284,15 @@ const App = () => {
 </v-details>
 </div><div id="formik/api/Formik"><h2><u-code-text>&lt;Formik /&gt;</u-code-text></h2>
 
-<ul class="list-point">
-    <li>Обёртка для всех компонентов</li>
-</ul>
+<u-link-wrapper>
+	<a href="https://formik.org/docs/api/formik" target="_blank">Документация</a>
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="&lt;Formik /&gt;" after="" arg="">
+        Обёртка для всех компонентов
+    </v-method>
+</div>
 
 <v-code lang="js" title="">
 import { Formik } from "formik";
@@ -296,8 +302,10 @@ const App = () =&gt; {
         <em>userName</em>: ""
     };
 
-    const handleSubmit = (values, formik) => {
+    const handleSubmit = (values, actions) => {
+        // может быть асинхронное дейсвие
 		console.log(values); // => { <em>userName</em>: "text" }
+        // actions.setSubmitting(false);
     };
 
     return (
@@ -312,7 +320,7 @@ const App = () =&gt; {
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>props</h3>
+<h3>Props для &lt;Formik /&gt;</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 const App = () =&gt; {
@@ -328,9 +336,15 @@ const App = () =&gt; {
 </v-code>
 </div><div id="formik/api/Form"><h2><u-code-text>&lt;Form /&gt;</u-code-text></h2>
 
-<ul class="list-point">
-    <li>Обертка для формы</li>
-</ul>
+<u-link-wrapper>
+	<a href="https://formik.org/docs/api/form" target="_blank">Документация</a>
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="&lt;Form /&gt;" after="" arg="">
+    Обертка для формы
+    </v-method>
+</div>
 
 <v-code lang="js" title="">
 import { Formik, Form } from "formik";
@@ -348,11 +362,21 @@ const App = () =&gt; {
 </v-code>
 </div><div id="formik/api/Field"><h2><u-code-text>&lt;Field /&gt;</u-code-text></h2>
 
-<ul class="list-point">
-    <li>Используется внутри <u-code-text>&lt;Form&gt;</u-code-text></li>
-    <li>Помещаются поля для обработки</li>
-    <li>В минимальном варианте, использование <u-code-text>&lt;Form&gt;</u-code-text> достаточно для обработки полей</li>
-</ul>
+<v-sandbox url="https://codesandbox.io/s/formik-field-21pnj" />
+
+<u-link-wrapper>
+	<a href="https://formik.org/docs/api/field" target="_blank">Документация</a>
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="&lt;Field /&gt;" after="" arg="">
+        <ul class="list-point">
+            <li>Используется внутри <u-code-text>&lt;Form&gt;</u-code-text></li>
+            <li>Помещаются поля для обработки</li>
+            <li>В минимальном варианте, использование <u-code-text>&lt;Form&gt;</u-code-text> достаточно для обработки полей</li>
+        </ul>
+    </v-method>
+</div>
 
 <v-code lang="js border" title="">
 import { Formik, Form, Field } from "formik";
@@ -393,11 +417,7 @@ const App = () =&gt; {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Оборачивание в <u-code-text>&lt;Field /&gt;</u-code-text></h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<u-link-wrapper>
-	<a href="" target="_blank">Пример на CodeSandbox</a>
-</u-link-wrapper>
-
-<v-sandbox url="https://codesandbox.io/s/formik-form-wrapper-e9wpo" />
+<v-sandbox url="https://codesandbox.io/s/formik-field-wrapper-e9wpo" />
 
 <v-code lang="html" title="">
 &lt;Field name="userName"&gt;
@@ -420,20 +440,55 @@ const App = () =&gt; {
 	<a href="https://formik.org/docs/api/useField" target="_blank">Документация</a>
 </u-link-wrapper>
 
+<div class="v-method-wrapper">
+    <v-method before="" method="useField" after="" arg="()">
+		Хук
+		<ul class="list-point">
+			<li>Автоматически подключает входные данные к Formik</li>
+			<li><u>Вызывается из дочернего компонента</u></li>
+			<li>Можно использовать для создания собственных пользовательских примитивов ввода</li>
+		</ul>
+    </v-method>
+	<v-method-return>Array</v-method-return>
+</div>
+
+<!------------------------------------------------------------->
+<h4>Array</h4>
+<!------------------------------------------------------------->
+<v-details title="field">
 <ul class="list-point">
-    <li><u-text-define>useField</u-text-define> - настраиваемый хук React, который автоматически поможет подключить входные данные к Formik</li>
-    <li>Можно использовать для создания собственных пользовательских примитивов ввода</li>
+	<li><u-code-text>name</u-code-text> Имя элемента (атрибут name)</li>
+	<li><u-code-text>value</u-code-text> Текущее value</li>
+	<li><u-code-text>onChange</u-code-text> Function</li>
+	<li><u-code-text>onBlur</u-code-text> Function</li>
 </ul>
+</v-details>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Подключение и параметры</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-import { <u-code>useField</u-code> } from 'formik';
-</v-code>
+<v-details title="meta">
+<ul class="list-point">
+	<li><u-code-text>value</u-code-text> Текущее value</li>
+	<li><u-code-text>error</u-code-text> undefined</li>
+	<li><u-code-text>touched</u-code-text> false</li>
+	<li><u-code-text>initialValue</u-code-text> value, заданное по умолчанию</li>
+	<li><u-code-text>initialTouched</u-code-text> false</li>
+	<li><u-code-text>initialError</u-code-text> undefined</li>
+</ul>
+</v-details>
 
-<v-code lang="js" title="">
-const App = () => {
+<v-details title="helpers">
+<ul class="list-point">
+	<li><u-code-text>setValue</u-code-text> Function</li>
+	<li><u-code-text>setTouched</u-code-text> Function</li>
+	<li><u-code-text>setError</u-code-text> Function</li>
+</ul>
+</v-details>
+
+
+
+<v-code lang="js border" title="">
+import { useField } from 'formik';
+
+const Child = () => {
 	// простой вариант
 	const [field, meta, helpers] = <u-code>useField</u-code>(props);
 	// деструктуризация
@@ -441,33 +496,6 @@ const App = () => {
 }
 </v-code>
 
-<v-code lang="js none" title="">
-› <u-code-text>field</u-code-text> = {
-	name: "Имя элемента (атрибут name)",
-	value: "Текущее value",
-	onChange: ƒ (),
-	onBlur: ƒ ()
-}
-</v-code>
-
-<v-code lang="js none" title="">
-› <u-code-text>meta</u-code-text> = {
-	value: "Текущее value",
-	error: undefined,
-	touched: false,
-	initialValue: "value, заданное по умолчанию",
-	initialTouched: false,
-	initialError: undefined
-}
-</v-code>
-
-<v-code lang="js none" title="">
-› <u-code-text>helpers</u-code-text> = {
-	setValue: ƒ (),
-	setTouched: ƒ (),
-	setError: ƒ ()
-}
-</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Варианты</h3>
@@ -478,7 +506,7 @@ const App = () => {
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 const Input = ({ name, type }) =&gt; {
-	const [field] = <u-code>useField</u-code>(name);
+	const [<u-code-accent>field</u-code-accent>] = <u-code>useField</u-code>(name);
 
 	return (
 		&lt;input
@@ -502,7 +530,7 @@ const Input = ({ name, type }) =&gt; {
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 const Input = ({ name, type }) =&gt; {
-	const [field, meta, { setValue }] = useField(name);
+	const [<u-code-accent>field</u-code-accent>, , { <u-code-accent>setValue</u-code-accent> }] = useField(name);
 
 	const handleChange = (e) =&gt; {
 		<u-code>setValue</u-code>(e.target.value);
@@ -530,7 +558,7 @@ const Input = ({ name, type }) =&gt; {
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 const Input = ({ label, name, ...props }) =&gt; {
-	const [field] = <u-code>useField</u-code>(name);
+	const [<u-code-accent>field</u-code-accent>] = <u-code>useField</u-code>(name);
 
 	return (
 		&lt;label&gt;
@@ -551,8 +579,8 @@ const Input = ({ label, name, ...props }) =&gt; {
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 const Input = ({ name, ...props }) =&gt; {
-	const [field, meta] = <u-code>useField</u-code>(name);
-	const hasError = Boolean(meta.touched) &amp;&amp; Boolean(meta.error);
+	const [<u-code-accent>field</u-code-accent>, <u-code-accent>meta</u-code-accent>] = <u-code>useField</u-code>(name);
+	const hasError = Boolean(<u-code>meta</u-code>.touched) &amp;&amp; Boolean(<u-code>meta</u-code>.error);
 
 	return (
 		&lt;&gt;
@@ -575,7 +603,7 @@ const Input = ({ name, ...props }) =&gt; {
 const Counter = ({ name }) =&gt; {
 	// вместо прямого использования значений в "field"
 	// используем "meta" и "helpers"
-	const [field, , { setValue }] = <u-code>useField</u-code>(name);
+	const [<u-code-accent>field</u-code-accent>, , { <u-code-accent>setValue</u-code-accent> }] = <u-code>useField</u-code>(name);
 
 	// console.log(field.value);
 
@@ -627,158 +655,93 @@ const App = () =&gt; {
 </v-code>
 </div><div id="formik/api/useFormikContext"><h2>useFormikContext</h2>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Свойства объекта useFormikContext()</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-details open title="data">
-<ul class="list-point">
-	<li><u-code-text>values</u-code-text> Object</li>
-	<li><u-code-text>errors</u-code-text> Object</li>
-	<li><u-code-text>touched</u-code-text> Object</li>
-	<li><u-code-text>status</u-code-text> undefined</li>
-</ul>
+<v-sandbox url="https://codesandbox.io/s/formik-context-basic-529ls" title="Basic" />
+<v-sandbox url="https://codesandbox.io/s/formik-context-validate-dh825" title="Validation" />
+
+<u-link-wrapper>
+	<a href="https://formik.org/docs/api/useFormikContext" target="_blank">Документация</a>
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useFormikContext" after="" arg="()">
+		Хук
+		<ul class="list-point">
+			<li>Хук вернет все <u-code-text>state</u-code-text> Formik и <u-code-text>helpers</u-code-text> через React Context</li>
+			<li><u>Вызывается из дочернего компонента</u></li>
+		</ul>
+    </v-method>
+	<v-method-return>Object</v-method-return>
+</div>
+
+<v-details title="Object">
+	<ul class="list-point">
+		<b>data</b>
+		<li><u-code-text>values</u-code-text> Object</li>
+		<li><u-code-text>errors</u-code-text> Object</li>
+		<li><u-code-text>touched</u-code-text> Object</li>
+		<li><u-code-text>status</u-code-text> undefined</li>
+	
+		<b>handlers</b>
+		<li><u-code-text>handleChange</u-code-text> Function</li>
+		<li><u-code-text>handleBlur</u-code-text> Function</li>
+		<li><u-code-text>handleReset</u-code-text> Function</li>
+		<li><u-code-text>handleSubmit</u-code-text> Function</li>
+		<li><u-code-text>resetForm</u-code-text> Function</li>
+		<li><u-code-text>submitForm</u-code-text> Function</li>
+	
+		<b>setters</b>
+		<li><u-code-text>setErrors</u-code-text> Function</li>
+		<li><u-code-text>setFormikState</u-code-text> Function</li>
+		<li><u-code-text>setFieldTouched</u-code-text> Function</li>
+		<li><u-code-text>setFieldValue</u-code-text> Function</li>
+		<li><u-code-text>setFieldError</u-code-text> Function</li>
+		<li><u-code-text>setStatus</u-code-text> Function</li>
+		<li><u-code-text>setSubmitting</u-code-text> Function</li>
+		<li><u-code-text>setTouched</u-code-text> Function</li>
+		<li><u-code-text>setValues</u-code-text> Function</li>
+	
+		<b>validate</b>
+		<li><u-code-text>validateForm</u-code-text> Function</li>
+		<li><u-code-text>validateField</u-code-text> Function</li>
+		<li><u-code-text>validateOnBlur</u-code-text> true</li>
+		<li><u-code-text>validateOnChange</u-code-text> true</li>
+		<li><u-code-text>validateOnMount</u-code-text> false</li>
+		<li><u-code-text>isValidating</u-code-text> false</li>
+	
+		<b>initial</b>
+		<li><u-code-text>initialValues</u-code-text> Object</li>
+		<li><u-code-text>initialErrors</u-code-text> Object</li>
+		<li><u-code-text>initialTouched</u-code-text> Object</li>
+		<li><u-code-text>initialStatus</u-code-text> undefined</li>
+	
+		<b>getters</b>
+		<li><u-code-text>getFieldProps</u-code-text> Function</li>
+		<li><u-code-text>getFieldMeta</u-code-text> Function</li>
+		<li><u-code-text>getFieldHelpers</u-code-text> Function</li>
+	
+		<b>other</b>
+		<li><u-code-text>isSubmitting</u-code-text> false</li>
+		<li><u-code-text>isValid</u-code-text> true</li>
+		<li><u-code-text>submitCount</u-code-text> 0</li>
+		<li><u-code-text>dirty</u-code-text> false</li>
+		<li><u-code-text>unregisterField</u-code-text> Function</li>
+		<li><u-code-text>registerField</u-code-text> Function</li>
+	</ul>
 </v-details>
 
-<v-details title="handlers">
-<ul class="list-point">
-	<li><u-code-text>handleChange</u-code-text> Function</li>
-	<li><u-code-text>handleBlur</u-code-text> Function</li>
-	<li><u-code-text>handleReset</u-code-text> Function</li>
-	<li><u-code-text>handleSubmit</u-code-text> Function</li>
-	<li><u-code-text>resetForm</u-code-text> Function</li>
-	<li><u-code-text>submitForm</u-code-text> Function</li>
-</ul>
-</v-details>
+<v-code lang="js border" title="">
+import { useFormikContext } from 'formik';
 
-<v-details title="setters">
-<ul class="list-point">
-	<li><u-code-text>setErrors</u-code-text> Function</li>
-	<li><u-code-text>setFormikState</u-code-text> Function</li>
-	<li><u-code-text>setFieldTouched</u-code-text> Function</li>
-	<li><u-code-text>setFieldValue</u-code-text> Function</li>
-	<li><u-code-text>setFieldError</u-code-text> Function</li>
-	<li><u-code-text>setStatus</u-code-text> Function</li>
-	<li><u-code-text>setSubmitting</u-code-text> Function</li>
-	<li><u-code-text>setTouched</u-code-text> Function</li>
-	<li><u-code-text>setValues</u-code-text> Function</li>
-</ul>
-</v-details>
-
-<v-details title="validate">
-<ul class="list-point">
-	<li><u-code-text>validateForm</u-code-text> Function</li>
-	<li><u-code-text>validateField</u-code-text> Function</li>
-	<li><u-code-text>validateOnBlur</u-code-text> true</li>
-	<li><u-code-text>validateOnChange</u-code-text> true</li>
-	<li><u-code-text>validateOnMount</u-code-text> false</li>
-	<li><u-code-text>isValidating</u-code-text> false</li>
-</ul>
-</v-details>
-
-<v-details title="initial">
-<ul class="list-point">
-	<li><u-code-text>initialValues</u-code-text> Object</li>
-	<li><u-code-text>initialErrors</u-code-text> Object</li>
-	<li><u-code-text>initialTouched</u-code-text> Object</li>
-	<li><u-code-text>initialStatus</u-code-text> undefined</li>
-</ul>
-</v-details>
-
-<v-details title="getters">
-<ul class="list-point">
-	<li><u-code-text>getFieldProps</u-code-text> Function</li>
-	<li><u-code-text>getFieldMeta</u-code-text> Function</li>
-	<li><u-code-text>getFieldHelpers</u-code-text> Function</li>
-</ul>
-</v-details>
-
-<v-details title="other">
-<ul class="list-point">
-	<li><u-code-text>isSubmitting</u-code-text> false</li>
-	<li><u-code-text>isValid</u-code-text> true</li>
-	<li><u-code-text>submitCount</u-code-text> 0</li>
-	<li><u-code-text>dirty</u-code-text> false</li>
-	<li><u-code-text>unregisterField</u-code-text> Function</li>
-	<li><u-code-text>registerField</u-code-text> Function</li>
-</ul>
-</v-details>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Пример</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-sandbox url="https://codesandbox.io/s/formik-context-dh825" />
-
-<v-code lang="js" title="">
-import { <u-code>useFormikContext</u-code> } from 'formik';
-
-const ComponentWithContext = ({ name }) =&gt; {
-	const { values, errors, initialValues, setValues, setFieldValue } = useFormikContext();
-
-	// console.log(values, errors);
-
-	const changeValue = () => {
-		<u-code>setFieldValue</u-code>(name, "Hello");
-	};
-
-	// Записать во все values дефолтные значения
-	const defaultValues = () => {
-		<u-code>setValues</u-code>(<u-code>initialValues</u-code>);
-	};
-
-	return (
-		&lt;&gt;
-			&lt;button type="button" onClick={changeValue}&gt;Change Value&lt;/button&gt;
-			&lt;button type="button" onClick={defaultValues}&gt;Default Values&lt;/button&gt;
-		&lt;/&gt;
-	);
-}
-</v-code>
-
-<v-details title="Input.jsx">
-<v-code lang="js" title="">
-import { useField } from 'formik';
-
-const Input = ({ name, type }) =&gt; {
-	const [field, , { setValue }] = useField(name);
-
-	return (
-		&lt;input
-			type={type}
-			name={field.name}
-			value={field.value}
-			onChange={e =&gt; setValue(e.target.value)}
-		/&gt;
-	);
+const Child = () =&gt; {
+	const {
+		values,
+		errors,
+		// остальные свойства
+	} = <u-code>useFormikContext</u-code>();
+	
+	return (..);
 };
 </v-code>
-</v-details>
-
-<v-details title="App.jsx">
-<v-code lang="js" title="">
-import { Form, Formik } from 'formik';
-
-const App = () =&gt; {
-	const initialFormData = {
-		userName: "",
-	};
-
-	const handleSubmit = (values) => {
-		console.log(values);
-	};
-
-	return (
-		&lt;Formik initialValues={initialFormData} onSubmit={handleSubmit}&gt;
-			&lt;Form&gt;
-				&lt;Input name="userName" type="text" /&gt;
-				&lt;ComponentWithContext name="userName" /&gt;
-				&lt;button type="submit"&gt;Submit&lt;/button&gt;
-			&lt;/Form&gt;
-		&lt;/Formik&gt;
-	);
-}
-</v-code>
-</v-details>
 </div><div id="formik/api/setFieldTouched"><h2>Событие setFieldTouched</h2>
 
 <ul class="list-point">
@@ -803,8 +766,7 @@ const App = ({ setFieldTouched }) => {
 </div><div id="formik/api/withFormik"><h2>withFormik</h2>
 
 <u-link-wrapper>
-	<a href="https://formik.org/docs/overview" target="_blank">Документация</a>
-	<a href="https://formik.org/docs/api/withFormik" target="_blank">https://formik.org/docs/api/withFormik</a>
+	<a href="https://formik.org/docs/api/withFormik" target="_blank">Документация</a>
 </u-link-wrapper>
 
 <v-code lang="js" title="">
