@@ -17,24 +17,24 @@ ARR_MODULE = [
             [root+'api/Field',            setTheme(1, ['&lt;Field /&gt;'])],
             [root+'api/useField',         setTheme(3, ['useField()'])],
             [root+'api/useFormikContext', setTheme(3, ['useFormikContext()'])],
+            [root+'api/withFormik',       setTheme(5, ['withFormik()'])],
             ['', ''],
             [root+'api/setFieldTouched',  setTheme(5, ['setFieldTouched'])],
-            [root+'api/withFormik',       setTheme(5, ['withFormik'])],
         ]
     },
     {
         title: 'Валидиция',
         themes: [
-            [root+'validation/validation-schema',  setTheme(1, ['validationSchema'])],
+            [root+'validation/validation-schema',  setTheme(2, ['validationSchema'])],
             [root+'validation/validate',           setTheme(2, ['validate'])],
         ]
     },
     {
         title: 'TypeScript',
         themes: [
-            [root+'typescript/onSubmit',         setTheme(1, ['onSubmit'])],
-            [root+'typescript/validationSchema', setTheme(1, ['validationSchema'])],
-            [root+'typescript/FormikProps',      setTheme(1, ['FormikProps'])],
+            [root+'typescript/onSubmit',         'onSubmit'],
+            [root+'typescript/validationSchema', 'validationSchema'],
+            [root+'typescript/FormikProps',      'FormikProps'],
         ]
     },
 ]

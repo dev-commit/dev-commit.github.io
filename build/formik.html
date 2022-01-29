@@ -92,17 +92,17 @@
         <li>
             <a
                 class="menu-link"
-                id="id__formik/api/setFieldTouched"
-                href="#formik/api/setFieldTouched"
-            ><u-menu-outline>setFieldTouched</u-menu-outline></a>
+                id="id__formik/api/withFormik"
+                href="#formik/api/withFormik"
+            ><u-menu-outline>withFormik()</u-menu-outline></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__formik/api/withFormik"
-                href="#formik/api/withFormik"
-            ><u-menu-outline>withFormik</u-menu-outline></a>
+                id="id__formik/api/setFieldTouched"
+                href="#formik/api/setFieldTouched"
+            ><u-menu-outline>setFieldTouched</u-menu-outline></a>
         </li>
     </ul><h4>🥥 Валидиция</h4><ul>
         <li>
@@ -110,7 +110,7 @@
                 class="menu-link"
                 id="id__formik/validation/validation-schema"
                 href="#formik/validation/validation-schema"
-            ><u-menu>validationSchema</u-menu></a>
+            ><u-menu-border>validationSchema</u-menu-border></a>
         </li>
     
         <li>
@@ -126,7 +126,7 @@
                 class="menu-link"
                 id="id__formik/typescript/onSubmit"
                 href="#formik/typescript/onSubmit"
-            ><u-menu>onSubmit</u-menu></a>
+            >onSubmit</a>
         </li>
     
         <li>
@@ -134,7 +134,7 @@
                 class="menu-link"
                 id="id__formik/typescript/validationSchema"
                 href="#formik/typescript/validationSchema"
-            ><u-menu>validationSchema</u-menu></a>
+            >validationSchema</a>
         </li>
     
         <li>
@@ -142,7 +142,7 @@
                 class="menu-link"
                 id="id__formik/typescript/FormikProps"
                 href="#formik/typescript/FormikProps"
-            ><u-menu>FormikProps</u-menu></a>
+            >FormikProps</a>
         </li>
     </ul>
                 </div>
@@ -742,32 +742,18 @@ const Child = () =&gt; {
 	return (..);
 };
 </v-code>
-</div><div id="formik/api/setFieldTouched"><h2>Событие setFieldTouched</h2>
-
-<ul class="list-point">
-    <li>Валидация происходит при <u>onBlur</u></li>
-    <li>В стандартном состоянии валидация происходит при нажании на кнопку <u>submit</u></li>
-</ul>
-
-<v-code lang="js" title="">
-const App = ({ setFieldTouched }) => {
-    const handleBlur = (name) => {
-        setFieldTouched(name, true);
-    }
-
-    return (
-        &lt;Input
-            onBlur={handleBlur('emailPersonal')}
-            name='userName'
-        /&gt;
-    );
-};
-</v-code>
 </div><div id="formik/api/withFormik"><h2>withFormik</h2>
 
 <u-link-wrapper>
 	<a href="https://formik.org/docs/api/withFormik" target="_blank">Документация</a>
 </u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="withFormik" after="" arg="()">
+    HOC
+    </v-method>
+</div>
+
 
 <v-code lang="js" title="">
 import React from 'react';
@@ -812,6 +798,27 @@ export default withFormik({
     },
     validationSchema,
 })(Component);
+</v-code>
+</div><div id="formik/api/setFieldTouched"><h2>Событие setFieldTouched</h2>
+
+<ul class="list-point">
+    <li>Валидация происходит при <u>onBlur</u></li>
+    <li>В стандартном состоянии валидация происходит при нажании на кнопку <u>submit</u></li>
+</ul>
+
+<v-code lang="js" title="">
+const App = ({ setFieldTouched }) => {
+    const handleBlur = (name) => {
+        setFieldTouched(name, true);
+    }
+
+    return (
+        &lt;Input
+            onBlur={handleBlur('emailPersonal')}
+            name='userName'
+        /&gt;
+    );
+};
 </v-code>
 </div><div id="formik/validation/validation-schema"><h2>validationSchema</h2>
 
