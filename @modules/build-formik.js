@@ -18,8 +18,12 @@ ARR_MODULE = [
             [root+'api/useField',         setTheme(3, ['useField()'])],
             [root+'api/useFormikContext', setTheme(3, ['useFormikContext()'])],
             [root+'api/withFormik',       setTheme(5, ['withFormik()'])],
-            ['', ''],
-            [root+'api/setFieldTouched',  setTheme(5, ['setFieldTouched'])],
+        ]
+    },
+    {
+        title: 'События',
+        themes: [
+            [root+'actions/setFieldTouched',  setTheme(2, ['onBlur', 'setFieldTouched'])],
         ]
     },
     {
