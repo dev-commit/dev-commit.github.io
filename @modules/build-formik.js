@@ -6,7 +6,7 @@ ARR_MODULE = [
         themes: [
             [root+'main/info',         emoji.theory+'Информация'],
             [root+'main/install',      emoji.code+'Установка и настройка'],
-            [root+'main/basic-sample', emoji.fire+'Базовый пример'],
+            [root+'main/samples',      emoji.code+'Примеры'],
         ]
     },
     {
@@ -24,9 +24,10 @@ ARR_MODULE = [
         title: 'Валидиция',
         themes: [
             [root+'validation/info',               emoji.theory+'Информация'],
-            [root+'validation/validation-schema',  setTheme(1, ['validationSchema'])],
+            [root+'validation/validate',           setTheme(3, ['validate'])],
+            [root+'validation/validation-schema',  setTheme(3, ['validationSchema'])],
+    
             [root+'validation/setFieldTouched',    setTheme(1, ['onBlur', 'setFieldTouched'])],
-            [root+'validation/validate',           setTheme(2, ['validate'])],
         ]
     },
     {

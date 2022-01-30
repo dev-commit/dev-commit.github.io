@@ -1,22 +1,26 @@
-<h2>validate</h2>
+<h2>&lt;Formik validate&gt;</h2>
 
-<v-code lang="js" title="">
-const validate = values => {
-    const errors = {};
+<v-sandbox url="https://codesandbox.io/s/formik-validate-gv4s5" />
 
-    if (!values.companyName.name) {
-        errors.companyName = 'Error';
-    }
+<ul class="list-point">
+    <li>Кастомная валидация полей</li>
+</ul>
 
-    return errors;
+<v-code lang="js border" title="">
+import { Formik } from 'formik';
+
+const App = () => {
+    const validate = (values) => {
+        if (!values.userName) {
+            //
+        }
+        ...
+    };
+
+    return (
+        &lt;Formik <u-code>validate</u-code>={validate}&gt;
+            ...
+        &lt;/Formik&gt;
+    );
 };
-
-export default withFormik({
-    mapPropsToValues: () => ({
-        companyName: '',
-    }),
-    handleSubmit: async (values) => {},
-    validate,
-    validationSchema,
-})(Component);
 </v-code>

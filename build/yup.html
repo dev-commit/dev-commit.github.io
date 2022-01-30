@@ -216,19 +216,40 @@ field: Yup.object
     <li><u-text-define>.test</u-text-define> - кастомная обработка value</li>
 </ul>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><u-code-text>.test()</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 const validationSchema = Yup.object().shape({
-    start: Yup.number().test("startValid", "So Big", (value) => {
+    <em>start</em>: Yup.number().test("startValid", "So Big", (value) => {
         if (value > 10) {
-            // Ошибка валидации
-            return false;
+            return false; // Ошибка валидации
         } else {
-            // Нет ошибки
-            return true;
+            return true; // Успешная валидация
         }
     }),
 });
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><u-code-text>this.parent</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const validationSchema = Yup.object().shape({
+    <em>start</em>: Yup.number().test("startValid", "So Big", (value) => {
+        // Сравнить со значением "end"
+        if (value > <u-code>this.parent.end</u-code>) {
+            return false;
+        } else {
+            return true;
+        }
+    }),
+
+    <em>end</em>: Yup.number()
+});
+</v-code>
+
+
 </div><div id="yup/methods/chain-values"><h2>Проверка значения на основе другого значения</h2>
 
 <!------------------------------------------------------------->
