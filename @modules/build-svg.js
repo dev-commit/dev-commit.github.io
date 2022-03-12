@@ -5,7 +5,7 @@ ARR_MODULE = [
         title: 'Основное',
         themes: [
             [root+'main/info',       emoji.theory+'Информация'],
-            [root+'main/css',        emoji.code+'Стилизация на CSS'],
+            [root+'main/css',        emoji.code+'CSS-свойства'],
         ]
     },
     {

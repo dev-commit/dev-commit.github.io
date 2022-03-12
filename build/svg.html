@@ -38,7 +38,7 @@
                 class="menu-link"
                 id="id__svg/main/css"
                 href="#svg/main/css"
-            >⚡️ Стилизация на CSS</a>
+            >⚡️ CSS-свойства</a>
         </li>
     </ul><h4>🥥 Элементы</h4><ul>
         <li>
@@ -136,20 +136,34 @@
     <li>Raphaël</li>
     <li>SVG.js</li>
 </ul>
-</div><div id="svg/main/css"><h2>Стилизация на CSS</h2>
+</div><div id="svg/main/css"><h2>CSS-свойства</h2>
 
 <v-code lang="css" title="">
 svg {
-	fill: yellowgreen;
-	fill-opacity: 0.9;
-	stroke: black;
-	stroke-width: 2;
-	stroke-opacity: 0.7;
+	/* Заливка */
+	fill: yellowgreen;     /* Цвет заливки */
+	fill-opacity: 0.9;     /* Прозрачность заливки */
+
+	/* Линия */
+	stroke: black;         /* Цвет линии */
+	stroke-width: 2;       /* Толщина линии */
+	stroke-opacity: 0.7;   /* Прозрачность линии */
+	stroke-dasharray: 2 2; /* Пунктирная линия */
+
+	/* Края линии */
+	stroke-linecap: butt;  /* Прямоугольник (default) */
+	stroke-linecap: round; /* Расширенный прямоугольник */
+	stroke-linecap: round; /* Скругление */
 }
+
 svg path {
 	d: path('M0,100 L 20,0 80,90 100,0 100,100 Z');
 }
 </v-code>
+
+<ul class="list-point">
+    <li><u-code-text>stroke-linecap: round</u-code-text> - в конце линии обводка будет расширена прямоугольником с шириной, равной половине ширины обводки, и высотой, равной ширине обводки</li>
+</ul>
 </div><div id="svg/elements/figure"><h2>Фигуры</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
