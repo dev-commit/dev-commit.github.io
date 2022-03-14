@@ -10,6 +10,7 @@ ARR_MODULE = [
     },
     {
         title: 'Времена',
+        accent: true,
         themes: [
             [root+'tenses/tenses-table', emoji.fire+'Таблица времен'],
             [root+'tenses/tobe',         emoji.star+'ToBe vs Verb'],
@@ -17,10 +18,27 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Конструкции',
+        title: 'Артикли',
+        accent: true,
         themes: [
-            [root+'constructions/question-word-order', emoji.code+'Порядок слов в вопросе'],
-            [root+'constructions/question-types',      emoji.code+'Типы вопросов'],
+            [root+'articles/info', emoji.theory+'Информация'],
+            [root+'articles/an',   setTheme(1, ['a', 'an'])],
+            [root+'articles/some', setTheme(1, ['some', 'any'])],
+            [root+'articles/the',  setTheme(1, ['the'])],
+        ]
+    },
+    {
+        title: 'Общее',
+        themes: [
+            [root+'common/plurals', 'Множественное число'],
+        ]
+    },
+
+    {
+        title: 'Вопросы',
+        themes: [
+            [root+'questions/question-word-order', emoji.code+'Порядок слов в вопросе'],
+            [root+'questions/question-types',      emoji.code+'Типы вопросов'],
         ]
     },
     {
