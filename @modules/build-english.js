@@ -28,9 +28,9 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Общее',
+        title: 'Правила',
         themes: [
-            [root+'common/plurals', 'Множественное число'],
+            [root+'rules/plurals', 'Множественное число'],
         ]
     },
 
