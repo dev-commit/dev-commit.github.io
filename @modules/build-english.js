@@ -28,6 +28,22 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'Местоимения',
+        accent: true,
+        themes: [
+            [root+'pronouns/this',       'Указательные'],
+            [root+'pronouns/object',     'Объектные'],
+            [root+'pronouns/possessive', 'Притяжательные'],
+        ]
+    },
+    {
+        title: 'Конструкции',
+        themes: [
+            [root+'constructions/location',  'Местоположение'],
+        ]
+    },
+
+    {
         title: 'Правила',
         themes: [
             [root+'rules/plurals', 'Множественное число'],
