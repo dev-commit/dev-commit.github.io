@@ -37,19 +37,19 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Конструкции',
+        title: 'Общее',
         themes: [
-            [root+'constructions/location',  'Местоположение'],
+            [root+'common/location',              'Местоположение'],
+            [root+'common/adjectives-comparison', 'Степени сравнения прилагательных'],
+            [root+'common/other',                 emoji.icecream+'Прочее'],
         ]
     },
-
     {
         title: 'Правила',
         themes: [
             [root+'rules/plurals', 'Множественное число'],
         ]
     },
-
     {
         title: 'Вопросы',
         themes: [
@@ -61,17 +61,10 @@ ARR_MODULE = [
         title: 'Справочники',
         themes: [
 
-            [root+'directories/country',  emoji.cookie+'Страны и национальности'],
-            [root+'directories/family',   emoji.cookie+'Семья'],
+            [root+'directories/country',  emoji.theory+'Страны и национальности'],
+            [root+'directories/family',   emoji.theory+'Семья'],
             [root+'directories/phrases',  'Фразы'],
             [root+'directories/words',    'Слова'],
-        ]
-    },
-    {
-        title: 'Прочее',
-        themes: [
-
-            [root+'other/other',   'Прочее'],
         ]
     },
 ]
