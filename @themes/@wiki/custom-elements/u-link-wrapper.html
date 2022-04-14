@@ -1,5 +1,6 @@
 <h2>Ссылки</h2>
 
+<v-two><template v-slot:first>
 <v-code lang="html step" title="">
 &lt;u-link-wrapper&gt;
 	&lt;a href="#" target="_blank"&gt;Ссылка 1&lt;/a&gt;
@@ -7,9 +8,12 @@
 	&lt;a href="#" target="_blank"&gt;Ссылка 3&lt;/a&gt;
 &lt;/u-link-wrapper&gt;
 </v-code>
-
-<u-link-wrapper>
-	<a href="#" target="_blank">Ссылка 1</a>
-	<a href="#" target="_blank">Ссылка 2</a>
-	<a href="#" target="_blank">Ссылка 3</a>
-</u-link-wrapper>
+</template><template v-slot:last>
+<p>
+	<u-link-wrapper>
+		<a href="#" target="_blank">Ссылка 1</a>
+		<a href="#" target="_blank">Ссылка 2</a>
+		<a href="#" target="_blank">Ссылка 3</a>
+	</u-link-wrapper>
+</p>
+</template></v-two>

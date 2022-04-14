@@ -7,13 +7,35 @@
     <li>Добавляет padding-left</li>
 </ul>
 
+<v-two><template v-slot:first>
 <v-code lang="html step" title="">
 &lt;u-block-left-padding&gt;
 Content
 &lt;/u-block-left-padding&gt;
 </v-code>
+</template><template v-slot:last>
+<p>
+	<span>flex-flow: row nowrap</span>
+	<u-block-left-padding>
+		<span>flex-direction: row</span>
+	</u-block-left-padding>
+</p>
+</template></v-two>
 
-<span>flex-flow: row nowrap</span>
-<u-block-left-padding>
-	<span>flex-direction: row</span>
-</u-block-left-padding>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><u-code-text>&lt;u-block-quote&gt;</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two><template v-slot:first>
+<v-code lang="html step" title="">
+&lt;u-block-quote&gt;
+> "О дивный новый Мир"
+&lt;/u-block-quote&gt;
+</v-code>
+</template><template v-slot:last>
+<p>
+	<u-block-quote>
+	> "О дивный новый Мир"
+	</u-block-quote>
+</p>
+</template></v-two>

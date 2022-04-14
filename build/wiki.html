@@ -394,13 +394,18 @@ const emoji = {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3><u-code-text>&lt;u-lt&gt;</u-code-text></h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-two><template v-slot:first>
 <v-code lang="html step" title="">
 Seven &lt;u-lt&gt;o'clock&lt;/u-lt&gt;
 </v-code>
-
-<ul class="list-point">
-    <li>Seven <u-lt>o'clock</u-lt></li>
-</ul>
+</template><template v-slot:last>
+<p>
+    <ul class="list-point">
+        <li>Seven <u-lt>o'clock</u-lt></li>
+    </ul> 
+</p>
+</template></v-two>
 </div><div id="@wiki/custom-elements/u-block"><h2>Блоки</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -410,18 +415,41 @@ Seven &lt;u-lt&gt;o'clock&lt;/u-lt&gt;
     <li>Добавляет padding-left</li>
 </ul>
 
+<v-two><template v-slot:first>
 <v-code lang="html step" title="">
 &lt;u-block-left-padding&gt;
 Content
 &lt;/u-block-left-padding&gt;
 </v-code>
+</template><template v-slot:last>
+<p>
+	<span>flex-flow: row nowrap</span>
+	<u-block-left-padding>
+		<span>flex-direction: row</span>
+	</u-block-left-padding>
+</p>
+</template></v-two>
 
-<span>flex-flow: row nowrap</span>
-<u-block-left-padding>
-	<span>flex-direction: row</span>
-</u-block-left-padding>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><u-code-text>&lt;u-block-quote&gt;</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two><template v-slot:first>
+<v-code lang="html step" title="">
+&lt;u-block-quote&gt;
+> "О дивный новый Мир"
+&lt;/u-block-quote&gt;
+</v-code>
+</template><template v-slot:last>
+<p>
+	<u-block-quote>
+	> "О дивный новый Мир"
+	</u-block-quote>
+</p>
+</template></v-two>
 </div><div id="@wiki/custom-elements/u-link-wrapper"><h2>Ссылки</h2>
 
+<v-two><template v-slot:first>
 <v-code lang="html step" title="">
 &lt;u-link-wrapper&gt;
 	&lt;a href="#" target="_blank"&gt;Ссылка 1&lt;/a&gt;
@@ -429,50 +457,62 @@ Content
 	&lt;a href="#" target="_blank"&gt;Ссылка 3&lt;/a&gt;
 &lt;/u-link-wrapper&gt;
 </v-code>
-
-<u-link-wrapper>
-	<a href="#" target="_blank">Ссылка 1</a>
-	<a href="#" target="_blank">Ссылка 2</a>
-	<a href="#" target="_blank">Ссылка 3</a>
-</u-link-wrapper>
+</template><template v-slot:last>
+<p>
+	<u-link-wrapper>
+		<a href="#" target="_blank">Ссылка 1</a>
+		<a href="#" target="_blank">Ссылка 2</a>
+		<a href="#" target="_blank">Ссылка 3</a>
+	</u-link-wrapper>
+</p>
+</template></v-two>
 </div><div id="@wiki/custom-elements/u-clipboard"><h2>Clipboard</h2>
 
 <ul class="list-point">
     <li>При нажатии на блок, содержимый тест скопируется в буфер обмена</li>
 </ul>
 
+<v-two><template v-slot:first>
 <v-code lang="html step" title="">
 &lt;u-clipboard&gt;Data to copy!&lt;/u-clipboard&gt;
 </v-code>
-
-<u-clipboard>Data to copy!</u-clipboard>
+</template><template v-slot:last>
+<p>
+    <u-clipboard>Data to copy!</u-clipboard>
+</p>
+</template></v-two>
 </div><div id="@wiki/custom-elements/u-code-wrapper"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3><u-code-text>&lt;u-code-wrapper&gt;</u-code-text></h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-two><template v-slot:first>
 <v-code lang="html step" title="">
 &lt;u-code-wrapper&gt;
 code
 &lt;/u-code-wrapper&gt;
 </v-code>
-
+</template><template v-slot:last>
 <v-code lang="php" title="">
 &lt;?php
     $to = 'user@example.com';
     <u-code-wrapper>
-    $headers  = 'MIME-Version: 1.0' . "\r\n";
-    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    $headers  = 'MIME-Version: 1.0';
+    $headers .= 'Content-type: text/html";
     </u-code-wrapper>
 ?&gt;
 </v-code>
+</template></v-two>
 </div><div id="@wiki/custom-elements/u-code-title"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3><u-code-text>&lt;u-code-title&gt;</u-code-text></h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-two><template v-slot:first>
 <v-code lang="html step" title="">
 &lt;u-code-wrapper&gt;&lt;u-code-title&gt;Конструктор&lt;/u-code-title&gt;
 code
 &lt;/u-code-wrapper&gt;
 </v-code>
-
+</template><template v-slot:last>
 <v-code lang="js" title="">
 class App extends Component {
 	<u-code-wrapper><u-code-title>Конструктор</u-code-title>
@@ -482,27 +522,26 @@ class App extends Component {
 	</u-code-wrapper>
 }
 </v-code>
+</template></v-two>
 </div><div id="@wiki/custom-elements/u-message"><h2>Сообщения</h2>
 
-<u-message-ok>
-    &lt;u-message-ok&gt;text&lt;/u-message-ok&gt;
-</u-message-ok>
-
-<u-message-info>
-    &lt;u-message-info&gt;text&lt;/u-message-info&gt;
-</u-message-info>
-
-<u-message-warn>
-    &lt;u-message-warn&gt;text&lt;/u-message-warn&gt;
-</u-message-warn>
-
-<u-message-error>
-    &lt;u-message-error&gt;text&lt;/u-message-error&gt;
-</u-message-error>
-
-<u-message-comment>
-    &lt;u-message-comment&gt;text&lt;/u-message-comment&gt;
-</u-message-comment>
+<v-two><template v-slot:first>
+<v-code lang="html step" title="">
+&lt;u-message-ok&gt;      ok      &lt;/u-message-ok&gt;
+&lt;u-message-info&gt;    info    &lt;/u-message-info&gt;
+&lt;u-message-warn&gt;    warn    &lt;/u-message-warn&gt;
+&lt;u-message-error&gt;   error   &lt;/u-message-error&gt;
+&lt;u-message-comment&gt; comment &lt;/u-message-comment&gt;
+</v-code>
+</template><template v-slot:last>
+<p>
+    <u-message-ok>ok</u-message-ok>
+    <u-message-info>info</u-message-info>
+    <u-message-warn>warn</u-message-warn>
+    <u-message-error>error</u-message-error>
+    <u-message-comment>comment</u-message-comment>
+</p>
+</template></v-two>
 </div><div id="@wiki/vue-components/v-two"><h2><u-code-text>v-two</u-code-text></h2>
 
 <v-code lang="html step" title="">

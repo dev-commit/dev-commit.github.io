@@ -7,7 +7,7 @@ u-code, u-code-accent, u-code-mod, u-code-text, u-code-flat, u-code-list, u-code
 /* message */
 u-message-ok, u-message-info, u-message-warn, u-message-error, u-message-comment,
 /* blocks */
-u-block-left-padding,
+u-block-left-padding, u-block-quote,
 /* structure */
 u-code-wrapper, u-code-title, u-link-wrapper, u-clipboard,
 /* letters  */
@@ -26,7 +26,7 @@ u-code-text, u-code-flat, u-code-light
 }
 
 u-message-ok, u-message-info, u-message-warn, u-message-error, u-message-comment,
-u-block-left-padding,
+u-block-left-padding, u-block-quote,
 u-code-wrapper, u-link-wrapper
 {
 	display: block;
@@ -137,7 +137,7 @@ u-code-text {
 u-code-light {
 	font-family: monospace;
 	padding: 2px 5px;
-	background: rgba(var(--color-white), .7);
+	background: rgb(var(--color-white));
 	color: rgb(var(--color-orange));
 	border-radius: 3px;
 	line-height: 1.5em;
@@ -152,9 +152,13 @@ u-code-flat {
 	font-size: 14px;
 }
 u-code-list {
-	color: rgb(var(--color-sea-dark));
-	padding: 3px 5px;
+	font-family: monospace;
+	padding: 2px 5px;
 	background: rgba(var(--color-sea-dark), .2);
+	color: rgb(var(--color-sea-dark));
+	border-radius: 3px;
+	line-height: 1.5em;
+	font-size: 14px;
 	margin-right: 2px;
 }
 u-code-comment {
@@ -196,6 +200,15 @@ BLOCKS
 *******************************************/
 u-block-left-padding {
 	padding-left: 50px;
+}
+
+u-block-quote {
+	margin: 20px 0;
+	font-size: 15px;
+	font-weight: 600;
+	font-family: Consolas;
+	letter-spacing: 1px;
+	color: #f542e0;
 }
 
 /*******************************************
