@@ -16,6 +16,7 @@ emoji = {
     chevron:   '🔰 ',
     icecream:  '🍦 ',
     cloud:     '☁️ ',
+    unicorn:   '🦄 ',
 }
 
 function setTheme(tag, arr) {
