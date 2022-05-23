@@ -80,13 +80,29 @@
                 href="#cypress/methods/get"
             ><u-menu>get</u-menu></a>
         </li>
+    </ul><h4>🥥 Элементы</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__cypress/elements/fixtures"
+                href="#cypress/elements/fixtures"
+            ><u-menu-accent>Fixtures</u-menu-accent></a>
+        </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__cypress/methods/fixture"
-                href="#cypress/methods/fixture"
-            ><u-menu>fixture</u-menu></a>
+                id="id__cypress/elements/plugins"
+                href="#cypress/elements/plugins"
+            ><u-menu-accent>Plugins</u-menu-accent></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__cypress/elements/support"
+                href="#cypress/elements/support"
+            ><u-menu-accent>Support</u-menu-accent></a>
         </li>
     </ul><h4>🥥 Guides</h4><ul>
         <li>
@@ -113,7 +129,7 @@
                     <div id="content"><div id="cypress/main/info"><h2>Информация</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Атотесты JavaScript</h3>
+<h3>Автотесты JavaScript</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li>Protractor (для Angular, фреймворк Jasmine)</li>
@@ -246,10 +262,14 @@ cy.<u-code>get</u-code>('#id');
 cy.<u-code>get</u-code>('.classname');
 cy.<u-code>get</u-code>('a[href="https://yandex.ru/"][target="_blank"]');
 </v-code>
-</div><div id="cypress/methods/fixture"><h2>fixture</h2>
+</div><div id="cypress/elements/fixtures"><h2>Fixtures</h2>
+
+<!------------------------------------------------------------->
+<v-path>./cypress/fixtures/</v-path>
+<!------------------------------------------------------------->
 
 <u-link-wrapper>
-	<a href="https://docs.cypress.io/api/commands/fixture.html" target="_blank">Fixture</a>
+	<a href="https://docs.cypress.io/api/commands/fixture.html" target="_blank">fixture</a>
 </u-link-wrapper>
 
 <div class="v-method-wrapper">
@@ -317,6 +337,95 @@ cy.fixture('audio/sound.mp3', 'base64').then((mp3) => {
 
 	audio.play()
 })
+</v-code>
+</div><div id="cypress/elements/plugins"><h2>Plugins</h2>
+
+<!------------------------------------------------------------->
+<v-path>./cypress/plugins/</v-path>
+<!------------------------------------------------------------->
+
+<v-code lang="js step" title="./cypress/plugins/index.ts">
+/// &lt;reference types="cypress" /&gt;
+// ***********************************************************
+// This example plugins/index.js can be used to load plugins
+//
+// You can change the location of this file or turn off loading
+// the plugins file with the 'pluginsFile' configuration option.
+//
+// You can read more here:
+// https://on.cypress.io/plugins-guide
+// ***********************************************************
+
+// This function is called when a project is opened or re-opened (e.g. due to
+// the project's config changing)
+
+/**
+ * @type {Cypress.PluginConfig}
+ */
+// eslint-disable-next-line no-unused-vars
+module.exports = (on, config) =&gt; {
+  // `on` is used to hook into various events Cypress emits
+  // `config` is the resolved Cypress config
+};
+</v-code>
+</div><div id="cypress/elements/support"><h2>Support</h2>
+
+<!------------------------------------------------------------->
+<v-path>./cypress/support/</v-path>
+<!------------------------------------------------------------->
+
+<u-link-wrapper>
+	<a href="https://docs.cypress.io/api/cypress-api/custom-commands" target="_blank">Custom Commands</a>
+</u-link-wrapper>
+
+<v-code lang="js step" title="./cypress/support/index.ts">
+// ***********************************************************
+// This example support/index.js is processed and
+// loaded automatically before your test files.
+//
+// This is a great place to put global configuration and
+// behavior that modifies Cypress.
+//
+// You can change the location of this file or turn off
+// automatically serving support files with the
+// 'supportFile' configuration option.
+//
+// You can read more here:
+// https://on.cypress.io/configuration
+// ***********************************************************
+// Import commands.js using ES2015 syntax:
+import './commands';
+
+// Alternatively you can use CommonJS syntax:
+// require('./commands')
+</v-code>
+
+<v-code lang="js step" title="./cypress/support/commands.ts">
+// ***********************************************
+// This example commands.js shows you how to
+// create various custom commands and overwrite
+// existing commands.
+//
+// For more comprehensive examples of custom
+// commands please read more here:
+// https://on.cypress.io/custom-commands
+// ***********************************************
+//
+//
+// -- This is a parent command --
+// Cypress.Commands.add('login', (email, password) => { ... })
+//
+//
+// -- This is a child command --
+// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
+//
+//
+// -- This is a dual command --
+// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
+//
+//
+// -- This will overwrite an existing command --
+// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 </v-code>
 </div><div id="cypress/guides/network-requests"><h2>Network Requests</h2>
 

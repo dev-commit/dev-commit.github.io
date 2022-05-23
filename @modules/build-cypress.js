@@ -16,7 +16,14 @@ ARR_MODULE = [
             [root+'methods/type',     setTheme(1, ['type', 'clear', 'blur'])],
             [root+'methods/visit',    setTheme(1, ['visit', 'pause', 'wait'])],
             [root+'methods/get',      setTheme(1, ['get'])],
-            [root+'methods/fixture',  setTheme(1, ['fixture'])],
+        ]
+    },
+    {
+        title: 'Элементы',
+        themes: [
+            [root+'elements/fixtures', setTheme(3, ['Fixtures'])],
+            [root+'elements/plugins',  setTheme(3, ['Plugins'])],
+            [root+'elements/support',  setTheme(3, ['Support'])],
         ]
     },
     {
