@@ -1,12 +1,98 @@
 <h2>should</h2>
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Elements</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
-cy.<u-code>get</u-code>('input') .<u-code>should</u-code>('<u-code-text>have.value</u-code-text>', 'Hello');               // есть атрибут value="Hello"
-cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>have.attr</u-code-text>', 'title', 'Hello');       // есть атрибут title="Hello"
-cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>have.length</u-code-text>', 3);                    // должно быть 3 элемента
-cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>not.exist</u-code-text>');                         // элемент не существует
-cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>have.css</u-code-text>', 'color', 'rgb(0, 0, 0)'); // должен иметь CSS property style="color: rgb(0, 0, 0)"
-cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>contain</u-code-text>', 'Hello');                  // содержит фразу (частичное соврадение)
-cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>not.contain</u-code-text>', 'Map');                // не содержит фразу (частичное соврадение)
-cy.<u-code>url</u-code>()        .<u-code>should</u-code>('<u-code-text>include</u-code-text>', 'index');                  // проверка url на вхождение 'index' (объект не должен быть строкой)
+cy.get('div')
+    .should('<u-code>have.attr</u-code>', 'title', 'Hello')       // атрибут title="Hello"
+    .should('<u-code>have.attr</u-code>', 'disabled')             // атрибут "disabled"
+    .should('<u-code>have.not.attr</u-code>', 'disabled')         // нет атрибута "disabled"
+    .should('<u-code>have.length</u-code>', 3)                    // контент длиной 3 символа
+    .should('<u-code>have.css</u-code>', 'color', 'rgb(0, 0, 0)') // CSS style="color: rgb(0, 0, 0)"
+    .should('<u-code>have.class</u-code>', 'active')              // есть class "active"
+    .should('<u-code>have.id</u-code>', 'user')                   // есть id "user"
+</v-code>
+
+<v-code lang="js" title="">
+cy.get('div')
+    .should('<u-code>contain</u-code>', 'Hello')   // содержит фразу (частичное соврадение)
+    .should('<u-code>not.contain</u-code>', 'Map') // не содержит фразу (частичное соврадение)    
+</v-code>
+
+<v-code lang="js" title="">
+cy.get('div')
+    .should('<u-code>be.visible</u-code>')     // элемент виден
+    .should('<u-code>not.be.visible</u-code>') // элемент не виден
+    .should('<u-code>not.exist</u-code>')      // элемент не существует
+    .should('<u-code>be.empty</u-code>')       // элемент должен быть пустым
+</v-code>
+
+
+<!------------------------------------------------------------->
+<h4>Inputs</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+cy.get('input')
+    .should('<u-code>have.value</u-code>', 'Hello')     // есть атрибут value="Hello"
+    .should('<u-code>not.have.value</u-code>', 'Hello') // нет атрибута value="Hello"
+
+cy.get('select')
+    .should('<u-code>have.value</u-code>', 'Hello')    // есть атрибут value="Hello"
+    .should('<u-code>contain</u-code>', 'Hello')       // есть значение "Hello"
+
+cy.get('checkbox')
+    .should('<u-code>be.disabled</u-code>')
+
+cy.get('input')
+    .click()
+    .should('<u-code>have.focus</u-code>') // аналогично 'be.focused'
+    .should('<u-code>be.focused</u-code>') // аналогично 'have.focus'
+</v-code>
+
+
+<!------------------------------------------------------------->
+<h4>Url's</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Проверка url на вхождение 'index' (объект не должен быть строкой)</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><u-code-text>and</u-code-text> - Multiple Assertions</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+cy.get('div')
+    .should('be.visible')
+    .and('have.class', 'active')
+</v-code>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Callback Function</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://docs.cypress.io/api/commands/should#Function" target="_blank">Documentation</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+cy.url().should('<u-code>include</u-code>', 'index');
+cy.location('search').should('<u-code>contain</u-code>', 'index');
+</v-code>
+
+<v-code lang="js" title="">
+cy.get('p').should(($p) => {
+    // should have found 3 elements
+    expect($p).to.have.length(3)
+
+    // make sure the first contains some text content
+    expect($p.first()).to.contain('Hello World')
+})
 </v-code>

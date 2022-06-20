@@ -19,9 +19,15 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'Fixtures',
+        themes: [
+            [root+'fixtures/fixture',   setTheme(1, ['fixture'])],
+            [root+'fixtures/intercept', setTheme(1, ['intercept'])],
+        ]
+    },
+    {
         title: 'Элементы',
         themes: [
-            [root+'elements/fixtures', setTheme(3, ['Fixtures'])],
             [root+'elements/plugins',  setTheme(3, ['Plugins'])],
             [root+'elements/support',  setTheme(3, ['Support'])],
         ]

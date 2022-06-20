@@ -80,15 +80,23 @@
                 href="#cypress/methods/get"
             ><u-menu>get</u-menu></a>
         </li>
-    </ul><h4>🥥 Элементы</h4><ul>
+    </ul><h4>🥥 Fixtures</h4><ul>
         <li>
             <a
                 class="menu-link"
-                id="id__cypress/elements/fixtures"
-                href="#cypress/elements/fixtures"
-            ><u-menu-accent>Fixtures</u-menu-accent></a>
+                id="id__cypress/fixtures/fixture"
+                href="#cypress/fixtures/fixture"
+            ><u-menu>fixture</u-menu></a>
         </li>
     
+        <li>
+            <a
+                class="menu-link"
+                id="id__cypress/fixtures/intercept"
+                href="#cypress/fixtures/intercept"
+            ><u-menu>intercept</u-menu></a>
+        </li>
+    </ul><h4>🥥 Элементы</h4><ul>
         <li>
             <a
                 class="menu-link"
@@ -128,6 +136,14 @@
                     </div>
                     <div id="content"><div id="cypress/main/info"><h2>Информация</h2>
 
+<u-link-wrapper>
+    <a href="https://docs.cypress.io/guides/overview/why-cypress" target="_blank">Documentation: Guides</a>
+    <a href="https://docs.cypress.io/api/table-of-contents" target="_blank">Documentation: API</a>
+    <hr>
+    <a href="https://www.youtube.com/watch?v=5XQOK0v_YRE" target="_blank">YouTube. Brian Mann – I see your point, but… (Part 1)</a>
+    <a href="https://docs.cypress.io/guides/references/best-practices#Organizing-Tests-Logging-In-Controlling-State" target="_blank">Organizing Tests, Logging In, Controlling State</a>
+</u-link-wrapper>
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Автотесты JavaScript</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -142,7 +158,6 @@
 <ul class="list-point">
     <li><u>Cucumber</u> - BDD Testing & Collaboration Tools for Teams</li>
 </ul>
-
 </div><div id="cypress/main/npm"><h2>Установка</h2>
 
 <u-link-wrapper>
@@ -229,24 +244,113 @@ cy.<u-code>and</u-code>('be.visible')
 </v-code>
 </div><div id="cypress/methods/should"><h2>should</h2>
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Elements</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
-cy.<u-code>get</u-code>('input') .<u-code>should</u-code>('<u-code-text>have.value</u-code-text>', 'Hello');               // есть атрибут value="Hello"
-cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>have.attr</u-code-text>', 'title', 'Hello');       // есть атрибут title="Hello"
-cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>have.length</u-code-text>', 3);                    // должно быть 3 элемента
-cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>not.exist</u-code-text>');                         // элемент не существует
-cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>have.css</u-code-text>', 'color', 'rgb(0, 0, 0)'); // должен иметь CSS property style="color: rgb(0, 0, 0)"
-cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>contain</u-code-text>', 'Hello');                  // содержит фразу (частичное соврадение)
-cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>not.contain</u-code-text>', 'Map');                // не содержит фразу (частичное соврадение)
-cy.<u-code>url</u-code>()        .<u-code>should</u-code>('<u-code-text>include</u-code-text>', 'index');                  // проверка url на вхождение 'index' (объект не должен быть строкой)
+cy.get('div')
+    .should('<u-code>have.attr</u-code>', 'title', 'Hello')       // атрибут title="Hello"
+    .should('<u-code>have.attr</u-code>', 'disabled')             // атрибут "disabled"
+    .should('<u-code>have.not.attr</u-code>', 'disabled')         // нет атрибута "disabled"
+    .should('<u-code>have.length</u-code>', 3)                    // контент длиной 3 символа
+    .should('<u-code>have.css</u-code>', 'color', 'rgb(0, 0, 0)') // CSS style="color: rgb(0, 0, 0)"
+    .should('<u-code>have.class</u-code>', 'active')              // есть class "active"
+    .should('<u-code>have.id</u-code>', 'user')                   // есть id "user"
+</v-code>
+
+<v-code lang="js" title="">
+cy.get('div')
+    .should('<u-code>contain</u-code>', 'Hello')   // содержит фразу (частичное соврадение)
+    .should('<u-code>not.contain</u-code>', 'Map') // не содержит фразу (частичное соврадение)    
+</v-code>
+
+<v-code lang="js" title="">
+cy.get('div')
+    .should('<u-code>be.visible</u-code>')     // элемент виден
+    .should('<u-code>not.be.visible</u-code>') // элемент не виден
+    .should('<u-code>not.exist</u-code>')      // элемент не существует
+    .should('<u-code>be.empty</u-code>')       // элемент должен быть пустым
+</v-code>
+
+
+<!------------------------------------------------------------->
+<h4>Inputs</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+cy.get('input')
+    .should('<u-code>have.value</u-code>', 'Hello')     // есть атрибут value="Hello"
+    .should('<u-code>not.have.value</u-code>', 'Hello') // нет атрибута value="Hello"
+
+cy.get('select')
+    .should('<u-code>have.value</u-code>', 'Hello')    // есть атрибут value="Hello"
+    .should('<u-code>contain</u-code>', 'Hello')       // есть значение "Hello"
+
+cy.get('checkbox')
+    .should('<u-code>be.disabled</u-code>')
+
+cy.get('input')
+    .click()
+    .should('<u-code>have.focus</u-code>') // аналогично 'be.focused'
+    .should('<u-code>be.focused</u-code>') // аналогично 'have.focus'
+</v-code>
+
+
+<!------------------------------------------------------------->
+<h4>Url's</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Проверка url на вхождение 'index' (объект не должен быть строкой)</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><u-code-text>and</u-code-text> - Multiple Assertions</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+cy.get('div')
+    .should('be.visible')
+    .and('have.class', 'active')
+</v-code>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Callback Function</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://docs.cypress.io/api/commands/should#Function" target="_blank">Documentation</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+cy.url().should('<u-code>include</u-code>', 'index');
+cy.location('search').should('<u-code>contain</u-code>', 'index');
+</v-code>
+
+<v-code lang="js" title="">
+cy.get('p').should(($p) => {
+    // should have found 3 elements
+    expect($p).to.have.length(3)
+
+    // make sure the first contains some text content
+    expect($p.first()).to.contain('Hello World')
+})
 </v-code>
 </div><div id="cypress/methods/type"><h2>type</h2>
 
 <v-code lang="js" title="">
-cy.<u-code>get</u-code>('input').<u-code>clear</u-code>();                                              // очистить поле ввода
-cy.<u-code>get</u-code>('input').<u-code>type</u-code>('Hello');                                        // добавить текст
-cy.<u-code>get</u-code>('input').<u-code>type</u-code>('Hello').<u-code>blur</u-code>();                                <span class="fix-u-code"></span>// добавить текст и убрать фокус
-cy.<u-code>get</u-code>('input').<u-code>type</u-code>('New Value').<u-code>should</u-code>('have.value', 'New Value'); <span class="fix-u-code"></span>// добавить текст проверить value
+cy.get('input')
+    .<u-code>clear</u-code>()                       // очистить поле ввода
+    .<u-code>type</u-code>('Hello')                 // добавить текст
+    .<u-code>type</u-code>('Hello{enter}')          // добавить текст и нажать "enter"
+    .<u-code>should</u-code>('have.value', 'Hello') // проверить value
+    .<u-code>blur</u-code>()                        // убрать фокус с элемента
 </v-code>
+
 </div><div id="cypress/methods/visit"><h2>Общие</h2>
 
 <v-code lang="js" title="">
@@ -262,11 +366,7 @@ cy.<u-code>get</u-code>('#id');
 cy.<u-code>get</u-code>('.classname');
 cy.<u-code>get</u-code>('a[href="https://yandex.ru/"][target="_blank"]');
 </v-code>
-</div><div id="cypress/elements/fixtures"><h2>Fixtures</h2>
-
-<!------------------------------------------------------------->
-<v-path>./cypress/fixtures/</v-path>
-<!------------------------------------------------------------->
+</div><div id="cypress/fixtures/fixture"><h2><u-code-text>fixture</u-code-text></h2>
 
 <u-link-wrapper>
 	<a href="https://docs.cypress.io/api/commands/fixture.html" target="_blank">fixture</a>
@@ -282,36 +382,48 @@ cy.<u-code>get</u-code>('a[href="https://yandex.ru/"][target="_blank"]');
 	<v-method-arg arg="options">опции для изменения стандартного поведения</v-method-arg>
 </div>
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>JSON</h3>
+<h3>Загрузка данных из JSON</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="./cypress/fixtures/data.json">
+
+<!------------------------------------------------------------->
+<v-path>./cypress/fixtures/data.json</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
 {
     "name": "Tony",
     "age": 25
 }
 </v-code>
 
-<v-two-code type="js;js" comment="Загрузка fixtures и добавление алиаса;Загрузка fixtures и чтение данных">
-<template v-slot:first>
-cy.<u-code>fixture</u-code>('data.json').as('data')
-</template>
-<template v-slot:last>
-cy.fixture('data.json').then((json) => {
-    // { name: "Tony", age: 25 }
-    console.log(json); 
+<!------------------------------------------------------------->
+<v-path>./cypress/integration/test.spec.ts</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Загрузка fixtures и добавление алиаса
+cy.<u-code>fixture</u-code>('data.json').as('data');
+
+// Загрузка fixtures и чтение данных
+cy.<u-code>fixture</u-code>('data.json').then((data) => {
+    cy.get('div').should('contain', data.name);
+
+	// { name: "Tony", age: 25 }
+    console.log(data);	
 })
-</template>
-</v-two-code>
+</v-code>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Images</h3>
+<h3>Загрузка изображения</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="Returns dogs.png as Base64">
+<v-code lang="js" title="">
+// Returns dogs.png as Base64
 cy.<u-code>fixture</u-code>('images/dogs.png') 
 </v-code>
 
-<v-code lang="js" title="Image fixtures are sent as base64">
+<v-code lang="js" title="">
+// Image fixtures are sent as base64
 cy.fixture('images/logo.png').then((logo) => {
 	// logo will be encoded as base64
 	// and should look something like this:
@@ -319,7 +431,8 @@ cy.fixture('images/logo.png').then((logo) => {
 })
 </v-code>
 
-<v-code lang="js" title="Change encoding of Image fixture">
+<v-code lang="js" title="">
+// Change encoding of Image fixture
 cy.fixture('images/logo.png', 'binary').then((logo) => {
 	// logo will be encoded as binary
 	// and should look something like this:
@@ -327,16 +440,105 @@ cy.fixture('images/logo.png', 'binary').then((logo) => {
 })
 </v-code>
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>MP3</h3>
+<h3>Загрузка MP3</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="Playing MP3 file">
+<v-code lang="js" title="">
+// Playing MP3 file
 cy.fixture('audio/sound.mp3', 'base64').then((mp3) => {
 	const uri = 'data:audio/mp3;base64,' + mp3
 	const audio = new Audio(uri)
 
 	audio.play()
 })
+</v-code>
+</div><div id="cypress/fixtures/intercept"><h2><u-code-text>intercept</u-code-text></h2>
+
+<div class="v-method-wrapper">
+    <v-method before="cy." method="intercept" after="" arg="(url: RouteMatcher, response?: RouteHandler)">
+    Перехват и подмена сетевых запросов
+    </v-method>
+
+	<v-method-arg arg="url">объект</v-method-arg>
+	<v-method-arg arg="response">объект</v-method-arg>
+</div>
+
+<v-details title="cy.intercept()">
+<v-code lang="js" title="">
+cy.intercept(
+	{
+        method?: S
+        url?: S
+        path?: S
+        pathname?: S
+        query?: DictMatcher&lt;S&gt;
+        auth?: { username: S, password: S }
+        headers?: DictMatcher&lt;S&gt;
+        hostname?: S
+        https?: boolean
+        middleware?: boolean
+        port?: NumberMatcher
+        times?: number
+    },
+	{
+        fixture?: Fixture
+        body?: Body
+        headers?: { [key: string]: string }
+        statusCode?: number // default 200
+        forceNetworkError?: boolean
+        throttleKbps?: number
+        delay?: number
+    }
+)
+</v-code>
+</v-details>
+
+<ul class="list-point">
+    <li>Посмотреть описание аргументов можно по пути</li>
+    <li><em>node_modules\cypress\types\net-stubbing.ts</em></li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<v-path>./cypress/fixtures/data.json</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+{
+    "name": "Tony",
+    "age": 25
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<v-path>./cypress/support/utils.ts</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+Cypress.Commands.add('interceptData', () => {
+    return cy.intercept('GET', 'http://localhost:8080/api', {
+        statusCode: 200,
+        fixture: 'data.json',
+    });
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<v-path>./cypress/integration/test.spec.ts</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+describe('user create page', () => {
+    beforeEach(() => {
+        cy.interceptData().as('data');
+    });
+
+    it('check create button', () => {
+        //
+    });
+});
 </v-code>
 </div><div id="cypress/elements/plugins"><h2>Plugins</h2>
 
