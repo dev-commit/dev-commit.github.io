@@ -1,0 +1,54 @@
+<h2>Циклы For, While</h2>
+
+<v-code lang="css" title="">
+@for $i from through <u-code-comment># диапазон включает значение начала и конца</u-code-comment>
+@for $i from to      <u-code-comment># диапазон включает значение начала и не включает значение конца</u-code-comment>
+</v-code>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+@for $i from 1 through 3 {
+	.item-#{$i} {
+		width: 2em * $i;
+		background-image: url(img/#{$i}.jpg);
+	}
+}
+</template>
+<template v-slot:last>
+.item-1 {
+	width: 2em;
+	background-image: url(img/1.jpg);
+}
+.item-2 {
+	width: 4em;
+	background-image: url(img/2.jpg);
+}
+.item-3 {
+	width: 6em;
+	background-image: url(img/3.jpg);
+}
+</template>
+</v-two-code>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+$i: 7;
+@while $i > 0 {
+	.item-#{$i} {
+		width: 1em * $i;
+	}
+	$i: $i - 3;
+}
+</template>
+<template v-slot:last>
+.item-7 {
+	width: 7em;
+}
+.item-4 {
+	width: 4em;
+}
+.item-1 {
+	width: 1em;
+}
+</template>
+</v-two-code>

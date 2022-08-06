@@ -1,0 +1,84 @@
+<h2>Вложенности</h2>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+#main {
+	width: 100px;
+	p, div {
+		color: black;
+	}
+}
+</template>
+<template v-slot:last>
+#main {
+  width: 100px;
+}
+#main p, #main div {
+	color: black;
+}
+</template>
+</v-two-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Расширить родительский селектор</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+a {
+	color: blue;
+	&:hover {
+		color: green;
+	}
+}
+</template>
+<template v-slot:last>
+a {
+	color: blue;
+}
+a:hover {
+	color: green;
+}
+</template>
+</v-two-code>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+#main {
+	color: black;
+	&-sidebar {
+		color: orange;
+	}
+}
+</template>
+<template v-slot:last>
+#main {
+	color: black;
+}
+#main-sidebar {
+	color: orange;
+}
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Свойства в пространстве имен</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+#main {
+	font:{
+		family: fantasy;
+		size: 28px;
+		weight:bold;
+	}
+}
+</template>
+<template v-slot:last>
+#main {
+	font-family: fantasy;
+	font-size: 28px;
+	font-weight: bold;
+}
+</template>
+</v-two-code>

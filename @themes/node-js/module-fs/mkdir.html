@@ -1,0 +1,70 @@
+<h2>
+    <u-code-text>mkdir</u-code-text>
+    <u-code-text>rmdir</u-code-text>
+</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Создание директории</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронно
+fs.<u-code-mod>mkdirSync</u-code-mod>('folderName');
+
+// асинхронно
+fs.<u-code-mod>mkdir</u-code-mod>('folderName');
+</v-code>
+
+<ul class="list-point">
+    <li>При использовании асинхронного метода, необходимо использовать функцию обратного вызова</li>
+</ul>
+
+<v-code lang="js" title="">
+fs.<u-code>mkdir</u-code>('folderName', () => {
+	fs.<u-code>readFile</u-code>('readme.txt', 'utf8', (err, data) => {
+		fs.<u-code>writeFile</u-code>('./folderName/writeme.txt', data);
+	});
+});
+</v-code>
+
+<ul class="list-point">
+    <li>Можно использвать обработку <u>error</u></li>
+</ul>
+
+<v-code lang="js" title="">
+fs.<u-code>mkdir</u-code>('folderName', (err) => {
+    if (err) {
+        throw err;
+    }
+
+    console.log('Папка создана');
+});
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Удаление директории</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Удаление пустой директории</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// синхронно
+fs.<u-code-mod>rmdirSync</u-code-mod>('folderName');
+
+// асинхронно
+fs.<u-code-mod>rmdir</u-code-mod>('folderName');
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Удаление непустой директории</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// удаление сначала файла из папки
+fs.<u-code>unlink</u-code>('./folderName/fileName.js', () => {
+    // после этого удаление папки
+    fs.<u-code>rmdir</u-code>('folderName', () => {
+        //
+    });
+});
+</v-code>

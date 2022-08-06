@@ -1,0 +1,36 @@
+<h2>
+    <u-code-text>readFile</u-code-text>
+    <u-code-text>writeFile</u-code-text>
+</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Чтение из файла</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронно
+const fileSync  = fs.<u-code-mod>readFileSync</u-code-mod>('text.txt', 'utf8');
+
+// асинхронно  
+const fileASync = fs.<u-code-mod>readFile</u-code-mod>('text.txt', 'utf8');       
+
+// асинхронно
+fs.<u-code>readFile</u-code>('text.txt', 'utf8', (err, data) => {
+    console.log(data);
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Запись в файл</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронно
+fs.<u-code-mod>writeFileSync</u-code-mod>('text.txt', 'Hello \n World');
+
+// асинхронно
+fs.<u-code-mod>writeFile</u-code-mod>('text.txt', 'Hello \n World', (err, data) => {
+    if (err) {
+        throw err;
+    }
+    console.log('Файл создан');
+}); 
+</v-code>

@@ -257,7 +257,7 @@ cy.get('div')
     .should('<u-code>have.attr</u-code>', 'title', 'Hello')       // атрибут title="Hello"
     .should('<u-code>have.attr</u-code>', 'disabled')             // атрибут "disabled"
     .should('<u-code>have.not.attr</u-code>', 'disabled')         // нет атрибута "disabled"
-    .should('<u-code>have.length</u-code>', 3)                    // контент длиной 3 символа
+    .should('<u-code>have.length</u-code>', 3)                    // 3 дочерних элемента / контент длиной 3 символа 
     .should('<u-code>have.css</u-code>', 'color', 'rgb(0, 0, 0)') // CSS style="color: rgb(0, 0, 0)"
     .should('<u-code>have.class</u-code>', 'active')              // есть class "active"
     .should('<u-code>have.id</u-code>', 'user')                   // есть id "user"
@@ -307,6 +307,9 @@ cy.get('input')
     <li>Проверка url на вхождение 'index' (объект не должен быть строкой)</li>
 </ul>
 
+<v-code lang="js" title="">
+cy.url().should('include', '/index/');
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3><u-code-text>and</u-code-text> - Multiple Assertions</h3>

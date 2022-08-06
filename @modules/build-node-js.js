@@ -5,27 +5,33 @@ ARR_MODULE = [
         title: 'Основное',
         themes: [
             [root+'main/info',     emoji.theory+'Информация'],
-            [root+'main/pipe',     setTheme(1, ['.pipe'])],
-            [root+'main/stream',   'Потоки'],
-            [root+'main/router',   'Маршрутизация'],
-            [root+'main/url',      'Данные из url'],
         ]
     },
     {
-        title: 'Модульный принцип',
+        title: 'Модуль <u-code>fs</u-code>',
         themes: [
-            [root+'modules/structure', emoji.theory+'Структура модуля'],
-            [root+'modules/require',   setTheme(1, ['require', 'module.exports'])],
+            [root+'module-fs/fs',               'Команды'],
+            [root+'module-fs/readFile',         setTheme(1, ['readFile', 'writeFile'])],
+            [root+'module-fs/appendFile',       setTheme(1, ['appendFile', 'unlink'])],
+            [root+'module-fs/existsSync',       setTheme(1, ['existsSync'])],
+            [root+'module-fs/mkdir',            setTheme(1, ['mkdir', 'rmdir'])],
+            [root+'module-fs/createReadStream', setTheme(1, ['createReadStream', 'createWriteStream'])],
+        ]
+    },
+    {
+        title: 'Методы',
+        themes: [
+            [root+'methods/pipe',     setTheme(1, ['.pipe'])],
         ]
     },
     {
         title: 'Встроенные модули',
         themes: [
-            [root+'own-modules/fs',     setTheme(2, ['fs'])+' Файлы и директории'],
-            [root+'own-modules/http',   setTheme(2, ['http'])+' Сервер'],
-            [root+'own-modules/path',   setTheme(2, ['path'])],
-            [root+'own-modules/events', setTheme(2, ['events'])],
-            [root+'own-modules/util',   setTheme(2, ['util'])],
+            [root+'nodejs-modules/http',   setTheme(2, ['http'])],
+            [root+'nodejs-modules/path',   setTheme(2, ['path'])],
+            [root+'nodejs-modules/events', setTheme(2, ['events'])],
+            [root+'nodejs-modules/util',   setTheme(2, ['util'])],
+            [root+'nodejs-modules/os',     setTheme(2, ['os'])],
         ]
     },
     {
@@ -36,6 +42,19 @@ ARR_MODULE = [
             [root+'package/nodemailer',  setTheme(2, ['nodemailer'])],
             [root+'package/nodemon',     setTheme(2, ['nodemon'])],
             [root+'package/rimraf',      setTheme(2, ['rimraf'])],
+        ]
+    },
+    {
+        title: 'Модули',
+        themes: [
+            [root+'modules/structure', emoji.theory+'Структура модуля'],
+            [root+'modules/require',   setTheme(1, ['require', 'module.exports'])],
+        ]
+    },
+    {
+        title: 'Прочее',
+        themes: [
+            [root+'other/url',      'Данные из url'],
         ]
     },
 ]

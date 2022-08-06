@@ -30,102 +30,102 @@
                 class="menu-link"
                 id="id__sass/main/info"
                 href="#sass/main/info"
-            >Информация</a>
+            >📑 Информация</a>
+        </li>
+    </ul><h4>🥥 Операции</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__sass/operations/variables"
+                href="#sass/operations/variables"
+            >Переменные</a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__sass/main/variables"
-                href="#sass/main/variables"
-            >Переменные (SassScript)</a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__sass/main/cascade"
-                href="#sass/main/cascade"
+                id="id__sass/operations/cascade"
+                href="#sass/operations/cascade"
             >Вложенности</a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__sass/main/color"
-                href="#sass/main/color"
+                id="id__sass/operations/color"
+                href="#sass/operations/color"
             >Операции над цветами</a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__sass/main/operations"
-                href="#sass/main/operations"
+                id="id__sass/operations/operations"
+                href="#sass/operations/operations"
             >Операции</a>
         </li>
-    
+    </ul><h4>🥥 Функции</h4><ul>
         <li>
             <a
                 class="menu-link"
-                id="id__sass/main/mixin"
-                href="#sass/main/mixin"
+                id="id__sass/functions/mixin"
+                href="#sass/functions/mixin"
             ><u-menu>@mixin</u-menu></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__sass/main/extend"
-                href="#sass/main/extend"
+                id="id__sass/functions/extend"
+                href="#sass/functions/extend"
             ><u-menu>@extend</u-menu></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__sass/main/import"
-                href="#sass/main/import"
+                id="id__sass/functions/import"
+                href="#sass/functions/import"
             ><u-menu>@import</u-menu></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__sass/main/each"
-                href="#sass/main/each"
+                id="id__sass/functions/each"
+                href="#sass/functions/each"
             ><u-menu>@each</u-menu></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__sass/main/at-root"
-                href="#sass/main/at-root"
+                id="id__sass/functions/at-root"
+                href="#sass/functions/at-root"
             ><u-menu>@at-root</u-menu></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__sass/main/if-else"
-                href="#sass/main/if-else"
+                id="id__sass/functions/if-else"
+                href="#sass/functions/if-else"
             ><u-menu>@if</u-menu> <u-menu>@else</u-menu></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__sass/main/for"
-                href="#sass/main/for"
+                id="id__sass/functions/for"
+                href="#sass/functions/for"
             ><u-menu>@for</u-menu> <u-menu>@while</u-menu></a>
         </li>
-    
+    </ul><h4>🥥 Прочее</h4><ul>
         <li>
             <a
                 class="menu-link"
-                id="id__sass/main/other"
-                href="#sass/main/other"
+                id="id__sass/other/other"
+                href="#sass/other/other"
             >Дополнительно</a>
         </li>
     </ul>
@@ -153,7 +153,7 @@
 </ul>
 
 
-</div><div id="sass/main/variables"><h2>Переменные (SassScript)</h2>
+</div><div id="sass/operations/variables"><h2>Переменные</h2>
 
 <v-two-code type="css;css" comment="SCSS;CSS">
 <template v-slot:first>
@@ -183,8 +183,22 @@ $bg-color: green;
 $bg-color: green !global;
 </v-code>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Переменные в calc()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Необходимо записывать <u-code-text>#{$spacing}</u-code-text></li>
+</ul>
 
-</div><div id="sass/main/cascade"><h2>Вложенности</h2>
+<v-code lang="css" title="">
+$spacing: rem(6px);
+
+.item {
+	width: calc(50% - #{$spacing});
+	height: calc(50% - #{$spacing / 2});
+}
+</v-code>
+</div><div id="sass/operations/cascade"><h2>Вложенности</h2>
 
 <v-two-code type="css;css" comment="SCSS;CSS">
 <template v-slot:first>
@@ -268,7 +282,7 @@ a:hover {
 }
 </template>
 </v-two-code>
-</div><div id="sass/main/color"><h2>Операции над цветами</h2>
+</div><div id="sass/operations/color"><h2>Операции над цветами</h2>
 
 <v-code lang="bash" title="">
 lighten($color,10%)         # осветляет исходный цвет
@@ -310,7 +324,7 @@ $color: rgba(255, 0, 0, 0.7);
 }
 </template>
 </v-two-code>
-</div><div id="sass/main/operations"><h2>Операции</h2>
+</div><div id="sass/operations/operations"><h2>Операции</h2>
 
 <v-code lang="css" title="">
 + - / %
@@ -388,7 +402,7 @@ background-color: #020406;
 background-color: rgba(200, 225, 0, 0.75);
 </template>
 </v-two-code>
-</div><div id="sass/main/mixin"><h2>Миксины, примеси (@mixin)</h2>
+</div><div id="sass/functions/mixin"><h2>Миксины, примеси (@mixin)</h2>
 
 <ul class="list-point">
     <li><u>Миксины</u> - позволяют сделать блок стилей, который может быть использован повторно в любом месте документа</li>
@@ -469,7 +483,7 @@ p {
 }
 </v-code>
 
-</div><div id="sass/main/extend"><h2>Наследование (@extend)</h2>
+</div><div id="sass/functions/extend"><h2>Наследование (@extend)</h2>
 
 <v-two-code type="css;css" comment="SCSS;CSS">
 <template v-slot:first>
@@ -538,7 +552,7 @@ a:hover, .hoverlink {
 }
 </template>
 </v-two-code>
-</div><div id="sass/main/import"><h2>Импорт других SASS файлов (@import)</h2>
+</div><div id="sass/functions/import"><h2>Импорт других SASS файлов (@import)</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Сконвертируется в css как @import если</h3>
@@ -599,7 +613,7 @@ a:hover, .hoverlink {
 </template>
 </v-two-code>
 
-</div><div id="sass/main/each"><h2>Директива @each</h2>
+</div><div id="sass/functions/each"><h2>Директива @each</h2>
 
 <ul class="list-point">
     <li>Если требуемся пройтись по списку значений</li>
@@ -622,7 +636,7 @@ a:hover, .hoverlink {
 .wolf-icon  { background-image: url(/img/wolf.png); }
 </template>
 </v-two-code>
-</div><div id="sass/main/at-root"><h2>Директива @at-root</h2>
+</div><div id="sass/functions/at-root"><h2>Директива @at-root</h2>
 
 <ul class="list-point">
     <li>Изымает одно или несколько правил из родительского селектора в корневой уровень документа. Можно использовать с селекторами первого уровня вложенности</li>
@@ -674,7 +688,7 @@ a:hover, .hoverlink {
 }
 </template>
 </v-two-code>
-</div><div id="sass/main/if-else"><h2>Условия if-else</h2>
+</div><div id="sass/functions/if-else"><h2>Условия if-else</h2>
 
 <v-two-code type="css;css" comment="SCSS;CSS">
 <template v-slot:first>
@@ -714,7 +728,7 @@ p {
 </v-two-code>
 
 
-</div><div id="sass/main/for"><h2>Циклы For, While</h2>
+</div><div id="sass/functions/for"><h2>Циклы For, While</h2>
 
 <v-code lang="css" title="">
 @for $i from through <u-code-comment># диапазон включает значение начала и конца</u-code-comment>
@@ -768,7 +782,7 @@ $i: 7;
 }
 </template>
 </v-two-code>
-</div><div id="sass/main/other"><h2>Дополнительно</h2>
+</div><div id="sass/other/other"><h2>Дополнительно</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Установка</h3>

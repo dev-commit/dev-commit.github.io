@@ -1,0 +1,78 @@
+<h2>Операции</h2>
+
+<v-code lang="css" title="">
++ - / %
+> < <= >= == !=
+</v-code>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+$one: 50px;
+$two: 2;
+#main {
+	padding:{
+		top: $one + 200;
+		bottom: $one / $two;
+		left: $two + px;
+		right: 243px - 231px;
+	}
+	background: trans + parent;
+}
+</template>
+<template v-slot:last>
+#main {
+	padding-top: 250px;
+	padding-bottom: 25px;
+	padding-left: 2px;
+	padding-right: 12px;
+	background: transparent;
+}
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Интерполяция - использование переменных в селекторах и названиях свойств</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+$cn: content;
+#{$cn}: "con"+"tent";
+</template>
+<template v-slot:last>
+content: "content";
+</template>
+</v-two-code>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+$in: интер;
+.item {
+	content: "#{$in}поляция";
+}
+</template>
+<template v-slot:last>
+.item {
+	content: "интерполяция";
+}
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сложение цветов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При сложении rgba значение прозрачности должно быть одинаковым</li>
+</ul>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+$color1: #440203 + #550506;
+$color2: #010203 * 2;
+$color3: rgba(180, 0, 0, 0.75) + rgba(20, 225, 0, 0.75);
+</template>
+<template v-slot:last>
+background-color: #990709;
+background-color: #020406;
+background-color: rgba(200, 225, 0, 0.75);
+</template>
+</v-two-code>

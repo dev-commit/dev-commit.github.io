@@ -1,0 +1,69 @@
+<h2><u-code-text>http</u-code-text></h2>
+
+<ul class="list-point">
+    <li><u-text-define>http</u-text-define> - создание сервера</li>
+    <li><u>req</u> - request (запрос)</li>
+    <li><u>res</u> - response (ответ)</li>
+</ul>
+
+<v-code lang="js border" title="">
+const http = require('http');
+</v-code>
+
+<ul class="list-point">
+    <li>Сервер по адресу <a href="http://127.0.0.1:3000/" target="_blank">http://127.0.0.1:3000/</a></li>
+</ul>
+
+<ul class="list-point">
+    <li><u-code-text>text/plain</u-code-text> - вывод обычного текста</li>
+    <li><u-code-text>text/html</u-code-text> - вывод html</li>
+</ul>
+
+<v-code lang="js" title="">
+const server = http.<u-code-mod>createServer</u-code-mod>((req, res) => {
+    console.log('url', req.url);
+
+    res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
+    res.end('Привет мир');
+});
+
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, '127.0.0.1');
+console.log('Looking for port 3000');
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Маршрутизация</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Проверка url и вывод страницы 404, если страница не найдена</li>
+    <li><a href="https://github.com/vladilenm/node-youtube-cc/blob/master/index.js" target="_blank">https://github.com/vladilenm/node-youtube-cc/blob/master/index.js</a></li>
+</ul>
+
+<v-code lang="js" title="">
+const fs = require('fs');
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+    console.log('url: ' + req.url);
+
+    if (req.url === '/index' || req.url === '/') {
+        res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+        fs.createReadStream(__dirname + '/index.html').pipe(res);
+    } else if (req.url === '/about') {
+        res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+        fs.createReadStream(__dirname + '/about.html').pipe(res);
+    } else {
+        res.writeHead(404, {'Content-Type': 'text/html; charset=utf-8'});
+        fs.createReadStream(__dirname + '/404.html').pipe(res);
+    }
+});
+
+server.listen(3000, '127.0.0.1');
+</v-code>

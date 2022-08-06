@@ -1,0 +1,40 @@
+<h2><u-code-text>path</u-code-text></h2>
+
+<u-link-wrapper>
+	<a href="https://nodejs.org/api/path.html" target="_blank">Документация</a>
+</u-link-wrapper>
+
+<v-code lang="js border" title="">
+const path = require('path');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Основные методы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+const file = 'C:/Users/user/Desktop/nodejs/index.js'
+
+// Название файла
+const a = path.<u-code>basename</u-code>(file); // => "index.js"
+
+// Путь к директории
+const a = path.<u-code>dirname</u-code>(file);  // => "C:/Users/user/Desktop/nodejs"
+
+// Расширение файла
+const a = path.<u-code>extname</u-code>(file);  // => ".js"
+
+// Объект с параметрами текущего файла
+const a = path.<u-code>parse</u-code>(file);    // =>
+// {
+//     root: 'C:/',
+//     dir: 'C:/Users/user/Desktop/nodejs',
+//     base: 'index.js',
+//     ext: '.js',
+//     name: 'index'
+// }
+</v-code>
+
+<v-code lang="js step" title="">
+// Объединение строк в путь: src\server\index.js
+const a = path.<u-code>join</u-code>('src', 'server', 'index.js');
+</v-code>

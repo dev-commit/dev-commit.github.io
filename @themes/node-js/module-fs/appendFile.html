@@ -1,0 +1,36 @@
+<h2>
+    <u-code-text>appendFile</u-code-text>
+    <u-code-text>unlink</u-code-text>
+</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Добавление в файл</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронно
+fs.<u-code-mod>appendFileSync</u-code-mod>('text.txt', '\n Hello Again!');
+</v-code>
+
+<v-code lang="js" title="">
+// асинхронно
+fs.<u-code-mod>appendFile</u-code-mod>('text.txt', '\n Hello Again!', (err, data) => {
+    if (err) {
+        throw err;
+    }
+
+    console.log('Файл обновлен');
+}); 
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Удаление файла</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронно
+fs.<u-code-mod>unlinkSync</u-code-mod>('file.txt'); 
+
+// асинхронно
+fs.<u-code-mod>unlink</u-code-mod>('file.txt', () => {
+    //
+});
+</v-code>
