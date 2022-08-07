@@ -40,3 +40,20 @@ app.get('/about', (req, res) => {
 <v-code lang="js" title="">
 app.listen(3000);
 </v-code>
+
+
+<!------------------------------------------------------------->
+<h4>Данные из url</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+app.get('/news/:id', (req, res) => {
+    console.log(req.query);
+    res.render('news');
+});
+</v-code>
+
+<v-code lang="bash" title="">
+http://127.0.0.1:3000/news/some?filter=id&city=penza  # запрос
+{ filter: 'id', city: 'penza' }                       # результат
+</v-code>
+

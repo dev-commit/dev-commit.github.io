@@ -50,10 +50,4 @@ ARR_MODULE = [
             [root+'modules/require',   setTheme(1, ['require', 'module.exports'])],
         ]
     },
-    {
-        title: 'Прочее',
-        themes: [
-            [root+'other/url',      'Данные из url'],
-        ]
-    },
 ]
