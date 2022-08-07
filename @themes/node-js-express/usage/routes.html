@@ -1,0 +1,42 @@
+<h2>Маршрутизация</h2>
+
+<v-code lang="js" title="">
+const express = require('express');
+const app = express();
+</v-code>
+
+<v-code lang="js" title="">
+// статическая ссылка (главная)
+app.get('/', (req, res) => {
+    res.send('This is home');
+});
+
+// статическая ссылка (news)
+app.get('/news', (req, res) => {
+    res.send('This is news');
+});
+
+// ссылка с name статьи /news/23
+app.get('/news/:name', (req, res) => {
+    res.send('id=' + req.params.name);
+});
+
+// ссылка с name и id статьи /news/23
+app.get('/news/:name/:id', (req, res) => {
+    res.send('id=' + req.params.name + req.params.id);
+});
+</v-code>
+
+<v-code lang="js" title="">
+// отображение html файла
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
+app.get('/about', (req, res) => {
+    res.sendFile(__dirname + '/about.html');
+});
+</v-code>
+
+<v-code lang="js" title="">
+app.listen(3000);
+</v-code>

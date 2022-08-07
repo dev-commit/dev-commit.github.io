@@ -1,0 +1,224 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Express</title>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@modules/build-node-js-express.js"></script>
+        </head>
+        <body>
+
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="link" v-html="'Express'"></a>
+                    </div>
+                    <h4>🥥 Основы</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js-express/main/info"
+                href="#node-js-express/main/info"
+            >📑 Информация</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js-express/main/install"
+                href="#node-js-express/main/install"
+            >⚡️ Установка и настройка</a>
+        </li>
+    </ul><h4>🥥 Использование</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js-express/usage/routes"
+                href="#node-js-express/usage/routes"
+            >Маршрутизация</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js-express/usage/template"
+                href="#node-js-express/usage/template"
+            >Шаблонизатор</a>
+        </li>
+    </ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a :href="itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="node-js-express/main/info"><h2>Информация</h2>
+
+<u-link-wrapper>
+    <a href="http://expressjs.com/ru/" target="_blank">http://expressjs.com/ru/</a>
+</u-link-wrapper>
+
+</div><div id="node-js-express/main/install"><h2>Установка и настройка</h2>
+
+<v-pre-npm>
+npm i --save <u-code-accent>express</u-code-accent>
+</v-pre-npm>
+</div><div id="node-js-express/usage/routes"><h2>Маршрутизация</h2>
+
+<v-code lang="js" title="">
+const express = require('express');
+const app = express();
+</v-code>
+
+<v-code lang="js" title="">
+// статическая ссылка (главная)
+app.get('/', (req, res) => {
+    res.send('This is home');
+});
+
+// статическая ссылка (news)
+app.get('/news', (req, res) => {
+    res.send('This is news');
+});
+
+// ссылка с name статьи /news/23
+app.get('/news/:name', (req, res) => {
+    res.send('id=' + req.params.name);
+});
+
+// ссылка с name и id статьи /news/23
+app.get('/news/:name/:id', (req, res) => {
+    res.send('id=' + req.params.name + req.params.id);
+});
+</v-code>
+
+<v-code lang="js" title="">
+// отображение html файла
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
+app.get('/about', (req, res) => {
+    res.sendFile(__dirname + '/about.html');
+});
+</v-code>
+
+<v-code lang="js" title="">
+app.listen(3000);
+</v-code>
+</div><div id="node-js-express/usage/template"><h2>Шаблонизатор</h2>
+
+
+<!------------------------------------------------------------->
+<h4>Установка шаблонизатора ejs</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+npm i ejs
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>index.js</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const express = require('express');
+const app = express();
+// указание шаблонизатора, который будем использовать
+app.set('view engine', 'ejs');
+// ссылка на статические файлы (css, img, doc и т.д. иначе не будут загружаться)
+app.use('/public', express.static('public'));
+app.get('/news/:id', (req, res) => {
+    // берет шаблон news.ejs из папки views
+    // передает свойство newsId = req.params.id
+    // передает переменную newsParam = 234
+    // передаем объект newsParam
+    const obj = {title: 'Новость', id: 4, paragraphs: ['Текст', 'Числа: 2, 4', 77]};
+    res.render('news', {newsId: req.params.id, newsParam: 234, newsObj: obj});
+});
+app.get('/about', (req, res) => {
+    res.render('about');
+});
+app.listen(3000);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>public/css/style.css</h4>
+<!------------------------------------------------------------->
+public - все статические файлы (css, img, doc и т.д.)
+
+<!------------------------------------------------------------->
+<h4>views/about.ejs</h4>
+<!------------------------------------------------------------->
+подключение статического файла
+<v-code lang="html" title="">
+&lt;link rel="stylesheet" href="/public/css/style.css"&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>views/news.ejs</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+<% include blocks/header.ejs %>    - подключение файла-заголовка
+<%= newsId %>                      - вывод переменной
+<%= newsObj.id %>                  - вывод переменной объекта
+</v-code>
+<v-code lang="html" title="">
+&lt;ul&gt;
+    &lt;% newsObj.paragraphs.forEach((item) => { %&gt;
+        &lt;li&gt;&lt;%= item %&gt;&lt;/li&gt;
+    &lt;% }); %&gt;
+&lt;/ul&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>views/blocks/header.ejs</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href="/"&gt;main&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/about"&gt;about&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/news/новости"&gt;news&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue/build.js"></script>
+        </body>
+    </html>

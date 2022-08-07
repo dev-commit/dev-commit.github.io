@@ -37,7 +37,6 @@ ARR_MODULE = [
     {
         title: 'Пакеты',
         themes: [
-            [root+'package/express',     setTheme(2, ['express'])],
             [root+'package/body-parser', setTheme(2, ['body-parser'])],
             [root+'package/nodemailer',  setTheme(2, ['nodemailer'])],
             [root+'package/nodemon',     setTheme(2, ['nodemon'])],
