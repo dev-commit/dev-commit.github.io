@@ -46,6 +46,7 @@ const ARR_LINKS = [
     null,
     { page: 'node-js',                 theme: 'blue',    title: 'Node.js' },
     { page: 'node-js-express',         theme: 'blue',    title: 'Express' },
+    { page: 'mongodb',                 theme: 'blue',    title: 'MongoDB' },
     null,
     { page: 'vue-js',                  theme: 'gray',     title: '🥥 Vue.js' },
     { page: 'vue-vuex',                theme: 'gray',     title: 'Vuex' },

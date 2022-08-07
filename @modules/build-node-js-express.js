@@ -12,7 +12,13 @@ ARR_MODULE = [
         title: 'Использование',
         themes: [
             [root+'usage/routes',       'Маршрутизация'],
-            [root+'usage/template',     'Шаблонизатор'],
+        ]
+    },
+    {
+        title: 'Шаблонизаторы',
+        themes: [
+            [root+'templates/EJS',                setTheme(2, ['EJS'])],
+            [root+'templates/ExpressHandlebars',  setTheme(2, ['Express Handlebars'])],
         ]
     },
 ]

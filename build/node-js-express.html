@@ -48,13 +48,21 @@
                 href="#node-js-express/usage/routes"
             >Маршрутизация</a>
         </li>
+    </ul><h4>🥥 Шаблонизаторы</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js-express/templates/EJS"
+                href="#node-js-express/templates/EJS"
+            ><u-menu-border>EJS</u-menu-border></a>
+        </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__node-js-express/usage/template"
-                href="#node-js-express/usage/template"
-            >Шаблонизатор</a>
+                id="id__node-js-express/templates/ExpressHandlebars"
+                href="#node-js-express/templates/ExpressHandlebars"
+            ><u-menu-border>Express Handlebars</u-menu-border></a>
         </li>
     </ul>
                 </div>
@@ -73,7 +81,8 @@
                     <div id="content"><div id="node-js-express/main/info"><h2>Информация</h2>
 
 <u-link-wrapper>
-    <a href="http://expressjs.com/ru/" target="_blank">http://expressjs.com/ru/</a>
+    <a href="http://expressjs.com/" target="_blank">http://expressjs.com/ (EN)</a>
+    <a href="http://expressjs.com/ru/" target="_blank">http://expressjs.com/ru/ (RU)</a>
 </u-link-wrapper>
 
 </div><div id="node-js-express/main/install"><h2>Установка и настройка</h2>
@@ -123,15 +132,37 @@ app.get('/about', (req, res) => {
 <v-code lang="js" title="">
 app.listen(3000);
 </v-code>
-</div><div id="node-js-express/usage/template"><h2>Шаблонизатор</h2>
 
 
 <!------------------------------------------------------------->
-<h4>Установка шаблонизатора ejs</h4>
+<h4>Данные из url</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-npm i ejs
+app.get('/news/:id', (req, res) => {
+    console.log(req.query);
+    res.render('news');
+});
 </v-code>
+
+<v-code lang="bash" title="">
+http://127.0.0.1:3000/news/some?filter=id&city=penza  # запрос
+{ filter: 'id', city: 'penza' }                       # результат
+</v-code>
+
+</div><div id="node-js-express/templates/EJS"><h2>Шаблонизатор EJS</h2>
+
+<u-link-wrapper>
+    <a href="https://ejs.co/" target="_blank">https://ejs.co/</a>
+</u-link-wrapper>
+
+<v-pre-npm>
+npm i --save <u-code-accent>ejs</u-code-accent>
+</v-pre-npm>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
 <h4>index.js</h4>
@@ -196,6 +227,17 @@ public - все статические файлы (css, img, doc и т.д.)
     &lt;li&gt;&lt;a href="/news/новости"&gt;news&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </v-code>
+</div><div id="node-js-express/templates/ExpressHandlebars"><h2>Шаблонизатор Express Handlebars</h2>
+
+<u-link-wrapper>
+    <a href="https://github.com/ericf/express-handlebars" target="_blank">https://ejs.co/</a>
+</u-link-wrapper>
+
+<v-pre-npm>
+npm i --save <u-code-accent>express-handlebars</u-code-accent>
+</v-pre-npm>
+
+
 </div></div>
                 </div>
             </div>
