@@ -27,11 +27,12 @@ ARR_MODULE = [
     {
         title: 'Встроенные модули',
         themes: [
-            [root+'nodejs-modules/http',   setTheme(2, ['http'])],
-            [root+'nodejs-modules/path',   setTheme(2, ['path'])],
-            [root+'nodejs-modules/events', setTheme(2, ['events'])],
-            [root+'nodejs-modules/util',   setTheme(2, ['util'])],
-            [root+'nodejs-modules/os',     setTheme(2, ['os'])],
+            [root+'nodejs-modules/http',           setTheme(2, ['http'])],
+            [root+'nodejs-modules/path',           setTheme(2, ['path'])],
+            [root+'nodejs-modules/events',         setTheme(2, ['events'])],
+            [root+'nodejs-modules/util',           setTheme(2, ['util'])],
+            [root+'nodejs-modules/os',             setTheme(2, ['os'])],
+            [root+'nodejs-modules/worker_threads', setTheme(2, ['worker_threads'])],
         ]
     },
     {

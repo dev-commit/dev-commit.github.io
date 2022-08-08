@@ -2,13 +2,13 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>MongoDB</title>
+            <title>JWT</title>
             <meta charset="UTF-8">
             <link rel="icon" type="image/png" href="../src/img/favicon.svg">
 
             <script src="../src/js/utils.js"></script>
             <!-- Own JavaScript -->
-            <script src="../@modules/build-mongodb.js"></script>
+            <script src="../@modules/build-jwt.js"></script>
         </head>
         <body>
 
@@ -22,25 +22,28 @@
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="link" v-html="'MongoDB'"></a>
+                        <a href="#links" class="link" v-html="'JWT'"></a>
                     </div>
-                    <h4>🥥 Основы</h4><ul>
-        <li>
-            <a
-                class="menu-link"
-                id="id__mongodb/main/info"
-                href="#mongodb/main/info"
-            >📑 Информация</a>
-        </li>
-    </ul><h4>🥥 Пакеты</h4><ul>
-        <li>
-            <a
-                class="menu-link"
-                id="id__mongodb/packages/mongoose"
-                href="#mongodb/packages/mongoose"
-            ><u-menu-border>Mongoose</u-menu-border></a>
-        </li>
-    </ul>
+                    
+    <slot v-for="itemTitle in themesContent">
+        <h4 v-html="themesEmoji+' '+itemTitle.title" :class="{ accent: itemTitle.accent }"></h4>
+        <ul>
+            <slot v-for="(itemTheme, i) in itemTitle.themes">
+                <li v-if="itemTheme[0]">
+                    <a
+                        class="menu-link"
+                        :id="itemTheme[0]+'link'"
+                        :href="'#'+itemTheme[0]"
+                        @click="buildContent(itemTheme[0])"
+                        v-html="itemTheme[1]"
+                    ></a>
+                </li>
+                <hr v-else />
+            </slot>
+
+        </ul>
+    </slot>
+
                 </div>
 
                 <div id="wrapper">
@@ -54,27 +57,7 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="mongodb/main/info"><h2>Информация</h2>
-
-<u-link-wrapper>
-    <a href="https://www.mongodb.com/" target="_blank">https://www.mongodb.com/</a>
-</u-link-wrapper>
-
-</div><div id="mongodb/packages/mongoose"><h2>mongoose</h2>
-
-<u-link-wrapper>
-    <a href="https://mongoosejs.com/" target="_blank">https://mongoosejs.com/</a>
-</u-link-wrapper>
-
-<v-pre-npm>
-npm i --save <u-code-accent>mongoose</u-code-accent>
-</v-pre-npm>
-
-<ul class="list-point">
-    <li>MongoDB ODM</li>
-    <li>Для работы с MongoDB</li>
-</ul>
-</div></div>
+                    <div id="content"></div>
                 </div>
             </div>
 

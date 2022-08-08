@@ -48,21 +48,61 @@
                 href="#node-js-express/usage/routes"
             >Маршрутизация</a>
         </li>
-    </ul><h4>🥥 Шаблонизаторы</h4><ul>
+    </ul><h4>🥥 Шаблонизатор EJS</h4><ul>
         <li>
             <a
                 class="menu-link"
-                id="id__node-js-express/templates/EJS"
-                href="#node-js-express/templates/EJS"
-            ><u-menu-border>EJS</u-menu-border></a>
+                id="id__node-js-express/template-ejs/info"
+                href="#node-js-express/template-ejs/info"
+            >📑 Информация</a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__node-js-express/templates/ExpressHandlebars"
-                href="#node-js-express/templates/ExpressHandlebars"
-            ><u-menu-border>Express Handlebars</u-menu-border></a>
+                id="id__node-js-express/template-ejs/install"
+                href="#node-js-express/template-ejs/install"
+            >⚡️ Установка и настройка</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js-express/template-ejs/structure"
+                href="#node-js-express/template-ejs/structure"
+            >🔥 Структура</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js-express/template-ejs/tags"
+                href="#node-js-express/template-ejs/tags"
+            >⭐️ Tags</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js-express/template-ejs/static-files"
+                href="#node-js-express/template-ejs/static-files"
+            >⭐️ Статичные файлы (CSS, etc.)</a>
+        </li>
+    </ul><h4>🥥 Шаблонизатор Express Handlebars</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js-express/template-express-handlebars/info"
+                href="#node-js-express/template-express-handlebars/info"
+            >📑 Информация</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js-express/template-express-handlebars/install"
+                href="#node-js-express/template-express-handlebars/install"
+            >⚡️ Установка и настройка</a>
         </li>
     </ul>
                 </div>
@@ -92,73 +132,106 @@ npm i --save <u-code-accent>express</u-code-accent>
 </v-pre-npm>
 </div><div id="node-js-express/usage/routes"><h2>Маршрутизация</h2>
 
-<v-code lang="js" title="">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Структура</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Подключение и вызов Express</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
 const express = require('express');
 const app = express();
 </v-code>
 
+<!------------------------------------------------------------->
+<h4>2. Марштуризация</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+app.<u-code-mod>get</u-code-mod>('/url', (req, res) => {
+    // Отображаение текста
+    res.<u-code>send</u-code>('This is Text');
+    // Отображаение HTML
+    res.<u-code>send</u-code>('&lt;h1&gt;This is HTML&lt;/h1&gt;');
+    // Отображаение HTML файла
+    res.<u-code>sendFile</u-code>(__dirname + '/index.html');
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Прослушивание порта</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, '127.0.0.1');
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Маршрутизация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Статическая ссылка</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
-// статическая ссылка (главная)
+// главная
 app.get('/', (req, res) => {
-    res.send('This is home');
+    res.send('This is Index');
 });
 
-// статическая ссылка (news)
+// news
 app.get('/news', (req, res) => {
-    res.send('This is news');
+    res.send('This is News');
 });
+</v-code>
 
-// ссылка с name статьи /news/23
+<!------------------------------------------------------------->
+<h4>2. Динамические параметры в URL</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// > "/news/starter"
 app.get('/news/:name', (req, res) => {
-    res.send('id=' + req.params.name);
+    const params = req.params; // => { name: 'starter' }
 });
 
-// ссылка с name и id статьи /news/23
+// > "/news/starter/23"
 app.get('/news/:name/:id', (req, res) => {
-    res.send('id=' + req.params.name + req.params.id);
+    const params = req.params; // => { name: 'starter', id: '23' }
 });
 </v-code>
-
-<v-code lang="js" title="">
-// отображение html файла
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
-});
-app.get('/about', (req, res) => {
-    res.sendFile(__dirname + '/about.html');
-});
-</v-code>
-
-<v-code lang="js" title="">
-app.listen(3000);
-</v-code>
-
 
 <!------------------------------------------------------------->
-<h4>Данные из url</h4>
+<h4>3. Query параметры из URL</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-app.get('/news/:id', (req, res) => {
-    console.log(req.query);
-    res.render('news');
+// > "/news?id=23&city=Melbourne"
+app.get('/news', (req, res) => {
+    const query = req.query; // => { id: '23', city: 'Melbourne' }
 });
 </v-code>
-
-<v-code lang="bash" title="">
-http://127.0.0.1:3000/news/some?filter=id&city=penza  # запрос
-{ filter: 'id', city: 'penza' }                       # результат
-</v-code>
-
-</div><div id="node-js-express/templates/EJS"><h2>Шаблонизатор EJS</h2>
+</div><div id="node-js-express/template-ejs/info"><h2>Информация</h2>
 
 <u-link-wrapper>
     <a href="https://ejs.co/" target="_blank">https://ejs.co/</a>
 </u-link-wrapper>
+</div><div id="node-js-express/template-ejs/install"><h2>Установка и настройка</h2>
 
 <v-pre-npm>
 npm i --save <u-code-accent>ejs</u-code-accent>
 </v-pre-npm>
 
+</div><div id="node-js-express/template-ejs/structure"><h2>Структура</h2>
+
+<v-tree>
+🥥 <s>index.js</s>
+📂 <b>public</b>
+    🥥 <s>styles.css</s>
+📂 <b>views</b>
+    🥥 <s>news.ejs</s>
+    📂 <b>blocks</b>
+        🥥 <s>header.ejs</s>
+</v-tree>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Пример</h3>
@@ -167,76 +240,125 @@ npm i --save <u-code-accent>ejs</u-code-accent>
 <!------------------------------------------------------------->
 <h4>index.js</h4>
 <!------------------------------------------------------------->
-<v-code lang="js" title="">
+<v-code lang="js opacity" title="">
 const express = require('express');
 const app = express();
-// указание шаблонизатора, который будем использовать
-app.set('view engine', 'ejs');
-// ссылка на статические файлы (css, img, doc и т.д. иначе не будут загружаться)
 app.use('/public', express.static('public'));
-app.get('/news/:id', (req, res) => {
-    // берет шаблон news.ejs из папки views
-    // передает свойство newsId = req.params.id
-    // передает переменную newsParam = 234
-    // передаем объект newsParam
-    const obj = {title: 'Новость', id: 4, paragraphs: ['Текст', 'Числа: 2, 4', 77]};
-    res.render('news', {newsId: req.params.id, newsParam: 234, newsObj: obj});
+</v-code>
+
+<v-code lang="js" title="">
+// Указание шаблонизатора
+app.<u-code-mod>set</u-code-mod>('view engine', 'ejs');
+
+app.get('/news', (req, res) => {
+    // Берем шаблон "news.ejs" из "views"
+    // Передаем объект с ключами: "value" и "arr"
+    res.render('news', {
+        <u-code-accent>value</u-code-accent>: 'Value',
+        <u-code-accent>arr</u-code-accent>: [1, 2, 3, 4]
+    });
 });
-app.get('/about', (req, res) => {
-    res.render('about');
-});
+</v-code>
+
+<v-code lang="js opacity" title="">
 app.listen(3000);
 </v-code>
 
-<!------------------------------------------------------------->
-<h4>public/css/style.css</h4>
-<!------------------------------------------------------------->
-public - все статические файлы (css, img, doc и т.д.)
-
-<!------------------------------------------------------------->
-<h4>views/about.ejs</h4>
-<!------------------------------------------------------------->
-подключение статического файла
-<v-code lang="html" title="">
-&lt;link rel="stylesheet" href="/public/css/style.css"&gt;
-</v-code>
 
 <!------------------------------------------------------------->
 <h4>views/news.ejs</h4>
 <!------------------------------------------------------------->
+<ul class="list-point">
+    <li>В "blocks/header" обычный html-код</li>
+</ul>
+
 <v-code lang="html" title="">
-<% include blocks/header.ejs %>    - подключение файла-заголовка
-<%= newsId %>                      - вывод переменной
-<%= newsObj.id %>                  - вывод переменной объекта
-</v-code>
-<v-code lang="html" title="">
+&lt;%- include('blocks/header'); %&gt;
+
+&lt;%= <u-code-accent>value</u-code-accent> %&gt;
+
 &lt;ul&gt;
-    &lt;% newsObj.paragraphs.forEach((item) => { %&gt;
+    &lt;% <u-code-accent>arr</u-code-accent>.map(item =&gt; { %&gt;
         &lt;li&gt;&lt;%= item %&gt;&lt;/li&gt;
     &lt;% }); %&gt;
 &lt;/ul&gt;
 </v-code>
+</div><div id="node-js-express/template-ejs/tags"><h2>Tags</h2>
 
 <!------------------------------------------------------------->
-<h4>views/blocks/header.ejs</h4>
+<h4>Подключение файла "header"</h4>
 <!------------------------------------------------------------->
 <v-code lang="html" title="">
-&lt;ul&gt;
-    &lt;li&gt;&lt;a href="/"&gt;main&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="/about"&gt;about&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="/news/новости"&gt;news&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<%- include('blocks/header'); %>
 </v-code>
-</div><div id="node-js-express/templates/ExpressHandlebars"><h2>Шаблонизатор Express Handlebars</h2>
+
+<!------------------------------------------------------------->
+<h4>Вывод переменной "value"</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+<%= value %>
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вывод массива "arr"</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;% arr.map(item =&gt; { %&gt;
+    &lt;div&gt;&lt;%= item %&gt;&lt;/div&gt;
+&lt;% }); %&gt;
+</v-code>
+</div><div id="node-js-express/template-ejs/static-files"><h2>Статичные файлы</h2>
+
+<ul class="list-point">
+    <li>Нужно явно указать ссылку на статичные файлы: css, img, doc и т.д., иначе эти файлы не будут загружаться</li>
+    <li>Статичные файлы размещаются в директории <u>public</u></li>
+</ul>
+
+<v-tree>
+🥥 <s>index.js</s>
+📂 <b>public</b>
+    🥥 <s>styles.css</s>
+📂 <b>views</b>
+    🥥 <s>about.ejs</s>
+</v-tree>
+
+<!------------------------------------------------------------->
+<h4>1. Регистрация в index.js</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="index.js">
+const express = require('express');
+const app = express();
+
+app.<u-code-mod>use</u-code-mod>('/public', express.static('public'));
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Задание стилей</h4>
+<!------------------------------------------------------------->
+<v-code lang="css step" title="./public/styles.css">
+h1 {
+    color: yellowgreen;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Добавление стилей на страницу</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="./views/about.ejs">
+&lt;link rel="stylesheet" href="/public/styles.css"&gt;
+
+&lt;h1&gt;About&lt;/h1&gt;
+</v-code>
+</div><div id="node-js-express/template-express-handlebars/info"><h2>Информация</h2>
 
 <u-link-wrapper>
     <a href="https://github.com/ericf/express-handlebars" target="_blank">https://ejs.co/</a>
 </u-link-wrapper>
+</div><div id="node-js-express/template-express-handlebars/install"><h2>Установка и настройка</h2>
 
 <v-pre-npm>
 npm i --save <u-code-accent>express-handlebars</u-code-accent>
 </v-pre-npm>
-
 
 </div></div>
                 </div>

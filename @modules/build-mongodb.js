@@ -10,7 +10,7 @@ ARR_MODULE = [
     {
         title: 'Пакеты',
         themes: [
-            [root+'packages/mongoose', setTheme(2, ['EJS'])],
+            [root+'packages/mongoose', setTheme(2, ['Mongoose'])],
         ]
     },
 ]

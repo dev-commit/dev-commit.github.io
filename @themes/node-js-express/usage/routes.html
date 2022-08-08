@@ -1,59 +1,80 @@
 <h2>Маршрутизация</h2>
 
-<v-code lang="js" title="">
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Структура</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Подключение и вызов Express</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
 const express = require('express');
 const app = express();
 </v-code>
 
+<!------------------------------------------------------------->
+<h4>2. Марштуризация</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+app.<u-code-mod>get</u-code-mod>('/url', (req, res) => {
+    // Отображаение текста
+    res.<u-code>send</u-code>('This is Text');
+    // Отображаение HTML
+    res.<u-code>send</u-code>('&lt;h1&gt;This is HTML&lt;/h1&gt;');
+    // Отображаение HTML файла
+    res.<u-code>sendFile</u-code>(__dirname + '/index.html');
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Прослушивание порта</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, '127.0.0.1');
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Маршрутизация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Статическая ссылка</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
-// статическая ссылка (главная)
+// главная
 app.get('/', (req, res) => {
-    res.send('This is home');
+    res.send('This is Index');
 });
 
-// статическая ссылка (news)
+// news
 app.get('/news', (req, res) => {
-    res.send('This is news');
+    res.send('This is News');
 });
+</v-code>
 
-// ссылка с name статьи /news/23
+<!------------------------------------------------------------->
+<h4>2. Динамические параметры в URL</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// > "/news/starter"
 app.get('/news/:name', (req, res) => {
-    res.send('id=' + req.params.name);
+    const params = req.params; // => { name: 'starter' }
 });
 
-// ссылка с name и id статьи /news/23
+// > "/news/starter/23"
 app.get('/news/:name/:id', (req, res) => {
-    res.send('id=' + req.params.name + req.params.id);
+    const params = req.params; // => { name: 'starter', id: '23' }
 });
 </v-code>
-
-<v-code lang="js" title="">
-// отображение html файла
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
-});
-app.get('/about', (req, res) => {
-    res.sendFile(__dirname + '/about.html');
-});
-</v-code>
-
-<v-code lang="js" title="">
-app.listen(3000);
-</v-code>
-
 
 <!------------------------------------------------------------->
-<h4>Данные из url</h4>
+<h4>3. Query параметры из URL</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-app.get('/news/:id', (req, res) => {
-    console.log(req.query);
-    res.render('news');
+// > "/news?id=23&city=Melbourne"
+app.get('/news', (req, res) => {
+    const query = req.query; // => { id: '23', city: 'Melbourne' }
 });
 </v-code>
-
-<v-code lang="bash" title="">
-http://127.0.0.1:3000/news/some?filter=id&city=penza  # запрос
-{ filter: 'id', city: 'penza' }                       # результат
-</v-code>
-
