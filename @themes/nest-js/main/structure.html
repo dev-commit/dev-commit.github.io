@@ -1,0 +1,106 @@
+<h2>Структура</h2>
+
+<ul class="list-point">
+    <li><u-text-define>1. Controller</u-text-define> - работает с запросами</li>
+    <li><u-text-define>2. Service</u-text-define> - реализует логику приложения</li>
+    <li><u-text-define>3. Module</u-text-define> - создание изолированных сущностей, не расширяя главный модуль</li>
+</ul>
+
+<v-tree>
+› <s>main.ts</s>
+› <s>app.module.ts</s>
+📂 <u-code-mod>starter</u-code-mod>
+    › <s>starter.controller.ts</s>
+    › <s>starter.module.ts</s>
+    › <s>starter.service.ts</s>
+</v-tree>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Корневые файлы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. main.ts</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+
+async function bootstrap() {
+    const app = await NestFactory.create(<u-code>AppModule</u-code>);
+    await app.listen(3000);
+}
+bootstrap();
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. app.module.ts</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { Module } from '@nestjs/common';
+import { StarterModule } from './starter/starter.module';
+
+// Декоратор для класса AppModule
+@Module({
+    // Экспорт других модулей
+    imports: [<u-code>StarterModule</u-code>],
+    // Массив контроллеров
+    controllers: [],
+    // Массив сервисов
+    providers: [],
+})
+export class AppModule {}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файлы компонента</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>starter.controller.ts</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { Controller, Get } from '@nestjs/common';
+import { StarterService } from './starter.service';
+
+@Controller('starter')
+export class <u-code-accent>StarterController</u-code-accent> {
+    // Реализация Dependency Injection для использования сервиса в классе
+    constructor(private readonly starterService: StarterService) {}
+
+    @Get()
+    get() {
+        return this.starterService.<u-code>getData</u-code>()
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>starter.module.ts</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { Module } from '@nestjs/common';
+import { StarterService } from './starter.service';
+import { StarterController } from './starter.controller';
+
+@Module({
+    imports: [],
+    controllers: [<u-code>StarterController</u-code>],
+    providers: [<u-code>StarterService</u-code>],
+})
+export class <u-code-accent>StarterModule</u-code-accent> {}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>starter.service.ts</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class <u-code-accent>StarterService</u-code-accent> {
+    <u-code>getData</u-code>() {
+        return [1, 2, 3, 4];
+    }
+}
+</v-code>

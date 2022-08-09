@@ -15,7 +15,6 @@ emoji = {
     star:      '⭐️ ',
     chevron:   '🔰 ',
     icecream:  '🍦 ',
-    cloud:     '☁️ ',
     unicorn:   '🦄 ',
 }
 
