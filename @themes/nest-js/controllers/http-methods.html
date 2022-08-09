@@ -1,0 +1,101 @@
+<h2>HTTP-методы</h2>
+
+<ul class="list-point">
+    <li><u-text-define>DTO</u-text-define> - Data Transfer Object</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>GET</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { Controller, Get } from '@nestjs/common';
+
+@Controller('products')
+export class ProductsController {
+    @Get()
+    get() {
+      return 'get';
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>POST</h4>
+<!------------------------------------------------------------->
+<v-code lang="js opacity" title="./dto/create.dto">
+export class CreateDto {
+    readonly title: string;
+    readonly price: number;
+}
+</v-code>
+
+<v-code lang="js" title="">
+import { Controller, Post, Body } from '@nestjs/common';
+import { CreateDto } from './dto/create.dto';
+</v-code>
+
+<v-code lang="js" title="">
+@Controller('products')
+export class ProductsController {
+    @Post()
+    // @Body() - получить некоторый параметр из тела запроса
+    create(@Body() createDto: CreateDto): string {
+        return createProductDto.title;
+    }
+}
+</v-code>
+
+<v-code lang="js" title="">
+import { HttpCode, Header } from '@nestjs/common';
+
+@Controller('products')
+export class ProductsController {
+    @Post()
+    @HttpCode(HttpStatus.CREATED) // Кастомное указание HTTP-кода
+    @Header('Cache-Control', 'none') // Добавлние заголовков
+    create(@Body() createDto: CreateDto): string {
+        return createDto.title;
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>PUT</h4>
+<!------------------------------------------------------------->
+<v-code lang="js opacity" title="./dto/update.dto">
+export class UpdateDto {
+    readonly title: string;
+    readonly price: number;
+}
+</v-code>
+
+<v-code lang="js" title="">
+import { Controller, Put, Body, Param } from '@nestjs/common';
+import { UpdateDto } from './dto/update.dto';
+
+@Controller('products')
+export class ProductsController {
+    @Put(':id')
+    update(
+      @Body() updateDto: UpdateDto,
+      @Param('id') id: string
+    ): string {
+      return id;
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>DELETE</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { Controller, Delete, Param } from '@nestjs/common';
+
+@Controller('products')
+export class ProductsController {
+    @Delete(':id')
+    remove(@Param('id') id: string): string {
+      return id;
+    }
+}
+</v-code>

@@ -32,6 +32,70 @@
                 href="#nest-js/main/info"
             >📑 Информация</a>
         </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__nest-js/main/install"
+                href="#nest-js/main/install"
+            >⚡️ Установка и настройка</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__nest-js/main/cli"
+                href="#nest-js/main/cli"
+            >⚡️ Nest CLI</a>
+        </li>
+    </ul><h4>🥥 1. Controllers</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__nest-js/controllers/structure"
+                href="#nest-js/controllers/structure"
+            >⭐️ Структура</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__nest-js/controllers/http-methods"
+                href="#nest-js/controllers/http-methods"
+            >HTTP-методы</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__nest-js/controllers/url-params"
+                href="#nest-js/controllers/url-params"
+            >Динамические параметры в URL</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__nest-js/controllers/redirect"
+                href="#nest-js/controllers/redirect"
+            >Редирект</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__nest-js/controllers/request"
+                href="#nest-js/controllers/request"
+            >Request и Response</a>
+        </li>
+    </ul><h4>🥥 2. Services</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__nest-js/services/structure"
+                href="#nest-js/services/structure"
+            >⭐️ Структура</a>
+        </li>
     </ul>
                 </div>
 
@@ -51,6 +115,258 @@
 <u-link-wrapper>
     <a href="https://nestjs.com/" target="_blank">https://nestjs.com/</a>
 </u-link-wrapper>
+
+<ul class="list-point">
+    <li>Nest обёртка над Express</li>
+</ul>
+</div><div id="nest-js/main/install"><h2>Установка и настройка</h2>
+
+<!------------------------------------------------------------->
+<h4>1. Установить Node.js</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://nodejs.org/en/" target="_blank">https://nodejs.org/en/</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>2. Установить глобально NestJS</h4>
+<!------------------------------------------------------------->
+<v-pre-npm>
+npm i --g <u-code-accent>@nestjs/cli</u-code-accent>
+</v-pre-npm>
+
+<!------------------------------------------------------------->
+<h4>3. Создать проект</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Запускать консоль под Администратором</li>
+    <li>Будет предложен выбор пакетного менеджера (npm, yarn, .etc)</li>
+</ul>
+
+<v-pre-npm>
+nest new <i>НазваниеПроекта</i>
+</v-pre-npm>
+
+<!------------------------------------------------------------->
+<h4>4. Запустить сервер в режиме dev</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>http://127.0.0.1:3000/</li>
+</ul>
+
+<v-code lang="bash" title="">
+npm run start:dev
+</v-code>
+
+
+</div><div id="nest-js/main/cli"><h2>Nest CLI</h2>
+
+<!------------------------------------------------------------->
+<h4>1. Получить спискок команд Nest CLI</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+    nest generate --help
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Создать новый контроллер</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+nest generate controller products # полная запись
+nest g co products                # сокращенная запись
+</v-code>
+</div><div id="nest-js/controllers/structure"><h2>Структура</h2>
+
+<v-code lang="js" title="">
+import { Controller, Get } from '@nestjs/common';
+import { AppService } from './app.service';
+
+// Декоратор для класса AppController
+@Controller()
+export class AppController {
+  // Реализация Dependency Injection для использования appService в классе
+  constructor(private readonly appService: AppService) {}
+
+  // Декоратор для getHello()
+  // Показывает, какой тип запроса ожидается
+  @Get()
+  getHello(): string {
+    return 'Hey';
+  }
+}
+</v-code>
+
+<v-code lang="js" title="">
+import { Controller } from '@nestjs/common';
+
+// Декоратор с префиксом "products"
+@Controller('products')
+export class ProductsController {
+    //
+}
+</v-code>
+</div><div id="nest-js/controllers/http-methods"><h2>HTTP-методы</h2>
+
+<ul class="list-point">
+    <li><u-text-define>DTO</u-text-define> - Data Transfer Object</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>GET</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { Controller, Get } from '@nestjs/common';
+
+@Controller('products')
+export class ProductsController {
+    @Get()
+    get() {
+      return 'get';
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>POST</h4>
+<!------------------------------------------------------------->
+<v-code lang="js opacity" title="./dto/create.dto">
+export class CreateDto {
+    readonly title: string;
+    readonly price: number;
+}
+</v-code>
+
+<v-code lang="js" title="">
+import { Controller, Post, Body } from '@nestjs/common';
+import { CreateDto } from './dto/create.dto';
+</v-code>
+
+<v-code lang="js" title="">
+@Controller('products')
+export class ProductsController {
+    @Post()
+    // @Body() - получить некоторый параметр из тела запроса
+    create(@Body() createDto: CreateDto): string {
+        return createProductDto.title;
+    }
+}
+</v-code>
+
+<v-code lang="js" title="">
+import { HttpCode, Header } from '@nestjs/common';
+
+@Controller('products')
+export class ProductsController {
+    @Post()
+    @HttpCode(HttpStatus.CREATED) // Кастомное указание HTTP-кода
+    @Header('Cache-Control', 'none') // Добавлние заголовков
+    create(@Body() createDto: CreateDto): string {
+        return createDto.title;
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>PUT</h4>
+<!------------------------------------------------------------->
+<v-code lang="js opacity" title="./dto/update.dto">
+export class UpdateDto {
+    readonly title: string;
+    readonly price: number;
+}
+</v-code>
+
+<v-code lang="js" title="">
+import { Controller, Put, Body, Param } from '@nestjs/common';
+import { UpdateDto } from './dto/update.dto';
+
+@Controller('products')
+export class ProductsController {
+    @Put(':id')
+    update(
+      @Body() updateDto: UpdateDto,
+      @Param('id') id: string
+    ): string {
+      return id;
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>DELETE</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { Controller, Delete, Param } from '@nestjs/common';
+
+@Controller('products')
+export class ProductsController {
+    @Delete(':id')
+    remove(@Param('id') id: string): string {
+      return id;
+    }
+}
+</v-code>
+</div><div id="nest-js/controllers/url-params"><h2>Динамические параметры в URL</h2>
+
+<ul class="list-point">
+    <li><u-code-text>:id</u-code-text> - динамический параметр</li>
+</ul>
+
+<v-code lang="js" title="">
+import { Controller, Get, Param } from '@nestjs/common';
+</v-code>
+
+<v-code lang="js" title="">
+@Controller('products')
+export class ProductsController {
+    @Get(':id')
+    // Получение всего объекта с параметрами
+    getOne(@Param() params) {
+        return params;
+    }
+}
+</v-code>
+
+<v-code lang="js" title="">
+@Controller('products')
+export class ProductsController {
+    @Get(':id')
+    // Получение только ID
+    getOne(@Param('id') id: string): string {
+        return id;
+    }
+}
+</v-code>
+</div><div id="nest-js/controllers/redirect"><h2>Редирект</h2>
+
+<v-code lang="js" title="">
+import { Controller, Get, Redirect } from '@nestjs/common';
+
+@Controller('products')
+export class ProductsController {
+    @Get()
+    @Redirect('https://google.com/', 301) // 301 - StatusCode
+    get() {
+      return 'get';
+    }
+}
+</v-code>
+</div><div id="nest-js/controllers/request"><h2>Request и Response</h2>
+
+<v-code lang="js" title="">
+import { Controller, Get, Req } from '@nestjs/common';
+import { Request, Response } from 'express';
+
+@Controller('products')
+export class ProductsController {
+    @Get()
+    get(@Req() req: Request, @Res() res: Response): string {
+        res.status(201).end('Hey')
+        return 'get'
+    }
+}
+</v-code>
+</div><div id="nest-js/services/structure"><h2>Структура</h2>
 
 </div></div>
                 </div>

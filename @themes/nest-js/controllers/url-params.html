@@ -1,0 +1,31 @@
+<h2>Динамические параметры в URL</h2>
+
+<ul class="list-point">
+    <li><u-code-text>:id</u-code-text> - динамический параметр</li>
+</ul>
+
+<v-code lang="js" title="">
+import { Controller, Get, Param } from '@nestjs/common';
+</v-code>
+
+<v-code lang="js" title="">
+@Controller('products')
+export class ProductsController {
+    @Get(':id')
+    // Получение всего объекта с параметрами
+    getOne(@Param() params) {
+        return params;
+    }
+}
+</v-code>
+
+<v-code lang="js" title="">
+@Controller('products')
+export class ProductsController {
+    @Get(':id')
+    // Получение только ID
+    getOne(@Param('id') id: string): string {
+        return id;
+    }
+}
+</v-code>
