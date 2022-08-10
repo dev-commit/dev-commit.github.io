@@ -22,14 +22,14 @@ ARR_MODULE = [
     },
     {
         title: '2. Service',
-        accent: true,
+        child: true,
         themes: [
             [root+'service/structure',    emoji.star+'Структура'],
         ]
     },
     {
         title: '3. Module',
-        accent: true,
+        child: true,
         themes: [
             [root+'module/structure',    emoji.star+'Структура'],
         ]

@@ -1,7 +1,10 @@
 
 const getMenuHTML = () => (`
     <slot v-for="itemTitle in themesContent">
-        <h4 v-html="themesEmoji+' '+itemTitle.title" :class="{ accent: itemTitle.accent }"></h4>
+        <h4
+            v-html="themesEmoji+' '+itemTitle.title"
+            :class="{accent: itemTitle.accent, child: itemTitle.child }"
+        ></h4>
         <ul>
             <slot v-for="(itemTheme, i) in itemTitle.themes">
                 <li v-if="itemTheme[0]">

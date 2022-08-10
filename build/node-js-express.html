@@ -40,13 +40,37 @@
                 href="#node-js-express/main/install"
             >⚡️ Установка и настройка</a>
         </li>
-    </ul><h4>🥥 Использование</h4><ul>
+    </ul><h4>🥥 Маршрутизация</h4><ul>
         <li>
             <a
                 class="menu-link"
-                id="id__node-js-express/usage/routes"
-                href="#node-js-express/usage/routes"
-            >Маршрутизация</a>
+                id="id__node-js-express/routing/structure"
+                href="#node-js-express/routing/structure"
+            >⚡️ Структура</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js-express/routing/routes"
+                href="#node-js-express/routing/routes"
+            >⚡️ Маршрутизация</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js-express/api/get"
+                href="#node-js-express/api/get"
+            ><u-menu>get()</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js-express/api/use"
+                href="#node-js-express/api/use"
+            ><u-menu>use()</u-menu></a>
         </li>
     </ul><h4>🥥 Шаблонизатор EJS</h4><ul>
         <li>
@@ -130,11 +154,7 @@
 <v-pre-npm>
 npm i --save <u-code-accent>express</u-code-accent>
 </v-pre-npm>
-</div><div id="node-js-express/usage/routes"><h2>Маршрутизация</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Структура</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+</div><div id="node-js-express/routing/structure"><h2>Структура</h2>
 
 <!------------------------------------------------------------->
 <h4>1. Подключение и вызов Express</h4>
@@ -165,11 +185,7 @@ app.<u-code-mod>get</u-code-mod>('/url', (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, '127.0.0.1');
 </v-code>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Маршрутизация</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+</div><div id="node-js-express/routing/routes"><h2>Маршрутизация</h2>
 
 <!------------------------------------------------------------->
 <h4>1. Статическая ссылка</h4>
@@ -209,6 +225,34 @@ app.get('/news/:name/:id', (req, res) => {
 app.get('/news', (req, res) => {
     const query = req.query; // => { id: '23', city: 'Melbourne' }
 });
+</v-code>
+</div><div id="node-js-express/api/get"><h2><u-code-text>get()</u-code-text></h2>
+
+<v-code lang="js opacity" title="">
+const express = require('express');
+const app = express();
+</v-code>
+
+<v-code lang="js step" title="">
+app.<u-code-mod>get</u-code-mod>('/url', (req, res) => {
+    //
+});
+</v-code>
+</div><div id="node-js-express/api/use"><h2><u-code-text>use()</u-code-text></h2>
+
+<ul class="list-point">
+    <li>Express Middleware</li>
+</ul>
+
+<v-code lang="js opacity" title="">
+const express = require('express');
+const app = express();
+</v-code>
+
+<v-code lang="js step" title="">
+app.<u-code-mod>use</u-code-mod>((req, res, next) => {
+    res.status(201).end('Hello');
+})
 </v-code>
 </div><div id="node-js-express/template-ejs/info"><h2>Информация</h2>
 

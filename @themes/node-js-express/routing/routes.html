@@ -1,0 +1,41 @@
+<h2>Маршрутизация</h2>
+
+<!------------------------------------------------------------->
+<h4>1. Статическая ссылка</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// главная
+app.get('/', (req, res) => {
+    res.send('This is Index');
+});
+
+// news
+app.get('/news', (req, res) => {
+    res.send('This is News');
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Динамические параметры в URL</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// > "/news/starter"
+app.get('/news/:name', (req, res) => {
+    const params = req.params; // => { name: 'starter' }
+});
+
+// > "/news/starter/23"
+app.get('/news/:name/:id', (req, res) => {
+    const params = req.params; // => { name: 'starter', id: '23' }
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Query параметры из URL</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// > "/news?id=23&city=Melbourne"
+app.get('/news', (req, res) => {
+    const query = req.query; // => { id: '23', city: 'Melbourne' }
+});
+</v-code>

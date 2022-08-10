@@ -9,9 +9,12 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Использование',
+        title: 'Маршрутизация',
         themes: [
-            [root+'usage/routes',       'Маршрутизация'],
+            [root+'routing/structure', emoji.code+'Структура'],
+            [root+'routing/routes', emoji.code+'Маршрутизация'],
+            [root+'api/get',           setTheme(1, ['get()'])],
+            [root+'api/use',           setTheme(1, ['use()'])],
         ]
     },
     {
