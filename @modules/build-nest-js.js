@@ -6,14 +6,19 @@ ARR_MODULE = [
         themes: [
             [root+'main/info',          emoji.theory+'Информация'],
             [root+'main/install',       emoji.code+'Установка и настройка'],
-            [root+'main/structure',     emoji.fire+'Структура'],
+        ]
+    },
+    {
+        title: 'Элементы',
+        accent: true,
+        themes: [
+            [root+'elements/structure',    emoji.fire+'Структура'],
         ]
     },
     {
         title: '1. Controller',
-        accent: true,
+        child: true,
         themes: [
-            [root+'controller/structure',    emoji.star+'Структура'],
             [root+'controller/http-methods', 'HTTP-методы'],
             [root+'controller/url-params',   'Динамические параметры в URL'],
             [root+'controller/redirect',     'Редирект'],

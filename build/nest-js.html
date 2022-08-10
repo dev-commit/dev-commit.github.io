@@ -40,23 +40,15 @@
                 href="#nest-js/main/install"
             >⚡️ Установка и настройка</a>
         </li>
-    
+    </ul><h4>🥥 Элементы</h4><ul>
         <li>
             <a
                 class="menu-link"
-                id="id__nest-js/main/structure"
-                href="#nest-js/main/structure"
+                id="id__nest-js/elements/structure"
+                href="#nest-js/elements/structure"
             >🔥 Структура</a>
         </li>
     </ul><h4>🥥 1. Controller</h4><ul>
-        <li>
-            <a
-                class="menu-link"
-                id="id__nest-js/controller/structure"
-                href="#nest-js/controller/structure"
-            >⭐️ Структура</a>
-        </li>
-    
         <li>
             <a
                 class="menu-link"
@@ -183,7 +175,7 @@ npm run start:dev
 </v-code>
 
 
-</div><div id="nest-js/main/structure"><h2>Структура</h2>
+</div><div id="nest-js/elements/structure"><h2>Структура</h2>
 
 <ul class="list-point">
     <li><u-text-define>1. Controller</u-text-define> - работает с запросами</li>
@@ -287,36 +279,6 @@ export class <u-code-accent>StarterService</u-code-accent> {
     <u-code>getData</u-code>() {
         return [1, 2, 3, 4];
     }
-}
-</v-code>
-</div><div id="nest-js/controller/structure"><h2>Структура</h2>
-
-<v-code lang="js" title="">
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
-
-// Декоратор для класса AppController
-@Controller()
-export class AppController {
-  // Реализация Dependency Injection для использования сервиса appService в классе
-  constructor(private readonly appService: AppService) {}
-
-  // Декоратор для getHello()
-  // Показывает, какой тип запроса ожидается
-  @Get()
-  getHello(): string {
-    return 'Hey';
-  }
-}
-</v-code>
-
-<v-code lang="js" title="">
-import { Controller } from '@nestjs/common';
-
-// Декоратор с префиксом "products"
-@Controller('products')
-export class ProductsController {
-    //
 }
 </v-code>
 </div><div id="nest-js/controller/http-methods"><h2>HTTP-методы</h2>
