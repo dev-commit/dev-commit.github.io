@@ -234,6 +234,22 @@ export class AppModule {}
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
+<h4>starter.module.ts</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+import { Module } from '@nestjs/common';
+import { StarterService } from './starter.service';
+import { StarterController } from './starter.controller';
+
+@Module({
+    imports: [],
+    controllers: [<u-code>StarterController</u-code>],
+    providers: [<u-code>StarterService</u-code>],
+})
+export class <u-code-accent>StarterModule</u-code-accent> {}
+</v-code>
+
+<!------------------------------------------------------------->
 <h4>starter.controller.ts</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
@@ -250,22 +266,6 @@ export class <u-code-accent>StarterController</u-code-accent> {
         return this.starterService.<u-code>getData</u-code>()
     }
 }
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>starter.module.ts</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-import { Module } from '@nestjs/common';
-import { StarterService } from './starter.service';
-import { StarterController } from './starter.controller';
-
-@Module({
-    imports: [],
-    controllers: [<u-code>StarterController</u-code>],
-    providers: [<u-code>StarterService</u-code>],
-})
-export class <u-code-accent>StarterModule</u-code-accent> {}
 </v-code>
 
 <!------------------------------------------------------------->
@@ -444,6 +444,54 @@ export class ProductsController {
 </v-code>
 </div><div id="nest-js/service/structure"><h2>Структура</h2>
 
+<!------------------------------------------------------------->
+<h4>starter.service.ts</h4>
+<!------------------------------------------------------------->
+<v-code lang="js border" title="">
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class <u-code-accent>StarterService</u-code-accent> {
+    <u-code>getData</u-code>() {
+        return [1, 2, 3, 4];
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>starter.controller.ts</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { Controller, Get } from '@nestjs/common';
+import { StarterService } from './starter.service';
+
+@Controller('starter')
+export class <u-code-accent>StarterController</u-code-accent> {
+    // Реализация Dependency Injection для использования сервиса в классе
+    constructor(private readonly starterService: StarterService) {}
+
+    @Get()
+    get() {
+        return this.starterService.<u-code>getData</u-code>()
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>starter.module.ts</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { Module } from '@nestjs/common';
+import { StarterService } from './starter.service';
+import { StarterController } from './starter.controller';
+
+@Module({
+    imports: [],
+    controllers: [<u-code>StarterController</u-code>],
+    providers: [<u-code>StarterService</u-code>],
+})
+export class <u-code-accent>StarterModule</u-code-accent> {}
+</v-code>
 </div><div id="nest-js/module/structure"><h2>Структура</h2>
 
 <v-tree>
@@ -451,6 +499,20 @@ export class ProductsController {
 📂 <u-code-mod>starter</u-code-mod>
     › <s>starter.module.ts</s>
 </v-tree>
+
+<!------------------------------------------------------------->
+<h4>starter.module.ts</h4>
+<!------------------------------------------------------------->
+<v-code lang="js border" title="">
+import { Module } from '@nestjs/common';
+
+@Module({
+    imports: [],
+    controllers: [],
+    providers: [],
+})
+export class <u-code-accent>StarterModule</u-code-accent> {}
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>app.module.ts</h4>
@@ -469,20 +531,6 @@ import { StarterModule } from './starter/starter.module';
     providers: [],
 })
 export class AppModule {}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>starter.module.ts</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-import { Module } from '@nestjs/common';
-
-@Module({
-    imports: [],
-    controllers: [],
-    providers: [],
-})
-export class <u-code-accent>StarterModule</u-code-accent> {}
 </v-code>
 </div><div id="nest-js/libs/cli"><h2>Nest CLI</h2>
 
