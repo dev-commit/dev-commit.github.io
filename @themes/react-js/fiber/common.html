@@ -1,0 +1,80 @@
+<h2>React Fiber Architecture</h2>
+
+<u-link-wrapper>
+    <a href="https://www.youtube.com/watch?v=4p9ISqIx1zI" target="_blank">YouTube. Лин Кларк. Как Fiber сделал React значительно быстрее</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>React Fiber</u-text-define> - переделанная реализация алгоритма reconciliation</li>
+    <li>Fiber - легоковесная реализация потоков</li>
+    <li>Цель Fiber - позволить React воспользоваться <u>планированием</u></li>
+
+    <hr>
+    <li><u-text-define>Планирование</u-text-define> - это процесс, который определяет когда работа должна быть выполнена</li>
+    <li><u-text-define>Работа</u-text-define> - любые вычисления, которые должны быть выполнены. Работа – это обычно результат апдейта (например вызов setState)</li>
+
+    <hr>
+    <li><u-text-underline>Цель</u-text-underline> в увеличении производительности при разработке таких задач как анимация, организация элементов на странице и движение элементов</li>
+    <li><u-text-underline>Главная особенность</u-text-underline> - инкрементный рендеринг: способность разделять работу рендера на единицы и распределять их между множественными фреймами.</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>1. Есть очередь того, что нужно перерисовать</li>
+    <li>2. У каждого элемента очереди есть приоритеты</li>
+    <li>3. Механизм реконсилинга выбирает из очереди наиболее приоритетные задачи, их выполняет пока не прошло 16ms и не пришло время отдавать управление браузеру</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Фазы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Фазу 1 можно прервать</li>
+    <li>Фазу 2 нельзя прервать</li>
+</ul>
+
+<img src="/@img/react/reconciler/phases.png" width="700px">
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сравнение с предыдущим алгоритмом</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Предудущий алгоритм обходит всё дерево компонент рекурсивно и вызывает все render-функции в рамках одного тика Event Loop.</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Error Boundarys</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Каждая отрисовка является легковесным Файбером стало возможно реализовать границы ошибок (Error Boundarys)</li>
+    <li>Теперь падения в одном компоненте не приводит к падению перерисовок во всех других компонентов</li>
+    <li>Будет разрушено дерево компонента, который упал. Но за пределы разрушенного дерева, ошибка не выйдет</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Из компонентов React можно возвращать:</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>DOM-узел</li>
+    <li>Число</li>
+    <li>Строку</li>
+    <li>Массив (DOM-узелов / чисел / строк)</li>
+</ul>
+
+<i>Нет соответствия: 1 виртуальный узел - 1 узел в HTML</i>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Повторный рендеринг (Re-renderen)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>1. Сверка (Reconciler)</li>
+    <li>2. Перерисовка (Rerender): ReactDOM, React Native</li>
+</ul>

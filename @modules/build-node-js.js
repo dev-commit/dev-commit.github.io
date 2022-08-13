@@ -6,6 +6,7 @@ ARR_MODULE = [
         themes: [
             [root+'theory/architecture',  emoji.star+'Архитектура Node.js'],
             [root+'theory/event-loop',    emoji.star+'Event Loop'],
+            [root+'theory/thread-pool',   emoji.star+'Thread Pool'],
         ]
     },
     {

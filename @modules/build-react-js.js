@@ -8,7 +8,15 @@ ARR_MODULE = [
             [root+'reconciler/virtual-dom',        emoji.theory+'Virtual DOM (Общее)'],
             [root+'reconciler/virtual-dom-react',  emoji.lemon+'Virtual DOM (React)'],
             [root+'reconciler/reconciliation',     emoji.lemon+'Reconciliation Algorithm'],
-            [root+'reconciler/fiber',              emoji.lemon+'React Fiber'],
+        ]
+    },
+    {
+        title: 'Fiber',
+        themes: [
+            [root+'fiber/common',     emoji.star+'Общее'],
+            [root+'fiber/planning',   emoji.star+'1. Планирование'],
+            [root+'fiber/priorities', emoji.star+'2. Приоритизация'],
+            [root+'fiber/sample',     'Пример'],
         ]
     },
     {
