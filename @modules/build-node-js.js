@@ -2,6 +2,13 @@ root = 'node-js/';
 
 ARR_MODULE = [
     {
+        title: 'Теория',
+        themes: [
+            [root+'theory/architecture',  'Архитектура Node.js'],
+            [root+'theory/event-loop',    'Event Loop'],
+        ]
+    },
+    {
         title: 'Основное',
         themes: [
             [root+'main/info',     emoji.theory+'Информация'],

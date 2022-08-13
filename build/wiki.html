@@ -60,6 +60,14 @@
         <li>
             <a
                 class="menu-link"
+                id="id__@wiki/custom-elements/u-inline"
+                href="#@wiki/custom-elements/u-inline"
+            ><u-menu>u-inline-*</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
                 id="id__@wiki/custom-elements/u-lt"
                 href="#@wiki/custom-elements/u-lt"
             ><u-menu>u-lt-*</u-menu></a>
@@ -135,6 +143,14 @@
                 id="id__@wiki/vue-components/v-two-code"
                 href="#@wiki/vue-components/v-two-code"
             ><u-menu>v-two-code</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__@wiki/vue-components/v-two-code-comment"
+                href="#@wiki/vue-components/v-two-code-comment"
+            ><u-menu>v-two-code-comment</u-menu></a>
         </li>
     
         <li>
@@ -389,12 +405,27 @@ const emoji = {
 		<li><u-menu-outline>u-menu-outline</u-menu-outline></li>
 	</ul>
 </template></v-two>
+</div><div id="@wiki/custom-elements/u-inline"><h2>Инлайновые элементы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><u-code-text>&lt;u-inline-circle&gt;</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code-comment><template v-slot:first>
+<v-code lang="html step" title="">
+&lt;ul class="list-point"&gt;
+    &lt;li&gt;&lt;u-inline-circle&gt;1&lt;/u-inline-circle&gt; - Comment&lt;/li&gt;
+&lt;/ul&gt;
+</v-code>
+</template><template v-slot:last>
+<ul class="list-point">
+    <li><u-inline-circle>1</u-inline-circle> - Comment</li>
+</ul>
+</template></v-two-code-comment>
 </div><div id="@wiki/custom-elements/u-lt"><h2>Слова</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3><u-code-text>&lt;u-lt&gt;</u-code-text></h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
 <v-two><template v-slot:first>
 <v-code lang="html step" title="">
 Seven &lt;u-lt&gt;o'clock&lt;/u-lt&gt;
@@ -559,9 +590,12 @@ Content Right
 </template></v-two>
 </div><div id="@wiki/vue-components/v-two-fix"><h2><u-code-text>v-two-fix</u-code-text></h2>
 
+<!------------------------------------------------------------->
+<h4>Props</h4>
+<!------------------------------------------------------------->
 <ul class="list-point">
-    <li>Первая колонка растягивается на всю ширину</li>
-    <li>Вторая колонка под ширину контента</li>
+    <li><u-code-mod>revert="false"</u-code-mod> (или не передан) - 1 колонка - на всю ширину. 2 колонка - под ширину контента</li>
+    <li><u-code-mod>revert="true"</u-code-mod> - 1 колонка - под ширину контента. 2 колонка - на всю ширину</li>
 </ul>
 
 <v-code lang="html step" title="">
@@ -602,6 +636,29 @@ const gulp = require('gulp')
 const server = require('browser-sync')
 </template>
 </v-two-code>
+</div><div id="@wiki/vue-components/v-two-code-comment"><h2><u-code-text>v-two-code-comment</u-code-text></h2>
+
+<v-code lang="html step" title="">
+&lt;v-two-code-comment&gt;&lt;template v-slot:first&gt;
+&lt;v-code lang="js dark" title=""&gt;
+console.log('Hello');                                             ..
+&lt;/v-code&gt;
+&lt;/template&gt;&lt;template v-slot:last&gt;
+&lt;ul class="list-point"&gt;
+    &lt;li&gt;&lt;u-inline-circle&gt;1&lt;/u-inline-circle&gt; - Comment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/template&gt;&lt;/v-two-code-comment&gt;
+</v-code>
+
+<v-two-code-comment><template v-slot:first>
+<v-code lang="js dark" title="">
+console.log('Hello');                                             ..
+</v-code>
+</template><template v-slot:last>
+<ul class="list-point">
+    <li><u-inline-circle>1</u-inline-circle> - Comment</li>
+</ul>
+</template></v-two-code-comment>
 </div><div id="@wiki/vue-components/v-code"><h2><u-code-text>v-code</u-code-text></h2>
 
 <v-code lang="html step" title="">
@@ -621,6 +678,8 @@ const gulp = require('gulp')
     <li><u-code-text>border</u-code-text></li>
     <li><u-code-text>step</u-code-text></li>
     <li><u-code-text>none</u-code-text></li>
+    <li><u-code-text>opacity</u-code-text></li>
+    <li><u-code-text>dark</u-code-text></li>
 </ul>
 
 <v-code lang="html" title="">
@@ -644,6 +703,18 @@ Step Code
 <v-code lang="html none" title="">
 &lt;v-code lang="js <u-code>none</u-code>" title=""&gt;
 None Code
+&lt;/v-code&gt;
+</v-code>
+
+<v-code lang="html opacity" title="">
+&lt;v-code lang="js <u-code>opacity</u-code>" title=""&gt;
+Opacity Code
+&lt;/v-code&gt;
+</v-code>
+
+<v-code lang="html dark" title="">
+&lt;v-code lang="js <u-code>dark</u-code>" title=""&gt;
+Dark Code
 &lt;/v-code&gt;
 </v-code>
 </div><div id="@wiki/vue-components/v-pre-npm"><h2><u-code-text>v-pre-npm</u-code-text></h2>

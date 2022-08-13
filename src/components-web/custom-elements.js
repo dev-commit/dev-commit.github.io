@@ -2,12 +2,12 @@
 const customElementRegistry = window.customElements;
 
 const arrText    = ['u-text-underline', 'u-text-header', 'u-text-define', 'u-text-accent'];
+const arrInline  = ['u-inline-circle'];
 const arrLetter  = ['u-lt'];
 const arrMenu    = ['u-menu', 'u-menu-accent', 'u-menu-code', 'u-menu-border', 'u-menu-unactive', 'u-menu-outline'];
 const arrCode    = ['u-code', 'u-code-accent', 'u-code-mod', 'u-code-text', 'u-code-flat', 'u-code-list', 'u-code-comment', 'u-code-light'];
 const arrMessage = ['u-message-ok', 'u-message-info', 'u-message-warn', 'u-message-error', 'u-message-comment'];
 const arrBlocks  = ['u-block-left-padding', 'u-block-quote'];
-
 
 const arrStructure = [
 	'u-code-wrapper',
@@ -18,6 +18,7 @@ const arrStructure = [
 
 const arrCustomElements = [
 	...arrText,
+	...arrInline,
 	...arrLetter,
 	...arrMenu,
 	...arrCode,

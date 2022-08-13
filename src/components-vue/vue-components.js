@@ -39,17 +39,31 @@ Vue.component('v-two', {
 		</div>`,
 })
 
-
 Vue.component('v-two-fix', {
+	props: ['revert'],
     template:
 		`<div class="v-two-wrapper">
-			<div class="v-two-column v-two-column-grow">
+			<div :style="!revert && 'flex-grow: 1'" class="v-two-column">
 				<slot name="first">User Default1</slot>
 			</div>
-			<div class="v-two-column">
+			<div :style="revert && 'flex-grow: 1'" class="v-two-column">
 				<slot name="last">User Default2</slot>
 			</div>
 		</div>`,
+})
+
+Vue.component('v-two-code-comment', {
+    template:
+		`<v-two-fix revert="true">
+			<template v-slot:first>
+				<slot name="first">User Default1</slot>
+			</template>
+			<template v-slot:last>
+				<div class="v-two-code-comment-block">
+					<slot name="last">User Default2</slot>
+				</div>
+			</template>
+		</v-two-fix>`,
 })
 
 Vue.component('v-method', {
