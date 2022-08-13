@@ -33,6 +33,8 @@ ARR_MODULE = [
             [root+'tech/webrtc',         emoji.lemon+'WebRTC'],
             [root+'tech/jsonp',          'JSONP'],
             [root+'tech/comet',          'Comet'],
+            [root+'tech/long-polling',   'Long Polling'],
+            [root+'tech/sse',            'SSE (Server Sent Events)'],
         ]
     },
     {
