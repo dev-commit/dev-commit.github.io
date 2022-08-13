@@ -95,6 +95,6 @@ function getLocalStorage(key) {
     return '';
 }
 
-function getLocalStorage(key, data) {
+function setLocalStorage(key, data) {
     localStorage.setItem(key, JSON.stringify(data));
 }
