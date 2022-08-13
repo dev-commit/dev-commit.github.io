@@ -81,3 +81,20 @@ function copyToClipboard(element) {
     document.execCommand('copy');
     clearClipboard();
 }
+
+//----------------------------------------
+// localStorage
+//----------------------------------------
+function getLocalStorage(key) {
+    const data = localStorage.getItem(key);
+
+    if (data !== null) {
+        return JSON.parse(data);
+    }
+
+    return '';
+}
+
+function getLocalStorage(key, data) {
+    localStorage.setItem(key, JSON.stringify(data));
+}

@@ -253,35 +253,37 @@ console.log('START');                                             ..
 </v-code>
 </template><template v-slot:last>
 <ul class="list-point">
-    <li><u-inline-circle>1</u-inline-circle> - синхронный код</li>
+    <li><u-inline-circle>1</u-inline-circle> - Синхронный код</li>
 </ul>
 </template></v-two-code-comment>
 
+<!-- ------------------------------------------------------------- -->
 
-----
-
-
-<v-two-fix revert="true"><template v-slot:first>
+<v-two-code-comment><template v-slot:first>
 <v-code lang="js dark" title="">
 setTimeout(() => console.log('setTimeout 1'), 0);                 <u-code-light>A</u-code-light>
 </v-code>
 </template><template v-slot:last>
 <ul class="list-point">
-    <li>this</li>
+    <li><u-inline-circle>6</u-inline-circle> - Этап #1: <em>Timers</em></li>
 </ul>
-</template></v-two-fix>
+</template></v-two-code-comment>
 
-<v-two-fix revert="true"><template v-slot:first>
+<!-- ------------------------------------------------------------- -->
+
+<v-two-code-comment><template v-slot:first>
 <v-code lang="js dark" title="">
-setImmediate(() => console.log('setImmidiate'));                  <u-code-light>B</u-code-light>
+setImmediate(() => console.log('setImmediate'));                  <u-code-light>B</u-code-light>
 </v-code>
 </template><template v-slot:last>
 <ul class="list-point">
-    <li>this</li>
+    <li><u-inline-circle>8</u-inline-circle> - Этап #5: <em>Check</em></li>
 </ul>
-</template></v-two-fix>
+</template></v-two-code-comment>
 
-<v-two-fix revert="true"><template v-slot:first>
+<!-- ------------------------------------------------------------- -->
+
+<v-two-code-comment><template v-slot:first>
 <v-code lang="js dark" title="">
 fs.readFile(__filename, () => {                                   <u-code-light>C</u-code-light>
     setTimeout(() => console.log('readFile setTimeout'), 0);      <u-code-light>D</u-code-light>
@@ -291,11 +293,15 @@ fs.readFile(__filename, () => {                                   <u-code-light>
 </v-code>
 </template><template v-slot:last>
 <ul class="list-point">
-    <li>this</li>
+    <li><u-inline-circle>9</u-inline-circle> (F) - Микротаска #1: <em>nextTickQueue</em></li>
+    <li><u-inline-circle>10</u-inline-circle> (E) - Этап #5: <em>Check</em></li>
+    <li><u-inline-circle>11</u-inline-circle> (D) - Этап #1: <em>Timers</em></li>
 </ul>
-</template></v-two-fix>
+</template></v-two-code-comment>
 
-<v-two-fix revert="true"><template v-slot:first>
+<!-- ------------------------------------------------------------- -->
+
+<v-two-code-comment><template v-slot:first>
 <v-code lang="js dark" title="">
 Promise.resolve()
     .then(() => {                                                 <u-code-light>G</u-code-light>
@@ -305,53 +311,55 @@ Promise.resolve()
 </v-code>
 </template><template v-slot:last>
 <ul class="list-point">
-    <li>this</li>
+    <li><u-inline-circle>4</u-inline-circle> (G) - Микротаска #2: <em>Other Microtasks Queue</em></li>
+    <li><u-inline-circle>5</u-inline-circle> (H) - Микротаска #1: <em>nextTickQueue</em></li>
 </ul>
-</template></v-two-fix>
+</template></v-two-code-comment>
 
-<v-two-fix revert="true"><template v-slot:first>
+<!-- ------------------------------------------------------------- -->
+
+<v-two-code-comment><template v-slot:first>
 <v-code lang="js dark" title="">
 process.nextTick(() => console.log('Next Tick'));                 <u-code-light>I</u-code-light>
 </v-code>
 </template><template v-slot:last>
 <ul class="list-point">
-    <li>this</li>
+    <li><u-inline-circle>3</u-inline-circle> - Микротаска #1: <em>nextTickQueue</em></li>
 </ul>
-</template></v-two-fix>
+</template></v-two-code-comment>
 
-<v-two-fix revert="true"><template v-slot:first>
+<!-- ------------------------------------------------------------- -->
+
+<v-two-code-comment><template v-slot:first>
 <v-code lang="js dark" title="">
 setTimeout(() => console.log('setTimeout 2'), 0);                 <u-code-light>J</u-code-light>
 </v-code>
 </template><template v-slot:last>
 <ul class="list-point">
-    <li>this</li>
+    <li><u-inline-circle>7</u-inline-circle> - Этап #1: <em>Timers</em></li>
 </ul>
-</template></v-two-fix>
+</template></v-two-code-comment>
 
-<v-two-fix revert="true"><template v-slot:first>
+<!-- ------------------------------------------------------------- -->
+
+<v-two-code-comment><template v-slot:first>
 <v-code lang="js dark" title="">
 console.log('END');                                               ..
 </v-code>
 </template><template v-slot:last>
 <ul class="list-point">
-    <li>this</li>
+    <li><u-inline-circle>2</u-inline-circle> - Синхронный код</li>
 </ul>
-</template></v-two-fix>
+</template></v-two-code-comment>
 
-<ul class="list-point">
-    <li>START</li>
-    <li>END</li>
-    <li>Next Tick</li>
-    <li>Promise</li>
-    <li>Promise Next Tick</li>
-    <li>setTimeout 1</li>
-    <li>setTimeout 2</li>
-    <li>setImmidiate</li>
-    <li>readFile Next Tick</li>
-    <li>readFile setImmediate</li>
-    <li>readFile setTimeout</li>
-</ul>
+
+
+
+
+
+
+
+
 
 
 

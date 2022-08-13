@@ -295,20 +295,29 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Local Storage</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<p>Google Chrome -> F12 -> Application -> Local Storage</p>
-<p>localStorage это свойство глобального объекта браузера (window)</p>
+<ul class="list-point">
+    <li>Google Chrome -> F12 -> Application -> Local Storage</li>
+    <li>localStorage это свойство глобального объекта браузера (window)</li>
+</ul>
 
 <v-code lang="js" title="">
-localStorage.<u-code>setItem</u-code>('id', '77');   // добавляет в localStorage новый ключ со значением (а если такой ключ уже существует, то перезаписывает новым значением)
-const a = localStorage.<u-code>getItem</u-code>('id'); // получить значение
-localStorage.<u-code>removeItem</u-code>('id');      // удаление ключа
-localStorage.<u-code>clear</u-code>();               // очистка всего хранилища
+// Добавление в localStorage нового ключа со значением (перезапишет существующий ключ)
+localStorage.<u-code>setItem</u-code>('id', '77');
+
+// Получение значения
+const a = localStorage.<u-code>getItem</u-code>('id');
+
+// Удаление ключа
+localStorage.<u-code>removeItem</u-code>('id');
+
+// Очистка всего хранилища
+localStorage.<u-code>clear</u-code>();
 </v-code>
 
 <v-code lang="js" title="">
-localStorage["Ключ"] = "Значение"; // установка значения
-const a = localStorage["Ключ"];      // получение значения
-delete localStorage["Ключ"];       // удаление значения
+localStorage["Ключ"] = "Значение"; // Установка значения
+const a = localStorage["Ключ"];    // Получение значения
+delete localStorage["Ключ"];       // Удаление значения
 </v-code>
 
 <!------------------------------------------------------------->
@@ -328,16 +337,19 @@ const obj = {
 	item3: "hello"
 };
 
-localStorage.setItem("key", JSON.stringify(obj));          // сериализация объекта и запись в хранилище по ключу "key"
-const returnObj = JSON.parse(localStorage.getItem("key")); // из json в объект
+// Сериализация объекта и запись в хранилище по ключу "key"
+localStorage.setItem("key", JSON.stringify(obj));
+
+// Преобразование из JSON в объект
+const returnObj = JSON.parse(localStorage.getItem("key"));
 </v-code>
 
 <!------------------------------------------------------------->
 <h4>Проверка QUOTA_EXCEEDED_ERR</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-// браузеры выделяют 5MB под localStorage
-// при привышении исключение QUOTA_EXCEEDED_ERR
+// Браузеры выделяют 5MB под localStorage
+// При привышении исключение QUOTA_EXCEEDED_ERR
 try {
 	localStorage.setItem('ключ', 'значение');
 } catch(e) {
@@ -347,14 +359,34 @@ try {
 }
 </v-code>
 
+<!------------------------------------------------------------->
+<h4>Пример использования</h4>
+<!------------------------------------------------------------->
+<v-code lang="js border" title="">
+export const getLocalStorage = key => {
+    const data = localStorage.getItem(key);
+
+    if (data !== null) {
+        return JSON.parse(data);
+    }
+
+    return {};
+}
+
+export const setLocalStorage = (key, data) => {
+    localStorage.setItem(key, JSON.stringify(data));
+}
+</v-code>
+
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Session Storage</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-sessionStorage.<u-code>setItem</u-code>('key', 'value');   // сохранение данных в sessionStorage
-const data = sessionStorage.<u-code>getItem</u-code>('key'); // получение данных из sessionStorage
-sessionStorage.<u-code>removeItem</u-code>('key');         // удаление ключа
-sessionStorage.<u-code>clear</u-code>();                   // очистка всего хранилища
+sessionStorage.<u-code>setItem</u-code>('key', 'value');     // Сохранение данных в sessionStorage
+const data = sessionStorage.<u-code>getItem</u-code>('key'); // Получение данных из sessionStorage
+sessionStorage.<u-code>removeItem</u-code>('key');           // Удаление ключа
+sessionStorage.<u-code>clear</u-code>();                     // Очистка всего хранилища
 </v-code>
 </div><div id="js-web-api/client-storage/indexed-db"><h2>IndexedDB</h2>
 
