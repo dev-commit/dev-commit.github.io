@@ -1,6 +1,94 @@
 <h2>Event Loop</h2>
 
+<ul class="list-point">
+    <li><u-text-define>Event Loop</u-text-define> - позволяет Node.js выполнять асинхронные неблокирующие I/O (Input / Output) операции, несмотря на то что, JS является однопоточным. Путём выгрузки части операций в ядро, если это возможно.</li>
+    <li><u-text-define>I/O</u-text-define> - input/output операции</li>
+    <li><u-text-define>setImmediate</u-text-define> - применяется чтобы поставить функцию в очередь на выполнение без задержки. У setImmediate единственный аргумент – это функция, выполнение которой нужно запланировать (callback)</li>
+</ul>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Event Loop</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two><template v-slot:first>
+<img src="/@img/node.js/event-loop-common.png" width="100%" />
+</template><template v-slot:last>
+
+<ul class="list-point">
+    <u-text-accent>Приложение</u-text-accent>
+    <li>Формирование запроса I/O</li>
+    <li>Обработка callback, поступившего из <u>Event Loop</u></li>
+
+    <u-text-accent>Демультиплексор событий</u-text-accent>
+    <li>Регистрация обращений к I/O</li>
+    <li>Приём callback, который должен выполниться после запроса</li>
+    <li>Возвращение управления обратно в <u>"Приложение"</u></li>
+
+    <u-text-accent>Очередь событий</u-text-accent>
+    <li>Приём события, которое произошло</li>
+    <li>Когда событие выполнено, то нужно загрузить callback <u>"Обработчик"</u></li>
+    <li>Копится очередь событий</li>
+</ul>
+</template></v-two>
+
+<u-message-comment>
+    <em>libuv</em> - приносит абстракцию над системный <u>Демультиплексором</u>. Т.к. в каждой система свой Демультиплексор (Linux, Windows и т.д.)
+</u-message-comment>
+
+<ul class="list-point">
+    <u-text-accent>Event Loop</u-text-accent>
+    <li>Event Loop обращается в <u>"Очередь событий"</u>, берёт событие, идёт в <u>"Приложение"</u> и вызывает callback <u>"Обработчик"</u></li>
+    <li><u>"Приложение"</u> может выполнить <u>"Обработчик"</u> или запустить новый асинхронный запрос</li>
+    <li>При отсутствии собыйтий в <u>"Очереди событий"</u>, Event Loop возвращает управление в <u>"Демультиплексор событий"</u></li>
+    <li>Программа заканчивается, когда ничего нет в <u>"Очередь событий"</u> и <u>"Демультиплексор событий"</u></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Event Loop structure</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two revert="true"><template v-slot:first>
+<img src="/@img/node.js/event-loop-structure.png" width="100%" />
+</template><template v-slot:last>
+<!------------------------------------------------------------->
+<h4>Наиболее приоритетные очереди (микротаски)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <u-text-accent>1. nextTickQueue</u-text-accent>
+    <li>Попадают callback, которые добавляются через <u-code-light>process.nextTick()</u-code-light></li>
+
+    <u-text-accent>2. Other Microtasks Queue</u-text-accent>
+    <li>Попадают <u-code-light>Promise</u-code-light></li>
+
+    <hr>
+
+    <li>Если Event Loop находится не на фазах, то идёт исполнять приотритетные очереди: <u>nextTickQueue</u> и <u>Other Microtasks Queue</u></li>
+</ul>
+</template></v-two>
+
+<!------------------------------------------------------------->
+<h4>Фазы</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <u-text-accent>1. Timers</u-text-accent>
+    <li>Попадают callback <em>setTimeout</em> и <em>setInterval</em></li>
+    <li>Для Libuv setTimeout и setInterval - это одна функция, но у setInterval есть параметр repeat</li>
+    <li></li>
+
+    <u-text-accent>2. Pending Callbacks</u-text-accent>
+    <li>Очередь куда попадают I/O операции (не все): connection к сети, коллбэки ошибок</li>
+
+    <u-text-accent>3. Idle, Prepare</u-text-accent>
+    <li>Нет доступа к этой фазе. Только Event Loop может попасть туда, н-р: перед тем как начинает читать файл, Event Loop может подготовить какие-то данные, то попадает в эту фазу</li>
+
+    <u-text-accent>4. Poll</u-text-accent>
+    <li>Попадают I/O операции: начало чтение файла</li>
+
+    <u-text-accent>5. Check</u-text-accent>
+    <li>Попадают только setImmediate</li>
+    <li>setImmediate применяется чтобы поставить функцию в очередь на выполнение без задержки. У setImmediate единственный аргумент – это функция, выполнение которой нужно запланировать (callback). Это callback попадает в Check</li>
+
+    <u-text-accent>6. Close Callbacks</u-text-accent>
+    <li>Попадают callback вида "close": onClose, socketOnClose и т.д.</li>
+</ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Пример</h3>
@@ -113,105 +201,4 @@ console.log('END');                                               ..
     <li><u-inline-circle>2</u-inline-circle> - Синхронный код</li>
 </ul>
 </template></v-two-code-comment>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<ul class="list-point">
-    <li><u-text-define>Event Loop</u-text-define> - позволяет Node.js выполнять асинхронные неблокирующие I/O (Input / Output) операции, несмотря на то что, JS является однопоточным. Путём выгрузки части операций в ядро, если это возможно.</li>
-    <li><u-text-define>I/O</u-text-define> - input/output операции</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Event Loop</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-two><template v-slot:first>
-<img src="/@img/node.js/event-loop-common.png" width="100%" />
-</template><template v-slot:last>
-
-<ul class="list-point">
-    <u-text-accent>Приложение</u-text-accent>
-    <li>Формирование запроса I/O</li>
-    <li>Обработка callback, поступившего из <u>Event Loop</u></li>
-
-    <u-text-accent>Демультиплексор событий</u-text-accent>
-    <li>Регистрация обращений к I/O</li>
-    <li>Приём callback, который должен выполниться после запроса</li>
-    <li>Возвращение управления обратно в <u>"Приложение"</u></li>
-
-    <u-text-accent>Очередь событий</u-text-accent>
-    <li>Приём события, которое произошло</li>
-    <li>Когда событие выполнено, то нужно загрузить callback <u>"Обработчик"</u></li>
-    <li>Копится очередь событий</li>
-</ul>
-</template></v-two>
-
-<u-message-comment>
-    <em>libuv</em> - приносит абстракцию над системный <u>Демультиплексором</u>. Т.к. в каждой система свой Демультиплексор (Linux, Windows и т.д.)
-</u-message-comment>
-
-<ul class="list-point">
-    <u-text-accent>Event Loop</u-text-accent>
-    <li>Event Loop обращается в <u>"Очередь событий"</u>, берёт событие, идёт в <u>"Приложение"</u> и вызывает callback <u>"Обработчик"</u></li>
-    <li><u>"Приложение"</u> может выполнить <u>"Обработчик"</u> или запустить новый асинхронный запрос</li>
-    <li>При отсутствии собыйтий в <u>"Очереди событий"</u>, Event Loop возвращает управление в <u>"Демультиплексор событий"</u></li>
-    <li>Программа заканчивается, когда ничего нет в <u>"Очередь событий"</u> и <u>"Демультиплексор событий"</u></li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Event Loop structure</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-two revert="true"><template v-slot:first>
-<img src="/@img/node.js/event-loop-structure.png" width="100%" />
-</template><template v-slot:last>
-<!------------------------------------------------------------->
-<h4>Наиболее приоритетные очереди (микротаски)</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <u-text-accent>1. nextTickQueue</u-text-accent>
-    <li>Попадают callback, которые добавляются через <u-code-light>process.nextTick()</u-code-light></li>
-
-    <u-text-accent>2. Other Microtasks Queue</u-text-accent>
-    <li>Попадают <u-code-light>Promise</u-code-light></li>
-
-    <hr>
-
-    <li>Если Event Loop находится не на фазах, то идёт исполнять приотритетные очереди: <u>nextTickQueue</u> и <u>Other Microtasks Queue</u></li>
-</ul>
-</template></v-two>
-
-<!------------------------------------------------------------->
-<h4>Фазы</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <u-text-accent>1. Timers</u-text-accent>
-    <li>Попадают callback <em>setTimeout</em> и <em>setInterval</em></li>
-    <li>Для Libuv setTimeout и setInterval - это одна функция, но у setInterval есть параметр repeat</li>
-    <li></li>
-
-    <u-text-accent>2. Pending Callbacks</u-text-accent>
-    <li>Очередь куда попадают I/O операции (не все): connection к сети, коллбэки ошибок</li>
-
-    <u-text-accent>3. Idle, Prepare</u-text-accent>
-    <li>Нет доступа к этой фазе. Только Event Loop может попасть туда, н-р: перед тем как начинает читать файл, Event Loop может подготовить какие-то данные, то попадает в эту фазу</li>
-
-    <u-text-accent>4. Poll</u-text-accent>
-    <li>Попадают I/O операции: начало чтение файла</li>
-
-    <u-text-accent>5. Check</u-text-accent>
-    <li>Попадают только setImmediate</li>
-    <li>setImmediate применяется чтобы поставить функцию в очередь на выполнение без задержки. У setImmediate единственный аргумент – это функция, выполнение которой нужно запланировать (callback). Это callback попадает в Check</li>
-
-    <u-text-accent>6. Close Callbacks</u-text-accent>
-    <li>Попадают callback вида "close": onClose, socketOnClose и т.д.</li>
-</ul>
 

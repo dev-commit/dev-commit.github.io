@@ -4,8 +4,8 @@ ARR_MODULE = [
     {
         title: 'Теория',
         themes: [
-            [root+'theory/architecture',  'Архитектура Node.js'],
-            [root+'theory/event-loop',    'Event Loop'],
+            [root+'theory/architecture',  emoji.star+'Архитектура Node.js'],
+            [root+'theory/event-loop',    emoji.star+'Event Loop'],
         ]
     },
     {
