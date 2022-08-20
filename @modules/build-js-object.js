@@ -6,19 +6,20 @@ ARR_MODULE = [
     {
         title: 'Методы',
         themes: [
-            [root+'methods/object-create',       emoji.chevron+setTheme(4, ['Object.create'])+commentProto],
-            [root+'methods/object-assign',       emoji.chevron+setTheme(4, ['Object.assign'])],
+            [root+'methods/object-create',       emoji.chevron+setTheme(4, ['Object.create()'])+commentProto],
+            [root+'methods/object-assign',       emoji.chevron+setTheme(4, ['Object.assign()'])],
             [root+'methods/object-entries',      emoji.chevron+setTheme(4, ['Object.entries()'])],
             [root+'methods/object-from-entries', emoji.chevron+setTheme(4, ['Object.fromEntries()'])],
             [root+'methods/object-values',       emoji.chevron+setTheme(4, ['Object.values()'])],
-            [root+'methods/object-keys',         emoji.chevron+setTheme(4, ['Object.keys'])],
-
+            [root+'methods/object-keys',         emoji.chevron+setTheme(4, ['Object.keys()'])],
+            [root+'methods/object-observe',      emoji.chevron+setTheme(4, ['Object.observe()'])],
+            ['', ''],
             [root+'methods/set-prototype-of',    emoji.chevron+setTheme(4, ['Object.setPrototypeOf'])+commentProto],
             [root+'methods/get-prototype-of',    emoji.chevron+setTheme(4, ['Object.getPrototypeOf'])+commentProto],
-
+            ['', ''],
             [root+'methods/is-prototype-of',     emoji.chevron+setTheme(4, ['isPrototypeOf'])+commentProto],
             [root+'methods/instanceof',          emoji.chevron+setTheme(4, ['instanceof'])],
-
+            ['', ''],
             [root+'main/for',              'Перебор объекта'],
             [root+'main/check-property',   'Проверка наличия свойства'],
             [root+'main/descriptor',       'Дескрипторы свойств'],

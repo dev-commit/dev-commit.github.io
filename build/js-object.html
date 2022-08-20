@@ -31,7 +31,7 @@
                 class="menu-link"
                 id="id__js-object/methods/object-create"
                 href="#js-object/methods/object-create"
-            >🔰 <u-menu-unactive>Object.create</u-menu-unactive> <u-code-comment>__proto__</u-code-comment></a>
+            >🔰 <u-menu-unactive>Object.create()</u-menu-unactive> <u-code-comment>__proto__</u-code-comment></a>
         </li>
     
         <li>
@@ -39,7 +39,7 @@
                 class="menu-link"
                 id="id__js-object/methods/object-assign"
                 href="#js-object/methods/object-assign"
-            >🔰 <u-menu-unactive>Object.assign</u-menu-unactive></a>
+            >🔰 <u-menu-unactive>Object.assign()</u-menu-unactive></a>
         </li>
     
         <li>
@@ -71,7 +71,15 @@
                 class="menu-link"
                 id="id__js-object/methods/object-keys"
                 href="#js-object/methods/object-keys"
-            >🔰 <u-menu-unactive>Object.keys</u-menu-unactive></a>
+            >🔰 <u-menu-unactive>Object.keys()</u-menu-unactive></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-object/methods/object-observe"
+                href="#js-object/methods/object-observe"
+            >🔰 <u-menu-unactive>Object.observe()</u-menu-unactive></a>
         </li>
     
         <li>
@@ -380,6 +388,35 @@ const a = Object.keys(obj);
 const a = Object.keys(obj).length;
 </v-code>
 
+</div><div id="js-object/methods/object-observe"><h2>Object.observe()</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Object.observe()</u-text-define> - позволяет асинхронно отслеживать изменения состояния JavaScript объектов во времени</li>
+    <li>С помощью Object.observe можно реализовать <u>двухсторонний дата-биндинг</u> без необходимости использовать фреймворк</li>
+</ul>
+
+<v-code lang="js" title="">
+// Модель с данными
+const model = {};
+
+// Отслеживание изменений в модели
+Object.<u-code>observe</u-code>(model, function(changes){
+    // Вызод коллбэка
+    changes.forEach(function(change) {
+        console.log(change.type, change.name, change.oldValue);
+    });
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Двухсторонний дата-биндинг</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li>Click по кнопке</li>
+    <li>Изменение модели</li>
+    <li>Слушатель понимает, что модель изменилась</li>
+    <li>Вызов Handler и изменение UI</li>
+</ol>
 </div><div id="js-object/methods/set-prototype-of"><h2>Object.setPrototypeOf</h2>
 
 <div class="v-method-wrapper">

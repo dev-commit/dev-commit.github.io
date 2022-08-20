@@ -1,6 +1,28 @@
 <h2>Thread Pool</h2>
 
-<u-link-wrapper>
-    <a href="https://youtu.be/7f787SsgknA?t=1063" target="_blank">https://youtu.be/7f787SsgknA?t=1063</a>
-</u-link-wrapper>
+<ul class="list-point">
+    <li><u-text-define>Thread Pool</u-text-define> - используется для запуска пользовательского кода и получения уведомление в потоке цикла (происходит возврат обраноно в Loop)</li>
+</ul>
 
+<!------------------------------------------------------------->
+<h4>Установка кол-ва потоков</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Можно контролировать количество потоков, установив <u-code-text>process.env.UV_THREADPOOL_SIZE</u-code-text></li>
+    <li><u-code-text>process.env.UV_THREADPOOL_SIZE == 4</u-code-text> (по умолчанию). Максимальное значение <u>128</u></li>
+    <li>Нет смысла устанавливать кол-во потоков большее, чем кол-во ядер в процессоре</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Схема работы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two><template v-slot:first>
+<img src="/@img/node.js/thread-pool.png" width="100%" />
+</template><template v-slot:last>
+<ol class="list-num">
+    <li>Часть кода отправляется в Thread Pool</li>
+    <li>Thread Pool выполняется код</li>
+    <li>Обратно возвращается в основной Thread и попадает в "Pending Callbacks"</li>
+    <li>Event Loop выполняет задачи из "Pending Callbacks"</li>
+</ol>
+</template></v-two>
