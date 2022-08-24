@@ -145,6 +145,14 @@
                 href="#react-router/v5/api/Switch"
             ><u-menu>&lt;Switch /&gt;</u-menu></a>
         </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__react-router/v5/api/useHistory"
+                href="#react-router/v5/api/useHistory"
+            ><u-menu-accent>useHistory()</u-menu-accent></a>
+        </li>
     </ul><h4>🥥 Варианты</h4><ul>
         <li>
             <a
@@ -551,6 +559,64 @@ const App = () =&gt; (
 		&lt;/<u-code>Switch</u-code>&gt;
 	&lt;/&gt;
 )
+</v-code>
+</div><div id="react-router/v5/api/useHistory"><h2><u-code-text>useHistory()</u-code-text></h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useHistory" after="" arg="()">
+    Программная навигация по истории
+    </v-method>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обект <u>history</u></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+const history = useHistory();
+
+history.<u-code>goBack()</u-code>;      // перейти на предыдущую страницу
+history.<u-code>push</u-code>("/home"); // перейти на страницу "home"
+</v-code>
+
+<ul class="list-point">
+	<li><u-code-accent>location</u-code-accent> <em>(object)</em> - Текущее Location</li>
+    <ul class="list-point">
+        <li><u-code>pathname</u-code> <em>(string)</em> - URL</li>
+        <li><u-code>search</u-code> <em>(string)</em> - Query-параметры из URL</li>
+        <li><u-code>hash</u-code> <em>(string)</em> - Хэш из URL</li>
+        <li><u-code>state</u-code> <em>(object)</em> - Состояние, зависящее от местоположения, которое было предоставлено, например. <u>push(path, state)</u>, когда это местоположение было помещено в стек. Доступно только в истории браузера и памяти</li>
+    </ul>
+
+    <hr>
+    <li><u-code-accent>length</u-code-accent> <em>(number)</em> - Кол-во записей в History Stack</li>
+    <li><u-code-accent>action</u-code-accent> <em>(string)</em> - Текущий Action  (<u-code-light>PUSH</u-code-light> / <u-code-light>REPLACE</u-code-light> / <u-code-light>POP</u-code-light>)</li>
+    <ul class="list-point">
+        <li><u-code>PUSH</u-code> - Переход с другой страницы</li>
+        <li><u-code>REPLACE</u-code> - Открытие в новом окне</li>
+        <li><u-code>POP</u-code> - ?</li>
+    </ul>
+
+    <hr>
+    <li><u-code-accent>push(path, [state])</u-code-accent> <em>(function)</em> - Помещает новую запись в History Stack</li>
+    <li><u-code-accent>replace(path, [state])</u-code-accent> <em>(function)</em> - Заменяет текущую запись на History Stack</li>
+    <li><u-code-accent>go(n)</u-code-accent> <em>(function)</em> - Перемещает указатель в стеке истории на n записей</li>
+    <li><u-code-accent>goBack()</u-code-accent> <em>(function)</em> - Аналогично <u>go(-1)</u></li>
+    <li><u-code-accent>goForward()</u-code-accent> <em>(function)</em> - Аналогично <u>go(1)</u></li>
+    <li><u-code-accent>block(prompt)</u-code-accent> <em>(function)</em> - Запрет навигации</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { useHistory } from 'react-router-dom';
+
+const App = () => {
+	const history = <u-code>useHistory</u-code>();
+	return &lt;button onClick={history.<u-code>goBack()</u-code>}&gt;Back&lt;/button&gt;
+}
 </v-code>
 </div><div id="react-router/v5/variants/url-parameters"><h2>URL Parameters</h2>
 

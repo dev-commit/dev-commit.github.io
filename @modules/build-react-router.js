@@ -38,7 +38,8 @@ ARR_MODULE = [
     {
         title: 'API',
         themes: [
-            [root+'v5/api/Switch',  setTheme(1, ['&lt;Switch /&gt;'])],
+            [root+'v5/api/Switch',     setTheme(1, ['&lt;Switch /&gt;'])],
+            [root+'v5/api/useHistory', setTheme(3, ['useHistory()'])],
         ]
     },
     {
