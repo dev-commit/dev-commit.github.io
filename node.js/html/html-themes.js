@@ -24,7 +24,7 @@ export const getThemesHTML = (module) => {
         menu += `<h4>🥥 ${title}</h4>`;
         menu += '<ul>';
 
-        themes.forEach(elements => {
+        themes && themes.forEach(elements => {
             if (elements[0]) {
                 const file = `@themes/${elements[0]}.html`;
                 const content = fs.readFileSync(file, 'utf8');

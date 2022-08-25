@@ -27,15 +27,7 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'type',
-        accent: true,
-        themes: [
-            [root+'type/type',      emoji.star+setTheme(1, ['type'])],
-            [root+'type/combine',   emoji.star+'Комбинация типов'],
-        ]
-    },
-    {
-        title: 'Методы',
+        title: 'Методы для Type',
         themes: [
             [root+'methods/pick',     setTheme(5, ['Pick'])],
             [root+'methods/exclude',  setTheme(5, ['Exclude'])],
@@ -45,44 +37,56 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'interface',
+        title: 'Структуры',
         accent: true,
+    },
+    {
+        title: styleSubHeader('type'),
+        child: true,
         themes: [
-            [root+'interface/main',             emoji.star+'Основы'],
-            [root+'interface/inherit',          emoji.star+'Наследование интерфейсов'],
-            [root+'interface/with-class',       emoji.star+'Взаимодействие с классами'],
-            [root+'interface/dynamic-key-obj',  emoji.star+'Динамические ключи объекта'],
+            [root+'type/type',      emoji.unicorn+'Основы'],
+            [root+'type/combine',   'Комбинация типов'],
+        ]
+    },
+    {
+        title: styleSubHeader('interface'),
+        child: true,
+        themes: [
+            [root+'interface/main',             emoji.unicorn+'Основы'],
+            [root+'interface/inherit',          'Наследование интерфейсов'],
+            [root+'interface/with-class',       'Взаимодействие с классами'],
+            [root+'interface/dynamic-key-obj',  'Динамические ключи объекта'],
             [root+'interface/samples',          'Примеры'],
         ]
     },
     {
-        title: 'generics',
-        accent: true,
+        title: styleSubHeader('generics'),
+        child: true,
         themes: [
-            [root+'generics/main',       emoji.star+'Основы'],
-            [root+'generics/principle',  emoji.star+'Принцип работы'],
+            [root+'generics/main',       emoji.unicorn+'Основы'],
+            [root+'generics/principle',  'Принцип работы'],
         ]
     },
     {
-        title: 'enum',
-        accent: true,
+        title: styleSubHeader('enum'),
+        child: true,
         themes: [
-            [root+'enum/main',  emoji.star+'Основы'],
+            [root+'enum/main',  emoji.unicorn+'Основы'],
         ]
     },
     {
-        title: 'function',
-        accent: true,
+        title: styleSubHeader('function'),
+        child: true,
         themes: [
-            [root+'function/main',               'Основы'],
+            [root+'function/main',               emoji.unicorn+'Основы'],
             [root+'function/functions-overload', 'Перегрузка функций'],
         ]
     },
     {
-        title: 'class',
-        accent: true,
+        title: styleSubHeader('class'),
+        child: true,
         themes: [
-            [root+'class/main',         'Основы'],
+            [root+'class/main',         emoji.unicorn+'Основы'],
             [root+'class/modificator',  'Модификаторы полей'],
             [root+'class/abstract',     'Абстрактные классы'],
         ]

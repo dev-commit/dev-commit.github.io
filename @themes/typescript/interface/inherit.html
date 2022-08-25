@@ -1,18 +1,45 @@
 <h2>Наследование интерфейсов</h2>
 
-<v-code lang="js" title="">
-interface RectWithArea extends Rect {
-	getArea: () => number // вернет number
+<!------------------------------------------------------------->
+<h4>Наследование от одного интерфейса</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js step;js step" comment="TS;Usage">
+<template v-slot:first>
+interface IAnimal {
+	name: string;
 }
+interface ICat <u-code-mod>extends</u-code-mod> IAnimal {
+	speed: number;
+}
+</template>
+<template v-slot:last>
+const a: ICat = {
+	name: 'Tom',
+	speed: 10,
+}
+</template>
+</v-two-code>
 
-const rect2: Rect = {
-	id: '1',
-	size: {
-		width: 20,
-		height: 30
-	},
-	getArea(): number {
-		return 42
-	}
+<!------------------------------------------------------------->
+<h4>Множественное наследование</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js step;js step" comment="TS;Usage">
+<template v-slot:first>
+interface IAnimal {
+	name: string;
 }
-</v-code>
+interface IAction {
+	go: () => void;
+}
+interface ICat <u-code-mod>extends</u-code-mod> IAnimal, IAction {
+	speed: number;
+}
+</template>
+<template v-slot:last>
+const a: ICat = {
+	name: 'Cat',
+	speed: 10,
+	go: () => null,
+}
+</template>
+</v-two-code>

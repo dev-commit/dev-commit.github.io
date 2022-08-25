@@ -22,11 +22,13 @@ function setTheme(tag, arr) {
     let resultTag = '';
 
     switch(tag) {
-        case 1: resultTag = 'u-menu';          break;
-        case 2: resultTag = 'u-menu-border';   break;
-        case 3: resultTag = 'u-menu-accent';   break;
-        case 4: resultTag = 'u-menu-unactive'; break;
-        case 5: resultTag = 'u-menu-outline';    break;
+        case 1: resultTag  = 'u-menu';          break;
+        case 2: resultTag  = 'u-menu-border';   break;
+        case 3: resultTag  = 'u-menu-accent';   break;
+        case 4: resultTag  = 'u-menu-unactive'; break;
+        case 5: resultTag  = 'u-menu-outline';  break;
+        case 6: resultTag  = 'u-menu-outline';  break;
+        default: resultTag = 'u-menu';
     }
 
     let result = arr.map(function(element) {
@@ -34,6 +36,18 @@ function setTheme(tag, arr) {
     });
 
     return result.join(' ');
+}
+
+function styleSubHeader(content) {
+    const str = `
+        🔵
+        <b>
+            <u-code-accent>
+                ${content}
+            </u-code-accent>
+        </b>
+    `;
+    return str;
 }
 
 function setHighlightCode() {
