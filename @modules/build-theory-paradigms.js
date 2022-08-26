@@ -40,9 +40,11 @@ ARR_MODULE = [
     {
         title: '< / >',
         themes: [
-            [root+'main/ddd',            'DDD'],
-            [root+'main/cqrs',           'CQRS'],
-            [root+'main/event-sourcing', 'Event Sourcing'],
+            [root+'main/ddd',                  'DDD'],
+            [root+'main/SDLC',                 'SDLC'],
+            [root+'main/cqrs',                 'CQRS'],
+            [root+'main/event-sourcing',       'Event Sourcing'],
+            [root+'main/reactive-programming', 'Реактивное программирование'],
         ]
     },
 ]

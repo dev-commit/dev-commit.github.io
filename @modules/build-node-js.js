@@ -14,10 +14,11 @@ ARR_MODULE = [
         title: 'Основное',
         themes: [
             [root+'main/info',     emoji.theory+'Информация'],
+            [root+'main/stream',   emoji.fire+'Node.js Stream'],
         ]
     },
     {
-        title: 'Модуль <u-code>fs</u-code>',
+        title: 'Модуль <u-code-text>fs</u-code-text>',
         themes: [
             [root+'module-fs/fs',               'Команды'],
             [root+'module-fs/readFile',         setTheme(1, ['readFile', 'writeFile'])],

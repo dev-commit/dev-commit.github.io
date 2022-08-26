@@ -1,0 +1,98 @@
+<h2>Node.js Stream</h2>
+
+<u-link-wrapper>
+	<a href="https://nodejs.org/api/stream.html#stream" target="_blank">Documentation: Node.js Stream</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Stream</u-text-define> - абстрактный интерфейс для работы с потоковыми данными в Node.js. Модуль node:stream предоставляет API для реализации потокового интерфейса</li>
+    <li>Стрим — это концепция, c помощью которой можно обрабатывать данные небольшими частями, что позволяет задействовать небольшой объем оперативной памяти. Также с ее помощью можно разбить обработку каждой части на независимые друг от друга модули (функции либо классы). Например, можно сразу сжать часть данных, потом зашифровать и записать в файл. Основная идея в том, чтобы не работать с данными целиком, а поочередно обрабатывать часть данных</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Информация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Stream VS Thread</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li> В контексте Node.js, <u>Streams</u> позволяет работать с потоковыми данными, а <u>Thread</u> относится к многопоточности (когда что-то может выполняться параллельно), например - Worker Threads</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>4 вида Stream в Node.js</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><em>Readable</em> - чтение</li>
+    <li><em>Writable</em> - запись</li>
+    <li><em>Duplex</em> - чтение и запись</li>
+    <li><em>Transform</em> - вид Duplex потока, который может изменять данные</li>
+</ul>
+
+<u-link-wrapper>
+	<a href="https://habr.com/ru/post/479048/" target="_blank">Реализация стримов</a>
+</u-link-wrapper>
+
+<v-code lang="js none" title="">
+const { Readable } = require('stream');  // Readable stream
+const { Writable } = require('stream');  // Writable stream
+const { Duplex } = require('stream');    // Duplex stream
+const { Transform } = require('stream'); // Transform stream
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Создание Stream</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const { Readable } = require('stream');
+
+// 1 - Используя конструктор
+const myReadable = new Readable(opt);
+
+// 2 - Наследуя класс 
+class myReadable extends Readable {
+  constructor(opt) {
+    super(opt);
+  }
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Отправка файла клиенту</h4>
+<!------------------------------------------------------------->
+<v-two><template v-slot:first>
+<ul class="list-point">
+    <li>Загружаем часть файла и отправляем ее, до тех пор пока не отправим весь файл</li>
+    <li>Не загружаем опаративную память</li>
+</ul>
+<v-code lang="js" title="Используя Stream">
+const getFile = async (req, res, next) => {
+  const fileStream = fs.<u-code-accent>createReadStream</u-code-accent>('path to file');
+
+  res.contentType('application/pdf');
+
+  fileStream.pipe(res);
+};
+</v-code>
+</template><template v-slot:last>
+<ul class="list-point">
+    <li>Загружаем файл полностью в оперативную память и затем отправляем</li>
+</ul>
+<v-code lang="js" title="Не используя Stream">
+const getFile = async (req, res, next) => {
+  const file = fs.<u-code-accent>readFileSync</u-code-accent>('path to file');
+
+  res.contentType('application/pdf');
+
+  res.send(file);
+};
+</v-code>
+</template></v-two>
