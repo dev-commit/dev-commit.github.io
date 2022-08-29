@@ -53,8 +53,13 @@ new Vue({
     el: '#links',
     data: {
         linksContent: null,
+        pageName: '',
     },
     mounted() {
+
         this.linksContent = ARR_LINKS;
     },
+    updated() {
+        this.pageName = window.location.pathname.replace(/\/pages\//g, '');
+    }
 });

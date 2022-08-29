@@ -58,7 +58,14 @@ export const getIndexHTML = ({ up, title, script, menu, content }) => (`
                         <ul>
                             <slot v-for="itemLink in linksContent">
                                 <li v-if="itemLink">
-                                    <a :href="itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
                                 </li>
                                 <li v-else class="splitter"></li>
                             </slot>

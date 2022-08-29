@@ -393,7 +393,14 @@
                         <ul>
                             <slot v-for="itemLink in linksContent">
                                 <li v-if="itemLink">
-                                    <a :href="itemLink.page" :class="'theme-'+itemLink.theme" v-html="itemLink.title"></a>
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
                                 </li>
                                 <li v-else class="splitter"></li>
                             </slot>
@@ -2747,8 +2754,18 @@ class App extends React.Component {
 	render() {
 		return (
 			&lt;div&gt;
-				&lt;input <u-code>name="isGoing"</u-code> type="checkbox" checked={this.state.isGoing} onChange={this.handleInputChange} /&gt;
-				&lt;input <u-code>name="numberOfGuests"</u-code> type="number" value={this.state.numberOfGuests} onChange={this.handleInputChange} /&gt;
+				&lt;input
+					<u-code>name="isGoing"</u-code>
+					type="checkbox"
+					checked={this.state.isGoing}
+					onChange={this.handleInputChange}
+				/&gt;
+				&lt;input
+					<u-code>name="numberOfGuests"</u-code>
+					type="number"
+					value={this.state.numberOfGuests}
+					onChange={this.handleInputChange}
+				/&gt;
 			&lt;/div&gt;
 		);
 	}
