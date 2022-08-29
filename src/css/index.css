@@ -194,6 +194,7 @@ MENU HIDE
 	position: absolute;
 	top: 0;
 	left: 0;
+	margin: 0;
 	z-index: 1000;
 }
 #menu.hide #top img {
@@ -206,9 +207,15 @@ MENU HIDE
 /***************************************************
 ADAPTIVE
 /***************************************************/
+@media screen and (max-width: 1250px) {
+	#menu.hide + #wrapper #links {
+		padding-left: 50px;
+	}
+}
+
 @media screen and (max-width: 950px) {
 	#wrapper {
-		padding: 0px 10px 10px 10px
+		padding: 0px 10px 10px 10px;
 	}
 }
 
