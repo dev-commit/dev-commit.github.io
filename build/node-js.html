@@ -337,7 +337,6 @@
     <u-text-accent>1. Timers</u-text-accent>
     <li>Попадают callback <em>setTimeout</em> и <em>setInterval</em></li>
     <li>Для Libuv setTimeout и setInterval - это одна функция, но у setInterval есть параметр repeat</li>
-    <li></li>
 
     <u-text-accent>2. Pending Callbacks</u-text-accent>
     <li>Очередь куда попадают I/O операции (не все): connection к сети, коллбэки ошибок</li>
@@ -399,6 +398,11 @@ setImmediate(() => console.log('setImmediate'));                  <u-code-light>
 
 <!-- ------------------------------------------------------------- -->
 
+<ul class="list-point">
+    <li>Этап <em>Poll</em> идет перед <em>Check</em> - Poll выполнится первым, но Callback перейдет на следующий Check</li>
+    <li>Это при условии, что идет чтение файла <u>readFile</u>, на <u>writeFile</u> будет раньше (TODO: проверить)</li>
+</ul>
+
 <v-two-code-comment><template v-slot:first>
 <v-code lang="js dark" title="">
 fs.readFile(__filename, () => {                                   <u-code-light>C</u-code-light>
@@ -409,6 +413,7 @@ fs.readFile(__filename, () => {                                   <u-code-light>
 </v-code>
 </template><template v-slot:last>
 <ul class="list-point">
+    <li>(C) Этап #4: <em>Poll</em></li>
     <li><u-inline-circle>9</u-inline-circle> (F) - Микротаска #1: <em>nextTickQueue</em></li>
     <li><u-inline-circle>10</u-inline-circle> (E) - Этап #5: <em>Check</em></li>
     <li><u-inline-circle>11</u-inline-circle> (D) - Этап #1: <em>Timers</em></li>
