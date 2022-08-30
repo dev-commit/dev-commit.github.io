@@ -16,7 +16,8 @@
 }
 #top {
 	display: flex;
-	padding: 10px 15px;
+	padding: 10px;
+	margin-left: 5px;
 	margin-bottom: 20px;
 	position: sticky;
 	top: 0;
@@ -163,6 +164,9 @@ LINKS
 /***************************************************
 TOP
 /***************************************************/
+#top {
+	margin-left: 10px;
+}
 #top .link {
 	display: flex;
 	align-items: center;
@@ -171,9 +175,10 @@ TOP
 	text-decoration: none;
 }
 #top .img {
-	margin-right: 10px;
-	border-radius: 0;
+	padding: 5px;
 	cursor: pointer;
+	background-color: transparent;
+	box-shadow: none;
 }
 
 /***************************************************
@@ -189,13 +194,12 @@ MENU HIDE
 {
 	display: none;
 }
-
 #menu.hide #top {
 	position: absolute;
 	top: 0;
 	left: 0;
-	margin: 0;
 	z-index: 1000;
+	border-radius: 50%;
 }
 #menu.hide #top img {
 	margin: 0;
