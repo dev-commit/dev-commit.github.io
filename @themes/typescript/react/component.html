@@ -1,0 +1,44 @@
+<h2>Component</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Props</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Пропсы описываются через <u>interface</u></li>
+    <li><u-code-text>React.FC&lt;&gt;</u-code-text> - функциоанальный компонент</li>
+</ul>
+
+<v-two-code type="js step;js step" comment="Есть props;Нет props">
+<template v-slot:first>
+export interface IAppProps {
+	title: string;
+	count: number;
+}
+
+const App: React.FC&lt;IAppProps&gt; = props =&gt; {
+	const { title, count } = props;
+	return ...;
+}
+
+const App: React.FC&lt;IAppProps&gt; = ({ title, count }) =&gt; {
+	return ...;
+}
+</template>
+<template v-slot:last>
+const App: React.FC = () => {
+	//
+};
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>React Component</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+interface IApp {
+	Component: React.ReactNode;     // Можно добавить как <u-code-text>&lt;&gt;{Component}&lt;&gt;</u-code-text>
+	Component: React.ComponentType; // Можно добавить как <u-code-text>&lt;Component /&gt;</u-code-text>
+	Component: React.FC&lt;T&gt;;         // Можно использовать для HOC при передаче FC
+}
+</v-code>
+

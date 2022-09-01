@@ -1,0 +1,48 @@
+<h2>Примеры типизации</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>...rest</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><b>Задача типизировать пропсы:</b></li>
+    <li>Есть компонент-обёртка</li>
+    <li>Непосредственно в компоненте нужен проп "label" - остальные пропы прокидывает дальше</li>
+    <li>Пробрасываемое количество пропов может быть любое</li>
+</ul>
+
+<v-code lang="js" title="">
+import React from 'react';
+
+type Props = {
+    label: string
+} &amp; Parameters&lt;typeof ComponentInput&gt;[0];
+
+const ComponentWrapper: React.FC&lt;Props&gt; = ({ label, ...rest }) =&gt; {
+    return (
+        &lt;&gt;
+            &lt;span&gt;{label}&lt;/span&gt;
+            &lt;ComponentTarget {...rest} /&gt;
+        &lt;/&gt;
+    );
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Расширение типа аргументов в методе</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// Расширили тип аргументов в методе
+// В пропе onChange указываем первоначальный тип
+
+export function App(props) {
+    const handleChange = (_activeKeys: string[], nodes: RichTreeNode<{ documentType: string }>[]) => {
+        //
+    };
+
+    return (
+        &lt;CheckboxGroup
+            onChange={handleChange as (activeKeys: string[], nodes: RichTreeNode[]) =&gt; void}
+        /&gt;
+    );
+}
+</v-code>

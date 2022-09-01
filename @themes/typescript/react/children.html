@@ -1,0 +1,33 @@
+<h2>Children</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Базовый пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Обычно не требуется дополнительная типизация для <u>children</u> в <u>inperface</u></li>
+    <li><u>children</u> просто достается из <u>props</u></li>
+</ul>
+
+<v-code lang="js step" title="">
+export interface IAppProps {
+	title: string;
+	count: number;
+}
+
+const App: React.FC&lt;IAppProps&gt; = props =&gt; {
+	const { title, count, <u-code>children</u-code> } = props;
+	return ...;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Возможное описание типов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { ReactNode } from 'react';
+
+inperface Props {
+	children: JSX.Element;
+	children: ReactNode;
+}
+</v-code>

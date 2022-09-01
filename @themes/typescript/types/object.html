@@ -1,0 +1,33 @@
+<h2>object</h2>
+
+<ul class="list-point">
+    <li>На второй строке будет ошибка, поскольку компилятор после первой строки предполагает, что объект person будет иметь два свойства name и age</li>
+    <li>Должно быть соответствие по названиям, количеству и типу свойств</li>
+</ul>
+
+<v-code lang="js" title="">
+let person = {
+	name: 'Tom',
+	age: 23
+};
+
+person = {
+	name: 'Alice'
+};
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Перебор в цикле</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const data: object = {
+	query,
+	status,
+};
+
+Object.keys(data).forEach((keyFilter) => {
+	const value = data[keyFilter as keyof {}];
+	const value = data[keyFilter as keyof Object];
+	const value = data[keyFilter as keyof typeof data];
+});
+</v-code>

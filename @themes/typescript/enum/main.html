@@ -5,6 +5,7 @@
     <li>Позволяет лучше структурировать код, если присутстуют однотипные элементы</li>
 </ul>
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Без значения</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -23,6 +24,7 @@ let b: Season = Season[2];     // "Summer"
 a = Season.Autumn;
 </v-code>
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Задание значения</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -35,6 +37,32 @@ enum SocialMedia {
 
 const social = SocialMedia.INSTAGRAM // "INSTAGRAM"
 </v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование как значение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li>Enum можно удобнее использовать в типах как значение</li>
+</ul>
+
+<v-code lang="js" title="">
+emum E {
+    A = 'A',
+    B = 'B',
+}
+const O = {
+    A: 'A',
+    B: 'B',
+}
+
+interface QWE {
+    e: E;
+    o: (typeof O)[keyof typeof O];
+}
+</v-code>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Ограничения</h3>

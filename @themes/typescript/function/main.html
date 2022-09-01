@@ -1,21 +1,52 @@
 <h2>Основы</h2>
 
-<v-code lang="js" title="">
-// 1. void - функция ничего не вернет
-function sayMyName(name: string): void {
-	console.log(name)
+<ul class="list-point">
+    <li>Если функция ничего не принимает и не возвращает, то можно указать <u-code-text>voidFunction</u-code-text> - это готовый алиас у TS</li>
+    <li><u-code-text>voidFunction</u-code-text> тоже самое что <u-code-text>() => void</u-code-text></li>
+    <li>Если же тип есть, то его нужно описывать</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1. Функция НЕ возвращает значение</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>void</u-code-text> - функция ничего не вернет</li>
+</ul>
+
+<v-code lang="js step" title="">
+const foo = (name: string): void => {
+	//
 }
 </v-code>
 
-<v-code lang="js" title="">
-// 2. Возвращает number
-function add(a: number, b: number): number {
-	return a + b
+<!------------------------------------------------------------->
+<h4>2. Функиция возвращает значение</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+// Возвращает number
+const foo = (name: string): number => {
+	return 1;
 }
 </v-code>
 
-<v-code lang="js" title="">
-// 3. Vожно не использовать `_params` внутри foo()
+<v-code lang="js step" title="">
+// Возвращает объект
+type TReturn = {
+	name: boolean;
+};
+
+export const foo = (): TReturn => {
+	return {
+		name: true,
+	};
+};}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Дополнительно</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+// Можно не использовать <em>_name</em> внутри foo()
 const foo = (_params: string) => {
 	//
 }

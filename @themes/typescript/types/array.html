@@ -1,0 +1,57 @@
+<h2>array</h2>
+
+
+<ul class="list-point">
+    <li>Массивы являются строго типизированными: если изначально массив содержит строки, то в будущем он сможет работать только со строками</li>
+</ul>
+
+<v-code lang="js" title="">
+const list: number[] = [10, 20, 30];
+const colors: string[] = ['red', 'green', 'blue'];
+
+console.log(list[0]);
+console.log(colors[1]);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Массив объектов 1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const a: Array<{ id: number, name: string }> = [];
+const a: { id: number, name: string }[] = [];
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Массив объектов 2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+export interface A {
+    items: B[];
+}
+
+export interface B {
+    value: number;
+    note: string;
+}
+</v-code>
+
+<v-code lang="js" title="">
+// Использование
+const obj: A = {
+    items: [
+        { value: 1, note: '' },
+        { value: 2, note: '' },
+    ]
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Применение типа Array&lt;&gt; (Дженерик)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Дженерик указывает из чего состоит данный объект</li>
+</ul>
+
+<v-code lang="js" title="">
+const names: Array&lt;string&gt; = ['Tom', 'Bob', 'Alice'];
+</v-code>
