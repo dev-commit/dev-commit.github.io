@@ -16,7 +16,7 @@ ARR_MODULE = [
             [root+'types/any-vs-unknown', '<em>any</em> vs <em>unknown</em>'],
 
             [root+'types/string',         setTheme(1, ['string'])],
-            [root+'types/boolean',        setTheme(1, ['noolean'])],
+            [root+'types/boolean',        setTheme(1, ['boolean'])],
             [root+'types/number',         setTheme(1, ['number'])],
             [root+'types/array',          setTheme(1, ['array'])],
             [root+'types/object',         setTheme(1, ['object'])],
