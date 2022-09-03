@@ -169,6 +169,38 @@
                 href="#typescript/generics/main"
             >🔥 Основное</a>
         </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__typescript/generics/function"
+                href="#typescript/generics/function"
+            >⭐️ Стрелочная функция</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__typescript/generics/object"
+                href="#typescript/generics/object"
+            >⭐️ Дженерик для объекта</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__typescript/generics/inheritance"
+                href="#typescript/generics/inheritance"
+            >⭐️ Наследование</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__typescript/generics/interface"
+                href="#typescript/generics/interface"
+            >⭐️ Дженерик в interface</a>
+        </li>
     </ul><h4>🥥 Interface</h4><ul>
         <li>
             <a
@@ -384,6 +416,14 @@
                 id="id__typescript/react/children"
                 href="#typescript/react/children"
             ><u-menu-accent>Children</u-menu-accent></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__typescript/react/types"
+                href="#typescript/react/types"
+            >Типы</a>
         </li>
     
         <li>
@@ -1066,6 +1106,158 @@ function reverse&lt;T&gt;(array: T[]): T[] {
 
 reverse(arrayOfNumbers)
 reverse(arrayOfStrings)
+</v-code>
+</div><div id="typescript/generics/function"><h2>Дженерик и стрелочная функция</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><em>.TS файл</em></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+const foo2 = &lt;T&gt;(props: T): void =&gt; {
+  //
+};
+
+function foo1&lt;T&gt;(props: T): void {
+  //
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><em>.TSX файл</em></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://www.carlrippon.com/generic-arrow-functions/" target="_blank">https://www.carlrippon.com/generic-arrow-functions/</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>В файлах .TSX есть особенность парсинга. Если указать Дженерик для стрелочной функции, то будет ошибка</li>
+</ul>
+
+<v-code lang="js step" title="">
+// Не сработает в TSX файле
+const foo = &lt;T&gt;(data: T) =&gt; {
+    //
+}
+
+foo&lt;SomeInterface&gt;(data);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Решение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Extends trick</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+const foo = &lt;T extends unknown&gt;(data: T) =&gt; {
+    //
+}
+
+const foo = &lt;T extends any&gt;(data: T) =&gt; {
+    //
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Comma trick</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+const foo = &lt;T,&gt;(data: T) =&gt; {
+    //
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Just use a regular function</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+function foo&lt;T&gt;(data: T) {
+    //
+}
+</v-code>
+</div><div id="typescript/generics/object"><h2>Дженерик для объекта</h2>
+
+<!------------------------------------------------------------->
+<h4>Использование <em>interface</em></h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+interface Admin&lt;S&gt; {
+    role: string;
+    user: S;
+}
+
+interface Person {
+    name: string;
+}
+
+const user: Admin&lt;Person&gt; = {
+    role: 'admin',
+    user: {
+        name: 'Jack'
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование простого типа данных</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+interface Admin&lt;S&gt; {
+    role: string;
+    user: S;
+}
+
+const user: Admin&lt;string&gt; = {
+    role: 'admin',
+    user: 'Jack'
+}
+</v-code>
+
+
+
+</div><div id="typescript/generics/inheritance"><h2>Наследование в Дженериках</h2>
+
+<ul class="list-point">
+    <li>При вызове функции можно явно не указывать Дженерик: <u>foo&lt;IBasic&gt;</u></li>
+    <li>Дженерик подставится автоматически в зависимости от аргументов</li>
+    <li>В данном случае, обязательным является только <u>{ name: string }</u>, т.к. указан в <u>IBasic</u></li>
+</ul>
+
+<v-code lang="js step" title="">
+interface IBasic {
+    name: string;
+}
+
+const foo = &lt;T extends IBasic&gt;(data: T): void =&gt; {
+    //
+}
+
+foo({
+    // Только это поле обязательное
+    name: 'Tom',
+    // Остальные поля могут быть любые
+    age: 22,
+});
+</v-code>
+</div><div id="typescript/generics/interface"><h2>Использование Дженерика в interface</h2>
+
+<v-code lang="js step" title="">
+interface IApp&lt;T&gt; {
+  name: T;
+}
+
+const foo = &lt;T,&gt;(data: IApp&lt;T&gt;): void =&gt; {
+    //
+}
+
+foo({
+    // Поле можно пережать любого типа, т.к. передается в interface
+    // name: 'Tom',
+    // Так тоже корректно
+    name: 32,
+});
 </v-code>
 </div><div id="typescript/interface/main"><h2>Основы</h2>
 
@@ -1917,6 +2109,32 @@ import { ReactNode } from 'react';
 inperface Props {
 	children: JSX.Element;
 	children: ReactNode;
+}
+</v-code>
+</div><div id="typescript/react/types"><h2>Типы</h2>
+
+<v-code lang="js" title="">
+import {
+    ReactNode,
+    ReactElement,
+    SyntheticEvent,
+    HTMLAttributes,
+    CSSProperties,
+} from 'react';
+
+type Props = {
+    tooltip: ReactElement;
+    onClick: (e: SyntheticEvent) =&gt; void;
+    navTab: HTMLAttributes&lt;HTMLButtonElement&gt;;
+    style?: CSSProperties;
+}
+
+const root: HTMLElement | null = document.querySelector(':root');
+</v-code>
+
+<v-code lang="js" title="">
+export interface ISubmissionsPageHeaderProps&lt;T&gt; {
+  setIsTableView: React.Dispatch&lt;React.SetStateAction&lt;boolean&gt;&gt;;
 }
 </v-code>
 </div><div id="typescript/react/samples"><h2>Примеры типизации</h2>

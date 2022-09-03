@@ -1,0 +1,70 @@
+<h2>Дженерик и стрелочная функция</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><em>.TS файл</em></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+const foo2 = &lt;T&gt;(props: T): void =&gt; {
+  //
+};
+
+function foo1&lt;T&gt;(props: T): void {
+  //
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><em>.TSX файл</em></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://www.carlrippon.com/generic-arrow-functions/" target="_blank">https://www.carlrippon.com/generic-arrow-functions/</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>В файлах .TSX есть особенность парсинга. Если указать Дженерик для стрелочной функции, то будет ошибка</li>
+</ul>
+
+<v-code lang="js step" title="">
+// Не сработает в TSX файле
+const foo = &lt;T&gt;(data: T) =&gt; {
+    //
+}
+
+foo&lt;SomeInterface&gt;(data);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Решение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Extends trick</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+const foo = &lt;T extends unknown&gt;(data: T) =&gt; {
+    //
+}
+
+const foo = &lt;T extends any&gt;(data: T) =&gt; {
+    //
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Comma trick</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+const foo = &lt;T,&gt;(data: T) =&gt; {
+    //
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Just use a regular function</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+function foo&lt;T&gt;(data: T) {
+    //
+}
+</v-code>

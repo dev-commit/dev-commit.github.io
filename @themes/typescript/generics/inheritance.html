@@ -1,0 +1,24 @@
+<h2>Наследование в Дженериках</h2>
+
+<ul class="list-point">
+    <li>При вызове функции можно явно не указывать Дженерик: <u>foo&lt;IBasic&gt;</u></li>
+    <li>Дженерик подставится автоматически в зависимости от аргументов</li>
+    <li>В данном случае, обязательным является только <u>{ name: string }</u>, т.к. указан в <u>IBasic</u></li>
+</ul>
+
+<v-code lang="js step" title="">
+interface IBasic {
+    name: string;
+}
+
+const foo = &lt;T extends IBasic&gt;(data: T): void =&gt; {
+    //
+}
+
+foo({
+    // Только это поле обязательное
+    name: 'Tom',
+    // Остальные поля могут быть любые
+    age: 22,
+});
+</v-code>

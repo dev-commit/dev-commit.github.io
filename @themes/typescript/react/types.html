@@ -1,0 +1,26 @@
+<h2>Типы</h2>
+
+<v-code lang="js" title="">
+import {
+    ReactNode,
+    ReactElement,
+    SyntheticEvent,
+    HTMLAttributes,
+    CSSProperties,
+} from 'react';
+
+type Props = {
+    tooltip: ReactElement;
+    onClick: (e: SyntheticEvent) =&gt; void;
+    navTab: HTMLAttributes&lt;HTMLButtonElement&gt;;
+    style?: CSSProperties;
+}
+
+const root: HTMLElement | null = document.querySelector(':root');
+</v-code>
+
+<v-code lang="js" title="">
+export interface ISubmissionsPageHeaderProps&lt;T&gt; {
+  setIsTableView: React.Dispatch&lt;React.SetStateAction&lt;boolean&gt;&gt;;
+}
+</v-code>

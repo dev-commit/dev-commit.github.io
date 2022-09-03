@@ -34,8 +34,13 @@ ARR_MODULE = [
         title: 'Generics',
         selected: true,
         themes: [
-            [root+'generics/info',       emoji.theory+'Информация'],
-            [root+'generics/main',       emoji.fire+'Основное'],
+            [root+'generics/info',         emoji.theory+'Информация'],
+            [root+'generics/main',         emoji.fire+'Основное'],
+
+            [root+'generics/function',     emoji.star+'Стрелочная функция'],
+            [root+'generics/object',       emoji.star+'Дженерик для объекта'],
+            [root+'generics/inheritance',  emoji.star+'Наследование'],
+            [root+'generics/interface',    emoji.star+'Дженерик в interface'],
         ]
     },
     {
@@ -112,6 +117,7 @@ ARR_MODULE = [
             [root+'react/useState',  setTheme(3, ['useState'])],
             [root+'react/useRef',    setTheme(3, ['useRef'])],
             [root+'react/children',  setTheme(3, ['Children'])],
+            [root+'react/types',     'Типы'],
             [root+'react/samples',   emoji.code+'Примеры'],
         ]
     },
