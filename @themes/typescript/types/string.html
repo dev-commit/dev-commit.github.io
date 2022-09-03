@@ -3,3 +3,24 @@
 <v-code lang="js" title="">
 const str: string = 'Hello'
 </v-code>
+
+<v-two-code type="js border;js" comment="Описание;Вызов">
+<template v-slot:first>
+type Fields = {
+	name1?: string;              // необязательное поле
+	name2: string;               // строка
+	name3: string[];             // массив строк
+	name4: string[] | undefined; // массив строк или undefined
+	name5: 'Tony' | 'Jack';      // 'Tony' или 'Jack'
+};
+</template>
+<template v-slot:last>
+const a: Fields = {
+    // name1: 'Tony',
+    name2: 'Tony',
+    name3: ['Tony', 'Jack'],
+    name4: undefined,
+    name5: 'Tony',
+}
+</template>
+</v-two-code>

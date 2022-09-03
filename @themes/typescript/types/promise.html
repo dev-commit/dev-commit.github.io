@@ -1,0 +1,21 @@
+<h2>promise</h2>
+
+<v-two-code type="js border;js" comment="Описание;Вызов">
+<template v-slot:first>
+type Fields = {
+	p1: Promise&lt;void&gt;;
+	p2: Promise&lt;string&gt;;
+	p3: Promise&lt;boolean&gt;;
+	p4: Promise&lt;never&gt;;
+};
+</template>
+<template v-slot:last>
+const a: Fields = {
+    p1: new Promise((resolve) => { console.log('Ok') }),
+    p2: new Promise((resolve) => { return 'Ok' }),
+    p3: new Promise((resolve) => { return true }),
+    p4: new Promise((resolve) => { throw new Error('Error') }),
+}
+</template>
+</v-two-code>
+

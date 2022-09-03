@@ -1,39 +1,4 @@
-<h2>Основы</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Описание</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li><u-text-define>Дженерик</u-text-define> - обобщённый тип (обобщение, дженерик) позволяет резервировать место для типа, который будет заменён на конкретный, переданный пользователем, при вызове функции или метода, а также при работе с классами.</li>
-    <li>Дженерики принимаются <u>функциями</u>, <u>интерфейсами</u>, <u>псевдонимами типов</u></li>
-</ul>
-
-<v-code lang="js border" title="">
-// Тип переданного аргумента является и типом возвращаемого значения
-function identity<u-code>&lt;T&gt;</u-code>(arg: T): T {
-    return arg;
-}
-</v-code>
-
-<ul class="list-point">
-    <li><u-text-define>&lt;T&gt;</u-text-define> – параметр-тип <u-code-text>&lt;T&gt;</u-code-text>, который будет захвачен при вызове функции и на него подменены все <u-code-text>&lt;T&gt;</u-code-text> внутри функции</li>
-    <li>Если имеется единственный параметр-тип, то он получает имя <u-code-text>T</u-code-text>, но лишь в том случае, если это не нарушает общую ясность</li>
-    <li>При объявлении нескольких параметр-типов их имена записываются, чаще всего, как <u-code-text>T</u-code-text>, <u-code-text>U</u-code-text> и <u-code-text>A</u-code-text>, соответственно</li>
-</ul>
-
-<v-code lang="js border" title="">
-// Вызов с типом number
-const value = identity<u-code>&lt;number&gt;</u-code>(23);
-
-// Аналогично
-const num: number = 23;
-identity(num);
-</v-code>
-
-<ul class="list-point">
-    <li>При вызове функции тип <u-code-text>&lt;number&gt;</u-code-text> заполняет обобщённый параметр <u-code-text>T</u-code-text></li>
-    <li>В этот момент компилятор неявно подставляет вместо <u-code-text>T</u-code-text> переданный тип <u-code-text>number</u-code-text> и переходит к валидации типов переданных аргументов, а затем входит внутрь функции и валидирует её тело</li>
-</ul>
+<h2>Основное</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
@@ -42,7 +7,7 @@ identity(num);
 const arrayOfNumbers: Array&lt;number&gt; = [1, 1, 2, 3, 5]
 const arrayOfStrings: Array&lt;string&gt; = ['Hello', 'Vladilen']
 
-// динамически подстраивается под разные типы данных
+// Динамически подстраивается под разные типы данных
 function reverse&lt;T&gt;(array: T[]): T[] {
 	return array.reverse()
 }

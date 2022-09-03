@@ -1,9 +1,32 @@
 <h2>array</h2>
 
-
 <ul class="list-point">
     <li>Массивы являются строго типизированными: если изначально массив содержит строки, то в будущем он сможет работать только со строками</li>
 </ul>
+
+<v-two-code type="js border;js" comment="Описание;Вызов">
+<template v-slot:first>
+type Fields = {
+    field1: Array&lt;string&gt;;    // массив строк (Дженерик)
+    field2: string[];         // массив строк (аналогично)
+    field3: number[];         // массив чисел
+    field4: [string, number]; // кортеж из разных типов данных
+};
+</template>
+<template v-slot:last>
+const a: Fields = {
+    field1: ['a', 'b'],
+    field2: ['a', 'b'],
+    field3: [1, 2],
+    field4: ['Tony', 23],
+}
+</template>
+</v-two-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <v-code lang="js" title="">
 const list: number[] = [10, 20, 30];

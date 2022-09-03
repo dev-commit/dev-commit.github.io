@@ -1,20 +1,25 @@
 <h2>object</h2>
 
 <ul class="list-point">
-    <li>На второй строке будет ошибка, поскольку компилятор после первой строки предполагает, что объект person будет иметь два свойства name и age</li>
-    <li>Должно быть соответствие по названиям, количеству и типу свойств</li>
+    <li>Тип для объектов можно задавать через <em>interface</em> или <em>type</em></li>
 </ul>
 
-<v-code lang="js" title="">
-let person = {
-	name: 'Tom',
-	age: 23
-};
+<v-code lang="js step" title="">
+interface IUser {
+    name: string;
+    age: number;
+}
 
-person = {
-	name: 'Alice'
-};
+const user: IUser = {
+	name: 'Tony',
+	age: 23
+}
 </v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
 <h4>Перебор в цикле</h4>
@@ -31,3 +36,5 @@ Object.keys(data).forEach((keyFilter) => {
 	const value = data[keyFilter as keyof typeof data];
 });
 </v-code>
+
+

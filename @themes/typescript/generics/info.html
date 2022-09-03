@@ -1,0 +1,74 @@
+<h2>Информация</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Описание</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Дженерик</u-text-define> - обобщённый тип (обобщение, дженерик) позволяет резервировать место для типа, который будет заменён на конкретный, переданный пользователем, при вызове функции или метода, а также при работе с классами.</li>
+    <li>Дженерики принимаются <u>функциями</u>, <u>интерфейсами</u>, <u>псевдонимами типов</u></li>
+</ul>
+
+<v-code lang="js border" title="">
+// Тип переданного аргумента является и типом возвращаемого значения
+function identity<u-code>&lt;T&gt;</u-code>(arg: T): T {
+    return arg;
+}
+</v-code>
+
+<ul class="list-point">
+    <li><u-text-define>&lt;T&gt;</u-text-define> – параметр-тип <u-code-text>&lt;T&gt;</u-code-text>, который будет захвачен при вызове функции и на него подменены все <u-code-text>&lt;T&gt;</u-code-text> внутри функции</li>
+    <li>Если имеется единственный параметр-тип, то он получает имя <u-code-text>T</u-code-text>, но лишь в том случае, если это не нарушает общую ясность</li>
+    <li>При объявлении нескольких параметр-типов их имена записываются, чаще всего, как <u-code-text>T</u-code-text>, <u-code-text>U</u-code-text> и <u-code-text>A</u-code-text>, соответственно</li>
+</ul>
+
+<v-code lang="js border" title="">
+// Вызов с типом number
+const value = identity<u-code>&lt;number&gt;</u-code>(23);
+
+// Аналогично
+const num: number = 23;
+identity(num);
+</v-code>
+
+<ul class="list-point">
+    <li>При вызове функции тип <u-code-text>&lt;number&gt;</u-code-text> заполняет обобщённый параметр <u-code-text>T</u-code-text></li>
+    <li>В этот момент компилятор неявно подставляет вместо <u-code-text>T</u-code-text> переданный тип <u-code-text>number</u-code-text> и переходит к валидации типов переданных аргументов, а затем входит внутрь функции и валидирует её тело</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Принцип работы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+	<a href="https://canonium.com/articles/typescript-generics" target="_blank">https://canonium.com/articles/typescript-generics</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Принцип работы дженериков, хорошо объясним проведя аналогию работы функций и их входных параметров.</li>
+    <li>Допустим у нас есть функция print, которая принимает на вход два параметра title и info:</li>
+</ul>
+
+<v-code lang="js" title="">
+const print = (title, info) =&gt; {
+    //
+}
+
+print('Имя', 'Вася');
+</v-code>
+
+<ul class="list-point">
+    <li>В теле функции строка Имя, которую мы передаем, имеет псевдоним title, а строка Вася-info</li>
+    <li>А теперь давайте рассмотрим аналогию с дженериками:</li>
+</ul>
+
+<v-code lang="js" title="">
+const print = &lt;T, K&gt;(title: T, info: K) =&gt; {
+    //
+}
+
+print&lt;string, number&gt;('Возраст', 25);
+</v-code>
+
+<ul class="list-point">
+    <li>Тип string, который передается в дженерик получает псевдоним T, и теперь все T в параметрах, а также в теле функции будут иметь тип string. В случае с number и псевдонимом К все тоже самое.</li>
+</ul>

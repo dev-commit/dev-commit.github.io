@@ -12,18 +12,41 @@ ARR_MODULE = [
     {
         title: 'Типы данных',
         themes: [
-            [root+'types/types',          emoji.fire+'Типы данных'],
-            [root+'types/any-vs-unknown', '<em>any</em> vs <em>unknown</em>'],
+            [root+'types/types',          emoji.theory+'Типы данных'],
+            [root+'types/any-vs-unknown', emoji.theory+'<em>any</em> vs <em>unknown</em>'],
 
-            [root+'types/string',         setTheme(1, ['string'])],
-            [root+'types/boolean',        setTheme(1, ['boolean'])],
-            [root+'types/number',         setTheme(1, ['number'])],
-            [root+'types/array',          setTheme(1, ['array'])],
-            [root+'types/object',         setTheme(1, ['object'])],
-            [root+'types/null',           setTheme(1, ['null', 'undefined'])],
-            [root+'types/typle',          setTheme(1, ['typle'])],
+            [root+'types/string',         setTheme(3, ['string'])],
+            [root+'types/array',          setTheme(3, ['array'])],
+            [root+'types/function',       setTheme(3, ['function'])],
+            [root+'types/promise',        setTheme(3, ['promise'])],
+            [root+'types/object',         setTheme(3, ['object'])],
+
             [root+'types/any',            setTheme(1, ['any'])],
             [root+'types/never',          setTheme(1, ['never'])],
+            [root+'types/typle',          setTheme(1, ['typle'])],
+            
+            [root+'types/null',           setTheme(6, ['null', 'undefined'])],
+            [root+'types/number',         setTheme(6, ['number'])],
+            [root+'types/boolean',        setTheme(6, ['boolean'])],
+        ]
+    },
+    {
+        title: 'Generics',
+        selected: true,
+        themes: [
+            [root+'generics/info',       emoji.theory+'Информация'],
+            [root+'generics/main',       emoji.fire+'Основное'],
+        ]
+    },
+    {
+        title: 'Interface',
+        selected: true,
+        themes: [
+            [root+'interface/main',             emoji.unicorn+'Основы'],
+            [root+'interface/inherit',          'Наследование интерфейсов'],
+            [root+'interface/with-class',       'Взаимодействие с классами'],
+            [root+'interface/dynamic-key-obj',  'Динамические ключи объекта'],
+            [root+'interface/samples',          'Примеры'],
         ]
     },
     {
@@ -36,25 +59,6 @@ ARR_MODULE = [
         themes: [
             [root+'type/type',      emoji.unicorn+'Основы'],
             [root+'type/combine',   'Комбинация типов'],
-        ]
-    },
-    {
-        title: styleSubHeader('interface'),
-        child: true,
-        themes: [
-            [root+'interface/main',             emoji.unicorn+'Основы'],
-            [root+'interface/inherit',          'Наследование интерфейсов'],
-            [root+'interface/with-class',       'Взаимодействие с классами'],
-            [root+'interface/dynamic-key-obj',  'Динамические ключи объекта'],
-            [root+'interface/samples',          'Примеры'],
-        ]
-    },
-    {
-        title: styleSubHeader('generics'),
-        child: true,
-        themes: [
-            [root+'generics/main',       emoji.unicorn+'Основы'],
-            [root+'generics/principle',  'Принцип работы'],
         ]
     },
     {
@@ -83,7 +87,6 @@ ARR_MODULE = [
     },
     {
         title: 'Операторы',
-        accent: true,
         themes: [
             [root+'operators/keyof',                   setTheme(5, ['keyof'])],
             [root+'operators/typeof',                  setTheme(5, ['typeof'])],
@@ -92,7 +95,6 @@ ARR_MODULE = [
     },
     {
         title: 'Методы для Type',
-        accent: true,
         themes: [
             [root+'methods/pick',     setTheme(5, ['Pick'])],
             [root+'methods/exclude',  setTheme(5, ['Exclude'])],

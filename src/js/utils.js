@@ -27,7 +27,7 @@ function setTheme(tag, arr) {
         case 3: resultTag  = 'u-menu-accent';   break;
         case 4: resultTag  = 'u-menu-unactive'; break;
         case 5: resultTag  = 'u-menu-outline';  break;
-        case 6: resultTag  = 'u-menu-outline';  break;
+        case 6: resultTag  = 'u-menu-gray';  break;
         default: resultTag = 'u-menu';
     }
 
@@ -39,14 +39,7 @@ function setTheme(tag, arr) {
 }
 
 function styleSubHeader(content) {
-    const str = `
-        🔵
-        <b>
-            <u-code-accent>
-                ${content}
-            </u-code-accent>
-        </b>
-    `;
+    const str = `🔵 <b style="color: #4707b7">${content}</b>`;
     return str;
 }
 
