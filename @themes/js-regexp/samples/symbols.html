@@ -1,0 +1,47 @@
+<h2>Символы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Цифры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p class="consolas">› "23"</p>
+<v-code lang="bash none" title="">
+🟢 <u>/[\d]/</u>      # все цифры в диапазоне 0-9
+🟠 <u>/[\D]/</u>      # символы кроме цифр в диапазоне 0-9
+🟢 <u>/[0-4]/</u>     # цифры в диапазоне 0-4
+🟠 <u>/[^0-4]/</u>    # символы кроме цифр в диапазоне 0-4
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Символы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p class="consolas">› "Hello, Tony!"</p>
+<v-code lang="bash none" title="">
+🟢 <u>/[\s]/</u>      # пустые символы (пробелы, табуляция, перенос строк)
+🟢 <u>/[\S]/</u>      # все не пустые символы
+🟢 <u>/[,]/</u>       # символ запятая ","
+🟠 <u>/[.]/</u>       # символ точка "."
+🟢 <u>/[\w]/</u>      # символы, являющиеся буквами или цифрами
+🟢 <u>/[\W]/</u>      # символы, НЕ являющиеся буквами или цифрами
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Буквы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p class="consolas">› "Привет. You have 23 likes"</p>
+
+<v-code lang="bash none" title="">
+🟢 <u>/[a-zA-Z]/</u>  # любая EN буква в любом регистре
+🟢 <u>/[а-яА-Я]/</u>  # любая RU буква в любом регистре
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Комбинации</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p class="consolas">› "Привет. You have 23 likes"</p>
+
+<v-code lang="bash none" title="">
+🟢 <u>/[a-zA-Zа-яА-Я]/</u>        # любая RU / EN буква
+🟢 <u>/[a-zA-Z]/g</u>             # любая EN буква - глобальный поиск
+🟢 <u>/[a-zA-Z.,]/</u>            # любая EN буква / символ "," / символ "."
+🟢 <u>/[a-zA-Zа-яА-Я.,-\d\s]/</u> # любая EN/RU буква, символы '.,-', цифры 0-9, пустые символы
+</v-code>

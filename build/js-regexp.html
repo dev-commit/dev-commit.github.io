@@ -1,0 +1,392 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>RegExp</title>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.svg">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@modules/build-js-regexp.js"></script>
+        </head>
+        <body>
+
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="link" v-html="'RegExp'"></a>
+                    </div>
+                    <h4>🥥 Основы</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-regexp/main/info"
+                href="#js-regexp/main/info"
+            >📑 Информация</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-regexp/main/expressions"
+                href="#js-regexp/main/expressions"
+            >⭐️ Выражения</a>
+        </li>
+    </ul><h4>🥥 Примеры</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-regexp/samples/samples"
+                href="#js-regexp/samples/samples"
+            >Примеры</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-regexp/samples/register"
+                href="#js-regexp/samples/register"
+            >🔥 Регистр</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-regexp/samples/symbols"
+                href="#js-regexp/samples/symbols"
+            >🔥 Символы</a>
+        </li>
+    </ul><h4>🥥 Прочее</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-regexp/other/string"
+                href="#js-regexp/other/string"
+            >Строки</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-regexp/other/regexp-class"
+                href="#js-regexp/other/regexp-class"
+            >Класс RegExp</a>
+        </li>
+    </ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="js-regexp/main/info"><h2>Информация</h2>
+
+<b>Ссылки</b>
+<u-link-wrapper>
+    <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank">MDN</a>
+</u-link-wrapper>
+
+<b>Конструктор RegExp</b>
+<u-link-wrapper>
+    <a href="https://regexr.com/" target="_blank">https://regexr.com/</a>
+	<a href="https://regex101.com/" target="_blank">https://regex101.com/</a>
+</u-link-wrapper>
+</div><div id="js-regexp/main/expressions"><h2>Выражения</h2>
+
+<!------------------------------------------------------------->
+<h4>Основное</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>\d</u-code-text> - любая десятичная цифра</li>
+    <li><u-code-text>\D</u-code-text> - любой символ, кроме десятичной цифры</li>
+    <hr>
+    <li><u-code-text>\s</u-code-text> - любой пробельный символ</li>
+    <li><u-code-text>\S</u-code-text> - любой непробельный символ</li>
+    <hr>
+    <li><u-code-text>\w</u-code-text> - любой символ, образующий "слово"</li>
+    <li><u-code-text>\W</u-code-text> - любой символ, необразующий "слово"</li>
+    <hr>
+    <li><u-code-text>\b</u-code-text> - граница слова</li>
+    <li><u-code-text>\B</u-code-text> - не граница слова</li>
+    <hr>
+    <li><u-code-text>\A</u-code-text> - начало данных  (независимо от многострочного режима)</li>
+    <li><u-code-text>\Z</u-code-text> - конец данных, либо позиция перед последним  символом строки, в случае если это символ  перевода строки (независимо от многострочного режима)</li>
+    <li><u-code-text>\z</u-code-text> - конец данных (независимо от многострочного режима)</li>
+    <hr>
+    <li><u-code-text>[]</u-code-text> - символьный класс</li>
+    <li><u-code-text>()</u-code-text> - подмаска</li>
+    <li><u-code-text>|</u-code-text> - разделитель альтернативных масок</li>
+    <hr>
+
+    <li><u-code-text>{m,n}</u-code-text> - квантификатор повтора: min m, max n раз</li>
+    <hr>
+    <li><u-code-text>(?:)</u-code-text> - незахватывающая подмаска</li>
+    <li><u-code-text>(?=x)</u-code-text> - положительное утверждение</li>
+    <li><u-code-text>(?!x)</u-code-text> - отрицательное утверждение</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Expression Flag</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>//g</u-code-text> - global (все совпадения)</li>
+    <li><u-code-text>//i</u-code-text> - case insensitive (регистронезависимый поиск)</li>
+    <li><u-code-text>//m</u-code-text> - multiline</li>
+    <li><u-code-text>//u</u-code-text> - unicode</li>
+    <li><u-code-text>//y</u-code-text> - sticky</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Символы</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>\f</u-code-text> - символ разрыва страницы</li>
+    <li><u-code-text>\t</u-code-text> - символ табуляции</li>
+    <li><u-code-text>\v</u-code-text> - символ вертикальной табуляции</li>
+    <li><u-code-text>\r</u-code-text> - символ возврата каретки</li>
+    <li><u-code-text>\n</u-code-text> - символ перевода строки</li>
+    <li><u-code-text>\xhh</u-code-text> - символ с кодом hh</li>
+    <li><u-code-text>\uhhhh</u-code-text> - символ юникод с кодом hhhh</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Специальные символы</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>\</u-code-text> - для обычных символов - делает их специальными. Например, выражение /s/ ищет просто символ 's'. А если поставить \ перед s, то /\s/ уже обозначает пробельный символ. И наоборот, если символ специальный, например *, то \ сделает его просто обычным символом "звездочка". Например, /a*/ ищет 0 или больше подряд идущих символов 'a'. Чтобы найти а со звездочкой 'a*' - поставим \ перед спец. символом: /a\*/.</li>
+    <li><u-code-text>^</u-code-text> - начало ввода (или линии, в многострочном режиме); отрицание в [],</li>
+    <li><u-code-text>$</u-code-text> - конец ввода  (или линии, в многострочном режиме)</li>
+    <li><u-code-text>*</u-code-text> - соответствует предыдущему символу повторенному 0 или более раз. Эквивалентно {0,}. Например, /bo*/ соответствует 'boooo' в "A ghost booooed" и 'b' в "A bird warbled", но не в "A goat grunted".</li>
+    <li><u-code-text>+</u-code-text> - соответствует предыдущему символу повторенному 1 или более раз. Эквивалентно {1,}. Например, /a+/ соответствует 'a' в "candy" и всем символам 'a' в "caaaaaaandy".</li>
+    <li><u-code-text>?</u-code-text> - соответствует предыдущему символу повторенному 0 или 1 раз. Эквивалентно {0,1}.</li>
+    <li><u-code-text>.</u-code-text> - (десятичная точка) соответствует любому символу кроме переноса строки. Например, /.n/ соответствует 'an' и 'on' в "nay, an apple is on the tree", но не 'nay'.</li>
+</ul>
+</div><div id="js-regexp/samples/samples"><h2>Примеры</h2>
+
+<u-link-wrapper>
+    <a href="https://codepen.io/anton-sergeenkov/pen/rNpYbrv" target="_blank">Codepen</a>
+</u-link-wrapper>
+
+<v-code lang="js step" title="">
+const regexp = /[a-zA-Z]/g;
+const str = "Привет. You have 23 likes";
+
+console.log(regexp.test(str));
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Свалка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+^(?!.*(hello))         # все что угодно, кроме "hello" ("hell" - не сработает, "hello1" - сработает)
+^(?!.*(\\bhello\\b))   # все что угодно, кроме "hello" ("hell" - не сработает, "hello1" - не сработает) 
+^(?!.*(hello$))        # все что угодно, кроме "hello" ("hell" - не сработает, "hello1" - не сработает)
+
+\bar\b                 # граница слова. только слово "bar"
+\bar\B                 # не должно быть границы слова. только символы "bar" в слове
+
+.                      # любой символ кроме переноса строк
+\.                     # точка (экранированно /)
+
+a.{5}z                 # между буквами "a" и "z" 5 любых символов
+a.{2,5}z               # между буквами "a" и "z" от 2-5 любых символов
+a.{2,}z                # между буквами "a" и "z" от 2 и более любых символов
+a.+z                   # между буквами "a" и "z" от 1 и более любых символов
+a.*z                   # между буквами "a" и "z" от 0 и более любых символов
+
+(\b\w+)@(\w+\.\w+\b)   # запоминающая группа. поиск email
+</v-code>
+</div><div id="js-regexp/samples/register"><h2></h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Регистр</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p class="consolas">› "О дивный новый Мир"</p>
+
+<v-code lang="bash none" title="">
+🟢 <u>/Мир/</u>   # регистрозависимый поиск
+🟠 <u>/мир/</u>   # регистрозависимый поиск (несовпадение регистра)
+🟢 <u>/мир/i</u>  # регистроНЕзависимый поиск
+</v-code>
+</div><div id="js-regexp/samples/symbols"><h2>Символы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Цифры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p class="consolas">› "23"</p>
+<v-code lang="bash none" title="">
+🟢 <u>/[\d]/</u>      # все цифры в диапазоне 0-9
+🟠 <u>/[\D]/</u>      # символы кроме цифр в диапазоне 0-9
+🟢 <u>/[0-4]/</u>     # цифры в диапазоне 0-4
+🟠 <u>/[^0-4]/</u>    # символы кроме цифр в диапазоне 0-4
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Символы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p class="consolas">› "Hello, Tony!"</p>
+<v-code lang="bash none" title="">
+🟢 <u>/[\s]/</u>      # пустые символы (пробелы, табуляция, перенос строк)
+🟢 <u>/[\S]/</u>      # все не пустые символы
+🟢 <u>/[,]/</u>       # символ запятая ","
+🟠 <u>/[.]/</u>       # символ точка "."
+🟢 <u>/[\w]/</u>      # символы, являющиеся буквами или цифрами
+🟢 <u>/[\W]/</u>      # символы, НЕ являющиеся буквами или цифрами
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Буквы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p class="consolas">› "Привет. You have 23 likes"</p>
+
+<v-code lang="bash none" title="">
+🟢 <u>/[a-zA-Z]/</u>  # любая EN буква в любом регистре
+🟢 <u>/[а-яА-Я]/</u>  # любая RU буква в любом регистре
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Комбинации</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p class="consolas">› "Привет. You have 23 likes"</p>
+
+<v-code lang="bash none" title="">
+🟢 <u>/[a-zA-Zа-яА-Я]/</u>        # любая RU / EN буква
+🟢 <u>/[a-zA-Z]/g</u>             # любая EN буква - глобальный поиск
+🟢 <u>/[a-zA-Z.,]/</u>            # любая EN буква / символ "," / символ "."
+🟢 <u>/[a-zA-Zа-яА-Я.,-\d\s]/</u> # любая EN/RU буква, символы '.,-', цифры 0-9, пустые символы
+</v-code>
+</div><div id="js-regexp/other/string"><h2>Строки</h2>
+
+<!------------------------------------------------------------->
+<h4>search() - возвращает позицию первого элемента</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// игнорирует флаг global
+const text = "О дивный новый мир";
+const pattern = /мы/;
+const result = text.search(pattern); // 9
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>match() - возвращает само совпадение</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// не игнорирует флаг global
+const text = "О дивный новый мир";
+const pattern = /новый/;
+const result = text.match(pattern); // ["новый", index: 9, input: "О дивный новый мир", groups: undefined]
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>split() - преобразование строки с заданным разделителем в массив </h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const pattern = /[\s,]+/;
+const result = text.split(pattern); // разделитель пробел
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>replace() - ищет совпадение и заменяет</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const text = 'привет мир';
+const pattern = /привет/;
+
+text = text.replace(pattern, function(match) {
+    return match.toUpperCase();
+});
+</v-code>
+
+<v-code lang="js" title="">
+str = str.replace(/'/g, '"');         // поменять одинарные кавычки на двойные
+str = str.replace(/«/g, '"');         // поменять « 
+str = str.replace(/»/g, '"');         // поменять »
+str = str.replace(/–/g, '-');         // поменять "–"
+str = str.replace(/\r|\n/g, '');      // убрать перенос строки
+str = str.replace(/<\/?[^>]+>/g, ''); // удалить html теги из текста
+</v-code>
+</div><div id="js-regexp/other/regexp-class"><h2>Класс RegExp</h2>
+
+<v-code lang="js" title="">
+const pattern = new RegExp('\w+', 'g'); // конструктор
+const pattern = /\w+/g;                 // литерал
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Свойства, доступные для чтение</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+pattern.global;
+pattern.ignoreCase;
+pattern.mutiline;
+pattern.lastIndex; // индекс последнего результата
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>test() - проверка соответствия строки регулярному выражению (true/false)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const text = "О дивный новый мир";
+const pattern = /новый/;
+const result = pattern.test(text); 
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>exec() - аналогичен match()</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// если не установлен флаг global, результат аналогичен методу match
+// если установлен флаг global, получаем 1 первый match
+const text = "О дивный новый мир";
+const pattern = /новый/g;
+const result = pattern.exec(text); 
+</v-code></div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue/build.js"></script>
+        </body>
+    </html>
