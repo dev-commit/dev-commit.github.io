@@ -10,10 +10,13 @@ ARR_MODULE = [
     },
     {
         title: 'Примеры',
+        accent: true,
         themes: [
-            [root+'samples/samples',   'Примеры'],
-            [root+'samples/register',  emoji.fire+'Регистр'],
-            [root+'samples/symbols',   emoji.fire+'Символы'],
+            [root+'samples/common',    'Общее'],
+            [root+'samples/symbols',   emoji.star+'Символы'],
+            [root+'samples/search',    emoji.star+'Поиск по словам'],
+            [root+'samples/operators', emoji.star+'Операторы'],
+            [root+'samples/register',  emoji.star+'Регистр'],
         ]
     },
     {
