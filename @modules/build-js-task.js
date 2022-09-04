@@ -68,6 +68,7 @@ ARR_MODULE = [
             [root+'algoritms/cancel-timeout',           emoji.icecream+'setTimeout: отмена всех'],
             [root+'algoritms/settimeout-for-var',       emoji.icecream+'setTimeout: в for без let'],
             [root+'algoritms/promisification-function', emoji.icecream+'Промисификация функции'],
+            [root+'algoritms/sequential-callbacks',     emoji.icecream+'Последовательные коллбэки'],
         ]
     },
     {

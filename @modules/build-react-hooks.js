@@ -2,6 +2,13 @@ root = 'react-hooks/';
 
 ARR_MODULE = [
     {
+        title: 'Основное',
+        themes: [
+            [root+'main/info',         emoji.theory+'Информация'],
+            [root+'main/memoization',  emoji.star+'useCallback vs useMemo'],
+        ]
+    },
+    {
         title: 'Хуки',
         themes: [
             [root+'hooks/use-state',             setTheme(3, ['useState'])],
@@ -18,11 +25,10 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Информация',
+        title: 'Прочее',
         themes: [
-            [root+'main/info',          emoji.theory+'Информация'],
-            [root+'main/custom-hooks',  emoji.theory+'Кастомные хуки'],
-            [root+'main/questions',     emoji.theory+'Вопросы']
+            [root+'other/custom-hooks',  emoji.theory+'Кастомные хуки'],
+            [root+'other/questions',     emoji.theory+'Вопросы']
         ]
     },
 ]

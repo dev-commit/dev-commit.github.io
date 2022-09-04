@@ -1,0 +1,23 @@
+<h2>&lt;Route /&gt;</h2>
+
+<ul class="list-point">
+    <li><u-code-text>component</u-code-text> - если не нужно прокидывать props</li>
+    <li><u-code-text>render</u-code-text> - если нужно прокидывать props</li>
+</ul>
+
+<v-code lang="js" title="">
+export const PATH1 = '/path1';
+export const PATH2 = '/path2';
+
+const Component1 = React.lazy(() =&gt; import('pages/Component1'));
+const Component2 = React.lazy(() =&gt; import('pages/Component2'));
+
+const App: React.FC = () =&gt; {
+  return (
+    &lt;Switch&gt;
+      &lt;Route path={PATH1} component={Component1} /&gt;
+      &lt;Route path={PATH2} render={routeProps =&gt; &lt;Component2 {...routeProps} /&gt;} /&gt;
+    &lt;/Switch&gt;
+  );
+};
+</v-code>

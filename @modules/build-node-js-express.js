@@ -11,10 +11,16 @@ ARR_MODULE = [
     {
         title: 'Маршрутизация',
         themes: [
-            [root+'routing/structure', emoji.code+'Структура'],
-            [root+'routing/routes', emoji.code+'Маршрутизация'],
-            [root+'api/get',           setTheme(1, ['get()'])],
-            [root+'api/use',           setTheme(1, ['use()'])],
+            [root+'routing/structure',   emoji.code+'Структура'],
+            [root+'routing/routes',      emoji.code+'Маршрутизация'],
+            [root+'api/get',             setTheme(1, ['get()'])],
+            [root+'api/use',             setTheme(1, ['use()'])],
+        ]
+    },
+    {
+        title: 'Элементы',
+        themes: [
+            [root+'elements/middleware', 'Middleware'],
         ]
     },
     {

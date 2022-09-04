@@ -345,6 +345,14 @@
                 href="#js-task/algoritms/promisification-function"
             >🍦 Промисификация функции</a>
         </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-task/algoritms/sequential-callbacks"
+                href="#js-task/algoritms/sequential-callbacks"
+            >🍦 Последовательные коллбэки</a>
+        </li>
     </ul><h4>🥥 Общие темы</h4><ul>
         <li>
             <a
@@ -2884,6 +2892,36 @@ const loadFilePromise = (src) => {
 			res(result)
 		})
 	})
+}
+</v-code>
+</div><div id="js-task/algoritms/sequential-callbacks"><h2>👿 Последовательные коллбэки (не сделано)</h2>
+
+<ul class="list-point">
+    <b>Задача:</b>
+    <li>Коллбэки должны выполняться последовательно</li>
+    <hr>
+    <b>Решение:</b>
+    <li>1. Промисификация функций</li>
+    <li>2. Перебор функций через reduce</li>
+</ul>
+
+<v-code lang="js" title="">
+function foo(callback) {
+    setTimeout(function() {
+        callback('A');
+    }, Math.random()*100);
+}
+
+function bar(callback) {
+    setTimeout(function() {
+        callback('B');
+    }, Math.random()*100);
+}
+
+function baz(callback) {
+    setTimeout(function() {
+        callback('C');
+    }, Math.random()*100);
 }
 </v-code>
 </div><div id="js-task/custom/hoisting"><h2>Всплытие</h2>

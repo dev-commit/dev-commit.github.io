@@ -1,0 +1,30 @@
+<h2>👿 Последовательные коллбэки (не сделано)</h2>
+
+<ul class="list-point">
+    <b>Задача:</b>
+    <li>Коллбэки должны выполняться последовательно</li>
+    <hr>
+    <b>Решение:</b>
+    <li>1. Промисификация функций</li>
+    <li>2. Перебор функций через reduce</li>
+</ul>
+
+<v-code lang="js" title="">
+function foo(callback) {
+    setTimeout(function() {
+        callback('A');
+    }, Math.random()*100);
+}
+
+function bar(callback) {
+    setTimeout(function() {
+        callback('B');
+    }, Math.random()*100);
+}
+
+function baz(callback) {
+    setTimeout(function() {
+        callback('C');
+    }, Math.random()*100);
+}
+</v-code>

@@ -73,6 +73,14 @@
                 href="#node-js-express/api/use"
             ><u-menu>use()</u-menu></a>
         </li>
+    </ul><h4>🥥 Элементы</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js-express/elements/middleware"
+                href="#node-js-express/elements/middleware"
+            >Middleware</a>
+        </li>
     </ul><h4>🥥 Шаблонизатор EJS</h4><ul>
         <li>
             <a
@@ -261,6 +269,30 @@ const app = express();
 app.<u-code-mod>use</u-code-mod>((req, res, next) => {
     res.status(201).end('Hello');
 })
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Доступ к req.body</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const app = express();
+// app.use(express.json());
+
+// req - Readable, res - Writable
+app.post("path", parser,  (req, res) => {
+    // может получить req.body, только если указали app.use(express.json())
+    // иначе будет undefined, т.к. это stream
+    console.log(req.body);
+});
+</v-code>
+</div><div id="node-js-express/elements/middleware"><h2>Middleware</h2>
+
+<v-code lang="js" title="">
+// Можно добавить свой Middleware
+// parser - Middleware
+app.post("path", parser,  (req, res) => {
+    //
+});
 </v-code>
 </div><div id="node-js-express/template-ejs/info"><h2>Информация</h2>
 
