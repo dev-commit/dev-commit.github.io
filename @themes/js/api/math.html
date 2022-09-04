@@ -1,0 +1,46 @@
+<h2>Math</h2>
+
+<v-code lang="js" title="">
+Math.round(num);   // округляет число к ближайшему целому (5 округляется вверх)
+Math.ceil(num);    // округляет число в большую сторону
+Math.floor(num);   // округляет число в меньшую сторону
+</v-code>
+
+<v-code lang="js" title="">
+const rand = Math.random();                   // генерация случайного числа от 0 (включительно) до 1 (не включая)
+const rand = Math.round(Math.random() * 100); // от 0 до 100
+</v-code>
+
+<v-code lang="js" title="">
+const a = Math.pow(4,2);        // степень 4 в 2
+const a = Math.sqrt(400);       // квадратный корень числа
+const a = Math.abs(-7);         // модуль
+const a = Math.max(1, 2, 3, 4); // большее число из аргументов
+const a = Math.min(1, 2, 3, 4); // меньшее число из аргументов
+const a = Math.exp(2);          // возведение часла "e" в указанную степень
+const a = Math.log(5);          // натуральный логарифм числа
+</v-code>
+
+<v-code lang="js" title="">
+const a = Math.PI;              // число PI
+const a = Math.E;               // чисто E
+</v-code>
+
+<v-code lang="js" title="">
+const a = Math.sin(1);          // синус (радиан)
+const a = Math.cos(1);          // косинус
+const a = Math.tan(1);          // тангенс
+const a = Math.atan(1);         // арктангенс
+const a = Math.asin(1);         // арксинус
+const a = Math.acos(1);         // арккосинус
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример Random(min, max)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const mtRand = (min, max) => {
+	return Math.floor(Math.random() * (max - min + 1));
+	//return Math.random() * (max - min) + min;
+}
+</v-code>

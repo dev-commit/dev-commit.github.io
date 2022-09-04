@@ -46,6 +46,7 @@ ARR_MODULE = [
             [root+'main/destructive-array', emoji.fire+'Деструктуризация Arr (ES6)'],
             [root+'main/destructive-obj',   emoji.fire+'Деструктуризация Obj (ES6)'],
             [root+'main/ternary-operator',  'Тернарные операторы'],
+            [root+'main/jsdoc',             'Документирование'],
         ]
     },
     {
@@ -61,46 +62,34 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Замыкания',
+        title: 'Теория',
         themes: [
-            [root+'closures/closures',          emoji.theory+'Замыкания'],
-            [root+'closures/environment',       emoji.theory+'Области видимости'],
-            [root+'closures/funarg',            emoji.theory+'Фунарг-проблема'],
+            [root+'theory/garbage-collection',     'Сборщик мусора'],
+            [root+'theory/ecmascript',             'ECMAScript'],
         ]
     },
     {
-        title: 'Функции',
+        title: 'API',
         themes: [
-            [root+'function/info',                      emoji.theory+'Информация'],
-            [root+'function/announcement',              'Объявление'],
-            [root+'function/arguments',                 'Псевдомассив аргументов arguments'],
-            [root+'function/parameters',                'Параметры функции (ES6)'],
-            [root+'function/arrow',                     'Стрелочные функции (ES6)'],
-            [root+'function/recursion',                 'Рекурсия'],
-            [root+'function/named-function-expression', 'Named Function Expression'],
+            [root+'api/math',                   setTheme(6, ['Math'])],
+            [root+'api/notifications-api',      setTheme(6, ['Notifications'])],
+            [root+'api/console',                setTheme(6, ['console'])],
+            [root+'api/eval',                   setTheme(6, ['eval'])],
         ]
     },
     {
         title: 'Дополнительно',
         themes: [
-            [root+'other/jsdoc',                  emoji.fire+'Документирование'],
-            [root+'other/garbage-collection',     'Сборщик мусора'],
-            [root+'other/regexr',                 'Регулярные выражения'],
-            [root+'other/math',                   'Math'],
             [root+'other/exceptions',             'Исключения'],
             [root+'other/cycle',                  'Циклы'],
             [root+'other/conditional-statements', 'Условные операторы'],
-            [root+'other/pattern-string',         'Шаблонные строки (ES6)'],
             [root+'other/object-wrappers',        'Autoboxing (Object Wrappers)'],
+            [root+'other/pattern-string',         'Шаблонные строки (ES6)'],
             [root+'other/proxy',                  'Proxy (ES6)'],
-            [root+'other/asynchronous-scripts',   'Асинхронные скрипты: defer/async'],
-
-            [root+'other/method-chaining',        'Цепные вызовы методов'],
             [root+'other/web-workers',            'Web Workers'],
-            [root+'other/console',                setTheme(1, ['console'])],
-            [root+'other/eval',                   setTheme(1, ['eval'])],
-            [root+'other/notifications-api',      'Notifications API'],
-            [root+'other/ecmascript',             'ECMAScript'],
+            ['', ''],
+            [root+'other/asynchronous-scripts',   'Асинхронные скрипты: defer/async'],
+            [root+'other/method-chaining',        'Цепные вызовы методов'],
             [root+'other/strict-mode',            'Strict Mode'],
             [root+'other/samples',                'Примеры'],
         ]

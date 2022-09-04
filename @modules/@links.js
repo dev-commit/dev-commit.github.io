@@ -17,6 +17,7 @@ const ARR_LINKS = [
     { page: 'js-class',                theme: 'blue',     title: 'Class' },
     { page: 'js-object',               theme: 'blue',     title: 'Object' },
     { page: 'js-array',                theme: 'blue',     title: 'Array' },
+    { page: 'js-function',             theme: 'blue',     title: 'Function' },
     null,
     { page: 'js',                      theme: 'green',    title: '⚪️ JavaScript' },
     { page: 'js-web-api',              theme: 'green',    title: 'Web API' },

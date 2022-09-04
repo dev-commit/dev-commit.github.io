@@ -28,16 +28,16 @@ ARR_MODULE = [
         themes: [
             ['js/main/bind',                      emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
             ['js/main/context',                   emoji.baseball+'Контекст'],
-            ['js/function/arrow',                 emoji.star+'Стрелочные функции'],
-            ['js-web-api//client-storage/cookie', emoji.fire+setTheme(1, ['cookie'])],
+            ['js-function/function/arrow',        emoji.star+'Стрелочные функции'],
+            ['js-web-api/client-storage/cookie',  emoji.fire+setTheme(1, ['cookie'])],
         ]
     },
     {
         title: 'Замыкания',
         themes: [
-            ['js/closures/closures',     emoji.theory+'Замыкания'],
-            ['js/closures/environment',  emoji.theory+'Области видимости'],
-            ['js/closures/funarg',       emoji.theory+'Фунарг-проблема'],
+            ['js-function/closures/closures',     emoji.theory+'Замыкания'],
+            ['js-function/closures/environment',  emoji.theory+'Области видимости'],
+            ['js-function/closures/funarg',       emoji.theory+'Фунарг-проблема'],
         ]
     },
     {
@@ -54,12 +54,12 @@ ARR_MODULE = [
     {
         title: 'Теория',
         themes: [
-            ['theory-paradigms/oop/principles',                  emoji.lemon+'ООП'],
-            ['theory-paradigms/fp/concept',                      emoji.lemon+'ФП'],
-            ['theory-paradigms/best-practices/solid',            emoji.baseball+'SOLID'],
-            ['theory-patterns/main/info',                        emoji.theory+'Паттерны'],
-            ['testing/pyramid/pyramid',                          emoji.theory+'Пирамида тестирования'],
-            ['compilation/deployment/info',                      emoji.theory+'CI / CD'],
+            ['theory-paradigms/oop/principles',        emoji.lemon+'ООП'],
+            ['theory-paradigms/fp/concept',            emoji.lemon+'ФП'],
+            ['theory-paradigms/best-practices/solid',  emoji.baseball+'SOLID'],
+            ['theory-patterns/main/info',              emoji.theory+'Паттерны'],
+            ['testing/pyramid/pyramid',                emoji.theory+'Пирамида тестирования'],
+            ['compilation/deployment/info',            emoji.theory+'CI / CD'],
         ]
     },
     {
