@@ -1,0 +1,31 @@
+<h2>"LF" и "CRLF"</h2>
+
+<u-message-warn>При клонировании, Git меняет файлы с "LF" на "CRLF"</u-message-warn>
+
+<!------------------------------------------------------------->
+<h4>1. Проверить конфиг</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+git config core.autocrlf
+</v-code>
+
+<ul class="list-point">
+    <li>Если false, то ок - иначе поменять</li>
+</ul>
+
+<v-code lang="js" title="">
+git config --global core.autocrlf false
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. В проекте есть файл <u>.gitattributes</u></h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+# Auto detect text files and perform EOL normalization
+* text=auto
+</v-code>
+
+<ul class="list-point">
+    <li>Файл <u>.gitattributes</u> имеет более высокий приоритет, чем <u>core.autocrlf</u></li>
+    <li><a href="http://git-scm.com/docs/gitattributes" target="_blank">http://git-scm.com/docs/gitattributes</a></li>
+</ul>

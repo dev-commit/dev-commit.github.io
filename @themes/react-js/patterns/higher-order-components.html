@@ -5,7 +5,7 @@
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li><u-text-define>Компонент высшего порядка</u-text-define> (Higher-Order Component, HOC) - функция, расширяющая функционал компонента без изменение его исходного кода</li>
-	<li><u-text-underline>Основано на принцике "Композиция"</u-text-underline></li>
+	<li><u-text-underline>Основано на принципе "Композиция"</u-text-underline></li>
     <li>HOC не наследует поведение оборачиваемого компонента</li>
     <li>HOC является чистой функцией без побочных эффектов</li>
 	<li>Это один из продвинутых способов для повторного использования логики. HOC не являются частью API React, но часто применяются из-за композиционной природы компонентов</li>
@@ -53,7 +53,6 @@ const func = (a) => {
 func(1)(2);
 </v-code>
 
-
 <img src="/@img/react/hoc-elements.png" width="600px">
 
 
@@ -72,7 +71,45 @@ func(1)(2);
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
-<h4>1. Минимальный пример</h4>
+<h4>1. Минимальный пример на хуках</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><em>withErrorApi</em> пробрасывает проп <em>setErrorApi</em> в компонент</li>
+</ul>
+
+<b>HOC</b>
+<v-code lang="js border" title="">
+import { useState } from 'react';
+
+export const withErrorApi = View =&gt; {
+    return props =&gt; {
+        const [errorApi, setErrorApi] = useState(false);
+
+        return (
+            errorApi
+                ? &lt;h1&gt;Error&lt;/h1&gt;
+                : &lt;View setErrorApi={setErrorApi} {...props} /&gt;
+        )
+    }
+}
+</v-code>
+
+<b>Использование HOC</b>
+<v-code lang="js border" title="">
+import { withErrorApi } from '@hoc-helpers/withErrorApi';
+
+const App = ({ setErrorApi }) =&gt; {
+    // отправляем сетевой запрос и если ответ "res" вернёт false
+    // то отображается ошибка
+    setErrorApi(res);
+    return (...)
+}
+
+export default withErrorApi(App);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Минимальный пример на классах</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li><u-code-text>withData</u-code-text> - функция, возвращающая компонент, оборачивающий основной компонент</li>
@@ -106,7 +143,7 @@ export default withData(App);
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>2. Counter</h4>
+<h4>3. Counter</h4>
 <!------------------------------------------------------------->
 <u-link-wrapper>
 	<a href="https://www.youtube.com/watch?v=B6aNv8nkUSw&list=PLC3y8-rFHvwgg3vaYJgHGnModB54rxOk3&index=34" target="_blank">YouTube PlayList</a>
@@ -173,7 +210,7 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent, 5);
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>3. withStyles из Material-UI</h4>
+<h4>4. withStyles из Material-UI</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="component">
 import React from 'react';
@@ -198,7 +235,7 @@ export default ComponentStyles;
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>4. connect из Redux</h4>
+<h4>5. connect из Redux</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 import { connect } from 'react-redux';

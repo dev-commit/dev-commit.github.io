@@ -23,30 +23,55 @@ ARR_MODULE = [
             [root+'command/fetch',        setTheme(1, ['fetch'])],
             [root+'command/checkout',     setTheme(1, ['checkout'])],
             [root+'command/cherry-pick',  setTheme(1, ['cherry-pick'])],
+            [root+'command/cherry',       setTheme(1, ['cherry'])],
             ['', ''],
             [root+'command/init',         setTheme(1, ['init'])],
             [root+'command/clone',        setTheme(1, ['clone'])],
             [root+'command/add',          setTheme(1, ['add'])],
             [root+'command/commit',       setTheme(1, ['commit'])],
             [root+'command/remote',       setTheme(1, ['remote'])],
+            [root+'command/tag',          setTheme(1, ['tag'])],
             ['', ''],
-            [root+'command/restore',      setTheme(1, ['restore'])],
-            [root+'command/stash',        setTheme(1, ['stash'])],
-            [root+'command/revert',       setTheme(1, ['revert'])],
-            [root+'command/status',       setTheme(1, ['status'])],
-            [root+'command/diff',         setTheme(1, ['diff'])],
-            [root+'command/config',       setTheme(1, ['config'])],
-            [root+'command/help',         setTheme(1, ['help'])],
-            [root+'command/log',          setTheme(1, ['log'])],
-            [root+'command/shortlog',     setTheme(1, ['shortlog'])],
-            [root+'command/clean',        setTheme(1, ['clean'])],
+            [root+'command/restore',      setTheme(6, ['restore'])],
+            [root+'command/stash',        setTheme(6, ['stash'])],
+            [root+'command/revert',       setTheme(6, ['revert'])],
+            [root+'command/status',       setTheme(6, ['status'])],
+            [root+'command/diff',         setTheme(6, ['diff'])],
+            [root+'command/config',       setTheme(6, ['config'])],
+            [root+'command/help',         setTheme(6, ['help'])],
+            [root+'command/log',          setTheme(6, ['log'])],
+            [root+'command/shortlog',     setTheme(6, ['shortlog'])],
+            [root+'command/clean',        setTheme(6, ['clean'])],
+            [root+'command/bisect',       setTheme(6, ['bisect'])],
             ['', ''],
-            [root+'command/mv',           setTheme(1, ['mv'])],
-            [root+'command/rm',           setTheme(1, ['rm'])],
-            [root+'command/show',         setTheme(1, ['show'])],
-            [root+'command/blame',        setTheme(1, ['blame'])],
-            ['', ''],
-            [root+'command/tag',          setTheme(5, ['tag'])],
+            [root+'command/mv',           setTheme(6, ['mv'])],
+            [root+'command/rm',           setTheme(6, ['rm'])],
+            [root+'command/show',         setTheme(6, ['show'])],
+            [root+'command/blame',        setTheme(6, ['blame'])],
+        ]
+    },
+    {
+        title: 'Прочее',
+        themes: [
+            [root+'other/crlf', 'LF и CRLF'],
+        ]
+    },
+    {
+        title: 'GitHub',
+        selected: true,
+        themes: [
+            [root+'github/ssh',                emoji.code+'Подключение по SSH'],
+            [root+'github/github-cli',         emoji.fire+'GitHub CLI'],
+            [root+'github/github-desktop',     'GitHub Desktop'],
+            [root+'github/github-api',         'Github API'],
+            [root+'github/github-readme-stats', setTheme(1, ['github-readme-stats'])],
+        ]
+    },
+    {
+        title: 'Bitbucket',
+        selected: true,
+        themes: [
+            [root+'bitbucket/ssh', emoji.code+'Подключение по SSH'],
         ]
     },
     {
@@ -59,25 +84,10 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'GitHub',
+        title: 'Технологии',
         themes: [
-            [root+'github/ssh',                emoji.code+'Подключение по SSH'],
-            [root+'github/github-cli',         emoji.fire+'GitHub CLI'],
-            [root+'github/github-desktop',     'GitHub Desktop'],
-            [root+'github/github-api',         'Github API'],
-            [root+'github/github-readme-stats', setTheme(1, ['github-readme-stats'])],
-        ]
-    },
-    {
-        title: 'Bitbucket',
-        themes: [
-            [root+'bitbucket/ssh', emoji.code+'Подключение по SSH'],
-        ]
-    },
-    {
-        title: 'Приложения',
-        themes: [
-            [root+'programs/smart-git', 'SmartGit'],
+            [root+'tech/git-submodules', 'Git Submodules'],
+            [root+'tech/smart-git',      'SmartGit'],
         ]
     },
 ]
