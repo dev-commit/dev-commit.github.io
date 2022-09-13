@@ -899,7 +899,7 @@ git <u-code>checkout -b</u-code> <em>feature</em>  # создание новой
 <!------------------------------------------------------------->
 <v-code lang="bash" title="">
 # Удаление ветки из локального репозитория
-git <u-code>branch --delete</u-code> <em>feature</em>  # удаление ветки
+git <u-code>branch --delete</u-code> <em>feature</em>  # удаление ветки (после мерджа)
 git <u-code>branch -d</u-code> <em>feature</em>        # удаление ветки (после мерджа)
 git <u-code>branch -D</u-code> <em>feature</em>        # удаление ветки (тупиковая ветвь)
 </v-code>
@@ -907,6 +907,7 @@ git <u-code>branch -D</u-code> <em>feature</em>        # удаление вет
 <v-code lang="bash" title="">
 # Удаление ветки из удаленного репозитория
 git <u-code>push origin --delete</u-code> <em>feature</em>
+git <u-code>push origin -d</u-code> <em>feature</em>
 git <u-code>push origin</u-code> :<em>feature</em>
 </v-code>
 
@@ -1227,16 +1228,106 @@ git <u-code>restore --staged</u-code> <em>FileName</em>
     </v-method>
 </div>
 
-<v-code lang="bash" title="">
-git <u-code>stash</u-code>
+<u-link-wrapper>
+    <a href="https://www.atlassian.com/ru/git/tutorials/saving-changes/git-stash" target="_blank">https://www.atlassian.com/ru/git/tutorials/saving-changes/git-stash</a>
+</u-link-wrapper>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash border" title="">
+› git add .
+› git <u-code>stash</u-code>
 # сменить ветку
-# ...
-# вернуть ветку
-git <u-code>stash pop</u-code>
+# вернуться обратно на ветку, где был stas
+› git stash <u-code>pop</u-code>
 </v-code>
 
-<v-code lang="bash" title="">
-git <u-code>stash apply</u-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Категории файлов для stash</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<img src="/@img/git/stash/stash-options.svg" width="500px">
+
+<p>По умолчанию команда git stash создает следующие отложенные изменения:</p>
+<ul class="list-point">
+    <li>Изменения, добавленные в раздел проиндексированных файлов (индексированные изменения)</li>
+    <li>Изменения в файлах, отслеживаемых Git в настоящее время (неиндексированные изменения)</li>
+</ul>
+
+<p>При этом следующие файлы отложены не будут:</p>
+<ul class="list-point">
+    <li>Новые файлы в рабочей копии, которые еще не были проиндексированы</li>
+    <li>Игнорируемые файлы</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Операции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Сохранение состояния рабочей директории и Индекса</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Команда <u>git stash</u> сохраняет неподтвержденные изменения (индексированные и неиндексированные) в отдельном хранилище, чтобы можно вернуться к ним позже. Затем происходит откат до исходной рабочей копии</li>
+    <li>Отложенные изменения сохраняются в локальном репозитории Git и не передаются на сервер при выполнении команды <u>push</u></li>
+</ul>
+
+<v-code lang="bash step" title="">
+git <u-code-mod>stash</u-code-mod>
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Применение отложенных изменений</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>При извлечении отложенных изменений они удаляются из набора и применяются к рабочей копии</li>
+</ul>
+
+<v-code lang="bash step" title="">
+git stash <u-code-mod>pop</u-code-mod>
+</v-code>
+
+<ul class="list-point">
+    <li>Также можно применить изменения к рабочей копии, не удаляя их из набора отложенных изменений</li>
+    <li>Это полезно, если нужно применить одни и те же отложенные изменения к нескольким веткам </li>
+</ul>
+
+<v-code lang="bash step" title="">
+git stash <u-code-mod>apply</u-code-mod>
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Откладывание неотслеживаемых или игнорируемых файлов</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Позволяет отложить неотслеживаемые файлы</li>
+</ul>
+
+<v-code lang="bash step" title="">
+# аналогично
+git stash <u-code-mod>-u</u-code-mod>
+git stash <u-code-mod>--include-untracked</u-code-mod>
+</v-code>
+
+<ul class="list-point">
+    <li>Позволяет отложить изменения, внесенные в игнорируемые файлы</li>
+</ul>
+
+<v-code lang="bash step" title="">
+# аналогично
+git stash <u-code-mod>-a</u-code-mod>
+git stash <u-code-mod>--all</u-code-mod>
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Удаление отложенных изменений</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash step" title="">
+git stash <u-code-mod>drop</u-code-mod> stash@{1} # Удалить определенный набор отложенных изменений
+git stash <u-code-mod>clear</u-code-mod>          # Удалить все наборы отложенных изменений
 </v-code>
 </div><div id="git/command/revert"><div class="v-method-wrapper">
     <v-method before="git " method="revert" after="" arg="">

@@ -10,12 +10,12 @@ ARR_MODULE = [
     {
         title: 'Циклы',
         themes: [
-            [root+'cycles/info',     emoji.theory+'Циклы для перебора массива'],
-            [root+'cycles/map',      setTheme(5, ['map'])],
-            [root+'cycles/forEach',  setTheme(5, ['forEach'])],
-            [root+'cycles/reduce',   setTheme(5, ['reduce', 'reduceRight'])],
-            [root+'cycles/filter',   setTheme(5, ['filter'])],
-            [root+'cycles/every',    setTheme(5, ['every', 'some'])],
+            [root+'cycles/info',     emoji.theory+'Информация'],
+            [root+'cycles/map',      setTheme(3, ['map'])],
+            [root+'cycles/forEach',  setTheme(3, ['forEach'])],
+            [root+'cycles/reduce',   setTheme(3, ['reduce', 'reduceRight'])],
+            [root+'cycles/filter',   setTheme(3, ['filter'])],
+            [root+'cycles/every',    setTheme(3, ['every', 'some'])],
         ]
     },
     {
