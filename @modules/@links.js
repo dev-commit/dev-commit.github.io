@@ -1,5 +1,5 @@
 
-// THEME: green, blue, crimson, brown, violet, gray, white
+// THEME: green, blue, crimson, brown, violet, gray, white, actual
 
 const ARR_LINKS = [
     { page: 'assessment',              theme: 'brown',    title: 'Ассессмент' },
