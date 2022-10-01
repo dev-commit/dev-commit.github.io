@@ -38,6 +38,7 @@
 	--color-gray-lighter:   248, 249, 250;  /* #f8f9fa */
 	--color-white:          255, 255, 255;  /* #ffffff */
 
+	--box-shadow-light: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
 	--box-shadow:
 		0 16px 24px 2px  rgba(33,37,41,.02),
 		0 6px  30px 5px  rgba(33,37,41,.04),
@@ -236,7 +237,7 @@ p.consolas {
 }
 hr {
     height: 3px;
-    margin: 15px 0;
+    margin: 15px 20px;
 	border: none;
     border-radius: 10px;
 	background-color: rgba(var(--color-gray-medium), .3);
@@ -288,10 +289,10 @@ table td.accent {
 /***************************************************
 LISTS
 /***************************************************/
-.list-point, .list-num, .list-none {
+.list-point, .list-num, .list-none, .list-comment, .list-accent {
 	line-height: 2;
 	margin-top: 5px;
-	font-size: 14px;
+	font-size: 15px;
 }
 .list-point {
 	list-style-type: disc;
@@ -306,4 +307,20 @@ LISTS
 	font-size: 15px;
 	color: rgb(var(--color-gray-dark));
 	font-style: italic;
+}
+.list-accent {
+	list-style-type: disc;
+	border-left: 2px solid rgb(var(--color-sea));
+	box-shadow: var(--box-shadow-light);
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+/***************************************************
+COMMON
+/***************************************************/
+.span-accent {
+	background-color: rgba(245, 212, 66, .5);
+	border-radius: 5px;
+	padding: 4px;
 }
