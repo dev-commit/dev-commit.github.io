@@ -2060,6 +2060,28 @@ interface IApp {
 }
 </v-code>
 
+<!------------------------------------------------------------->
+<h4>Использование ComponentType</h4>
+<!------------------------------------------------------------->
+<u-message-info>Код не проверялся</u-message-info>
+
+<v-code lang="js" title="">
+import React, { ComponentType } from 'react';
+
+interface IComponentProps {
+  label: string;
+}
+
+export const App = (Component: ComponentType&lt;IComponentProps&gt;): React.ReactNode =&gt; {
+  return &lt;Component label="" /&gt;;
+};
+
+export const Child: React.FC&lt;IComponentProps&gt; = () =&gt; {
+  return &lt;h1&gt;App&lt;/h1&gt;;
+};
+
+App(Child);
+</v-code>
 </div><div id="typescript/react/useState"><h2>useState</h2>
 
 <v-code lang="js step" title="">
