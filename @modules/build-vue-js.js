@@ -4,12 +4,19 @@ ARR_MODULE = [
     {
         title: 'Информация',
         themes: [
-            [root+'main/info',                  emoji.theory+'Информация'],
-            [root+'main/structure-files',       'Структура проекта'],
-            [root+'main/structure-code',        emoji.code+'Пример кода vue-cli'],
-            [root+'main/instance-vue',          emoji.code+'Экземпляр Vue'],
-            [root+'main/lifecycle-hooks',       'Хуки жизненного цикла'],
-            ['react-js/reconciler/virtual-dom', 'Virtual DOM (Общее)'],
+            [root+'main/links',                 up+emoji.theory+'Ссылки'],
+            [root+'main/structure-files',       up+emoji.theory+'Структура проекта'],
+            [],
+            [root+'main/info',                  up+emoji.theory+'Информация'],
+            ['react-js/reconciler/virtual-dom', up+emoji.theory+'Virtual DOM (Общее)'],
+        ]
+    },
+    {
+        title: 'Использование',
+        accent: true,
+        themes: [
+            [root+'usage/cdn',     up+emoji.code+'CDN'],
+            [root+'usage/vue-cli', up+emoji.code+'Vue CLI'],
         ]
     },
     {
@@ -25,6 +32,13 @@ ARR_MODULE = [
             [root+'directives/v-pre',         setTheme(1, ['v-pre'])],
             [root+'directives/v-cloak',       setTheme(1, ['v-cloak'])],
             [root+'directives/v-once',        setTheme(1, ['v-once'])],
+        ]
+    },
+    {
+        title: 'Lifecycle',
+        themes: [
+            [root+'lifecycle/vue2', up+emoji.theory+'Vue 2'],
+            [root+'lifecycle/vue3', up+emoji.theory+'Vue 3'],
         ]
     },
     {

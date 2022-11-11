@@ -1,0 +1,32 @@
+<h2>Lifecycle Vue 3</h2>
+
+<u-link-wrapper>
+    <a href="https://vuejs.org/api/composition-api-lifecycle.html" target="_blank">Lifecycle Hooks</a>
+</u-link-wrapper>
+
+<v-two><template v-slot:first>
+	<!------------------------------------------------------------->
+	<h4>Диаграмма жизненного цикла</h4>
+	<!------------------------------------------------------------->
+	<img src="/@img/vue/lifecycle-vue3.png" width="550px">
+</template><template v-slot:last>
+	<!------------------------------------------------------------->
+	<h4>Хуки жизненного цикла экземпляра</h4>
+	<!------------------------------------------------------------->
+	<ul class="list-point">
+		<li><u-code-accent>onMounted()</u-code-accent> - Регистрирует callback, который будет вызываться после монтирования компонента</li>
+		<li><u-code-accent>onUpdated()</u-code-accent> - Регистрирует callback, который будет вызываться после того, как компонент обновит свое дерево DOM из-за реактивного изменения состояния</li>
+		<li><u-code-accent>onUnmounted()</u-code-accent> - Регистрирует callback, который будет вызываться после размонтирования компонента</li>
+        <hr>
+		<li><u-code-accent>onBeforeMount()</u-code-accent> - Регистрирует хук, который будет вызываться непосредственно перед монтированием компонента</li>
+		<li><u-code-accent>onBeforeUpdate()</u-code-accent> - Регистрирует хук, который будет вызываться непосредственно перед тем, как компонент собирается обновить свое дерево DOM из-за реактивного изменения состояния</li>
+		<li><u-code-accent>onBeforeUnmount()</u-code-accent> - Регистрирует хук, который будет вызываться непосредственно перед размонтированием экземпляра компонента</li>
+        <hr>
+		<li><u-code-mod>onErrorCaptured()</u-code-mod> - Регистрирует хук, который будет вызываться при перехвате ошибки, распространяющейся от компонента-потомка</li>
+		<li><u-code-mod>onRenderTracked()</u-code-mod> - <u-menu-outline>DEV ONLY</u-menu-outline>. Регистрирует хук отладки, который будет вызываться, когда реактивная зависимость отслеживается Render Effect компонента</li>
+		<li><u-code-mod>onRenderTriggered()</u-code-mod> - <u-menu-outline>DEV ONLY</u-menu-outline>. Регистрирует перехватчик отладки, который будет вызываться, когда реактивная зависимость запускает повторный запуск Render Effect компонента</li>
+		<li><u-code-mod>onActivated()</u-code-mod> - Регистрирует callback, который будет вызываться после того, как экземпляр компонента будет вставлен в DOM как часть дерева, кэшированного &lt;KeepAlive&gt;</li>
+		<li><u-code-mod>onDeactivated()</u-code-mod> - Регистрирует callback, который будет вызываться после удаления экземпляра компонента из DOM как части дерева, кэшированного lt;KeepAlive&gt;</li>
+		<li><u-code-mod>onServerPrefetch()</u-code-mod> - <u-menu-outline>SSR ONLY</u-menu-outline>. Регистрирует асинхронную функцию, которая должна быть разрешена до того, как экземпляр компонента будет отрисован на сервере</li>
+    </ul>
+</template></v-two>

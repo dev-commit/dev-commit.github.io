@@ -1,0 +1,67 @@
+<h2>CDN</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Экземпляр Vue</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Vue 2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+new Vue({
+	// Элемент DOM-дерева
+	<u-code-accent>el</u-code-accent>: '#app',
+
+	// Состояние
+	<u-code-accent>data</u-code-accent>: {
+		name: 'Tony'
+	},
+
+	// Представление
+	<u-code-accent>template</u-code-accent>: `&lt;div&gt;<span v-pre>{{ count }}</span>&lt;/div&gt;`, 
+
+	// Действия
+	<u-code-accent>methods</u-code-accent>: {
+		nameMethod() {
+			this.view = true;
+		}
+	},
+
+	// Вычисляемые свойства
+	<u-code-accent>computed</u-code-accent>: {
+		doubleValue() {
+			return this.value * 2
+		}
+	},
+
+	// Lifecycle
+	<u-code-accent>created()</u-code-accent> {
+		console.log(this.name);
+	},
+
+	// Наблюдатель
+	<u-code-accent>watch</u-code-accent>: {
+		name() {
+			console.log('name changed');
+		}
+	},
+
+	// Миксин
+	<u-code-accent>mixins</u-code-accent>: [mixin]
+})
+</v-code>
+
+<v-code lang="html" title="">
+&lt;head&gt;
+    &lt;script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="<u-code>app</u-code>"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        new Vue({
+            el: '<u-code>#app</u-code>',
+            ...
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+</v-code>

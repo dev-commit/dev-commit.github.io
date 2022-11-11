@@ -66,6 +66,26 @@ Vue.component('v-two-code-comment', {
 		</v-two-fix>`,
 })
 
+Vue.component('v-two-border', {
+	props: ['title'],
+	computed: {
+		getTitle() {
+			return this.title.split(';')
+		},
+	},
+    template:
+		`<div class="v-two-wrapper v-two-vertical-top">
+			<div class="v-two-column v-two-column-half v-two-border">
+				<div class="v-two-title v-two-bg-accent" v-text="getTitle[0]"></div>
+				<slot name="first">User Default1</slot>
+			</div>
+			<div class="v-two-column v-two-column-half v-two-border">
+				<div class="v-two-title v-two-bg-light" v-text="getTitle[1]"></div>
+				<slot name="last">User Default2</slot>
+			</div>
+		</div>`,
+})
+
 Vue.component('v-method', {
 	props: ['before', 'method', 'after', 'arg'],
     template:

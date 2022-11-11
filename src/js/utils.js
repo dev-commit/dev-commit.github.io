@@ -27,7 +27,8 @@ function setTheme(tag, arr) {
         case 3: resultTag  = 'u-menu-accent';   break;
         case 4: resultTag  = 'u-menu-unactive'; break;
         case 5: resultTag  = 'u-menu-outline';  break;
-        case 6: resultTag  = 'u-menu-gray';  break;
+        case 6: resultTag  = 'u-menu-gray';     break;
+        case 7: resultTag  = 'u-block-alert';   break;
         default: resultTag = 'u-menu';
     }
 
@@ -37,6 +38,8 @@ function setTheme(tag, arr) {
 
     return result.join(' ');
 }
+
+var up = `<u-inline-border></u-inline-border>`;
 
 function styleSubHeader(content) {
     const str = `🔵 <b style="color: #4707b7">${content}</b>`;

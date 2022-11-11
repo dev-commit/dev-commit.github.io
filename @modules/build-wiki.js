@@ -30,6 +30,7 @@ ARR_MODULE = [
             [root+'vue-components/v-two-fix',          setTheme(1, ['v-two-fix'])],
             [root+'vue-components/v-two-code',         setTheme(1, ['v-two-code'])],
             [root+'vue-components/v-two-code-comment', setTheme(1, ['v-two-code-comment'])],
+            [root+'vue-components/v-two-border',       setTheme(1, ['v-two-border'])],
             ['', ''],
             [root+'vue-components/v-code',      setTheme(1, ['v-code'])],
             [root+'vue-components/v-pre-npm',   setTheme(1, ['v-pre-npm'])],
