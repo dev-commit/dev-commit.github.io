@@ -1,0 +1,65 @@
+<h2>Использование</h2>
+
+<v-two-border title="Vue 3;Vue 2"><template v-slot:first>
+
+<v-code lang="html border" title="">
+&lt;script setup&gt;
+import { ref, onMounted, onUpdated } from 'vue'
+
+const count = ref(0)
+
+function increment() {
+    count.value++
+}
+
+// Lifecycle hooks
+<u-code>onMounted</u-code>(() => {
+    console.log('Initial count: '+count.value)
+    // can be mutated
+    count.value = 2
+    // methods can be called in lifecycle hooks
+    increment()
+})
+
+<u-code>onUpdated</u-code>(() => {
+  console.log('Updated count: '+count.value)
+})
+&lt;/script&gt;
+</v-code>
+
+</template><template v-slot:last>
+
+<v-code lang="html" title="">
+&lt;script&gt;
+export default {
+    data() {
+        return {
+            count: 0
+        }
+    },
+    methods: {
+        increment() {
+            this.count++
+        }
+    },
+    <u-code>mounted</u-code>() {
+        console.log('Initial count: '+this.count);
+        // can be mutated
+        this.count = 2
+        // methods can be called in lifecycle hooks
+        this.increment()
+    },
+    <u-code>updated</u-code>() {
+        console.log('Updated count: '+this.count)
+    }
+}
+&lt;/script&gt;
+</v-code>
+
+</template></v-two-border>
+
+<v-code lang="html" title="">
+&lt;template&gt;
+    &lt;button @click="increment"&gt;Count is: {{ count }}&lt;/button&gt;
+&lt;/template&gt;
+</v-code>

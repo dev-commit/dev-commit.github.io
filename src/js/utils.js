@@ -1,7 +1,7 @@
 
 emoji = {
     theory:    '📑 ',
-    code:      '⚡️ ',
+    code:      '🧲 ', // ⚡️
     panda:     '🐼 ',
     cookie:    '🍪 ',
     donut:     '🍩 ',

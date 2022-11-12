@@ -1,9 +1,10 @@
-<h2>Vue CLI (Vue 2)</h2>
+<h2>Vite (Vue 3)</h2>
 
 <v-tree>
 📂 <u-code-mod>src</u-code-mod>
 	📂 <b>assets</b>
 		› <s>icon.png</s>
+		› <s>main.css</s>
 	📂 <b>components</b>
         › <s>Header.vue</s>
 	› <s>App.vue</s>
@@ -14,19 +15,12 @@
 <v-path>main.js</v-path>
 <!------------------------------------------------------------->
 <v-code lang="js dark" title="">
-import Vue from "vue";
-import App from "./App.vue";
+import { createApp } from 'vue'
+import App from './App.vue'
 
-new Vue({
-  el: "#app",
-  render: function (h) {
-    return h(App);
-  }
-});
+import './assets/main.css'
 
-// new Vue({
-//   render: h => h(App)
-// }).$mount("#app");
+createApp(App).mount('#app')
 </v-code>
 
 <!------------------------------------------------------------->
@@ -38,28 +32,19 @@ new Vue({
     &lt;img src="./assets/icon.png" width="200" /&gt;
     &lt;h1&gt;Text App&lt;/h1&gt;
     &lt;h2&gt;<span v-pre>{{ text }}</span>&lt;/h2&gt;
-    &lt;app-header message="Text Header"&gt;&lt;/app-header&gt;
+    &lt;Header message="Text Header" /&gt;
   &lt;/div&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
-import Header from "./components/Header.vue";
+&lt;script setup&gt;
+import { ref } from 'vue'
+import Header from "./components/Header.vue"
 
-export default {
-  components: {
-    "app-header": Header,
-  },
-  data() {
-    return {
-      text: "Text in Vue",
-    };
-  },
-  methods: {
-    testMethod() {
-      //
-    },
-  },
-};
+const text = ref('Text in Vue')
+
+function testMethod() {
+  //
+}
 &lt;/script&gt;
 
 &lt;style scoped&gt;
@@ -80,17 +65,14 @@ h1 {
   &lt;/div&gt;
 &lt;/template&gt;
 
-&lt;script&gt;
-export default {
-  data() {
-    return {
-      text: "Text in Header",
-    };
-  },
-  props: {
-    message: String,
-  },
-};
+&lt;script setup&gt;
+import { ref } from 'vue'
+
+const text = ref('Text in Header')
+
+defineProps({
+  message: String
+})
 &lt;/script&gt;
 
 &lt;style scoped&gt;
