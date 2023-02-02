@@ -1,7 +1,7 @@
 <h2>Partial</h2>
 
 <ul class="list-point">
-    <li><u-text-define>Partial</u-text-define> - создает тип со всеми свойствами <u>Type</u>, установленными как <u>optional</u>. Эта утилита вернет тип, представляющий все подмножества данного типа.</li>
+    <li><u-text-define>Partial</u-text-define> - создает тип со всеми свойствами <u>Type</u>, установленными как <u>optional</u> (необязательное поле). Эта утилита вернет тип, представляющий все подмножества данного типа.</li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -14,22 +14,21 @@ Partial&lt;Type&gt;
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-interface Todo {
-    title: string;
-    description: string;
+<v-code lang="js step" title="">
+interface Foo {
+    name: string;
+    age: number;
 }
 
-function updateTodo(todo: Todo, fieldsToUpdate: Partial&lt;Todo&gt;) {
-      return { ...todo, ...fieldsToUpdate };
+type Bar = <u-code-accent>Partial</u-code-accent>&lt;Foo&gt;;
+
+// 🅾️ Error: Требуется обязательное поле "age"
+const obj1: Foo = {
+    name: 'Tony',
 }
 
-const todo1 = {
-    title: "organize desk",
-    description: "clear clutter",
-};
-
-const todo2 = updateTodo(todo1, {
-    description: "throw out trash",
-});
+// ✅ Correct: Все поля необязательные
+const obj2: Bar = {
+    name: 'Tony',
+}
 </v-code>

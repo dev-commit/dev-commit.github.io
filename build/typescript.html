@@ -1748,19 +1748,72 @@ class AppComponent extends Component {
 </v-code>
 </div><div id="typescript/operators/keyof"><h2>keyof</h2>
 
-<v-code lang="js" title="">
-interface Person {
+<ul class="list-point">
+    <li><u-text-define>keyof</u-text-define> - проходится по интерфейсу и формирует новый тип из ключей интерфейса</li>
+</ul>
+
+<v-code lang="js step" title="">
+interface Foo {
 	name: string
 	age: number
 }
 
-// keyof - пробегаемся по типу Person
-// тип из ключей интерфейса
-type PersonKeys = <u-code>keyof</u-code> Person // 'name' | 'age'
+type FooKeys = <u-code-accent>keyof</u-code-accent> Foo; // => 'name' | 'age'
 
-let key: PersonKeys = 'name'
-key = 'age'
+const a: FooKeys = 'name';  // ✅ Correct
+const b: FooKeys = 'count'; // 🅾️ Error: Нет такого поля в ключах Foo
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two><template v-slot:first>
+<ul class="list-point">
+    <li>Нужно обратиться к ключу объекта, используя строку</li>
+    <li>При обращении <u>obj[field]</u> возникает ошибка: "Type 'string' can't be used to index type 'IObj'"</li>
+    <li>Причём <u>obj['name']</u> работает корректно, т.к. нет конкретного указания, что 'name' строка</li>
+</ul>
+</template><template v-slot:last>
+<ul class="list-point">
+	<li>При использовании строки как ключа, она должа быть типа ключей объекта</li>
+	<li>Для этого можно использовать <u>keyof</u></li>
+</ul>
+</template></v-two>
+
+<v-two-code type="js step;js step" comment=";">
+<template v-slot:first>
+interface IObj {
+    name: string;
+    age: number;
+}
+
+const field: string = 'name';
+
+const obj: IObj = {
+    name: '',
+    age: 23
+}
+
+obj[field];  // 🅾️ Error
+obj['name']; // ✅ Correct
+</template>
+<template v-slot:last>
+interface IObj {
+    name: string;
+    age: number;
+}
+
+const field: <u-code-accent>keyof</u-code-accent> IObj = 'name';
+
+const obj: IObj = {
+    name: '',
+    age: 23
+}
+
+obj[field];  // ✅ Correct
+obj['name']; // ✅ Correct
+</template>
+</v-two-code>
 </div><div id="typescript/operators/typeof"><h2>typeof</h2>
 
 <ul class="list-point">
@@ -1924,7 +1977,7 @@ const cats:CatList = {
 </div><div id="typescript/methods/partial"><h2>Partial</h2>
 
 <ul class="list-point">
-    <li><u-text-define>Partial</u-text-define> - создает тип со всеми свойствами <u>Type</u>, установленными как <u>optional</u>. Эта утилита вернет тип, представляющий все подмножества данного типа.</li>
+    <li><u-text-define>Partial</u-text-define> - создает тип со всеми свойствами <u>Type</u>, установленными как <u>optional</u> (необязательное поле). Эта утилита вернет тип, представляющий все подмножества данного типа.</li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -1937,24 +1990,23 @@ Partial&lt;Type&gt;
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-interface Todo {
-    title: string;
-    description: string;
+<v-code lang="js step" title="">
+interface Foo {
+    name: string;
+    age: number;
 }
 
-function updateTodo(todo: Todo, fieldsToUpdate: Partial&lt;Todo&gt;) {
-      return { ...todo, ...fieldsToUpdate };
+type Bar = <u-code-accent>Partial</u-code-accent>&lt;Foo&gt;;
+
+// 🅾️ Error: Требуется обязательное поле "age"
+const obj1: Foo = {
+    name: 'Tony',
 }
 
-const todo1 = {
-    title: "organize desk",
-    description: "clear clutter",
-};
-
-const todo2 = updateTodo(todo1, {
-    description: "throw out trash",
-});
+// ✅ Correct: Все поля необязательные
+const obj2: Bar = {
+    name: 'Tony',
+}
 </v-code>
 </div><div id="typescript/methods/omit"><h2>Omit</h2>
 
