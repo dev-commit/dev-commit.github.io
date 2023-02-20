@@ -43,24 +43,34 @@ interface IApp {
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>Использование ComponentType</h4>
+<h4>Передача компонента в props</h4>
 <!------------------------------------------------------------->
-<u-message-info>Код не проверялся</u-message-info>
+<b>1. Вызываем &lt;Foo /&gt; и пробрасываем в props другой компонент</b>
 
-<v-code lang="js" title="">
-import React, { ComponentType } from 'react';
+<v-code lang="js step" title="">
+export const App: React.FC = () =&gt; {
+  return &lt;<u-code-accent>Foo</u-code-accent> component={Bar} /&gt;;
+};
+</v-code>
 
-interface IComponentProps {
-  label: string;
+<b>2. Вызываем переданный компонент &lt;Bar /&gt;</b>
+<v-code lang="js step" title="">
+export interface IFooProps {
+  component: React.ComponentType&lt;<u-code>IBarProps</u-code>&gt;;
 }
 
-export const App = (Component: ComponentType&lt;IComponentProps&gt;): React.ReactNode =&gt; {
-  return &lt;Component label="" /&gt;;
+const <u-code-accent>Foo</u-code-accent>: React.FC&lt;IFooProps&gt; = props =&gt; {
+  return &lt;props.component data="Hello" /&gt;;
 };
+</v-code>
 
-export const Child: React.FC&lt;IComponentProps&gt; = () =&gt; {
-  return &lt;h1&gt;App&lt;/h1&gt;;
+<b>3. Простой компонент &lt;Bar /&gt;</b>
+<v-code lang="js step" title="">
+export interface <u-code>IBarProps</u-code> {
+  data: string;
+}
+
+const <u-code-accent>Bar</u-code-accent>: React.FC&lt;IBarProps&gt; = props =&gt; {
+  return &lt;h1&gt;{props.data}&lt;/h1&gt;;
 };
-
-App(Child);
 </v-code>
