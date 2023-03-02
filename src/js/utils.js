@@ -1,7 +1,7 @@
 
 emoji = {
     theory:    '📑 ',
-    code:      '🧲 ', // ⚡️
+    code:      '🧲 ',
     panda:     '🐼 ',
     cookie:    '🍪 ',
     donut:     '🍩 ',
@@ -16,6 +16,7 @@ emoji = {
     chevron:   '🔰 ',
     icecream:  '🍦 ',
     unicorn:   '🦄 ',
+    penguin:   '🐧 ',
 }
 
 function setTheme(tag, arr) {
