@@ -82,11 +82,11 @@ git <u-code>rebase</u-code> <em>develop</em>     # rebase
 git <u-code>rebase -i</u-code> <em>develop</em>  # интерактивный rebase на другую ветку
 git <u-code>rebase -i HEAD~3</u-code>   # интерактивный rebase внутри ветки (изменить историю последних 3х коммитов)
 
-git <u-code>rebase --abort</u-code>     # отказаться от rebase (возвращает обратно HEAD)
-git <u-code>rebase --quit</u-code>      # отказаться от rebase (НЕ возвращает обратно HEAD)
-
 git <u-code>rebase --skip</u-code>      # пропустить коммит
 git <u-code>rebase --continue</u-code>  # продолжить rebase (если несколько коммитов)
+
+git <u-code>rebase --abort</u-code>     # отказаться от rebase  (возвращает обратно HEAD - не изменит историю коммитов)
+git <u-code>rebase --quit</u-code>      # отказаться от rebase (НЕ возвращает обратно HEAD - изменит историю коммитов)
 git <u-code>reflog</u-code> <em>feature</em>     # откатить rebase
 </v-code>
 
