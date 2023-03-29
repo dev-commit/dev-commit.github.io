@@ -619,11 +619,77 @@ table tr:nth-child(2n) {
 
 </div><div id="html/tags/details"><h2>details</h2>
 
+<v-two><template v-slot:first>
 <v-code lang="html" title="">
 &lt;details&gt;
 	&lt;summary&gt;Подробнее&lt;/summary&gt;
-	&lt;p&gt;Описание (скрыто по умолчанию)&lt;/p&gt;
+	&lt;p&gt;Hello&lt;/p&gt;
 &lt;/details&gt;
+</v-code>
+</template><template v-slot:last>
+<details>
+	<summary>Подробнее</summary>
+	<p>Описание (скрыто по умолчанию)</p>
+</details>
+</template></v-two>
+
+<ul class="list-point">
+    <li>Атрибут <u-code-text>open</u-code-text> сразу раскрывает <u>details</u></li>
+</ul>
+
+<v-two><template v-slot:first>
+<v-code lang="html" title="">
+&lt;details open&gt;
+	&lt;summary&gt;Подробнее&lt;/summary&gt;
+	&lt;p&gt;Hello&lt;/p&gt;
+&lt;/details&gt;
+</v-code>
+</template><template v-slot:last>
+<details open>
+	<summary>Подробнее</summary>
+	<p>Hello</p>
+</details>
+</template></v-two>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Стилизация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Стилизация иконки</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+summary::-webkit-details-marker {
+	color: blue;
+	font-size: 50px;
+	margin-right: 20px;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Замена иконки</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+details summary::-webkit-details-marker {
+	display: none;
+}
+/* Убираем стандартный маркер Firefox */
+details > summary {
+	list-style: none;
+}
+
+/* Добавляем собственный маркер для закрытого состояния */
+details summary:before {
+	content: '🔥';
+	font-family: "Font Awesome 5 free";
+	margin-right: 7px;
+}
+
+/* Добавляем собственный маркер для открытого состояния */
+details[open] summary:before {
+	content: '🥑️';
+}
 </v-code>
 </div><div id="html/tags/datalist"><h2>datalist</h2>
 

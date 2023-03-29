@@ -2291,9 +2291,22 @@ const foo = (id) => {
 /** В одну строчку */
 </v-code>
 
+<!------------------------------------------------------------->
+<h4>Список TODO</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 // TODO: найти лучшее решение
 </v-code>
+
+<ul class="list-point">
+    <li><em>TODO</em></li>
+    <li><em>FIXME</em></li>
+    <li><em>BUG</em></li>
+    <li><em>NOTE</em></li>
+    <li><em>OPTIMIZE</em></li>
+    <li><em>HACK</em></li>
+    <li><em>XXX</em></li>
+</ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
@@ -3624,25 +3637,29 @@ continue // прекращает выполнение текущей итера�
 <h3>Условный оператор case()</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="Использование цифр в виде аргумента">
-switch(Number(id)) {
+const id = 3;
+
+switch (id) {
 	case 1: alert(id); break;
 	case 2: alert(id); break;
 	case 3: alert(id); break;
-	default: alert("default");
+	default: alert('default');
 }
 </v-code>
 
 <v-code lang="js" title="Использование строк в виде аргумента">
-switch(name) {
+const name = 'name2';
+
+switch (name) {
 	case 'name1': alert(name); break;
 	case 'name2': alert(name); break;
 	case 'name3': alert(name); break;
-	default: alert("default");
+	default: alert('default');
 }
 </v-code>
 
 <v-code lang="js" title="Комбинирование case">
-switch(name) {
+switch (name) {
 	case 'name1':
 	case 'name2':
 	case 'name3': 

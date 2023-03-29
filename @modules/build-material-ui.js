@@ -4,8 +4,10 @@ ARR_MODULE = [
     {
         title: 'Основы',
         themes: [
-            [root+'main/use',     emoji.code+'Использование'],
-            [root+'main/spacing', setTheme(1, ['spacing'])],
+            [root+'main/info',                   emoji.theory+'Информация'],
+            [root+'main/use',                    emoji.code+'Использование'],
+            [root+'main/bugs-styled-components', 'Bugs Styled Components'],
+            [root+'main/spacing',                setTheme(1, ['spacing'])],
         ]
     },
     {

@@ -32,6 +32,43 @@ const URL2 = 'https://jsonplaceholder.typicode.com/todos/2';
 <!------------------------------------------------------------->
 <h4>Promise.all</h4>
 <!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u>Promise.all</u> гарантирует порядок выполнения</li>
+    <li>Если передали [p1, p2, p3], то в ответе в массиве будет тот же порядок</li>
+</ul>
+
+<v-two-code type="js;js" comment="Promise;Output">
+<template v-slot:first>
+const asyncFoo = async () => {
+  const p1 = getResource(URL1);
+  const p2 = getResource(URL2);
+  
+  // res1 - данные по p1
+  // res2 - данные по p2
+  const [res1, res2] = await Promise.all([p1, p2]);
+}
+
+asyncFoo();
+</template>
+<template v-slot:last>
+res1 = {
+	"userId": 1,
+	"id": 1,
+	"title": "delectus aut autem",
+	"completed": false
+}
+res2 = {
+	"userId": 1,
+	"id": 2,
+	"title": "quis ut nam facilis et officia qui",
+	"completed": false
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Promise.all</h4>
+<!------------------------------------------------------------->
 <v-two><template v-slot:first>
 <ul class="list-point">
     <li><u>Условие</u>: Все Promise выполнены успешно</li>

@@ -4,6 +4,32 @@
     <li><u>Палиндром</u> - число, буквосочетание, слово или текст, одинаково читающееся в обоих направлениях</li>
 </ul>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Решение 1</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function isPalindrome(str) {
+	// Преобразуем строку в нижний регистр и удаляем все пробелы
+	str = str.toLowerCase().replace(/[\W_]/g, '');
+
+	// Переворачиваем строку
+	let reversed = str.split('').reverse().join('');
+
+	// Сравниваем исходную и перевернутую строки
+	return str === reversed;
+}
+</v-code>
+
+<v-code lang="js" title="">
+console.log(isPalindrom('ротор'));         // true
+console.log(isPalindrom('ротор1'));        // false
+console.log(isPalindrom('дом'));           // false
+console.log(isPalindrom('А луна канула')); // true
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Решение 2</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li><u>for</u> вероятно можно заменить на <u>every</u></li>
 </ul>
@@ -24,11 +50,4 @@ const isPalindrom = str => {
 
 	return true;
 }
-</v-code>
-
-<v-code lang="js" title="">
-console.log(isPalindrom('ротор'));         // true
-console.log(isPalindrom('ротор1'));        // false
-console.log(isPalindrom('дом'));           // false
-console.log(isPalindrom('А луна канула')); // true
 </v-code>
