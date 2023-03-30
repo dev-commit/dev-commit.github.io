@@ -4,8 +4,8 @@ ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            [root+'main/info',           emoji.theory+'Информация'],
-            [root+'main/container',      'Grid Container'],
+            getLink(root, 'info'),
+            [root+'main/container', 'Grid Container'],
         ]
     },
     {

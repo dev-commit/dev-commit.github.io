@@ -29,7 +29,7 @@ ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            [root+'main/info',             emoji.theory+'Теория'],
+            getLink(root, 'info'),
             [root+'main/literal-notation', emoji.code+'Литеральная нотация'],
             [root+'main/conversion',       setTheme(1, ['toString', 'valueOf'])],
         ]

@@ -5,10 +5,10 @@ ARR_MODULE = [
         title: 'v6',
         accent: true,
         themes: [
-            [root+'v6/main/info',          emoji.theory+'Информация'],
+            getLink(root+'v6/', 'info'),
             [root+'v6/main/migration',     emoji.theory+'Миграция с v5'],
-            [root+'v6/main/install',       emoji.code+'Установка и настройка'],
-            [root+'v6/main/basic-sample',  emoji.fire+'Базовый пример'],
+            getLink(root+'v6/', 'install'),
+            getLink(root+'v6/', 'use'),
         ]
     },
     {
@@ -30,9 +30,9 @@ ARR_MODULE = [
         title: 'v5',
         accent: true,
         themes: [
-            [root+'v5/main/info',          emoji.theory+'Информация'],
-            [root+'v5/main/install',       emoji.code+'Установка и настройка'],
-            [root+'v5/main/basic-sample',  emoji.fire+'Базовый пример'],
+            getLink(root+'v5/', 'info'),
+            getLink(root+'v5/', 'install'),
+            getLink(root+'v5/', 'use'),
         ]
     },
     {

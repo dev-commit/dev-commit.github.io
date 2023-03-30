@@ -4,7 +4,7 @@ ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            [root+'main/info',                 emoji.theory+'Информация'],
+            getLink(root, 'info'),
             [root+'main/src-script',           'Подключение через &lt;script&gt;'],
             [root+'main/src-npm',              'Подключение через NPM'],
             [root+'main/server-configuration', 'Конфигурование сервера'],

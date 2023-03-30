@@ -31,7 +31,7 @@ ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            [root+'main/info',           'Парадигмы'],
+            getLink(root, 'info'),
             [root+'main/imperative',     '1. Императивное'],
             [root+'main/declarative',    '2. Декларативное'],
             [root+'main/composition',    'Композиция'],

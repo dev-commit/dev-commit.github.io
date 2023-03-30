@@ -10,7 +10,7 @@ ARR_MODULE = [
             [root+'main/links',                 up+emoji.theory+'Ссылки'],
             [root+'main/structure-files',       up+emoji.theory+'Структура проекта'],
             [],
-            [root+'main/info',                  up+emoji.theory+'Информация'],
+            getLink(root, 'info'),
             ['react-js/reconciler/virtual-dom', up+emoji.theory+'Virtual DOM (Общее)'],
         ]
     },

@@ -4,20 +4,20 @@ ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            [root+'main/type-data',   emoji.pizza+'Типы данных'],
-            [root+'main/var',         emoji.fire+'Задание переменной'],
-            [root+'main/function',    emoji.fire+'Задание функции'],
-            [root+'main/type',        emoji.fire+'Задание типа'],
-            [root+'main/react',       'Использование с React.js'],
-            [root+'main/variants',    'Варианты'],
+            getLink(root, 'info'),
+            getLink(root, 'install'),
+            getLink(root, 'variants'),
         ]
     },
     {
-        title: 'Установка',
+        title: 'Темы',
         themes: [
-            [root+'install/info',        emoji.theory+'Информация'],
-            [root+'install/install',     emoji.lemon+'Установка и настройка'],
-            [root+'install/vscode',      emoji.theory+'Настройка VSCode'],
+            [root+'themes/type-data',   emoji.pizza+'Типы данных'],
+            [root+'themes/var',         emoji.fire+'Задание переменной'],
+            [root+'themes/function',    emoji.fire+'Задание функции'],
+            [root+'themes/type',        emoji.fire+'Задание типа'],
+            [root+'themes/react',       'Использование с React.js'],
+            [root+'themes/vscode',      'Настройка VSCode'],
         ]
     },
 ]

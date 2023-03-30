@@ -1,14 +1,11 @@
 root = 'next-js/';
 
-// [root+'main/info',     emoji.theory+'Информация'],
-// [root+'main/pipe',     setTheme(1, ['.pipe'])],
-
 ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            [root+'main/info',    emoji.theory+'Информация'],
-            [root+'main/install', emoji.code+'Установка и настройка'],
+            getLink(root, 'info'),
+            getLink(root, 'install'),
         ]
     },
     {

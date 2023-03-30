@@ -4,9 +4,9 @@ ARR_MODULE = [
     {
         title: 'Основы',
         themes: [
-            [root+'main/info',    emoji.theory+'Информация'],
-            [root+'main/install', emoji.code+'Установка и настройка'],
-            [root+'main/samples', emoji.code+'Примеры'],
+            getLink(root, 'info'),
+            getLink(root, 'install'),
+            getLink(root, 'use'),
         ]
     },
     {

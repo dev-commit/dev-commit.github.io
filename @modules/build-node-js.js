@@ -13,7 +13,7 @@ ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            [root+'main/info',     emoji.theory+'Информация'],
+            getLink(root, 'info'),
             [root+'main/stream',   emoji.fire+'Node.js Stream'],
         ]
     },

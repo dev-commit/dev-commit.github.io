@@ -6,7 +6,7 @@ ARR_MODULE = [
         themes: [
             getLink(root, 'info'),
             getLink(root, 'install'),
-            // getLink(root, 'sample'),
+            // getLink(root, 'use'),
         ]
     },
 ]

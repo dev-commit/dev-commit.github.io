@@ -29,41 +29,17 @@
         <li>
             <a
                 class="menu-link"
-                id="id__flow/main/type-data"
-                href="#flow/main/type-data"
-            >🍕 Типы данных</a>
+                id="id__flow/main/info"
+                href="#flow/main/info"
+            >📑 Информация</a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__flow/main/var"
-                href="#flow/main/var"
-            >🔥 Задание переменной</a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__flow/main/function"
-                href="#flow/main/function"
-            >🔥 Задание функции</a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__flow/main/type"
-                href="#flow/main/type"
-            >🔥 Задание типа</a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__flow/main/react"
-                href="#flow/main/react"
-            >Использование с React.js</a>
+                id="id__flow/main/install"
+                href="#flow/main/install"
+            >🧲 Установка и настройка</a>
         </li>
     
         <li>
@@ -71,31 +47,55 @@
                 class="menu-link"
                 id="id__flow/main/variants"
                 href="#flow/main/variants"
-            >Варианты</a>
+            >🧲 Варианты</a>
         </li>
-    </ul><h4>🥥 Установка</h4><ul>
+    </ul><h4>🥥 Темы</h4><ul>
         <li>
             <a
                 class="menu-link"
-                id="id__flow/install/info"
-                href="#flow/install/info"
-            >📑 Информация</a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__flow/install/install"
-                href="#flow/install/install"
-            >🍋 Установка и настройка</a>
+                id="id__flow/themes/type-data"
+                href="#flow/themes/type-data"
+            >🍕 Типы данных</a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__flow/install/vscode"
-                href="#flow/install/vscode"
-            >📑 Настройка VSCode</a>
+                id="id__flow/themes/var"
+                href="#flow/themes/var"
+            >🔥 Задание переменной</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__flow/themes/function"
+                href="#flow/themes/function"
+            >🔥 Задание функции</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__flow/themes/type"
+                href="#flow/themes/type"
+            >🔥 Задание типа</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__flow/themes/react"
+                href="#flow/themes/react"
+            >Использование с React.js</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__flow/themes/vscode"
+                href="#flow/themes/vscode"
+            >Настройка VSCode</a>
         </li>
     </ul>
                 </div>
@@ -118,169 +118,7 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="flow/main/type-data"><h2>Типы данных</h2>
-
-<v-code lang="js" title="Простые типы">
-number
-string
-boolean
-null
-any
-</v-code>
-
-<v-code lang="js" title="Объекты">
-Object
-Date
-Promise&lt;Object&gt;
-</v-code>
-
-<v-code lang="js" title="Массивы">
-Array&lt;string&gt;,
-Array&lt;{ name: string, checked: boolean }&gt;,
-Array&lt;*&gt;,
-Array&lt;*&gt; | Array&lt;SelectItems&gt;,
-</v-code>
-
-<v-code lang="js" title="Функции">
-Function
-() =&gt; void
-() =&gt; number
-(date: ?Date) =&gt; void
-(id: ?number) =&gt; void
-(Object) =&gt; void
-(name: string, data: string | number) => boolean | Promise&lt;boolean&gt;
-</v-code>
-
-</div><div id="flow/main/var"><h2>Задание переменной</h2>
-
-<v-code lang="js" title="types">
-const a:string = 'str';
-const a:number = 77;
-</v-code>
-</div><div id="flow/main/function"><h2>Задание функции</h2>
-
-<v-code lang="js" title="functions">
-function my(x: string, y: number = 77) {}
-function my(x: '1' | '2') {}       // может передаваться '1' или '2'
-function my(x: number | string) {} // может передаваться number или string
-</v-code>
-</div><div id="flow/main/type"><h2>Задание типа</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Определение типа</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="type">
-type Props = {
-    property: string,
-    property?: string,
-    property: ?string,
-    property: number | null,
-    onHandle: () =&gt; void,
-}
-
-type SelectItems = {
-    title: string,
-    value: string,
-}
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Импорт типа</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-import type Node from 'react';
-import React, { useState, type Node } from 'react';
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Использование типов в аргументах функции</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-type UserCredentials = {
-    username: string,
-    password: string,
-};
-const login = (creds: UserCredentials) => (
-	//
-);
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Использование типов в описании типов</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-type Sale = {
-    id: number,
-    companyId: number,
-};
-type Params = {
-    content: Array&lt;Sale&gt;,
-    totalElements: number,
-    number: number,
-};
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Несколько типов</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-type PropsOne = {
-	values: Object,
-}
-type PropsTwo = {
-	valuesNew: Object,
-} & PropsOne;
-</v-code>
-
-</div><div id="flow/main/react"><h2>Использование с React.js</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>useState</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-const [state, setState]: [object, Function] = useState({});
-</v-code>
-</div><div id="flow/main/variants"><h2>Варианты</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Использование типа в массиве</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-type Params = {
-	name: string,
-	count: number,
-};
-
-const response: Array&lt;Params&gt;
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Использование типа в функции</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-export type UserCredentials = {
-    username: string,
-    password: string,
-};
-
-export const login = (creds: UserCredentials) =&gt; ();
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Экспорт и импорт типа</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-export type ActivityType = Array&lt;{ name: string, checked: boolean }&gt;;
-
-export const a: ActivityType  = [
-    { name: 'Name', checked: true },
-];
-
-import type { ActivityType } from './MyFile';
-</v-code>
-
-
-</div><div id="flow/install/info"><h2>Информация</h2>
+                    <div id="content"><div id="flow/main/info"><h2>Информация</h2>
 
 <ul class="list-point">
     <li><u-text-define>Flow</u-text-define> - библиотека для статической типизации JavaScript, разработанная в Facebook. Flow расширяет возможности JavaScript, добавляя аннотации типов для переменных, функций и React-компонентов</li>
@@ -289,7 +127,7 @@ import type { ActivityType } from './MyFile';
 <v-code lang="js" title="Обход flow">
 // $FlowFixMe
 </v-code>
-</div><div id="flow/install/install"><h2>Установка и настройка</h2>
+</div><div id="flow/main/install"><h2>Установка и настройка</h2>
 
 <!------------------------------------------------------------->
 <h4>1. Установка Flow</h4>
@@ -359,7 +197,169 @@ npm run flow
 <v-code lang="js" title="">
 // @flow
 </v-code>
-</div><div id="flow/install/vscode"><h2>Настройка Flow в VSCode</h2>
+</div><div id="flow/main/variants"><h2>Варианты</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование типа в массиве</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Params = {
+	name: string,
+	count: number,
+};
+
+const response: Array&lt;Params&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование типа в функции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+export type UserCredentials = {
+    username: string,
+    password: string,
+};
+
+export const login = (creds: UserCredentials) =&gt; ();
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Экспорт и импорт типа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+export type ActivityType = Array&lt;{ name: string, checked: boolean }&gt;;
+
+export const a: ActivityType  = [
+    { name: 'Name', checked: true },
+];
+
+import type { ActivityType } from './MyFile';
+</v-code>
+
+
+</div><div id="flow/themes/type-data"><h2>Типы данных</h2>
+
+<v-code lang="js" title="Простые типы">
+number
+string
+boolean
+null
+any
+</v-code>
+
+<v-code lang="js" title="Объекты">
+Object
+Date
+Promise&lt;Object&gt;
+</v-code>
+
+<v-code lang="js" title="Массивы">
+Array&lt;string&gt;,
+Array&lt;{ name: string, checked: boolean }&gt;,
+Array&lt;*&gt;,
+Array&lt;*&gt; | Array&lt;SelectItems&gt;,
+</v-code>
+
+<v-code lang="js" title="Функции">
+Function
+() =&gt; void
+() =&gt; number
+(date: ?Date) =&gt; void
+(id: ?number) =&gt; void
+(Object) =&gt; void
+(name: string, data: string | number) => boolean | Promise&lt;boolean&gt;
+</v-code>
+
+</div><div id="flow/themes/var"><h2>Задание переменной</h2>
+
+<v-code lang="js" title="types">
+const a:string = 'str';
+const a:number = 77;
+</v-code>
+</div><div id="flow/themes/function"><h2>Задание функции</h2>
+
+<v-code lang="js" title="functions">
+function my(x: string, y: number = 77) {}
+function my(x: '1' | '2') {}       // может передаваться '1' или '2'
+function my(x: number | string) {} // может передаваться number или string
+</v-code>
+</div><div id="flow/themes/type"><h2>Задание типа</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определение типа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="type">
+type Props = {
+    property: string,
+    property?: string,
+    property: ?string,
+    property: number | null,
+    onHandle: () =&gt; void,
+}
+
+type SelectItems = {
+    title: string,
+    value: string,
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Импорт типа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import type Node from 'react';
+import React, { useState, type Node } from 'react';
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование типов в аргументах функции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type UserCredentials = {
+    username: string,
+    password: string,
+};
+const login = (creds: UserCredentials) => (
+	//
+);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование типов в описании типов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Sale = {
+    id: number,
+    companyId: number,
+};
+type Params = {
+    content: Array&lt;Sale&gt;,
+    totalElements: number,
+    number: number,
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Несколько типов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type PropsOne = {
+	values: Object,
+}
+type PropsTwo = {
+	valuesNew: Object,
+} & PropsOne;
+</v-code>
+
+</div><div id="flow/themes/react"><h2>Использование с React.js</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>useState</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const [state, setState]: [object, Function] = useState({});
+</v-code>
+</div><div id="flow/themes/vscode"><h2>Настройка Flow в VSCode</h2>
 
 <v-code lang="js" title="">
 npm i flow-bin -g

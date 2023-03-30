@@ -1,0 +1,63 @@
+<h2>Код</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Простой проект</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<v-path>package.json</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+{
+  "name": "app-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<v-path>index.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const express = require('express');
+
+const app = express();
+const PORT = process.env.PORT || 80;
+
+app.get('/', (req, res) =&gt; {
+    res.end(`
+        &lt;div&gt;
+            &lt;a href="/"&gt;Home&lt;/a&gt;
+            &lt;a href="/about"&gt;About&lt;/a&gt;
+            &lt;h1&gt;Home Page&lt;/h1&gt;
+        &lt;/div&gt;
+    `);
+});
+
+app.get('/about', (req, res) =&gt; {
+    res.end(`
+        &lt;div&gt;
+            &lt;a href="/"&gt;Home&lt;/a&gt;
+            &lt;a href="/about"&gt;About&lt;/a&gt;
+            &lt;h1&gt;About Page&lt;/h1&gt;
+        &lt;/div&gt;
+    `);
+});
+
+app.listen(PORT, () =&gt; {
+    console.log('Server started');
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<v-path>.gitignore</v-path>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+/node_modules
+</v-code>

@@ -19,15 +19,21 @@ emoji = {
     penguin:   '🐧 ',
 }
 
-// getLink(root, 'info');
-// getLink(root, 'install');
-// getLink(root, 'sample');
+// getLink(root, 'info'),      // => main/info
+// getLink(root, 'install'),   // => main/install'
+// getLink(root, 'use'),       // => main/use
+// getLink(root, 'variants'),  // => main/variants
+// getLink(root, 'structure'), // => main/structure
+// getLink(root, 'algoritm'),  // => main/algoritm
 
 function getLink(root, item) {
     switch(item) {
-        case 'info':    return [root+'main/info',         emoji.theory+'Информация'];
-        case 'install': return [root+'main/install',      emoji.code+'Установка и настройка'];
-        case 'sample':  return [root+'main/basic-sample', emoji.fire+'Базовый пример'];
+        case 'info':      return [root+'main/info',      emoji.theory+'Информация'];
+        case 'install':   return [root+'main/install',   emoji.code+'Установка и настройка'];
+        case 'use':       return [root+'main/use',       emoji.fire+'Базовый пример'];
+        case 'variants':  return [root+'main/variants',  emoji.code+'Варианты'];
+        case 'structure': return [root+'main/structure', emoji.code+'Структура'];
+        case 'algoritm': return  [root+'main/algoritm',  emoji.star+'Алгоритм'];
     }
 }
 
