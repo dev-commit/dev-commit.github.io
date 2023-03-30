@@ -4,13 +4,13 @@ ARR_MODULE = [
     {
         title: 'Типизация',
         themes: [
-            [root+'typing/typing',         emoji.theory+'Типизация'],
-            [root+'typing/type-data',      emoji.theory+'Типы данных'],
-            [root+'typing/type-casting',   emoji.code+'Сравнение типов'],
-            [root+'typing/typeof',         setTheme(1, ['typeof'])],
-            [root+'typing/symbol',         emoji.chevron+'Symbol (ES6)'],
-            [root+'typing/hoisting',       emoji.fire+'Всплытие'],
-            [root+'typing/variables',      setTheme(1, ['var', 'let', 'const'])],
+            [root+'typing/typing',       emoji.theory+'Типизация'],
+            [root+'typing/type-data',    emoji.theory+'Типы данных'],
+            [root+'typing/type-casting', emoji.code+'Сравнение типов'],
+            [root+'typing/typeof',       setTheme(1, ['typeof'])],
+            [root+'typing/symbol',       emoji.chevron+'Symbol (ES6)'],
+            [root+'typing/hoisting',     emoji.fire+'Всплытие'],
+            [root+'typing/variables',    setTheme(1, ['var', 'let', 'const'])],
         ]
     },
     {

@@ -4,9 +4,9 @@ ARR_MODULE = [
     {
         title: 'Замыкания',
         themes: [
-            [root+'closures/closures',          emoji.theory+'Замыкания'],
-            [root+'closures/environment',       emoji.theory+'Области видимости'],
-            [root+'closures/funarg',            emoji.theory+'Фунарг-проблема'],
+            [root+'closures/closures',    emoji.theory+'Замыкания'],
+            [root+'closures/environment', emoji.theory+'Области видимости'],
+            [root+'closures/funarg',      emoji.theory+'Фунарг-проблема'],
         ]
     },
     {

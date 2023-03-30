@@ -19,6 +19,18 @@ emoji = {
     penguin:   '🐧 ',
 }
 
+// getLink(root, 'info');
+// getLink(root, 'install');
+// getLink(root, 'sample');
+
+function getLink(root, item) {
+    switch(item) {
+        case 'info':    return [root+'main/info',         emoji.theory+'Информация'];
+        case 'install': return [root+'main/install',      emoji.code+'Установка и настройка'];
+        case 'sample':  return [root+'main/basic-sample', emoji.fire+'Базовый пример'];
+    }
+}
+
 function setTheme(tag, arr) {
     let resultTag = '';
 

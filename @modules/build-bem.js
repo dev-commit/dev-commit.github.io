@@ -1,12 +1,11 @@
-root = 'react-native/';
+root = 'bem/';
 
 ARR_MODULE = [
     {
         title: 'Основы',
         themes: [
             getLink(root, 'info'),
-            getLink(root, 'install'),
-            // getLink(root, 'sample'),
+            getLink(root, 'sample'),
         ]
     },
 ]

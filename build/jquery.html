@@ -25,37 +25,13 @@
                         >
                         <a href="#links" class="link" v-html="'jQuery'"></a>
                     </div>
-                    <h4>🥥 События</h4><ul>
-        <li>
-            <a
-                class="menu-link"
-                id="id__jquery/actions/handling-events"
-                href="#jquery/actions/handling-events"
-            >Обработчики событий</a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__jquery/actions/hover-toggle"
-                href="#jquery/actions/hover-toggle"
-            >События hover() и toggle()</a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__jquery/actions/event-object"
-                href="#jquery/actions/event-object"
-            >Объект события eventObject()</a>
-        </li>
-    </ul><h4>🥥 Основное</h4><ul>
+                    <h4>🥥 Основное</h4><ul>
         <li>
             <a
                 class="menu-link"
                 id="id__jquery/main/info"
                 href="#jquery/main/info"
-            >Информация</a>
+            >📑 Информация</a>
         </li>
     
         <li>
@@ -137,6 +113,30 @@
                 href="#jquery/main/samples"
             >Примеры</a>
         </li>
+    </ul><h4>🥥 События</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__jquery/actions/handling-events"
+                href="#jquery/actions/handling-events"
+            >Обработчики событий</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__jquery/actions/hover-toggle"
+                href="#jquery/actions/hover-toggle"
+            >События hover() и toggle()</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__jquery/actions/event-object"
+                href="#jquery/actions/event-object"
+            >Объект события eventObject()</a>
+        </li>
     </ul>
                 </div>
 
@@ -158,124 +158,7 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="jquery/actions/handling-events"><h2>Обработчики событий</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Полная загрузка страницы</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-$(window).on('load', function () {
-	console.log("Window Loaded");
-});
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Обработчики событий</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-// обработчик события щелчка мыши
-$('.item').on('click', function(){
-	//
-});
-</v-code>
-
-<v-code lang="js" title="">
-// обработчик события изменения значения input
-$('input').on('change', function(){
-	//
-});
-</v-code>
-
-<v-code lang="js" title="">
-// выполняется после загрузки всех элементов (если скрипт подключен в head)
-$(document).ready(function(){
-    // обработчик события щелчка мыши
-    $('.item').on('click', function(){
-		// id выбранного элемента
-		const id = this.id;
-    });
-});
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Удаление обработчиков событий</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-Метод <b>.off()</b> удаляет обработчики событий, назначенные методом <b>.on</b>
-<v-code lang="js" title="">
-$(document).off('scroll');
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Делегирование обработчиков событий</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<p>Применяется при необходимости добавить обработчик события на динамически добавленный элемент</p>
-
-<v-code lang="html" title="">
-&lt;button&gt;Click me&lt;/button&gt;
-&lt;div class="container"&gt;&lt;/div&gt;
-</v-code>
-
-<v-code lang="js" title="">
-$('button').on('click',function(){
-    $('.container').append('&lt;div class="item" id="item-1"&gt;&lt;/div&gt;');
-    $('.container').append('&lt;div class="item" id="item-2"&gt;&lt;/div&gt;');
-});
-$('.container').on('click', '.item', function(){
-	console.log(this.id);
-});
-</v-code></div><div id="jquery/actions/hover-toggle"><h2>События hover() и toggle()</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>hover()</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-// событие hover() - наведение мыши (объединяет в себе mouseover и mouseout)
-$('#box').hover(function() {
-    // наведение мыши
-},function() {
-    // увод мыши
-});
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>toggle()</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-// переключатель (2 положения)
-$('#formHide').toggle(function() {
-    $('#form').fadeOut(1000);
-	$(this).text('Развернуть форму');
-}, function() {
-    $('#form').fadeIn(1000);
-	$(this).text('Свернуть форму');
-});
-</v-code>
-</div><div id="jquery/actions/event-object"><h2>Объект события eventObject()</h2>
-
-<v-code lang="js" title="">
-eventObject(); передает параметр с информацией
-	screenX  - координаты щелчка по оси X (от края монитора)
-	screenY  - координаты щелчка по оси Y (по высоте)
-	pageX    - координаты щелчка по оси X (для браузера)
-	pageY    - координаты щелчка по оси Y (для браузера)
-	altKey   - была ли нажата клавиша ALT
-	ctrlKey  - была ли нажата клавиша CTRL
-	shiftKey - была ли нажата клавиша SHIFT
-	target   - какой объект отреагировал на событие
-</v-code>
-
-<v-code lang="js" title="">
-$('#box').click(function(eventObject) {
-    alert(eventObject.shiftKey);
-});
-</v-code>
-
-<v-code lang="js" title="">
-$('#box').click(function(eventObject) {
-	const myObject = eventObject.target; // сохранили объект
-    alert(myObject.id); // вывести значение атрибута ID для объекта
-});
-</v-code></div><div id="jquery/main/info"><h2>Информация</h2>
+                    <div id="content"><div id="jquery/main/info"><h2>Информация</h2>
 
 <v-code lang="js" title="">
 jquery();            // функция
@@ -687,6 +570,123 @@ $(document).ready(function(){
     $('#box').mouseleave(function(){ formOut = true; });
     $('#box').mouseenter(function(){ formOut = false; });
     $('.bg').click( function() { if (formOut) { $('.bg').fadeOut(500); } });
+});
+</v-code></div><div id="jquery/actions/handling-events"><h2>Обработчики событий</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Полная загрузка страницы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+$(window).on('load', function () {
+	console.log("Window Loaded");
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обработчики событий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// обработчик события щелчка мыши
+$('.item').on('click', function(){
+	//
+});
+</v-code>
+
+<v-code lang="js" title="">
+// обработчик события изменения значения input
+$('input').on('change', function(){
+	//
+});
+</v-code>
+
+<v-code lang="js" title="">
+// выполняется после загрузки всех элементов (если скрипт подключен в head)
+$(document).ready(function(){
+    // обработчик события щелчка мыши
+    $('.item').on('click', function(){
+		// id выбранного элемента
+		const id = this.id;
+    });
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Удаление обработчиков событий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+Метод <b>.off()</b> удаляет обработчики событий, назначенные методом <b>.on</b>
+<v-code lang="js" title="">
+$(document).off('scroll');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Делегирование обработчиков событий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p>Применяется при необходимости добавить обработчик события на динамически добавленный элемент</p>
+
+<v-code lang="html" title="">
+&lt;button&gt;Click me&lt;/button&gt;
+&lt;div class="container"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+$('button').on('click',function(){
+    $('.container').append('&lt;div class="item" id="item-1"&gt;&lt;/div&gt;');
+    $('.container').append('&lt;div class="item" id="item-2"&gt;&lt;/div&gt;');
+});
+$('.container').on('click', '.item', function(){
+	console.log(this.id);
+});
+</v-code></div><div id="jquery/actions/hover-toggle"><h2>События hover() и toggle()</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>hover()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// событие hover() - наведение мыши (объединяет в себе mouseover и mouseout)
+$('#box').hover(function() {
+    // наведение мыши
+},function() {
+    // увод мыши
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>toggle()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// переключатель (2 положения)
+$('#formHide').toggle(function() {
+    $('#form').fadeOut(1000);
+	$(this).text('Развернуть форму');
+}, function() {
+    $('#form').fadeIn(1000);
+	$(this).text('Свернуть форму');
+});
+</v-code>
+</div><div id="jquery/actions/event-object"><h2>Объект события eventObject()</h2>
+
+<v-code lang="js" title="">
+eventObject(); передает параметр с информацией
+	screenX  - координаты щелчка по оси X (от края монитора)
+	screenY  - координаты щелчка по оси Y (по высоте)
+	pageX    - координаты щелчка по оси X (для браузера)
+	pageY    - координаты щелчка по оси Y (для браузера)
+	altKey   - была ли нажата клавиша ALT
+	ctrlKey  - была ли нажата клавиша CTRL
+	shiftKey - была ли нажата клавиша SHIFT
+	target   - какой объект отреагировал на событие
+</v-code>
+
+<v-code lang="js" title="">
+$('#box').click(function(eventObject) {
+    alert(eventObject.shiftKey);
+});
+</v-code>
+
+<v-code lang="js" title="">
+$('#box').click(function(eventObject) {
+	const myObject = eventObject.target; // сохранили объект
+    alert(myObject.id); // вывести значение атрибута ID для объекта
 });
 </v-code></div></div>
                 </div>

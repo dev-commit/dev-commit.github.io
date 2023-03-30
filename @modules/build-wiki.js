@@ -4,9 +4,9 @@ ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            [root+'main/settings',         'Настройка'],
-            [root+'main/snippets',         'Сниппеты'],
-            [root+'main/symbols',          'Символы'],
+            [root+'main/settings', 'Настройка'],
+            [root+'main/snippets', 'Сниппеты'],
+            [root+'main/symbols',  'Символы'],
         ]
     },
     {

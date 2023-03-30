@@ -4,7 +4,7 @@ ARR_MODULE = [
     {
         title: 'Теория',
         themes: [
-            [root+'theory/data', emoji.theory+'Данные'],
+            [root+'theory/data',   emoji.theory+'Данные'],
             [root+'theory/levels', emoji.theory+'Уровни английского'],
         ]
     },

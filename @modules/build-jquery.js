@@ -2,17 +2,9 @@ root = 'jquery/';
 
 ARR_MODULE = [
     {
-        title: 'События',
-        themes: [
-            [root+'actions/handling-events', 'Обработчики событий'],
-            [root+'actions/hover-toggle',    'События hover() и toggle()'],
-            [root+'actions/event-object',    'Объект события eventObject()'],
-        ]
-    },
-    {
         title: 'Основное',
         themes: [
-            [root+'main/info',        'Информация'],
+            [root+'main/info',        emoji.theory+'Информация'],
             [root+'main/ajax',        'AJAX'],
             [root+'main/css',         'CSS'],
             [root+'main/methods',     'Методы'],
@@ -23,6 +15,14 @@ ARR_MODULE = [
             [root+'main/animation',   'Анимация'],
             [root+'main/get-element', 'Выборка элементов'],
             [root+'main/samples',     'Примеры'],
+        ]
+    },
+    {
+        title: 'События',
+        themes: [
+            [root+'actions/handling-events', 'Обработчики событий'],
+            [root+'actions/hover-toggle',    'События hover() и toggle()'],
+            [root+'actions/event-object',    'Объект события eventObject()'],
         ]
     },
 ]
