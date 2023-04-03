@@ -102,10 +102,10 @@ ARR_MODULE = [
         title: 'Методы для Type',
         themes: [
             [root+'methods/pick',     setTheme(5, ['Pick'])],
+            [root+'methods/omit',     setTheme(5, ['Omit'])],
             [root+'methods/exclude',  setTheme(5, ['Exclude'])],
             [root+'methods/record',   setTheme(5, ['Record'])],
             [root+'methods/partial',  setTheme(5, ['Partial'])],
-            [root+'methods/omit',     setTheme(5, ['Omit'])],
             [root+'methods/merge',    setTheme(5, ['Merge'])],
             [root+'methods/required', setTheme(5, ['Required'])],
         ]

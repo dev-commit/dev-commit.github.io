@@ -23,7 +23,7 @@ type Person = {
 };
 
 // создаем новый тип без свойства "address"
-type NewPerson = Omit<Person, "address">;
+type NewPerson = Omit&lt;Person, "address"&gt;;
 
 // равносильно
 type NewPerson = {
@@ -40,5 +40,5 @@ const person: NewPerson = {
 
 <v-code lang="js" title="">
 // исключение нескольких значений
-type NewPerson = Omit<Person, "address" | "age">;
+type NewPerson = Omit&lt;Person, "address" | "age"&gt;;
 </v-code>
