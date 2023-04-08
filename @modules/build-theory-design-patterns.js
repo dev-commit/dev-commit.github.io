@@ -1,4 +1,4 @@
-root = 'theory-patterns/';
+root = 'theory-design-patterns/';
 
 ARR_MODULE = [
     {

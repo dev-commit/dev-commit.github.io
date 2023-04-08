@@ -9,7 +9,7 @@ const ARR_LINKS = [
     null,
     { page: 'theory-algoritms',        theme: 'brown',    title: '📑 Алгоритмы' },
     { page: 'theory-data-structures',  theme: 'brown',    title: '📑 Структуры данных' },
-    { page: 'theory-patterns',         theme: 'brown',    title: '📑 Паттерны' },
+    { page: 'theory-design-patterns',  theme: 'brown',    title: '📑 Design Patterns' },
     { page: 'theory-paradigms',        theme: 'brown',    title: '📑 Парадигмы' },
     null,
     { page: 'event-loop',              theme: 'blue',     title: '⭐️ Event Loop' },
