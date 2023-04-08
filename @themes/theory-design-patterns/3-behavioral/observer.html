@@ -20,6 +20,9 @@
     <li><u-code-text>notify</u-code-text> - метод для оповещение подписчиков об изменении <u>state</u></li>
 </ul>
 
+<!------------------------------------------------------------->
+<h4>Основная реализация</h4>
+<!------------------------------------------------------------->
 <v-code lang="js border" title="">
 class Observable {
   constructor() {
@@ -53,4 +56,51 @@ const subscriber = new Subscriber();
 observable.subscribe(subscriber);
 // observable.unsubscribe(subscriber);
 observable.setState('new data');
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Релизация с action.type</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class Observable {
+  constructor() {
+    this.subscribers = [];
+  }
+  subscribe(subscriber) {
+    this.subscribers.push(subscriber);
+  }
+  unsubscribe(subscriber) {
+    this.subscribers = this.subscribers.filter(el => el !== subscriber);
+  }
+  notify(action) {
+    this.subscribers.forEach(el => el.update(action));
+  }
+}
+
+class Subscriber {
+  constructor(state = 1) {
+    this.state = state;
+    this.initialState = state;
+  }
+
+  update(action) {
+    switch (action.type) {
+      case 'INCREMENT': this.state = ++this.state;    break;
+      case 'DECREMENT': this.state = --this.state;    break;
+      case 'ADD':       this.state += action.payload; break;
+      default:          this.state = this.initialState;
+    }
+  }
+}
+
+const observable = new Observable();
+const subscriber = new Subscriber();
+
+observable.subscribe(subscriber);
+
+observable.notify({ type: 'INCREMENT' }); // => 2
+observable.notify({ type: 'DECREMENT' }); // => 0
+observable.notify({ type: 'ADD', payload: 10 }); // => 11
+
+console.log(subscriber.state);
 </v-code>
