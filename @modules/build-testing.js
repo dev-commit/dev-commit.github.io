@@ -20,9 +20,9 @@ ARR_MODULE = [
     {
         title: 'Концепции',
         themes: [
-            [root+'concepts/tdd',   emoji.icecream+'TDD'],
-            [root+'concepts/bdd',   emoji.icecream+'BDD'],
-            [root+'concepts/first', emoji.icecream+'FIRST'],
+            [root+'concepts/tdd',   emoji.penguin+'TDD'],
+            [root+'concepts/bdd',   emoji.penguin+'BDD'],
+            [root+'concepts/first', emoji.penguin+'FIRST'],
         ]
     },
     {

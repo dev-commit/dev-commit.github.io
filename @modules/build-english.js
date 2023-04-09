@@ -41,7 +41,7 @@ ARR_MODULE = [
         themes: [
             [root+'common/location',              'Местоположение'],
             [root+'common/adjectives-comparison', 'Степени сравнения прилагательных'],
-            [root+'common/other',                 emoji.icecream+'Прочее'],
+            [root+'common/other',                 emoji.penguin+'Прочее'],
         ]
     },
     {

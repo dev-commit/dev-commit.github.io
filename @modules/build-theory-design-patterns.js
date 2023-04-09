@@ -4,12 +4,12 @@ ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            getLink(root, 'info'),
+            getLink(root, 'info', true),
         ]
     },
     {
-        // Creational Design Patterns
-        title: '1. Порождающие',
+        title: '1. Creational (Порождающие)',
+        selected: true,
         themes: [
             [root+'1-creational/singleton',      setTheme(5, ['Singleton'])],
             [root+'1-creational/builder',        setTheme(5, ['Builder'])],
@@ -17,16 +17,16 @@ ARR_MODULE = [
         ]
     },
     {
-        // Structural Design Patterns
-        title: '2. Структурные',
+        title: '2. Structural (Структурные)',
+        selected: true,
         themes: [
             [root+'2-structural/decorator', setTheme(5, ['Decorator'])],
             [root+'2-structural/facade',    setTheme(5, ['Facade'])],
         ]
     },
     {
-        // Behavioral Design Patterns
-        title: '3. Поведенческие',
+        title: '3. Behavioral (Поведенческие)',
+        selected: true,
         themes: [
             [root+'3-behavioral/observer', up+setTheme(5, ['Observer'])],
         ]

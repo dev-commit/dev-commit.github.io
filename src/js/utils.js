@@ -14,7 +14,6 @@ emoji = {
     coconut:   '🥥 ',
     star:      '⭐️ ',
     chevron:   '🔰 ',
-    icecream:  '🍦 ',
     unicorn:   '🦄 ',
     penguin:   '🐧 ',
 }
@@ -26,14 +25,22 @@ emoji = {
 // getLink(root, 'structure'), // => main/structure
 // getLink(root, 'algoritm'),  // => main/algoritm
 
-function getLink(root, item) {
+
+
+function getLink(root, item, updated = false) {
+    function checkUp() {
+        if (updated) {
+            return up;
+        }
+        return '';
+    }
     switch(item) {
-        case 'info':      return [root+'main/info',      emoji.theory+'Информация'];
-        case 'install':   return [root+'main/install',   emoji.code+'Установка и настройка'];
-        case 'use':       return [root+'main/use',       emoji.fire+'Базовый пример'];
-        case 'variants':  return [root+'main/variants',  emoji.code+'Варианты'];
-        case 'structure': return [root+'main/structure', emoji.code+'Структура'];
-        case 'algoritm': return  [root+'main/algoritm',  emoji.star+'Алгоритм'];
+        case 'info':      return [root+'main/info',      checkUp()+emoji.theory+'Информация'];
+        case 'install':   return [root+'main/install',   checkUp()+emoji.code+'Установка и настройка'];
+        case 'use':       return [root+'main/use',       checkUp()+emoji.fire+'Базовый пример'];
+        case 'variants':  return [root+'main/variants',  checkUp()+emoji.code+'Варианты'];
+        case 'structure': return [root+'main/structure', checkUp()+emoji.code+'Структура'];
+        case 'algoritm':  return [root+'main/algoritm',  checkUp()+emoji.star+'Алгоритм'];
     }
 }
 

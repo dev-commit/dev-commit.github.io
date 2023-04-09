@@ -198,29 +198,20 @@ MESSAGE
 u-message-ok, u-message-info, u-message-warn, u-message-error, u-message-comment {
 	padding: 15px 10px;
 	font-size: 15px;
-	margin: 10px 0px;
+	margin: 10px;
 	line-height: 1.7;
+	border-radius: 4px;
+	border: 1px solid rgba(var(--color), .1);
+	border-left: 5px solid rgba(var(--color), .4);
+	background-color: rgba(var(--color), .1);
 }
-u-message-info {
-	border-left: 4px solid rgba(var(--color-sea-dark), .5);
-	background-color: rgba(var(--color-sea-dark), .2);
-}
-u-message-warn {
-	border-left: 5px solid rgba(var(--color-brown), .6);
-	background-color: rgba(var(--color-brown), .3);
-}
-u-message-ok {
-	border-left: 5px solid rgba(var(--color-green), .6);
-	background-color: rgba(var(--color-green), .3);
-}
-u-message-error {
-	border-left: 5px solid rgba(var(--color-red), .6);
-	background-color: rgba(var(--color-red), .3);
-}
-u-message-comment {
-	border-left: 5px solid rgba(var(--color-semidark), .5);
-	background-color: rgba(var(--color-semidark), .1);
-}
+
+u-message-warn    { --color: var(--color-brown); }
+u-message-ok      { --color: var(--color-green); }
+u-message-error   { --color: var(--color-red); }
+u-message-comment { --color: var(--color-semidark); }
+u-message-info    { --color: var(--color-sea-dark); }
+
 
 /*******************************************
 BLOCKS

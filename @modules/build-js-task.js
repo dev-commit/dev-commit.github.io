@@ -63,12 +63,12 @@ ARR_MODULE = [
         title: 'Асинхронность',
         themes: [
             [root+'async/event-loop',                   emoji.theory+'Event Loop'],
-            [root+'algoritms/retrier',                  emoji.icecream+'Retrier (запросы по URL)'],
-            [root+'algoritms/promise-make-request',     emoji.icecream+'Promise Make Request'],
-            [root+'algoritms/cancel-timeout',           emoji.icecream+'setTimeout: отмена всех'],
-            [root+'algoritms/settimeout-for-var',       emoji.icecream+'setTimeout: в for без let'],
-            [root+'algoritms/promisification-function', emoji.icecream+'Промисификация функции'],
-            [root+'algoritms/sequential-callbacks',     emoji.icecream+'Последовательные коллбэки'],
+            [root+'algoritms/retrier',                  emoji.penguin+'Retrier (запросы по URL)'],
+            [root+'algoritms/promise-make-request',     emoji.penguin+'Promise Make Request'],
+            [root+'algoritms/cancel-timeout',           emoji.penguin+'setTimeout: отмена всех'],
+            [root+'algoritms/settimeout-for-var',       emoji.penguin+'setTimeout: в for без let'],
+            [root+'algoritms/promisification-function', emoji.penguin+'Промисификация функции'],
+            [root+'algoritms/sequential-callbacks',     emoji.penguin+'Последовательные коллбэки'],
         ]
     },
     {
