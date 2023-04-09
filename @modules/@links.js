@@ -1,5 +1,5 @@
 
-// THEME: green, blue, crimson, brown, violet, gray, white, actual
+// THEME: green, blue, crimson, brown, violet, gray, white, actual, accent
 
 const ARR_LINKS = [
     { page: 'assessment',              theme: 'brown',    title: 'Ассессмент' },
@@ -7,9 +7,9 @@ const ARR_LINKS = [
     { page: 'compilation',             theme: 'gray',     title: '🦄' },
     { page: 'english',                 theme: 'gray',     title: '📑 English' },
     null,
-    { page: 'theory-algoritms',        theme: 'brown',    title: '📑 Алгоритмы' },
-    { page: 'theory-data-structures',  theme: 'brown',    title: '📑 Структуры данных' },
-    { page: 'theory-design-patterns',  theme: 'brown',    title: '📑 Design Patterns' },
+    { page: 'theory-algoritms',        theme: 'accent',   title: 'Algorithms' },
+    { page: 'theory-data-structures',  theme: 'accent',   title: 'Data Structures' },
+    { page: 'theory-design-patterns',  theme: 'accent',   title: 'Design Patterns' },
     { page: 'theory-paradigms',        theme: 'brown',    title: '📑 Парадигмы' },
     null,
     { page: 'event-loop',              theme: 'blue',     title: '⭐️ Event Loop' },
