@@ -166,12 +166,15 @@ LINKS
 }
 
 #links .theme-accent {
-	--color: 3, 198, 252;
-
+	--color: var(--color-blue);
 	color: rgba(var(--color-black), .6);
 	background-color: rgba(var(--color), .3);
 	outline: 1px solid rgba(var(--color), .6);
 	border-left: 5px solid rgba(var(--color), .6);
+	border-right: 5px solid transparent;
+}
+#links .theme-accent.active {
+	border-left: 5px solid transparent;
 }
 
 /***************************************************

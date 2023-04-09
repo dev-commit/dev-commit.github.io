@@ -130,7 +130,11 @@
     <li><u>Цель</u>: в случаем возникновения изменений - задействовать наименьшее количество модулей</li>
 </ul>
 
-<v-details title="<u-text-underline>Пример</u-text-underline>">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
 <v-two><template v-slot:first>
 <b>Да</b>
 
@@ -226,7 +230,6 @@ console.log(news.json());
 </v-code>
 
 </template></v-two>
-</v-details>
 </div><div id="theory-solid/principles/2-ocp"><h2>2. The Open Closed Principle</h2>
 
 <ul class="list-point">
@@ -253,7 +256,10 @@ console.log(news.json());
     <li>Выносит место взаимодействия модулей в отдельную прозрачную сущность</li>
 </ul>
 
-<v-details title="<u-text-underline>Пример</u-text-underline>">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <v-two><template v-slot:first>
 
@@ -351,7 +357,6 @@ areaCalculator.calc();
 </v-code>
 
 </template></v-two>
-</v-details>
 </div><div id="theory-solid/principles/3-lsp"><h2>3. The Liskov Substitution Principle</h2>
 
 <ul class="list-point">
@@ -382,7 +387,15 @@ areaCalculator.calc();
     <u>Цель</u>: проектировать логику таким образом, чтобы классы-наследники могли использоваться вместо классов-родителей
 </ul>
 
-<v-details title="<u-text-underline>Пример 1</u-text-underline>">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример 1</h4>
+<!------------------------------------------------------------->
+
 <v-two><template v-slot:first>
 <b>Да</b>
 
@@ -462,10 +475,11 @@ openSecretDoor(new PersonFromDifferentCompany());
 </v-code>
 
 </template></v-two>
-</v-details>
 
+<!------------------------------------------------------------->
+<h4>Пример 2</h4>
+<!------------------------------------------------------------->
 
-<v-details title="<u-text-underline>Пример 2</u-text-underline>">
 <v-two><template v-slot:first>
 <b>Да</b>
 
@@ -538,7 +552,6 @@ renderComponent(new HOC());
 </v-code>
 
 </template></v-two>
-</v-details>
 </div><div id="theory-solid/principles/4-isp"><h2>4. The Interface Segregation Principle</h2>
 
 <ul class="list-point">
@@ -557,7 +570,11 @@ renderComponent(new HOC());
     <li>Декомпозиция</li>
 </ul>
 
-<v-details title="<u-text-underline>Пример</u-text-underline>">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
 <v-two><template v-slot:first>
 <b>Да</b>
 
@@ -634,7 +651,6 @@ eagle.fly();  // +
 </v-code>
 
 </template></v-two>
-</v-details>
 </div><div id="theory-solid/principles/5-dip"><h2>5. The Dependency Inversion Principle</h2>
 
 <ul class="list-point">
@@ -654,7 +670,19 @@ eagle.fly();  // +
     <li><u>Цель</u>: уменьшение межмодульных зависимостей. Когда появляются связи между двумя объектами, их нужно разделить</li>
 </ul>
 
-<v-details title="<u-text-underline>Пример</u-text-underline>">
+<v-code lang="bash none" title="">
+Decoupling
+    &#9776; Inversion of Control
+        &#8226; Dependency Injection
+    &#9776; Dependency Invertion
+        &#8226; Inderfaces
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
 <v-two><template v-slot:first>
 <b>Да</b>
 
@@ -759,15 +787,6 @@ console.log(db.getData());
 </v-code>
 
 </template></v-two>
-</v-details>
-
-<v-code lang="bash none" title="">
-Decoupling
-    &#9776; Inversion of Control
-        &#8226; Dependency Injection
-    &#9776; Dependency Invertion
-        &#8226; Inderfaces
-</v-code>
 </div></div>
                 </div>
             </div>
