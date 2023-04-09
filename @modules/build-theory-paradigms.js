@@ -4,7 +4,6 @@ ARR_MODULE = [
     {
         title: 'Стандарты кода',
         themes: [
-            [root+'best-practices/solid',         emoji.fire+'SOLID'],
             [root+'best-practices/dry',           emoji.chevron+'DRY'],
             [root+'best-practices/kiss',          emoji.chevron+'KISS'],
             [root+'best-practices/yagni',         emoji.chevron+'YAGNI'],

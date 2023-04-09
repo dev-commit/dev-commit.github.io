@@ -1,0 +1,110 @@
+<h2>1. The Single Responsibility Principle</h2>
+
+<ul class="list-point">
+    <li><u-text-define>The Single Responsibility Principle</u-text-define> - Принцип единственной ответственности</li>
+    <li>Каждый класс выполняет лишь одну задачу/ответственность</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li><u>Цель</u>: в случаем возникновения изменений - задействовать наименьшее количество модулей</li>
+</ul>
+
+<v-details title="<u-text-underline>Пример</u-text-underline>">
+<v-two><template v-slot:first>
+<b>Да</b>
+
+<v-code lang="js border" title="Класс для обоработки новости">
+class News {
+    constructor(title, text) {
+        this.title = title;
+        this.text = text;
+        this.modified = false;
+    }
+    update(text) {
+        this.text = text;
+        this.modified = true;
+    }
+    // Разные форматы новости должно быть в отдельном класса
+    // html() {}
+    // json() {}
+}
+</v-code>
+<v-code lang="js border" title="Класс для формирования новости в разных форматах">
+class NewsPrinter {
+    constructor(news) {
+        this.news = news;
+    }
+    html() {
+        return `
+            &lt;div&gt;
+                &lt;h1&gt;${this.news.title}&lt;/h1&gt;
+                &lt;h1&gt;${this.news.text}&lt;/h1&gt;
+            &lt;/div&gt;
+        `
+    }
+    json() {
+        return JSON.stringify({
+            title: this.news.title,
+            text: this.news.text,
+            modified: this.news.modified
+        })
+    }
+}
+</v-code>
+<v-code lang="js border" title="">
+const printer = new NewsPrinter(
+    new News('Название новости', 'Описание новости')
+)
+
+console.log(printer.html());
+console.log(printer.json());
+</v-code>
+
+</template><template v-slot:last>
+<b>Нет</b>
+
+<v-code lang="js" title="">
+// Класс для обоработки новости
+class News {
+    constructor(title, text) {
+        this.title = title;
+        this.text = text;
+        this.modified = false;
+    }
+    update(text) {
+        this.text = text;
+        this.modified = true;
+    }
+
+    // Разные форматы новости
+    html() {
+        return `
+            &lt;div&gt;
+                &lt;h1&gt;${this.title}&lt;/h1&gt;
+                &lt;h1&gt;${this.text}&lt;/h1&gt;
+            &lt;/div&gt;
+        `
+    }
+    json() {
+        return JSON.stringify({
+            title: this.title,
+            text: this.text,
+            modified: this.modified
+        })
+    }
+}
+</v-code>
+<v-code lang="js" title="">
+const news = new News(
+    'Название новости',
+    'Описание новости'
+);
+
+console.log(news.html());
+console.log(news.json());
+</v-code>
+
+</template></v-two>
+</v-details>

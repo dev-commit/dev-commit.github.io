@@ -54,11 +54,10 @@ ARR_MODULE = [
     {
         title: 'Теория',
         themes: [
-            ['theory-paradigms/oop/principles',        emoji.lemon+'ООП'],
-            ['theory-paradigms/fp/concept',            emoji.lemon+'ФП'],
-            ['theory-paradigms/best-practices/solid',  emoji.baseball+'SOLID'],
-            ['testing/pyramid/pyramid',                emoji.theory+'Пирамида тестирования'],
-            ['compilation/deployment/info',            emoji.theory+'CI / CD'],
+            ['theory-paradigms/oop/principles', emoji.lemon+'ООП'],
+            ['theory-paradigms/fp/concept',     emoji.lemon+'ФП'],
+            ['testing/pyramid/pyramid',         emoji.theory+'Пирамида тестирования'],
+            ['compilation/deployment/info',     emoji.theory+'CI / CD'],
         ]
     },
     {

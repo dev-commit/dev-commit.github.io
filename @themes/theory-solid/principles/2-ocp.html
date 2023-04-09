@@ -1,0 +1,125 @@
+<h2>2. The Open Closed Principle</h2>
+
+<ul class="list-point">
+    <li><u-text-define>The Open Closed Principle</u-text-define> - Принцип открытости/закрытости</li>
+    <li>Программные сущности (классы, модули, функции и т.д.) должны быть открыты для расширения, но закрыты для модификации</li>
+    <hr>
+
+    <li>Небольшое изменение класса не должно затрагивать связанные с ним модули</li>
+    <li>От класса можно наследоваться и расширить его функциональность, но нет прямой возможности менять функциональность базового класса</li>
+    <li>Неважно сколько добавили свойств объекту, код будет работать</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li><u>Цель</u>: разработка устойчивого к изменениям приложения</li>
+</ul>
+
+<ul class="list-point">
+    <li><b>Принцип помогает:</b></li>
+    <li>Проектировать модули, выполняющие только одну задачу</li>
+    <li>Вводит абстракцию, через которую связываются сущности</li>
+    <li>Позволяет расширять имплементацию и расширяет ее от изменений</li>
+    <li>Выносит место взаимодействия модулей в отдельную прозрачную сущность</li>
+</ul>
+
+<v-details title="<u-text-underline>Пример</u-text-underline>">
+
+<v-two><template v-slot:first>
+
+<b>Да</b>
+
+<p><i>Абстрактный класс</i></p>
+<v-code lang="js border" title="Базовый класс">
+class Shape {
+    <u-code>area</u-code>() {
+        // abstract class
+    }
+}
+</v-code>
+
+<p><i>Полиморфизм (различная реализация для <u>area</u>)</i></p>
+<v-code lang="js border" title="Наследники">
+class Square extends Shape {
+    <u-code>area</u-code>() {
+        return 'Draw Square'
+    }
+}
+class Circle extends Shape {
+    <u-code>area</u-code>() {
+        return 'Draw Circle'
+    }
+}
+</v-code>
+
+<ul class="list-point">
+    <li>Класс AreaCalculator открыли для расширений и закрыли для модификаций - метод sum сделан 1 раз и больше к нему не возвращаемся</li>
+</ul>
+
+<v-code lang="js border" title="Класс для калькуляции">
+class AreaCalculator {
+    constructor(shapes = []) {
+        this.shapes = shapes;
+    }
+    calc() {
+        const res = this.shapes.map(item => item.<u-code>area</u-code>());
+        console.log(res);
+    }
+}
+</v-code>
+
+<v-code lang="js border" title="Вызов">
+const areaCalculator = new AreaCalculator([
+    new Square(),
+    new Circle()
+]);
+
+areaCalculator.calc();
+</v-code>
+
+</template><template v-slot:last>
+<b>Нет</b>
+
+<v-code lang="js" title="Наследники">
+class Square {
+    constructor() {
+        this.type = 'square';
+    }
+}
+class Circle {
+    constructor() {
+        this.type = 'circle';
+    }
+}
+</v-code>
+<v-code lang="js" title="Класс для калькуляции">
+class AreaCalculator {
+    constructor(shapes = []) {
+        this.shapes = shapes;
+    }
+
+    calc() {
+		const res = this.shapes.map(item => {
+			switch(item.type) {
+				case 'square': return 'Draw Square'; break;
+				case 'circle': return 'Draw Circle'; break;
+				default: return 'Draw Default';
+			}
+		});
+		console.log(res);
+    }
+}
+</v-code>
+
+<v-code lang="js" title="Вызов">
+const areaCalculator = new AreaCalculator([
+    new Square(),
+    new Circle()
+]);
+
+areaCalculator.calc();
+</v-code>
+
+</template></v-two>
+</v-details>

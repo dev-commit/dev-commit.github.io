@@ -1,0 +1,96 @@
+<h2>4. The Interface Segregation Principle</h2>
+
+<ul class="list-point">
+    <li><u-text-define>The Interface Segregation Principle</u-text-define> - Принцип разделения интерфейса</li>
+    <li>Классы-наследники НЕ должны зависеть от методов базового класса, если они их НЕ используют</li>
+    <li>Разделение интерфейса на более мелкие части</li>
+    <li>Абстракция (API или класс) должна быть сгруппирована в мелкие единицы и содержать только необходимые методы, давая возможность использовать только то, что необходимо. При необходимости разделить функциональность на несколько классов. При изменении методов интерфейса не должны меняться программные сущности, которые этот метод не используют</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li><u>Цель</u>: </li>
+    <li>Снижение зависимостей между модулями</li>
+    <li>При наследовании нет ненужной функциональности</li>
+    <li>Декомпозиция</li>
+</ul>
+
+<v-details title="<u-text-underline>Пример</u-text-underline>">
+<v-two><template v-slot:first>
+<b>Да</b>
+
+<v-code lang="js border" title="Базовый класс">
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+}
+</v-code>
+<v-code lang="js border" title="Объекты">
+const swimmer = {
+    swim() {
+        console.log(this.name+'умеет плавать')
+    }
+}
+const flier = {
+    fly() {
+        console.log(this.name+'умеет летать')
+    }
+}
+</v-code>
+<v-code lang="js border" title="Наследники">
+class Dog extends Animal {}
+class Eagle extends Animal {}
+
+Object.assign(Dog.prototype, swimmer);
+Object.assign(Eagle.prototype, flier);
+</v-code>
+<v-code lang="js border" title="Вызов методов">
+const dog = new Dog('Jack');
+dog.swim();
+// dog.fly();  // нет метода
+
+const eagle = new Eagle('Bobby');
+// eagle.swim(); // нет метода
+eagle.fly();
+</v-code>
+
+</template><template v-slot:last>
+<b>Нет</b>
+
+<v-code lang="js" title="Базовый класс">
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    swim() {
+        console.log(this.name+'умеет плавать')
+    }
+    fly() {
+        console.log(this.name+'умеет летать')
+    }
+}
+
+</v-code>
+<v-code lang="js" title="Наследники">
+class Dog extends Animal {
+    fly() { return null }
+}
+class Eagle extends Animal {
+    swim() { return null }
+}
+</v-code>
+<v-code lang="js" title="Вызов методов">
+const dog = new Dog('Jack');
+dog.swim(); // +
+dog.fly();  // -
+
+const eagle = new Eagle('Bobby');
+eagle.swim(); // -
+eagle.fly();  // +
+</v-code>
+
+</template></v-two>
+</v-details>
