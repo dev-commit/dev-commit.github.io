@@ -78,23 +78,23 @@ const counterReducer = (state = 0, action) => {
 }
 
 // Создание store
-const store = createStore(counterReducer, 0);
+const store = <u-code>createStore</u-code>(counterReducer, 0);
 
 // Создание подписчика
 const subscriber = () => {
-  console.log('Current state:', store.getState());
+  console.log('Current state:', store.<u-code>getState</u-code>());
 };
 
 // Подписка на изменение состояния
-const unsubscribe = store.subscribe(subscriber);
+const unsubscribe = store.<u-code>subscribe</u-code>(subscriber);
 
 // Изменение state
-store.dispatch({ type: 'INCREMENT' }); // => 1
-store.dispatch({ type: 'DECREMENT' }); // => 0
+store.<u-code>dispatch</u-code>({ type: 'INCREMENT' }); // => 1
+store.<u-code>dispatch</u-code>({ type: 'DECREMENT' }); // => 0
 
 // Удаление подписчика
 unsubscribe();
 
 // No output - подписчик уже удален
-store.dispatch({ type: 'INCREMENT' }); 
+store.<u-code>dispatch</u-code>({ type: 'INCREMENT' }); 
 </v-code>
