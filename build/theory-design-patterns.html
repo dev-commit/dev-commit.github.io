@@ -473,17 +473,17 @@ class Observable {
     this.state = 'initial data';
     this.subscribers = [];
   }
-  <u-code>subscribe</u-code>(subscriber) {
+  <u-code-accent>subscribe</u-code-accent>(subscriber) {
     this.subscribers.push(subscriber);
   }
-  <u-code>unsubscribe</u-code>(subscriber) {
+  <u-code-accent>unsubscribe</u-code-accent>(subscriber) {
     this.subscribers = this.subscribers.filter(el => el !== subscriber);
   }
-  <u-code>setState</u-code>(data) {
+  <u-code-accent>setState</u-code-accent>(data) {
     this.state = data;
     this.notify();
   }
-  <u-code>notify</u-code>() {
+  <u-code-accent>notify</u-code-accent>() {
     this.subscribers.forEach(el => el.update(this.state));
   }
 }

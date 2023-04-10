@@ -14,21 +14,27 @@ ARR_MODULE = [
         title: 'Элементы',
         themes: [
             [root+'elements/execution-order', emoji.theory+'Порядок выполнения'],
-            [root+'elements/view',            emoji.cookie+'1. View'],
-            [root+'elements/action',          emoji.cookie+'2. Action'],
-            [root+'elements/middleware',      emoji.cookie+'3. Middleware'],
-            [root+'elements/reducer',         emoji.cookie+'4. Reducer'],
-            [root+'elements/store',           emoji.cookie+'5. Store'],
+            [root+'elements/view',            emoji.star+'1. View'],
+            [root+'elements/action',          emoji.star+'2. Action'],
+            [root+'elements/middleware',      emoji.star+'3. Middleware'],
+            [root+'elements/reducer',         emoji.star+'4. Reducer'],
+            [root+'elements/store',           emoji.star+'5. Store'],
+        ]
+    },
+    { title: 'Методы', },
+    {
+        title: styleSubHeader('Redux'),
+        child: true,
+        themes: [
+            [root+'methods/create-store',      up+setTheme(1, ['createStore'])],
+            [root+'methods/apply-middleware',  setTheme(1, ['applyMiddleware'])],
+            [root+'methods/combine-reducers',  setTheme(1, ['combineReducers'])],
         ]
     },
     {
-        title: 'Методы',
+        title: styleSubHeader('React-Redux'),
+        child: true,
         themes: [
-            // TODO SUB-TITLE: Redux
-            [root+'methods/create-store',      setTheme(1, ['createStore'])],
-            [root+'methods/apply-middleware',  setTheme(1, ['applyMiddleware'])],
-            [root+'methods/combine-reducers',  setTheme(1, ['combineReducers'])],
-            // TODO SUB-TITLE: React-Redux
             [root+'methods/provider',          setTheme(3, ['Provider'])],
             [root+'methods/connect',           setTheme(3, ['connect'])],
             [root+'methods/hooks',             setTheme(3, ['useDispatch', 'useSelector'])],
