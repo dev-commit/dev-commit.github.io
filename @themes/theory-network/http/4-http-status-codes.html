@@ -1,0 +1,86 @@
+<h2>HTTP Status Codes</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Коды состояния HTTP</u-text-define> - код состояния является частью первой строки ответа сервера. Он представляет собой целое число из трёх цифр. Первая цифра указывает на класс состояния. За кодом ответа обычно следует отделённая пробелом поясняющая фраза на английском языке, которая разъясняет причину ответа</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Классы кодов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>1xx</u-code-text> - Информационный (informational). Информирование о процессе передачи</li>
+    <li><u-code-text>2xx</u-code-text> - Успех (Success). Информирование о случаях успешного принятия и обработки запроса клиента</li>
+    <li><u-code-text>3xx</u-code-text> - Перенаправление (Redirection). Сообщает клиенту, что для успешного выполнения операции необходимо сделать другой запрос, как правило, по другому URI</li>
+    <li><u-code-text>4xx</u-code-text> - Ошибка клиента (Client Error)</li>
+    <li><u-code-text>5xx</u-code-text> - Ошибка сервера (Server Error)</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Список кодов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Information [100 - 199]</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>100</u-code-text> <em>Continue</em> - Сервер удовлетворён начальными сведениями о запросе, клиент может продолжать пересылать заголовки</li>
+    <li><u-code-text>101</u-code-text> <em>Switching Protocols</em> - Сервер выполняет требование клиента и переключает протоколы в соответствии с указанием, данным в поле заголовка Upgrade</li>
+    <li><u-code-text>102</u-code-text> <em>Processing</em> - Запрос принят, но на его обработку понадобится длительное время</li>
+    <li><u-code-text>103</u-code-text> <em>Early Hints</em> - Используется для раннего возврата части заголовков, когда заголовки полного ответа не могут быть быстро сформированы</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. Success [200 - 299]</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>200</u-code-text> <em>Ok</em> - Успешный запрос</li>
+    <li><u-code-text>201</u-code-text> <em>Created</em> - Создание нового ресурса</li>
+    <li><u-code-text>202</u-code-text> <em>Accepted</em> - Запрос был принят на обработку, но она не завершена</li>
+    <li><u-code-text>204</u-code-text> <em>No Content</em> - Сервер успешно обработал запрос, но в ответе были переданы только заголовки без тела сообщения</li>
+    <li><u-code-text>206</u-code-text> <em>Partial Content</em> - Сервер удачно выполнил частичный GET-запрос, возвратив только часть сообщения</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Redirect [300 - 399]</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>300</u-code-text> <em>Multiply Choices</em> - По указанному URI существует несколько вариантов предоставления ресурса по типу MIME, по языку или по другим характеристикам</li>
+    <li><u-code-text>301</u-code-text> <em>Moved Permanantly</em> - Запрошенный документ был окончательно перенесен на новый URI, указанный в поле Location заголовка</li>
+    <li><u-code-text>304</u-code-text> <em>Not Modified</em> - Клиент запросил документ методом GET, использовал заголовок If-Modified-Since или If-None-Match и документ не изменился с указанного момента</li>
+    <li><u-code-text>305</u-code-text> <em>Use Proxy</em> - Запрос к запрашиваемому ресурсу должен осуществляться через прокси-сервер</li>
+    <li><u-code-text>307</u-code-text> <em>Temporary Redirect</em> - Запрашиваемый ресурс на короткое время доступен по другому URI, указанный в поле Location заголовка</li>
+    <li><u-code-text>308</u-code-text> <em>Permanant Redirect</em> - Запрашиваемый ресурс был окончательно перенесен на новый URI, указанный в поле Location заголовка</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>4. Client Error [400 - 499]</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>400</u-code-text> <em>Bad Request</em> - Сервер обнаружил в запросе клиента синтаксическую ошибку</li>
+    <li><u-code-text>401</u-code-text> <em>Unauthorized</em> - Для доступа к запрашиваемому ресурсу требуется аутентификация. В заголовке ответ должен содержать поле WWW-Authenticate с перечнем условий аутентификации</li>
+    <li><u-code-text>403</u-code-text> <em>Forbidden</em> - Клиент не уполномочен совершать операции с запрошенным ресурсом</li>
+    <li><u-code-text>404</u-code-text> <em>Not Found</em> - Сервер понял запрос, но не нашёл соответствующего ресурса по указанному URL</li>
+    <li><u-code-text>405</u-code-text> <em>Method Not Allowed</em> - Указанный клиентом метод нельзя применить к текущему ресурсу</li>
+    <li><u-code-text>406</u-code-text> <em>Not Acceptable</em> - Запрошенный URI не может удовлетворить переданным в заголовке характеристикам</li>
+    <li><u-code-text>407</u-code-text> <em>Proxy Authentication Required</em> - Для доступа к запрашиваемому ресурсу требуется аутентификация для прокси-сервера</li>
+    <li><u-code-text>408</u-code-text> <em>Request Timeout</em> - Истекло время ожидания сервером передачи от клиента</li>
+    <li><u-code-text>409</u-code-text> <em>Conflict</em> - Запрос не может быть выполнен из-за конфликтного обращения к ресурсу. Такое возможно, например, когда два клиента пытаются изменить ресурс с помощью метода PUT</li>
+    <li><u-code-text>410</u-code-text> <em>Gone</em> - Ресурс раньше был по указанному URL, но был удалён и теперь недоступен</li>
+    <li><u-code-text>411</u-code-text> <em>Length Required</em> - Для указанного ресурса клиент должен указать Content-Length в заголовке запроса</li>
+    <li><u-code-text>413</u-code-text> <em>Payload To Large</em> - Слишком большой размер тела запроса</li>
+    <li><u-code-text>414</u-code-text> <em>URI Too Long</em> - Слишком длинный URI</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>5. Server Error [500 - 599]</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>500</u-code-text> <em>Internal Server Error</em> - Любая внутренняя ошибка сервера, которая не входит в рамки остальных ошибок класса</li>
+    <li><u-code-text>501</u-code-text> <em>Not Implemented</em> - Сервер не поддерживает возможностей, необходимых для обработки запроса. Типичный ответ для случаев, когда сервер не понимает указанный в запросе метод</li>
+    <li><u-code-text>502</u-code-text> <em>Bad Gateway</em> - Сервер, выступая в роли шлюза или прокси-сервера, получил недействительное ответное сообщение от вышестоящего сервера</li>
+    <li><u-code-text>503</u-code-text> <em>Service Unavailable</em> - Сервер временно не имеет возможности обрабатывать запросы по техническим причинам (обслуживание, перегрузка и прочее)</li>
+    <li><u-code-text>504</u-code-text> <em>Gateway Timeout</em> - Сервер в роли шлюза или прокси-сервера не дождался ответа от вышестоящего сервера для завершения текущего запроса</li>
+    <li><u-code-text>522</u-code-text> <em>Connection Timed Out</em> - CDN не удалось подключиться к веб-серверу</li>
+</ul>

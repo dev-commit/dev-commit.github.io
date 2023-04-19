@@ -1,0 +1,40 @@
+<h2>REST JSON API</h2>
+
+<u-link-wrapper>
+	<a href="https://jsonapi.org/" target="_blank">Документация</a>
+</u-link-wrapper>
+
+<v-two-code type="js;js" comment="REST;JSON API">
+<template v-slot:first>
+// 1. GET /article/1 - получает статью
+{
+	id: 1,
+	text: "some text",
+	created: 'date'
+	authorId: 3
+}
+// 2. GET /authors/3 - получает автора
+{
+	id: 3,
+	name: "Petya",
+	dateOfBirth: '1989-09-12'
+}
+</template>
+<template v-slot:last>
+// 1 запрос: GET /article/1?include=author
+
+{
+	id: 1,
+	text: "some text",
+	created: 'date'
+	author: {
+		id: 3,
+		name: "Petya",
+		dateOfBirth: '1989-09-12'
+	}
+}
+</template>
+</v-two-code>
+
+
+

@@ -1,0 +1,140 @@
+<h2>HTTP Headers</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Заголовки HTTP</u-text-define> -  строки в HTTP-сообщении, содержащие разделённую двоеточием пару параметр-значение</li>
+</ul>
+
+<ul class="list-point">
+    <b>Заголовки HTTP</b>
+    <li>1. <u>General Headers</u> («Основные заголовки») - основные заголовки для запросов клиента и ответов сервера</li>
+    <li>2. <u>Request Headers</u> («Заголовки запроса») - используются только в запросах клиента</li>
+    <li>3. <u>Response Headers</u> («Заголовки ответа») - только для ответов от сервера</li>
+    <li>4. <u>Entity Headers</u> («Заголовки сущности») - заголовки, сопровождающие каждую сущность как в запросах клиента, так и в ответах сервера</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1. General Headers</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>Request URL</u-code-text> : https://api.project.com/api/user</li>
+    <li><u-code-text>Request Method</u-code-text> : POST</li>
+    <li><u-code-text>Status Code</u-code-text> : 200 OK</li>
+    <li><u-code-text>Remote Address</u-code-text> : 107.22.174.243:443</li>
+    <li>
+        <u-code-text>Referrer Policy</u-code-text> : strict-origin-when-cross-origin<br>
+        Определяет, сколько информации о referrer (отправляемой с заголовком Referer) должно быть включено в запросы
+    </li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. Request Headers</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>
+        <u-code-text>Accept</u-code-text> : text/plain<br>
+        Список допустимых форматов ресурса
+    </li>
+    <li>
+        <u-code-text>Accept-Encoding</u-code-text> : &lt;compress | gzip | deflate | sdch | identity&gt;<br>
+        Перечень поддерживаемых способов кодирования содержимого сущности при передаче
+    </li>
+    <li>
+        <u-code-text>Accept-Language</u-code-text> : ru,en<br>
+        Список поддерживаемых естественных языков
+    </li>
+    <li>
+        <u-code-text>Authorization</u-code-text> : Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==<br>
+        Данные для авторизации
+    </li>
+    <li>
+        <u-code-text>Connection</u-code-text> : close | keep-alive<br>
+        Сведения о проведении соединения
+    </li>
+    <li>
+        <u-code-text>Host</u-code-text> : api.project.com<br>
+        Доменное имя и порт хоста запрашиваемого ресурса. Необходимо для поддержки виртуального хостинга на серверах
+    </li>
+    <li>
+        <u-code-text>Origin</u-code-text> : http://localhost:3000<br>
+    </li>
+    <li>
+        <u-code-text>Referer</u-code-text> : http://localhost:3000/<br>
+        Полный или относительный URI ресурса, с которого клиент сделал текущий запрос
+    </li>
+    <li>
+        <u-code-text>User-Agent</u-code-text> : Mozilla/5.0 (X11; Linux i686; rv:2.0.1) Gecko/20100101 Firefox/4.0.1<br>
+        Список названий и версий клиента и его компонентов с комментариями
+    </li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Response Headers</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>
+        <u-code-text>Allow</u-code-text> : OPTIONS, GET, HEAD<br>
+        Список поддерживаемых методов
+    </li>
+    <li>
+        <u-code-text>Cache-Control</u-code-text> : no-cache ...<br>
+        Директивы для управления кэшированием
+    </li>
+    <li>
+        <u-code-text>Connection</u-code-text> : close | keep-alive<br>
+        Сведения о проведении соединения
+    </li>
+    <li>
+        <u-code-text>Content-Length</u-code-text> : 1348<br>
+        Размер содержимого сущности в октетах (байтах)
+    </li>
+    <li>
+        <u-code-text>Content-Type</u-code-text> : text/html;charset=utf-8<br>
+        Формат и способ представления сущности
+    </li>
+    <li>
+        <u-code-text>Date</u-code-text> : Tue, 15 Nov 1994 08:12:31 GMT<br>
+        Дата генерации отклика
+    </li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>4. Entity Headers</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>
+        <u-code-text>Content-Language</u-code-text> : en, ru<br>
+        Один или несколько естественных языков содержимого сущности
+    </li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Неизвестно</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>
+        <u-code-text>Accept-Charset</u-code-text> : utf-8<br>
+        Перечень поддерживаемых кодировок для предоставления пользователю
+    </li>
+    <li>
+        <u-code-text>Expires</u-code-text> : Tue, 31 Jan 2012 15:02:53 GMT<br>
+        Дата предполагаемого истечения срока актуальности сущности
+    </li>
+    <li>
+        <u-code-text>Location</u-code-text> : http://example.com/about<br>
+        URI по которому клиенту следует перейти или URI созданного ресурса
+    </li>
+    <li>
+        <u-code-text>Proxy-Authorization</u-code-text> : Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==<br>
+        Информация для авторизации на прокси-сервере
+    </li>
+    <li>
+        <u-code-text>Server</u-code-text> : Apache/2.2.17 (Win32) PHP/5.3.5<br>
+        Список названий и версий веб-сервера и его компонентов с комментариями
+    </li>
+    <li>
+        <u-code-text>Title</u-code-text><br>
+        Заголовок сущности
+    </li>
+</ul>
+
+

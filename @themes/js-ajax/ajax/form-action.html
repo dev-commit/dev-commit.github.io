@@ -1,0 +1,95 @@
+<h2>Form Action</h2>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Request JS</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Обработка формы</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;form class="form"&gt;
+	&lt;input type="text" name="name" required=""&gt;
+	&lt;input type="text" name="message" required=""&gt;
+	&lt;input type="submit" value="Отправить"&gt;
+&lt;/form&gt;
+</v-code>
+
+<v-code lang="js" title="">
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', function(e) {
+	e.preventDefault();
+	const name = this['name'];
+	const message = this['message'];
+	console.log(name.value, message.value);
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Отправка формы из HTML</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;form action="script.php" method="get"&gt;
+    &lt;input type="text" name="name" required=""&gt;
+    &lt;textarea name="message"&gt;&lt;/textarea&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</v-code>
+
+<v-code lang="html" title="">
+http://test1.ru/script.php?name=myname&message=my+message
+</v-code>
+
+<v-code lang="php" title="">
+&lt;?php
+	$name    = $_GET[name]; 
+	$message = $_GET[message]; 
+?&gt;
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Response PHP</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Чтение данных в PHP</h4>
+<!------------------------------------------------------------->
+<v-code lang="php" title="">
+&lt;?php
+	$content = file_get_contents("php://input"); // чтение данных
+	$decoded = json_decode($content, true);      // если передан json
+	echo $decoded[name];                         // вывод значения "name"
+?&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Передача нескольких значений из PHP</h4>
+<!------------------------------------------------------------->
+<v-two-code type="php;php" comment=";">
+<template v-slot:first>
+&lt;?php
+    $arr = array("Tony", 25);
+    $json = json_encode($arr);
+    echo $json
+?&gt;
+</template>
+<template v-slot:last>
+response.data; // ['Tony', 25]
+</template>
+</v-two-code>
+
+<v-two-code type="php;php" comment=";">
+<template v-slot:first>
+&lt;?php
+    $arr = array("name" => "Tony", "age" => 25);
+    $json = json_encode($arr);
+    echo $json
+?&gt;
+</template>
+<template v-slot:last>
+response.data; // {name: "Tony", age: "25"}
+</template>
+</v-two-code>
