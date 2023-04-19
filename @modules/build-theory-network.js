@@ -9,6 +9,7 @@ ARR_MODULE = [
     },
     {
         title: 'HTTP',
+        accent: true,
         themes: [
             [root+'http/http',                emoji.fire+'HTTP'],
             [root+'http/http2',               emoji.fire+'HTTP/2'],
@@ -20,15 +21,6 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Работа с API',
-        themes: [
-            [root+'tech-api/rest',          emoji.fire+'1. REST API'],
-            [root+'tech-api/rest-json-api', emoji.chevron+'2. REST JSON API'],
-            [root+'tech-api/graphql',       emoji.chevron+'3. GraphQL'],
-        ]
-    },
-
-    {
         title: 'Протоколы',
         themes: [
             [root+'protocols/osi',  emoji.theory+'Сетевая модель OSI'],
@@ -38,10 +30,17 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'Работа с API',
+        themes: [
+            [root+'tech-api/rest',    emoji.fire+'REST API'],
+            [root+'tech-api/graphql', 'GraphQL'],
+        ]
+    },
+    {
         title: 'Hacking',
         themes: [
-            [root+'hacking/xss',            'XSS'],
-            [root+'hacking/sql-injection',  'SQL инъекции'],
+            [root+'hacking/xss',           'XSS'],
+            [root+'hacking/sql-injection', 'SQL инъекции'],
         ]
     },
 ]
