@@ -2,6 +2,21 @@ root = 'theory-paradigms/';
 
 ARR_MODULE = [
     {
+        title: 'ООП',
+        themes: [
+            [root+'oop/principles',       emoji.fire+'Принципы'],
+            [root+'oop/access-modifiers', 'Модификаторы доступа'],
+        ]
+    },
+    {
+        title: 'ФП',
+        themes: [
+            [root+'fp/functional', emoji.theory+'Информация'],
+            [root+'fp/concept',    emoji.fire+'Концепции'],
+            [root+'fp/currying',   'Каррирование / Частичное применение функций'],
+        ]
+    },
+    {
         title: 'Стандарты кода',
         themes: [
             [root+'best-practices/dry',           emoji.chevron+'DRY'],
@@ -13,37 +28,23 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'ФП',
-        themes: [
-            [root+'fp/functional',     emoji.theory+'Информация'],
-            [root+'fp/concept',        emoji.fire+'Концепции'],
-            [root+'fp/currying',       'Каррирование / Частичное применение функций'],
-        ]
-    },
-    {
-        title: 'ООП',
-        themes: [
-            [root+'oop/principles',       emoji.fire+'Принципы'],
-            [root+'oop/access-modifiers', 'Модификаторы доступа'],
-        ]
-    },
-    {
         title: 'Основное',
         themes: [
             getLink(root, 'info'),
-            [root+'main/imperative',     '1. Императивное'],
-            [root+'main/declarative',    '2. Декларативное'],
-            [root+'main/composition',    'Композиция'],
+            [root+'main/imperative',  '1. Императивное'],
+            [root+'main/declarative', '2. Декларативное'],
+            [root+'main/composition', 'Композиция'],
         ]
     },
     {
         title: '< / >',
         themes: [
-            [root+'main/ddd',                  'DDD'],
-            [root+'main/SDLC',                 'SDLC'],
-            [root+'main/cqrs',                 'CQRS'],
-            [root+'main/event-sourcing',       'Event Sourcing'],
-            [root+'main/reactive-programming', 'Реактивное программирование'],
+            [root+'main/ddd',                       emoji.chevron+'DDD'],
+            [root+'main/SDLC',                      emoji.chevron+'SDLC'],
+            [root+'main/cqrs',                      emoji.chevron+'CQRS'],
+            [root+'main/event-sourcing',            emoji.chevron+'Event Sourcing'],
+            [root+'main/reactive-programming',      'Reactive Programming'],
+            [root+'main/architectural-methodology', 'Architectural Methodology'],
         ]
     },
 ]
