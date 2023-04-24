@@ -5,14 +5,20 @@ http-server # start app
 ```
 
 ```bash
-npm run build   # [node.js] build full pages (после изменения темы)
-npm run pages   # [node.js] build pages (после добавления новой страницы)
-npm run filles  # build + pages
+npm run build   # [Node.js] build full pages (после изменения темы)
+npm run pages   # [Node.js] build pages (после добавления новой страницы)
+npm run deploy  # build + pages
 ```
 
 ---
 
 ## Todo
+
+### Global
+- Переписать на ES6 Modules
+- Переписать на Parcel
+- Поддержка Markdown
+- Сделать либу для установки через NPM
 
 ### Themes
 - `<v-copy>` не работает в build
@@ -30,13 +36,7 @@ npm run filles  # build + pages
 - Не подставлять эмодзи в title и название раздела в левом меню
 - Добавить SUB-TITLE
 - Ссылка на главную
-
 - Добавить нумерацию тем (опционально)
-
-### Global
-- Переписать на Parcel
-- Поддержка Markdown
-- Сделать либу для установки через NPM
 
 ### Other
 - Открыть страницу в Visual Studio Code

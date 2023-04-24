@@ -15,7 +15,7 @@ ARR_LINKS.forEach(module => {
         const page = getIndexHTML({
             up: '../',
             title: module.title,
-            script: module.page,
+            page: module.page,
             menu: null,
             content: null,
         });

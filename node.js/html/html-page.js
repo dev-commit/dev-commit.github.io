@@ -27,7 +27,7 @@ const getMenuHTML = () => (`
     </slot>
 `)
 
-export const getIndexHTML = ({ up, title, script, menu, content }) => (`
+export const getIndexHTML = ({ up, title, page, menu, content }) => (`
     <!DOCTYPE html>
         <html>
         <head>
@@ -38,7 +38,7 @@ export const getIndexHTML = ({ up, title, script, menu, content }) => (`
 
             <script src="${up}src/js/utils.js"></script>
             <!-- Own JavaScript -->
-            <script src="${up}@modules/build-${script}.js"></script>
+            <script src="${up}@themes/${page}/build-${page}.js"></script>
         </head>
         <body>
 
