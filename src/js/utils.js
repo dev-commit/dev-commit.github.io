@@ -67,11 +67,6 @@ function setTheme(tag, arr) {
 
 var up = `<u-inline-border></u-inline-border>`;
 
-function styleSubHeader(content) {
-    const str = `<b style="color: #4707b7">${content}</b>`;
-    return str;
-}
-
 function setHighlightCode() {
     document.querySelectorAll('pre code').forEach((block) => {
         hljs.highlightBlock(block);

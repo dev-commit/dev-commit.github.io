@@ -32,7 +32,7 @@ ARR_MODULE = [
         ]
     },
     {
-        title: styleSubHeader('Дочерний блок'),
+        title: 'Дочерний блок',
         child: true,
         themes: [
             ['', ''],

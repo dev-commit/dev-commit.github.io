@@ -30,13 +30,6 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Модули',
-        themes: [
-            [root+'modules/module-system', 'Модульная система'],
-            [root+'modules/module-es6',    'Модули (ES6)'],
-        ]
-    },
-    {
         title: 'Основное',
         themes: [
             [root+'main/context',           emoji.baseball+'Контекст'],

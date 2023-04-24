@@ -23,7 +23,7 @@ ARR_MODULE = [
     },
     { title: 'Методы', },
     {
-        title: styleSubHeader('Redux'),
+        title: 'Redux',
         child: true,
         themes: [
             [root+'methods/create-store',      up+setTheme(1, ['createStore'])],
@@ -32,7 +32,7 @@ ARR_MODULE = [
         ]
     },
     {
-        title: styleSubHeader('React-Redux'),
+        title: 'React-Redux',
         child: true,
         themes: [
             [root+'methods/provider',          setTheme(3, ['Provider'])],

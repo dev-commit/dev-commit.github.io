@@ -1,0 +1,39 @@
+<h2>ES6 Modules (Node.js, Browser)</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование в браузере</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-sandbox url="https://codesandbox.io/s/oj2rwm9v35" />
+
+<v-code lang="html red" title="">
+&lt;!-- Использование в браузере --&gt;
+&lt;script type="module"&gt;&lt;/script&gt;
+
+&lt;!-- Подключение модуля из внешнего файла --&gt;
+&lt;script type="module" import="main.js"&gt;&lt;/script&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование ES6 модулей с JavaScript (из браузера)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Для работы модулей, их необходимо запускать на сервере</li>
+    <li>Указвать <u>type="module"</u> в сукрипте</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование с Node.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Node.js будет рассматривать файлы <u-code-text>.cjs</u-code-text> как модули CommonJS, а файлы <u-code-text>.mjs</u-code-text> — как модули ECMAScript</li>
+    <li>Если указан файл <u-code-text>.js</u-code-text>, то будет обработан как модульная система по умолчанию - CommonJS</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Использование ES6 модулей с Node.js</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u>Вариант 1</u>: Изменить файлы с ".js" -> ".mjs"</li>
+    <li><u>Вариант 2</u>: Добавить файл package.json и прописать { "type": "module" }</li>
+</ul>

@@ -57,8 +57,24 @@ ARR_MODULE = [
     {
         title: 'Модули',
         themes: [
-            [root+'modules/structure', emoji.theory+'Структура модуля'],
-            [root+'modules/require',   setTheme(1, ['require', 'module.exports'])],
+            [root+'modules/module-system',        emoji.theory+'Модульная система'],
         ]
     },
+    {
+        title: 'ES6 Modules',
+        child: true,
+        themes: [
+            [root+'modules/module-es6-command',   setTheme(1, ['import', 'export'])],
+            [root+'modules/module-es6-use',       'Usage Node.js, Browser'],
+        ]
+    },
+    {
+        title: 'RequireJS',
+        child: true,
+        themes: [
+            [root+'modules/require-js-structure', emoji.theory+'Структура модуля'],
+            [root+'modules/require-js-command',   setTheme(1, ['require', 'module.exports'])],
+        ]
+    },
+
 ]

@@ -213,16 +213,40 @@
         <li>
             <a
                 class="menu-link"
-                id="id__node-js/modules/structure"
-                href="#node-js/modules/structure"
+                id="id__node-js/modules/module-system"
+                href="#node-js/modules/module-system"
+            >📑 Модульная система</a>
+        </li>
+    </ul><h4>🥥 ES6 Modules</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js/modules/module-es6-command"
+                href="#node-js/modules/module-es6-command"
+            ><u-menu>import</u-menu> <u-menu>export</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js/modules/module-es6-use"
+                href="#node-js/modules/module-es6-use"
+            >Usage Node.js, Browser</a>
+        </li>
+    </ul><h4>🥥 RequireJS</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__node-js/modules/require-js-structure"
+                href="#node-js/modules/require-js-structure"
             >📑 Структура модуля</a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__node-js/modules/require"
-                href="#node-js/modules/require"
+                id="id__node-js/modules/require-js-command"
+                href="#node-js/modules/require-js-command"
             ><u-menu>require</u-menu> <u-menu>module.exports</u-menu></a>
         </li>
     </ul>
@@ -1201,7 +1225,192 @@ npm i --save <u-code-accent>rimraf</u-code-accent>
 <v-code lang="js border" title="">
 const rimraf = require('rimraf');
 </v-code>
-</div><div id="node-js/modules/structure"><h2>Структура модуля</h2>
+</div><div id="node-js/modules/module-system"><h2>Модульная система</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Стандарты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Паттерн "Модуль" <i>2003 год</i></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Немедленно вызываемая функция, образующая приватную область видимости</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. CommonJS (CJS) <i>2009 год</i></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>module.exports -> require</u-code-text></li>
+    <li>Реализация: <a href="https://nodejs.org/api/modules.html" target="_blank">Модульная система Node.js</a></li>
+    <li>Предназначен для синхронной загрузки. Преимущественно используется на стороне сервера</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Asynchronous Module Definition (AMD) <i>2009 год</i></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>define -> require</u-code-text></li>
+    <li>Реализация: <a href="https://requirejs.org/" target="_blank">RequireJS</a></li>
+    <li>Предназначен для асинхронной загрузки. Преимущественно используется на стороне клиента</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>4. Universal Module Definition (UMD) <i>2011 год</i></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Объединение AMD и CommonJS</li>
+    <li>Суть подхода: проверить существование функции define и если она есть определить модуль в формате AMD, а если нет, в формате CommonJS</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>5. Модули ES6 <i>2015 год</i></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>export -> import</u-code-text></li>
+</ul>
+</div><div id="node-js/modules/module-es6-command"><h2>Модули ES6</h2>
+
+<u-link-wrapper>
+	<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/import" target="_blank">import</a>
+	<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/export" target="_blank">export</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+	<b>Особенности</b>
+	<li>Не блокируют парсинг html</li>
+	<li>Выполняются отложенно</li>
+	<li>Имею свою область видимости</li>
+	<li>Код модуля всегда выполняется в строгом режиме</li>
+	<li>Для экспорта обязательно нужно имя</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>import</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import MyClass from './modules/lib';                   // значение экспортированное по умолчанию  
+import { libFunction } from './modules/lib';           // одно значение
+import { libFunction, libConst } from './modules/lib'; // несколько значений
+import { libConst as name } from './modules/lib';      // изменение имени значения
+import './modules/lib' as obj;                         // импорт модуля как объекта, значениями свойств которого будут экспортированные значения (obj.libConst)
+import * as obj from './modules/lib';                  // импорт модуля как объекта
+import './modules/lib'                                 // импорт всех данных (в "./modules/lib" нет "export"), запуск кода из модуля
+import MyClass, { libFunction } from './modules/lib';  // совмещение различных видов
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>export</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+export default MyClass;               // экспорт по умолчанию
+export const a = 22;                  // одно значение
+export { one, two };                  // несколько значений (const one, const two)
+export { one as once, two as twice }; // изменение имени значения
+
+export function libFunction() {
+    console.log(libFunction);
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Экспорт компонента по умолчанию</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+./src/components/App/App.js
+./src/components/App/index.js
+./src/components/OtherComponent/OtherComponent.js
+</v-code>
+
+<v-code lang="js border" title="App">
+const App = () => {
+	//
+};
+
+export default App;
+</v-code>
+
+<v-code lang="js border" title="index.js">
+// Вариант 1
+export { default } from './App';
+
+// Вариант 2
+import App from './App';
+export default App;
+</v-code>
+
+<v-code lang="js border" title="OtherComponent">
+// не нужно указывать полный путь: ./src/components/App/App.js
+import App from '../App';
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>export default class</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="Именованный класс;Анонимный класс">
+<template v-slot:first>
+export default class User {
+	constructor(name) {
+		this.name = name;
+	}
+};
+
+import User from './modules/lib';
+let user = new User('Jane'); // => User {name: "Jane"}
+</template>
+<template v-slot:last>
+export default class { 
+	constructor(name) {
+		this.name = name;
+	}
+};
+
+import User from './modules/lib';
+let user = new User('Jane'); // => _default {name: "Jane"}
+</template>
+</v-two-code>
+</div><div id="node-js/modules/module-es6-use"><h2>ES6 Modules (Node.js, Browser)</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование в браузере</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-sandbox url="https://codesandbox.io/s/oj2rwm9v35" />
+
+<v-code lang="html red" title="">
+&lt;!-- Использование в браузере --&gt;
+&lt;script type="module"&gt;&lt;/script&gt;
+
+&lt;!-- Подключение модуля из внешнего файла --&gt;
+&lt;script type="module" import="main.js"&gt;&lt;/script&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование ES6 модулей с JavaScript (из браузера)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Для работы модулей, их необходимо запускать на сервере</li>
+    <li>Указвать <u>type="module"</u> в сукрипте</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование с Node.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Node.js будет рассматривать файлы <u-code-text>.cjs</u-code-text> как модули CommonJS, а файлы <u-code-text>.mjs</u-code-text> — как модули ECMAScript</li>
+    <li>Если указан файл <u-code-text>.js</u-code-text>, то будет обработан как модульная система по умолчанию - CommonJS</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Использование ES6 модулей с Node.js</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u>Вариант 1</u>: Изменить файлы с ".js" -> ".mjs"</li>
+    <li><u>Вариант 2</u>: Добавить файл package.json и прописать { "type": "module" }</li>
+</ul>
+</div><div id="node-js/modules/require-js-structure"><h2>Структура модуля</h2>
 
 <ul class="list-point">
     <li>В основе модуля лежит <u>функция</u></li>
@@ -1224,7 +1433,7 @@ const rimraf = require('rimraf');
     <li><u-code-light>__filename</u-code-light> - путь до текущего файла</li>
 </ul>
 
-</div><div id="node-js/modules/require"><h2>
+</div><div id="node-js/modules/require-js-command"><h2>
     <u-code-text>require</u-code-text>
     <u-code-text>module.exports</u-code-text>
 </h2>

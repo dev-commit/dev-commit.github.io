@@ -57,35 +57,16 @@ ARR_MODULE = [
     {
         title: 'Структуры',
         accent: true,
-    },
-    {
-        title: styleSubHeader('type'),
-        child: true,
         themes: [
-            [root+'type/type',      emoji.unicorn+'Основы'],
+            [root+'type/type',      emoji.fire+'TYPE'],
             [root+'type/combine',   'Комбинация типов'],
-        ]
-    },
-    {
-        title: styleSubHeader('enum'),
-        child: true,
-        themes: [
-            [root+'enum/main',  emoji.unicorn+'Основы'],
-        ]
-    },
-    {
-        title: styleSubHeader('function'),
-        child: true,
-        themes: [
-            [root+'function/main',               emoji.unicorn+'Основы'],
+
+            [root+'enum/main',  emoji.fire+'ENUM'],
+
+            [root+'function/main',               emoji.fire+'FUNCTION'],
             [root+'function/functions-overload', 'Перегрузка функций'],
-        ]
-    },
-    {
-        title: styleSubHeader('class'),
-        child: true,
-        themes: [
-            [root+'class/main',         emoji.unicorn+'Основы'],
+
+            [root+'class/main',         emoji.fire+'CLASS'],
             [root+'class/modificator',  'Модификаторы полей'],
             [root+'class/abstract',     'Абстрактные классы'],
         ]
