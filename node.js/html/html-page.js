@@ -11,7 +11,7 @@ const getMenuHTML = () => (`
         ></h4>
         <ul>
             <slot v-for="(itemTheme, i) in itemTitle.themes">
-                <li v-if="itemTheme[0]">
+                <li v-if="itemTheme[0]" :class="itemTheme[2] && 'child'">
                     <a
                         class="menu-link"
                         :id="itemTheme[0]+'link'"
