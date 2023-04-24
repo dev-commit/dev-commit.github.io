@@ -1,4 +1,4 @@
-root = 'terminal/';
+root = 'cmd/';
 
 ARR_MODULE = [
     {
