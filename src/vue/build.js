@@ -56,7 +56,6 @@ new Vue({
         pageName: '',
     },
     mounted() {
-
         this.linksContent = ARR_LINKS;
     },
     updated() {
