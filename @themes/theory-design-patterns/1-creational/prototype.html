@@ -1,0 +1,30 @@
+<h2>Prototype</h2>
+
+<ul class="list-point">
+    <li>Можно создавать объекты, взяв за основу другие объекты</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+const car = {
+	wheels: 4,
+	init() {
+		console.log(this.wheels, this.owner)
+	}
+}
+
+// car - будет прототипом для carWithOwner
+const carWithOwner = Object.create(car, {
+  owner: {
+    value: 'Jack'
+  }
+})
+
+console.log(carWithOwner.__proto__ === car) // => true
+
+carWithOwner.init()
+</v-code>

@@ -1,0 +1,106 @@
+<h2>Factory</h2>
+
+<ul class="list-point">
+    <li>Есть коллекция элементов, похожих по фунцкионалу</li>
+    <li>Необходимо создавать инстансы для объектов определеного типа, но меняя значения</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример с разными видами подписки</h4>
+<!------------------------------------------------------------->
+
+<v-code lang="js" title="">
+class SimpleMembership {
+	constructor(name) {
+		this.name = name
+		this.cost = 50
+	}
+}
+
+class StandardMembership {
+	constructor(name) {
+		this.name = name
+		this.cost = 150
+	}
+}
+
+class PremiumMembership {
+	constructor(name) {
+		this.name = name
+		this.cost = 500
+	}
+}
+
+// Абстракция, которая объединяет классы SimpleMembership, StandardMembership и PremiumMembership
+// и определяет какой инстанс создавать в зависимости от типа
+class MemberFactory {
+	// Объект с ссылками на классы
+	static list = {
+		simple: SimpleMembership,
+		standard: StandardMembership,
+		premium: PremiumMembership
+	}
+	
+	// Создание нужного инстанса и возвращение его
+	create(name, type = 'simple') {
+		// Класс в соответствии с типом
+		const Membership = MemberFactory.list[type] || MemberFactory.list.simple
+		const member = new Membership(name)
+		// Модификация инстанса
+		member.type = type
+		member.define = function() {
+			console.log(this.name, this.type, this.cost)
+		}
+		return member
+	}
+}
+
+const factory = new MemberFactory()
+
+const members = [
+	factory.create('Vladilen', 'simple'),
+	factory.create('Elena', 'premium'),
+	factory.create('Vasilisa', 'standard'),
+	factory.create('Ivan', 'premium'),
+	factory.create('Petr')
+]
+
+members.forEach(m => {
+	m.define()
+})
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример простой фабрики</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class WoodenDoor {
+    constructor(width, height){
+        this.width = width
+        this.height = height
+    }
+    getWidth(){
+        return this.width
+    }
+    getHeight(){
+        return this.height
+    }
+}
+
+const DoorFactory = {
+    makeDoor(width, height) {
+        return new WoodenDoor(width, height); 
+    }
+}
+
+const door = DoorFactory.makeDoor(100, 200)
+console.log('Width:', door.getWidth())
+console.log('Height:', door.getHeight())
+</v-code>
+
+

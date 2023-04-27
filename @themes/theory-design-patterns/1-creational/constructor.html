@@ -1,0 +1,42 @@
+<h2>Constructor</h2>
+
+<ul class="list-point">
+    <li>Создание новых объетов определенного типа</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Class Implementation (ES6)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class Server {
+	constructor(name, ip) {
+		this.name = name
+		this.ip = ip
+	}
+	getUrl() {
+		return `https://${this.ip}:80`
+	}
+}
+
+const aws = new Server('AWS German', '82.21.21.32')
+console.log(aws.getUrl())
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Function Implementation (ES5)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function Server(name, ip) {
+	this.name = name
+	this.ip = ip
+}
+
+Server.prototype.getUrl = function() {
+	return `https://${this.ip}:80`
+}
+</v-code>

@@ -35,8 +35,45 @@ console.log(a === b); // <u-code>false</u-code>
 <!------------------------------------------------------------->
 <h4>Class Implementation (ES6)</h4>
 <!------------------------------------------------------------->
-<v-two-code type="js border;js border" comment="Sample 1;Sample 2">
-<template v-slot:first>
+<v-two><template v-slot:first>
+<b>Использование статического свойства в constructor</b>
+<v-code lang="js border" title="">
+class Singleton {
+    constructor() {
+        if (!Singleton.instance) {
+            Singleton.instance = this;
+        }
+        return Singleton.instance;
+    }
+}
+
+const a = new Singleton();
+const b = new Singleton();
+console.log(a === b); // <u-code>true</u-code>
+</v-code>
+
+<i>К статичному свойству можно обращаться не создавая инстанса класса</i>
+
+<v-details title="Аналогичный вариант">
+<v-code lang="js border" title="">
+class Singleton {
+    constructor() {
+        const instance = this.constructor.instance;
+        if (!instance) {
+            this.constructor.instance = this;
+        }
+        return instance;
+    }
+}
+
+const a = new Singleton();
+const b = new Singleton();
+console.log(a === b); // <u-code>true</u-code>
+</v-code>
+</v-details>
+</template><template v-slot:last>
+<b>Использование глобальной переменной</b>
+<v-code lang="js border" title="">
 let instance = null;
 
 class Singleton {
@@ -51,23 +88,8 @@ class Singleton {
 const a = new Singleton();
 const b = new Singleton();
 console.log(a === b); // <u-code>true</u-code>
-</template>
-<template v-slot:last>
-class Singleton {
-    constructor() {
-        const instance = this.constructor.instance;
-        if(!instance) {
-            this.constructor.instance = this;
-        }
-        return instance;
-    }
-}
-
-const a = new Singleton();
-const b = new Singleton();
-console.log(a === b); // <u-code>true</u-code>
-</template>
-</v-two-code>
+</v-code>
+</template></v-two>
 
 <!------------------------------------------------------------->
 <h4>Function Implementation (ES5)</h4>
@@ -79,7 +101,7 @@ const Singleton = (function(){
     let instance = null;
     return function() {
         if (!instance) {
-            instance = this
+            instance = this;
         }
         return instance;
     };
@@ -146,7 +168,37 @@ const user = {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
-<h4>1. Модальное окно</h4>
+<h4>1. Работа с БД</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Чтобы избежать лишних подключений к БД</li>
+    <li>Класс-менеджер для работы с базой данных: класс, который управляет соединением с базой данных и обеспечивает выполнение запросов к базе данных. Используется паттерн Singleton, чтобы гарантировать, что все запросы выполняются через единственное соединение с базой данных</li>
+</ul>
+
+<v-code lang="js" title="">
+class Database {
+    constructor(data) {
+        if (Database.exists) {
+            return Database.instance;
+        }
+        Database.instance = this;
+        Database.exists = true;
+        this.data = data;
+    }
+    getData() {
+        return this.data;
+    }
+}
+
+const mongo = new Database('MongoDB');
+console.log(mongo.getData()); //=> "MongoDB"
+
+const mysql = new Database('MySQL');
+console.log(mysql.getData()); // => "MongoDB"
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Модальное окно</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 class Modal {
@@ -168,24 +220,17 @@ console.log(a === b); // true
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>2. Логгер</h4>
+<h4>3. Логгер</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li>Логгер: класс, который записывает информацию о событиях в приложении. Часто используется для отладки. Для того, чтобы сохранить все записи в одном месте и не допустить перезаписи уже сохраненной информации, используется паттерн Singleton</li>
 </ul>
 
 <!------------------------------------------------------------->
-<h4>3. Конфигурация приложения</h4>
+<h4>4. Конфигурация приложения</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li>Конфигурация приложения: класс, который хранит настройки и конфигурационные параметры приложения. Используется паттерн Singleton, чтобы гарантировать, что все экземпляры приложения используют одни и те же настройки.</li>
-</ul>
-
-<!------------------------------------------------------------->
-<h4>4. Класс-менеджер</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li>Класс-менеджер для работы с базой данных: класс, который управляет соединением с базой данных и обеспечивает выполнение запросов к базе данных. Используется паттерн Singleton, чтобы гарантировать, что все запросы выполняются через единственное соединение с базой данных.</li>
 </ul>
 
 <!------------------------------------------------------------->
@@ -193,4 +238,11 @@ console.log(a === b); // true
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li>В сервисе родительского компонента может храниться state. Когда дочерний компонент будет обращаться к сервису родительского компонента, то state будет доступен для него. При отсутсвии Singleton создался бы новый экземпляр класса без сохранения state для других компонентов</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>6. Корзина покупок</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Корзина покупок в интернет-магазине</li>
 </ul>

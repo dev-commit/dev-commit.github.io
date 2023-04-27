@@ -44,7 +44,7 @@ function checkPermissionDecorator(f) {
         if (isAdmin()) {
             return f.apply(this, arguments);
         }
-            alert( 'Недостаточно прав' );
+        alert('Access is denied');
     }
 }
 
