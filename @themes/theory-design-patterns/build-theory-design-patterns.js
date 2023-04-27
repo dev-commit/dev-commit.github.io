@@ -11,7 +11,7 @@ ARR_MODULE = [
         title: '1. Creational (Порождающие)',
         selected: true,
         themes: [
-            [root+'1-creational/singleton',      setTheme(5, ['Singleton'])],
+            [root+'1-creational/singleton',      up+setTheme(5, ['Singleton'])],
             [root+'1-creational/builder',        setTheme(5, ['Builder'])],
             [root+'1-creational/simple-factory', setTheme(4, ['Простая фабрика'])],
         ]

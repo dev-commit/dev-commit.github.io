@@ -39,7 +39,7 @@
                 class="menu-link"
                 id="id__theory-design-patterns/1-creational/singleton"
                 href="#theory-design-patterns/1-creational/singleton"
-            ><u-menu-outline>Singleton</u-menu-outline></a>
+            ><u-inline-border></u-inline-border><u-menu-outline>Singleton</u-menu-outline></a>
         </li>
     
         <li>
@@ -205,50 +205,102 @@
     <li><u>Стандартизация кода</u>. Меньше просчётов при проектировании, используя типовые унифицированные решения, т.к. большинство скрытых проблем уже найдено</li>
     <li><u>Общий программистский словарь</u>. Другие разработчики узнают паттерн по названию</li>
 </ul>
-</div><div id="theory-design-patterns/1-creational/singleton"><h2>Паттерн «Синглтон»</h2>
+</div><div id="theory-design-patterns/1-creational/singleton"><h2>Singleton (Синглтон)</h2>
 
 <ul class="list-point">
-    <li><u-text-define>«Синглтон» (Singleton)</u-text-define> порождающий паттерн проектирования, гарантирующий что у класса есть только один экземпляр, и предоставляет к нему глобальную точку доступа в однопоточном приложении</li>
-    <li>В рамках применения этого паттерна новый экземпляр некоего класса создаётся в том случае, если он пока не создан. Если же экземпляр класса уже существует, то, при попытке обращения к конструктору, возвращается ссылка на соответствующий объект. Последующие вызовы конструктора всегда будут возвращать тот же самый объект</li>
-
-    <li><b>Зачем:</b> Использование конструктора плохая практика, особенно если у класса есть зависимости const user = new User()</li>
-    <li><b>Применение</b>: сервисы в Angular</li>
+    <li><u-text-define>«Синглтон» (Singleton)</u-text-define> порождающий паттерн проектирования, гарантирующий что у класса есть только один экземпляр, и предоставляющий к нему глобальную точку доступа в однопоточном приложении</li>
+    <li>В рамках применения этого паттерна новый экземпляр класса создаётся в том случае, если он пока не создан. Если же экземпляр класса уже существует, то, при попытке обращения к конструктору, возвращается ссылка на соответствующий объект. Последующие вызовы конструктора всегда будут возвращать тот же самый объект</li>
 </ul>
 
 <!------------------------------------------------------------->
 <h4>Какие проблемы решает</h4>
 <!------------------------------------------------------------->
 <ol class="list-num">
-    <li><u-code>Гарантирует наличие единственного экземпляра класса</u-code> Чаще всего это полезно для доступа к какому-то общему ресурсу, например, базе данных. Такое поведение невозможно реализовать с помощью обычного конструктора, так как конструктор класса всегда возвращает новый объект</li>
-    <li><u-code>Предоставляет глобальную точку доступа</u-code> Это не просто глобальная переменная, через которую можно достучаться к определённому объекту. Глобальные переменные не защищены от записи, поэтому любой код может подменять их значения без вашего ведома</li>
+    <li><u>Гарантирует наличие единственного экземпляра класса</u>. Чаще всего это полезно для доступа к какому-то общему ресурсу, например, базе данных. Такое поведение невозможно реализовать с помощью обычного конструктора, так как конструктор класса всегда возвращает новый объект</li>
+    <li><u>Предоставляет глобальную точку доступа</u>. Это не просто глобальная переменная, через которую можно достучаться к определённому объекту. Глобальные переменные не защищены от записи, поэтому любой код может подменять их значения без вашего ведома</li>
 </ol>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Представление класса в виде синглтона</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
 <h4>Обычный класс a !== b</h4>
 <!------------------------------------------------------------->
-<v-code lang="js" title="">
+<v-code lang="js none" title="">
 class usualClass {
-    constructor() {
-        // this.name = null;
-    }
-    testMethod() {
-        return 'Hello'
-    }
+    constructor() {}
+    method() {}
 }
 
 const a = new usualClass();
 const b = new usualClass();
-<u-code>console.log(a === b); // false</u-code>
-console.log(a.testMethod());
+console.log(a === b); // <u-code>false</u-code>
 </v-code>
 
-<v-two-code type="js;js" comment="Singleton ES5;Singleton ES6">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты Singleton</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Class Implementation (ES6)</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js border;js border" comment="Sample 1;Sample 2">
 <template v-slot:first>
-const Universe = (function(){
+let instance = null;
+
+class Singleton {
+    constructor() {
+        if(!instance){
+            instance = this;
+        }
+        return instance;
+    }
+}
+
+const a = new Singleton();
+const b = new Singleton();
+console.log(a === b); // <u-code>true</u-code>
+</template>
+<template v-slot:last>
+class Singleton {
+    constructor() {
+        const instance = this.constructor.instance;
+        if(!instance) {
+            this.constructor.instance = this;
+        }
+        return instance;
+    }
+}
+
+const a = new Singleton();
+const b = new Singleton();
+console.log(a === b); // <u-code>true</u-code>
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Function Implementation (ES5)</h4>
+<!------------------------------------------------------------->
+<v-two><template v-slot:first>
+<b>Только Singleton</b>
+<v-code lang="js border" title="">
+const Singleton = (function(){
+    let instance = null;
+    return function() {
+        if (!instance) {
+            instance = this
+        }
+        return instance;
+    };
+})();
+
+const a = new Singleton();
+const b = new Singleton();
+console.log(a === b); // <u-code>true</u-code>
+</v-code>
+</template><template v-slot:last>
+<b>Singleton и методы</b>
+<v-details title="Code">
+<v-code lang="js" title="">
+const Singleton = (function(){
     let instance = null;
     function func() {
         if (!instance) {
@@ -266,37 +318,26 @@ const Universe = (function(){
     return func;
 })();
 
-const a = new Universe();
-const b = new Universe();
+const a = new Singleton();
+const b = new Singleton();
+console.log(a === b); // <u-code>true</u-code>
 
-<u-code>console.log(a === b); // true</u-code>
 console.log(a.getSize(), b.getSize()); // 100, 100
 a.setSize(200);
 console.log(a.getSize(), b.getSize()); // 200, 200
-</template>
-<template v-slot:last>
-const instance = null;
+</v-code>
+</v-details>
 
-class Singleton {
-    constructor() {
-        if(!instance){
-            instance = this;
-        }
-        return instance;
-    }
-}
-const a = new Singleton();
-const b = new Singleton();
-<u-code>console.log(a === b); // true</u-code>
-</template>
-</v-two-code>
+</template></v-two>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Представление класса в виде объектного литерала</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Представление класса в виде объектного литерала</h4>
+<!------------------------------------------------------------->
 <ul class="list-point">
-    <li>Всякий раз, когда мы обращаемся к переменной user, мы получаем ссылку на один и тот же объект</li>
+    <li>Всякий раз, при обращении к переменной user, мы получаем ссылку на один и тот же объект</li>
 </ul>
+
 <v-code lang="js" title="">
 const user = {
     name: 'Tony',
@@ -305,6 +346,61 @@ const user = {
     }
 };
 </v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Применение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Модальное окно</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class Modal {
+    constructor() {
+        if (Modal.instance) {
+            return Modal.instance;
+        }
+        this.modalElement = document.createElement('div');
+        this.modalElement.className = 'modal';
+        Modal.instance = this;
+    }
+    open() {}
+    close() {}
+}
+
+const a = new Modal();
+const b = new Modal();
+console.log(a === b); // true
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Логгер</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Логгер: класс, который записывает информацию о событиях в приложении. Часто используется для отладки. Для того, чтобы сохранить все записи в одном месте и не допустить перезаписи уже сохраненной информации, используется паттерн Singleton</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Конфигурация приложения</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Конфигурация приложения: класс, который хранит настройки и конфигурационные параметры приложения. Используется паттерн Singleton, чтобы гарантировать, что все экземпляры приложения используют одни и те же настройки.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>4. Класс-менеджер</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Класс-менеджер для работы с базой данных: класс, который управляет соединением с базой данных и обеспечивает выполнение запросов к базе данных. Используется паттерн Singleton, чтобы гарантировать, что все запросы выполняются через единственное соединение с базой данных.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>5. Сервисы в Angular</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>В сервисе родительского компонента может храниться state. Когда дочерний компонент будет обращаться к сервису родительского компонента, то state будет доступен для него. При отсутсвии Singleton создался бы новый экземпляр класса без сохранения state для других компонентов</li>
+</ul>
 </div><div id="theory-design-patterns/1-creational/builder"><h2>Паттерн «Строитель»</h2>
 
 <ul class="list-point">

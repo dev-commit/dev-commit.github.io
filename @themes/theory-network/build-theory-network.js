@@ -2,9 +2,10 @@ root = 'theory-network/';
 
 ARR_MODULE = [
     {
-        title: 'Основное',
+        title: 'Теория',
         themes: [
-            getLink(root, 'info'),
+            [root+'theory/client-server', emoji.theory+'Client-Server'],
+            [root+'theory/url',           emoji.theory+'URL и URI'],
         ]
     },
     {
