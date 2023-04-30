@@ -9,7 +9,7 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Хуки',
+        title: 'Hooks',
         themes: [
             [root+'hooks/use-state',             setTheme(3, ['useState'])],
             [root+'hooks/use-effect',            setTheme(3, ['useEffect'])],
@@ -25,9 +25,18 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'Custom Hooks',
+        themes: [
+            [root+'custom-hooks/info',         emoji.theory+'Кастомные хуки'],
+            [root+'custom-hooks/use-debounce', setTheme(6, ['useDebounce'])],
+            [root+'custom-hooks/use-previous', setTheme(6, ['usePrevious'])],
+            [root+'custom-hooks/use-input',    setTheme(6, ['useInput'])],
+            [root+'custom-hooks/use-logger',   setTheme(6, ['useLogger'])],
+        ]
+    },
+    {
         title: 'Прочее',
         themes: [
-            [root+'other/custom-hooks',  emoji.theory+'Кастомные хуки'],
             [root+'other/questions',     emoji.theory+'Вопросы']
         ]
     },

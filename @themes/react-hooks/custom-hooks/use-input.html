@@ -1,0 +1,40 @@
+<h2>useInput</h2>
+
+<v-code lang="js step" title="">
+import React, { useState } from 'react';
+
+const useInput = (initialValue) => {
+	const [value, setValue] = useState(initialValue);
+
+    const onChange = event => setValue(event.target.value);
+	const clear = () =&gt; setValue('');
+
+	return {
+		bind: { value, onChange },
+		value,
+		clear
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Usage</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import React from 'react';
+
+const App = () => {
+	const input = <u-code-accent>useInput</u-code-accent>('');
+
+	return (
+		&lt;&gt;
+			&lt;input type="text" {...input.bind} /&gt;
+			&lt;button onClick={() =&gt; input.clear()}&gt;Очистить&lt;/button&gt;
+			&lt;span&gt;{input.value}&lt;/span&gt;
+		&lt;/&gt;
+	)
+}
+</v-code>
+
+
+

@@ -1,0 +1,31 @@
+<h2>useLogger</h2>
+
+<v-code lang="js step" title="">
+import React, { useState, useEffect } from 'react';
+
+const useLogger = (value) => {
+	useEffect(() =&gt; {
+		console.log('Value changed: ', value);
+	}, [value]);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Usage</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const App = () => {
+	const [value, setValue] = useState('');
+
+	<u-code-accent>useLogger</u-code-accent>(value);
+
+	const onChange = e => setValue(e.target.value);
+
+	return (
+		&lt;&gt;
+			&lt;input type="text" value={value} onChange={onChange} /&gt;
+			&lt;h1&gt;{value}&lt;/h1&gt;
+		&lt;/&gt;
+	)
+}
+</v-code>

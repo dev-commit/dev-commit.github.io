@@ -9,13 +9,20 @@ ARR_MODULE = [
     },
     {
         title: 'Структуры данных',
+    },
+    {
+        title: 'Линейные',
+        child: true,
         themes: [
-            // TODO SUB-TITLE: Линейные
             [root+'structures/stack',        emoji.star+'Стек'],
             [root+'structures/queue',        emoji.star+'Очередь'],
             [root+'structures/list-linked',  emoji.star+'Связанный список'],
-
-            // TODO SUB-TITLE: Остальные
+        ]
+    },
+    {
+        title: 'Остальные',
+        child: true,
+        themes: [
             [root+'structures/set',          emoji.star+'Множество'],
             [root+'structures/map',          emoji.star+'Map'],
             [root+'structures/hash',         emoji.star+'Хэш-таблица'],
@@ -27,16 +34,16 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Примеры',
-        themes: [
-            [root+'samples/multiple-checks',    emoji.code+'Множественные проверки'],
-        ]
-    },
-    {
-        title: 'Структуры данных в JavaScript',
+        title: 'Структуры данных в JS',
         themes: [
             ['js/data-structures/map',        setTheme(1, ['Map', 'WeakMap'])],
             ['js/data-structures/set',        setTheme(1, ['Set', 'WeakSet'])],
+        ]
+    },
+    {
+        title: 'Примеры',
+        themes: [
+            [root+'samples/multiple-checks',    emoji.code+'Множественные проверки'],
         ]
     },
 ]

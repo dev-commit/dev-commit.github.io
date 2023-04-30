@@ -41,7 +41,7 @@
                 href="#react-hooks/main/memoization"
             >⭐️ useCallback vs useMemo</a>
         </li>
-    </ul><h4>🥥 Хуки</h4><ul>
+    </ul><h4>🥥 Hooks</h4><ul>
         <li>
             <a
                 class="menu-link"
@@ -121,15 +121,47 @@
                 href="#react-hooks/hooks/use-debug-value"
             ><u-menu>useDebugValue</u-menu></a>
         </li>
-    </ul><h4>🥥 Прочее</h4><ul>
+    </ul><h4>🥥 Custom Hooks</h4><ul>
         <li>
             <a
                 class="menu-link"
-                id="id__react-hooks/other/custom-hooks"
-                href="#react-hooks/other/custom-hooks"
+                id="id__react-hooks/custom-hooks/info"
+                href="#react-hooks/custom-hooks/info"
             >📑 Кастомные хуки</a>
         </li>
     
+        <li>
+            <a
+                class="menu-link"
+                id="id__react-hooks/custom-hooks/use-debounce"
+                href="#react-hooks/custom-hooks/use-debounce"
+            ><u-menu-gray>useDebounce</u-menu-gray></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__react-hooks/custom-hooks/use-previous"
+                href="#react-hooks/custom-hooks/use-previous"
+            ><u-menu-gray>usePrevious</u-menu-gray></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__react-hooks/custom-hooks/use-input"
+                href="#react-hooks/custom-hooks/use-input"
+            ><u-menu-gray>useInput</u-menu-gray></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__react-hooks/custom-hooks/use-logger"
+                href="#react-hooks/custom-hooks/use-logger"
+            ><u-menu-gray>useLogger</u-menu-gray></a>
+        </li>
+    </ul><h4>🥥 Прочее</h4><ul>
         <li>
             <a
                 class="menu-link"
@@ -1275,7 +1307,11 @@ eImperativeHandle(ref, createHandle, [deps])
 <v-code lang="js border" title="">
 useDebugValue(value)
 </v-code>
-</div><div id="react-hooks/other/custom-hooks"><h2>Создание собственных хуков</h2>
+</div><div id="react-hooks/custom-hooks/info"><h2>Создание собственных хуков</h2>
+
+<u-link-wrapper>
+    <a href="https://usehooks.com/" target="_blank">https://usehooks.com/</a>
+</u-link-wrapper>
 
 <ul class="list-point">
 	<li>Создание пользовательских хуков позволяет вам перенести логику компонентов в функции, которые можно повторно использовать</li>
@@ -1289,28 +1325,65 @@ useDebugValue(value)
 <ul class="list-point">
     <li>Хуки - это способ использовать повторно логику состояния, а не само состояние. Более того, каждое обращение к хуку обеспечивает совершенно изолированное состояние. Можно использовать один и тот же хук несколько раз в одном компоненте</li>
 </ul>
+</div><div id="react-hooks/custom-hooks/use-debounce"><h2>useDebounce</h2>
 
-<hr>
+<v-code lang="js step" title="">
+import React, { useState, useEffect } from 'react';
 
-<u-link-wrapper>
-    <a href="https://usehooks.com/" target="_blank">https://usehooks.com/</a>
-</u-link-wrapper>
+const useDebounce = (value, delay) => {
+    const [debouncedValue, setDebouncedValue] = useState(value);
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Примеры</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+    useEffect(() => {
+        const handler = setTimeout(() => {
+            setDebouncedValue(value);
+        }, delay)
+
+        return () => {
+            clearTimeout(handler);
+        }
+    }, [value])
+
+    return debouncedValue; 
+}
+</v-code>
 
 <!------------------------------------------------------------->
-<h4>useInput</h4>
+<h4>Usage</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-const useInput = (initialValue) =&gt; {
-	const [value, setValue] = useState(initialValue)
+const App = () => {
+	const [searchText, setSearchText] = useState('');
+	const debouncedSearchText = <u-code-accent>useDebounce</u-code-accent>(searchText, 300);
+	return {}
+}
+</v-code>
+</div><div id="react-hooks/custom-hooks/use-previous"><h2>usePrevious</h2>
 
-    const onChange = event => setValue(event.target.value)
-	const clear = () =&gt; setValue('')
+<v-code lang="js step" title="">
+import { useEffect, useRef } from 'react';
+
+const usePrevious = (value) => {
+    const ref = useRef();
+
+    useEffect(() => {
+        ref.current = value;
+    })
+
+    return ref.current;
+}
+</v-code>
+</div><div id="react-hooks/custom-hooks/use-input"><h2>useInput</h2>
+
+<v-code lang="js step" title="">
+import React, { useState } from 'react';
+
+const useInput = (initialValue) => {
+	const [value, setValue] = useState(initialValue);
+
+    const onChange = event => setValue(event.target.value);
+	const clear = () =&gt; setValue('');
 
 	return {
 		bind: { value, onChange },
@@ -1318,9 +1391,16 @@ const useInput = (initialValue) =&gt; {
 		clear
 	}
 }
+</v-code>
 
-const App = () =&gt; {
-	const input = <u-code>useInput</u-code>('')
+<!------------------------------------------------------------->
+<h4>Usage</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import React from 'react';
+
+const App = () => {
+	const input = <u-code-accent>useInput</u-code-accent>('');
 
 	return (
 		&lt;&gt;
@@ -1332,24 +1412,30 @@ const App = () =&gt; {
 }
 </v-code>
 
+
+
+</div><div id="react-hooks/custom-hooks/use-logger"><h2>useLogger</h2>
+
+<v-code lang="js step" title="">
+import React, { useState, useEffect } from 'react';
+
+const useLogger = (value) => {
+	useEffect(() =&gt; {
+		console.log('Value changed: ', value);
+	}, [value]);
+}
+</v-code>
+
 <!------------------------------------------------------------->
-<h4>useLogger</h4>
+<h4>Usage</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-import React, { useState, useEffect } from 'react'
+const App = () => {
+	const [value, setValue] = useState('');
 
-const useLogger = (value) =&gt; {
-	useEffect(() =&gt; {
-		console.log('Value changed: ', value)
-	}, [value])
-}
+	<u-code-accent>useLogger</u-code-accent>(value);
 
-const App = () =&gt; {
-	const [value, setValue] = useState('')
-
-	<u-code>useLogger</u-code>(value)
-
-	const onChange = e =&gt; setValue(e.target.value)
+	const onChange = e => setValue(e.target.value);
 
 	return (
 		&lt;&gt;

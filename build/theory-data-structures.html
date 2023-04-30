@@ -33,7 +33,7 @@
                 href="#theory-data-structures/main/info"
             >📑 Информация</a>
         </li>
-    </ul><h4>🥥 Структуры данных</h4><ul>
+    </ul><h4>🥥 Структуры данных</h4><ul></ul><h4>🥥 Линейные</h4><ul>
         <li>
             <a
                 class="menu-link"
@@ -57,7 +57,7 @@
                 href="#theory-data-structures/structures/list-linked"
             >⭐️ Связанный список</a>
         </li>
-    
+    </ul><h4>🥥 Остальные</h4><ul>
         <li>
             <a
                 class="menu-link"
@@ -121,15 +121,7 @@
                 href="#theory-data-structures/structures/heap"
             >⭐️ Куча</a>
         </li>
-    </ul><h4>🥥 Примеры</h4><ul>
-        <li>
-            <a
-                class="menu-link"
-                id="id__theory-data-structures/samples/multiple-checks"
-                href="#theory-data-structures/samples/multiple-checks"
-            >🧲 Множественные проверки</a>
-        </li>
-    </ul><h4>🥥 Структуры данных в JavaScript</h4><ul>
+    </ul><h4>🥥 Структуры данных в JS</h4><ul>
         <li>
             <a
                 class="menu-link"
@@ -144,6 +136,14 @@
                 id="id__js/data-structures/set"
                 href="#js/data-structures/set"
             ><u-menu>Set</u-menu> <u-menu>WeakSet</u-menu></a>
+        </li>
+    </ul><h4>🥥 Примеры</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__theory-data-structures/samples/multiple-checks"
+                href="#theory-data-structures/samples/multiple-checks"
+            >🧲 Множественные проверки</a>
         </li>
     </ul>
                 </div>
@@ -711,29 +711,6 @@ E, D, H, B, F, A, C, G
 ║ Delete    ║ O(log n)         ║ O(log n)      ║
 ║ Peek      ║ O(1)             ║ O(1)          ║
 </v-code>
-</div><div id="theory-data-structures/samples/multiple-checks"><h2>Множественные проверки</h2>
-
-<v-two-code type="js;js" comment="Неоптимально;Оптимально">
-<template v-slot:first>
-if (user.group === 'admin') {
-    alert('Hello Admin!');
-} else if (user.group === 'editor') {
-    alert('Hello Editor!');
-} else {
-    alert('Hello Iser!');
-}
-</template>
-<template v-slot:last>
-let vivas = {
-    admin: 'Admin',
-    editor: 'Editor',
-    user: 'User'
-}
-
-alert(`Hello ${user.group}`);
-</template>
-</v-two-code>
-
 </div><div id="js/data-structures/map"><h2>Коллекции Map и WeakMap (ES6)</h2>
 
 <ul class="list-point">
@@ -1083,6 +1060,29 @@ const difference = new Set([...a].filter(
 ))
 </v-code>
 </template></v-two>
+</div><div id="theory-data-structures/samples/multiple-checks"><h2>Множественные проверки</h2>
+
+<v-two-code type="js;js" comment="Неоптимально;Оптимально">
+<template v-slot:first>
+if (user.group === 'admin') {
+    alert('Hello Admin!');
+} else if (user.group === 'editor') {
+    alert('Hello Editor!');
+} else {
+    alert('Hello Iser!');
+}
+</template>
+<template v-slot:last>
+let vivas = {
+    admin: 'Admin',
+    editor: 'Editor',
+    user: 'User'
+}
+
+alert(`Hello ${user.group}`);
+</template>
+</v-two-code>
+
 </div></div>
                 </div>
             </div>
