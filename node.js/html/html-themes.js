@@ -21,7 +21,7 @@ export const getThemesHTML = (page) => {
     let menu = '';
 
     ARR_MODULE.forEach(({ title, themes }) => {
-        menu += `<h4>🥥 ${title}</h4>`;
+        menu += `<h4>🏷️ ${title}</h4>`;
         menu += '<ul>';
 
         themes && themes.forEach(elements => {

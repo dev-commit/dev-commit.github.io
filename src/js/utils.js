@@ -16,6 +16,8 @@ emoji = {
     chevron:   '🔰 ',
     unicorn:   '🦄 ',
     penguin:   '🐧 ',
+    coin:      '🪙 ',
+    label:     '🏷️ ',
 }
 
 // getLink(root, 'info'),      // => main/info

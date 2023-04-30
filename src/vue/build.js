@@ -4,7 +4,7 @@ new Vue({
     el: '#menu',
     data: {
         themesContent: null,
-        themesEmoji: '🥥',
+        themesEmoji: '🏷️ ',
         isHideMenu: null,
     },
     methods: {
