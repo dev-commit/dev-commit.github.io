@@ -9,13 +9,13 @@ ARR_MODULE = [
     },
     {
         title: 'Principles',
-        selected: true,
+        accent: true,
         themes: [
-            [root+'principles/1-srp',  emoji.star+'Single Responsibility'],
-            [root+'principles/2-ocp',  emoji.star+'Open Closed'],
-            [root+'principles/3-lsp',  emoji.star+'Liskov Substitution'],
-            [root+'principles/4-isp',  emoji.star+'Interface Segregation'],
-            [root+'principles/5-dip',  emoji.star+'Dependency Inversion'],
+            [root+'principles/1-srp',  '1. Single Responsibility'],
+            [root+'principles/2-ocp',  '2. Open Closed'],
+            [root+'principles/3-lsp',  '3. Liskov Substitution'],
+            [root+'principles/4-isp',  '4. Interface Segregation'],
+            [root+'principles/5-dip',  '5. Dependency Inversion'],
         ]
     },
 ]
