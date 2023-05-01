@@ -1,55 +1,169 @@
-<h2>Паттерн «Декоратор»</h2>
+<h2>Decorator (Декоратор)</h2>
 
 <ul class="list-point">
-    <li><u-text-define>«Декоратор»</u-text-define> - структурный паттерн проектирования, который позволяет динамически добавлять объектам новую функциональность, оборачивая их в полезные «обёртки»</li>
-    <li><u>Декораторы</u> - функции высшего порядка, которые принимают в качестве аргумента одну функцию и возвращают другую</li>
-    <li>Расширения функционала объектов без модификации существующих классов или функций-конструкторов. Паттерн можно использовать для добавления к объектам неких возможностей без модификации кода, который ответственен за их создание</li>
-    <li>Применяя «Декоратор», вы не меняете первоначальный класс и не создаёте дочерних классов</li>
-
-    <li>Декоратор - приём программирования, который позволяет взять существующую функцию и изменить/расширить ее поведение</li>
-    <li>Декоратор получает функцию и возвращает обертку, которая делает что-то своё «вокруг» вызова основной функции</li>
+    <li><u-text-define>Decorator</u-text-define> - позволяет расширить функционал <u>объектов</u> без модификации существующих классов/функций-конструкторов</li>
+    <li>Достигается путем оборачивания их в «обёртки» (декораторы)</li>
+    <li>Декоратор получает <u>объект</u>, модифицирует и возвращает обратно</li>
+    <li>Если декорируется функция, то декоратор - это <em>функция высшего порядка</em>, которая принимает в качестве аргумента функцию, модифицирует и возвращают ее</li>
 </ul>
 
+<v-two><template v-slot:first>
+<ul class="list-point">
+    <li><b>Декоратор в виде Function</b></li>
+</ul>
+<v-code lang="js border" title="">
+class User {
+	constructor(name) {
+		this.name = name;
+	}
+	getName() {
+		return this.name;
+	}
+}
+
+const decorator = (user, age) => {
+	// Добавление нового свойства
+	user.age = age;
+	// Добавление нового метода
+	user.getAge = function() {
+		return this.age;
+	}
+	// Модификация метода
+	user.getName = function() {
+		return this.name + ' Decorator';
+	}
+	return user;
+}
+
+const data = decorator(new User('Jack'), 23);
+
+const a1 = data.name;      // => "Jack"
+const a2 = data.age;       // => 23
+const a3 = data.getAge();  // => 23
+const a4 = data.getName(); // => "Jack Decorator"
+</v-code>
+</template><template v-slot:last>
+<ul class="list-point">
+    <li><b>Декоратор в виде Class</b></li>
+</ul>
+<v-code lang="js border" title="">
+class User {
+	constructor(name) {
+		this.name = name;
+	}
+	getName() {
+		return this.name;
+	}
+}
+
+class Decorator {
+	constructor(user, age) {
+		this.user = user;
+		this.name = user.name;
+        // Добавление нового свойства
+		this.age = age;
+  	}
+	// Добавление нового метода
+	getAge() {
+		return this.age;
+	}
+	// Модификация метода
+	getName() {
+		return this.user.getName() + ' Decorator';
+	}
+}
+
+const data = new Decorator(new User('Jack'), 23);
+
+const a1 = data.name;      // => "Jack"
+const a2 = data.age;       // => 23
+const a3 = data.getAge();  // => 23
+const a4 = data.getName(); // => "Jack Decorator"
+</v-code>
+</template></v-two>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
 <!------------------------------------------------------------->
-<h4>Пример #1</h4>
+<h4>Установка сервера</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-function Car(name) {
-    this.name = name;
-    this.color = 'White';
+class Server {
+	constructor(ip, port) {
+		this.ip = ip;
+		this.port = port;
+	}
+	get url() {
+		return `https://${this.ip}:${this.port}`;
+	}
 }
 
-// создание нового объекта, который планируется декорировать
-const tesla = new Car('Tesla Model 3');
-
-// декорирование объекта - добавление нового функционала
-tesla.setColor = function(color) {
-    this.color = color;
-}
-tesla.setPrice = function(price) {
-    this.price = price;
+function aws(server) {
+	server.isAWS = true;
+	server.awsInfo = function() {
+		return server.url;
+	}
+	return server;
 }
 
-tesla.setColor('black');
-tesla.setPrice(49000);
-console.log(tesla.color); // выводит black
+function azure(server) {
+	server.isAzure = true;
+	server.port += 500;
+	return server;
+}
+
+const s1 = aws(new Server('12.34.56.78', 8080));
+console.log(s1.isAWS);     // => true
+console.log(s1.awsInfo()); // => "https://12.34.56.78:8080"
+
+const s2 = azure(new Server('98.87.76.12', 1000));
+console.log(s2.isAzure); // => true
+console.log(s2.url);     // => "https://98.87.76.12:1500"
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>Пример #2. Декоратор проверки доступа</h4>
+<h4>Авто-дополнения</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-function checkPermissionDecorator(f) {
-    return function() {
-        if (isAdmin()) {
-            return f.apply(this, arguments);
-        }
-        alert('Access is denied');
-    }
+class Car {
+	constructor() {
+		this.price = 10000;
+		this.model = 'Car'
+	}
+	getPrice() {
+		return this.price;
+	}
+	getDescription() {
+		return this.model
+	}
 }
 
-function save() { ... }
+class Tesla extends Car {
+	constructor() {
+		super();
+		this.price = 25000;
+		this.model = 'Tesla';
+	}
+}
 
-save = checkPermissionDecorator(save);
-// Теперь вызов функции save() проверяет права
+class Autopilot {
+	constructor(car) {
+		this.car = car;
+  	}
+	getPrice() {
+		return this.car.getPrice() + 5000;
+	}
+	getDescription() {
+		return `${this.car.getDescription()} with autopilot`;
+	}
+}
+
+let tesla = new Tesla();
+tesla = new Autopilot(tesla);
+
+const a1 = tesla.getPrice(); // => 30000
+const a2 = tesla.getDescription(); // => "Tesla with autopilot"
 </v-code>

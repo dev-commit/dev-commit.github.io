@@ -22,8 +22,8 @@ ARR_MODULE = [
         title: '2. Structural (Структурные)',
         selected: true,
         themes: [
+            [root+'2-structural/decorator', up+'Decorator'],
             [root+'2-structural/adapter',   'Adapter'],
-            [root+'2-structural/decorator', 'Decorator'],
             [root+'2-structural/facade',    'Facade'],
         ]
     },
