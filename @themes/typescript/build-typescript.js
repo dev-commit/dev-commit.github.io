@@ -69,6 +69,7 @@ ARR_MODULE = [
             [root+'class/main',         emoji.fire+'Class'],
             [root+'class/modificator',  'Модификаторы полей', true],
             [root+'class/abstract',     'Абстрактные классы', true],
+            [root+'class/decorators',   'Декораторы', true],
         ]
     },
     {
