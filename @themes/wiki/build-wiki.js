@@ -10,6 +10,16 @@ ARR_MODULE = [
         ]
     },
     {
+    	title: 'Tags & Classes',
+        themes: [
+            [root+'tags/tags',    emoji.star+'Tags'],
+            [root+'tags/classes', emoji.star+'Classes'],
+            [root+'tags/badges',  'Badges'],
+            [root+'tags/list',    'Списки'],
+            [root+'tags/link',    'Ссылки на разделы'],
+        ]
+    },
+    {
     	title: 'Custom Elements',
         themes: [
             [root+'custom-elements/u-text',         setTheme(1, ['u-text-*', 'u-code-*', 'u-menu-*'])],
@@ -48,17 +58,9 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Структура',
+        title: 'Структуры',
         themes: [
             [root+'structure/login', 'Логин и пароль'],
-        ]
-    },
-    {
-    	title: 'Class',
-        themes: [
-            [root+'class/headers',  'Headers'],
-            [root+'class/list',     'Списки'],
-            [root+'class/link',     'Ссылки на разделы'],
         ]
     },
 ];
