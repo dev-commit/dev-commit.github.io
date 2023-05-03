@@ -4,7 +4,7 @@ ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            getLink(root, 'info', true),
+            getLink(root, 'info'),
         ]
     },
     {

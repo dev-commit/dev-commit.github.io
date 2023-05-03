@@ -7,28 +7,28 @@ ARR_MODULE = [
     {
         title: 'Информация',
         themes: [
-            [root+'main/links',                 up+emoji.theory+'Ссылки'],
-            [root+'main/structure-files',       up+emoji.theory+'Структура проекта'],
+            [root+'main/links',                 emoji.theory+'Ссылки', false, 'done'],
+            [root+'main/structure-files',       emoji.theory+'Структура проекта', false, 'done'],
             [],
             getLink(root, 'info'),
-            ['react-js/reconciler/virtual-dom', up+emoji.theory+'Virtual DOM (Общее)'],
+            ['react-js/reconciler/virtual-dom', emoji.theory+'Virtual DOM (Общее)', false, 'done'],
         ]
     },
     {
         title: 'Usage',
         accent: true,
         themes: [
-            [root+'usage/cdn',     up+emoji.code+'CDN'+vue2],
-            [root+'usage/vue-cli', up+emoji.code+'Vue CLI'+vue2],
-            [root+'usage/vite',    up+emoji.code+'Vite'+vue3],
+            [root+'usage/cdn',     emoji.code+'CDN'+vue2, false, 'done'],
+            [root+'usage/vue-cli', emoji.code+'Vue CLI'+vue2, false, 'done'],
+            [root+'usage/vite',    emoji.code+'Vite'+vue3, false, 'done'],
         ]
     },
     {
         title: 'Lifecycle',
         themes: [
-            [root+'lifecycle/vue2',  up+emoji.theory+'Vue 2'],
-            [root+'lifecycle/vue3',  up+emoji.theory+'Vue 3'],
-            [root+'lifecycle/usage', up+emoji.code+'Usage'],
+            [root+'lifecycle/vue2',  emoji.theory+'Vue 2', false, 'done'],
+            [root+'lifecycle/vue3',  emoji.theory+'Vue 3', false, 'done'],
+            [root+'lifecycle/usage', emoji.code+'Usage', false, 'done'],
         ]
     },
     {

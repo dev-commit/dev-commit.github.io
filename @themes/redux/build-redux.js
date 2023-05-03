@@ -26,7 +26,7 @@ ARR_MODULE = [
         title: 'Redux',
         child: true,
         themes: [
-            [root+'methods/create-store',      up+setTheme(1, ['createStore'])],
+            [root+'methods/create-store',      setTheme(1, ['createStore']), false, 'done'],
             [root+'methods/apply-middleware',  setTheme(1, ['applyMiddleware'])],
             [root+'methods/combine-reducers',  setTheme(1, ['combineReducers'])],
         ]
