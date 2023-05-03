@@ -31,7 +31,7 @@
                 class="menu-link"
                 id="id__theory-design-patterns/main/info"
                 href="#theory-design-patterns/main/info"
-            ><u-inline-border></u-inline-border>📑 Информация</a>
+            >📑 Информация</a>
         </li>
     </ul><h4>🏷️ 1. Creational (Порождающие)</h4><ul>
         <li>
@@ -39,7 +39,7 @@
                 class="menu-link"
                 id="id__theory-design-patterns/1-creational/singleton"
                 href="#theory-design-patterns/1-creational/singleton"
-            ><u-inline-border></u-inline-border>Singleton</a>
+            >Singleton</a>
         </li>
     
         <li>
@@ -53,9 +53,9 @@
         <li>
             <a
                 class="menu-link"
-                id="id__theory-design-patterns/1-creational/factory"
-                href="#theory-design-patterns/1-creational/factory"
-            >Factory</a>
+                id="id__theory-design-patterns/1-creational/builder"
+                href="#theory-design-patterns/1-creational/builder"
+            >Builder</a>
         </li>
     
         <li>
@@ -69,9 +69,17 @@
         <li>
             <a
                 class="menu-link"
-                id="id__theory-design-patterns/1-creational/builder"
-                href="#theory-design-patterns/1-creational/builder"
-            >Builder</a>
+                id="id__theory-design-patterns/1-creational/factory-method"
+                href="#theory-design-patterns/1-creational/factory-method"
+            >Factory Method</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__theory-design-patterns/1-creational/abstract-factory"
+                href="#theory-design-patterns/1-creational/abstract-factory"
+            >Abstract Factory</a>
         </li>
     </ul><h4>🏷️ 2. Structural (Структурные)</h4><ul>
         <li>
@@ -79,7 +87,7 @@
                 class="menu-link"
                 id="id__theory-design-patterns/2-structural/decorator"
                 href="#theory-design-patterns/2-structural/decorator"
-            ><u-inline-border></u-inline-border>Decorator</a>
+            >Decorator</a>
         </li>
     
         <li>
@@ -97,13 +105,85 @@
                 href="#theory-design-patterns/2-structural/facade"
             >Facade</a>
         </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__theory-design-patterns/2-structural/flyweight"
+                href="#theory-design-patterns/2-structural/flyweight"
+            >Flyweight</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__theory-design-patterns/2-structural/proxy"
+                href="#theory-design-patterns/2-structural/proxy"
+            >Proxy</a>
+        </li>
     </ul><h4>🏷️ 3. Behavioral (Поведенческие)</h4><ul>
         <li>
             <a
                 class="menu-link"
                 id="id__theory-design-patterns/3-behavioral/observer"
                 href="#theory-design-patterns/3-behavioral/observer"
-            ><u-inline-border></u-inline-border>Observer</a>
+            >Observer</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__theory-design-patterns/3-behavioral/chain-of-responsibility"
+                href="#theory-design-patterns/3-behavioral/chain-of-responsibility"
+            >Chain Of Responsibility</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__theory-design-patterns/3-behavioral/command"
+                href="#theory-design-patterns/3-behavioral/command"
+            >Command</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__theory-design-patterns/3-behavioral/iterator"
+                href="#theory-design-patterns/3-behavioral/iterator"
+            >Iterator</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__theory-design-patterns/3-behavioral/mediator"
+                href="#theory-design-patterns/3-behavioral/mediator"
+            >Mediator</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__theory-design-patterns/3-behavioral/state"
+                href="#theory-design-patterns/3-behavioral/state"
+            >State</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__theory-design-patterns/3-behavioral/strategy"
+                href="#theory-design-patterns/3-behavioral/strategy"
+            >Strategy</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__theory-design-patterns/3-behavioral/template-method"
+                href="#theory-design-patterns/3-behavioral/template-method"
+            >Template Method</a>
         </li>
     </ul><h4>🏷️ 4. Неизвестно</h4><ul>
         <li>
@@ -148,8 +228,6 @@
     <a href="https://refactoring.guru/ru/design-patterns/catalog" target="_blank">Refactoring Guru. Каталог паттернов проектирования</a>
     <hr class="small">
     <a href="https://www.youtube.com/playlist?list=PLNkWIWHIRwMGzgvuPRFkDrpAygvdKJIE4" target="_blank">YouTube Playlist: JavaScript Паттерны</a>
-    <a href="https://habr.com/ru/company/ruvds/blog/427293/" target="_blank">Паттерны проектирования в JavaScript</a>
-    <a href="https://medium.com/@marina.kovalyova/java-script-design-patterns-569c627d25f9" target="_blank">Шаблоны проектирования в JavaScript</a>
 </u-link-wrapper>
 
 <ul class="list-point">
@@ -173,11 +251,12 @@
 </u-message-ok>
 
 <ul class="list-point">
-    <li><b>Factory Method</b> (Фабричный метод) - определяет общий интерфейс для создания объектов в суперклассе, позволяя подклассам изменять тип создаваемых объектов</li>
-    <li><b>Abstract Factory</b> (Абстрактная фабрика) - позволяет создавать семейства связанных объектов, не привязываясь к конкретным классам создаваемых объектов. Интерфейс, который группирует другие фабрики, логически связанные друг с другом</li>
-    <li><b>Builder</b> (Строитель) - позволяет создавать сложные объекты пошагово. Строитель даёт возможность использовать один и тот же код строительства для получения разных представлений объектов</li>
-    <li><b>Prototype</b> (Прототип) - позволяет копировать объекты, не вдаваясь в подробности их реализации</li>
     <li><b>Singleton</b> (Одиночка) - гарантирует, что у класса есть только один экземпляр, и предоставляет к нему глобальную точку доступа</li>
+    <li><b>Constructor</b> (Конструктор) - создание новых объектов определенного типа</li>
+    <li><b>Builder</b> (Строитель) - позволяет создавать сложные объекты пошагово. Строитель даёт возможность использовать один и тот же код строительства для получения разных представлений объектов</li>
+    <li><b>Prototype</b> (Прототип) - можно создавать объекты, взяв за основу другие объекты</li>
+    <li><b>Factory Method</b> (Фабричный метод) - определяет общий интерфейс для создания объектов в суперклассе, позволяя подклассам изменять тип создаваемых объектов (их значения)</li>
+    <li><b>Abstract Factory</b> (Абстрактная фабрика) - интерфейс, который группирует другие фабрики, логически связанные друг с другом. Помогает создавать объекты со схожей структурой, но разными данными</li>
 </ul>
 
 <!------------------------------------------------------------->
@@ -191,13 +270,14 @@
 </u-message-ok>
 
 <ul class="list-point">
-    <li><b>Adapter</b> (Адаптер) - позволяет объектам с несовместимыми интерфейсами работать вместе</li>
-    <li><b>Bridge</b> (Мост) - разделяет один или несколько классов на две отдельные иерархии - абстракцию и реализацию, позволяя изменять их независимо друг от друга</li>
-    <li><b>Composite</b> (Компоновщик) - позволяет сгруппировать объекты в древовидную структуру, а затем работать с ними так, как будто это единичный объект</li>
     <li><b>Decorator</b> (Декоратор) - позволяет динамически добавлять объектам новую функциональность, оборачивая их в полезные «обёртки»</li>
+    <li><b>Adapter</b> (Адаптер) - позволяет объектам с несовместимыми интерфейсами работать вместе</li>
     <li><b>Facade</b> (Фасад) - предоставляет простой интерфейс к сложной системе классов, библиотеке или фреймворку</li>
     <li><b>Flyweight</b> (Легковес) - позволяет вместить бóльшее количество объектов в отведённую оперативную память. Легковес экономит память, разделяя общее состояние объектов между собой, вместо хранения одинаковых данных в каждом объекте</li>
     <li><b>Proxy</b> (Заместитель) - позволяет подставлять вместо реальных объектов специальные объекты-заменители. Эти объекты перехватывают вызовы к оригинальному объекту, позволяя сделать что-то до или после передачи вызова оригиналу</li>
+    <hr>
+    <li><b>Bridge</b> (Мост) - разделяет один или несколько классов на две отдельные иерархии - абстракцию и реализацию, позволяя изменять их независимо друг от друга</li>
+    <li><b>Composite</b> (Компоновщик) - позволяет сгруппировать объекты в древовидную структуру, а затем работать с ними так, как будто это единичный объект</li>
 </ul>
 
 <!------------------------------------------------------------->
@@ -205,7 +285,7 @@
 <!------------------------------------------------------------->
 <u-message-ok>
     <ul class="list-flat">
-        <li><u-text-define>Поведенческие</u-text-define> - решают задачи эффективного и безопасного взаимодействия между объектами программы</li>
+        <li><u-text-define>Поведенческие</u-text-define> - эффективное и безопасное взаимодействие между объектами разного типа</li>
     </ul>
 </u-message-ok>
 
@@ -215,10 +295,11 @@
     <li><b>Command</b> (Команда) - превращает запросы в объекты, позволяя передавать их как аргументы при вызове методов, ставить запросы в очередь, логировать их, а также поддерживать отмену операций</li>
     <li><b>Iterator</b> (Итератор) - даёт возможность последовательно обходить элементы составных объектов, не раскрывая их внутреннего представления</li>
     <li><b>Mediator</b> (Посредник) - позволяет уменьшить связанность множества классов между собой, благодаря перемещению этих связей в один класс-посредник</li>
-    <li><b>Memento</b> (Снимок) - позволяет делать снимки состояния объектов, не раскрывая подробностей их реализации. Затем снимки можно использовать, чтобы восстановить прошлое состояние объектов</li>
     <li><b>State</b> (Состояние) - позволяет объектам менять поведение в зависимости от своего состояния. Извне создаётся впечатление, что изменился класс объекта</li>
     <li><b>Strategy</b> (Стратегия) - пределяет семейство схожих алгоритмов и помещает каждый из них в собственный класс, после чего алгоритмы можно взаимозаменять прямо во время исполнения программы</li>
     <li><b>Template Method</b> (Шаблонный метод) - определяет скелет алгоритма, перекладывая ответственность за некоторые его шаги на подклассы. Паттерн позволяет подклассам переопределять шаги алгоритма, не меняя его общей структуры</li>
+    <hr>
+    <li><b>Memento</b> (Снимок) - позволяет делать снимки состояния объектов, не раскрывая подробностей их реализации. Затем снимки можно использовать, чтобы восстановить прошлое состояние объектов</li>
     <li><b>Visitor</b> (Посетитель) - позволяет создавать новые операции, не меняя классы объектов, над которыми эти операции могут выполняться</li>
 </ul>
 
@@ -525,12 +606,79 @@ Server.prototype.getUrl = function() {
 	return `https://${this.ip}:80`
 }
 </v-code>
-</div><div id="theory-design-patterns/1-creational/factory"><h2>Factory (Фабрика)</h2>
+</div><div id="theory-design-patterns/1-creational/builder"><h2>Builder (Строитель)</h2>
 
 <ul class="list-point">
-	<li><u-text-define>Factory</u-text-define></li>
-    <li>Есть коллекция элементов, похожих по фунцкионалу</li>
-    <li>Необходимо создавать инстансы для объектов определеного типа, но меняя значения</li>
+    <li><u-text-define>Builder</u-text-define> - позволяет создавать сложные объекты пошагово. Строитель даёт возможность использовать один и тот же код строительства для получения разных представлений объектов</li>
+    <li>Паттерн Строитель нужен, если объект может существовать в разных вариациях или процесс инстанцирования состоит из нескольких шагов</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Пример гамбургера с разными компонентами</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class BurgerBuilder {
+    constructor(size) {
+        this.size = size
+    }
+    addPepperoni() {
+        this.pepperoni = true
+        return this
+    }
+    addCheeze() {
+        this.cheeze = true
+        return this
+    }
+    build() {
+        return new Burger(this)
+    }
+}
+const burger = (new BurgerBuilder(14))
+    .addPepperoni()
+    .addCheeze()
+</v-code>
+</div><div id="theory-design-patterns/1-creational/prototype"><h2>Prototype (Прототип)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Prototype</u-text-define> - можно создавать объекты, взяв за основу другие объекты</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const car = {
+	wheels: 4,
+	init() {
+		console.log(this.wheels, this.owner)
+	}
+}
+
+// car - будет прототипом для carWithOwner
+const carWithOwner = Object.create(car, {
+  owner: {
+    value: 'Jack'
+  }
+})
+
+console.log(carWithOwner.__proto__ === car) // => true
+
+carWithOwner.init()
+</v-code>
+</div><div id="theory-design-patterns/1-creational/factory-method"><h2>Factory Method (Фабричный метод)</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Factory</u-text-define> - создание инстансов определенного типа, но с разными значениями на основании входных данных</li>
+	<li><u>Применение</u>: когда нужно создавать множество однотипных объектов (одинаковая структура, но разные данные). Когда есть коллекция элементов, похожих по фунцкионалу</li>
+	<li><u>Проблема</u>: при большом кол-ве создаваемых объектов, структура Factory Method начнет разрастаться. Эту проблему поможет решить паттерн Abstract Factory</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Структура</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Класс-конструктор, который генерирует новый объект (может быть несколько)</li>
+	<li>Класс, который вызывает создание нового объекта с определенными параметрами</li>
 </ul>
 
 
@@ -539,24 +687,74 @@ Server.prototype.getUrl = function() {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
+<h4>Фабрика автомобилей</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class Bmw {
+	constructor(model, price) {
+		this.model = model;
+		this.price = price;
+	}
+}
+
+class BmwFactory {
+	create(type) {
+		if (type === 'X5') return new Bmw(type, 100);
+		if (type === 'X6') return new Bmw(type, 200);
+	}
+}
+
+const factory = new BmwFactory();
+
+const a1 = factory.create('X5'); // => { "model": "X5", "price": 100 }
+const a2 = factory.create('X6'); // => { "model": "X6", "price": 200 }
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример простой фабрики</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class WoodenDoor {
+    constructor(width, height){
+        this.width = width
+        this.height = height
+    }
+    getWidth(){
+        return this.width
+    }
+    getHeight(){
+        return this.height
+    }
+}
+
+const DoorFactory = {
+    makeDoor(width, height) {
+        return new WoodenDoor(width, height); 
+    }
+}
+
+const door = DoorFactory.makeDoor(100, 200)
+console.log('Width:', door.getWidth())
+console.log('Height:', door.getHeight())
+</v-code>
+
+<!------------------------------------------------------------->
 <h4>Пример с разными видами подписки</h4>
 <!------------------------------------------------------------->
-
 <v-code lang="js" title="">
+// Виды подписки
 class SimpleMembership {
 	constructor(name) {
 		this.name = name
 		this.cost = 50
 	}
 }
-
 class StandardMembership {
 	constructor(name) {
 		this.name = name
 		this.cost = 150
 	}
 }
-
 class PremiumMembership {
 	constructor(name) {
 		this.name = name
@@ -602,94 +800,62 @@ members.forEach(m => {
 	m.define()
 })
 </v-code>
-
-<!------------------------------------------------------------->
-<h4>Пример простой фабрики</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-class WoodenDoor {
-    constructor(width, height){
-        this.width = width
-        this.height = height
-    }
-    getWidth(){
-        return this.width
-    }
-    getHeight(){
-        return this.height
-    }
-}
-
-const DoorFactory = {
-    makeDoor(width, height) {
-        return new WoodenDoor(width, height); 
-    }
-}
-
-const door = DoorFactory.makeDoor(100, 200)
-console.log('Width:', door.getWidth())
-console.log('Height:', door.getHeight())
-</v-code>
-
-
-</div><div id="theory-design-patterns/1-creational/prototype"><h2>Prototype (Прототип)</h2>
+</div><div id="theory-design-patterns/1-creational/abstract-factory"><h2>Abstract Factory (Абстрактная фабрика)</h2>
 
 <ul class="list-point">
-    <li><u-text-define>Prototype</u-text-define> - можно создавать объекты, взяв за основу другие объекты</li>
+    <li><u-text-define>Abstract Factory</u-text-define> - создает интерфейс, группирующий другие Factory, которые логически связаны друг с другом</li>
+    <li>Abstract Factory - дополнительная абстракция, которая управляя однотипыными Factory помогает создавать объекты со схожей структурой, но разными данными, причем, делает это не привязываясь к конкретным классам создаваемых объектов</li>
+    <li>У Factories должен быть одинаковый интерфейс создания объектов, чтобы им можно было управлять из Abstract Factory</li>
 </ul>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Фабрика автомобилей</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Есть семейство общих продуктов (автомобили марки BMW)</li>
+</ul>
+
 <v-code lang="js" title="">
-const car = {
-	wheels: 4,
-	init() {
-		console.log(this.wheels, this.owner)
+// Abstract Factory
+// Производит "Спорткары" или "Семейные aвто"
+function bmwProducer(kind) {
+  return kind === 'sport' ? sportCarFactory : familyCarFactory;
+}
+
+// Factories
+// Factory для "Спорткаров"
+function sportCarFactory() {
+	return new Z4();
+}
+// Factory для "Семейных авто"
+function familyCarFactory() {
+	return new I3();
+}
+
+// Производство автомобилей
+class Z4 {
+	info() {
+		return "Z4 is a Sport car";
+	}
+}
+class I3 {
+	info() {
+		return "i3 is a Family car";
 	}
 }
 
-// car - будет прототипом для carWithOwner
-const carWithOwner = Object.create(car, {
-  owner: {
-    value: 'Jack'
-  }
-})
+// Инициализация Abstract Factory для "Спорткаров"
+const produce = bmwProducer('sport');
 
-console.log(carWithOwner.__proto__ === car) // => true
+// Инициализация Factory
+const myCar = new produce();
 
-carWithOwner.init()
-</v-code>
-</div><div id="theory-design-patterns/1-creational/builder"><h2>Builder (Строитель)</h2>
-
-<ul class="list-point">
-    <li><u-text-define>Builder</u-text-define> - позволяет создавать сложные объекты пошагово. Строитель даёт возможность использовать один и тот же код строительства для получения разных представлений объектов</li>
-    <li>Паттерн Строитель нужен, если объект может существовать в разных вариациях или процесс инстанцирования состоит из нескольких шагов</li>
-</ul>
-
-<!------------------------------------------------------------->
-<h4>Пример гамбургера с разными компонентами</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-class BurgerBuilder {
-    constructor(size) {
-        this.size = size
-    }
-    addPepperoni() {
-        this.pepperoni = true
-        return this
-    }
-    addCheeze() {
-        this.cheeze = true
-        return this
-    }
-    build() {
-        return new Burger(this)
-    }
-}
-const burger = (new BurgerBuilder(14))
-    .addPepperoni()
-    .addCheeze()
+const a1 = myCar.info(); // => "Z4 is a Sport car"
 </v-code>
 </div><div id="theory-design-patterns/2-structural/decorator"><h2>Decorator (Декоратор)</h2>
 
@@ -934,21 +1100,186 @@ console.log(adapter.operations(25, 10, 'sub')) // => 15
 
 <ul class="list-point">
     <li><u-text-define>Facade</u-text-define> - предоставляет простой интерфейс к сложной системе классов, библиотеке или фреймворку</li>
+    <li><u>Пример:</u> библиотека jQuery</li>
 </ul>
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>MemeQuery</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 const $ = function(target) {
-    return new MemeQuery(target);
+    return new QuerySelector(target);
 }
-function MemeQuery(target) {
+function QuerySelector(target) {
     this.target = document.querySelector(target);
 }
-MemeQuery.prototype.html = function(html) {
+QuerySelector.prototype.html = function(html) {
     this.target.innerHTML = html;
     return this;
 }
 
-$('#myParagraph').html('Meeemee').html('Some JS design patterns');
+$('#app').html('Meeemee').html('Some JS design patterns');
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Жалобы от пользователей</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Жалобы от пользователей
+class Complaints {
+	constructor() {
+		this.complaints = [];
+	}
+	
+	// Получние complaint
+	reply(complaint) {}
+
+	add(complaint) {
+		this.complaints.push(complaint);
+		// Будет реализован у потомков
+		return this.reply(complaint);
+	}
+}
+
+// Продуктовые жалобы
+class ProductComplaints extends Complaints {
+	// Изменение только метода reply
+	reply({id, customer, details}) {
+		return `Product: ${id}: ${customer} (${details})`;
+	}
+}
+
+// Сервисная жалоба
+class ServiceComplaints extends Complaints {
+	// Изменение только метода reply
+	reply({id, customer, details}) {
+		return `Service: ${id}: ${customer} (${details})`;
+	}
+}
+
+// Класс Фасад
+class ComplaintRegistry {
+	register(customer, type, details) {
+		const id = Date.now();
+		let complaint;
+
+		if (type === 'service') {
+			complaint = new ServiceComplaints();
+		} else {
+			complaint = new ProductComplaints();
+		}
+
+		return complaint.add({id, customer, details});
+	}
+}
+
+const registry = new ComplaintRegistry();
+
+// => "Service: 1682962725141: Vladilen (Недоступен)"
+console.log(registry.register('Vladilen', 'service', 'Недоступен'));
+// => "Product: 1682962725142: Elena (Ошибка)"
+console.log(registry.register('Elena', 'product', 'Ошибка'));
+</v-code>
+</div><div id="theory-design-patterns/2-structural/flyweight"><h2>Flyweight (Легковес)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Flyweight</u-text-define></li>
+    <li>Эффективно передавать и работать с данными через различные типы объектов</li>
+    <li>Загрузка изображений браузерами: использование паттерна, чтобы избежать повторной загрузки элементов, что уже были загружены</li>
+    <li>К паттерну относятся понятия: кеширование, сохранение памяти и т.д.</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>CarFactory</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class Car {
+	constructor(model, price) {
+		this.model = model;
+		this.price = price;
+	}
+}
+
+class CarFactory {
+	constructor() {
+		this.cars = [];
+	}
+
+	create(model, price) {
+		const candidate = this.getCar(model);
+		
+		// Если в массиве cars есть данные, то берем из него, не создавая newCar
+		if (candidate) {
+			return candidate;
+		}
+
+		const newCar = new Car(model, price);
+		this.cars.push(newCar);
+
+		return newCar;
+	}
+
+	getCar(model) {
+		return this.cars.find(car => car.model === model);
+	}
+}
+
+const factory = new CarFactory();
+
+const bmwX6 = factory.create('bmw', 10000); // => { "model": "bmw", "price": 10000 }
+const audi = factory.create('audi', 12000); // => { "model": "audi", "price": 12000 }
+const bmwX3 = factory.create('bmw', 8000);  // => { "model": "bmw", "price": 10000 } (Берется из кеша)
+
+console.log(bmwX3 === bmwX6); // => true
+</v-code>
+</div><div id="theory-design-patterns/2-structural/proxy"><h2>Proxy (Прокси)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Proxy</u-text-define> - ловушки на поля объектов, на вызов функции и т.д.</li>
+    <li>Позволяет гибко определять работу приложения в дальнейшем</li>
+    <li>Пример: избавление лишних запросов на сервер путем кеширования. Если запрашивамеые данные уже были получены, то запрос не отправляются, а данные берутся из кеша</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Работа с сервером</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Связь с сервером
+function networkFetch(url) {
+	return `${url} - Ответ с сервера`;
+}
+
+// Set вернет уникальные данные
+const cache = new Set();
+
+const proxiedFetch = new Proxy(networkFetch, {
+	apply(target, thisArg, args) {
+		const url = args[0];
+		if (cache.has(url)) {
+			return `${url} - Ответ из кэша`;
+		} else {
+			cache.add(url);
+			return Reflect.apply(target, thisArg, args);
+		}
+	}
+})
+
+console.log(proxiedFetch('angular.io')); // => "angular.io - Ответ с сервера"
+console.log(proxiedFetch('react.io'));   // => "react.io - Ответ с сервера"
+console.log(proxiedFetch('angular.io')); // => "angular.io - Ответ из кэша"
 </v-code>
 </div><div id="theory-design-patterns/3-behavioral/observer"><h2>Observer (Наблюдатель)</h2>
 
@@ -1056,12 +1387,453 @@ observable.notify({ type: 'ADD', payload: 10 }); // => 11
 
 console.log(subscriber.state);
 </v-code>
-</div><div id="theory-design-patterns/patterns-other/module"><h2>Паттерн «Модуль»</h2>
+</div><div id="theory-design-patterns/3-behavioral/chain-of-responsibility"><h2>Chain Of Responsibility (Цепочка обязанностей)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Chain Of Responsibility</u-text-define> - позволяет последовательно вызывать набор операций у объекта</li>
+    <li>Пример: библиотека jQuery</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Инкремент</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class MySum {
+	constructor(initialValue = 42) {
+		this.sum = initialValue;
+	}
+
+	add(value) {
+		this.sum += value;
+		// Возвращаем ссылка на текущий объект
+		return this;
+	}
+}
+
+const sum1 = new MySum();
+console.log(sum1.add(8).add(10).add(1).add(9).sum); // => 70
+
+const sum2 = new MySum(0);
+console.log(sum2.add(1).add(2).add(3).sum); // => 6
+</v-code>
+</div><div id="theory-design-patterns/3-behavioral/command"><h2>Command (Команда)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Command</u-text-define> - позволяет содавать оболочку над функционалом, которая позволяет управлять, но через другой объект</li>
+    <li>Сохранение мета-информации, н-р: список команд</li>
+    <li>Пример: Redux</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Math Commands</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class MyMath {
+	constructor(initialValue = 0) {
+		this.num = initialValue;
+	}
+	// Возведение в степень 2
+	square() {
+		return this.num ** 2;
+	}
+	// Возведение в степень 3
+	cube() {
+		return this.num ** 3;
+	}
+}
+
+class Command {
+	constructor(subject) {
+		// Над чем будет формироваться абстрактная оболочка
+		this.subject = subject;
+		// Список команд, которые были вызваны
+		this.commandsExecuted = [];
+	}
+	execute(command) {
+		this.commandsExecuted.push(command);
+		return this.subject[command]();
+	}
+}
+
+const x = new Command(new MyMath(2));
+
+console.log(x.execute('square')); // => 4
+console.log(x.execute('cube'));   // => 8
+console.log(x.commandsExecuted);  // => ["square","cube"]
+</v-code>
+
+
+</div><div id="theory-design-patterns/3-behavioral/iterator"><h2>Iterator (Итератор)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Iterator</u-text-define> - создается класс, у которого можно последовательно получить доступ до определенной информации</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Итератор</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class MyIterator {
+	constructor(data) {
+		this.index = 0;
+		this.data = data;
+	}
+
+	[Symbol.iterator]() {
+		return {
+			next: () => {
+				if (this.index < this.data.length) {
+					return {
+						value: this.data[this.index++],
+						done: false
+					}
+				} else {
+					this.index = 0;
+					return {
+						done: true,
+						value: void 0
+					}
+				}
+			}
+		}
+	}
+}
+
+function* generator(collection) {
+	let index = 0;
+
+	while (index < collection.length) {
+		yield collection[index++];
+	}
+}
+
+
+const iterator = new MyIterator(['This', 'is', 'iterator']);
+const gen = generator(['This', 'is', 'iterator']);
+
+// for (const val of gen) {
+//   console.log('Value: ', val);
+// }
+
+console.log(gen.next().value); // => "This"
+console.log(gen.next().value); // => "is"
+console.log(gen.next().value); // => "iterator"
+</v-code>
+</div><div id="theory-design-patterns/3-behavioral/mediator"><h2>Mediator</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Mediator</u-text-define> - поволяет устанавливать плотную и тесную коммуникация между объектами разного типа</li>
+    <li>При этом, паттерн предоставляет центрелизованную абстракцию, которая позволяет взаимодействовать группе объектов через друг друга</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Чат</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Приложение позволяет создавать новых пользователей и присоединять их к чату</li>
+    <li>Каждый сможет отправлять сообщения друг другу</li>
+</ul>
+
+<v-code lang="js" title="">
+class User {
+	constructor(name) {
+		this.name = name;
+		this.room = null;
+	}
+	// Отправка сообщения (message - сообщение, to - кому отправить)
+	send(message, to) {
+		// (message - сообщение, this - от кого, to - кому)
+		this.room.send(message, this, to);
+	}
+	// Получение сообщения (message - сообщение, from - от кого)
+	receive(message, from) {
+		console.log(`${from.name} => ${this.name}: ${message}`);
+	}
+}
+
+class ChatRoom {
+	constructor() {
+		this.users = {};
+	}
+	// Регистрация новых пользователей
+	register(user) {
+		this.users[user.name] = user;
+		user.room = this;
+	}
+	send(message, from, to) {
+		if (to) {
+			to.receive(message, from);
+		} else {
+			// Отправить всем пользователем в данной комнате кроме текущего пользователя
+			Object.keys(this.users).forEach(key => {
+				if (this.users[key] !== from) {
+					this.users[key].receive(message, from);
+				}
+			})
+		}
+	}
+}
+
+const vlad = new User('Vladilen');
+const lena = new User('Elena');
+const igor = new User('Igor');
+
+const room = new ChatRoom();
+
+// Регистрация пользователей в одну комнату
+room.register(vlad);
+room.register(lena);
+room.register(igor);
+
+vlad.send('Hello!', lena);
+lena.send('Hello hello!', vlad);
+igor.send('Vsem privet');
+
+// Output:
+// "Vladilen => Elena: Hello!"
+// "Elena => Vladilen: Hello hello!"
+// "Igor => Vladilen: Vsem privet"
+// "Igor => Elena: Vsem privet"
+</v-code>
+</div><div id="theory-design-patterns/3-behavioral/state"><h2>State</h2>
+
+<ul class="list-point">
+    <li><u-text-define>State</u-text-define></li>
+    <li>Можно создавать отдельные классы, которые будут являться элементами State и можно делегировать изменение состояния этих классов на общий класс, который будет являться State и который будет менять внутренее состояние этих отдельных элементов</li>
+    <li><u>Пример</u>: реализация роутинга</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Светофор</h4>
+<!------------------------------------------------------------->
+
+<v-code lang="js" title="">
+class Light {
+	constructor(light) {
+		this.light = light;
+	}
+}
+
+class RedLight extends Light {
+	constructor() {
+		super('red');
+	}
+	sign() {
+		return 'СТОП';
+	}
+}
+
+class YellowLight extends Light {
+	constructor() {
+		super('yellow');
+	}
+	sign() {
+		return 'ГОТОВЬСЯ';
+	}
+}
+
+class GreenLight extends Light {
+	constructor() {
+		super('green');
+	}
+	sign() {
+		return 'ЕДЬ!';
+	}
+}
+
+class TrafficLight {
+	constructor() {
+		// Набор States
+		this.states = [
+			new RedLight(),
+			new YellowLight(),
+			new GreenLight()
+		];
+		// Текущий State
+		this.current = this.states[0];
+	}
+	// Изменение состояние светофора
+	change() {
+		const total = this.states.length;
+		// Найти текущее состояние
+		let index = this.states.findIndex(light => light === this.current);
+
+		if (index + 1 < total) {
+			// Переключение на следующее состояние State
+			this.current = this.states[index + 1];
+		} else {
+			// Переключиться на первый State
+			this.current = this.states[0];
+		}
+	}
+	// Изменение текущего знака
+	sign() {
+		return this.current.sign();
+	}
+}
+
+const traffic = new TrafficLight();
+console.log(traffic.sign()); // => "СТОП"
+traffic.change();
+
+console.log(traffic.sign()); // => "ГОТОВЬСЯ"
+traffic.change();
+
+console.log(traffic.sign()); // => "ЕДЬ!"
+traffic.change();
+
+console.log(traffic.sign()); // => "СТОП"
+traffic.change();
+
+console.log(traffic.sign()); // => "ГОТОВЬСЯ"
+traffic.change();
+
+console.log(traffic.sign()); // => "ЕДЬ!"
+traffic.change();
+</v-code>
+</div><div id="theory-design-patterns/3-behavioral/strategy"><h2>Strategy</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Strategy</u-text-define> - взаимодействие с разыными стратегиями через один интерфейс</li>
+    <li>Позволяет создавать оболочку для различных интерфейсов для возможности использования разных алгоритмов и интерфейсов в задаче</li>
+    <li>Определяет семейство алгоритмов, которые наследуют объекты в неизменяемом порядке</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Стратегия поездки</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class Vehicle {
+	travelTime() {
+		return this.timeTaken;
+	}
+}
+
+// Первая стратегия
+class Bus extends Vehicle {
+	constructor() {
+		super();
+		this.timeTaken = 10;
+	}
+}
+
+// Вторая стратегия
+class Taxi extends Vehicle {
+	constructor() {
+		super();
+		this.timeTaken = 5;
+	}
+}
+
+// Третья стратегия
+class Car extends Vehicle {
+	constructor() {
+		super();
+		this.timeTaken = 3;
+	}
+}
+
+// Время на дорогу
+class Commute {
+	travel(transport) {
+		return transport.travelTime();
+	}
+}
+
+const commute = new Commute();
+
+console.log(commute.travel(new Taxi())); // => 5
+console.log(commute.travel(new Bus()));  // => 10
+console.log(commute.travel(new Car()));  // => 3
+</v-code>
+</div><div id="theory-design-patterns/3-behavioral/template-method"><h2>Template Method</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Template Method</u-text-define> - определяет алгоритм, но делегирует создание функционала в дочерние классы, при этом не изменяя поведения базового класса</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Сотрудники</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Наемный сотрудник
+class Employee {
+	constructor(name, salary) {
+		this.name = name;
+		this.salary = salary;
+	}
+	// Реализация метода будет делегирована дочернему классу
+	responsibilities() {
+		//
+	}
+	work() {
+		return `${this.name} выполняет ${this.responsibilities()}`;
+	}
+	getPaid() {
+		return `${this.name} имеет ЗП ${this.salary}`;
+	}
+}
+
+class Developer extends Employee {
+	constructor(name, salary) {
+		super(name, salary);
+	}
+	responsibilities() {
+		return 'процесс создания программ';
+	}
+}
+
+class Tester extends Employee {
+	constructor(name, salary) {
+		super(name, salary);
+	}
+	responsibilities() {
+		return 'процесс тестирования';
+	}
+}
+
+const dev = new Developer('Владилен', 100000);
+console.log(dev.getPaid()); // => "Владилен имеет ЗП 100000"
+console.log(dev.work()); // => "Владилен выполняет процесс создания программ"
+
+const tester = new Tester('Виктория', 90000);
+console.log(tester.getPaid()); // => "Виктория имеет ЗП 90000"
+console.log(tester.work()); // => "Виктория выполняет процесс тестирования"
+</v-code>
+</div><div id="theory-design-patterns/patterns-other/module"><h2>Модуль</h2>
 
 <ul class="list-point">
     <li><u-text-define>Модуль</u-text-define> - прием, с помощью которого мы можем скрывать какие-то реализации. Самостоятельный фрагмент кода, который можно изменять, не затрагивая другой код проекта. Модули, кроме того, позволяют избегать такого явления, как загрязнение областей видимости, благодаря тому, что они создают отдельные области видимости для объявляемых в них переменных.</li>
     <li>Модуль использует <u>IIFE</u>, <u>замыкания</u> и <u>области видимости функций</u> для имитации концепции <u>инкапсуляции</u></li>
-    <li><u-code>Модуль при помощи замыканий</u-code> – это оборачивание пакета функционала в единую внешнюю функцию, которая тут же выполняется</li>
+    <li><u-text-define>Модуль при помощи замыканий</u-text-define> – это оборачивание пакета функционала в единую внешнюю функцию, которая тут же выполняется</li>
     <li>Все функции модуля будут иметь доступ к другим переменным и внутренним функциям этого же модуля через замыкание. Но снаружи программист, использующий модуль, может обращаться напрямую только к тем переменным и функциям, которые экспортированы. Благодаря этому будут скрыты внутренние аспекты реализации, которые нужны только разработчику модуля</li>
     <li><b>Недостаток</b> приходится создавать публичные функции только для того, чтобы обращаться к приватным функциям и переменным</li>
 </ul>
@@ -1083,7 +1855,7 @@ const myModule = (function() {
 <v-code lang="js" title="">
 myModule.publicMethod(); // Выводит 'Hello World'
 </v-code>
-</div><div id="theory-design-patterns/patterns-other/module-revealing"><h2>Паттерн «Открытый модуль»</h2>
+</div><div id="theory-design-patterns/patterns-other/module-revealing"><h2>Открытый модуль</h2>
 
 <ul class="list-point">
     <li><u-text-define>Открытый модуль</u-text-define> - в паттерне назначаем свойствам возвращаемого объекта приватные функции, которые хотим сделать общедоступными</li>

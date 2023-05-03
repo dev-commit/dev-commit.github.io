@@ -1,0 +1,40 @@
+<h2>Proxy (Прокси)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Proxy</u-text-define> - ловушки на поля объектов, на вызов функции и т.д.</li>
+    <li>Позволяет гибко определять работу приложения в дальнейшем</li>
+    <li>Пример: избавление лишних запросов на сервер путем кеширования. Если запрашивамеые данные уже были получены, то запрос не отправляются, а данные берутся из кеша</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Работа с сервером</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Связь с сервером
+function networkFetch(url) {
+	return `${url} - Ответ с сервера`;
+}
+
+// Set вернет уникальные данные
+const cache = new Set();
+
+const proxiedFetch = new Proxy(networkFetch, {
+	apply(target, thisArg, args) {
+		const url = args[0];
+		if (cache.has(url)) {
+			return `${url} - Ответ из кэша`;
+		} else {
+			cache.add(url);
+			return Reflect.apply(target, thisArg, args);
+		}
+	}
+})
+
+console.log(proxiedFetch('angular.io')); // => "angular.io - Ответ с сервера"
+console.log(proxiedFetch('react.io'));   // => "react.io - Ответ с сервера"
+console.log(proxiedFetch('angular.io')); // => "angular.io - Ответ из кэша"
+</v-code>

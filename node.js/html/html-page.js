@@ -11,7 +11,14 @@ const getMenuHTML = () => (`
         ></h4>
         <ul>
             <slot v-for="(itemTheme, i) in itemTitle.themes">
-                <li v-if="itemTheme[0]" :class="itemTheme[2] && 'child'">
+                <li
+                    v-if="itemTheme[0]"
+                    :class="{
+                        child: itemTheme[2],
+                        done: itemTheme[3] == 'done',
+                        check: itemTheme[3] == 'check',
+                    }"
+                >
                     <a
                         class="menu-link"
                         :id="itemTheme[0]+'link'"

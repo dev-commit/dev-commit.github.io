@@ -16,10 +16,10 @@ ARR_MODULE = [
         title: 'Классы ES6+',
         themes: [
             [root+'class-es6/info',           emoji.theory+'Теория'],
-            [root+'class-es6/item-create',    emoji.chevron+'1. Создание класса'],
-            [root+'class-es6/item-getter',    emoji.chevron+'2. Геттеры и Сеттеры'],
-            [root+'class-es6/item-static',    emoji.chevron+'3. Статические свойства и методы'],
-            [root+'class-es6/item-inherit',   emoji.chevron+'4. Наследование'],
+            [root+'class-es6/item-create',    emoji.star+'1. Создание класса'],
+            [root+'class-es6/item-inherit',   emoji.star+'2. Наследование'],
+            [root+'class-es6/item-getter',    emoji.star+'3. Геттеры и Сеттеры'],
+            [root+'class-es6/item-static',    emoji.star+'4. Статические свойства и методы'],
         
             [root+'class-es6/class-properties', 'Свойства классов'],
             [root+'class-es6/expression',       'Выражения классов'],

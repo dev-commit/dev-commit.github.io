@@ -1,0 +1,51 @@
+<h2>Command (Команда)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Command</u-text-define> - позволяет содавать оболочку над функционалом, которая позволяет управлять, но через другой объект</li>
+    <li>Сохранение мета-информации, н-р: список команд</li>
+    <li>Пример: Redux</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Math Commands</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class MyMath {
+	constructor(initialValue = 0) {
+		this.num = initialValue;
+	}
+	// Возведение в степень 2
+	square() {
+		return this.num ** 2;
+	}
+	// Возведение в степень 3
+	cube() {
+		return this.num ** 3;
+	}
+}
+
+class Command {
+	constructor(subject) {
+		// Над чем будет формироваться абстрактная оболочка
+		this.subject = subject;
+		// Список команд, которые были вызваны
+		this.commandsExecuted = [];
+	}
+	execute(command) {
+		this.commandsExecuted.push(command);
+		return this.subject[command]();
+	}
+}
+
+const x = new Command(new MyMath(2));
+
+console.log(x.execute('square')); // => 4
+console.log(x.execute('cube'));   // => 8
+console.log(x.commandsExecuted);  // => ["square","cube"]
+</v-code>
+
+

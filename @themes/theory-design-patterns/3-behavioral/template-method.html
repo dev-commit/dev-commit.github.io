@@ -1,0 +1,58 @@
+<h2>Template Method</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Template Method</u-text-define> - определяет алгоритм, но делегирует создание функционала в дочерние классы, при этом не изменяя поведения базового класса</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Сотрудники</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Наемный сотрудник
+class Employee {
+	constructor(name, salary) {
+		this.name = name;
+		this.salary = salary;
+	}
+	// Реализация метода будет делегирована дочернему классу
+	responsibilities() {
+		//
+	}
+	work() {
+		return `${this.name} выполняет ${this.responsibilities()}`;
+	}
+	getPaid() {
+		return `${this.name} имеет ЗП ${this.salary}`;
+	}
+}
+
+class Developer extends Employee {
+	constructor(name, salary) {
+		super(name, salary);
+	}
+	responsibilities() {
+		return 'процесс создания программ';
+	}
+}
+
+class Tester extends Employee {
+	constructor(name, salary) {
+		super(name, salary);
+	}
+	responsibilities() {
+		return 'процесс тестирования';
+	}
+}
+
+const dev = new Developer('Владилен', 100000);
+console.log(dev.getPaid()); // => "Владилен имеет ЗП 100000"
+console.log(dev.work()); // => "Владилен выполняет процесс создания программ"
+
+const tester = new Tester('Виктория', 90000);
+console.log(tester.getPaid()); // => "Виктория имеет ЗП 90000"
+console.log(tester.work()); // => "Виктория выполняет процесс тестирования"
+</v-code>
