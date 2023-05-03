@@ -1,0 +1,63 @@
+<h2>Bridge (Мост)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Bridge</u-text-define> - </li>
+    <li></li>
+</ul>
+
+
+https://www.youtube.com/watch?v=pNVuMif0bc0
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Paint Cars</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class Model {
+    constructor(color) {
+        this.color = color;
+    }
+};
+
+class Color {
+    constructor(type) {
+        this.type = type;
+    }
+    get() {
+        return this.type;
+    }
+};
+
+class BlackColor extends Color {
+    constructor() {
+        super("dark-black");
+    }
+}
+
+class SilbrigColor extends Color {
+    constructor() {
+        super("Silbermetallic");
+    }
+}
+
+class Audi extends Model {
+    constructor(color) {
+        super(color);
+    }
+    paint() {
+        return `Auto: Audi, Color: ${this.color.get()}`;
+    }
+};
+
+class Bmw extends Model {
+    constructor(color) {
+        super(color);
+    }
+    paint() {
+        return `Auto: Bmw, Color: ${this.color.get()}`;
+    }
+};
+</v-code>

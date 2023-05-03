@@ -1,0 +1,44 @@
+<h2>Visitor (Посетитель)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Visitor</u-text-define> - добавление новой функциональности к существующим классам, причем не изменяя исходный код классов</li>
+    <li>Расширение функциональности класса не изменяя его первоначальную реализацию</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Auto</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class Auto {
+	accept(visitor) {
+		visitor(this);
+	}
+}
+
+class Tesla extends Auto {
+	info() {
+		return 'Tesla car';
+	}
+}
+class Bmw extends Auto {
+	info() {
+		return 'BMW car';
+	}
+}
+
+function exportVisitor(auto) {
+	if (auto instanceof Tesla) auto.export = console.log(auto.info());
+	if (auto instanceof Bmw)   auto.export = console.log(auto.info());
+};
+
+const tesla = new Tesla();
+const bmw = new Bmw();
+
+const a1 = tesla.accept(exportVisitor); // => Tesla car
+const a2 = bmv.accept(exportVisitor); // => BMW car
+</v-code>

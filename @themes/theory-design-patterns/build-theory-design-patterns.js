@@ -28,6 +28,8 @@ ARR_MODULE = [
             [root+'2-structural/facade',    'Facade'],
             [root+'2-structural/flyweight', 'Flyweight'],
             [root+'2-structural/proxy',     'Proxy', false, 'check'],
+            [root+'2-structural/bridge',    'Bridge'],
+            [root+'2-structural/composite', 'Composite'],
         ]
     },
     {
@@ -42,7 +44,8 @@ ARR_MODULE = [
             [root+'3-behavioral/state',                   'State'],
             [root+'3-behavioral/strategy',                'Strategy'],
             [root+'3-behavioral/template-method',         'Template Method'],
-
+            [root+'3-behavioral/memento',                 'Memento'],
+            [root+'3-behavioral/visitor',                 'Visitor'],
         ]
     },
     {

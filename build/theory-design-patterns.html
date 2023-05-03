@@ -121,6 +121,22 @@
                 href="#theory-design-patterns/2-structural/proxy"
             >Proxy</a>
         </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__theory-design-patterns/2-structural/bridge"
+                href="#theory-design-patterns/2-structural/bridge"
+            >Bridge</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__theory-design-patterns/2-structural/composite"
+                href="#theory-design-patterns/2-structural/composite"
+            >Composite</a>
+        </li>
     </ul><h4>🏷️ 3. Behavioral (Поведенческие)</h4><ul>
         <li>
             <a
@@ -184,6 +200,22 @@
                 id="id__theory-design-patterns/3-behavioral/template-method"
                 href="#theory-design-patterns/3-behavioral/template-method"
             >Template Method</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__theory-design-patterns/3-behavioral/memento"
+                href="#theory-design-patterns/3-behavioral/memento"
+            >Memento</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__theory-design-patterns/3-behavioral/visitor"
+                href="#theory-design-patterns/3-behavioral/visitor"
+            >Visitor</a>
         </li>
     </ul><h4>🏷️ 4. Неизвестно</h4><ul>
         <li>
@@ -275,7 +307,6 @@
     <li><b>Facade</b> (Фасад) - предоставляет простой интерфейс к сложной системе классов, библиотеке или фреймворку</li>
     <li><b>Flyweight</b> (Легковес) - позволяет вместить бóльшее количество объектов в отведённую оперативную память. Легковес экономит память, разделяя общее состояние объектов между собой, вместо хранения одинаковых данных в каждом объекте</li>
     <li><b>Proxy</b> (Заместитель) - позволяет подставлять вместо реальных объектов специальные объекты-заменители. Эти объекты перехватывают вызовы к оригинальному объекту, позволяя сделать что-то до или после передачи вызова оригиналу</li>
-    <hr>
     <li><b>Bridge</b> (Мост) - разделяет один или несколько классов на две отдельные иерархии - абстракцию и реализацию, позволяя изменять их независимо друг от друга</li>
     <li><b>Composite</b> (Компоновщик) - позволяет сгруппировать объекты в древовидную структуру, а затем работать с ними так, как будто это единичный объект</li>
 </ul>
@@ -298,7 +329,6 @@
     <li><b>State</b> (Состояние) - позволяет объектам менять поведение в зависимости от своего состояния. Извне создаётся впечатление, что изменился класс объекта</li>
     <li><b>Strategy</b> (Стратегия) - пределяет семейство схожих алгоритмов и помещает каждый из них в собственный класс, после чего алгоритмы можно взаимозаменять прямо во время исполнения программы</li>
     <li><b>Template Method</b> (Шаблонный метод) - определяет скелет алгоритма, перекладывая ответственность за некоторые его шаги на подклассы. Паттерн позволяет подклассам переопределять шаги алгоритма, не меняя его общей структуры</li>
-    <hr>
     <li><b>Memento</b> (Снимок) - позволяет делать снимки состояния объектов, не раскрывая подробностей их реализации. Затем снимки можно использовать, чтобы восстановить прошлое состояние объектов</li>
     <li><b>Visitor</b> (Посетитель) - позволяет создавать новые операции, не меняя классы объектов, над которыми эти операции могут выполняться</li>
 </ul>
@@ -1281,6 +1311,148 @@ console.log(proxiedFetch('angular.io')); // => "angular.io - Ответ с се�
 console.log(proxiedFetch('react.io'));   // => "react.io - Ответ с сервера"
 console.log(proxiedFetch('angular.io')); // => "angular.io - Ответ из кэша"
 </v-code>
+</div><div id="theory-design-patterns/2-structural/bridge"><h2>Bridge (Мост)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Bridge</u-text-define> - </li>
+    <li></li>
+</ul>
+
+
+https://www.youtube.com/watch?v=pNVuMif0bc0
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Paint Cars</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class Model {
+    constructor(color) {
+        this.color = color;
+    }
+};
+
+class Color {
+    constructor(type) {
+        this.type = type;
+    }
+    get() {
+        return this.type;
+    }
+};
+
+class BlackColor extends Color {
+    constructor() {
+        super("dark-black");
+    }
+}
+
+class SilbrigColor extends Color {
+    constructor() {
+        super("Silbermetallic");
+    }
+}
+
+class Audi extends Model {
+    constructor(color) {
+        super(color);
+    }
+    paint() {
+        return `Auto: Audi, Color: ${this.color.get()}`;
+    }
+};
+
+class Bmw extends Model {
+    constructor(color) {
+        super(color);
+    }
+    paint() {
+        return `Auto: Bmw, Color: ${this.color.get()}`;
+    }
+};
+</v-code>
+</div><div id="theory-design-patterns/2-structural/composite"><h2>Composite (Компоновщик)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Composite</u-text-define> - </li>
+    <li></li>
+</ul>
+
+
+https://www.youtube.com/watch?v=H-CwPjUB5Rw
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Equipment</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class Equipment {
+    getPrice() {
+        return this.price || 0;
+    }
+    getName() {
+        return this.name;
+    }
+    setName(name) {
+        this.name = name;
+    }
+    setPrice(price) {
+        this.price = price;
+    }
+}
+
+class Engine extends Equipment {
+    constructor() {
+        super();
+        this.setName('Engine');
+        this.setPrice(800);
+    }
+}
+
+class Body extends Equipment {
+    constructor() {
+        super();
+        this.setName('Body');
+        this.setPrice(3000);
+    }
+}
+
+class Tools extends Equipment {
+    constructor() {
+        super();
+        this.setName('Tools');
+        this.setPrice(4000);
+    }
+}
+
+class Composite extends Equipment {
+    constructor() {
+        super();
+        this.equipments = [];
+    }
+    add(equipment) {
+        this.equipments.push(equipment);
+    }
+    getPrice() {
+        return this.equipments
+            .map(equipment => equipment.getPrice())
+            .reduce((a, b) => a + b);
+    }
+}
+
+class Car extends Composite {
+    constructor() {
+        super();
+        this.setName('Audi');
+    }
+}
+</v-code>
 </div><div id="theory-design-patterns/3-behavioral/observer"><h2>Observer (Наблюдатель)</h2>
 
 <ul class="list-point">
@@ -1827,6 +1999,104 @@ console.log(dev.work()); // => "Владилен выполняет процес
 const tester = new Tester('Виктория', 90000);
 console.log(tester.getPaid()); // => "Виктория имеет ЗП 90000"
 console.log(tester.work()); // => "Виктория выполняет процесс тестирования"
+</v-code>
+</div><div id="theory-design-patterns/3-behavioral/memento"><h2>Memento (Снимок)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Memento</u-text-define> - сохранение и восстановление предыдущего состояния объекта</li>
+    <li><u>Пример</u>: текстовый редактор или фоторедактор</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Memento</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class Memento {
+	constructor(value) {
+		this.value = value;
+	}
+};
+
+// Логика на создание и восстановление снимков
+const creator = {
+	// val - текущее состояние
+	save: val => new Memento(val),
+	// memento - все сохраненные состояния
+	restore: memento => memento.value,
+};
+
+// Хранение и восстановление предыдущих состояний
+class Caretaker {
+	constructor() {
+		this.values = [];
+	}
+	// Сохранения снимка текущих данных
+	addMemento(memento) {
+		this.values.push(memento);
+	}
+	// Восстановление предыдущего значения
+	// Обращение к элементу массива по index
+	getMemento(index) {
+		return this.values[index];
+	}
+};
+
+const careTaker = new Caretaker();
+
+careTaker.addMemento(creator.save('Hello'));
+careTaker.addMemento(creator.save('Hello World'));
+careTaker.addMemento(creator.save('Hello My World'));
+
+const a1 = creator.restore(careTaker.getMemento(1)); // => "Hello World"
+</v-code>
+</div><div id="theory-design-patterns/3-behavioral/visitor"><h2>Visitor (Посетитель)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Visitor</u-text-define> - добавление новой функциональности к существующим классам, причем не изменяя исходный код классов</li>
+    <li>Расширение функциональности класса не изменяя его первоначальную реализацию</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Auto</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class Auto {
+	accept(visitor) {
+		visitor(this);
+	}
+}
+
+class Tesla extends Auto {
+	info() {
+		return 'Tesla car';
+	}
+}
+class Bmw extends Auto {
+	info() {
+		return 'BMW car';
+	}
+}
+
+function exportVisitor(auto) {
+	if (auto instanceof Tesla) auto.export = console.log(auto.info());
+	if (auto instanceof Bmw)   auto.export = console.log(auto.info());
+};
+
+const tesla = new Tesla();
+const bmw = new Bmw();
+
+const a1 = tesla.accept(exportVisitor); // => Tesla car
+const a2 = bmv.accept(exportVisitor); // => BMW car
 </v-code>
 </div><div id="theory-design-patterns/patterns-other/module"><h2>Модуль</h2>
 
