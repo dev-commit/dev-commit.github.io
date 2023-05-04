@@ -27,14 +27,17 @@ ARR_MODULE = [
             [root+'protocols/osi',  emoji.theory+'Сетевая модель OSI'],
             [root+'protocols/tcp',  emoji.chevron+'TCP'],
             [root+'protocols/udp',  emoji.chevron+'UDP'],
-            [root+'protocols/soap', emoji.star+'SOAP'],
+
         ]
     },
     {
         title: 'Работа с API',
         themes: [
-            [root+'tech-api/rest',    emoji.fire+'REST API'],
-            [root+'tech-api/graphql', 'GraphQL'],
+            [root+'api/api',     emoji.theory+'API'],
+            [root+'api/rest-vs-soap',     emoji.theory+'REST vs SOAP'],
+            [root+'api/soap',    '1. SOAP'],
+            [root+'api/rest',    '2. REST API'],
+            [root+'api/graphql', '3. GraphQL'],
         ]
     },
     {
