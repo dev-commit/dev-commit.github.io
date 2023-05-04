@@ -14,7 +14,7 @@ ARR_MODULE = [
             [root+'1-creational/singleton',        'Singleton', false, 'done'],
             [root+'1-creational/constructor',      'Constructor'],
             [root+'1-creational/builder',          'Builder'],
-            [root+'1-creational/prototype',        'Prototype', false, 'check'],
+            [root+'1-creational/prototype',        'Prototype'],
             [root+'1-creational/factory-method',   'Factory Method'],
             [root+'1-creational/abstract-factory', 'Abstract Factory'],
         ]
@@ -27,7 +27,7 @@ ARR_MODULE = [
             [root+'2-structural/adapter',   'Adapter'],
             [root+'2-structural/facade',    'Facade'],
             [root+'2-structural/flyweight', 'Flyweight'],
-            [root+'2-structural/proxy',     'Proxy', false, 'check'],
+            [root+'2-structural/proxy',     'Proxy'],
             [root+'2-structural/bridge',    'Bridge'],
             [root+'2-structural/composite', 'Composite'],
         ]
@@ -39,7 +39,7 @@ ARR_MODULE = [
             [root+'3-behavioral/observer',                'Observer', false, 'done'],
             [root+'3-behavioral/chain-of-responsibility', 'Chain Of Responsibility'],
             [root+'3-behavioral/command',                 'Command'],
-            [root+'3-behavioral/iterator',                'Iterator', false, 'check'],
+            [root+'3-behavioral/iterator',                'Iterator'],
             [root+'3-behavioral/mediator',                'Mediator'],
             [root+'3-behavioral/state',                   'State'],
             [root+'3-behavioral/strategy',                'Strategy'],

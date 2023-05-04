@@ -1,14 +1,68 @@
 <h2>Proxy (Заместитель)</h2>
 
 <ul class="list-point">
-    <li><u-text-define>Proxy</u-text-define> - ловушки на поля объектов, на вызов функции и т.д.</li>
+    <li><u-text-define>Proxy</u-text-define> - позволяет вместо реальных объектов предоставляет "объекты-заменители". Эти объекты перехватывают вызов к оригиналам и позволяют сделать что-то до или после обращения к оригинальному объекту</li>
+	<li>Это "прослойка", которая позволяет произвести дополнительные манипуляции до того как отдать контроль</li>
+	<li>Ловушки на поля объектов, на вызов функции и т.д.</li>
     <li>Позволяет гибко определять работу приложения в дальнейшем</li>
     <li>Пример: избавление лишних запросов на сервер путем кеширования. Если запрашивамеые данные уже были получены, то запрос не отправляются, а данные берутся из кеша</li>
 </ul>
 
+<h5>Виды Proxy</h5>
+<ul class="list-point">
+	<li><em>Виртуальный Proxy</em> - аналог Lazy Loading. Загружка тяжелого объекта только в случае необходимости в нем</li>
+	<li><em>Логирующий Proxy</em> - хранение истории обращений</li>
+	<li><em>Защищающий</em> - авторизация</li>
+	<li><em>Кеширующий</em> - частичное кеширование результатов запроса клиента и управление ими</li>
+</ul>
+
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Авторизация</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Оригинальный класс по открытию авто
+class CarAccess {
+	open() {
+		console.log('Opening car door');
+	}
+	close() {
+		console.log('Closing the car door');
+	}
+};
+
+// Proxy-объект, обеспечивающий безопасность открытия дверей
+class SecuritySystem {
+	constructor(door) {
+		this.door = door;
+	}
+	open(password) {
+		if (this.authenticate(password)) {
+			// Если авториазация успешная, то вызывается
+			// оригинальный метод open из CarAccess
+			this.door.open();
+		} else {
+			console.log('Access denied!');
+		}
+	}
+	authenticate(password) {
+		return password === 'Ilon';
+	}
+	close() {
+		this.door.close();
+	}
+};
+
+const door = new SecuritySystem(new CarAccess());
+door.open('Jack'); // => "Access denied!"
+door.open('Ilon'); // => "Opening car door"
+door.close();      // => "Closing the car door"
+</v-code>
+
 
 <!------------------------------------------------------------->
 <h4>Работа с сервером</h4>

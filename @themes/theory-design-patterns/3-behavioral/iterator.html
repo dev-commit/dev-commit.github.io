@@ -1,15 +1,106 @@
 <h2>Iterator (Итератор)</h2>
 
 <ul class="list-point">
-    <li><u-text-define>Iterator</u-text-define> - создается класс, у которого можно последовательно получить доступ до определенной информации</li>
+    <li><u-text-define>Iterator</u-text-define> - возможность последовательно обходить элементы составных объектов не раскрывая их внутреннего представления</li>
+	<li>Предоставление инструмента доступа к объектам без возможности повлиять на объекты</li>
+	<li>Создается класс, у которого можно последовательно получить доступ до определенной информации</li>
+	<li><u>Задача</u>: перебрать коллекцию. Коллекция - совокупность объектов, объединенных по определенным критериям</li>
+	<li><u>Идея</u>: вынести алгоритм обхода коллекции из самой коллекции в отдельный класс, который содержит методы <u>next</u> и <u>hasNext</u></li>
 </ul>
+
+<h5>Методы</h5>
+<ul class="list-point">
+	<li><u-code-text>next()</u-code-text> - перемещение на следующий элемент коллекции</li>
+	<li><u-code-text>hasNext</u-code-text> - проверка существования следующего элемента. Если возвращает <u>false</u>, то перебор завершен</li>
+</ul>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
-<h4>Итератор</h4>
+<h4>Iterator</h4>
+<!------------------------------------------------------------->
+
+<v-two><template v-slot:first>
+<ul class="list-point">
+	<li><b>ArrayIterator</b></li>
+</ul>
+<v-code lang="js" title="">
+class ArrayIterator {
+	constructor(el) {
+		this.index = 0;
+		this.elements = el;
+	}
+	next() {
+		return this.elements[this.index++];
+	}
+	hasNext() {
+		return this.index < this.elements.length;
+	}
+};
+</v-code>
+<v-code lang="js" title="">
+const items = ['Audi', 'BMW', 'Tesla'];
+
+const collection = new ArrayIterator(items);
+
+while(collection.hasNext()) {
+	const a = collection.next();
+	console.log(a);
+}
+</v-code>
+<v-code lang="bash none" title="">
+Output:
+"Audi", 
+"BMW",
+"Tesla"
+</v-code>
+</template><template v-slot:last>
+<ul class="list-point">
+	<li><b>ObjectIterator</b></li>
+</ul>
+<v-code lang="js" title="">
+class ObjectIterator {
+	constructor(el) {
+		this.index = 0;
+		// Массив ключей объекта
+		this.keys = Object.keys(el),
+		this.elements = el;
+	}
+	next() {
+		return this.elements[this.keys[this.index++]];
+	}
+	hasNext() {
+		return this.index < this.keys.length;
+	}
+};
+</v-code>
+<v-code lang="js" title="">
+const items = {
+	audi: { model: 'Audi', color: 'black' },
+	bmw: { model: 'BMW', color: 'green' },
+	tesla: { model: 'Tesla', color: 'orange' },
+}
+
+const collection = new ObjectIterator(items);
+
+while(collection.hasNext()) {
+	const a = collection.next();
+	console.log(a);
+}
+</v-code>
+<v-code lang="bash none" title="">
+Output:
+{ "model": "Audi", "color": "black" },
+{ "model": "BMW", "color": "green" }, 
+{ "model": "Tesla", "color": "orange" }
+</v-code>
+</template></v-two>
+
+<!------------------------------------------------------------->
+<h4>Итератор через Symbol</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 class MyIterator {

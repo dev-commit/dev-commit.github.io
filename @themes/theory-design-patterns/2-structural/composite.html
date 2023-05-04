@@ -1,12 +1,16 @@
 <h2>Composite (Компоновщик)</h2>
 
 <ul class="list-point">
-    <li><u-text-define>Composite</u-text-define> - </li>
-    <li></li>
+    <li><u-text-define>Composite</u-text-define> - позволяет сгруппировать множество объектов в древовидную структуру и работать с этой структурой так, как-будто это один объект</li>
 </ul>
 
+<h5>Структура</h5>
+<ul class="list-point">
+    <li>1. <b>Деревовидная структура</b>. Вложенные компоненты - "листья", связи между компонентами - "ветки"</li>
+    <li>Объект, который не знает о вложенных в него структурах. Объект ревлизует те же методы, что и вложенные в него компоненты, но вместо вызова своего метода, он перает вызовы вложенным компонентам, а те передают в собственные вложенные структуры</li>
+    <li>2. <b>Единый интерфес вызова</b></li>
+</ul>
 
-https://www.youtube.com/watch?v=H-CwPjUB5Rw
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
@@ -15,7 +19,12 @@ https://www.youtube.com/watch?v=H-CwPjUB5Rw
 <!------------------------------------------------------------->
 <h4>Equipment</h4>
 <!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Нужно посчитать себестоимость автомобиля как сумма всех его составных частей</li>
+</ul>
+
 <v-code lang="js" title="">
+// Базовый интерфейс для запчастей
 class Equipment {
     getPrice() {
         return this.price || 0;
@@ -30,7 +39,10 @@ class Equipment {
         this.price = price;
     }
 }
+</v-code>
 
+<v-code lang="js" title="">
+// Запчасти
 class Engine extends Equipment {
     constructor() {
         super();
@@ -38,7 +50,6 @@ class Engine extends Equipment {
         this.setPrice(800);
     }
 }
-
 class Body extends Equipment {
     constructor() {
         super();
@@ -46,7 +57,6 @@ class Body extends Equipment {
         this.setPrice(3000);
     }
 }
-
 class Tools extends Equipment {
     constructor() {
         super();
@@ -54,26 +64,42 @@ class Tools extends Equipment {
         this.setPrice(4000);
     }
 }
+</v-code>
 
+<v-code lang="js" title="">
+// Класс-компоновщик, просчитывающий общую стоимость оборудования
 class Composite extends Equipment {
     constructor() {
         super();
         this.equipments = [];
     }
+    // Добавление оборудования в автомобиль
     add(equipment) {
         this.equipments.push(equipment);
     }
+    // Генерирует массив цен
     getPrice() {
         return this.equipments
             .map(equipment => equipment.getPrice())
             .reduce((a, b) => a + b);
     }
 }
+</v-code>
 
+<v-code lang="js" title="">
 class Car extends Composite {
     constructor() {
         super();
         this.setName('Audi');
     }
 }
+
+const myCar = new Car();
+
+myCar.add(new Engine());
+myCar.add(new Body());
+myCar.add(new Tools());
+
+const a1 = myCar.getName();  // => "Audi"
+const a2 = myCar.getPrice(); // => 7800
 </v-code>
