@@ -12,6 +12,7 @@ const ARR_LINKS = [
     { page: 'theory-design-patterns',  theme: 'accent',   title: 'Design Patterns' },
     { page: 'theory-solid',            theme: 'accent',   title: 'SOLID' },
     { page: 'theory-paradigms',        theme: 'brown',    title: '📑 Парадигмы' },
+    { page: 'blockchain',              theme: 'brown',    title: 'Blockchain' },
     null,
     { page: 'event-loop',              theme: 'green',    title: '🥥 Event Loop' },
     { page: 'js',                      theme: 'green',    title: '🥥 JavaScript' },

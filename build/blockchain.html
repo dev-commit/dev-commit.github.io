@@ -1,0 +1,248 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Blockchain</title>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" href="../src/img/favicon.svg">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/blockchain/build-blockchain.js"></script>
+        </head>
+        <body>
+
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="link" v-html="'Blockchain'"></a>
+                    </div>
+                    <h4>🏷️ Категории</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__blockchain/category/blockchain"
+                href="#blockchain/category/blockchain"
+            >Blockchain</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__blockchain/category/nft"
+                href="#blockchain/category/nft"
+            >NFT</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__blockchain/category/smart-contract"
+                href="#blockchain/category/smart-contract"
+            >Smart Contract</a>
+        </li>
+    </ul><h4>🏷️ Инструменты</h4><ul>
+        <li>
+            <a
+                class="menu-link"
+                id="id__blockchain/utils/ipfs"
+                href="#blockchain/utils/ipfs"
+            ><u-menu-outline>IPFS</u-menu-outline></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__blockchain/utils/web3-wallet"
+                href="#blockchain/utils/web3-wallet"
+            ><u-menu-outline>Web3 Wallet</u-menu-outline></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__blockchain/utils/metamask"
+                href="#blockchain/utils/metamask"
+            >Metamask</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__blockchain/utils/filecoin"
+                href="#blockchain/utils/filecoin"
+            >Filecoin</a>
+        </li>
+    </ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="blockchain/category/blockchain"><h2>Blockchain</h2>
+
+<!------------------------------------------------------------->
+<h4>Структура блока</h4>
+<!------------------------------------------------------------->
+<p><u-text-define>Blockchain</u-text-define> - цепочка блоков, которые содержат информацию:</p>
+<ol class="list-num">
+    <li><b>Данные</b>. Зависит от типа Blockchain, н-р для Bitcoin: отправитель, получатель, сумма</li>
+    <li><b>Хэш блока</b>. Если в блоке есть изменения, то меняется хэш блока, что делает недействительным все последующие блоки (каждый последующий блок хранит хэш предыдущего)</li>
+    <li><b>Хэш предыдущего блока</b>. Если нет предыдущего блока, то это первый блок (Генезис-блок)</li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>Децентрализация</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Использование одноранговой сети</li>
+    <li>Децентрализованный глобальный код, открытый для всех</li>
+</ul>
+
+<p><u-text-define>P2P</u-text-define> (Peer-to-Peer). Blockchain использует P2P сеть и любой человек может присоединиться</p>
+
+<ul class="list-point">
+    <li>При подключении к сети, пользователь получает полную копию Blockchain</li>
+    <li>При создании нового блока, он отправляется всем подключенным к сети узлам (пользователям). Каждый узел проверяет новый блок и его хэш, чтобы убедиться в его достоверности. Если всё в порядке, то каждый узел добавляет это блок в свою копию Blockchain. Если блок фальсифицирован, то будет отклонен остальными узлами сети</li>
+    <li>Чтобы фальсифицировать блок, то под контролем должно быть более 50% сейти Blockchain, чтобы признать консенсус и признать фальсифициорованный блок действительным, поэтоум <u>однажды записанную информация практически невозможно изменить или удалить</u></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Принципы безопасности</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li><b>Хэширование</b> - задание уникального хэша каждому блоку. Блок хранит свой хэш и хэш последующего блока</li>
+    <li><b>Prof of Work</b> - механизм, замедляющий создание новых блоков (для Bitcoin это 10 минут). Существенно затрудняется изменение блоков: если изменяется 1 блок, то нужно пересчитать Prof of Work для всех остальных блоков, что является труным процессом</li>
+    <li><b>Децентрализация</b></li>
+</ol>
+
+
+
+
+</div><div id="blockchain/category/nft"><h2>NFT</h2>
+
+<ul class="list-point">
+    <li><u-text-define>NFT</u-text-define> (Non-Fungible Token, невзаимозаменяемый токен) - цифровой сертификат, подтверждающий факт владения конкретным цифровым активом</li>
+    <li>В блокчейн-сети можно найти информацию обо всех владельцах вплоть до текущего</li>
+    <li>Права NFT работают только в рамках блокчейн-сети, в которой был создан токен</li>
+    <li><u-text-define>Минтинг</u-text-define> - создание NFT токена</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Структура NFT</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><b>Ссылка на произведение искусства</b></li>
+    <li><b>Смарт-контракт</b>. Определяет права и возможности управления активом владельца NTF: владеть, купить или продать</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Прочее</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u>Популярные сервисы по созданию и торговле NFT</u>: Zora, Rarible, OpenSea, SuperRare, CryptoPunks, Nifty, Gateway, Foundation</li>
+</ul>
+</div><div id="blockchain/category/smart-contract"><h2>Smart Contract (Смарт-контракт)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Smart Contract</u-text-define> - программы, хранящиеся внутри Blockchain и могут быть использованы для автоматического обмена монетами</li>
+</ul>
+
+</div><div id="blockchain/utils/ipfs"><h2>IPFS</h2>
+
+<u-link-wrapper>
+    <a href="https://ipfs.tech/" target="_blank">https://ipfs.tech/</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>IPFS</u-text-define> - Хранище, основанное на Blockchain</li>
+</ul>
+</div><div id="blockchain/utils/web3-wallet"><h2>Web3 Wallet</h2>
+
+<u-link-wrapper>
+    <a href="https://web3auth.io/" target="_blank">https://web3auth.io/</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Web3 Wallet</u-text-define> - цифровой кошелёк</li>
+</ul>
+</div><div id="blockchain/utils/metamask"><h2>Metamask</h2>
+
+<u-link-wrapper>
+    <a href="https://metamask.io/" target="_blank">https://metamask.io/</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Metamask</u-text-define> - crypto Wallet & gateway to blockchain apps</li>
+</ul>
+</div><div id="blockchain/utils/filecoin"><h2>Filecoin</h2>
+
+<u-link-wrapper>
+    <a href="https://filecoin.io/" target="_blank">https://filecoin.io/</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Filecoin</u-text-define> - децентрализованная сеть хранения</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Ссылки</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://dataonboarding.filecoin.io/" target="_blank">https://dataonboarding.filecoin.io/</a>
+    <a href="https://filecoin.io/store/" target="_blank">https://filecoin.io/store/</a>
+    <a href="https://docs.filecoin.io/store/filecoin-plus/overview/" target="_blank">https://docs.filecoin.io/store/filecoin-plus/overview/</a>
+    <hr class="small">
+    <a href="https://www.youtube.com/watch?v=-kxNpRiEd_c" target="_blank">https://www.youtube.com/watch?v=-kxNpRiEd_c</a>
+    <a href="https://www.youtube.com/watch?v=8JqyEB80KFA" target="_blank">https://www.youtube.com/watch?v=8JqyEB80KFA</a>
+    <a href="https://www.youtube.com/watch?v=Pkng0DqAXXI" target="_blank">https://www.youtube.com/watch?v=Pkng0DqAXXI</a>
+</u-link-wrapper>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue/build.js"></script>
+        </body>
+    </html>
