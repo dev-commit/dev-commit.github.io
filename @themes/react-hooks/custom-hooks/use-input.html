@@ -3,11 +3,11 @@
 <v-code lang="js step" title="">
 import React, { useState } from 'react';
 
-const useInput = (initialValue) => {
+export const useInput = (initialValue) => {
 	const [value, setValue] = useState(initialValue);
 
     const onChange = event => setValue(event.target.value);
-	const clear = () =&gt; setValue('');
+	const clear = () => setValue('');
 
 	return {
 		bind: { value, onChange },
@@ -18,7 +18,7 @@ const useInput = (initialValue) => {
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>Usage</h4>
+<h4>Использование</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 import React from 'react';

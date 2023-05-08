@@ -27,11 +27,12 @@ ARR_MODULE = [
     {
         title: 'Custom Hooks',
         themes: [
-            [root+'custom-hooks/info',         emoji.theory+'Кастомные хуки'],
-            [root+'custom-hooks/use-debounce', setTheme(6, ['useDebounce'])],
-            [root+'custom-hooks/use-previous', setTheme(6, ['usePrevious'])],
-            [root+'custom-hooks/use-input',    setTheme(6, ['useInput'])],
-            [root+'custom-hooks/use-logger',   setTheme(6, ['useLogger'])],
+            [root+'custom-hooks/info',                  emoji.theory+'Кастомные хуки'],
+            [root+'custom-hooks/use-did-update-effect', setTheme(6, ['useDidUpdateEffect'])],
+            [root+'custom-hooks/use-debounce',          setTheme(6, ['useDebounce'])],
+            [root+'custom-hooks/use-input',             setTheme(6, ['useInput'])],
+            [root+'custom-hooks/use-logger',            setTheme(6, ['useLogger'])],
+            [root+'custom-hooks/use-previous',          setTheme(6, ['usePrevious'])],
         ]
     },
     {

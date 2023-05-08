@@ -133,17 +133,17 @@
         <li>
             <a
                 class="menu-link"
-                id="id__react-hooks/custom-hooks/use-debounce"
-                href="#react-hooks/custom-hooks/use-debounce"
-            ><u-menu-gray>useDebounce</u-menu-gray></a>
+                id="id__react-hooks/custom-hooks/use-did-update-effect"
+                href="#react-hooks/custom-hooks/use-did-update-effect"
+            ><u-menu-gray>useDidUpdateEffect</u-menu-gray></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__react-hooks/custom-hooks/use-previous"
-                href="#react-hooks/custom-hooks/use-previous"
-            ><u-menu-gray>usePrevious</u-menu-gray></a>
+                id="id__react-hooks/custom-hooks/use-debounce"
+                href="#react-hooks/custom-hooks/use-debounce"
+            ><u-menu-gray>useDebounce</u-menu-gray></a>
         </li>
     
         <li>
@@ -160,6 +160,14 @@
                 id="id__react-hooks/custom-hooks/use-logger"
                 href="#react-hooks/custom-hooks/use-logger"
             ><u-menu-gray>useLogger</u-menu-gray></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__react-hooks/custom-hooks/use-previous"
+                href="#react-hooks/custom-hooks/use-previous"
+            ><u-menu-gray>usePrevious</u-menu-gray></a>
         </li>
     </ul><h4>🏷️ Прочее</h4><ul>
         <li>
@@ -1325,12 +1333,70 @@ useDebugValue(value)
 <ul class="list-point">
     <li>Хуки - это способ использовать повторно логику состояния, а не само состояние. Более того, каждое обращение к хуку обеспечивает совершенно изолированное состояние. Можно использовать один и тот же хук несколько раз в одном компоненте</li>
 </ul>
+</div><div id="react-hooks/custom-hooks/use-did-update-effect"><h2>useDidUpdateEffect</h2>
+
+<ul class="list-point">
+    <li><b>Данные</b>: useEffect в примере будет вызван на как при <u>Монтировании</u>, так и при <u>Обновлении</u>. По итогу в console.log будет 2 записи "useEffect"</li>
+    <li><b>Задача</b>: выполянть код в useEffect только при обновлении (в примере должна быть 1 запись "useEffect")</li>
+</ul>
+
+<v-code lang="js none" title="">
+import React, { useState, useEffect } from "react";
+
+const App = () => {
+    const [count, setCount] = useState(0);
+
+    // Выполнится при монтировании и при обновлении
+    useEffect(() => {
+        console.log("useEffect");
+    }, [count]);
+
+    return null;
+};
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Реализация</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+import React, { useEffect, useRef } from "react";
+
+// Выполнится только при обновлении
+export const useDidUpdateEffect = (callback, deps) => {
+    const didMountRef = useRef(false);
+
+    useEffect(() => {
+        didMountRef.current && callback();
+        didMountRef.current = true;
+    }, deps);
+
+    return true;
+};
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import React, { useState } from "react";
+
+const App = () => {
+    const [count, setCount] = useState(0);
+
+    <u-code-accent>useDidUpdateEffect</u-code-accent>(
+        () => console.log("useDidUpdateEffect"),
+        [count]
+    );
+
+    return null;
+};
+</v-code>
 </div><div id="react-hooks/custom-hooks/use-debounce"><h2>useDebounce</h2>
 
 <v-code lang="js step" title="">
 import React, { useState, useEffect } from 'react';
 
-const useDebounce = (value, delay) => {
+export const useDebounce = (value, delay) => {
     const [debouncedValue, setDebouncedValue] = useState(value);
 
     useEffect(() => {
@@ -1348,7 +1414,7 @@ const useDebounce = (value, delay) => {
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>Usage</h4>
+<h4>Использование</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 import React, { useState } from 'react';
@@ -1359,31 +1425,16 @@ const App = () => {
 	return {}
 }
 </v-code>
-</div><div id="react-hooks/custom-hooks/use-previous"><h2>usePrevious</h2>
-
-<v-code lang="js step" title="">
-import { useEffect, useRef } from 'react';
-
-const usePrevious = (value) => {
-    const ref = useRef();
-
-    useEffect(() => {
-        ref.current = value;
-    })
-
-    return ref.current;
-}
-</v-code>
 </div><div id="react-hooks/custom-hooks/use-input"><h2>useInput</h2>
 
 <v-code lang="js step" title="">
 import React, { useState } from 'react';
 
-const useInput = (initialValue) => {
+export const useInput = (initialValue) => {
 	const [value, setValue] = useState(initialValue);
 
     const onChange = event => setValue(event.target.value);
-	const clear = () =&gt; setValue('');
+	const clear = () => setValue('');
 
 	return {
 		bind: { value, onChange },
@@ -1394,7 +1445,7 @@ const useInput = (initialValue) => {
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>Usage</h4>
+<h4>Использование</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 import React from 'react';
@@ -1419,15 +1470,15 @@ const App = () => {
 <v-code lang="js step" title="">
 import React, { useState, useEffect } from 'react';
 
-const useLogger = (value) => {
-	useEffect(() =&gt; {
+export const useLogger = (value) => {
+	useEffect(() => {
 		console.log('Value changed: ', value);
 	}, [value]);
 }
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>Usage</h4>
+<h4>Использование</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 const App = () => {
@@ -1443,6 +1494,21 @@ const App = () => {
 			&lt;h1&gt;{value}&lt;/h1&gt;
 		&lt;/&gt;
 	)
+}
+</v-code>
+</div><div id="react-hooks/custom-hooks/use-previous"><h2>usePrevious</h2>
+
+<v-code lang="js step" title="">
+import { useEffect, useRef } from 'react';
+
+export const usePrevious = (value) => {
+    const ref = useRef();
+
+    useEffect(() => {
+        ref.current = value;
+    })
+
+    return ref.current;
 }
 </v-code>
 </div><div id="react-hooks/other/questions"><h2>Вопросы</h2>
