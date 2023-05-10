@@ -5,8 +5,10 @@ ARR_MODULE = [
         title: 'Категории',
         themes: [
             [root+'category/blockchain',     'Blockchain'],
-            [root+'category/nft',            'NFT'],
             [root+'category/smart-contract', 'Smart Contract'],
+            [root+'category/token',          'Token'],
+            [root+'category/nft',            'NFT'],
+            [root+'category/algoritm',       'Алгоритм работы'],
         ]
     },
     {
