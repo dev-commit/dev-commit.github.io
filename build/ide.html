@@ -39,7 +39,7 @@
                 class="menu-link"
                 id="id__ide/vscode/plugins"
                 href="#ide/vscode/plugins"
-            >🔥 Плагины</a>
+            >🧲 Плагины</a>
         </li>
     
         <li>
@@ -47,7 +47,7 @@
                 class="menu-link"
                 id="id__ide/vscode/snippets"
                 href="#ide/vscode/snippets"
-            >🧲 Сниппеты</a>
+            >Сниппеты</a>
         </li>
     
         <li>
@@ -55,7 +55,15 @@
                 class="menu-link"
                 id="id__ide/vscode/settings"
                 href="#ide/vscode/settings"
-            >🧲 Настройки</a>
+            >Настройки</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__ide/vscode/shortcuts"
+                href="#ide/vscode/shortcuts"
+            >Shortcuts</a>
         </li>
     
         <li>
@@ -136,6 +144,14 @@
 </ul>
 </div><div id="ide/vscode/plugins"><h2>Плагины</h2>
 
+<!------------------------------------------------------------->
+<h4>Color Theme</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u>Color Theme</u>: One Dark Pro</li>
+    <li><u>File Icon Theme</u>: Material Theme Icons Palenight / Material Icon Theme</li>
+</ul>
+
 <v-two><template v-slot:first>
     <ul class="list-point">
         <u-code-text><b>Themes</b></u-code-text>
@@ -162,6 +178,8 @@
     <ul class="list-point">
         <u-code-text><b>Common</b></u-code-text>
         <li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings" target="_blank">Sublime Text Keymap and Settings Importer</a></li>
+        <li><a href="https://marketplace.visualstudio.com/items?itemName=SimonSiefke.svg-preview" target="_blank">Svg Preview</a></li>
+        <li><a href="https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight" target="_blank">TODO Highlight</a> (// TODO: // FIXME:)</li>
     </ul>
 </template><template v-slot:last>
     <ul class="list-point">
@@ -228,26 +246,31 @@
     <li><u-code-text>body</u-code-text> - тело сниппета</li>
     <li><u-code-text>description</u-code-text> - описание сниппета</li>
 </ul>
-</div><div id="ide/vscode/settings"><h2>Настройки</h2>
+</div><div id="ide/vscode/settings"><h2>Настройки редактора</h2>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Цветовая тема</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li><u-code-text>Color Theme</u-code-text>: One Dark Pro</li>
-    <li><u-code-text>File Icon Theme</u-code-text>: Material Icon Theme</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Настройки редактора</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>Tree: Ident</h4>
+<!------------------------------------------------------------->
 <img src="/@img/ide/vscode/settings-indent.png" width="650px">
-<hr>
+
+<!------------------------------------------------------------->
+<h4>Startup Editor</h4>
+<!------------------------------------------------------------->
 <img src="/@img/ide/vscode/settings-startup-editor.png" width="500px">
 
+<!------------------------------------------------------------->
+<h4>Explorer: Compact Folders</h4>
+<!------------------------------------------------------------->
 <ul class="list-point">
-    <li>Чтобы вложенная папка отображалась не в линию, в настройках можно отключить Compact Folders</li>
+    <li>По-умолчанию вложенные пустые директории отображаются в одну линию. Отключается флагом <u>Compact Folders</u> или настройкой <u-code-text>"explorer.compactFolders": false</u-code-text></li>
 </ul>
+<img src="/@img/ide/vscode/settings-compact-folder.png" width="500px">
+</div><div id="ide/vscode/shortcuts"><h2>Shortcuts</h2>
+
+<ul class="list-point">
+    <li><u-code-text>Ctrl</u-code-text> + <u-code-text>Пробел</u-code-text> - при клике рядом с неимпортированным компонентом, добавляет <u>import</u> этого компонента</li>
+</ul>
+
 </div><div id="ide/vscode/extension-eslint"><h2>ESLint</h2>
 
 <ul class="list-point">
