@@ -15,6 +15,7 @@ ARR_MODULE = [
             [root+'common/onSubmit', setTheme(1, ['onSubmit'])],
             ['', ''],
             [root+'common/onChange', setTheme(5, ['onChange'])],
+            ['', emoji.pizza+'Emoji'],
         ]
     },
     {
