@@ -49,7 +49,7 @@ ARR_MODULE = [
         ]
     },
     {
-        title: '4. Неизвестно',
+        title: 'Неизвестно',
         themes: [
             [root+'patterns-other/module',           'Модуль'],
             [root+'patterns-other/module-revealing', 'Открытый модуль'],
