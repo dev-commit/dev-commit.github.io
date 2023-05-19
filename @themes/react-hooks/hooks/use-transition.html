@@ -1,0 +1,25 @@
+<h2>Хук useTransition</h2>
+
+<u-link-wrapper>
+    <a href="https://react.dev/reference/react/useTransition" target="_blank">useTransition</a>
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useTransition" after="" arg="()">
+    Позволяет обновлять состояние, не блокируя UI
+    </v-method>
+    <v-method-return>
+        Массив ровно из двух элементов:<br>
+        1. <u>isPending</u> флаг, указывающий, есть ли ожидающий переход<br>
+        2. <u>startTransition</u> функция, позволяющая отметить обновление состояния как переход
+    </v-method-return>
+</div>
+
+<v-code lang="js border" title="">
+import { useTransition } from 'react';
+
+const App = () => {
+    const [isPending, startTransition] = <u-code>useTransition</u-code>();
+    // ...
+}
+</v-code>

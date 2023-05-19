@@ -1,6 +1,13 @@
 <h2>usePrevious</h2>
 
-<v-code lang="js step" title="">
+<u-link-wrapper>
+    <a href="https://usehooks.com/usePrevious/" target="_blank">usePrevious</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Реализация</h4>
+<!------------------------------------------------------------->
+<v-code lang="js border" title="">
 import { useEffect, useRef } from 'react';
 
 export const usePrevious = (value) => {
@@ -8,8 +15,30 @@ export const usePrevious = (value) => {
 
     useEffect(() => {
         ref.current = value;
-    })
+    }, [value]);
 
     return ref.current;
 }
 </v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import React, { useState } from 'react';
+
+const App = () => {
+    const [count, setCount] = useState(0);  
+    const prevCount = <u-code-accent>usePrevious</u-code-accent>(count);
+
+    return (
+        &lt;&gt;
+            Now: {count}
+            Before: {prevCount}
+            &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Increment&lt;/button&gt;
+        &lt;/&gt;
+    );
+}
+</v-code>
+
+

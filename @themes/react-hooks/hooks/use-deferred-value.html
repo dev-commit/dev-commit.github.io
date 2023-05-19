@@ -1,0 +1,23 @@
+<h2>Хук useDeferredValue</h2>
+
+<u-link-wrapper>
+    <a href="https://react.dev/reference/react/useDeferredValue" target="_blank">useDeferredValue</a>
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useDeferredValue" after="" arg="(value)">
+    Позволяет отложить обновление части UI
+    </v-method>
+	<v-method-arg arg="value">значение, которое вы хотите отложить. Может иметь любой тип</v-method-arg>
+    <v-method-return>Во время первоначального рендеринга возвращаемое отложенное значение будет таким же, как и предоставленное вами значение. Во время обновлений React сначала попытается выполнить повторный рендеринг со старым значением (поэтому он вернет старое значение), а затем попытается выполнить еще один повторный рендеринг в фоновом режиме с новым значением (поэтому он вернет обновленное значение)</v-method-return>
+</div>
+
+<v-code lang="js border" title="">
+import { useState, useDeferredValue } from 'react';
+
+const App = () => {
+    const [query, setQuery] = useState('');
+    const deferredQuery = <u-code>useDeferredValue</u-code>(query);
+    // ...
+}
+</v-code>

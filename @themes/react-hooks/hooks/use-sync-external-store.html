@@ -1,0 +1,25 @@
+<h2>Хук useSyncExternalStore</h2>
+
+<u-link-wrapper>
+    <a href="https://react.dev/reference/react/useSyncExternalStore" target="_blank">useSyncExternalStore</a>
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useSyncExternalStore" after="" arg="(subscribe, getSnapshot, getServerSnapshot?)">
+	Позвляет подписаться на внешний Store
+    </v-method>
+	<v-method-arg arg="subscribe">функция, которая принимает callback и подписывается на хранилище. Когда хранилище изменяется, оно должно вызывать callback. Это приведет к повторному рендерингу компонента. Функция подписки должна возвращать функцию, очищающую подписку</v-method-arg>
+	<v-method-arg arg="getSnapshot">функция, которая возвращает snapshot данных в store, необходимых компоненту. Пока store не изменился, повторные вызовы getSnapshot должны возвращать одно и то же значение. Если хранилище изменяется и возвращаемое значение отличается (по сравнению с Object.is), React повторно отображает компонент</v-method-arg>
+	<v-method-arg arg="getServerSnapshot"?>(optional) Функция возвращает initial snapshot данных в store. Он будет использоваться только во время серверного рендеринга и во время hydration server-rendered content на клиенте. Snapshot сервера должен быть одним и тем же между клиентом и сервером, и обычно сериализуется и передается от сервера к клиенту. Если опустить этот аргумент, рендеринг компонента на сервере вызовет ошибку</v-method-arg>
+    <v-method-return>Текущий snapshot store, который можно использовать в своей логике</v-method-return>
+</div>
+
+<v-code lang="js border" title="">
+import { useSyncExternalStore } from 'react';
+import { todosStore } from './todoStore.js';
+
+const App = () => {
+    const todos = <u-code>useSyncExternalStore</u-code>(todosStore.subscribe, todosStore.getSnapshot);
+    // ...
+}
+</v-code>
