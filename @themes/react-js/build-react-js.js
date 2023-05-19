@@ -4,9 +4,9 @@ ARR_MODULE = [
     {
         title: 'Реконсиляция',
         themes: [
-            [root+'reconciler/virtual-dom',        emoji.theory+'Virtual DOM (Общее)'],
-            [root+'reconciler/virtual-dom-react',  emoji.theory+'Virtual DOM (React)'],
-            [root+'reconciler/reconciliation',     emoji.theory+'Reconciliation Algorithm'],
+            [root+'reconciler/virtual-dom',       emoji.theory+'Virtual DOM (Общее)'],
+            [root+'reconciler/virtual-dom-react', emoji.theory+'Virtual DOM (React)'],
+            [root+'reconciler/reconciliation',    emoji.theory+'Reconciliation Algorithm'],
         ]
     },
     {
@@ -21,87 +21,71 @@ ARR_MODULE = [
     {
         title: 'Информация',
         themes: [
-            [root+'info/info',        emoji.theory+'Информация'],
-            [root+'info/version',     emoji.theory+'Версии'],
-            [root+'info/patterns',    emoji.theory+'Шаблоны проектирования'],
-            [root+'info/components',  emoji.theory+'Компоненты'],
-            [root+'info/structure',   emoji.code+'Структура на Class'],
+            [root+'info/info',       emoji.theory+'Информация'],
+            [root+'info/version',    emoji.theory+'Версии'],
+            [root+'info/patterns',   emoji.theory+'Шаблоны проектирования'],
+            [root+'info/components', emoji.theory+'Компоненты'],
+            [root+'info/structure',  emoji.code+'Структура на Class'],
         ]
     },
     {
-        title: 'API',
+        title: 'Lifecycle',
         themes: [
-            [root+'api/jsx',             'JSX'],
-            [root+'api/children',        setTheme(1, ['props.children'])],
-            [root+'api/props',           setTheme(1, ['props'])],  
+            [root+'lifecycle/info',                              emoji.theory+'Информация'],
+            [root+'lifecycle/hook-constructor',                  setTheme(1, ['constructor'])],
+            [root+'lifecycle/hook-get-derived-state-from-props', setTheme(1, ['getDerivedStateFromProps'])],
+            [root+'lifecycle/hook-should-component-update',      setTheme(1, ['shouldComponentUpdate'])],
+            [root+'lifecycle/hook-render',                       setTheme(1, ['render'])],
+            [root+'lifecycle/hook-get-snapshot-before-update',   setTheme(1, ['getSnapshotBeforeUpdate'])],
+            [root+'lifecycle/hook-component-did-mount',          setTheme(3, ['componentDidMount'])],
+            [root+'lifecycle/hook-component-did-update',         setTheme(3, ['componentDidUpdate'])],
+            [root+'lifecycle/hook-component-will-unmount',       setTheme(3, ['componentWillUnmount'])],
+            [root+'lifecycle/hook-get-derived-state-from-error', setTheme(6, ['getDerivedStateFromError'])],
+            [root+'lifecycle/hook-component-did-catch',          setTheme(6, ['componentDidCatch'])],
         ]
     },
     {
-        title: 'React',
-        child: true,
+        title: 'Общее',
         themes: [
-            [root+'api/createContext',   setTheme(1, ['createContext'])],
-            [root+'api/createRef',       setTheme(1, ['createRef'])],
-            [root+'api/react-fragment',  setTheme(1, ['Fragment'])],
-            [root+'api/react-component', setTheme(1, ['Component'])],
-        ]
-    },
-    {
-        title: 'ReactDOM',
-        child: true,
-        themes: [
-            [root+'api/createPortal',    setTheme(1, ['createPortal'])],
+            [root+'common/components', 'Компоненты'],
+            [root+'common/jsx',        'JSX'],
+            [root+'common/children',   setTheme(1, ['props.children'])],
+            [root+'common/props',      setTheme(1, ['props'])],  
         ]
     },
     {
         title: 'Паттерны',
         themes: [
-            [root+'patterns/higher-order-components',  'Higher-Order Component'],
-            [root+'patterns/render-props',             'Render Props'],
-            [root+'patterns/element-props',            'Свойства-элементы'],
-            [root+'patterns/lifting-state-up',         'Подъём состояния'],
+            [root+'patterns/higher-order-components', 'Higher-Order Component'],
+            [root+'patterns/render-props',            'Render Props'],
+            [root+'patterns/element-props',           'Свойства-элементы'],
+            [root+'patterns/lifting-state-up',        'Подъём состояния'],
         ]
     },
     {
         title: 'Обработка и вывод данных',
         themes: [
-            [root+'processing-data-output/handling-events',          'Обработка событий'],
-            [root+'processing-data-output/controlled-components',    'Controlled Components'],
-            [root+'processing-data-output/uncontrolled-components',  'Uncontrolled Components'],
-            [root+'processing-data-output/css',                      'CSS'],
-            [root+'processing-data-output/conditional-rendering',    'Условный рендеринг'],
-            [root+'processing-data-output/lists-and-keys',           'Списки и ключи'],
-            [root+'processing-data-output/error-boundaries',         'Предохранители'],
-        ]
-    },
-    {
-        title: 'Жизненный цикл компонентов',
-        themes: [
-            [root+'lifecycle/info',                               emoji.theory+'Информация'],
-            [root+'lifecycle/hook-constructor',                   setTheme(1, ['constructor'])],
-            [root+'lifecycle/hook-get-derived-state-from-props',  setTheme(1, ['getDerivedStateFromProps'])],
-            [root+'lifecycle/hook-should-component-update',       setTheme(1, ['shouldComponentUpdate'])],
-            [root+'lifecycle/hook-render',                        setTheme(1, ['render'])],
-            [root+'lifecycle/hook-get-snapshot-before-update',    setTheme(1, ['getSnapshotBeforeUpdate'])],
-            [root+'lifecycle/hook-component-did-mount',           setTheme(3, ['componentDidMount'])],
-            [root+'lifecycle/hook-component-did-update',          setTheme(3, ['componentDidUpdate'])],
-            [root+'lifecycle/hook-component-will-unmount',        setTheme(3, ['componentWillUnmount'])],
-            [root+'lifecycle/hook-get-derived-state-from-error',  setTheme(6, ['getDerivedStateFromError'])],
-            [root+'lifecycle/hook-component-did-catch',           setTheme(6, ['componentDidCatch'])],
+            [root+'processing-data-output/handling-events',         'Обработка событий'],
+            [root+'processing-data-output/controlled-components',   'Controlled Components'],
+            [root+'processing-data-output/uncontrolled-components', 'Uncontrolled Components'],
+            [root+'processing-data-output/css',                     'CSS'],
+            [root+'processing-data-output/conditional-rendering',   'Условный рендеринг'],
+            [root+'processing-data-output/lists-and-keys',          'Списки и ключи'],
+            [root+'processing-data-output/error-boundaries',        'Предохранители'],
         ]
     },
     {
         title: 'Прочее',
         themes: [
-            [root+'other/react-developer-tools',  'React Developer Tools'],
-            [root+'other/samples',                emoji.code+'Примеры'],
+            [root+'other/react-developer-tools', 'React Developer Tools'],
+            [root+'other/samples',               emoji.code+'Примеры'],
         ]
     },
     {
         title: 'React Plugins',
         themes: [
-            [root+'react-plugins/create-react-app',  setTheme(2, ['create-react-app'])],
-            [root+'react-plugins/classnames',        setTheme(2, ['classnames'])],
+            [root+'react-plugins/create-react-app', setTheme(2, ['create-react-app'])],
+            [root+'react-plugins/classnames',       setTheme(2, ['classnames'])],
         ]
     },
 ]
