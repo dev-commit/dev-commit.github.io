@@ -5,28 +5,36 @@
 </div>
 
 <v-code lang="bash" title="">
-git <u-code>push origin HEAD</u-code>                                  # запушить текущую ветку, не вводя целиком ее название
-git <u-code>push --force origin HEAD</u-code>                          # запушить текущую ветку и переписать историю на сервере
+git <u-code>push origin HEAD</u-code>                                # запушить текущую ветку, не вводя целиком ее название
+git <u-code>push --force origin HEAD</u-code>                        # запушить текущую ветку и переписать историю на сервере
+git <u-code>push origin</u-code> +<em>feature</em>                            # аналогично использованию "--force"
 
-git <u-code>push origin</u-code>                                       # замерджить все ветки локального репозитория на удаленный репозиторий
-git <u-code>push origin</u-code> <em>master</em>                                # аналогично предыдущему, но делается пуш только ветки master
+git <u-code>push origin</u-code>                                     # замерджить все ветки локального репозитория на удаленный репозиторий
+git <u-code>push origin</u-code> <em>master</em>                              # аналогично предыдущему, но делается пуш только ветки master
 
-git <u-code>push --set-upstream origin</u-code> <em>master</em>                 # отправка изменений на удаленный git-репозиторий
-git <u-code>push -u origin</u-code> <em>master</em>                             #
-git <u-code>push -f</u-code>                                           # залить на сервер измененные коммиты
-git <u-code>push</u-code> <em>https://github.com/Account/Repo.git</em> <em>master</em>   #
+git <u-code>push --set-upstream origin</u-code> <em>master</em>               # отправка изменений на удаленный git-репозиторий
+git <u-code>push -u origin</u-code> <em>master</em>                           # указание ветки
+git <u-code>push -f</u-code>                                         # залить на сервер измененные коммиты
+git <u-code>push</u-code> <em>https://github.com/Account/Repo.git</em> <em>master</em> # указание репозитория
 
-git <u-code>push origin --delete</u-code> <em>feature</em>                      # удаление ветки из удаленного репозитория
+git <u-code>push origin --delete</u-code> <em>feature</em>                    # удаление ветки из удаленного репозитория
 </v-code>
 
-<v-code lang="bash" title="">
-# аналогично использованию "--force"
-git <u-code>push origin</u-code> +<em>feature</em>
-</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Опции</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li><u-code-text>-f</u-code-text> <u-code-text>--force</u-code-text> Usually, the command refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it</li>
+    <li><u-code-accent>-f</u-code-accent> <u-code-accent>--force</u-code-accent> используется для перезаписи. позволяет обновить удаленную ссылку, которая не является предком локальной ссылки</li>
 </ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Merge и Rebase</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+git <u-code>pull</u-code> origin <em>master</em>           # работает по merge
+git <u-code>pull --rebase</u-code> origin <em>master</em>  # работает по rebase
+</v-code>
+
+

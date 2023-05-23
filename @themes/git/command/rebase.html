@@ -1,253 +1,68 @@
 <div class="v-method-wrapper">
     <v-method before="git " method="rebase" after="" arg="">
-	Можно взять все изменения, которые попали в коммиты на одной из веток, и повторить их на другой (применить поверх другой).
+        Позволяет взять все коммиты из одной ветки и применить их поверх другой
+        <ul class="list-point">
+            <li>Выполняет работу аналогичную cherry-pick, только для цепочки коммитов, перенося ветку на новое место</li>
+            <li>Коммит, который не даёт изменений называется пустым. rebase автоматически пропускает этот коммит</li>
+        </ul>
     </v-method>
 </div>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3><u-menu-outline>rebase</u-menu-outline> vs <u-menu-outline>merge</u-menu-outline></h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<table class="half-width" width="750px">
-    <tr>
-        <th>merge</th>
-        <th>rebase</td>
-    </tr>
-    <tr>
-        <td colspan="2" class="accent">История коммитов</td>
-    </tr>
-    <tr>
-        <td>
-            <ul class="list-point">
-                <u>История коммитов нелинейная</u>
-                <li>Есть merge-коммиты, которые указывают сразу на 2 или больше коммитов</li>
-                <li>Merge не меняет историю: поверх всех коммитов, которые были в ветке, добавляется еще 1 коммит с изменениями из "develop"</li>
-            </ul>
-        <td>
-            <ul class="list-point">
-                <u>История коммитов линейная</u>
-                <li>Rebase меняет историю: меняются все хеши коммитов</li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <ul class="list-point">
-                <li>Сохраняет историю коммитов</li>
-            </ul>
-        </td>
-        <td>
-            <ul class="list-point">
-                <li>Не сохраняет историю коммитов</li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2" class="accent">merge-коммит</td>
-    </tr>
-    <tr>
-        <td>
-            <ul class="list-point">
-                <li>Добавляется</li>
-            </ul>
-        </td>
-        <td>
-            <ul class="list-point">
-                <li>Не добавляется</li>
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2" class="accent">Правка конфликтов</td>
-    </tr>
-    <tr>
-        <td>
-            <ul class="list-point">
-                <li>Один раз</li>
-            </ul>
-        </td>
-        <td>
-            <ul class="list-point">
-                <li>Для каждого коммита</li>
-            </ul>
-        </td>
-    </tr>
-</table>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Команды</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Rebase</h4>
+<!------------------------------------------------------------->
 <v-code lang="bash border" title="">
-git <u-code>rebase</u-code> <em>develop</em>     # rebase
-git <u-code>rebase -i</u-code> <em>develop</em>  # интерактивный rebase на другую ветку
-git <u-code>rebase -i HEAD~3</u-code>   # интерактивный rebase внутри ветки (изменить историю последних 3х коммитов)
-
-git <u-code>rebase --skip</u-code>      # пропустить коммит
-git <u-code>rebase --continue</u-code>  # продолжить rebase (если несколько коммитов)
-
-git <u-code>rebase --abort</u-code>     # отказаться от rebase  (возвращает обратно HEAD - не изменит историю коммитов)
-git <u-code>rebase --quit</u-code>      # отказаться от rebase (НЕ возвращает обратно HEAD - изменит историю коммитов)
-git <u-code>reflog</u-code> <em>feature</em>     # откатить rebase
+git <u-code>rebase</u-code> <em>develop</em>    # rebase
+git <u-code>rebase --skip</u-code>     # пропустить коммит
+git <u-code>rebase --continue</u-code> # продолжить rebase (если несколько коммитов)
+git <u-code>rebase --abort</u-code>    # отказаться от rebase (возвращает обратно HEAD - не изменит историю коммитов)
+git <u-code>rebase --quit</u-code>     # отказаться от rebase (НЕ возвращает обратно HEAD - изменит историю коммитов)
 </v-code>
 
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Алгоритм работы</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-details title="<u-code-text>--continue</u-code-text>">
 <ul class="list-point">
-    <li>Есть 2 ветки: <u>develop</u> и <u>feature</u></li>
-    <li>Необходимо актуализаировать ветку <u>feature</u>: подтянуть последние изменения из <u>develop</u> и решить конфликты если они есть</li>
+    <li>Флаг <u-code-text>--continue</u-code-text> позволяет продолжить rebase после фикса конфликта и перейти к следующему коммиту</li>
 </ul>
 
-<v-code lang="bash step" title="#1">
-git <u-code>checkout</u-code> <em>develop</em>   # перейти в ветку develop
-git <u-code>fetch</u-code> origin       # подтянуть последние изменени для develop
-git <u-code>pull</u-code>               # взять последние изменени для develop
-git <u-code>checkout</u-code> <em>feature</em>   # перейти в ветку feature
+<v-code lang="bash step" title="">
+# Rebase develop в текущую ветку
+git rebase develop
+
+# Если есть конфликт, то открывается редактор для фикса
+# После фикса добавляются изменения в staged
+git add .
+
+# Продолжить Rebase и перейти к следующему коммиту
+git rebase <u-code-accent>--continue</u-code-accent>
 </v-code>
+</v-details>
 
-<ul class="list-point">
-    <li>На выбор: делать <u>rebase</u> на ветку локального или удаленного репозитория</li>
-    <li>Если делать <u>rebase</u> с <u>origin/develop</u>, то нет необходимости делать <u>git pull</u></li>
-</ul>
-
-<v-code lang="bash step" title="#2">
-git <u-code>rebase</u-code> -i <em>develop</em>        # взять последние изменения из develop
-git <u-code>rebase</u-code> -i <em>origin/develop</em> # взять последние изменения из origin/develop
-</v-code>
-
-<ul class="list-point">
-    <li>Если есть конфликты merge, откроется редактор</li>
-    <li>Пофиксить конфликты</li>
-</ul>
-
-<v-code lang="bash step" title="#3">
-git <u-code>add</u-code> .             # добавить измеенные файлы в <u>staged</u>
-git <u-code>rebase</u-code> --continue # если несколько коммитов, то преходим к фиксу следующего коммита
-</v-code>
-
-<ul class="list-point">
-    <li>Если есть конфликт, то его нужно фиксить в каждом коммите</li>
-    <li>После фикса всех коммитов и добавления в <u>staged</u> Working Tree будет чистое: не нужно ничего коммитить</li>
-</ul>
-
-<v-code lang="bash step" title="#4">
-git <u-code>push</u-code> origin HEAD # отправка изменений на удаленный репозиторий
-</v-code>
-
-<ul class="list-point">
-    <li>Если сначала сделать <u>git push</u>, а потом <u>git rebase</u> на локальном репозитории, то загружать данные придётся через <u>push --force</u></li>
-    <li>Проблема связана с изменением указателя на удаленном репозитории при <u>rebase</u></li>
-    <li>Если использовать <u>push --force</u>, то сервер перепишет историю в ветке, которая будет повторять историю локальной ветки</li>
-</ul>
-
-<v-code lang="bash step" title="#4">
-git <u-code>push</u-code> --force origin HEAD # отправка изменений на удаленный репозиторий
-</v-code>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Плюсы и минусы</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li><v-marker marker="+"></v-marker> Красивая и понятная история</li>
-    <li><v-marker marker="+"></v-marker> Не появляется лишних коммитов, в отличие от merge-коммитов</li>
-    <hr>
-    <li><v-marker marker="-"></v-marker> При rebase меняеся история: меняются все хеши коммитов</li>
-    <li><v-marker marker="-"></v-marker> Если над веткой работает несолько человек и был rebase, то остальные разработчики не смогу нормально сделать pull, при условии наличия локальных коммитов. Пойдут конфликты. Рекомендуется, если над веткой работает 1 человек</li>
-    <li><v-marker marker="-"></v-marker> По истории нельзя будет посмотреть в какие моменты происходило подобновление ветки</li>
-</ul>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Описание</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li>"Автоматизированный" cherry-pick. Он выполняет ту же работу, но для цепочки коммитов, тем самым как бы перенося ветку на новое место</li>
-    <li>Коммит, который не даёт изменений называется пустым. rebase автоматически пропускает этот коммит</li>
-    <li>Не сохраняет историю коммитов, в отличие от merge</li>
-    <li>На удаленном репозитории не добавляется новый коммит</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Теория алгоритма работы: <em>master to feature</em></h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-two><template v-slot:first>
-<!------------------------------------------------------------->
-<h4><u-menu-outline>#1</u-menu-outline> Подготовка: <em>feature</em> откалывается от <em>master</em></h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li>В обе ветки добавляются коммиты</li>
-    <li>Задача: загрузить изменения в feature из master</li>
-</ul>
 
 <!------------------------------------------------------------->
-<h4><u-menu-outline>#2</u-menu-outline> Копирование всех коммитов <em>feature</em> поверх текущей вершины <em>master</em></h4>
+<h4>Интерактивный Rebase</h4>
 <!------------------------------------------------------------->
-<ul class="list-point">
-    <li>Работает аналогично <u>cherry-pick</u></li>
-    <li>Берутся изменения первого коммита <em>feature</em> и применяются к вершине <em>master</em> (для каждого из коммитов в текущей ветке берётся его дельта и сохраняется во временный файл)</li>
-    <li>Из них создается новый коммит с тем же автором и описанием</li>
-    <li>Затем точно так же копируются остальные коммиты</li>
-</ul>
-
-<!------------------------------------------------------------->
-<h4><u-menu-outline>#3</u-menu-outline> Создание новой ветки</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li>После копирования коммитов, ссылка <em>feature</em> переносится на вершину новосозданной ветки</li>
-    <li>Теперь ветка <em>feature</em> (ее копия основана на последнем состоянии <em>master</em>)</li>
-</ul>
-</template><template v-slot:last>
-<img src="/@img/git/rebase.jpg" width="300px">
-</template></v-two>
-
-<img src="/@img/git/rebase-merge.jpg" width="550px">
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Интерактивный rebase (squash commits)</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li>При интерактивном rebase для каждого коммита можно выполнить определенную команду</li>
-    <li>Переписываем историю коммитов, поэтому у каждого коммита будет новый хеш</li>
-</ul>
-
-<!------------------------------------------------------------->
-<h4>Стандартный squash</h4>
-<!------------------------------------------------------------->
-<v-code lang="bash" title="">
+<v-code lang="bash border" title="">
+git <u-code>rebase -i</u-code> <em>develop</em> # интерактивный rebase на другую ветку
 git <u-code>rebase -i HEAD~3</u-code>  # интерактивный rebase внутри ветки (изменить историю последних 3х коммитов)
 </v-code>
 
 <ul class="list-point">
-    <li>Запустится редактор со списком коммитов</li>
-    <li><u>Commit2</u> объединится с <u>Commit1</u></li>
-    <li><u>Commit3</u> объединится c объединенными <u>Commit1</u>+<u>Commit2</u></li>
-    <li>По итогу останется 1 коммит: <u>Commit1</u></li>
+    <li>В начала rebase запустится окно редактора, где можно указать определенную команду для каждого коммита</li>
+    <li>При этом переписывается история коммитов - у каждого коммита будет новый хеш</li>
 </ul>
 
 <v-code lang="bash none" title="">
-# git-rebase-todo
-<u-code>pick</u-code>  cb923a7 MessageCommit1
-<u-code>fixup</u-code> 0a101a7 MessageCommit2
-<u-code>fixup</u-code> 67e7534 MessageCommit3
+› <u-code>pick</u-code>  cb923a7 MessageCommit1
+› <u-code>fixup</u-code> 0a101a7 MessageCommit2
+› <u-code>fixup</u-code> 67e7534 MessageCommit3
 </v-code>
 
-<!------------------------------------------------------------->
-<h4>--fixup в commit</h4>
-<!------------------------------------------------------------->
-<v-code lang="bash" title="">
-# HashCommit с которым в последствии собираемся объединять
-git <u-code>commit</u-code> --fixup=<em>HashCommit</em>
-
-# при "rebase" git автоматически выставит флаг у коммита "fixup"
-git <u-code>rebase -i --autosquash</u-code> HEAD~3
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Команды</h4>
-<!------------------------------------------------------------->
+<h5>Команды</h5>
 <ul class="list-point">
     <li>
         <u-code-accent>pick<span>&nbsp;&nbsp;</span></u-code-accent>
@@ -280,7 +95,7 @@ git <u-code>rebase -i --autosquash</u-code> HEAD~3
     </li>
     <li>
         <u-code-text>break<span>&nbsp;</span></u-code-text>
-        <u-code>b</u-code> - остановиться здесь (продолжить rebase позже с 'git rebase --continue')
+        <u-code>b</u-code> - остановиться здесь (продолжить rebase позже с <u>git rebase --continue</u>)
     </li>
 
     <li>
@@ -299,9 +114,121 @@ git <u-code>rebase -i --autosquash</u-code> HEAD~3
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>git pull</h3>
+<h3>Алгоритм работы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-git <u-code>pull</u-code> origin <em>master</em>           # работает по merge
-git <u-code>pull --rebase</u-code> origin <em>master</em>  # работает по rebase
+
+<p>Задача: загрузить изменения из <em>master</em> в <em>feature</em></p>
+
+<v-two><template v-slot:first>
+
+<!------------------------------------------------------------->
+<p><u-inline-circle>1</u-inline-circle> <b>Подготовка:</b> Создание ветки <em>feature</em> и добавление коммитов в <em>master</em> и <em>feature</em></p>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><em>feature</em> откалывается от <em>master</em></li>
+    <li>В каждую ветку поочередно добавляются коммиты</li>
+</ul>
+
+<h5>Порядок коммитов</h5>
+<ol class="list-num">
+    <li><u-menu>master-0</u-menu> - master</li>
+    <li><u-menu-accent>feature-1</u-menu-accent> - feature</li>
+    <li><u-menu>master-1</u-menu> - master</li>
+    <li><u-menu-accent>feature-2</u-menu-accent> - feature</li>
+    <li><u-menu>master-2</u-menu> - master</li>
+</ol>
+
+<!------------------------------------------------------------->
+<p><u-inline-circle>2</u-inline-circle> <b>Rebase:</b> Копирование всех коммитов <em>feature</em> поверх текущей вершины <em>master</em></p>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Работает аналогично cherry-pick: последовательно берутся изменения каждого коммита из <em>feature</em> и применяются к вершине <em>master</em>: для каждого из коммитов в <em>feature</em> берётся его дельта и сохраняется во временный файл</li>
+    <li>Из каждого временного файла создается новый коммит с тем же автором и описанием, но другим хешем</li>
+</ul>
+
+<!------------------------------------------------------------->
+<p><u-inline-circle>3</u-inline-circle> <b>Rebase:</b> Создание новой ветки <em>feature'</em></p>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>После копирования коммитов, ссылка <em>feature</em> переносится на вершину новосозданной ветки <em>feature'</em></li>
+    <li>Теперь ветка <em>feature'</em> (копия ветки <em>feature</em>) основана на последнем состоянии <em>master</em></li>
+</ul>
+</template><template v-slot:last>
+<img src="/@img/git/rebase.jpg" width="300px">
+</template></v-two>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Плюсы и минусы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two><template v-slot:first>
+<ul class="list-point">
+    <li><v-marker marker="-"></v-marker> При rebase меняеся история: меняются все хеши коммитов</li>
+    <li><v-marker marker="-"></v-marker> Если над веткой работает несолько человек и был rebase, то остальные разработчики не смогут нормально сделать pull, при условии наличия локальных коммитов. Пойдут конфликты. Рекомендуется, если над веткой работает 1 человек</li>
+    <li><v-marker marker="-"></v-marker> По истории нельзя будет посмотреть в какие моменты происходило подобновление ветки</li>
+</ul>
+</template><template v-slot:last>
+<ul class="list-point">
+    <li><v-marker marker="+"></v-marker> Красивая и понятная история</li>
+    <li><v-marker marker="+"></v-marker> Не появляется лишних коммитов, в отличие от merge-коммитов</li>
+</ul>
+</template></v-two>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Актуализация ветки через rebase</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-details title="Алгоритм">
+
+<ul class="list-point">
+    <li>Есть 2 ветки: <u>develop</u> и <u>feature</u></li>
+    <li>Необходимо актуализаировать ветку <u>feature</u>: подтянуть последние изменения из <u>develop</u> и решить конфликты если они есть</li>
+</ul>
+
+<v-code lang="bash step" title="#1">
+git <u-code>checkout</u-code> <em>develop</em>   # перейти в ветку develop
+git <u-code>fetch</u-code> origin       # подтянуть последние изменени для develop
+git <u-code>pull</u-code>               # взять последние изменени для develop
+git <u-code>checkout</u-code> <em>feature</em>   # перейти в ветку feature
 </v-code>
+
+<ul class="list-point">
+    <li>На выбор: делать <u>rebase</u> на ветку локального или удаленного репозитория</li>
+    <li>Если делать <u>rebase</u> с <u>origin/develop</u>, то нет необходимости делать <u>git pull</u></li>
+</ul>
+
+<v-code lang="bash step" title="#2">
+git <u-code>rebase</u-code> -i <em>develop</em>        # взять последние изменения из develop
+git <u-code>rebase</u-code> -i <em>origin/develop</em> # взять последние изменения из origin/develop
+</v-code>
+
+<ul class="list-point">
+    <li>Если есть конфликты merge, откроется редактор</li>
+    <li>Пофиксить конфликты</li>
+</ul>
+
+<v-code lang="bash step" title="#3">
+git <u-code>add</u-code> .             # добавить измененные файлы в <u>staged</u>
+git <u-code>rebase</u-code> --continue # если несколько коммитов, то преходим к фиксу следующего коммита
+</v-code>
+
+<ul class="list-point">
+    <li>Если есть конфликт, то его нужно фиксить в каждом коммите</li>
+    <li>После фикса всех коммитов и добавления в <u>staged</u> (через git add), Working Tree будет чистое: не нужно ничего коммитить</li>
+</ul>
+
+<v-code lang="bash step" title="#4">
+git <u-code>push</u-code> origin HEAD # отправка изменений на удаленный репозиторий
+</v-code>
+
+<ul class="list-point">
+    <li>Rebase изменяет историю коммитов и указатель, поэтому, если сначала сделать <u>git push</u>, а потом <u>git rebase</u> на локальном репозитории, то повторный push придется делать через <u>push --force</u></li>
+    <li>При использовании <u>push --force</u>, сервер перепишет историю в ветке, которая будет повторять историю локальной ветки</li>
+</ul>
+
+<v-code lang="bash step" title="#4">
+git <u-code>push</u-code> --force origin HEAD # отправка изменений на удаленный репозиторий
+</v-code>
+
+</v-details>

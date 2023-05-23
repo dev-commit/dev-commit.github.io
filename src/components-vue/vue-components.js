@@ -161,9 +161,9 @@ Vue.component('v-marker', {
 	props: ['marker'],
     template: `
 		<span>
-			<u-code-text v-if="marker === '+'">✔️</u-code-text>
-			<u-code-text v-if="marker === '-'">🟣</u-code-text>
-			<u-code-text v-if="marker === '*'">🚀</u-code-text>
+			<span v-if="marker === '+'">✅</span>
+			<span v-if="marker === '-'">🅾️</span>
+			<span v-if="marker === '*'">🚀</span>
 		</span>
 	`,
 })

@@ -1,0 +1,96 @@
+<h2>Merge vs Rebase</h2>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сравнение Merge и Rebase</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<table class="half-width" width="750px">
+    <tr>
+        <th>merge</th>
+        <th>rebase</td>
+    </tr>
+    <tr>
+        <td colspan="2" class="accent">История коммитов</td>
+    </tr>
+    <tr>
+        <td>
+            <ul class="list-point">
+                <u>История коммитов нелинейная</u>
+                <li>Есть merge-коммиты, которые указывают сразу на 2 или больше коммитов</li>
+                <li>Merge не меняет историю: поверх всех коммитов, которые были в ветке, добавляется еще 1 коммит с изменениями из "develop"</li>
+            </ul>
+        <td>
+            <ul class="list-point">
+                <u>История коммитов линейная</u>
+                <li>Rebase меняет историю: меняются все хеши коммитов</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <ul class="list-point">
+                <li>Сохраняет историю коммитов</li>
+            </ul>
+        </td>
+        <td>
+            <ul class="list-point">
+                <li>Не сохраняет историю коммитов</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" class="accent">merge-коммит</td>
+    </tr>
+    <tr>
+        <td>
+            <ul class="list-point">
+                <li>Добавляется</li>
+            </ul>
+        </td>
+        <td>
+            <ul class="list-point">
+                <li>Не добавляется</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" class="accent">Правка конфликтов</td>
+    </tr>
+    <tr>
+        <td>
+            <ul class="list-point">
+                <li>Один раз</li>
+            </ul>
+        </td>
+        <td>
+            <ul class="list-point">
+                <li>Для каждого коммита</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сравнение истории коммитов для Rebase и Merge</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h5>Исходные даннные: порядок коммитов</h5>
+<v-two-fix revert="true"><template v-slot:first>
+    <img src="/@img/git/commits-order.jpg" width="250px">
+</template><template v-slot:last>
+    <ol class="list-num">
+        <li><u-menu>master-0</u-menu> - master</li>
+        <li><u-menu-accent>feature-1</u-menu-accent> - feature</li>
+        <li><u-menu>master-1</u-menu> - master</li>
+        <li><u-menu-accent>feature-2</u-menu-accent> - feature</li>
+        <li><u-menu>master-2</u-menu> - master</li>
+    </ol>
+</template></v-two-fix>
+
+<h5>История коммитов для Rebase и Merge</h5>
+<ul class="list-point">
+    <li><b>merge</b> (слияние) - хронологический порядок</li>
+    <li><b>rebase</b> (перемещение) - у новых коммитов изменится хеш и они будут поверх старых</li>
+</ul>
+<img src="/@img/git/rebase-merge.jpg" width="550px">

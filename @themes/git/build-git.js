@@ -10,6 +10,12 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'Основное',
+        themes: [
+            [root+'main/merge-vs-rebase', emoji.star+'Merge vs Rebase'],
+        ]
+    },
+    {
         title: 'Команды',
         accent: true,
         themes: [
