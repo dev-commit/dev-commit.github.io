@@ -176,24 +176,72 @@
 <img src="/@img/blockchain/web3.png" width="650px">
 </div><div id="blockchain/main/algoritm"><h2>Алгоритм</h2>
 
+
+<v-two><template v-slot:first>
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>⭐️ Blockchain Server</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
-<h5>1. Создание Blockchain Server</h5>
+<h5>1. Создать Blockchain Server</h5>
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li>На базе Ethereum и т.д.</li>
     <li><u-menu-code>IPFS</u-menu-code></li>
+    <li><u-menu-code><a href="https://geth.ethereum.org/" target="_blank">geth</a></u-menu-code> - Go приложение, позволяющее запустить свою Node Ethereum Blockchain локально или на удаленном сервере</li>
+    <li><u-menu-code><a href="https://trufflesuite.com/ganache/" target="_blank">Ganache</a></u-menu-code> - локальный блокчейн для разработки, который можно использовать для имитации поведения публичного блокчейна</li>
 </ul>
 
 <!------------------------------------------------------------->
-<h5>2. Добавление Smart Contracts к Blockchain</h5>
+<h5>2. Добавить хранилище для Blockchain-сети</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Decentrilized Storages - хранилище</li>
+    <li>На базе Ethereum и т.д.</li>
+    <li><u-menu-code>Pinata</u-menu-code> - базируется на IPFS</li>
+    <li><u-menu-code>Filecoin</u-menu-code> - базируется на IPFS</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>2. Добавить Smart Contracts к Blockchain</h5>
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li><u-menu-code>Solidity</u-menu-code></li>
+    <li><u-menu-code><a href="https://remix.ethereum.org/" target="_blank">Remix</a></u-menu-code> - онлайн редактор кода для Smart Contracts. Позволяет добавлять Smart Contracts в Blockchain (production или тестовый)</li>
 </ul>
+
+
+
+</template><template v-slot:last>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>⭐️ Crypto Wallet</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h5>Создать крипто-кошелёк</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>На базе Etherium Chain и т.д.</li>
+    <li><u-menu-code>Metamask</u-menu-code> - сеть для передачи NFT</li>
+</ul>
+
+<hr>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>⭐️ NFT</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h5>Создать NFT для файла</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>NFT можно создавать через разные генераторы</li>
+    <li><u-menu-code>Autominter</u-menu-code></li>
+</ul>
+
+</template></v-two>
 
 <hr>
 
@@ -202,15 +250,17 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
-<h4>1. Авторизация через Wallet</h4>
+<h5>1. Добавить авторизацию через Wallet</h5>
 <!------------------------------------------------------------->
 <ul class="list-point">
+    <li>Добавить крипто-кошелек в приложение</li>
     <li>Приложение через библиотеку <u-menu-code>Web3.js</u-menu-code> делает запрос к <u>Wallet</u> (кошельку) для авторизации пользователя</li>
     <li>В кошельке хранится <u>Etherium-аккаунт</u> (например) пользователя для Blockchain</li>
+    <li><u-menu-code>web3auth</u-menu-code> - инфраструктура для подключения кошельков</li>
 </ul>
 
 <!------------------------------------------------------------->
-<h4>2. Обращение к Blockchain Server</h4>
+<h5>2. Реализовать обращение к Blockchain Server</h5>
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li>После авторизации, приложение может обращаться к <u>Blockchain Server</u></li>
@@ -222,6 +272,13 @@
     <li><u-menu-code>Infura</u-menu-code></li>
     <li><u-menu-code>Moralis</u-menu-code></li>
     <li><u-menu-code>Alchemy</u-menu-code></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>3. Передать NFT через Wallet</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-menu-code>-</u-menu-code></li>
 </ul>
 </div><div id="blockchain/blockchain/blockchain"><h2>Blockchain</h2>
 

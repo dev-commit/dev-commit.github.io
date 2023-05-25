@@ -18,11 +18,28 @@
 <!------------------------------------------------------------->
 <v-code lang="bash border" title="">
 git <u-code>rebase</u-code> <em>develop</em>    # rebase
-git <u-code>rebase --skip</u-code>     # пропустить коммит
-git <u-code>rebase --continue</u-code> # продолжить rebase (если несколько коммитов)
+git <u-code>rebase --continue</u-code> # продолжить rebase (вызывается при наличии конфликтов)
+git <u-code>rebase --skip</u-code>     # пропустить коммит (вызывается при наличии конфликтов)
 git <u-code>rebase --abort</u-code>    # отказаться от rebase (возвращает обратно HEAD - не изменит историю коммитов)
 git <u-code>rebase --quit</u-code>     # отказаться от rebase (НЕ возвращает обратно HEAD - изменит историю коммитов)
 </v-code>
+
+<v-details title="<u-code-text>--skip</u-code-text>">
+<ul class="list-point">
+    <li>Флаг <u-code-text>--skip</u-code-text> позволяет пропустить коммит из текущей ветки и взять изменения из <em>develop</em></li>
+</ul>
+
+<v-code lang="bash step" title="">
+# Rebase develop в текущую ветку
+git rebase develop
+
+# Если есть конфликт, то открывается редактор для фикса
+# Пропустить коммит из текущей ветки и перейти к следующему коммиту
+git rebase <u-code-accent>--skip</u-code-accent>
+</v-code>
+</v-details>
+
+<!------------------------------------------------------------->
 
 <v-details title="<u-code-text>--continue</u-code-text>">
 <ul class="list-point">
@@ -41,7 +58,6 @@ git add .
 git rebase <u-code-accent>--continue</u-code-accent>
 </v-code>
 </v-details>
-
 
 <!------------------------------------------------------------->
 <h4>Интерактивный Rebase</h4>
