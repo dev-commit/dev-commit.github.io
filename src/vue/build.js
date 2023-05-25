@@ -1,4 +1,5 @@
 const HIDDEN_MENU_STORE = 'HIDDEN_MENU_STORE';
+const LOCALHOST = '127.0.0.1';
 
 new Vue({
     el: '#menu',
@@ -6,6 +7,7 @@ new Vue({
         themesContent: null,
         themesEmoji: '🏷️ ',
         isHideMenu: null,
+        isLocalhost: false,
     },
     methods: {
         buildContent(file) {
@@ -40,6 +42,12 @@ new Vue({
 
         this.themesContent = ARR_MODULE;
         this.isHideMenu = store ? store : false;
+
+        const url = window.location.href;
+
+        if (url.indexOf(LOCALHOST) !== -1) {
+            this.isLocalhost = true;
+        }
     },
     created() {
         if (location.href.indexOf('build') === -1) {
