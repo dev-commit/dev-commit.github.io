@@ -48,6 +48,7 @@ MENU
 }
 #menu li {
 	padding-right: 20px;
+	position: relative;
 }
 #menu h4 {
 	width: 95%;
@@ -91,11 +92,24 @@ MENU
     text-overflow: ellipsis;
 	transition: .1s;
 }
-#menu a:hover {
+#menu a.menu-link:hover {
 	border: 2px solid rgb(var(--color-yellow-light));
 }
 #menu .menu-link-active {
 	border: 2px solid rgb(var(--color-yellow-light));
+}
+#menu .menu-link-vscode {
+	position: absolute;
+    top: 2px;
+    left: -24px;
+	display: block;
+    width: 22px;
+    height: 22px;
+	border-radius: 50%;
+	transition: .4s;
+}
+#menu .menu-link-vscode:hover {
+    background-color: rgba(var(--color-violet-light), .2);
 }
 #menu hr {
 	display: inline-block;

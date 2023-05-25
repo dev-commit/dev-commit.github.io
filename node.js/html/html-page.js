@@ -1,4 +1,6 @@
 
+const PATH = 'c:/Users/anduser/Desktop/Repo/dev-commit.github.io';
+
 const getMenuHTML = () => (`
     <slot v-for="itemTitle in themesContent">
         <h4
@@ -26,6 +28,7 @@ const getMenuHTML = () => (`
                         @click="buildContent(itemTheme[0])"
                         v-html="itemTheme[1]"
                     ></a>
+                    <a class="menu-link-vscode" :href="'vscode://file/'+'${PATH}'+'/@themes/'+itemTheme[0]+'.html'"></a>
                 </li>
                 <hr v-else />
             </slot>
