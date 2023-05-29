@@ -133,15 +133,27 @@ v-method, v-method-arg, v-method-return
 v-details
 *******************************************/
 .v-details {
-	--color: rgba(var(--color-violet-light), .7);
+	--color: rgba(var(--color-violet-light), .5);
+
+	padding: 5px;
+	border: 1px solid rgba(var(--color-brown), 4);
+	overflow: auto;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	background-color: rgba(var(--color-brown), .1);
+	cursor: pointer;
+}
+.v-details summary {
+	padding: 10px;
+	background-color: rgb(var(--color-violet-light), .1);
 }
 .v-details summary::-webkit-details-marker {
-	color: var(--color);
 	margin-right: 10px;
+	color: var(--color);
 }
 .v-details summary::marker {
-	color: var(--color);
 	margin-right: 10px;
+	color: var(--color);
 }
 .v-details summary {
 	font-weight: 500;
