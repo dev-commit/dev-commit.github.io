@@ -1,0 +1,124 @@
+
+:root {
+	--color-blue-gray-dark:    36, 41, 47;     /* #24292f */
+	--color-blue-gray-medium:  44, 62, 80;     /* #2c3e50 */
+	--color-blue-gray:         98, 112, 156;   /* #62709c */
+	--color-blue-dark:         5, 25, 54;      /* #051936 */
+	--color-blue:              19, 193, 247;   /* #13c1f7 */
+	--color-blue-light:        136, 222, 249;  /* #88def9 */
+
+	--color-sea-blue:          10, 216, 216;   /* #0ad8d8 */
+	--color-sea-green-light:   0, 201, 167;    /* #00c9a7 */
+	--color-sea-green-dark:    12, 168, 160;   /* #0ca8a0 */
+
+	--color-green:             74, 175, 45;    /* #4aaf2d */
+	--color-green-light:       152, 195, 121;  /* #98c379 */
+
+	--color-yellow:            245, 224, 66;   /* #f5e042 */
+	--color-yellow-light:      253, 234, 76;   /* #fdea4c */
+	--color-brown:             179, 183, 104;  /* #b3b768 */
+	--color-brown-light:       227, 227, 168;  /* #e3e3a8 */
+
+	--color-orange:            233, 105, 0;    /* #e96900 */
+	--color-pink:              226, 131, 174;  /* #e283ae */
+	--color-crimson:           191, 122, 190;  /* #bf7abe */
+
+	--color-black:             0, 0, 0;        /* #000000 */
+	--color-gray-80:           75, 75, 75;     /* #4b4b4b */
+	--color-gray-70:           107, 107, 107;  /* #6b6b6b */
+	--color-gray-50:           128, 128, 128;  /* #808080 */
+	--color-gray-40:           150, 150, 150;  /* #969696 */
+	--color-gray-30:           166, 166, 166;  /* #a6a6a6 */
+	--color-gray-20:           221, 221, 221;  /* #dddddd */
+	--color-gray-10:           248, 248, 248;  /* #f8f8f8 */
+	--color-white:             255, 255, 255;  /* #ffffff */
+
+	--color-violet:            71, 7, 183;     /* #4707b7 */
+	--color-violet-medium:     98, 65, 234;    /* #6241ea */
+	--color-violet-soft:       140, 106, 210;  /* #8c6ad2 */
+	--color-violet-gray-light: 254, 246, 255;  /* #fef6ff */
+}
+
+:root {
+	--box-shadow-light: 0 0.125rem 0.25rem rgba(0, 0, 0, .075);
+	--box-shadow:
+		0 16px 24px 2px  rgba(33, 37, 41, .02),
+		0 6px  30px 5px  rgba(33, 37, 41, .04),
+		0 8px  10px -5px rgba(33, 37, 41, .1);
+
+	--transition:      .4s;
+	--transition-long: .7s;
+
+	--border-radius-medium: 10px;
+	--border-radius-small:  3px;
+
+	--font-segoe: "Segoe UI", Helvetica, Arial;
+
+	--linear-gradient-dark-blue-violet:
+		linear-gradient(
+			to right bottom,
+			#051937,
+			#162454,
+			#312d70,
+			#533389,
+			#7a359f
+		);
+	--linear-gradient-blue-violet:
+		linear-gradient(
+			to right top,
+			#27c4f5,
+			#a307ba
+		);
+	
+	--scrollbar-color: var(--color-black);
+	--selection-color: var(--color-sea-green-dark);
+}
+
+/***************************************************
+COMMON
+/***************************************************/
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+*::selection {
+	background: rgba(var(--selection-color), .4);
+}
+body {
+	margin: 0;
+	padding: 0;
+}
+img {
+	display: block;
+	object-fit: contain;
+	object-position: center center;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+	font-weight: 500;
+}
+table {
+	border-collapse: collapse;
+}
+
+/***************************************************
+SCROLLBAR
+/***************************************************/
+* {
+	scrollbar-color: rgba(var(--scrollbar-color), .2) rgba(var(--scrollbar-color), .1);
+	scrollbar-width: thin;
+}
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: rgba(var(--scrollbar-color), .2);
+	border-radius: 2px;
+}
+::-webkit-scrollbar-track {
+	background-color: rgba(var(--scrollbar-color), .1);
+}
+::-webkit-scrollbar-corner {
+    background-color: rgba(var(--scrollbar-color), .7);
+}

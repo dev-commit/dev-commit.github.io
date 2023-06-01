@@ -94,8 +94,9 @@ export const getIndexHTML = ({ up, title, page, menu, content }) => (`
             </div>
 
             <!-- CSS -->
-            <link rel="stylesheet" type="text/css" href="${up}src/css/basic.css">
-            <link rel="stylesheet" type="text/css" href="${up}src/css/index.css">
+            <link rel="stylesheet" type="text/css" href="${up}src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="${up}src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="${up}src/css/layout.css">
 
             <!-- Libraries -->
             <script src="${up}src/libs/highlight/highlight.pack.js"></script>
