@@ -237,20 +237,37 @@ tr.warn {
 LISTS
 /***************************************************/
 .list-point, .list-num, .list-none, .list-comment, .list-accent, .list-flat {
-	line-height: 2;
-	margin-top: 5px;
+	line-height: 1.7;
 	font-size: 15px;
+	padding: 0 15px 15px 30px;
 }
+.list-point li, .list-num li, .list-none li, .list-comment li, .list-accent li, .list-flat li {
+	padding-bottom: 2px;
+}
+.list-point li:last-child, .list-num li:last-child, .list-none li:last-child, .list-comment li:last-child, .list-accent li:last-child, .list-flat li:last-child {
+	padding-bottom: 2px;
+}
+
 .list-point {
-	list-style-type: disc;
+	list-style-type: none;
+	padding: 0 15px 15px 15px;
 }
+.list-point li::before {
+    content: "\2022";
+    color: rgb(var(--color-blue-dark));
+    font-weight: bold;
+    display: inline-block;
+    width: 15px;
+	font-size: 16px;
+}
+
 .list-none {
 	list-style-type: none;
-	padding: 0;
+	padding: 0 15px 15px 15px;
 }
+
 .list-comment {
 	list-style-type: "🤙 ";
-	line-height: 2;
 	font-size: 15px;
 	color: rgb(var(--color-gray-50));
 	font-style: italic;
@@ -267,6 +284,13 @@ LISTS
 	padding: 0;
 	padding-left: 15px;
 }
+
+.list-num {
+	padding: 0 15px 15px 30px;
+}
+
+
+
 
 /***************************************************
 COMMON
