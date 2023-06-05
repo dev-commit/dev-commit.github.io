@@ -12,8 +12,7 @@ ARR_MODULE = [
         title: 'Времена',
         accent: true,
         themes: [
-            [root+'tenses/tenses-table', emoji.fire+'Таблица времен'],
-            [root+'tenses/tobe',         emoji.star+'ToBe vs Verb'],
+            [root+'tenses/tenses-table',    emoji.star+'Таблица времен'],
             [root+'tenses/irregular-verbs', 'Формы неправильных глаголов'],
         ]
     },
