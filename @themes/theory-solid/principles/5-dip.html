@@ -2,8 +2,13 @@
 
 <ul class="list-point">
     <li><u-text-define>The Dependency Inversion Principle</u-text-define> - Принцип инверсии зависимостей</li>
+
+    <hr>
+
     <li>Зависимость на Абстракциях. Нет зависимости на что-то конкретное</li>
     <li>Любые зависимости лучше всего выностить в абстракции, т.е. инкапсулировать в отдельных сущностях</li>
+    <li><b>Назначение</b>: устранить зависимость классов верхнего уровня от классов нижнего уровня за счёт введения интерфейсов</li>
+    <li>Использовать все классы через <em>Interface</em></li>
     <li>Использует Angular в своём ядре</li>
 </ul>
 
@@ -25,21 +30,13 @@
     <li>Детали должны зависеть от абстракций</li>
 </ol>
 
-<v-code lang="bash none" title="">
-Decoupling
-    &#9776; Inversion of Control
-        &#8226; Dependency Injection
-    &#9776; Dependency Invertion
-        &#8226; Inderfaces
-</v-code>
-
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <v-two-border title="Fine;Badly"><template v-slot:first>
-<ul class="list-point">
+<ul>
     <li>Создать новый класс, который будет являться интерфейсом для взаимодействия между сущностями</li>
     <li><u>class Database</u> не зависит от абстракций низшего уровня, она зависит только от тех абстракций, который передали в класс</li>
     <li>Изменили порядок зависимостей и сделали код масштабируемым</li>
@@ -101,7 +98,7 @@ console.log(db.getData('rand'));
 </v-code>
 
 </template><template v-slot:last>
-<ul class="list-point">
+<ul>
     <li>Изначально данные получались через <u>class Fetch</u></li>
     <li>Потом данные необходимо брать из <u>class LocalStorage</u></li>
     <li>При изменении места откуда берутся данные, необходимо менять <u>class Database</u></li>
@@ -138,3 +135,15 @@ console.log(db.getData());
 </v-code>
 
 </template></v-two-border>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Данные</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash none" title="">
+Decoupling
+    &#9776; Inversion of Control
+        &#8226; Dependency Injection
+    &#9776; Dependency Invertion
+        &#8226; Inderfaces
+</v-code>

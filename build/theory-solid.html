@@ -55,7 +55,7 @@
                 class="menu-link"
                 id="id__theory-solid/principles/3-lsp"
                 href="#theory-solid/principles/3-lsp"
-            >3. Liskov Substitution</a>
+            >3. Liskóv Substitution</a>
         </li>
     
         <li>
@@ -98,6 +98,7 @@
 
 <u-link-wrapper>
     <a href="https://www.youtube.com/playlist?list=PLmqFxxywkatQNWLG1IZYUhKoQrnuZHqaK" target="_blank">YouTube. Playlist (Сергей Немчинский)</a>
+    <a href="https://habr.com/ru/companies/productivity_inside/articles/505430/" target="_blank">Статья. Принципы SOLID в картинках</a>
 </u-link-wrapper>
 
 <ul class="list-point">
@@ -168,7 +169,7 @@
 </ul>
 
 <v-two-border title="Fine;Badly"><template v-slot:first>
-<ul class="list-point">
+<ul>
     <li>Разделение классов по функционалу</li>
 </ul>
 <v-code lang="js border" title="">
@@ -182,7 +183,7 @@ class Speed {
 }
 </v-code>
 
-<ul class="list-point">
+<ul>
     <li>Объединение классов "Steps" и "Speed"</li>
 </ul>
 <v-code lang="js border" title="">
@@ -202,10 +203,10 @@ const tracker = new Tracker(new Steps, new Speed);
 tracker.getTracker();
 </v-code>
 </template><template v-slot:last>
-<p><ul class="list-point">
+<ul>
     <li>Обработка "Шагов" и "Скорости движения" в одном месте</li>
     <li>Если потребуется переиспользовать логику только "Шагов" - это не получится</li>
-</ul></p>
+</ul>
 
 <v-code lang="js" title="">
 class Tracker {
@@ -284,9 +285,54 @@ tracker.getTracker();
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Примеры аналогичны Liskóv Substitution Principle. Можно рассмотреть пример на Shape</li>
+</ul>
+</div><div id="theory-solid/principles/3-lsp"><h2>3. The Liskóv Substitution Principle</h2>
 
+<ul class="list-point">
+    <li><u-text-define>The Liskóv Substitution Principle</u-text-define> - Принцип подстановки Барбары Лиско́в</li>
+    <li>Если модуль корректно работает с <u>SuperClass</u>, он также должен корректно работать с его наследником <u>ChildClass</u>: если заменить <u>SuperClass</u> на <u>ChildClass</u>, в приложении не должно быть ошибок</li>
+    <li><u>ChildClass</u> должен дополнять, а не изменять <u>SuperClass</u> и не должен противоречить поведению, заданному <u>SuperClass</u></li>
+    <li>Если <u>ChildClass</u> не способен выполнять те же действия, что и класс-родитель, возникает риск ошибок</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Результат применения</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Позволяет гарантировать, что любой созданный нами подкласс будет корректно использоваться ранее реализованными модулями, которые работали с классом-родителем</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Принцип помогает</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Выявлять проблемные абстракции и скрытые связи между сущностями</li>
+    <li>Делать поведение модулей предсказуемым</li>
+    <li>Вводить ограничение на наследование, чтобы потомки не противоречили базовому поведению</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Реализация</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Общий интерфейс для обоих классов</li>
+    <li>Вместо наследования одного класса от другого использовать интерфейс</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Shape</h4>
+<!------------------------------------------------------------->
 <v-two-border title="Fine;Badly"><template v-slot:first>
-<p><i>Абстрактный класс</i></p>
+<ul>
+    <li>Абстрактный класс</li>
+</ul>
 <v-code lang="js border" title="Базовый класс">
 class Shape {
     <u-code>area</u-code>() {
@@ -295,7 +341,9 @@ class Shape {
 }
 </v-code>
 
-<p><i>Полиморфизм (различная реализация для <u>area</u>)</i></p>
+<ul>
+    <li>Полиморфизм (различная реализация для <u>area</u>)</li>
+</ul>
 <v-code lang="js border" title="Наследники">
 class Square extends Shape {
     <u-code>area</u-code>() {
@@ -309,8 +357,9 @@ class Circle extends Shape {
 }
 </v-code>
 
-<ul class="list-point">
-    <li>Класс AreaCalculator открыли для расширений и закрыли для модификаций - метод <u>calc</u> сделан 1 раз и больше к нему не возвращаемся</li>
+<ul>
+    <li>Класс AreaCalculator должен одинаково работать со всеми наследниками</li>
+    <li>В данном случае проблем не возникнет, т.к. у каждого класса есть метод "area"</li>
 </ul>
 
 <v-code lang="js border" title="Класс для калькуляции">
@@ -331,7 +380,7 @@ const areaCalculator = new AreaCalculator([
     new Circle()
 ]);
 
-areaCalculator.calc();
+areaCalculator.calc(); // => ["Draw Square", "Draw Circle"]
 </v-code>
 
 </template><template v-slot:last>
@@ -372,226 +421,45 @@ const areaCalculator = new AreaCalculator([
     new Circle()
 ]);
 
-areaCalculator.calc();
-</v-code>
-
-</template></v-two-border>
-</div><div id="theory-solid/principles/3-lsp"><h2>3. The Liskov Substitution Principle</h2>
-
-<ul class="list-point">
-    <li><u-text-define>The Liskov Substitution Principle</u-text-define> - Принцип подстановки Барбары Лиско́в</li>
-    <li>Объекты в программе должны быть заменяемыми на экземпляры их подтипов без изменения правильности выполнения программы. Если П является подтипом Т, то любые объекты типа Т, присутствующие в программе, могут заменяться объектами типа П без негативных последствий для функциональности программы</li>
-    <li>В случаях, когда класс-потомок не способен выполнять те же действия, что и класс-родитель, возникает риск появления ошибок</li>
-    
-    <hr>
-
-    <li>Наследующий класс должен дополнять, а не изменять базовый класс и не должен противоречить поведению, заданному базовым классом</li>
-    <li>Необходимо чтобы подклассы могли служить заменой для своих суперклассов</li>
-    <li>Если гарантируется функциональность для базового класса, то гарантируется функциональность для всех его потомков (поведение программы не изменится)</li>
-    <li>Функции, которые используют базовый тип, должны уметь взаимодействовать с ним и его подтипами, при этом не зная ничего про это</li>
-    <li>Поведение в методах-наследниках менять нельзя</li>
-</ul>
-
-<!------------------------------------------------------------->
-<h5>Результат применения</h5>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li>Позволяет гарантировать, что любой созданный нами подкласс будет корректно использоваться ранее реализованными модулями, которые работали с классом-родителем</li>
-</ul>
-
-<!------------------------------------------------------------->
-<h5>Принцип помогает</h5>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li>Выявлять проблемные абстракции и скрытые связи между сущностями</li>
-    <li>Делать поведение модулей предсказуемым</li>
-    <li>Вводить ограничение на наследование, чтобы потомки не противоречили базовому поведению</li>
-</ul>
-
-<!------------------------------------------------------------->
-<h5>Реализация</h5>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li>Общий интерфейс для обоих классов</li>
-    <li>Вместо наследования одного класса от другого использовать интерфейс</li>
-</ul>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Примеры</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<!------------------------------------------------------------->
-<h4>Пример 1</h4>
-<!------------------------------------------------------------->
-
-<v-two-border title="Fine;Badly"><template v-slot:first>
-<ul class="list-point">
-    <li>Нужно правильно выбирать слои абстракции</li>
-    <li>Просто наследоваться от человека некорректно</li>
-    <li>Добавляем еще один уровень абстракции в виде базовых классов</li>
-</ul>
-
-<v-code lang="js border" title="">
-class Person {
-    //
-}
-class Member extends Person {
-    access() {
-        console.log('Есть доступ');
-    }
-}
-class Guest extends Person {
-    isGuest = true;
-}
-</v-code>
-<v-code lang="js border" title="">
-class Frontend extends Member {}
-class Backend extends Member {}
-
-class PersonFromDifferentCompany extends Guest {
-    access() {
-        throw new Error('Нет доступа');
-    }
-}
-</v-code>
-<v-code lang="js border" title="">
-// функция должна работать со всеми классами-наследниками
-// от Person
-function openSecretDoor(member) {
-    member.access();
-}
-
-openSecretDoor(new Frontend());
-openSecretDoor(new Backend());
-// должен быть member
-// openSecretDoor(new PersonFromDifferentCompany());
-</v-code>
-
-</template><template v-slot:last>
-<v-code lang="js" title="">
-class Person {
-    access() {
-        console.log('Есть доступ');
-    }
-}
-</v-code>
-<v-code lang="js" title="">
-class Frontend extends Person {}
-class Backend extends Person {}
-
-class PersonFromDifferentCompany extends Person {
-    access() {
-        throw new Error('Нет доступа');
-    }
-}
-</v-code>
-<v-code lang="js" title="">
-// функция должна работать со всеми классами-наследниками
-// от Person
-function openSecretDoor(person) {
-    person.access();
-}
-
-openSecretDoor(new Frontend());
-openSecretDoor(new Backend());
-// получаем ошибку. нарушение принципа [L] LSP
-openSecretDoor(new PersonFromDifferentCompany());
+areaCalculator.calc(); // => ["Draw Square", "Draw Circle"]
 </v-code>
 
 </template></v-two-border>
 
-<!------------------------------------------------------------->
-<h4>Пример 2</h4>
-<!------------------------------------------------------------->
 
-<v-two-border title="Fine;Badly"><template v-slot:first>
-<v-code lang="js border" title="Базовые классы">
-class Component {}
-class ComponentWithTemplate extends Component {
-    render() {
-        return `&lt;div&gt;Component&lt;/div&gt;`
-    }
-}
-class HigherOrderComponent extends Component {}
-</v-code>
-<v-code lang="js border" title="Наследники">
-class HeaderComponent extends ComponentWithTemplate {
-    onInit() {}
-}
-class FooterComponent extends ComponentWithTemplate {
-    afterInit() {}
-}
-class HOC extends HigherOrderComponent {
-    render() {
-        throw new Error('Рендер невозможен');
-    }
-}
-</v-code>
-<v-code lang="js border" title="Функция">
-function renderComponent(component) {
-    console.log(component.render());
-}
 
-renderComponent(new HeaderComponent());
-renderComponent(new FooterComponent());
-// вызов невозможен
-// renderComponent(new HOC());
-</v-code>
-
-</template><template v-slot:last>
-<v-code lang="js" title="Базовый класс">
-class Component {
-    render() {
-        return `&lt;div&gt;Component&lt;/div&gt;`
-    }
-}
-</v-code>
-<v-code lang="js" title="Наследники">
-class HeaderComponent extends Component {
-    onInit() {}
-}
-class FooterComponent extends Component {
-    afterInit() {}
-}
-class HOC extends Component {
-    // не должно быть реализации метода render
-    render() {
-        throw new Error('Рендер невозможен');
-    }
-}
-</v-code>
-<v-code lang="js" title="Функция">
-function renderComponent(component) {
-    console.log(component.render());
-}
-
-renderComponent(new HeaderComponent());
-renderComponent(new FooterComponent());
-// ошибка
-renderComponent(new HOC());
-</v-code>
-
-</template></v-two-border>
 </div><div id="theory-solid/principles/4-isp"><h2>4. The Interface Segregation Principle</h2>
 
 <ul class="list-point">
     <li><u-text-define>The Interface Segregation Principle</u-text-define> - Принцип разделения интерфейса</li>
-    <li>Много интерфейсов, специально предназначенных для клиентов, лучше, чем один интерфейс общего назначения</li>
-
-    <hr>
-
-    <li>Классы-наследники НЕ должны зависеть от методов базового класса, если они их НЕ используют</li>
-    <li>Разделение интерфейса на более мелкие части</li>
-    <li>Абстракция (API или класс) должна быть сгруппирована в мелкие единицы и содержать только необходимые методы, давая возможность использовать только то, что необходимо. При необходимости разделить функциональность на несколько классов. При изменении методов интерфейса не должны меняться программные сущности, которые этот метод не используют</li>
+    <li><u>ClientCode</u> НЕ должен зависеть от методов, которые они их НЕ используют. Если какой-то метод интерфейса не используется <u>ClientCode</u>, то изменения этого метода не должны приводить к внесению изменений в <u>ClientCode</u></li>
+    <li>Много интерфейсов, специально предназначенных для <u>ClientCode</u>, лучше, чем один интерфейс общего назначения</li>
 </ul>
+
+<u-message-warn>
+    <ul class="list-point">
+        <li>Этот принцип не связан с изменением <u>SuperClass</u> и <u>ChildClass</u> - речь только про <em>Interface</em>, описывающий этот класс</li>
+        <li>Можно создать 2 <em>Interface</em>: первый будет описывать все методы <u>Class</u>, а второй будет содержать только методы, необходимые <u>ClientCode</u></li>
+        <li><b>Пример</b>: на Backend сложный класс с кучей методов. Frontend-разработчики описали <em>Interface</em>, который им нужен и Backend-разработчики сформировали новый <em>Interface</em> для Frontend, содержащий только необходимые методы. При этом, в <em>Interface</em> не были включены методы, которые не используются на Frontend</li>
+    </ul>
+</u-message-warn>
+
+<!------------------------------------------------------------->
+<h5>Принципы</h5>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li>Класс должен содержать только необходимые методы. При необходимости происходит разделение на несколько классов</li>
+    <li>Если <u>ClientCode</u> не использует какие-то методы, они не должны нарушать его работы</li>
+    <li>При изменении методов интерфейса не должны меняться программные сущности, которые этот метод не используют </li>
+</ol>
 
 <!------------------------------------------------------------->
 <h5>Результат применения</h5>
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li>Снижение зависимостей между модулями</li>
-    <li>При наследовании нет ненужной функциональности</li>
+    <li>При наследовании нет ненужной функциональности - каждый класс делает то, что от него действительно требуется</li>
+    <li>Отсутствие проблем, связанных с реализацией больших интерфейсов (классы имплементируют только необходимые им методы)</li>
     <li>Декомпозиция</li>
 </ul>
 
@@ -643,7 +511,6 @@ class Animal {
     constructor(name) {
         this.name = name;
     }
-
     swim() {
         console.log(this.name+'умеет плавать')
     }
@@ -676,8 +543,13 @@ eagle.fly();  // +
 
 <ul class="list-point">
     <li><u-text-define>The Dependency Inversion Principle</u-text-define> - Принцип инверсии зависимостей</li>
+
+    <hr>
+
     <li>Зависимость на Абстракциях. Нет зависимости на что-то конкретное</li>
     <li>Любые зависимости лучше всего выностить в абстракции, т.е. инкапсулировать в отдельных сущностях</li>
+    <li><b>Назначение</b>: устранить зависимость классов верхнего уровня от классов нижнего уровня за счёт введения интерфейсов</li>
+    <li>Использовать все классы через <em>Interface</em></li>
     <li>Использует Angular в своём ядре</li>
 </ul>
 
@@ -699,21 +571,13 @@ eagle.fly();  // +
     <li>Детали должны зависеть от абстракций</li>
 </ol>
 
-<v-code lang="bash none" title="">
-Decoupling
-    &#9776; Inversion of Control
-        &#8226; Dependency Injection
-    &#9776; Dependency Invertion
-        &#8226; Inderfaces
-</v-code>
-
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <v-two-border title="Fine;Badly"><template v-slot:first>
-<ul class="list-point">
+<ul>
     <li>Создать новый класс, который будет являться интерфейсом для взаимодействия между сущностями</li>
     <li><u>class Database</u> не зависит от абстракций низшего уровня, она зависит только от тех абстракций, который передали в класс</li>
     <li>Изменили порядок зависимостей и сделали код масштабируемым</li>
@@ -775,7 +639,7 @@ console.log(db.getData('rand'));
 </v-code>
 
 </template><template v-slot:last>
-<ul class="list-point">
+<ul>
     <li>Изначально данные получались через <u>class Fetch</u></li>
     <li>Потом данные необходимо брать из <u>class LocalStorage</u></li>
     <li>При изменении места откуда берутся данные, необходимо менять <u>class Database</u></li>
@@ -812,6 +676,18 @@ console.log(db.getData());
 </v-code>
 
 </template></v-two-border>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Данные</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash none" title="">
+Decoupling
+    &#9776; Inversion of Control
+        &#8226; Dependency Injection
+    &#9776; Dependency Invertion
+        &#8226; Inderfaces
+</v-code>
 </div></div>
                 </div>
             </div>

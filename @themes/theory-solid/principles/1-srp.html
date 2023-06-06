@@ -44,7 +44,7 @@
 </ul>
 
 <v-two-border title="Fine;Badly"><template v-slot:first>
-<ul class="list-point">
+<ul>
     <li>Разделение классов по функционалу</li>
 </ul>
 <v-code lang="js border" title="">
@@ -58,7 +58,7 @@ class Speed {
 }
 </v-code>
 
-<ul class="list-point">
+<ul>
     <li>Объединение классов "Steps" и "Speed"</li>
 </ul>
 <v-code lang="js border" title="">
@@ -78,10 +78,10 @@ const tracker = new Tracker(new Steps, new Speed);
 tracker.getTracker();
 </v-code>
 </template><template v-slot:last>
-<p><ul class="list-point">
+<ul>
     <li>Обработка "Шагов" и "Скорости движения" в одном месте</li>
     <li>Если потребуется переиспользовать логику только "Шагов" - это не получится</li>
-</ul></p>
+</ul>
 
 <v-code lang="js" title="">
 class Tracker {
