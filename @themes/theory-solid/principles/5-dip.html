@@ -38,9 +38,7 @@ Decoupling
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<v-two><template v-slot:first>
-<b>Да</b>
-
+<v-two-border title="Fine;Badly"><template v-slot:first>
 <ul class="list-point">
     <li>Создать новый класс, который будет являться интерфейсом для взаимодействия между сущностями</li>
     <li><u>class Database</u> не зависит от абстракций низшего уровня, она зависит только от тех абстракций, который передали в класс</li>
@@ -103,8 +101,6 @@ console.log(db.getData('rand'));
 </v-code>
 
 </template><template v-slot:last>
-<b>Нет</b>
-
 <ul class="list-point">
     <li>Изначально данные получались через <u>class Fetch</u></li>
     <li>Потом данные необходимо брать из <u>class LocalStorage</u></li>
@@ -141,4 +137,4 @@ const db = new Database();
 console.log(db.getData());
 </v-code>
 
-</template></v-two>
+</template></v-two-border>

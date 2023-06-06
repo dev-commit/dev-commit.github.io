@@ -97,40 +97,45 @@
                     <div id="content"><div id="theory-solid/main/info"><h2>Информация</h2>
 
 <u-link-wrapper>
-    <a href="https://www.youtube.com/watch?v=xq13wiqvcTc" target="_blank">YouTube. Практика (Владилен Минин)</a>
     <a href="https://www.youtube.com/playlist?list=PLmqFxxywkatQNWLG1IZYUhKoQrnuZHqaK" target="_blank">YouTube. Playlist (Сергей Немчинский)</a>
 </u-link-wrapper>
 
 <ul class="list-point">
-    <li><u-text-define>SOLID</u-text-define> (Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency inversion) - пять основных принципов ООП</li>
-    <li>При создании программных систем использование принципов SOLID способствует созданию такой системы, которую будет легко поддерживать и расширять в течение долгого времени</li>
-    <li>Принципы SOLID были предложены Робертом Мартином, автором нескольких книг, широко известных в сообществе разработчиков</li>
-    <li><u>Цель</u>: способствуют изменениям; легко понимаемы; повторно используемы</li>
+    <li><u-text-define>SOLID</u-text-define> - пять основных принципов ООП, которые были собраны Робертом Мартином, автором нескольких книг</li>
 </ul>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Когда следует применять</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>Цель</h4>
+<!------------------------------------------------------------->
 <ul class="list-point">
-    <li><u>Жесткость</u> - трудно вносить изменнея в код. Одно изменение вносит изменение в другие модули</li>
-    <li><u>Хрупкость</u> - свойство программы повреждаться во многих местах при внесении одного изменения</li>
-    <li><u>Ненужная сложность</u> - содержание элементов не используемых в данный момент</li>
-    <li><u>Ненужные повторения</u> - проблема дублирования кода</li>
-    <li><u>Непрозрачность</u> - трудность кода для понимания</li>
+    <li>Способствуют созданию системы, которую будет легко поддерживать и расширять в течение долгого времени</li>
+    <li>Способствуют легкому понимают кода и его переиспользованию</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Когда следует применять</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><em>Жесткость</em> - трудно вносить изменнея в код. Одно изменение вносит изменение в другие модули</li>
+    <li><em>Хрупкость</em> - свойство программы повреждаться во многих местах при внесении одного изменения</li>
+    <li><em>Ненужная сложность</em> - содержание элементов не используемых в данный момент</li>
+    <li><em>Ненужные повторения</em> - проблема дублирования кода</li>
+    <li><em>Непрозрачность</em> - трудность кода для понимания</li>
 </ul>
 </div><div id="theory-solid/principles/1-srp"><h2>1. The Single Responsibility Principle</h2>
 
 <ul class="list-point">
     <li><u-text-define>The Single Responsibility Principle</u-text-define> - Принцип единственной ответственности</li>
-    <li>Каждый кдасс должен иметь одну обязанность (ответственность) и эта обязанность должна быть полностью инкапсулирована в класс</li>
+    <li>Каждый кдасс должен иметь одну обязанность (ответственность) и эта обязанность должна быть полностью инкапсулирована в класс. Он должен содержать поля и методы, относящиеся только к одному функционалу</li>
+    <li>Для класса должна быть только 1 причина для изменения</li>
 </ul>
 
 <!------------------------------------------------------------->
 <h5>Принципы</h5>
 <!------------------------------------------------------------->
 <ul class="list-point">
-    <li>Разделение больших классов, реализующий разный функционал</li>
-    <li>Слияние мелких классов и объединение в одном классе однотипоной функциональности</li>
+    <li>Разделение больших классов, реализующих разный функционал</li>
+    <li>Слияние мелких классов и объединение в одном классе однотипоной функциональности (если определенная функциональность разбросана по разным классам, ее нужно собрать в одном классе)</li>
 </ul>
 
 <!------------------------------------------------------------->
@@ -141,112 +146,93 @@
     <li>Изменения, внесенные в класс, не затрагивают поведение других классов и не вызывают ошибок. Код проще читать, легче поддерживать и изменять</li>
 </ul>
 
+<!------------------------------------------------------------->
+<h5>Нарушение принципа</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>God object</u-text-define> (Божественный объект) - антипаттерн, представляющий собой класс в котором находится слишком много различного функционала</li>
+</ul>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<v-two><template v-slot:first>
-<b>Да</b>
+<!------------------------------------------------------------->
+<h4>Fitness Tracker</h4>
+<!------------------------------------------------------------->
 
-<v-code lang="js border" title="Класс для обоработки новости">
-class News {
-    constructor(title, text) {
-        this.title = title;
-        this.text = text;
-        this.modified = false;
-    }
-    update(text) {
-        this.text = text;
-        this.modified = true;
-    }
-    // Разные форматы новости должно быть в отдельном класса
-    // html() {}
-    // json() {}
-}
-</v-code>
-<v-code lang="js border" title="Класс для формирования новости в разных форматах">
-class NewsPrinter {
-    constructor(news) {
-        this.news = news;
-    }
-    html() {
-        return `
-            &lt;div&gt;
-                &lt;h1&gt;${this.news.title}&lt;/h1&gt;
-                &lt;h1&gt;${this.news.text}&lt;/h1&gt;
-            &lt;/div&gt;
-        `
-    }
-    json() {
-        return JSON.stringify({
-            title: this.news.title,
-            text: this.news.text,
-            modified: this.news.modified
-        })
-    }
-}
-</v-code>
+<ul class="list-point">
+    <li>Есть система, которая считает "Шаги" и "Скорость движения"</li>
+    <li>При этом, другим разработчикам может потребоваться функционал отдельно для "Шагов" или "Скорости движения"</li>
+</ul>
+
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<ul class="list-point">
+    <li>Разделение классов по функционалу</li>
+</ul>
 <v-code lang="js border" title="">
-const printer = new NewsPrinter(
-    new News('Название новости', 'Описание новости')
-)
-
-console.log(printer.html());
-console.log(printer.json());
-</v-code>
-
-</template><template v-slot:last>
-<b>Нет</b>
-
-<v-code lang="js" title="">
-// Класс для обоработки новости
-class News {
-    constructor(title, text) {
-        this.title = title;
-        this.text = text;
-        this.modified = false;
-    }
-    update(text) {
-        this.text = text;
-        this.modified = true;
-    }
-
-    // Разные форматы новости
-    html() {
-        return `
-            &lt;div&gt;
-                &lt;h1&gt;${this.title}&lt;/h1&gt;
-                &lt;h1&gt;${this.text}&lt;/h1&gt;
-            &lt;/div&gt;
-        `
-    }
-    json() {
-        return JSON.stringify({
-            title: this.title,
-            text: this.text,
-            modified: this.modified
-        })
-    }
+class Steps {
+    constructor() { this.steps = 100; }
+    getSteps() { return this.steps; }
+}
+class Speed {
+    constructor() { this.speed = 200; }
+    getSpeed() { return this.speed; }
 }
 </v-code>
-<v-code lang="js" title="">
-const news = new News(
-    'Название новости',
-    'Описание новости'
-);
 
-console.log(news.html());
-console.log(news.json());
+<ul class="list-point">
+    <li>Объединение классов "Steps" и "Speed"</li>
+</ul>
+<v-code lang="js border" title="">
+class Tracker {
+	constructor(steps, speed) {
+		this.steps = steps;
+		this.speed = speed;
+	}
+	getTracker() {
+		const steps = this.steps.getSteps();
+		const speed = this.speed.getSpeed();
+		console.log(steps, speed); // 100, 200
+	}	
+}
+
+const tracker = new Tracker(new Steps, new Speed);
+tracker.getTracker();
+</v-code>
+</template><template v-slot:last>
+<p><ul class="list-point">
+    <li>Обработка "Шагов" и "Скорости движения" в одном месте</li>
+    <li>Если потребуется переиспользовать логику только "Шагов" - это не получится</li>
+</ul></p>
+
+<v-code lang="js" title="">
+class Tracker {
+	constructor() {
+		this.steps = 100;
+		this.speed = 200;
+	}
+	getTracker() {
+		const steps = this.getSteps();
+		const speed = this.getSpeed();
+		console.log(steps, speed); // 100, 200
+	}
+	getSteps() { return this.steps; }
+	getSpeed() { return this.speed; }
+}
+
+const tracker = new Tracker();
+tracker.getTracker();
 </v-code>
 
-</template></v-two>
+</template></v-two-border>
 </div><div id="theory-solid/principles/2-ocp"><h2>2. The Open Closed Principle</h2>
 
 <ul class="list-point">
     <li><u-text-define>The Open Closed Principle</u-text-define> - Принцип открытости/закрытости</li>
     <li>Программные сущности (классы, модули, функции и т.д.) должны быть открыты для расширения, но закрыты для модификации</li>
-    <li>То что написано не должн изменяться. Можно только дописывать новый функционал</li>
+    <li>Любой блок должен быть открыт для добавления новой функциональности. Новая функциональность не должна изменять существующую</li>
 
     <hr>
 
@@ -259,7 +245,8 @@ console.log(news.json());
 <h5>Результат применения</h5>
 <!------------------------------------------------------------->
 <ul class="list-point">
-    <li>Разработка устойчивого к изменениям приложения</li>
+    <li><u>Разработка устойчивого к изменениям приложения</u>: при добавлении нового поведения у программной сущности обеспечиваем корректную работу существующего кода, который взаимодействует с этой сущностью</li>
+    <li>Сделать поведение класса более разнообразным, не вмешиваясь в текущие операции, которые он выполняет. Благодаря этому вы избегаете ошибок в тех фрагментах кода, где задействован этот класс</li>
 </ul>
 
 <!------------------------------------------------------------->
@@ -274,13 +261,31 @@ console.log(news.json());
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Две трактовки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h5>1. От Боба Мартина. Полиморфный (приоритетная трактовка)</h5>
+<ul class="list-point">
+    <li><u>КлиентскийКод</u> должен зависеть от интерфейса, который неизменный (<u>КлиентскийКод</u> не нужно переписывать)</li>
+    <li><u>БазовыйКласс</u> и <u>КлассНаследник</u> реализует одинаковый неизменный интерфейс</li>
+</ul>
+<p><img src="/@img/solid/open-closed1.png" width="300px" /></p>
+
+
+<h5>2. От Бертрана Мейера</h5>
+<ul class="list-point">
+    <li>После разработки <u>БазовогоКласса</u>, он полностью закрывается для изменений. Исключение только для bugfix</li>
+    <li>Добавление новой функциональность происходит с помощью наследования. Новая функциональность добавляеся в <u>КлассНаследник</u></li>
+    <li><u>КлассНаследник</u> может иметь другой интерфейс. При этом, если <u>КлиентскийКод</u> до этого вызывал <u>БазовыйКласс</u>, а сейчас вызывает <u>КлассНаследник</u> с другим интерфейсом, то придется переписывать <u>КлиентскийКод</u></li>
+</ul>
+<p><img src="/@img/solid/open-closed2.png" width="550px" /></p>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<v-two><template v-slot:first>
-
-<b>Да</b>
-
+<v-two-border title="Fine;Badly"><template v-slot:first>
 <p><i>Абстрактный класс</i></p>
 <v-code lang="js border" title="Базовый класс">
 class Shape {
@@ -305,7 +310,7 @@ class Circle extends Shape {
 </v-code>
 
 <ul class="list-point">
-    <li>Класс AreaCalculator открыли для расширений и закрыли для модификаций - метод sum сделан 1 раз и больше к нему не возвращаемся</li>
+    <li>Класс AreaCalculator открыли для расширений и закрыли для модификаций - метод <u>calc</u> сделан 1 раз и больше к нему не возвращаемся</li>
 </ul>
 
 <v-code lang="js border" title="Класс для калькуляции">
@@ -330,8 +335,6 @@ areaCalculator.calc();
 </v-code>
 
 </template><template v-slot:last>
-<b>Нет</b>
-
 <v-code lang="js" title="Наследники">
 class Square {
     constructor() {
@@ -372,7 +375,7 @@ const areaCalculator = new AreaCalculator([
 areaCalculator.calc();
 </v-code>
 
-</template></v-two>
+</template></v-two-border>
 </div><div id="theory-solid/principles/3-lsp"><h2>3. The Liskov Substitution Principle</h2>
 
 <ul class="list-point">
@@ -387,11 +390,25 @@ areaCalculator.calc();
 </ul>
 
 
+Принцип служит для того, чтобы делать поведение класса более разнообразным, не вмешиваясь в текущие операции, которые он выполняет. Благодаря этому вы избегаете ошибок в тех фрагментах кода, где задействован этот класс.
+
+Если П является подтипом Т, то любые объекты типа Т, присутствующие в программе, могут заменяться объектами типа П без негативных последствий для функциональности программы.
+
+В случаях, когда класс-потомок не способен выполнять те же действия, что и класс-родитель, возникает риск появления ошибок.
+
+Если у вас имеется класс и вы создаете на его базе другой класс, исходный класс становится родителем, а новый – его потомком. Класс-потомок должен производить такие же операции, как и класс-родитель. Это называется наследственностью.
+
+Необходимо, чтобы класс-потомок был способен обрабатывать те же запросы, что и родитель, и выдавать тот же результат. Или же результат может отличаться, но при этом относиться к тому же типу. На картинке это показано так: класс-родитель подаёт кофе (в любых видах), значит, для класса-потомка приемлемо подавать капучино (разновидность кофе), но неприемлемо подавать воду.
+
+Если класс-потомок не удовлетворяет этим требованиям, значит, он слишком сильно отличается от родителя и нарушает принцип.
+
+
+
 <!------------------------------------------------------------->
 <h5>Результат применения</h5>
 <!------------------------------------------------------------->
 <ul class="list-point">
-    <li>Логика спроектирована такми образом, что классы-наследники могут использоваться вместо классов-родителей</li>
+    <li>Обеспечение постоянства: класс-родитель и класс-потомок могут использоваться одинаковым образом без нарушения работы программы.</li>
 </ul>
 
 <!------------------------------------------------------------->
@@ -412,7 +429,6 @@ areaCalculator.calc();
 </ul>
 
 
-
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -421,9 +437,7 @@ areaCalculator.calc();
 <h4>Пример 1</h4>
 <!------------------------------------------------------------->
 
-<v-two><template v-slot:first>
-<b>Да</b>
-
+<v-two-border title="Fine;Badly"><template v-slot:first>
 <ul class="list-point">
     <li>Нужно правильно выбирать слои абстракции</li>
     <li>Просто наследоваться от человека некорректно</li>
@@ -467,8 +481,6 @@ openSecretDoor(new Backend());
 </v-code>
 
 </template><template v-slot:last>
-<b>Нет</b>
-
 <v-code lang="js" title="">
 class Person {
     access() {
@@ -499,15 +511,13 @@ openSecretDoor(new Backend());
 openSecretDoor(new PersonFromDifferentCompany());
 </v-code>
 
-</template></v-two>
+</template></v-two-border>
 
 <!------------------------------------------------------------->
 <h4>Пример 2</h4>
 <!------------------------------------------------------------->
 
-<v-two><template v-slot:first>
-<b>Да</b>
-
+<v-two-border title="Fine;Badly"><template v-slot:first>
 <v-code lang="js border" title="Базовые классы">
 class Component {}
 class ComponentWithTemplate extends Component {
@@ -542,8 +552,6 @@ renderComponent(new FooterComponent());
 </v-code>
 
 </template><template v-slot:last>
-<b>Нет</b>
-
 <v-code lang="js" title="Базовый класс">
 class Component {
     render() {
@@ -576,7 +584,7 @@ renderComponent(new FooterComponent());
 renderComponent(new HOC());
 </v-code>
 
-</template></v-two>
+</template></v-two-border>
 </div><div id="theory-solid/principles/4-isp"><h2>4. The Interface Segregation Principle</h2>
 
 <ul class="list-point">
@@ -602,9 +610,7 @@ renderComponent(new HOC());
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<v-two><template v-slot:first>
-<b>Да</b>
-
+<v-two-border title="Fine;Badly"><template v-slot:first>
 <v-code lang="js border" title="Базовый класс">
 class Animal {
     constructor(name) {
@@ -642,8 +648,6 @@ eagle.fly();
 </v-code>
 
 </template><template v-slot:last>
-<b>Нет</b>
-
 <v-code lang="js" title="Базовый класс">
 class Animal {
     constructor(name) {
@@ -677,7 +681,7 @@ eagle.swim(); // -
 eagle.fly();  // +
 </v-code>
 
-</template></v-two>
+</template></v-two-border>
 </div><div id="theory-solid/principles/5-dip"><h2>5. The Dependency Inversion Principle</h2>
 
 <ul class="list-point">
@@ -718,9 +722,7 @@ Decoupling
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<v-two><template v-slot:first>
-<b>Да</b>
-
+<v-two-border title="Fine;Badly"><template v-slot:first>
 <ul class="list-point">
     <li>Создать новый класс, который будет являться интерфейсом для взаимодействия между сущностями</li>
     <li><u>class Database</u> не зависит от абстракций низшего уровня, она зависит только от тех абстракций, который передали в класс</li>
@@ -783,8 +785,6 @@ console.log(db.getData('rand'));
 </v-code>
 
 </template><template v-slot:last>
-<b>Нет</b>
-
 <ul class="list-point">
     <li>Изначально данные получались через <u>class Fetch</u></li>
     <li>Потом данные необходимо брать из <u>class LocalStorage</u></li>
@@ -821,7 +821,7 @@ const db = new Database();
 console.log(db.getData());
 </v-code>
 
-</template></v-two>
+</template></v-two-border>
 </div></div>
                 </div>
             </div>

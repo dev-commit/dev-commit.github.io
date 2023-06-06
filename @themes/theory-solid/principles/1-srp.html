@@ -2,15 +2,16 @@
 
 <ul class="list-point">
     <li><u-text-define>The Single Responsibility Principle</u-text-define> - Принцип единственной ответственности</li>
-    <li>Каждый кдасс должен иметь одну обязанность (ответственность) и эта обязанность должна быть полностью инкапсулирована в класс</li>
+    <li>Каждый кдасс должен иметь одну обязанность (ответственность) и эта обязанность должна быть полностью инкапсулирована в класс. Он должен содержать поля и методы, относящиеся только к одному функционалу</li>
+    <li>Для класса должна быть только 1 причина для изменения</li>
 </ul>
 
 <!------------------------------------------------------------->
 <h5>Принципы</h5>
 <!------------------------------------------------------------->
 <ul class="list-point">
-    <li>Разделение больших классов, реализующий разный функционал</li>
-    <li>Слияние мелких классов и объединение в одном классе однотипоной функциональности</li>
+    <li>Разделение больших классов, реализующих разный функционал</li>
+    <li>Слияние мелких классов и объединение в одном классе однотипоной функциональности (если определенная функциональность разбросана по разным классам, ее нужно собрать в одном классе)</li>
 </ul>
 
 <!------------------------------------------------------------->
@@ -21,103 +22,84 @@
     <li>Изменения, внесенные в класс, не затрагивают поведение других классов и не вызывают ошибок. Код проще читать, легче поддерживать и изменять</li>
 </ul>
 
+<!------------------------------------------------------------->
+<h5>Нарушение принципа</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>God object</u-text-define> (Божественный объект) - антипаттерн, представляющий собой класс в котором находится слишком много различного функционала</li>
+</ul>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<v-two><template v-slot:first>
-<b>Да</b>
+<!------------------------------------------------------------->
+<h4>Fitness Tracker</h4>
+<!------------------------------------------------------------->
 
-<v-code lang="js border" title="Класс для обоработки новости">
-class News {
-    constructor(title, text) {
-        this.title = title;
-        this.text = text;
-        this.modified = false;
-    }
-    update(text) {
-        this.text = text;
-        this.modified = true;
-    }
-    // Разные форматы новости должно быть в отдельном класса
-    // html() {}
-    // json() {}
-}
-</v-code>
-<v-code lang="js border" title="Класс для формирования новости в разных форматах">
-class NewsPrinter {
-    constructor(news) {
-        this.news = news;
-    }
-    html() {
-        return `
-            &lt;div&gt;
-                &lt;h1&gt;${this.news.title}&lt;/h1&gt;
-                &lt;h1&gt;${this.news.text}&lt;/h1&gt;
-            &lt;/div&gt;
-        `
-    }
-    json() {
-        return JSON.stringify({
-            title: this.news.title,
-            text: this.news.text,
-            modified: this.news.modified
-        })
-    }
-}
-</v-code>
+<ul class="list-point">
+    <li>Есть система, которая считает "Шаги" и "Скорость движения"</li>
+    <li>При этом, другим разработчикам может потребоваться функционал отдельно для "Шагов" или "Скорости движения"</li>
+</ul>
+
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<ul class="list-point">
+    <li>Разделение классов по функционалу</li>
+</ul>
 <v-code lang="js border" title="">
-const printer = new NewsPrinter(
-    new News('Название новости', 'Описание новости')
-)
-
-console.log(printer.html());
-console.log(printer.json());
-</v-code>
-
-</template><template v-slot:last>
-<b>Нет</b>
-
-<v-code lang="js" title="">
-// Класс для обоработки новости
-class News {
-    constructor(title, text) {
-        this.title = title;
-        this.text = text;
-        this.modified = false;
-    }
-    update(text) {
-        this.text = text;
-        this.modified = true;
-    }
-
-    // Разные форматы новости
-    html() {
-        return `
-            &lt;div&gt;
-                &lt;h1&gt;${this.title}&lt;/h1&gt;
-                &lt;h1&gt;${this.text}&lt;/h1&gt;
-            &lt;/div&gt;
-        `
-    }
-    json() {
-        return JSON.stringify({
-            title: this.title,
-            text: this.text,
-            modified: this.modified
-        })
-    }
+class Steps {
+    constructor() { this.steps = 100; }
+    getSteps() { return this.steps; }
+}
+class Speed {
+    constructor() { this.speed = 200; }
+    getSpeed() { return this.speed; }
 }
 </v-code>
-<v-code lang="js" title="">
-const news = new News(
-    'Название новости',
-    'Описание новости'
-);
 
-console.log(news.html());
-console.log(news.json());
+<ul class="list-point">
+    <li>Объединение классов "Steps" и "Speed"</li>
+</ul>
+<v-code lang="js border" title="">
+class Tracker {
+	constructor(steps, speed) {
+		this.steps = steps;
+		this.speed = speed;
+	}
+	getTracker() {
+		const steps = this.steps.getSteps();
+		const speed = this.speed.getSpeed();
+		console.log(steps, speed); // 100, 200
+	}	
+}
+
+const tracker = new Tracker(new Steps, new Speed);
+tracker.getTracker();
+</v-code>
+</template><template v-slot:last>
+<p><ul class="list-point">
+    <li>Обработка "Шагов" и "Скорости движения" в одном месте</li>
+    <li>Если потребуется переиспользовать логику только "Шагов" - это не получится</li>
+</ul></p>
+
+<v-code lang="js" title="">
+class Tracker {
+	constructor() {
+		this.steps = 100;
+		this.speed = 200;
+	}
+	getTracker() {
+		const steps = this.getSteps();
+		const speed = this.getSpeed();
+		console.log(steps, speed); // 100, 200
+	}
+	getSteps() { return this.steps; }
+	getSpeed() { return this.speed; }
+}
+
+const tracker = new Tracker();
+tracker.getTracker();
 </v-code>
 
-</template></v-two>
+</template></v-two-border>
