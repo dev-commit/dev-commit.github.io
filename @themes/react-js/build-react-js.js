@@ -2,7 +2,17 @@ root = 'react-js/';
 
 ARR_MODULE = [
     {
+        title: 'Общее',
+        themes: [
+            getLink(root, 'install'),
+            [root+'main/version',    emoji.fire+'Версии'],
+            [root+'main/info',       emoji.theory+'Информация'],
+            [root+'main/patterns',   emoji.theory+'Шаблоны проектирования'],
+        ]
+    },
+    {
         title: 'Реконсиляция',
+        accent: true,
         themes: [
             [root+'reconciler/virtual-dom',       emoji.theory+'Virtual DOM (Общее)'],
             [root+'reconciler/virtual-dom-react', emoji.theory+'Virtual DOM (React)'],
@@ -11,21 +21,12 @@ ARR_MODULE = [
     },
     {
         title: 'Fiber',
+        accent: true,
         themes: [
             [root+'fiber/common',     emoji.star+'Общее'],
             [root+'fiber/planning',   emoji.label+'1. Планирование'],
             [root+'fiber/priorities', emoji.label+'2. Приоритизация'],
             [root+'fiber/sample',     'Пример'],
-        ]
-    },
-    {
-        title: 'Информация',
-        themes: [
-            [root+'info/info',       emoji.theory+'Информация'],
-            [root+'info/version',    emoji.theory+'Версии'],
-            [root+'info/patterns',   emoji.theory+'Шаблоны проектирования'],
-            [root+'info/components', emoji.theory+'Компоненты'],
-            [root+'info/structure',  emoji.code+'Структура на Class'],
         ]
     },
     {
@@ -42,15 +43,6 @@ ARR_MODULE = [
             [root+'lifecycle/hook-component-will-unmount',       setTheme(3, ['componentWillUnmount'])],
             [root+'lifecycle/hook-get-derived-state-from-error', setTheme(6, ['getDerivedStateFromError'])],
             [root+'lifecycle/hook-component-did-catch',          setTheme(6, ['componentDidCatch'])],
-        ]
-    },
-    {
-        title: 'Общее',
-        themes: [
-            [root+'common/components', 'Компоненты'],
-            [root+'common/jsx',        'JSX'],
-            [root+'common/children',   setTheme(1, ['props.children'])],
-            [root+'common/props',      setTheme(1, ['props'])],  
         ]
     },
     {
@@ -77,8 +69,12 @@ ARR_MODULE = [
     {
         title: 'Прочее',
         themes: [
-            [root+'other/react-developer-tools', 'React Developer Tools'],
-            [root+'other/samples',               emoji.code+'Примеры'],
+            [root+'common/props',                 setTheme(1, ['props'])],  
+            [root+'common/components',            'Компоненты'],
+            [root+'common/jsx',                   'JSX'],
+            [root+'common/react-developer-tools', 'React Developer Tools'],
+            [root+'common/component-class',       emoji.code+'Структура на Class'],
+            [root+'common/samples',               emoji.code+'Примеры'],
         ]
     },
     {

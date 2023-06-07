@@ -45,33 +45,41 @@
         <li>
             <a
                 class="menu-link"
-                id="id__js-promise/methods/method-new"
-                href="#js-promise/methods/method-new"
+                id="id__js-promise/methods/new"
+                href="#js-promise/methods/new"
             ><u-menu>new Promise</u-menu></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__js-promise/methods/method-then-catch"
-                href="#js-promise/methods/method-then-catch"
+                id="id__js-promise/methods/then-catch"
+                href="#js-promise/methods/then-catch"
             ><u-menu>.then</u-menu> <u-menu>.catch</u-menu> <u-menu>.finally</u-menu></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__js-promise/methods/method-resolve-reject"
-                href="#js-promise/methods/method-resolve-reject"
+                id="id__js-promise/methods/resolve-reject"
+                href="#js-promise/methods/resolve-reject"
             ><u-menu>Promise.resolve</u-menu> <u-menu>Promise.reject</u-menu></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__js-promise/methods/method-all-rase"
-                href="#js-promise/methods/method-all-rase"
-            ><u-menu>Promise.all</u-menu> <u-menu>Promise.race</u-menu></a>
+                id="id__js-promise/methods/all-rase"
+                href="#js-promise/methods/all-rase"
+            ><u-menu-accent>Promise.all</u-menu-accent> <u-menu-accent>Promise.race</u-menu-accent></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-promise/methods/all-settled"
+                href="#js-promise/methods/all-settled"
+            ><u-menu-accent>Promise.allSettled</u-menu-accent></a>
         </li>
     </ul><h4>🏷️ Примеры</h4><ul>
         <li>
@@ -306,7 +314,7 @@ let promise = new Promise(function(resolve, reject) {
 	<v-method before="Promise." method="reject" after="" arg="(error)">Создаёт уже выполнившийся промис с ошибкой error</v-method>
 	<v-method-return>value -> ошибка</v-method-return>
 </div>
-</div><div id="js-promise/methods/method-new"><h2>new Promise</h2>
+</div><div id="js-promise/methods/new"><h2>new Promise</h2>
 
 <!------------------------------------------------------------->
 <h4>Promise</h4>
@@ -352,7 +360,7 @@ asyncFunc()
     .then(result => { ... })
     .catch(result => { ... })
 </v-code>
-</div><div id="js-promise/methods/method-then-catch"><h2>.then .catch .finally</h2>
+</div><div id="js-promise/methods/then-catch"><h2>.then .catch .finally</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>.then и .catch</h3>
@@ -448,7 +456,7 @@ promise
 <v-code lang="js" title="">
 promise<u-code>.then</u-code>(functionResolve())
 </v-code>
-</div><div id="js-promise/methods/method-resolve-reject"><h2>Promise.resolve(value) и Promise.reject(error)</h2>
+</div><div id="js-promise/methods/resolve-reject"><h2>Promise.resolve(value) и Promise.reject(error)</h2>
 
 <div class="v-method-wrapper">
     <v-method before="Promise." method="resolve" after="" arg="(value)">создаёт успешно выполнившийся промис с результатом value. Используют, когда хотят построить асинхронную цепочку, и начальный результат уже есть</v-method>
@@ -470,7 +478,7 @@ Promise.reject(new Error("..."))
 	.catch(val => console.log(val))
 </template>
 </v-two-code>
-</div><div id="js-promise/methods/method-all-rase"><h2>Параллельное выполнение Promise.all и Promise.race</h2>
+</div><div id="js-promise/methods/all-rase"><h2>Параллельное выполнение Promise.all и Promise.race</h2>
 
 <div class="v-method-wrapper">
     <v-method before="Promise." method="all" after="" arg="([iterable])">Выполнение нескольких промисов. Если какой-то из промисов завершился с ошибкой, то результатом Promise.all будет эта ошибка. При этом остальные промисы игнорируются</v-method>
@@ -627,6 +635,31 @@ Promise.<u-code>all</u-code>([p1, p2])
 Promise.<u-code>race</u-code>([p1, p2])
 	.then(value => console.log(value));
     // => "promise-2-1000"
+</v-code>
+</div><div id="js-promise/methods/all-settled"><h2>Promise.allSettled()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="Promise." method="allSettled" after="" arg="([iterable])">
+        В отличие от <u>Promise.all</u>, он ждёт выполнения всех промисов, при этом неважно, завершились они успешно или с ошибкой.
+        Используют, когда нужно запустить несколько промисов параллельно и дождаться их выполнения
+    </v-method>
+	<v-method-arg arg="iterable">массив (или другой итерируемый объект) промисов</v-method-arg>
+	<v-method-return>Новый Promise, который будет выполнен, когда будут выполнены все переданные Promise. Полученный промис содержит массив результатов выполнения всех переданных промисов, сохраняя порядок оригинального массива, но не порядок выполнения.</v-method-return>
+</div>
+
+<v-code lang="js step" title="">
+const promises = [
+    new Promise(resolve => resolve(1)),
+    new Promise((resolve, reject) => reject('error')),
+    new Promise(resolve => resolve(3))
+]
+
+Promise.allSettled(promises)
+    .then(([response1, response2, response3]) => {
+        console.log(response1); // { status: 'fulfilled', value: 3 }
+        console.log(response2); // { status: 'rejected', reason: 'error' }
+        console.log(response3); // { status: 'fulfilled', value: 1 }
+})
 </v-code>
 </div><div id="js-promise/samples/then"><h2>.then</h2>
 

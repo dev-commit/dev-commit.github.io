@@ -11,10 +11,11 @@ ARR_MODULE = [
         title: 'Методы',
         themes: [
 		    [root+'methods/info',                  emoji.code+'Методы'],
-            [root+'methods/method-new',            setTheme(1, ['new Promise'])],
-		    [root+'methods/method-then-catch',     setTheme(1, ['.then', '.catch', '.finally'])],
-		    [root+'methods/method-resolve-reject', setTheme(1, ['Promise.resolve', 'Promise.reject'])],
-		    [root+'methods/method-all-rase',       setTheme(1, ['Promise.all', 'Promise.race'])],
+            [root+'methods/new',            setTheme(1, ['new Promise'])],
+		    [root+'methods/then-catch',     setTheme(1, ['.then', '.catch', '.finally'])],
+		    [root+'methods/resolve-reject', setTheme(1, ['Promise.resolve', 'Promise.reject'])],
+		    [root+'methods/all-rase',       setTheme(3, ['Promise.all', 'Promise.race'])],
+		    [root+'methods/all-settled',    setTheme(3, ['Promise.allSettled']), false, 'done'],
         ]
     },
     {

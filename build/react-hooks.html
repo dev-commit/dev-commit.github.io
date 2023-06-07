@@ -117,14 +117,6 @@
         <li>
             <a
                 class="menu-link"
-                id="id__react-hooks/hooks/use-insertion-effect"
-                href="#react-hooks/hooks/use-insertion-effect"
-            ><u-menu>useInsertionEffect</u-menu></a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
                 id="id__react-hooks/hooks/use-sync-external-store"
                 href="#react-hooks/hooks/use-sync-external-store"
             ><u-menu>useSyncExternalStore</u-menu></a>
@@ -149,17 +141,25 @@
         <li>
             <a
                 class="menu-link"
-                id="id__react-hooks/hooks/use-layout-effect"
-                href="#react-hooks/hooks/use-layout-effect"
-            ><u-menu>useLayoutEffect</u-menu></a>
+                id="id__react-hooks/hooks/use-debug-value"
+                href="#react-hooks/hooks/use-debug-value"
+            ><u-menu>useDebugValue</u-menu></a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__react-hooks/hooks/use-debug-value"
-                href="#react-hooks/hooks/use-debug-value"
-            ><u-menu>useDebugValue</u-menu></a>
+                id="id__react-hooks/hooks/use-layout-effect"
+                href="#react-hooks/hooks/use-layout-effect"
+            ><u-menu-gray>useLayoutEffect</u-menu-gray></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__react-hooks/hooks/use-insertion-effect"
+                href="#react-hooks/hooks/use-insertion-effect"
+            ><u-menu-gray>useInsertionEffect</u-menu-gray></a>
         </li>
     </ul><h4>🏷️ Custom Hooks</h4><ul>
         <li>
@@ -1392,37 +1392,6 @@ const App = () => {
     // ...
 }
 </v-code>
-</div><div id="react-hooks/hooks/use-insertion-effect"><h2>Хук useInsertionEffect</h2>
-
-<u-link-wrapper>
-    <a href="https://react.dev/reference/react/useInsertionEffect" target="_blank">useInsertionEffect</a>
-</u-link-wrapper>
-
-<u-message-warn>
-useInsertionEffect предназначен для авторов библиотек CSS-in-JS. Если вы не работаете с библиотекой CSS-in-JS и вам не нужно место для внедрения стилей, вы, вероятно, захотите вместо этого использовать useEffect или useLayoutEffect.
-</u-message-warn>
-
-<div class="v-method-wrapper">
-    <v-method before="" method="useInsertionEffect" after="" arg="(setup, dependencies?)">
-    Версия useEffect, которая срабатывает перед любыми изменениями DOM
-    </v-method>
-	<v-method-arg arg="setup">функция с Effect’s logic. Ваша setup function также может дополнительно возвращать функцию очистки. Прежде чем ваш компонент будет добавлен в DOM, React запустит вашу setup function. После каждого повторного рендеринга с измененными зависимостями React сначала запускает функцию очистки (если вы ее предоставили) со старыми значениями, а затем запускает setup function с новыми значениями. Прежде чем ваш компонент будет удален из DOM, React запустит вашу функцию очистки</v-method-arg>
-	<v-method-arg arg="dependencies?">(optional) список всех реактивных значений, на которые ссылается setup code</v-method-arg>
-    <v-method-return>undefined</v-method-return>
-</div>
-
-<v-code lang="js border" title="">
-import { useInsertionEffect } from 'react';
-
-// Inside your CSS-in-JS library
-const useCSS = (rule) => {
-    <u-code>useInsertionEffect</u-code>(() => {
-        // ... inject &lt;style&gt; tags here ...
-    });
-
-    return rule;
-}
-</v-code>
 </div><div id="react-hooks/hooks/use-sync-external-store"><h2>Хук useSyncExternalStore</h2>
 
 <u-link-wrapper>
@@ -1490,17 +1459,6 @@ const App = () => {
 eImperativeHandle(ref, createHandle, [deps])
 </v-code>
 
-</div><div id="react-hooks/hooks/use-layout-effect"><h2>Хук useLayoutEffect</h2>
-
-<u-link-wrapper>
-    <a href="https://react.dev/reference/react/useLayoutEffect" target="_blank">useLayoutEffect</a>
-</u-link-wrapper>
-
-<div class="v-method-wrapper">
-    <v-method before="" method="useLayoutEffect" after="" arg="()">
-	Сигнатура идентична useEffect, но этот хук запускается синхронно после всех изменений DOM. Используйте его для чтения макета из DOM и синхронного повторного рендеринга. Обновления, запланированные внутри useLayoutEffect, будут полностью применены синхронно перед тем, как браузер получит шанс осуществить отрисовку
-    </v-method>
-</div>
 </div><div id="react-hooks/hooks/use-debug-value"><h2>Хук useDebugValue</h2>
 
 <u-link-wrapper>
@@ -1516,6 +1474,48 @@ eImperativeHandle(ref, createHandle, [deps])
 
 <v-code lang="js border" title="">
 useDebugValue(value)
+</v-code>
+</div><div id="react-hooks/hooks/use-layout-effect"><h2>Хук useLayoutEffect</h2>
+
+<u-link-wrapper>
+    <a href="https://react.dev/reference/react/useLayoutEffect" target="_blank">useLayoutEffect</a>
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useLayoutEffect" after="" arg="()">
+	Сигнатура идентична useEffect, но этот хук запускается синхронно после всех изменений DOM. Используйте его для чтения макета из DOM и синхронного повторного рендеринга. Обновления, запланированные внутри useLayoutEffect, будут полностью применены синхронно перед тем, как браузер получит шанс осуществить отрисовку
+    </v-method>
+</div>
+</div><div id="react-hooks/hooks/use-insertion-effect"><h2>Хук useInsertionEffect</h2>
+
+<u-link-wrapper>
+    <a href="https://react.dev/reference/react/useInsertionEffect" target="_blank">useInsertionEffect</a>
+</u-link-wrapper>
+
+<u-message-warn>
+useInsertionEffect предназначен для авторов библиотек CSS-in-JS. Если вы не работаете с библиотекой CSS-in-JS и вам не нужно место для внедрения стилей, вы, вероятно, захотите вместо этого использовать useEffect или useLayoutEffect.
+</u-message-warn>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useInsertionEffect" after="" arg="(setup, dependencies?)">
+    Версия useEffect, которая срабатывает перед любыми изменениями DOM
+    </v-method>
+	<v-method-arg arg="setup">функция с Effect’s logic. Ваша setup function также может дополнительно возвращать функцию очистки. Прежде чем ваш компонент будет добавлен в DOM, React запустит вашу setup function. После каждого повторного рендеринга с измененными зависимостями React сначала запускает функцию очистки (если вы ее предоставили) со старыми значениями, а затем запускает setup function с новыми значениями. Прежде чем ваш компонент будет удален из DOM, React запустит вашу функцию очистки</v-method-arg>
+	<v-method-arg arg="dependencies?">(optional) список всех реактивных значений, на которые ссылается setup code</v-method-arg>
+    <v-method-return>undefined</v-method-return>
+</div>
+
+<v-code lang="js border" title="">
+import { useInsertionEffect } from 'react';
+
+// Inside your CSS-in-JS library
+const useCSS = (rule) => {
+    <u-code>useInsertionEffect</u-code>(() => {
+        // ... inject &lt;style&gt; tags here ...
+    });
+
+    return rule;
+}
 </v-code>
 </div><div id="react-hooks/custom-hooks/info"><h2>Создание собственных хуков</h2>
 

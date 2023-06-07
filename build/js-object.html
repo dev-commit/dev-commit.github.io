@@ -31,7 +31,7 @@
                 class="menu-link"
                 id="id__js-object/methods/object-create"
                 href="#js-object/methods/object-create"
-            >🔰 <u-menu-unactive>Object.create()</u-menu-unactive> <u-code-comment>__proto__</u-code-comment></a>
+            ><u-menu-accent>Object.create</u-menu-accent> <u-code-comment>__proto__</u-code-comment></a>
         </li>
     
         <li>
@@ -39,7 +39,7 @@
                 class="menu-link"
                 id="id__js-object/methods/object-assign"
                 href="#js-object/methods/object-assign"
-            >🔰 <u-menu-unactive>Object.assign()</u-menu-unactive></a>
+            ><u-menu-accent>Object.assign</u-menu-accent></a>
         </li>
     
         <li>
@@ -47,7 +47,7 @@
                 class="menu-link"
                 id="id__js-object/methods/object-entries"
                 href="#js-object/methods/object-entries"
-            >🔰 <u-menu-unactive>Object.entries()</u-menu-unactive></a>
+            ><u-menu-accent>Object.entries</u-menu-accent></a>
         </li>
     
         <li>
@@ -55,7 +55,7 @@
                 class="menu-link"
                 id="id__js-object/methods/object-from-entries"
                 href="#js-object/methods/object-from-entries"
-            >🔰 <u-menu-unactive>Object.fromEntries()</u-menu-unactive></a>
+            ><u-menu-accent>Object.fromEntries</u-menu-accent></a>
         </li>
     
         <li>
@@ -63,7 +63,7 @@
                 class="menu-link"
                 id="id__js-object/methods/object-values"
                 href="#js-object/methods/object-values"
-            >🔰 <u-menu-unactive>Object.values()</u-menu-unactive></a>
+            ><u-menu-accent>Object.values</u-menu-accent></a>
         </li>
     
         <li>
@@ -71,7 +71,7 @@
                 class="menu-link"
                 id="id__js-object/methods/object-keys"
                 href="#js-object/methods/object-keys"
-            >🔰 <u-menu-unactive>Object.keys()</u-menu-unactive></a>
+            ><u-menu-accent>Object.keys</u-menu-accent></a>
         </li>
     
         <li>
@@ -79,7 +79,7 @@
                 class="menu-link"
                 id="id__js-object/methods/object-observe"
                 href="#js-object/methods/object-observe"
-            >🔰 <u-menu-unactive>Object.observe()</u-menu-unactive></a>
+            ><u-menu-accent>Object.observe</u-menu-accent></a>
         </li>
     
         <li>
@@ -87,7 +87,7 @@
                 class="menu-link"
                 id="id__js-object/methods/set-prototype-of"
                 href="#js-object/methods/set-prototype-of"
-            >🔰 <u-menu-unactive>Object.setPrototypeOf</u-menu-unactive> <u-code-comment>__proto__</u-code-comment></a>
+            ><u-menu-accent>Object.setPrototypeOf</u-menu-accent> <u-code-comment>__proto__</u-code-comment></a>
         </li>
     
         <li>
@@ -95,7 +95,7 @@
                 class="menu-link"
                 id="id__js-object/methods/get-prototype-of"
                 href="#js-object/methods/get-prototype-of"
-            >🔰 <u-menu-unactive>Object.getPrototypeOf</u-menu-unactive> <u-code-comment>__proto__</u-code-comment></a>
+            ><u-menu-accent>Object.getPrototypeOf</u-menu-accent> <u-code-comment>__proto__</u-code-comment></a>
         </li>
     
         <li>
@@ -103,7 +103,7 @@
                 class="menu-link"
                 id="id__js-object/methods/is-prototype-of"
                 href="#js-object/methods/is-prototype-of"
-            >🔰 <u-menu-unactive>isPrototypeOf</u-menu-unactive> <u-code-comment>__proto__</u-code-comment></a>
+            ><u-menu-accent>isPrototypeOf</u-menu-accent> <u-code-comment>__proto__</u-code-comment></a>
         </li>
     
         <li>
@@ -111,7 +111,7 @@
                 class="menu-link"
                 id="id__js-object/methods/instanceof"
                 href="#js-object/methods/instanceof"
-            >🔰 <u-menu-unactive>instanceof</u-menu-unactive></a>
+            ><u-menu-accent>instanceof</u-menu-accent></a>
         </li>
     
         <li>
@@ -305,6 +305,33 @@ const obj = Object.create(
 );
 // => {} => __proto__: name: "Tony"
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Задачи</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-two><template v-slot:first>
+<v-code lang="js" title="">
+var obj = { name: 'Tony' };
+var objNew = Object.create(obj);
+
+console.log(objNew.name); // "Tony"
+delete objNew.name;
+console.log(objNew.name); // "Tony"
+
+delete obj.name;
+console.log(objNew.name); // undefined
+</v-code>
+</template><template v-slot:last>
+<v-code lang="js opacity" title="">
+// Структура objNew
+objNew = {
+	_proto_: {
+		name: "Tony"
+	}
+}
+</v-code>
+</template></v-two>
 </div><div id="js-object/methods/object-assign"><h2>Object.assign</h2>
 
 <div class="v-method-wrapper">

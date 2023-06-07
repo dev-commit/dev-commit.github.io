@@ -56,7 +56,7 @@ function setTheme(tag, arr) {
         case 4: resultTag  = 'u-menu-unactive'; break;
         case 5: resultTag  = 'u-menu-outline';  break;
         case 6: resultTag  = 'u-menu-gray';     break;
-        case 7: resultTag  = 'u-block-alert';   break;
+        case 7: resultTag  = 'u-menu-error';    break;
         default: resultTag = 'u-menu';
     }
 

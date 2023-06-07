@@ -3,7 +3,7 @@ u-text-underline, u-text-header, u-text-define, u-text-accent,
 /* inline */
 u-inline-circle, u-inline-border,
 /* menu */
-u-menu, u-menu-accent, u-menu-code, u-menu-border, u-menu-unactive, u-menu-outline, u-menu-gray,
+u-menu, u-menu-accent, u-menu-code, u-menu-border, u-menu-unactive, u-menu-outline, u-menu-gray, u-menu-error,
 /* code */
 u-code, u-code-accent, u-code-mod, u-code-text, u-code-flat, u-code-list, u-code-comment, u-code-light,
 /* message */
@@ -20,7 +20,7 @@ u-lt {
 	display: inline;
 }
 
-u-menu, u-menu-accent, u-menu-code, u-menu-border, u-menu-unactive, u-menu-outline, u-menu-gray,
+u-menu, u-menu-accent, u-menu-code, u-menu-border, u-menu-unactive, u-menu-outline, u-menu-gray, u-menu-error,
 u-code-flat, u-code-light
 {
 	display: inline-block;
@@ -90,7 +90,7 @@ u-text-accent {
 /*******************************************
 MENU
 *******************************************/
-u-menu, u-menu-accent, u-menu-code, u-menu-border, u-menu-outline, u-menu-gray {
+u-menu, u-menu-accent, u-menu-code, u-menu-border, u-menu-outline, u-menu-gray, u-menu-error {
 	padding: 3px 5px;
 	color: rgb(var(--color-black)) !important;
 	line-height: 1;
@@ -119,6 +119,11 @@ u-menu-border {
 	background-color: rgba(var(--color-sea-green-light), .2);
     border: 1px solid rgb(var(--color-sea-green-light));
     border-left: 4px solid rgba(var(--color-blue), .4);
+    border-radius: 3px;
+}
+u-menu-error {
+    background-color: rgba(var(--color-orange), .25);
+    border: 1px solid rgba(var(--color-orange), .7);
     border-radius: 3px;
 }
 u-menu-unactive {

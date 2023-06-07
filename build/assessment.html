@@ -1204,6 +1204,33 @@ const obj = Object.create(
 );
 // => {} => __proto__: name: "Tony"
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Задачи</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-two><template v-slot:first>
+<v-code lang="js" title="">
+var obj = { name: 'Tony' };
+var objNew = Object.create(obj);
+
+console.log(objNew.name); // "Tony"
+delete objNew.name;
+console.log(objNew.name); // "Tony"
+
+delete obj.name;
+console.log(objNew.name); // undefined
+</v-code>
+</template><template v-slot:last>
+<v-code lang="js opacity" title="">
+// Структура objNew
+objNew = {
+	_proto_: {
+		name: "Tony"
+	}
+}
+</v-code>
+</template></v-two>
 </div><div id="js-object/methods/object-assign"><h2>Object.assign</h2>
 
 <div class="v-method-wrapper">

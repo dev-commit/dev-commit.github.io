@@ -21,12 +21,13 @@ ARR_MODULE = [
             ['', ''],
             [root+'hooks/use-id',                  setTheme(1, ['useId'])],
             [root+'hooks/use-transition',          setTheme(1, ['useTransition'])],
-            [root+'hooks/use-insertion-effect',    setTheme(1, ['useInsertionEffect'])],
             [root+'hooks/use-sync-external-store', setTheme(1, ['useSyncExternalStore'])],
             [root+'hooks/use-deferred-value',      setTheme(1, ['useDeferredValue'])],
             [root+'hooks/use-imperative-handle',   setTheme(1, ['useImperativeHandle'])],
-            [root+'hooks/use-layout-effect',       setTheme(1, ['useLayoutEffect'])],
             [root+'hooks/use-debug-value',         setTheme(1, ['useDebugValue'])],
+            ['', ''],
+            [root+'hooks/use-layout-effect',       setTheme(6, ['useLayoutEffect'])],
+            [root+'hooks/use-insertion-effect',    setTheme(6, ['useInsertionEffect'])],
         ]
     },
     {
