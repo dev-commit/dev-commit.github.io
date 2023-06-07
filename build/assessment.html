@@ -53,9 +53,17 @@
         <li>
             <a
                 class="menu-link"
-                id="id__js-object/main/conversion"
-                href="#js-object/main/conversion"
-            ><u-menu>toString</u-menu> <u-menu>valueOf</u-menu></a>
+                id="id__js-object/conversion/toString"
+                href="#js-object/conversion/toString"
+            ><u-menu>toString</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-object/conversion/valueOf"
+                href="#js-object/conversion/valueOf"
+            ><u-menu>valueOf</u-menu></a>
         </li>
     
         <li>
@@ -559,26 +567,15 @@ console.log(hello + world); // => "function hello() {}function world() {}"
 'Банан' > 'Анна'   // true, если первая буква первой строки больше – значит первая строка больше, независимо от остальных символов
 'Привет' > 'Прив'  // true, любая буква больше отсутствия буквы
 </v-code>
-</div><div id="js-object/main/conversion"><h2>Преобразование объектов: toString и valueOf</h2>
+</div><div id="js-object/conversion/toString"><h2>Преобразование toString</h2>
 
 <ul class="list-point">
-	<li>В <u-text-define>логическом</u-text-define> контексте объект - всегда <u>true</u></li>
-	<li>При <u-text-define>строковом</u-text-define> преобразовании объекта используется его метод <u>toString</u>. Он должен возвращать примитивное значение, причём не обязательно именно строку</li>
-	<li>Для <u-text-define>численного</u-text-define> преобразования используется метод <u>valueOf</u>, который также может возвратить любое примитивное значение. У большинства объектов valueOf не работает (возвращает сам объект и потому игнорируется), при этом для численного преобразования используется toString</li>
+	<li>При <b>строковом</b> преобразовании объекта используется его метод <u>toString</u>. Он должен возвращать примитивное значение, причём не обязательно именно строку</li>
 </ul>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Логическое преобразование</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-// любой объект в логическом контексте – true, даже если это пустой массив [] или объект {}.
-if ({} && []) {
-	alert( "Все объекты - true!" ); // alert сработает
-}
-</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Строковое преобразование</h3>
+<h3>Строковое преобразование объекта</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 const user = {
@@ -599,9 +596,15 @@ const obj = {
 
 alert( obj ); // Tony
 </v-code>
+</div><div id="js-object/conversion/valueOf"><h2>Преобразование valueOf</h2>
+
+<ul class="list-point">
+	<li>Для <b>численного</b> преобразования используется метод <u>valueOf</u>, который может возвратить любое примитивное значение. У большинства объектов valueOf не работает (возвращает сам объект и потому игнорируется), при этом для численного преобразования используется toString</li>
+</ul>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Численное преобразование</h3>
+<h3>Численное преобразование объекта</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 const room = {

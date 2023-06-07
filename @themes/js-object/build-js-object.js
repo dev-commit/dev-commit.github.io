@@ -27,11 +27,19 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'Преобразования объектов',
+        themes: [
+            [root+'conversion/logical', 'Логическое'],
+            [root+'conversion/toString', setTheme(1, ['toString'])+' Строковое'],
+            [root+'conversion/valueOf',  setTheme(1, ['valueOf'])+ ' Численное'],
+            [root+'conversion/toPrimitive',  setTheme(1, ['Symbol.toPrimitive'])],
+        ]
+    },
+    {
         title: 'Основное',
         themes: [
             getLink(root, 'info'),
             [root+'main/literal-notation', emoji.code+'Литеральная нотация'],
-            [root+'main/conversion',       setTheme(1, ['toString', 'valueOf'])],
         ]
     },
     {

@@ -1,0 +1,19 @@
+<h2>Symbol.toPrimitive</h2>
+
+<ul class="list-point">
+    <li>Алгоритм преведения изначально ищет символ <u-code-text>@@toPrimitive</u-code-text> в объектах для метода, который принимает предпочтительный тип и возвращает примитивное представление объекта, прежде чем вернуться к использованию методов объекта <b>valueOf()</b> и <b>toString()</b></li>
+</ul>
+
+<v-code lang="js" title="">
+const object1 = {
+    [Symbol.toPrimitive](hint) {
+        if (hint === 'number') {
+            return 42;
+        }
+        return null;
+    }
+};
+
+console.log(+object1);
+// Expected output: 42
+</v-code>
