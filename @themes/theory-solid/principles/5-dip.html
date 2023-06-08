@@ -31,6 +31,35 @@
 </ol>
 
 
+<v-two-border title="Dependency Inversion;Not Dependency Inversion"><template v-slot:first>
+<ul>
+    <li><u>User</u> может работать с любыми <u>Settings</u>, которые ему будут переданы</li>
+</ul>
+<v-code lang="js step" title="">
+class User {
+    constructor(settings) {
+        this.settings = settings
+    }
+}
+
+const user = new User(new Settings());
+</v-code>
+</template><template v-slot:last>
+<ul>
+    <li><u>User</u> может работать только с <u>Settings</u>, которые указаны у него</li>
+</ul>
+<v-code lang="js step" title="">
+class User {
+    constructor() {
+        this.settings = new Settings()
+    }
+}
+
+const user = new User();
+</v-code>
+</template></v-two-border>
+
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

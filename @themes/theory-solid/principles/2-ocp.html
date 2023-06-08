@@ -58,3 +58,59 @@
 <ul class="list-point">
     <li>Примеры аналогичны Liskóv Substitution Principle. Можно рассмотреть пример на Shape</li>
 </ul>
+
+<u-message-error>Пример не проверен</u-message-error>
+
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<v-code lang="js border" title="">
+class Vehicle {
+    constructor(fuelCapacity, fuelEfficiency) {
+        this.fuelCapacity = fuelCapacity;
+        this.fuelEfficiency = fuelEfficiency;
+    }
+    getMaxDistance() {
+        let distance = this.fuelCapacity * this.fuelEfficiency;
+<u-code-wrapper>
+        if (this instanceof HybridVehicle) {
+            distance += this.electricRange;
+        }
+</u-code-wrapper>
+        return distance;
+    }
+}
+
+class HybridVehicle extends Vehicle {
+    constructor(fuelCapacity, fuelEfficiency, electricRange) {
+        super(fuelCapacity, fuelEfficiency);
+        this.electricRange = electricRange;
+    }
+<u-code-wrapper>
+    getMaxDistance() {
+        return this.fuelCapacity * this.fuelEfficiency + this.electricRange;
+    }
+</u-code-wrapper>
+}
+
+</v-code>
+</template><template v-slot:last>
+<v-code lang="js" title="">
+class Vehicle {
+    constructor(fuelCapacity, fuelEfficiency) {
+        this.fuelCapacity = fuelCapacity;
+        this.fuelEfficiency = fuelEfficiency;
+    }
+    getMaxDistance() {
+        return this.fuelCapacity * this.fuelEfficiency;
+    }
+}
+
+class HybridVehicle extends Vehicle {
+    constructor(fuelCapacity, fuelEfficiency, electricRange) {
+        super(fuelCapacity, fuelEfficiency);
+        this.electricRange = electricRange;
+    }
+}
+</v-code>
+</template></v-two-border>
+
+

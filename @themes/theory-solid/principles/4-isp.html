@@ -38,6 +38,9 @@
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<!------------------------------------------------------------->
+<h4>Пример 1</h4>
+<!------------------------------------------------------------->
 <v-two-border title="Fine;Badly"><template v-slot:first>
 <v-code lang="js border" title="Базовый класс">
 class Animal {
@@ -108,4 +111,47 @@ eagle.swim(); // -
 eagle.fly();  // +
 </v-code>
 
+</template></v-two-border>
+
+<!------------------------------------------------------------->
+<h4>Пример 2</h4>
+<!------------------------------------------------------------->
+<u-message-error>Пример не проверен</u-message-error>
+
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<v-code lang="js border" title="">
+class OrderService {
+    printCheque() {}
+}
+
+class PizzaOnlyOrderService extends OrderService {
+    orderPizza(pizzaQty) {
+        console.log(`Received order of ${pizzaQty} pizzas`);
+    }
+}
+class DrinksOnlyOrderService extends OrderService {
+    orderDrink(drinksQty) {
+        console.log(`Received order of ${drinksQty} pizzas`);
+    }
+}
+</v-code>
+</template><template v-slot:last>
+<v-code lang="js" title="">
+class OrderService {
+    printCheque() {}
+}
+
+class PizzaOnlyOrderService extends OrderService {
+    orderPizza(pizzaQty) {
+        console.log(`Received order of ${pizzaQty} pizzas`);
+    }
+    orderDrink(drinksQty) {
+        console.log(`Can't order ${drinksQty} drinks in pizza only order.`);
+    }
+    orderCombo(pizzaQty, drinksQty) {
+        if (drinksQty) throw Error('No combo in pizza only order');
+        console.log(`Received order of ${pizzaQty} pizzas`);
+    }
+}
+</v-code>
 </template></v-two-border>

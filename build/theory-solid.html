@@ -288,6 +288,62 @@ tracker.getTracker();
 <ul class="list-point">
     <li>Примеры аналогичны Liskóv Substitution Principle. Можно рассмотреть пример на Shape</li>
 </ul>
+
+<u-message-error>Пример не проверен</u-message-error>
+
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<v-code lang="js border" title="">
+class Vehicle {
+    constructor(fuelCapacity, fuelEfficiency) {
+        this.fuelCapacity = fuelCapacity;
+        this.fuelEfficiency = fuelEfficiency;
+    }
+    getMaxDistance() {
+        let distance = this.fuelCapacity * this.fuelEfficiency;
+<u-code-wrapper>
+        if (this instanceof HybridVehicle) {
+            distance += this.electricRange;
+        }
+</u-code-wrapper>
+        return distance;
+    }
+}
+
+class HybridVehicle extends Vehicle {
+    constructor(fuelCapacity, fuelEfficiency, electricRange) {
+        super(fuelCapacity, fuelEfficiency);
+        this.electricRange = electricRange;
+    }
+<u-code-wrapper>
+    getMaxDistance() {
+        return this.fuelCapacity * this.fuelEfficiency + this.electricRange;
+    }
+</u-code-wrapper>
+}
+
+</v-code>
+</template><template v-slot:last>
+<v-code lang="js" title="">
+class Vehicle {
+    constructor(fuelCapacity, fuelEfficiency) {
+        this.fuelCapacity = fuelCapacity;
+        this.fuelEfficiency = fuelEfficiency;
+    }
+    getMaxDistance() {
+        return this.fuelCapacity * this.fuelEfficiency;
+    }
+}
+
+class HybridVehicle extends Vehicle {
+    constructor(fuelCapacity, fuelEfficiency, electricRange) {
+        super(fuelCapacity, fuelEfficiency);
+        this.electricRange = electricRange;
+    }
+}
+</v-code>
+</template></v-two-border>
+
+
 </div><div id="theory-solid/principles/3-lsp"><h2>3. The Liskóv Substitution Principle</h2>
 
 <ul class="list-point">
@@ -468,6 +524,9 @@ areaCalculator.calc(); // => ["Draw Square", "Draw Circle"]
 <h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<!------------------------------------------------------------->
+<h4>Пример 1</h4>
+<!------------------------------------------------------------->
 <v-two-border title="Fine;Badly"><template v-slot:first>
 <v-code lang="js border" title="Базовый класс">
 class Animal {
@@ -539,6 +598,49 @@ eagle.fly();  // +
 </v-code>
 
 </template></v-two-border>
+
+<!------------------------------------------------------------->
+<h4>Пример 2</h4>
+<!------------------------------------------------------------->
+<u-message-error>Пример не проверен</u-message-error>
+
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<v-code lang="js border" title="">
+class OrderService {
+    printCheque() {}
+}
+
+class PizzaOnlyOrderService extends OrderService {
+    orderPizza(pizzaQty) {
+        console.log(`Received order of ${pizzaQty} pizzas`);
+    }
+}
+class DrinksOnlyOrderService extends OrderService {
+    orderDrink(drinksQty) {
+        console.log(`Received order of ${drinksQty} pizzas`);
+    }
+}
+</v-code>
+</template><template v-slot:last>
+<v-code lang="js" title="">
+class OrderService {
+    printCheque() {}
+}
+
+class PizzaOnlyOrderService extends OrderService {
+    orderPizza(pizzaQty) {
+        console.log(`Received order of ${pizzaQty} pizzas`);
+    }
+    orderDrink(drinksQty) {
+        console.log(`Can't order ${drinksQty} drinks in pizza only order.`);
+    }
+    orderCombo(pizzaQty, drinksQty) {
+        if (drinksQty) throw Error('No combo in pizza only order');
+        console.log(`Received order of ${pizzaQty} pizzas`);
+    }
+}
+</v-code>
+</template></v-two-border>
 </div><div id="theory-solid/principles/5-dip"><h2>5. The Dependency Inversion Principle</h2>
 
 <ul class="list-point">
@@ -570,6 +672,35 @@ eagle.fly();  // +
     <li>Абстракции не должны зависеть от деталей</li>
     <li>Детали должны зависеть от абстракций</li>
 </ol>
+
+
+<v-two-border title="Dependency Inversion;Not Dependency Inversion"><template v-slot:first>
+<ul>
+    <li><u>User</u> может работать с любыми <u>Settings</u>, которые ему будут переданы</li>
+</ul>
+<v-code lang="js step" title="">
+class User {
+    constructor(settings) {
+        this.settings = settings
+    }
+}
+
+const user = new User(new Settings());
+</v-code>
+</template><template v-slot:last>
+<ul>
+    <li><u>User</u> может работать только с <u>Settings</u>, которые указаны у него</li>
+</ul>
+<v-code lang="js step" title="">
+class User {
+    constructor() {
+        this.settings = new Settings()
+    }
+}
+
+const user = new User();
+</v-code>
+</template></v-two-border>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
