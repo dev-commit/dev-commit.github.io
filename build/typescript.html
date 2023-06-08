@@ -714,21 +714,32 @@ hello = 23;
 let x;  // тип any
 x = 10; 
 </v-code>
-</div><div id="typescript/types/any-vs-unknown"><h2>any VS unknown</h2>
+</div><div id="typescript/types/any-vs-unknown"><h2>Any vs Unknown</h2>
 
+<!------------------------------------------------------------->
+<h4>Unknown можно переопределить</h4>
+<!------------------------------------------------------------->
 <ul class="list-point">
-    <li><em>unknown</em> можно определить потом через <em>as</em>: <u-code-text>param as Custom</u-code-text></li>
+    <li><em>unknown</em> можно определить потом через <u-text-underline>as</u-text-underline></li>
 </ul>
 
 <v-code lang="js" title="">
 const a: any;
 const b: unknown;
 
-a.b = 1; // можем добавить ключи
-b.a = 2  // нельзя добавить ключи
+a.b = 1; // Можно добавить ключи
+b.a = 2  // Нельзя добавить ключи
 
-(param as Custom).something
+(param <u-code>as</u-code> Custom).something
 </v-code>
+
+<!------------------------------------------------------------->
+<h4>unknown - безопаснее чем any</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>При указани через <em>any</em> есть риск обратиться к методу неверного типа. Н-р, предполагали, что будет string и обратились к методу <u>length</u>, что вызвало ошибку, т.к. там был объект.</li>
+    <li><em>unknown</em> не даст сделать подобного - он будет выдавать предупреждение</li>
+</ul>
 </div><div id="typescript/types/string"><h2>string</h2>
 
 <v-code lang="js" title="">
