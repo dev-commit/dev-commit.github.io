@@ -14,13 +14,18 @@ git <u-code>pull</u-code> origin HEAD    # замерджить текущую �
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Варианты pull</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<u-message-ok>
+    <ul>
+        <u>git pull</u> состоит из:
+        <li><em>git fetch</em> - стягивает изменения, но не применят их</li>
+        <li><em>git merge</em> - применяет изменения в текущую ветку. Мёржим из <u>origin/develop</u> в свой локальный <u>develop</u></li>
+    </ul>
+</u-message-ok>
+
 <!------------------------------------------------------------->
 <h4>Через merge (по умолчанию)</h4>
 <!------------------------------------------------------------->
-<ul class="list-point">
-    <li><u-text-underline>git pull</u-text-underline> внутри выполняет: <u-text-underline>git fetch</u-text-underline> и <u-text-underline>git merge</u-text-underline></li>
-</ul>
-
 <v-code lang="bash" title="">
 git <u-code>pull</u-code> origin
 # или

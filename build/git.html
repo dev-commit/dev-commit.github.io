@@ -85,6 +85,30 @@
         <li>
             <a
                 class="menu-link"
+                id="id__git/command/push"
+                href="#git/command/push"
+            ><u-menu-accent>push</u-menu-accent></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__git/command/pull"
+                href="#git/command/pull"
+            ><u-menu-accent>pull</u-menu-accent></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__git/command/fetch"
+                href="#git/command/fetch"
+            ><u-menu-accent>fetch</u-menu-accent></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
                 id="id__git/command/branch"
                 href="#git/command/branch"
             ><u-menu-accent>branch</u-menu-accent></a>
@@ -93,33 +117,9 @@
         <li>
             <a
                 class="menu-link"
-                id="id__git/command/push"
-                href="#git/command/push"
-            ><u-menu>push</u-menu></a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__git/command/pull"
-                href="#git/command/pull"
-            ><u-menu>pull</u-menu></a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__git/command/fetch"
-                href="#git/command/fetch"
-            ><u-menu>fetch</u-menu></a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
                 id="id__git/command/checkout"
                 href="#git/command/checkout"
-            ><u-menu>checkout</u-menu></a>
+            ><u-menu-accent>checkout</u-menu-accent></a>
         </li>
     
         <li>
@@ -127,15 +127,7 @@
                 class="menu-link"
                 id="id__git/command/cherry-pick"
                 href="#git/command/cherry-pick"
-            ><u-menu>cherry-pick</u-menu></a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__git/command/cherry"
-                href="#git/command/cherry"
-            ><u-menu>cherry</u-menu></a>
+            ><u-menu-accent>cherry-pick</u-menu-accent></a>
         </li>
     
         <li>
@@ -184,6 +176,14 @@
                 id="id__git/command/tag"
                 href="#git/command/tag"
             ><u-menu>tag</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__git/command/cherry"
+                href="#git/command/cherry"
+            ><u-menu>cherry</u-menu></a>
         </li>
     
         <li>
@@ -1002,61 +1002,6 @@ git <u-code>reset</u-code> <u-code-mod>--merge</u-code-mod> HEAD~  # жёстк�
 </ul>
 
 <img src="/@img/git/reset-table.jpg" width="600px">
-</div><div id="git/command/branch"><div class="v-method-wrapper">
-    <v-method before="git " method="branch" after="" arg="">
-    Список веток с указанием текущей
-    </v-method>
-</div>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Команды</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<!------------------------------------------------------------->
-<h4>Список веток</h4>
-<!------------------------------------------------------------->
-<v-code lang="bash" title="">
-git <u-code>branch</u-code>     # список веток с указанием текущей
-git <u-code>branch -a</u-code>  # список веток с указанием remotes/origin
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Создание новой ветки</h4>
-<!------------------------------------------------------------->
-<v-code lang="bash" title="">
-git <u-code>branch</u-code> <em>feature</em>       # создание новой ветки (ответвиться от текущей)
-git <u-code>checkout -b</u-code> <em>feature</em>  # создание новой ветки и переключение на нее
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Удаление ветки</h4>
-<!------------------------------------------------------------->
-<v-code lang="bash" title="">
-# Удаление ветки из локального репозитория
-git <u-code>branch --delete</u-code> <em>feature</em>  # удаление ветки (после мерджа)
-git <u-code>branch -d</u-code> <em>feature</em>        # удаление ветки (после мерджа)
-git <u-code>branch -D</u-code> <em>feature</em>        # удаление ветки (тупиковая ветвь)
-</v-code>
-
-<v-code lang="bash" title="">
-# Удаление ветки из удаленного репозитория
-git <u-code>push origin --delete</u-code> <em>feature</em>
-git <u-code>push origin -d</u-code> <em>feature</em>
-git <u-code>push origin</u-code> :<em>feature</em>
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Переименование локальной ветки</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li><u-code-text>-m</u-code-text> происходит от слова move (или mv)</li>
-    <li><u-code-text>mv</u-code-text> используется для переименования файлов в Linux</li>
-</ul>
-
-<v-code lang="bash" title="">
-git <u-code>branch</u-code> -m <em>NewName</em>          # если находимся на ветке для переименования
-git <u-code>branch</u-code> -m <em>OldName</em> <em>NewName</em> # если находимся на другой ветке
-</v-code>
 </div><div id="git/command/push"><div class="v-method-wrapper">
     <v-method before="git " method="push" after="" arg="">
     Отправка изменений на удаленный git-репозиторий
@@ -1113,13 +1058,18 @@ git <u-code>pull</u-code> origin HEAD    # замерджить текущую �
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Варианты pull</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<u-message-ok>
+    <ul>
+        <u>git pull</u> состоит из:
+        <li><em>git fetch</em> - стягивает изменения, но не применят их</li>
+        <li><em>git merge</em> - применяет изменения в текущую ветку. Мёржим из <u>origin/develop</u> в свой локальный <u>develop</u></li>
+    </ul>
+</u-message-ok>
+
 <!------------------------------------------------------------->
 <h4>Через merge (по умолчанию)</h4>
 <!------------------------------------------------------------->
-<ul class="list-point">
-    <li><u-text-underline>git pull</u-text-underline> внутри выполняет: <u-text-underline>git fetch</u-text-underline> и <u-text-underline>git merge</u-text-underline></li>
-</ul>
-
 <v-code lang="bash" title="">
 git <u-code>pull</u-code> origin
 # или
@@ -1138,8 +1088,11 @@ git <u-code>rebase</u-code> origin/master
 </v-code>
 </div><div id="git/command/fetch"><div class="v-method-wrapper">
     <v-method before="fetch " method="fetch" after="" arg="">
-    Получение актуальной информации о состоянии удаленных веток (указателях) на удаланном репозитории.<br>
-    Обновление веток слежения <u-text-underline>remotes/origin</u-text-underline>
+    Получение актуальной информации о состоянии удаленных веток (указателях) на удаланном репозитории
+    <ul>
+        <li>Обновление веток слежения <u-text-underline>remotes/origin</u-text-underline></li>
+        <li>Стягивает изменения, но не применят их</li>
+    </ul>
     </v-method>
 </div>
 
@@ -1157,6 +1110,61 @@ git <u-code>fetch origin</u-code>
 
 # скачать ветку "master" с "origin", но не мерджить ее в локальный репозиторий
 git <u-code>fetch origin</u-code> <em>master</em>
+</v-code>
+</div><div id="git/command/branch"><div class="v-method-wrapper">
+    <v-method before="git " method="branch" after="" arg="">
+    Список веток с указанием текущей
+    </v-method>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Команды</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Список веток</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+git <u-code>branch</u-code>     # список веток с указанием текущей
+git <u-code>branch -a</u-code>  # список веток с указанием remotes/origin
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Создание новой ветки</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+git <u-code>branch</u-code> <em>feature</em>       # создание новой ветки (ответвиться от текущей)
+git <u-code>checkout -b</u-code> <em>feature</em>  # создание новой ветки и переключение на нее
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Удаление ветки</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+# Удаление ветки из локального репозитория
+git <u-code>branch --delete</u-code> <em>feature</em>  # удаление ветки (после мерджа)
+git <u-code>branch -d</u-code> <em>feature</em>        # удаление ветки (после мерджа)
+git <u-code>branch -D</u-code> <em>feature</em>        # удаление ветки (тупиковая ветвь)
+</v-code>
+
+<v-code lang="bash" title="">
+# Удаление ветки из удаленного репозитория
+git <u-code>push origin --delete</u-code> <em>feature</em>
+git <u-code>push origin -d</u-code> <em>feature</em>
+git <u-code>push origin</u-code> :<em>feature</em>
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Переименование локальной ветки</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>-m</u-code-text> происходит от слова move (или mv)</li>
+    <li><u-code-text>mv</u-code-text> используется для переименования файлов в Linux</li>
+</ul>
+
+<v-code lang="bash" title="">
+git <u-code>branch</u-code> -m <em>NewName</em>          # если находимся на ветке для переименования
+git <u-code>branch</u-code> -m <em>OldName</em> <em>NewName</em> # если находимся на другой ветке
 </v-code>
 </div><div id="git/command/checkout"><div class="v-method-wrapper">
     <v-method before="git " method="checkout" after="" arg="">
@@ -1213,17 +1221,6 @@ git <u-code>checkout --orphan</u-code> <em>features</em> <em>TARGET_REFERENCE</e
 
 <v-code lang="bash" title="">
 git <u-code>cherry-pick</u-code> <em>HashCommit1</em> <em>HashCommit2</em>
-</v-code>
-</div><div id="git/command/cherry"><h2>cherry</h2>
-
-<div class="v-method-wrapper">
-    <v-method before="git " method="cherry" after="" arg="">
-	Получить список коммитов
-    </v-method>
-</div>
-
-<v-code lang="bash" title="">
-git <u-code>cherry -v</u-code> master # список коммитов
 </v-code>
 </div><div id="git/command/init"><div class="v-method-wrapper">
     <v-method before="git " method="init" after="" arg="">
@@ -1348,6 +1345,17 @@ git <u-code>push</u-code> origin --tags  # запушить все теги
 git <u-code>tag</u-code> -d <em>v1.0.0</em>                  # удалить тег из локального репозитория
 git <u-code>push</u-code> origin :refs/tags/<em>v1.0.0</em>  # обновление удаленного тэга пустым значением, что при водит к его удалению
 git <u-code>push</u-code> origin --delete <em>v1.0.0</em>    # удалить тег из удалённого репозитория
+</v-code>
+</div><div id="git/command/cherry"><h2>cherry</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="git " method="cherry" after="" arg="">
+	Получить список коммитов
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>cherry -v</u-code> master # список коммитов
 </v-code>
 </div><div id="git/command/restore"><div class="v-method-wrapper">
     <v-method before="git " method="restore" after="" arg="">
