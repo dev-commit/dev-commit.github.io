@@ -1,0 +1,15 @@
+<h2>preventDefault</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="event" method="preventDefault" after="" arg="()">
+	Отключение действия события по умолчанию
+    </v-method>
+</div>
+
+<v-code lang="js" title="">
+element.onclick = function(event) {
+	event.preventDefault();
+	// аналогично preventDefault(), но дальнейший код не выполняется
+	// return false;
+};
+</v-code>

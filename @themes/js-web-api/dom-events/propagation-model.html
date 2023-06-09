@@ -7,26 +7,31 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>DOM Events - модель распространения событий</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ol class="list-num">
-	<li>
-		<u-text-underline>Фаза погружения/перехвата (capturing phase)</u-text-underline>
-		<u-code-text>Event.CAPTURING_PHASE=1</u-code-text>
-		идет от родительского элемента (<u>document</u> или <u>window</u> в зависимости от события) до целевого
-	</li>
-	<li>
-		<u-text-underline>Фаза цели (target phase)</u-text-underline>
-		<u-code-text>Event.AT_TARGET=2</u-code-text>
-		событие достигло целевого (исходного) элемента
-	</li>
-	<li>
-		<u-text-underline>Фаза всплытия (bubbling stage)</u-text-underline>
-		<u-code-text>Event.BUBBLING_PAGE=3</u-code-text>
-		идёт от целевого элемента до родительского (<u>document</u> или <u>window</u>)
-	</li>
-</ol>
+<table>
+	<tr>
+		<td><u-inline-circle>1</u-inline-circle></td>
+		<td><b>Фаза погружения/перехвата<br> (Capturing phase)</b></td>
+		<td><u-code-text>Event.CAPTURING_PHASE=1</u-code-text></td>
+		<td>Идет от родительского элемента (<u>document</u> или <u>window</u> в зависимости от события) до целевого</td>
+	</tr>
+	<tr>
+		<td><u-inline-circle>2</u-inline-circle></td>
+		<td><b>Фаза цели <br>(Target phase)</b></td>
+		<td><u-code-text>Event.AT_TARGET=2</u-code-text></td>
+		<td>Событие достигло целевого (исходного) элемента</td>
+	</tr>
+	<tr>
+		<td><u-inline-circle>3</u-inline-circle></td>
+		<td><b>Фаза всплытия<br> (Bubbling stage)</b></td>
+		<td><u-code-text>Event.BUBBLING_PAGE=3</u-code-text></td>
+		<td>Идёт от целевого элемента до родительского (<u>document</u> или <u>window</u></td>
+	</tr>
+</table>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Необходимость всплытия и погружения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<b>Необходимость <u>всплытия</u> и <u>погружения</u></b>
 	<li>Реализация делегирования</li>
     <li>Настройка дефолтных обработчиков</li>
 </ul>
