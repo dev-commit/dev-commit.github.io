@@ -38,15 +38,12 @@ ARR_MODULE = [
     {
         title: 'Общее',
         themes: [
+            [root+'common/another',               setTheme(3, ['Another', 'Other'])],
+            [root+'common/can',                   setTheme(3, ['Can', 'Сould'])],
+            [root+'common/conditionals',          'Conditionals'],
             [root+'common/location',              'Местоположение'],
             [root+'common/adjectives-comparison', 'Степени сравнения прилагательных'],
-            [root+'common/other',                 emoji.penguin+'Прочее'],
-        ]
-    },
-    {
-        title: 'Правила',
-        themes: [
-            [root+'rules/plurals', 'Множественное число'],
+            [root+'common/plurals',               'Множественное число'],
         ]
     },
     {
@@ -64,6 +61,12 @@ ARR_MODULE = [
             [root+'directories/family',   emoji.theory+'Семья'],
             [root+'directories/phrases',  'Фразы'],
             [root+'directories/words',    'Слова'],
+        ]
+    },
+    {
+        title: 'Прочее',
+        themes: [
+            [root+'other/other', 'Прочее'],
         ]
     },
 ]
