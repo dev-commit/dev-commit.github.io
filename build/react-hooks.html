@@ -33,14 +33,6 @@
                 href="#react-hooks/main/info"
             >📑 Информация</a>
         </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__react-hooks/main/memoization"
-                href="#react-hooks/main/memoization"
-            >⭐️ useCallback vs useMemo</a>
-        </li>
     </ul><h4>🏷️ Hooks</h4><ul>
         <li>
             <a
@@ -293,29 +285,6 @@
     <li><u>Классы создают существенный барьер в изучении React</u>. Хуки позволяют использовать больше возможностей React без написания классов. Концептуально, React-компоненты всегда были ближе к функциям</li>
 </ul>
 
-</div><div id="react-hooks/main/memoization"><h2>useCallback vs useMemo</h2>
-
-<v-sandbox url="https://codesandbox.io/s/funny-vaughan-qcdm7q?file=/src/App.js" />
-
-<!------------------------------------------------------------->
-<h4>Проблематика</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li>В обычном состоянии при каждом ререндере компонента создается новая ссылка на функцию</li>
-    <li>Если функция используется в качестве dependencies в <em>useEffect</em>, то будет перерендер</li>
-    <li>Если функция передается в качестве <em>props</em> в дочерний компонент, то будет перерендер дочернего компонента</li>
-</ul>
-
-<!------------------------------------------------------------->
-<h4>Решение через useCallback</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li><u>useCallback</u> - мемоизирует ссылку на функцию, чтобы она НЕ пересоздавалась каждый раз при перерендере</li>
-    <li>А если ссылку мемоизировать и прокинуть в дочерний компонент, обернутый в <em>React.memo</em>, то у дочернего компонента не будет перерендера</li>
-    <hr>
-    <li>Если не использовать <u>useCallback</u>, то даже с <em>React.memo</em> будет происходить перерендер дочернего компонента, т.к. каждый раз будет приходить новая ссылка</li>
-    <li><u>useCallback</u> полезен, когда переписовка компонента занимает большое количество времени</li>
-</ul>
 </div><div id="react-hooks/hooks/use-state"><h2>Хук состояния useState</h2>
 
 <u-link-wrapper>
@@ -1102,9 +1071,6 @@ export default App;
 
 <u-link-wrapper>
     <a href="https://react.dev/reference/react/useCallback" target="_blank">useCallback</a>
-    <hr class="small">
-    <a href="https://codesandbox.io/s/usecallback-peredacha-funkcii-v-dependencies-yos1o" target="_blank">CodeSandbox: useCallback - передача функции в dependencies</a>
-    <a href="https://codesandbox.io/s/useeffect-peredacha-funkcii-v-dependencies-72m90" target="_blank">CodeSandbox: useEffect - передача функции в dependencies</a>
 </u-link-wrapper>
 
 <div class="v-method-wrapper">
@@ -1124,10 +1090,11 @@ const memoizedCallback = useCallback(() => {
 }, [a, b]);
 </v-code>
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>useMemo vs useCallback</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-two-code type="js;js" comment="useCallback;useMemo">
+<v-two-code type="js step;js step" comment="useCallback;useMemo">
 <template v-slot:first>
 // Возвращает саму функцию
 const memoizedCallback = useCallback(() => {
@@ -1137,19 +1104,117 @@ const memoizedCallback = useCallback(() => {
 <template v-slot:last>
 // Возвращает результат выполнения функции
 const memoizedValue = useMemo(() => {
-    return computeExpensiveValue(a, b)
-}, [a, b])
+    return doSomething(a, b);
+}, [a, b]);
 </template>
 </v-two-code>
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Примеры</h3>
+<h3>Проблематика и решение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-message-comment>
+    <ul class="list-point">
+        <li>В обычном состоянии при каждом ререндере компонента создается новая ссылка на функцию</li>
+        <li>React использует неглубокое сравнение объектов (функции тоже объекты), чтобы определить, обновляется ли значение или нет</li>
+        <li>Если функция используется в качестве dependencies в <em>useEffect</em>, то будет перерендер</li>
+        <li>Если функция передается в качестве <em>props</em> в дочерний компонент, то будет перерендер дочернего компонента - даже с <em>React.memo</em>, т.к. каждый раз будет приходить новая ссылка</li>
+    </ul>
+</u-message-comment>
+
+<h5>Решение через useCallback</h5>
+<ul class="list-point">
+    <li><u-code-accent>useCallback</u-code-accent> - мемоизирует <u>ссылку на функцию</u>, чтобы она НЕ пересоздавалась каждый раз при перерендере</li>
+    <li>Мемоизированную ссылку можно прокинуть в дочерний компонент, обернутый в <em>React.memo</em>, при этом, у дочернего компонента не будет перерендера при перерендере родительского компонента (конечно, если не изменились другие props)</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
-<h4>Пример #1</h4>
+<h4>Передача function в виде dependencies для useEffect</h4>
+<!------------------------------------------------------------->
+<u-message-error>
+<ul class="list-point">
+    <li>Непонятен алгоритм, когда нужно передавать function в виде dependencies для useEffect</li>
+    <li>Возможно, необходимо определить не передали ли новую функцию - если не поместить в dependencies, то вызовется не та</li>
+</ul>
+</u-message-error>
+
+<v-sandbox url="https://codesandbox.io/s/usecallback-with-useeffect-8y5xd8" />
+
+<v-two-border title="useCallback;Basic"><template v-slot:first>
+<v-code lang="js" title="">
+import { useState, useEffect, useCallback } from "react";
+
+const App = () => {
+    const [value, setValue] = useState("");
+
+    const onChange = (e) => setValue(e.target.value);
+<u-code-wrapper>
+    const foo = <u-code-mod>useCallback</u-code-mod>(() => {}, []);
+
+</u-code-wrapper>
+    useEffect(() => {
+        console.log("Effect");
+    }, [<u-code>foo</u-code>]);
+
+    console.log("Render");
+
+    return &lt;input
+        type="text" value={value} onChange={onChange}
+    /&gt;;
+};
+</v-code>
+
+<p><b>Output</b></p>
+<ol>
+    <li>Монтирование: "Render", "Effect"</li>
+    <li>Обновление (вызов setValue): "Render"</li>
+</ol>
+
+</template><template v-slot:last>
+<v-code lang="js" title="">
+import { useState, useEffect } from "react";
+
+const App = () => {
+    const [value, setValue] = useState("");
+
+    const onChange = (e) => setValue(e.target.value);
+<u-code-wrapper>
+    const foo = () => {};
+
+</u-code-wrapper>
+    useEffect(() => {
+        console.log("Effect");
+    }, [<u-code>foo</u-code>]);
+
+    console.log("Render");
+
+    return &lt;input
+        type="text" value={value} onChange={onChange}
+    /&gt;;
+};
+</v-code>
+
+<p><b>Output</b></p>
+<ol>
+    <li>Монтирование: "Render", "Effect"</li>
+    <li>Обновление (вызов setValue): "Render", "Effect"</li>
+</ol>
+</template></v-two-border>
+
+<!------------------------------------------------------------->
+<h4>Примеры</h4>
 <!------------------------------------------------------------->
 
+<v-sandbox url="https://codesandbox.io/s/usecallback-peredacha-funkcii-v-dependencies-yos1o" title="useCallback - передача функции в dependencies" />
+<v-sandbox url="https://codesandbox.io/s/usecallback-vs-usememo-qcdm7q" title="useCallback vs useMemo" />
+
+
+<!-- 
 <v-code lang="js" title="">
 import { useState, useEffect, useCallback } from 'react';
 
@@ -1180,6 +1245,7 @@ const App = () =&gt; {
     )
 }
 </v-code>
+-->
 </div><div id="react-hooks/hooks/use-context"><h2>Хук контекста useContext</h2>
 
 <u-link-wrapper>

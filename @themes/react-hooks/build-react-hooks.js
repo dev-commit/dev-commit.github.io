@@ -5,7 +5,6 @@ ARR_MODULE = [
         title: 'Основное',
         themes: [
             getLink(root, 'info'),
-            [root+'main/memoization',  emoji.star+'useCallback vs useMemo'],
         ]
     },
     {
