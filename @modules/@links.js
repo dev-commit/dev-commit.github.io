@@ -1,5 +1,8 @@
 
-// THEME: green, blue, crimson, brown, violet, gray, white, actual, accent
+// THEME:
+// green, blue, crimson, brown, violet, gray, white
+// actual, accent
+// none1, none2
 
 const theory = '🪃 ';
 const action = '🪙 ';
