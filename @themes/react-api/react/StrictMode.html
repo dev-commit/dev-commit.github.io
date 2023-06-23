@@ -1,0 +1,33 @@
+<h2>&lt;StrictMode&gt;</h2>
+
+<u-message-warn>
+<ul>
+    <li>При первой загрузке будет <b>2 рендера</b></li>
+    <li>При каждом измнении state (или других вещей, влияющих на перерендер) - перерендер будет вызываться <b>дважды</b></li>
+</ul>
+</u-message-warn>
+
+<ul class="list-point">
+    <li><u-text-define>StrictMode</u-text-define> - позволяет находить распространенные ошибки в компонентах на ранних этапах разработки</li>
+</ul>
+
+<h5>Strict Mode включает следующие варианты поведения только для development:</h5>
+<ul class="list-point">
+    <li>Компоненты будут повторно ререндериться, чтобы найти ошибки, вызванные impure rendering</li>
+    <li>Компоненты повторно перезапускать Effects, чтобы найти ошибки, вызванные отсутствием Effect cleanup</li>
+    <li>Компоненты будут проверены на использование deprecated API</li>
+</ul>
+
+<v-code lang="js" title="">
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
+root.render(
+    <u-code>&lt;StrictMode&gt;</u-code>
+        &lt;div&gt;Hello&lt;/div&gt;
+    <u-code>&lt;/StrictMode&gt;</u-code>
+);
+</v-code>
