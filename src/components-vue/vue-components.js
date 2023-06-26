@@ -204,11 +204,19 @@ Vue.component('v-tree', {
 })
 
 Vue.component('v-sandbox', {
-	props: ['url', 'title'],
+	props: ['url', 'title', 'ok', 'codepen'],
     template: `
 		<div class="v-sandbox">
-			<span class="element">
-				⭐️ <a :href="url" target="_blank" v-html="!title ? 'CodeSandbox' : title"></a>
+			<span :class="{
+				none: true,
+				codesandbox: ok && !codepen,
+				codepen: ok && codepen,
+			}">
+				⭐️ <a
+					:href="url"
+					v-html="title ? title : (codepen ? 'CodePen' : 'CodeSandbox')"
+					target="_blank"
+				></a>
 			</span>
 		</div>
 	`
