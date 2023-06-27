@@ -4,9 +4,9 @@
 <h3>Простой пример</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-import { <u-code>makeStyles</u-code> } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = <u-code>makeStyles</u-code>(theme => ({
 	label: {
 		mardin: '10px',
 	},
@@ -22,6 +22,57 @@ const Component = () => {
 	);
 }
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Custom Hook useStyles</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h5>Hook</h5>
+<v-code lang="js step" title="">
+import React, { useMemo }  from 'react';
+import { StyleRulesCallback } from '@material-ui/core';
+import { Theme } from '@material-ui/core';
+
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = (getStyles: StyleRulesCallback&lt;Theme, {}&gt;) => {
+    const useMakeStyles = useMemo(
+        () => <u-code>makeStyles</u-code>(getStyles),
+        [getStyles]
+    );
+
+    return useMakeStyles();
+}
+</v-code>
+
+<h5>Component</h5>
+<v-code lang="js step" title="">
+import React from 'react';
+
+import { useStyles } from './useStyles';
+import styles from './AppStyles';
+
+const App = () => {
+    const classes = <u-code>useStyles</u-code>(styles);
+    return (
+        &lt;div className={classes.container}&gt;Hello&lt;/div&gt;
+    )
+}
+
+export default App;
+</v-code>
+
+<h5>Styles</h5>
+<v-code lang="js step" title="">
+const AppStyles = () => ({
+    container: {
+        border: '2px solid blue',
+    },
+});
+
+export default AppStyles;
+</v-code>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Усложненный пример</h3>
