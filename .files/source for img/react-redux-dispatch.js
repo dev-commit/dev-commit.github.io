@@ -25,8 +25,7 @@ const starterMiddleware = store => next => action => {
 }
 
 // 4. Reducer
-// - Вызывается из Middleware при next(action)
-
+// Вызывается из Middleware при next(action)
 const reducer = (state, action) => {
     switch (action.type) {
         case NAME: return { ...state, name: action.payload }
@@ -37,9 +36,6 @@ const reducer = (state, action) => {
 // 5. View
 // Срабатывает store.getState();
 // Через mapStateToProps
-
-
-
 const createStore = (rootReducer, initialState) => {
     let state = rootReducer(initialState, { type: '__INIT__' });
     const subscribers = []
@@ -54,4 +50,3 @@ const createStore = (rootReducer, initialState) => {
         getState = () => state
     }
 }
-

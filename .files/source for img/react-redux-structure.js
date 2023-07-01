@@ -4,8 +4,6 @@
     <App />
 </Provider>
 
-
-
 // App.js
 const mapStateToProps = state => ({
 	dataStarter: state.reducerStarter
@@ -18,13 +16,11 @@ export default connect(
 	mapDispatchToProps
 )(App);
 
-
 // redux/actions.js
 return {
     type: 'NAME',
     payload: name
 }
-
 
 // redux/reducers/reducerStarter.js
 return {
@@ -32,16 +28,13 @@ return {
     name: action.payload
 }
 
-
 // redux/reducers/index.js
 export default combineReducers({
     reducerStarter
 });
-
 
 // redux/store.js
 createStore(
 	rootReducer,
 	applyMiddleware()
 )
-
