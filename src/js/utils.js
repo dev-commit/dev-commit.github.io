@@ -18,6 +18,7 @@ emoji = {
     penguin:   '🐧 ',
     coin:      '🪙 ',
     label:     '🏷️ ',
+    icecream:  '🍧 ',
 }
 
 // getLink(root, 'info'),      // => main/info

@@ -44,7 +44,8 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Алгоритмы',
+        title: 'Algoritms',
+        accent: true,
         themes: [
             [root+'algoritms/anagram',            emoji.star+'Anagram', false, 'done'],
             [root+'algoritms/palindrome',         emoji.star+'Palindrome', false, 'done'],
@@ -52,9 +53,9 @@ ARR_MODULE = [
             [root+'algoritms/memoization',        emoji.star+'Memoization'],
             [root+'algoritms/duplicate',          emoji.star+'Duplicate'],
             [],
-            [root+'algoritms/sum-brackets',       setTheme(2, ['sum(1)(2)(3)'])+' сумма скобок'],
-            [root+'algoritms/closing-brackets',   setTheme(2, ['[]()&lt;&gt;'])+' вложенные скобки'],
-            [root+'algoritms/equality-condition', setTheme(2, ['a == true && a == false'])],
+            [root+'algoritms/sum-brackets',       setTheme(5, ['sum(1)(2)(3)'])+' сумма скобок'],
+            [root+'algoritms/closing-brackets',   setTheme(5, ['[]()&lt;&gt;'])+' вложенные скобки'],
+
             [root+'algoritms/sum-pyramid',        'Сумма пирамиды'],
             [root+'algoritms/sum-sequence',       'Сумма последовательности'],
             [root+'algoritms/function-count',     'Функция считает свои вызовы'],
@@ -66,9 +67,8 @@ ARR_MODULE = [
     },
     {
         title: 'Объекты',
-        accent: true,
         themes: [
-            [root+'objects/objects',            emoji.theory+'Объекты'],
+            [root+'objects/objects',            emoji.icecream+'Объекты'],
             [root+'objects/shallow-equal',      emoji.fire+'Shallow Equal'],
             [root+'objects/deep-equal',         'Deep Equal'],
             [root+'objects/tree-object',        'Дерево из объекта'],
@@ -78,51 +78,54 @@ ARR_MODULE = [
     },
     {
         title: 'Массивы',
-        accent: true,
         themes: [
-            [root+'arrays/arrays',               emoji.theory+'Массивы'],
+            [root+'arrays/arrays',               emoji.icecream+'Массивы'],
             [root+'arrays/intersection-arrays',  emoji.fire+'Пересечение массивов'],
             [root+'arrays/sort-odd',             emoji.fire+'Сортировка нечетных значений'],
             [root+'arrays/max-array-element',    'Максимальный элемент массива'],
             [root+'arrays/array-sums',           'Двумерный массив сумм'],
-            [root+'arrays/merge-sort',           'MergeSort'],
             [root+'arrays/array-average-value',  'Получить среднюю оценку'],
+            [root+'arrays/merge-sort',           'MergeSort', false, 'check'],
         ]
     },
     {
         title: 'Асинхронность',
         themes: [
-            [root+'async/event-loop',                   emoji.theory+'Event Loop'],
-            [root+'algoritms/retrier',                  'Retrier (запросы по URL)'],
+            [root+'async/event-loop',                   emoji.icecream+'Event Loop', false, 'check'],
+            [root+'algoritms/retrier',                  'Retrier (запросы по URL)', false, 'check'],
             [root+'algoritms/promise-make-request',     'Promise Make Request'],
-            [root+'algoritms/cancel-timeout',           'setTimeout: отмена всех'],
+            [root+'algoritms/cancel-timeout',           'setTimeout: отмена всех', false, 'check'],
             [root+'algoritms/settimeout-for-var',       'setTimeout: в for без let'],
             [root+'algoritms/promisification-function', 'Промисификация функции'],
-            [root+'algoritms/sequential-callbacks',     'Последовательные коллбэки'],
+            [root+'algoritms/sequential-callbacks',     'Последовательные коллбэки', false, 'check'],
+        ]
+    },
+
+    {
+        title: 'JavaScript',
+        themes: [
+            [root+'js/data-types',         emoji.icecream+'Типы данных'],
+            [root+'js/strangeness',        emoji.icecream+'Особенности'],
+            [root+'js/map',                'map'],
+            [root+'js/floating-point',     'Плавающая запятая'],
+            [root+'js/undefined-check',    'Проверка на "undefined"'],
+            [root+'js/equality-condition', setTheme(5, ['a == true && a == false'])],
+        ]
+    },
+    {
+        title: 'TypeScript',
+        themes: [
+            [root+'typescript/interface-recursion', 'Рекурсия в Interface'],
         ]
     },
     {
         title: 'Общие темы',
         themes: [
-            [root+'custom/hoisting',    emoji.chevron+'Всплытие'],
-            [root+'custom/closure',     emoji.chevron+'Замыкания'],
-            [root+'custom/prototype',   emoji.chevron+'Прототипы'],
-            [root+'custom/context',     emoji.chevron+'Контекст'],
-            [root+'custom/currying',    emoji.chevron+'Каррирование'],
-            [root+'custom/js',          emoji.lemon+'JavaScript'],
-        ]
-    },
-
-    {
-        title: 'TypeScript',
-        themes: [
-            [root+'typescript/interface-recursion', 'Рекурсия в интерфейсе'],
-        ]
-    },
-    {
-        title: 'Прочее',
-        themes: [
-            [root+'other/undefined-check', 'Проверка на "undefined"'],
+            [root+'custom/hoisting',    emoji.icecream+'Всплытие', false, 'check'],
+            [root+'custom/closure',     emoji.icecream+'Замыкания', false, 'check'],
+            [root+'custom/prototype',   emoji.icecream+'Прототипы', false, 'check'],
+            [root+'custom/context',     emoji.icecream+'Контекст', false, 'check'],
+            [root+'custom/currying',    emoji.icecream+'Каррирование', false, 'check'],
         ]
     },
 ]
