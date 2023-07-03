@@ -437,6 +437,14 @@
         <li>
             <a
                 class="menu-link"
+                id="id__css/main/text-decoration"
+                href="#css/main/text-decoration"
+            ><u-menu>text-decoration</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
                 id="id__css/main/px"
                 href="#css/main/px"
             >Единицы измерения</a>
@@ -2546,7 +2554,47 @@ div {
 	width: 100vmin;
 	height: 100vmin;
 }
-</v-code></div><div id="css/main/px"><h2>Единицы измерения</h2>
+</v-code></div><div id="css/main/text-decoration"><h2>text-decoration</h2>
+
+<v-code lang="css" title="">
+div {
+    text-decoration:
+        text-decoration-line
+        text-decoration-style
+        text-decoration-color;
+    text-decoration-thickness: 3px; /* Толщина */
+}
+</v-code>
+
+<table>
+	<tr>
+		<td class="code">text-decoration-line</td>
+        <td><div style="text-decoration: none">none</div></td>
+        <td><div style="text-decoration: underline solid hotpink">underline</div></td>
+        <td><div style="text-decoration: overline solid hotpink">overline</div></td>
+        <td><div style="text-decoration: line-through solid hotpink">line-through</div></td>
+        <td><div style="text-decoration: underline overline solid hotpink">underline overline</div></td>
+        <td><div style="text-decoration: underline line-through overline solid hotpink">underline line-through</div></td>
+	</tr>
+	<tr>
+		<td class="code">text-decoration-style</td>
+        <td><div style="text-decoration: underline solid hotpink">solid</div></td>
+        <td><div style="text-decoration: underline double hotpink">double</div></td>
+        <td><div style="text-decoration: underline dotted hotpink">dotted</div></td>
+        <td><div style="text-decoration: underline dashed hotpink">dashed</div></td>
+        <td><div style="text-decoration: underline wavy hotpink">wavy</div></td>
+        <td><div style="text-decoration: underline overline hotpink">overline</div></td>
+	</tr>
+    <tr>
+        <td class="code">text-decoration-color</td>
+        <td><div style="text-decoration: underline solid #363dcf">#363dcf</div></td>
+    </tr>
+    <tr>
+        <td class="code">text-decoration-thickness</td>
+        <td><div style="text-decoration: underline solid hotpink; text-decoration-thickness: 3px">3px</div></td>
+    </tr>
+</table>
+</div><div id="css/main/px"><h2>Единицы измерения</h2>
 
 <v-code lang="bash" title="">
 px   # абсолютная единица измерения
@@ -2649,9 +2697,6 @@ p {
 <v-code lang="css" title="">
 p {
     text-align: center | left | right;     <u-code-comment># горизонтальное выравнивание текста в пределах элемента</u-code-comment>
-    text-decoration: none | underline;     <u-code-comment># оформление текста</u-code-comment>
-    text-decoration-color: orange;         <u-code-comment># оформление текста (цвет линии)</u-code-comment>
-    text-decoration-style: solid | double | dotted | dashed | wavy; <u-code-comment># оформление текста (стиль линии)</u-code-comment>
     text-indent: 20px;                     <u-code-comment># красная строка</u-code-comment>
     text-transform: uppercase | lowercase; <u-code-comment># преобразованием текста элемента в заглавные или прописные символы</u-code-comment>
 }
