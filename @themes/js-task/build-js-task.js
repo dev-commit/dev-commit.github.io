@@ -2,25 +2,55 @@ root = 'js-task/';
 
 ARR_MODULE = [
     {
-        title: 'Полифилы',
+        title: 'Implementation',
+        accent: true,
+    },
+    {
+        title: 'Objects & Context',
+        child: true,
         themes: [
-            ['js-class/main/new',             setTheme(3, ['new'])],
-            [root+'polyphyls/object-create',  setTheme(1, ['Object.create'])],
-            [root+'polyphyls/bind',           setTheme(1, ['bind()'])],
-            [root+'polyphyls/promise-all',    setTheme(1, ['Promise.all'])],
-            [root+'polyphyls/map',            setTheme(1, ['Array.prototype.map'])],
-            [root+'polyphyls/filter',         setTheme(1, ['Array.prototype.filter'])],
-            [root+'polyphyls/reduce',         setTheme(1, ['Array.prototype.reduce'])],
+            ['js-class/main/new',                 setTheme(1, ['new']), false, 'done'],
+            [root+'implementation/object-create', setTheme(1, ['Object.create']), false, 'done'],
+            [root+'implementation/bind',          setTheme(1, ['bind'])],
+        ]
+    },
+    {
+        title: 'Arrays',
+        child: true,
+        themes: [
+            [root+'implementation/map',    setTheme(1, ['map'])],
+            [root+'implementation/filter', setTheme(1, ['filter'])],
+            [root+'implementation/reduce', setTheme(1, ['reduce'])],
+            [root+'implementation/flat',   setTheme(1, ['flat'])+' (плоский массив deep)', false, 'done'],
+        ]
+    },
+    {
+        title: 'Async',
+        child: true,
+        themes: [
+            [root+'implementation/promise-all', setTheme(1, ['Promise.all'])],
+        ]
+    },
+    {
+        title: 'Decorators',
+        child: true,
+        themes: [
+            [root+'decorators/debounce',  setTheme(1, ['debounce()'])],
+            [root+'decorators/once',      setTheme(1, ['once()'])],
+            [root+'decorators/after',     setTheme(1, ['after()'])],
+            [root+'decorators/throttle',  setTheme(1, ['throttle()'])],
+            [root+'decorators/partial',   setTheme(1, ['partial()'])],
+            [root+'decorators/pipe',      setTheme(1, ['pipe()'])],
         ]
     },
     {
         title: 'Алгоритмы',
         themes: [
-            [root+'algoritms/anagram',           emoji.fire+'Анаграмма'],
-            [root+'algoritms/palindrome',        emoji.fire+'Палиндром'],
-            [root+'algoritms/compose',           emoji.code+'Compose'],
-            [root+'algoritms/memoization',       emoji.code+'Memoization'],
-            [root+'algoritms/duplicate',         emoji.code+'Duplicate'],
+            [root+'algoritms/anagram',            emoji.star+'Anagram', false, 'done'],
+            [root+'algoritms/palindrome',         emoji.star+'Palindrome', false, 'done'],
+            [root+'algoritms/compose',            emoji.star+'Compose'],
+            [root+'algoritms/memoization',        emoji.star+'Memoization'],
+            [root+'algoritms/duplicate',          emoji.star+'Duplicate'],
             [],
             [root+'algoritms/sum-brackets',       setTheme(2, ['sum(1)(2)(3)'])+' сумма скобок'],
             [root+'algoritms/closing-brackets',   setTheme(2, ['[]()&lt;&gt;'])+' вложенные скобки'],
@@ -29,20 +59,21 @@ ARR_MODULE = [
             [root+'algoritms/sum-sequence',       'Сумма последовательности'],
             [root+'algoritms/function-count',     'Функция считает свои вызовы'],
             [],
-            [root+'algoritms/event-emitter',     'EventEmitter'],
-            [root+'algoritms/series',            'Series'],
-            [root+'algoritms/shop-queue',        'Магазин с кассами'],
+            [root+'algoritms/event-emitter',      'EventEmitter', false, 'check'],
+            [root+'algoritms/series',             'Series', false, 'check'],
+            [root+'algoritms/shop-queue',         'Магазин с кассами', false, 'check'],
         ]
     },
     {
         title: 'Объекты',
         accent: true,
         themes: [
-            [root+'objects/objects',        emoji.theory+'Объекты'],
-            [root+'objects/shallow-equal',  emoji.fire+'Shallow Equal'],
-            [root+'objects/deep-equal',     'Deep Equal'],
-            [root+'objects/tree-object',    'Дерево из объекта'],
-            [root+'objects/string-object',  'Строка объектов'],
+            [root+'objects/objects',            emoji.theory+'Объекты'],
+            [root+'objects/shallow-equal',      emoji.fire+'Shallow Equal'],
+            [root+'objects/deep-equal',         'Deep Equal'],
+            [root+'objects/tree-object',        'Дерево из объекта'],
+            [root+'objects/string-object',      'Строка объектов'],
+            [root+'objects/object-from-string', 'Объект из строки'],
         ]
     },
     {
@@ -52,7 +83,6 @@ ARR_MODULE = [
             [root+'arrays/arrays',               emoji.theory+'Массивы'],
             [root+'arrays/intersection-arrays',  emoji.fire+'Пересечение массивов'],
             [root+'arrays/sort-odd',             emoji.fire+'Сортировка нечетных значений'],
-            [root+'arrays/flat-array',           'Плоский массив'],
             [root+'arrays/max-array-element',    'Максимальный элемент массива'],
             [root+'arrays/array-sums',           'Двумерный массив сумм'],
             [root+'arrays/merge-sort',           'MergeSort'],
@@ -63,12 +93,12 @@ ARR_MODULE = [
         title: 'Асинхронность',
         themes: [
             [root+'async/event-loop',                   emoji.theory+'Event Loop'],
-            [root+'algoritms/retrier',                  emoji.penguin+'Retrier (запросы по URL)'],
-            [root+'algoritms/promise-make-request',     emoji.penguin+'Promise Make Request'],
-            [root+'algoritms/cancel-timeout',           emoji.penguin+'setTimeout: отмена всех'],
-            [root+'algoritms/settimeout-for-var',       emoji.penguin+'setTimeout: в for без let'],
-            [root+'algoritms/promisification-function', emoji.penguin+'Промисификация функции'],
-            [root+'algoritms/sequential-callbacks',     emoji.penguin+'Последовательные коллбэки'],
+            [root+'algoritms/retrier',                  'Retrier (запросы по URL)'],
+            [root+'algoritms/promise-make-request',     'Promise Make Request'],
+            [root+'algoritms/cancel-timeout',           'setTimeout: отмена всех'],
+            [root+'algoritms/settimeout-for-var',       'setTimeout: в for без let'],
+            [root+'algoritms/promisification-function', 'Промисификация функции'],
+            [root+'algoritms/sequential-callbacks',     'Последовательные коллбэки'],
         ]
     },
     {
@@ -82,17 +112,7 @@ ARR_MODULE = [
             [root+'custom/js',          emoji.lemon+'JavaScript'],
         ]
     },
-    {
-        title: 'Декораторы',
-        themes: [
-            [root+'decorators/debounce',  setTheme(1, ['debounce()'])],
-            [root+'decorators/once',      setTheme(1, ['once()'])],
-            [root+'decorators/after',     setTheme(1, ['after()'])],
-            [root+'decorators/throttle',  setTheme(1, ['throttle()'])],
-            [root+'decorators/partial',   setTheme(1, ['partial()'])],
-            [root+'decorators/pipe',      setTheme(1, ['pipe()'])],
-        ]
-    },
+
     {
         title: 'TypeScript',
         themes: [

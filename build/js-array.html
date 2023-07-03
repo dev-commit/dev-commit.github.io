@@ -165,6 +165,14 @@
         <li>
             <a
                 class="menu-link"
+                id="id__js-array/methods/flat"
+                href="#js-array/methods/flat"
+            ><u-menu>flat</u-menu></a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
                 id="id__js-array/methods/flatMap"
                 href="#js-array/methods/flatMap"
             ><u-menu>flatMap</u-menu></a>
@@ -720,6 +728,29 @@ const a = Array.from([1, 2, 3], x => x + x); // [2, 4, 6]
 
 // Генерирование последовательности чисел
 const a = Array.from({ length: 5 }, (v, k) => k); // [0, 1, 2, 3, 4]
+</v-code>
+</div><div id="js-array/methods/flat"><h2>flat</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="arr" method="flat" after="" arg="(depth)">
+    Возвращает новый массив, в котором все элементы вложенных подмассивов были рекурсивно "подняты" на указанный уровень depth
+    </v-method>
+
+	<v-method-arg arg="depth">уровень вложенности</v-method-arg>
+
+	<v-method-return>Новый массив</v-method-return>
+</div>
+
+<v-code lang="js" title="">
+const arr = [1,2,3, [4,5,6,7, [8,9,10]]];
+
+// 1 уровень вложенности (по умолчанию)
+const a1 = arr.<u-code-mod>flat</u-code-mod>(); // => [1,2,3,4,5,6,7, [8,9,10]]
+
+// 2 уровни вложенности
+const a2 = arr.<u-code-mod>flat</u-code-mod>(2); // => [1,2,3,4,5,6,7,8,9,10]
+
+console.log(a1);
 </v-code>
 </div><div id="js-array/methods/flatMap"><h2>Array.prototype.flatMap()</h2>
 

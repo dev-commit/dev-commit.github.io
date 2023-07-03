@@ -1,0 +1,73 @@
+<h2>flat</h2>
+
+<ul class="list-point">
+    <li><u-text-define>flat</u-text-define> - возвращает новый массив, в котором все элементы вложенных подмассивов были рекурсивно "подняты" на указанный уровень depth</li>
+</ul>
+
+<u-message-warn>
+<u>Задача</u>: Превращение массива неогранчиенной вложенности в плоский
+</u-message-warn>
+
+<!------------------------------------------------------------->
+<h4>Решение</h4>
+<!------------------------------------------------------------->
+<v-code lang="js border" title="">
+const arr = [1,2,3, [4,5,6,7, [8,9,10]]];
+
+function flattenDeep(arr) {
+	let result = [];
+
+	arr.forEach(element => {
+		if (!Array.isArray(element)) {
+			result.push(element);
+		} else {
+			result.push(...flattenDeep(element));
+		}
+	});
+	
+	return result;
+}
+
+console.log(flattenDeep(arr)); // => [1,2,3,4,5,6,7,8,9,10]
+</v-code>
+
+<v-code lang="js none" title="Варианты">
+flattenDeep([1,2,3, [4,5,6,7, [8,9,10]]]);        // => [1,2,3,4,5,6,7,8,9,10]
+flattenDeep([1, 2, 3, [4, 5] ]);                  // => [1,2,3,4,5]
+flattenDeep([1, [2, [3, 4], [[5]]]]);             // => [1,2,3,4,5]
+flattenDeep([[1],[2],[3]]);                       // => [1,2,3]
+flattenDeep([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]); // => [1,2,3]
+</v-code>
+
+<ul class="list-point">
+	<li>Проверку <u>!Array.isArray(element)</u> можно заменить на <u>typeof element !== 'object'</u></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Решение 2</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Ошибка: Uncaught RangeError: Maximum call stack size exceeded </li>
+</ul>
+
+<v-code lang="js red" title="">
+const deepArray = [1, 2, [3, 4, [5, 6, 7]]];
+
+const flatten = deepArray => {
+	const ans = [];
+	
+	const innerFn = el => {
+		if (!Array.isArray(el)) {
+			ans.push(el);
+		} else {
+			innerFn(el);
+		}
+	}
+	
+	deepArray.forEach(innerFn);
+	
+	return ans;
+}
+
+flatten(deepArray); // => [1, 2, 3, 4, 5, 6, 7]
+</v-code>
