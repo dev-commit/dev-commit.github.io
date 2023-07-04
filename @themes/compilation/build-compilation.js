@@ -31,22 +31,11 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Flow разработки',
-        themes: [
-            [root+'dev-flow/info',        emoji.fire+'Методологии разработки'],
-            [root+'dev-flow/agile',       emoji.fire+'Agile / Scrum / Kanban'],
-            [root+'dev-flow/waterfall',   'Waterfall'],
-            [root+'dev-flow/estimation',  'Эстимация'],
-            [root+'dev-flow/jira',         setTheme(1, ['Jira'])],
-        ]
-    },
-    {
         title: 'Технологии',
         themes: [
             [root+'tech/windows',        setTheme(1, ['Windows'])],
             [root+'tech/telegram',       setTheme(1, ['Telegram'])],
             [root+'tech/google-chrome',  setTheme(1, ['Google Chrome'])],
-            [root+'tech/react-native',   setTheme(1, ['React.Native'])],
             [root+'tech/photoshop',      setTheme(1, ['Adobe Photoshop'])],
             [root+'tech/denwer',         setTheme(1, ['Denwer'])],
         ]

@@ -66,7 +66,6 @@ ARR_MODULE = [
         themes: [
             ['compilation/application-architecture/mvc',  'MVC'],
             ['compilation/web/site-load',                 'Загрузка сайта'],
-            ['compilation/dev-flow/estimation',           'Эстимация'],
         ]
     },
 ];
