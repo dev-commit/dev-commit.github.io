@@ -2,7 +2,7 @@ root = 'js-task/';
 
 ARR_MODULE = [
     {
-        title: 'Implementation',
+        title: 'Полифилы',
         accent: true,
     },
     {
@@ -10,37 +10,37 @@ ARR_MODULE = [
         child: true,
         themes: [
             ['js-class/main/new',                 setTheme(1, ['new']), false, 'done'],
-            [root+'implementation/object-create', setTheme(1, ['Object.create']), false, 'done'],
-            [root+'implementation/bind',          setTheme(1, ['bind'])],
+            [root+'polyphiles/object-create', setTheme(1, ['Object.create']), false, 'done'],
+            [root+'polyphiles/bind',          setTheme(1, ['bind'])],
         ]
     },
     {
         title: 'Arrays',
         child: true,
         themes: [
-            [root+'implementation/map',    setTheme(1, ['map'])],
-            [root+'implementation/filter', setTheme(1, ['filter'])],
-            [root+'implementation/reduce', setTheme(1, ['reduce'])],
-            [root+'implementation/flat',   setTheme(1, ['flat'])+' (плоский массив deep)', false, 'done'],
+            [root+'polyphiles/map',    setTheme(1, ['map'])],
+            [root+'polyphiles/filter', setTheme(1, ['filter'])],
+            [root+'polyphiles/reduce', setTheme(1, ['reduce'])],
+            [root+'polyphiles/flat',   setTheme(1, ['flat'])+' (плоский массив deep)', false, 'done'],
         ]
     },
     {
         title: 'Async',
         child: true,
         themes: [
-            [root+'implementation/promise-all', setTheme(1, ['Promise.all'])],
+            [root+'polyphiles/promise-all', setTheme(1, ['Promise.all'])],
         ]
     },
     {
         title: 'Decorators',
         child: true,
         themes: [
-            [root+'decorators/debounce',  setTheme(1, ['debounce()'])],
-            [root+'decorators/once',      setTheme(1, ['once()'])],
-            [root+'decorators/after',     setTheme(1, ['after()'])],
-            [root+'decorators/throttle',  setTheme(1, ['throttle()'])],
-            [root+'decorators/partial',   setTheme(1, ['partial()'])],
-            [root+'decorators/pipe',      setTheme(1, ['pipe()'])],
+            [root+'decorators/debounce',  setTheme(6, ['debounce()'])],
+            [root+'decorators/once',      setTheme(6, ['once()'])],
+            [root+'decorators/after',     setTheme(6, ['after()'])],
+            [root+'decorators/throttle',  setTheme(6, ['throttle()'])],
+            [root+'decorators/partial',   setTheme(6, ['partial()'])],
+            [root+'decorators/pipe',      setTheme(6, ['pipe()'])],
         ]
     },
     {
@@ -51,7 +51,7 @@ ARR_MODULE = [
             [root+'algoritms/palindrome',         emoji.star+'Palindrome', false, 'done'],
             [root+'algoritms/compose',            emoji.star+'Compose'],
             [root+'algoritms/memoization',        emoji.star+'Memoization'],
-            [root+'algoritms/duplicate',          emoji.star+'Duplicate'],
+            [root+'algoritms/duplicate',          emoji.star+'Duplicate Array'],
             [],
             [root+'algoritms/sum-brackets',       setTheme(5, ['sum(1)(2)(3)'])+' сумма скобок'],
             [root+'algoritms/closing-brackets',   setTheme(5, ['[]()&lt;&gt;'])+' вложенные скобки'],
@@ -70,9 +70,9 @@ ARR_MODULE = [
         themes: [
             [root+'objects/objects',            emoji.icecream+'Объекты'],
             [root+'objects/shallow-equal',      emoji.fire+'Shallow Equal'],
-            [root+'objects/deep-equal',         'Deep Equal'],
+            [root+'objects/deep-equal',         'Deep Equal', false, 'check'],
             [root+'objects/tree-object',        'Дерево из объекта'],
-            [root+'objects/string-object',      'Строка объектов'],
+            [root+'objects/string-object',      'Строка объектов', false, 'check'],
             [root+'objects/object-from-string', 'Объект из строки'],
         ]
     },
