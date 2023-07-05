@@ -2268,28 +2268,37 @@ inperface Props {
 </v-code>
 </div><div id="typescript/react/types"><h2>Типы</h2>
 
+<v-code lang="js step" title="">
+// Для Input
+const handleChange = (event: <u-code>React.ChangeEvent&lt;HTMLInputElement&gt;</u-code>): void => {
+    const { value } = event.target;
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Нужно проверить</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-import {
-    ReactNode,
-    ReactElement,
-    SyntheticEvent,
-    HTMLAttributes,
-    CSSProperties,
-} from 'react';
-
-type Props = {
-    tooltip: ReactElement;
-    onClick: (e: SyntheticEvent) =&gt; void;
-    navTab: HTMLAttributes&lt;HTMLButtonElement&gt;;
-    style?: CSSProperties;
+const handleClick = (event: React.SyntheticEvent): void => {
+    //
 }
+</v-code>
 
+<v-code lang="js" title="">
+type Props = {
+    tooltip: React.ReactElement;
+    navTab: React.HTMLAttributes&lt;HTMLButtonElement&gt;;
+    style?: React.CSSProperties;
+}
+</v-code>
+
+<v-code lang="js" title="">
 const root: HTMLElement | null = document.querySelector(':root');
 </v-code>
 
 <v-code lang="js" title="">
 export interface ISubmissionsPageHeaderProps&lt;T&gt; {
-  setIsTableView: React.Dispatch&lt;React.SetStateAction&lt;boolean&gt;&gt;;
+    setIsTableView: React.Dispatch&lt;React.SetStateAction&lt;boolean&gt;&gt;;
 }
 </v-code>
 </div><div id="typescript/react/samples"><h2>Примеры типизации</h2>
