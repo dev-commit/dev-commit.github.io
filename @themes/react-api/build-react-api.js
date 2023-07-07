@@ -37,7 +37,7 @@ ARR_MODULE = [
             [root+'legacy/force-update',         setTheme(7, ['forceUpdate()'])],
             [root+'legacy/Component',            setTheme(7, ['Component'])],
             [root+'legacy/react-pure-component', setTheme(7, ['React.PureComponent'])],
-            ['', ''],
+            [],
             [root+'legacy/children',             setTheme(7, ['Children'])],
             [root+'legacy/createElement',        setTheme(7, ['createElement'])],
             [root+'legacy/createRef',            setTheme(7, ['createRef'])+' '+setTheme(1, ['forwardRef'])],

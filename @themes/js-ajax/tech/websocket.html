@@ -33,21 +33,24 @@ const socket = new WebSocket("<u-code>wss</u-code>://javascript.ru/ws"); // пр
 <p>Один получение данных и три при изменениях в состоянии соединения</p>
 <v-code lang="js" title="">
 <u-code>socket.onopen</u-code> = function() {
-	alert("Соединение установлено.");
+	console.log("Соединение установлено.");
 };
+
 <u-code>socket.onclose</u-code> = function(event) {
 	if (event.wasClean) {
-		alert('Соединение закрыто чисто');
+		console.log('Соединение закрыто чисто');
 	} else {
-		alert('Обрыв соединения'); // например, "убит" процесс сервера
+		console.log('Обрыв соединения'); // например, "убит" процесс сервера
 	}
-	alert('Код: ' + event.code + ' причина: ' + event.reason);
+	console.log('Код: ' + event.code + ' причина: ' + event.reason);
 };
+
 <u-code>socket.onmessage</u-code> = function(event) {
-	alert("Получены данные " + event.data);
+	console.log('Получены данные ' + event.data);
 };
+
 <u-code>socket.onerror</u-code> = function(error) {
-	alert("Ошибка " + error.message);
+	console.log('Ошибка ' + error.message);
 };
 </v-code>
 

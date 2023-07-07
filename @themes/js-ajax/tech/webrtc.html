@@ -13,6 +13,29 @@
     <li>Просмотр в Chrome <u-code-text>chrome://webrtc-internals/</u-code-text></li>
 </ul>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример использования</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="navigator." method="getUserMedia" after="" arg="(constraints)">
+    Получение доступа к устройствам
+    </v-method>
+
+	<v-method-arg arg="constraints">объект, содераший вид устройства (аудио, видео или оба)</v-method-arg>
+
+	<v-method-return>Возвращает Promise, который, в случае согласия пользователя, разрешается MediaStream объектом. Если пользователь отказывает в разрешении, или медиа устройсто не доступно, тогда промис отменяется с объектами типа NotAllowedError или NotFoundError соответственно</v-method-return>
+</div>
+
+<v-code lang="js" title="">
+navigator.mediaDevices.getUserMedia(constraints)
+	.then(stream => {
+		// используем поток
+	})
+	.catch(err => {
+		// обработка ошибки
+	})
+</v-code>
+
 <!------------------------------------------------------------->
 <h4>Преимущества</h4>
 <!------------------------------------------------------------->
@@ -155,27 +178,4 @@
 <v-code lang="js" title="">
 ● Лучшие сетевые маршруты
 ● Настройка серверов и маршрутизаторов
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Пример использования</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div class="v-method-wrapper">
-    <v-method before="navigator." method="getUserMedia" after="" arg="(constraints)">
-    Получение доступа к устройствам
-    </v-method>
-
-	<v-method-arg arg="constraints">объект, содераший вид устройства (аудио, видео или оба)</v-method-arg>
-
-	<v-method-return>Возвращает Promise, который, в случае согласия пользователя, разрешается MediaStream объектом. Если пользователь отказывает в разрешении, или медиа устройсто не доступно, тогда промис отменяется с объектами типа NotAllowedError или NotFoundError соответственно</v-method-return>
-</div>
-
-<v-code lang="js" title="">
-navigator.mediaDevices.getUserMedia(constraints)
-	.then(stream => {
-		// используем поток
-	})
-	.catch(err => {
-		// обработка ошибки
-	})
 </v-code>

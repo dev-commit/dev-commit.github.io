@@ -39,7 +39,7 @@
                 class="menu-link"
                 id="id__js-ajax/ajax/xmlhttprequest"
                 href="#js-ajax/ajax/xmlhttprequest"
-            >🔥 1. XMLHttpRequest</a>
+            >1. XMLHttpRequest</a>
         </li>
     
         <li>
@@ -47,7 +47,7 @@
                 class="menu-link"
                 id="id__js-ajax/ajax/fetch"
                 href="#js-ajax/ajax/fetch"
-            >🔥 2. Fetch</a>
+            >2. Fetch</a>
         </li>
     
         <li>
@@ -55,7 +55,7 @@
                 class="menu-link"
                 id="id__js-ajax/ajax/axios"
                 href="#js-ajax/ajax/axios"
-            >🔥 3. Axios</a>
+            >3. Axios</a>
         </li>
     
         <li>
@@ -71,15 +71,15 @@
                 class="menu-link"
                 id="id__js-ajax/tech/websocket"
                 href="#js-ajax/tech/websocket"
-            >🍋 WebSocket</a>
+            >⭐️ WebSocket</a>
         </li>
     
         <li>
             <a
                 class="menu-link"
-                id="id__js-ajax/tech/cors"
-                href="#js-ajax/tech/cors"
-            >🍋 CORS</a>
+                id="id__js-ajax/tech/graphql"
+                href="#js-ajax/tech/graphql"
+            >⭐️ GraphQL</a>
         </li>
     
         <li>
@@ -87,23 +87,7 @@
                 class="menu-link"
                 id="id__js-ajax/tech/webrtc"
                 href="#js-ajax/tech/webrtc"
-            >🍋 WebRTC</a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__js-ajax/tech/jsonp"
-                href="#js-ajax/tech/jsonp"
-            >JSONP</a>
-        </li>
-    
-        <li>
-            <a
-                class="menu-link"
-                id="id__js-ajax/tech/comet"
-                href="#js-ajax/tech/comet"
-            >Comet</a>
+            >⭐️ WebRTC</a>
         </li>
     
         <li>
@@ -120,6 +104,30 @@
                 id="id__js-ajax/tech/sse"
                 href="#js-ajax/tech/sse"
             >SSE (Server Sent Events)</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-ajax/tech/cors"
+                href="#js-ajax/tech/cors"
+            >CORS</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-ajax/tech/comet"
+                href="#js-ajax/tech/comet"
+            >Comet</a>
+        </li>
+    
+        <li>
+            <a
+                class="menu-link"
+                id="id__js-ajax/tech/jsonp"
+                href="#js-ajax/tech/jsonp"
+            >JSONP</a>
         </li>
     </ul>
                 </div>
@@ -219,7 +227,7 @@
 	</v-method>
 </div>
 
-<v-code lang="bash" title="">
+<v-code lang="bash none" title="">
 Cache-Control: max-age=31536000
 Content-Length: 4260
 Content-Type: image/png
@@ -229,13 +237,13 @@ Date: Sat, 08 Sep 2012 16:53:16 GMT
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Свойства XMLHttpRequest</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-xhr.status       # HTTP-код ответа: 200, 404, 403 и так далее. Может быть также равен 0, если сервер не ответил или при запросе на другой домен
-xhr.statusText   # Текстовое описание статуса от сервера: OK, Not Found, Forbidden и т.д.
-xhr.responseText # Текст ответа сервера. Для json JSON.parse(xhr.responseText)
-xhr.responseXML  # Если сервер вернул XML, снабдив его правильным заголовком Content-type: text/xml, то браузер создаст из него XML-документ. По нему можно будет делать запросы xhr.responseXml.querySelector("...") и другие
-xhr.timeout      # Максимальная продолжительность асинхронного запроса. При превышении этого времени запрос будет оборван и сгенерировано событие ontimeout
-</v-code>
+<ul class="list-point">
+	<li><u-code-list>xhr.status</u-code-list> - HTTP-код ответа: 200, 404, 403 и так далее. Может быть также равен 0, если сервер не ответил или при запросе на другой домен</li>
+	<li><u-code-list>xhr.statusText</u-code-list> - Текстовое описание статуса от сервера: OK, Not Found, Forbidden и т.д.</li>
+	<li><u-code-list>xhr.responseText</u-code-list> - Текст ответа сервера. Для json JSON.parse(xhr.responseText)</li>
+	<li><u-code-list>xhr.responseXML</u-code-list> - Если сервер вернул XML, снабдив его правильным заголовком Content-type: text/xml, то браузер создаст из него XML-документ. По нему можно будет делать запросы xhr.responseXml.querySelector("...") и другие</li>
+	<li><u-code-list>xhr.timeout</u-code-list> - Максимальная продолжительность асинхронного запроса. При превышении этого времени запрос будет оборван и сгенерировано событие ontimeout</li>
+</ul>
 
 <v-code lang="js" title="">
 xhr.timeout = 30000; // 30 секунд (в миллисекундах)
@@ -247,16 +255,16 @@ xhr.ontimeout = function() {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>События</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-onreadystatechange # можно посмотреть «текущее состояние запроса» в свойстве xhr.readyState
-onloadstart        # запрос начат
-onprogress         # браузер получил очередной пакет данных, можно прочитать текущие полученные данные в responseText
-onabort            # запрос был отменён вызовом xhr.abort()
-onerror            # произошла ошибка
-onload             # запрос был успешно (без ошибок) завершён
-ontimeout          # запрос был прекращён по таймауту
-onloadend          # запрос был завершён (успешно или неуспешно)
-</v-code>
+<ul class="list-point">
+	<li><u-code-list>onreadystatechange</u-code-list> - можно посмотреть «текущее состояние запроса» в свойстве xhr.readyState</li>
+	<li><u-code-list>onloadstart</u-code-list> - запрос начат</li>
+	<li><u-code-list>onprogress</u-code-list> - браузер получил очередной пакет данных, можно прочитать текущие полученные данные в responseText</li>
+	<li><u-code-list>onabort</u-code-list> - запрос был отменён вызовом xhr.abort()</li>
+	<li><u-code-list>onerror</u-code-list> - произошла ошибка</li>
+	<li><u-code-list>onload</u-code-list> - запрос был успешно (без ошибок) завершён</li>
+	<li><u-code-list>ontimeout</u-code-list> - запрос был прекращён по таймауту</li>
+	<li><u-code-list>onloadend</u-code-list> - запрос был завершён (успешно или неуспешно)</li>
+</ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Свойство xhr.readyState для текущего состояния запроса</h3>
@@ -277,7 +285,7 @@ const unsigned short DONE             = 4;   # запрос завершён
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Асинхронный</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
+<v-code lang="js border" title="">
 const xhr = new XMLHttpRequest();
 xhr.open('GET', 'script.php', true);
 xhr.send(); // отправляем запрос, результат придёт в обработчик onreadystatechange
@@ -308,7 +316,7 @@ xhr.onreadystatechange = function() {
 	<li>Возможность делать запросы на другой домен и указывать таймаут, в синхронном режиме не работают</li>
 </ul>
 
-<v-code lang="js" title="">
+<v-code lang="js border" title="">
 const xhr = new XMLHttpRequest();       // создаём новый объект XMLHttpRequest
 xhr.open('GET', 'script.php', false); // конфигурируем его: GET-запрос на URL 'script.php'
 xhr.send();                           // отсылаем запрос
@@ -725,21 +733,24 @@ const socket = new WebSocket("<u-code>wss</u-code>://javascript.ru/ws"); // пр
 <p>Один получение данных и три при изменениях в состоянии соединения</p>
 <v-code lang="js" title="">
 <u-code>socket.onopen</u-code> = function() {
-	alert("Соединение установлено.");
+	console.log("Соединение установлено.");
 };
+
 <u-code>socket.onclose</u-code> = function(event) {
 	if (event.wasClean) {
-		alert('Соединение закрыто чисто');
+		console.log('Соединение закрыто чисто');
 	} else {
-		alert('Обрыв соединения'); // например, "убит" процесс сервера
+		console.log('Обрыв соединения'); // например, "убит" процесс сервера
 	}
-	alert('Код: ' + event.code + ' причина: ' + event.reason);
+	console.log('Код: ' + event.code + ' причина: ' + event.reason);
 };
+
 <u-code>socket.onmessage</u-code> = function(event) {
-	alert("Получены данные " + event.data);
+	console.log('Получены данные ' + event.data);
 };
+
 <u-code>socket.onerror</u-code> = function(error) {
-	alert("Ошибка " + error.message);
+	console.log('Ошибка ' + error.message);
 };
 </v-code>
 
@@ -750,72 +761,37 @@ const socket = new WebSocket("<u-code>wss</u-code>://javascript.ru/ws"); // пр
 socket.send("Привет");              // строка
 socket.send(form.elements[0].file); // файл из формы
 </v-code>
-</div><div id="js-ajax/tech/cors"><h2>CORS</h2>
+</div><div id="js-ajax/tech/graphql"><h2>GraphQL</h2>
+
+<u-link-wrapper>
+	<a href="https://graphql.org/" target="_blank">https://graphql.org/</a>
+	<a href="https://www.apollographql.com/" target="_blank">https://www.apollographql.com/</a>
+	<a href="https://www.apollographql.com/docs/" target="_blank">https://www.apollographql.com/docs/</a>
+	<a href="https://www.apollographql.com/docs/react/development-testing/testing/" target="_blank">https://www.apollographql.com/docs/react/development-testing/testing/</a>
+</u-link-wrapper>
 
 <ul class="list-point">
-	<li><u-text-define>Cross-origin resource sharing</u-text-define> (CORS «совместное использование ресурсов между разными источниками») - технология современных браузеров, которая позволяет предоставить веб-странице доступ к ресурсам другого домена</li>
-	<li>CORS смотрит на все заголовки</li>
+    <li><u-text-define>GraphQL</u-text-define> - синтаксис, который описывает как запрашивать данные, и, в основном, используется клиентом для загрузки данных с сервера</li>
 </ul>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Кросс-доменные запросы</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-	<li>Запрос обязательно должен быть асинхронным</li>
-</ul>
-
+<!------------------------------------------------------------->
+<h4>Основные характеристики GraphQL</h4>
+<!------------------------------------------------------------->
 <ol class="list-num">
-	<li>1. В кросс-доменный запрос браузер автоматически добавляет заголовок <u>Origin</u>, содержащий домен, с которого осуществлён запрос</li>
-	<li>2. Если сервер разрешает кросс-доменный запрос с этого домена он должен добавить к ответу заголовок <u>Access-Control-Allow-Origin</u>, содержащий домен запроса или звёздочку <u>*</u>. Только при наличии такого заголовка в ответе – браузер сочтёт запрос успешным, а иначе JavaScript получит ошибку</li>
-	<li>3. Чтобы JavaScript мог прочитать HTTP-заголовок ответа, сервер должен указать его имя в <u>Access-Control-Expose-Headers</u></li>
+	<li>Позволяет клиенту точно указать, какие данные ему нужны</li>
+	<li>Облегчает агрегацию данных из нескольких источников</li>
+	<li>Использует систему типов для описания данных</li>
 </ol>
 
 <!------------------------------------------------------------->
-<h4>Простой метод GET, POST, HEAD</h4>
+<h4>3 типа запросов</h4>
 <!------------------------------------------------------------->
-<v-code lang="js" title="Запрос с домена http://test1.ru">
-const xhr = new XMLHttpRequest();
-xhr.open('GET', 'http://test2.ru/script.php', true);
-xhr.onload = function() {
-    console.log(this.responseText);
-}
-xhr.onerror = function() {
-    console.log(this.status);
-}
-xhr.send();
-</v-code>
+<ol class="list-num">
+	<li>Request: GET</li>
+	<li>Mutation: POST, DELETE etc..</li>
+	<li>WebSockets</li>
+</ol>
 
-<v-code lang="php" title="Сервер http://test2.ru">
-&lt;?php
-    header('<u-code>Access-Control-Allow-Origin</u-code>: http://test1.ru'); // разрешить доступ домену http://test1.ru
-    header('Access-Control-Allow-Origin: *');               // разрешить доступ любому домену
-?&gt;
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Чтение json файла</h4>
-<!------------------------------------------------------------->
-<v-code lang="html" title=".htaccess">
-&lt;IfModule mod_rewrite.c&gt;
-	Header add Access-Control-Allow-Origin "*"
-	Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
-	AddType application/json .json
-&lt;/IfModule&gt;
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Передавать куки и HTTP-авторизацию</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-xhr.withCredentials = true;
-</v-code>
-
-<v-code lang="php" title="">
-&lt;?php
-	header('Access-Control-Allow-Origin: домен');    // Использование звёздочки * запрещено
-	header('<u-code>Access-Control-Allow-Credentials</u-code>: true');
-?&gt;
-</v-code>
 </div><div id="js-ajax/tech/webrtc"><h2>WebRTC</h2>
 
 <u-link-wrapper>
@@ -830,6 +806,29 @@ xhr.withCredentials = true;
     <hr>
     <li>Просмотр в Chrome <u-code-text>chrome://webrtc-internals/</u-code-text></li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример использования</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="navigator." method="getUserMedia" after="" arg="(constraints)">
+    Получение доступа к устройствам
+    </v-method>
+
+	<v-method-arg arg="constraints">объект, содераший вид устройства (аудио, видео или оба)</v-method-arg>
+
+	<v-method-return>Возвращает Promise, который, в случае согласия пользователя, разрешается MediaStream объектом. Если пользователь отказывает в разрешении, или медиа устройсто не доступно, тогда промис отменяется с объектами типа NotAllowedError или NotFoundError соответственно</v-method-return>
+</div>
+
+<v-code lang="js" title="">
+navigator.mediaDevices.getUserMedia(constraints)
+	.then(stream => {
+		// используем поток
+	})
+	.catch(err => {
+		// обработка ошибки
+	})
+</v-code>
 
 <!------------------------------------------------------------->
 <h4>Преимущества</h4>
@@ -974,29 +973,101 @@ xhr.withCredentials = true;
 ● Лучшие сетевые маршруты
 ● Настройка серверов и маршрутизаторов
 </v-code>
+</div><div id="js-ajax/tech/long-polling"><h2>Long Polling</h2>
+
+<ul class="list-point">
+    <li><a href="https://learn.javascript.ru/long-polling" target="_blank">https://learn.javascript.ru/long-polling</a></li>
+    <li>Long Polling - запрос, который завершится не сразу. Костыль над HTTP</li>
+</ul>
+</div><div id="js-ajax/tech/sse"><h2>SSE (Server Sent Events)</h2>
+
+<ul class="list-point">
+    <li><a href="https://learn.javascript.ru/server-sent-events" target="_blank">https://learn.javascript.ru/server-sent-events</a></li>
+    <li>Подписаться и слушать сервер</li>
+</ul>
+</div><div id="js-ajax/tech/cors"><h2>CORS</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Cross-origin resource sharing</u-text-define> (CORS «совместное использование ресурсов между разными источниками») - технология современных браузеров, которая позволяет предоставить веб-странице доступ к ресурсам другого домена</li>
+	<li>CORS смотрит на все заголовки</li>
+</ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Пример использования</h3>
+<h3>Кросс-доменные запросы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div class="v-method-wrapper">
-    <v-method before="navigator." method="getUserMedia" after="" arg="(constraints)">
-    Получение доступа к устройствам
-    </v-method>
+<ul class="list-point">
+	<li>Запрос обязательно должен быть асинхронным</li>
+</ul>
 
-	<v-method-arg arg="constraints">объект, содераший вид устройства (аудио, видео или оба)</v-method-arg>
+<ol class="list-num">
+	<li>1. В кросс-доменный запрос браузер автоматически добавляет заголовок <u>Origin</u>, содержащий домен, с которого осуществлён запрос</li>
+	<li>2. Если сервер разрешает кросс-доменный запрос с этого домена он должен добавить к ответу заголовок <u>Access-Control-Allow-Origin</u>, содержащий домен запроса или звёздочку <u>*</u>. Только при наличии такого заголовка в ответе – браузер сочтёт запрос успешным, а иначе JavaScript получит ошибку</li>
+	<li>3. Чтобы JavaScript мог прочитать HTTP-заголовок ответа, сервер должен указать его имя в <u>Access-Control-Expose-Headers</u></li>
+</ol>
 
-	<v-method-return>Возвращает Promise, который, в случае согласия пользователя, разрешается MediaStream объектом. Если пользователь отказывает в разрешении, или медиа устройсто не доступно, тогда промис отменяется с объектами типа NotAllowedError или NotFoundError соответственно</v-method-return>
-</div>
-
-<v-code lang="js" title="">
-navigator.mediaDevices.getUserMedia(constraints)
-	.then(stream => {
-		// используем поток
-	})
-	.catch(err => {
-		// обработка ошибки
-	})
+<!------------------------------------------------------------->
+<h4>Простой метод GET, POST, HEAD</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="Запрос с домена http://test1.ru">
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://test2.ru/script.php', true);
+xhr.onload = function() {
+    console.log(this.responseText);
+}
+xhr.onerror = function() {
+    console.log(this.status);
+}
+xhr.send();
 </v-code>
+
+<v-code lang="php" title="Сервер http://test2.ru">
+&lt;?php
+    header('<u-code>Access-Control-Allow-Origin</u-code>: http://test1.ru'); // разрешить доступ домену http://test1.ru
+    header('Access-Control-Allow-Origin: *');               // разрешить доступ любому домену
+?&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Чтение json файла</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title=".htaccess">
+&lt;IfModule mod_rewrite.c&gt;
+	Header add Access-Control-Allow-Origin "*"
+	Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
+	AddType application/json .json
+&lt;/IfModule&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Передавать куки и HTTP-авторизацию</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+xhr.withCredentials = true;
+</v-code>
+
+<v-code lang="php" title="">
+&lt;?php
+	header('Access-Control-Allow-Origin: домен');    // Использование звёздочки * запрещено
+	header('<u-code>Access-Control-Allow-Credentials</u-code>: true');
+?&gt;
+</v-code>
+</div><div id="js-ajax/tech/comet"><h2>Comet</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Comet</u-text-define> - любая модель работы веб-приложения, при которой постоянное HTTP-соединение позволяет веб-серверу отправлять (push) данные браузеру без дополнительного запроса со стороны браузера</li>
+	<li>AJAX – это «отправил запрос – получил результат», а COMET – это «непрерывный канал, по которому приходят данные»</li>
+</ul>
+
+<img src="/@img/js/comet.png" width="500px" />
+
+<ul class="list-point">
+	<b>Взаимодействие с комет сервером построено следующим образом</b>
+	<li>1. Браузер открывает страницу сайта</li>
+	<li>2. После загрузки страницы JavaScript устанавливает постоянное соединение с comet сервером</li>
+	<li>3. Пока открыта страница ваш сервер может отправить произвольное сообщение клиенту. Для этого он обращается с помощью Api к комет серверу и передаёт ему сообщение</li>
+	<li>4. Комет сервер используя открытое соединение с браузером доставляет полученное сообщение в браузер</li>
+	<li>5. JavaScript Api полученное от сервера сообщение предаёт в ваш callback</li>
+</ul>
 </div><div id="js-ajax/tech/jsonp"><h2>JSONP</h2>
 
 <ul class="list-point">
@@ -1056,35 +1127,6 @@ function clientFunction(arg) {
     //
 }
 </v-code>
-</div><div id="js-ajax/tech/comet"><h2>Comet</h2>
-
-<ul class="list-point">
-	<li><u-text-define>Comet</u-text-define> - любая модель работы веб-приложения, при которой постоянное HTTP-соединение позволяет веб-серверу отправлять (push) данные браузеру без дополнительного запроса со стороны браузера</li>
-	<li>AJAX – это «отправил запрос – получил результат», а COMET – это «непрерывный канал, по которому приходят данные»</li>
-</ul>
-
-<img src="/@img/js/comet.png" class="center" width="500px">
-
-<ul class="list-point">
-	<b>Взаимодействие с комет сервером построено следующим образом</b>
-	<li>1. Браузер открывает страницу сайта</li>
-	<li>2. После загрузки страницы JavaScript устанавливает постоянное соединение с comet сервером</li>
-	<li>3. Пока открыта страница ваш сервер может отправить произвольное сообщение клиенту. Для этого он обращается с помощью Api к комет серверу и передаёт ему сообщение</li>
-	<li>4. Комет сервер используя открытое соединение с браузером доставляет полученное сообщение в браузер</li>
-	<li>5. JavaScript Api полученное от сервера сообщение предаёт в ваш callback</li>
-</ul>
-</div><div id="js-ajax/tech/long-polling"><h2>Long Polling</h2>
-
-<ul class="list-point">
-    <li><a href="https://learn.javascript.ru/long-polling" target="_blank">https://learn.javascript.ru/long-polling</a></li>
-    <li>Long Polling - запрос, который завершится не сразу. Костыль над HTTP</li>
-</ul>
-</div><div id="js-ajax/tech/sse"><h2>SSE (Server Sent Events)</h2>
-
-<ul class="list-point">
-    <li><a href="https://learn.javascript.ru/server-sent-events" target="_blank">https://learn.javascript.ru/server-sent-events</a></li>
-    <li>Подписаться и слушать сервер</li>
-</ul>
 </div></div>
                 </div>
             </div>

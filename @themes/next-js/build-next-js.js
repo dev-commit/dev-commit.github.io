@@ -53,7 +53,7 @@ ARR_MODULE = [
             [root+'routing/push-route',     emoji.code+'Программное добавление роута'],
             [root+'routing/links-route',    emoji.code+'Ссылки на страницы'],
             [root+'routing/page-404',       emoji.code+'Страница 404'],
-            ['', ''],
+            [],
             [root+'routing/useRouter',      setTheme(3, ['useRouter'])],
             [root+'routing/Router',         setTheme(1, ['Router'])],
             [root+'routing/Link',           setTheme(1, ['Link'])],

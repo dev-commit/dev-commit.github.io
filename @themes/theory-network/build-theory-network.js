@@ -37,7 +37,6 @@ ARR_MODULE = [
             [root+'api/rest-vs-soap', emoji.theory+'REST vs SOAP'],
             [root+'api/rest',         emoji.fire+'REST API'],
             [root+'api/soap',         'SOAP'],
-            [root+'api/graphql',      'GraphQL'],
         ]
     },
     {

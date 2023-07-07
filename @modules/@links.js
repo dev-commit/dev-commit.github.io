@@ -31,7 +31,7 @@ const ARR_LINKS = [
     { page: 'js-web-api',              theme: 'green',    title: 'Web API' },
     null,
     { page: 'event-loop',              theme: 'blue',     title: 'Event Loop | Optimize' },
-    { page: 'theory-network',          theme: 'blue',     title: theory+'HTTP | Network' },
+    { page: 'theory-network',          theme: 'blue',     title: theory+'HTTP | Protocols' },
     { page: 'js-ajax',                 theme: 'blue',     title: 'Ajax | Tech' },
     null,
     { page: 'react-js',                theme: 'violet',   title: action+'React.js' },

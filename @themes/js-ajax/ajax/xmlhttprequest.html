@@ -56,7 +56,7 @@
 	</v-method>
 </div>
 
-<v-code lang="bash" title="">
+<v-code lang="bash none" title="">
 Cache-Control: max-age=31536000
 Content-Length: 4260
 Content-Type: image/png
@@ -66,13 +66,13 @@ Date: Sat, 08 Sep 2012 16:53:16 GMT
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Свойства XMLHttpRequest</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-xhr.status       # HTTP-код ответа: 200, 404, 403 и так далее. Может быть также равен 0, если сервер не ответил или при запросе на другой домен
-xhr.statusText   # Текстовое описание статуса от сервера: OK, Not Found, Forbidden и т.д.
-xhr.responseText # Текст ответа сервера. Для json JSON.parse(xhr.responseText)
-xhr.responseXML  # Если сервер вернул XML, снабдив его правильным заголовком Content-type: text/xml, то браузер создаст из него XML-документ. По нему можно будет делать запросы xhr.responseXml.querySelector("...") и другие
-xhr.timeout      # Максимальная продолжительность асинхронного запроса. При превышении этого времени запрос будет оборван и сгенерировано событие ontimeout
-</v-code>
+<ul class="list-point">
+	<li><u-code-list>xhr.status</u-code-list> - HTTP-код ответа: 200, 404, 403 и так далее. Может быть также равен 0, если сервер не ответил или при запросе на другой домен</li>
+	<li><u-code-list>xhr.statusText</u-code-list> - Текстовое описание статуса от сервера: OK, Not Found, Forbidden и т.д.</li>
+	<li><u-code-list>xhr.responseText</u-code-list> - Текст ответа сервера. Для json JSON.parse(xhr.responseText)</li>
+	<li><u-code-list>xhr.responseXML</u-code-list> - Если сервер вернул XML, снабдив его правильным заголовком Content-type: text/xml, то браузер создаст из него XML-документ. По нему можно будет делать запросы xhr.responseXml.querySelector("...") и другие</li>
+	<li><u-code-list>xhr.timeout</u-code-list> - Максимальная продолжительность асинхронного запроса. При превышении этого времени запрос будет оборван и сгенерировано событие ontimeout</li>
+</ul>
 
 <v-code lang="js" title="">
 xhr.timeout = 30000; // 30 секунд (в миллисекундах)
@@ -84,16 +84,16 @@ xhr.ontimeout = function() {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>События</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-onreadystatechange # можно посмотреть «текущее состояние запроса» в свойстве xhr.readyState
-onloadstart        # запрос начат
-onprogress         # браузер получил очередной пакет данных, можно прочитать текущие полученные данные в responseText
-onabort            # запрос был отменён вызовом xhr.abort()
-onerror            # произошла ошибка
-onload             # запрос был успешно (без ошибок) завершён
-ontimeout          # запрос был прекращён по таймауту
-onloadend          # запрос был завершён (успешно или неуспешно)
-</v-code>
+<ul class="list-point">
+	<li><u-code-list>onreadystatechange</u-code-list> - можно посмотреть «текущее состояние запроса» в свойстве xhr.readyState</li>
+	<li><u-code-list>onloadstart</u-code-list> - запрос начат</li>
+	<li><u-code-list>onprogress</u-code-list> - браузер получил очередной пакет данных, можно прочитать текущие полученные данные в responseText</li>
+	<li><u-code-list>onabort</u-code-list> - запрос был отменён вызовом xhr.abort()</li>
+	<li><u-code-list>onerror</u-code-list> - произошла ошибка</li>
+	<li><u-code-list>onload</u-code-list> - запрос был успешно (без ошибок) завершён</li>
+	<li><u-code-list>ontimeout</u-code-list> - запрос был прекращён по таймауту</li>
+	<li><u-code-list>onloadend</u-code-list> - запрос был завершён (успешно или неуспешно)</li>
+</ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Свойство xhr.readyState для текущего состояния запроса</h3>
@@ -114,7 +114,7 @@ const unsigned short DONE             = 4;   # запрос завершён
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Асинхронный</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
+<v-code lang="js border" title="">
 const xhr = new XMLHttpRequest();
 xhr.open('GET', 'script.php', true);
 xhr.send(); // отправляем запрос, результат придёт в обработчик onreadystatechange
@@ -145,7 +145,7 @@ xhr.onreadystatechange = function() {
 	<li>Возможность делать запросы на другой домен и указывать таймаут, в синхронном режиме не работают</li>
 </ul>
 
-<v-code lang="js" title="">
+<v-code lang="js border" title="">
 const xhr = new XMLHttpRequest();       // создаём новый объект XMLHttpRequest
 xhr.open('GET', 'script.php', false); // конфигурируем его: GET-запрос на URL 'script.php'
 xhr.send();                           // отсылаем запрос

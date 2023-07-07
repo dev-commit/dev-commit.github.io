@@ -9,7 +9,7 @@ ARR_MODULE = [
         title: 'Objects & Context',
         child: true,
         themes: [
-            ['js-class/main/new',                 setTheme(1, ['new']), false, 'done'],
+            ['js-class/main/new',             setTheme(1, ['new']), false, 'done'],
             [root+'polyphiles/object-create', setTheme(1, ['Object.create']), false, 'done'],
             [root+'polyphiles/bind',          setTheme(1, ['bind'])],
         ]
@@ -52,36 +52,27 @@ ARR_MODULE = [
             [root+'algoritms/compose',            emoji.star+'Compose'],
             [root+'algoritms/memoization',        emoji.star+'Memoization'],
             [root+'algoritms/duplicate',          emoji.star+'Duplicate Array'],
-            [],
-            [root+'algoritms/sum-brackets',       setTheme(5, ['sum(1)(2)(3)'])+' сумма скобок'],
-            [root+'algoritms/closing-brackets',   setTheme(5, ['[]()&lt;&gt;'])+' вложенные скобки'],
-
-            [root+'algoritms/sum-pyramid',        'Сумма пирамиды'],
-            [root+'algoritms/sum-sequence',       'Сумма последовательности'],
-            [root+'algoritms/function-count',     'Функция считает свои вызовы'],
-            [],
-            [root+'algoritms/event-emitter',      'EventEmitter', false, 'check'],
-            [root+'algoritms/series',             'Series', false, 'check'],
-            [root+'algoritms/shop-queue',         'Магазин с кассами', false, 'check'],
         ]
     },
     {
         title: 'Объекты',
+        selected: true,
         themes: [
             [root+'objects/objects',            emoji.icecream+'Объекты'],
-            [root+'objects/shallow-equal',      emoji.fire+'Shallow Equal'],
+            [root+'objects/shallow-equal',      'Shallow Equal', false, 'done'],
             [root+'objects/deep-equal',         'Deep Equal', false, 'check'],
+            [root+'objects/object-from-string', 'Объект из строки: "a.b.c.d"'],
             [root+'objects/tree-object',        'Дерево из объекта'],
             [root+'objects/string-object',      'Строка объектов', false, 'check'],
-            [root+'objects/object-from-string', 'Объект из строки'],
         ]
     },
     {
         title: 'Массивы',
+        selected: true,
         themes: [
             [root+'arrays/arrays',               emoji.icecream+'Массивы'],
-            [root+'arrays/intersection-arrays',  emoji.fire+'Пересечение массивов'],
-            [root+'arrays/sort-odd',             emoji.fire+'Сортировка нечетных значений'],
+            [root+'arrays/intersection-arrays',  'Пересечение массивов', false, 'done'],
+            [root+'arrays/sort-odd',             'Сортировка нечетных значений', false, 'done'],
             [root+'arrays/max-array-element',    'Максимальный элемент массива'],
             [root+'arrays/array-sums',           'Двумерный массив сумм'],
             [root+'arrays/array-average-value',  'Получить среднюю оценку'],
@@ -90,6 +81,7 @@ ARR_MODULE = [
     },
     {
         title: 'Асинхронность',
+        selected: true,
         themes: [
             [root+'async/event-loop',                   emoji.icecream+'Event Loop', false, 'check'],
             [root+'algoritms/retrier',                  'Retrier (запросы по URL)', false, 'check'],
@@ -126,6 +118,20 @@ ARR_MODULE = [
             [root+'custom/prototype',   emoji.icecream+'Прототипы', false, 'check'],
             [root+'custom/context',     emoji.icecream+'Контекст', false, 'check'],
             [root+'custom/currying',    emoji.icecream+'Каррирование', false, 'check'],
+        ]
+    },
+    {
+        title: 'Общие задачи',
+        themes: [
+            [root+'algoritms/sum-brackets',       setTheme(5, ['sum(1)(2)(3)'])+' сумма скобок'],
+            [root+'algoritms/closing-brackets',   setTheme(5, ['[]()&lt;&gt;'])+' вложенные скобки'],
+            [root+'algoritms/sum-pyramid',        'Сумма пирамиды'],
+            [root+'algoritms/sum-sequence',       'Сумма последовательности'],
+            [root+'algoritms/function-count',     'Функция считает свои вызовы'],
+            [],
+            [root+'algoritms/event-emitter',      'EventEmitter', false, 'check'],
+            [root+'algoritms/series',             'Series', false, 'check'],
+            [root+'algoritms/shop-queue',         'Магазин с кассами', false, 'check'],
         ]
     },
 ]

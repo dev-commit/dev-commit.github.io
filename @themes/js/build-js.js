@@ -80,7 +80,7 @@ ARR_MODULE = [
             [root+'other/pattern-string',         'Шаблонные строки (ES6)'],
             [root+'other/proxy',                  'Proxy (ES6)'],
             [root+'other/web-workers',            'Web Workers'],
-            ['', ''],
+            [],
             [root+'other/asynchronous-scripts',   'Асинхронные скрипты: defer/async'],
             [root+'other/method-chaining',        'Цепные вызовы методов'],
             [root+'other/strict-mode',            'Strict Mode'],

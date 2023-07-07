@@ -27,10 +27,10 @@ ARR_MODULE = [
             [root+'samples/finally',             emoji.chevron+setTheme(5, ['.finally'])],
             [root+'samples/many-promises',       emoji.penguin+'Несколько Promise'],
             [root+'samples/infinite-microtasks', emoji.penguin+'Бесконечные Микротаски'],
-            ['', ''],
+            [],
             [root+'samples/common',            'Общие задачи'],
             [root+'samples/other',             'Прочее'],
-            ['', ''],
+            [],
             [root+'samples/async',            setTheme(5, ['async await', 'setTimeout'])],
 		    [root+'samples/race',             setTheme(5, ['Promise.all', 'Promise.race'])],
         ]
