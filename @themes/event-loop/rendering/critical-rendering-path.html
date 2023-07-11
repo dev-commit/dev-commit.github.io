@@ -5,6 +5,13 @@
 	<li>Знания о CRP необходимы для улчшения производительности</li>
 </ul>
 
+<hr>
+
+<ul class="list-point">
+    <li><u-menu-outline>Style Calculation</u-menu-outline> - вычисление стилей для каждого элемента</li>
+    <li>Render <u-code-mod>16ms</u-code-mod></li>
+</ul>
+
 <img src="/@img/js/rendering/crp1.png" width="650px" />
 <hr>
 <img src="/@img/js/rendering/crp2.png" width="650px" />
@@ -49,7 +56,8 @@
 <h4>5. Layout (генерация раскладки)</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-	<li><u-text-define>Раскладка</u-text-define> - для каждого элемента Render Tree рассчитывается его положение на странице</li>
+	<li><u-text-define>Раскладка</u-text-define> - для каждого элемента Render Tree определяютяс его размеры и рассчитывается его положение на странице</li>
+	<li>Вычисление взаимного расположения и размеров элементов на странице, плюс компоновка всего</li>
 	<li>Браузеры используют поточный метод (<u>flow</u>), при котором в большинстве случаев достаточно одного прохода для размещения всех элементов (для таблиц проходов требуется больше)</li>
 	<hr>
 	<li>Определяется размер видимой области документа (<u-code-text>viewport</u-code-text>), которая обеспечивает контекст для стилей CSS, зависимых от него, например, проценты или единицы viewport</li>
@@ -57,21 +65,20 @@
 </ul>
 
 <!------------------------------------------------------------->
-<h4>6. Painting (отрисовка в браузере)</h4>
+<h4>6. Paint (отрисовка в браузере)</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-	<li><u-text-define>Отрисовка</u-text-define> - видимый контент страницы может быть преобразован в пиксели, чтобы появиться на экране</li>
+	<li><u-text-define>Отрисовка</u-text-define> - видимый контент страницы преобразуется в пиксели и отрисовывается на экране</li>
 	<li>Время, которое займет этот этап, зависит как от величины DOM, так и от того, какие стили применяются. Некоторые стили требуют больше усилий, чтобы быть применёнными, чем другие. Например, сложное градиентное фоновое изображение потребует больше времени, чем простой сплошной цвет на фоне</li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Chrome Dev Tools</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<v-code lang="bash" title="">
-Chrome Dev Tools -> Performance -> Event Log
-Chrome Dev Tools -> Сеть -> Запись активности
-</v-code>
+<ul class="list-point">
+	<li><em>Chrome Dev Tools</em> -> <em>Performance</em> -> <em>Event Log</em></li>
+	<li><em>Chrome Dev Tools</em> -> <em>Network</em> -> <em>Record network activity</em></li>
+</ul>
 
 <ol class="list-num">
 	<li><b>Send Request</b> - GET-запрос, отправленный для index.html</li>
