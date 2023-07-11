@@ -15,7 +15,7 @@ ARR_MODULE = [
             [root+'hooks/use-ref',                 setTheme(3, ['useRef'])],
             [root+'hooks/use-memo',                setTheme(3, ['useMemo'])],
             [root+'hooks/use-callback',            setTheme(3, ['useCallback'])],
-            [root+'hooks/use-context',             setTheme(3, ['useContext'])],
+            [root+'hooks/use-context',             setTheme(3, ['useContext']), false, 'done'],
             [root+'hooks/use-reducer',             setTheme(3, ['useReducer'])],
             [],
             [root+'hooks/use-id',                  setTheme(1, ['useId'])],

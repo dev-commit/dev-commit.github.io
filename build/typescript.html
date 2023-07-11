@@ -2226,6 +2226,15 @@ const App = () => {
 	const [show, setShow]   = useState&lt;boolean&gt;(true);
 }
 </v-code>
+
+<!------------------------------------------------------------->
+<h4>Callback</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+interface IAppProps {
+    setValue: React.<u-code>Dispatch</u-code>&lt;React.<u-code>SetStateAction</u-code>&lt;string&gt;&gt;;
+}
+</v-code>
 </div><div id="typescript/react/useRef"><h2>useRef</h2>
 
 <v-code lang="js" title="">
@@ -2270,7 +2279,7 @@ inperface Props {
 
 <v-code lang="js step" title="">
 // Для Input
-const handleChange = (event: <u-code>React.ChangeEvent&lt;HTMLInputElement&gt;</u-code>): void => {
+const handleChange = (event: React.<u-code>ChangeEvent</u-code>&lt;<u-code>HTMLInputElement</u-code>&gt;): void => {
     const { value } = event.target;
 };
 </v-code>
@@ -2296,11 +2305,7 @@ type Props = {
 const root: HTMLElement | null = document.querySelector(':root');
 </v-code>
 
-<v-code lang="js" title="">
-export interface ISubmissionsPageHeaderProps&lt;T&gt; {
-    setIsTableView: React.Dispatch&lt;React.SetStateAction&lt;boolean&gt;&gt;;
-}
-</v-code>
+
 </div><div id="typescript/react/samples"><h2>Примеры типизации</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

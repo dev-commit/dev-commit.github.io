@@ -24,55 +24,24 @@ const value = <u-code>useContext</u-code>(MyContext);
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Примеры</h3>
+<h3>Пример: Смена темы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<!------------------------------------------------------------->
-<h4>Пример #1. Смена темы</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="index.jsx">
-import ThemeProvider from './ThemeProvider';
-import { useTheme } from './ThemeProvider';
+<h5>Создание Provider и Hook</h5>
 
-const App = () =&gt; (
-    &lt;ThemeProvider&gt;
-        &lt;View /&gt;
-        &lt;Change /&gt;
-    &lt;/ThemeProvider&gt;
-);
+<ul class="list-point">
+    <li>Вариант для JavaScript и TypeScript</li>
+</ul>
+<v-two-code type="js;js" comment="ThemeProvider.<u-code-accent>jsx</u-code-accent>;ThemeProvider.<u-code-accent>tsx</u-code-accent>">
+<template v-slot:first>
+import { useState, useContext } from 'react';
 
-const View = () =&gt; {
-    const isTheme = useTheme();
-    return (
-        &lt;&gt;
-            Выбрана тема: {isTheme.theme}
-        &lt;/&gt;
-    )
-};
+const ThemeContext = <u-code-mod>React.createContext</u-code-mod>();
 
-const Change = () =&gt; {
-    const isTheme = useTheme();
+const ThemeProvider = ({ children }) =&gt; {
+    const [theme, setTheme] = useState('light');
 
-    return (
-        &lt;&gt;
-            &lt;button onClick={() =&gt; isTheme.change('dark')}&gt;Dark&lt;/button&gt;
-            &lt;button onClick={() =&gt; isTheme.change('light')}&gt;Light&lt;/button&gt;
-        &lt;/&gt;
-    )
-};
-
-export default App;
-</v-code>
-
-<v-code lang="js" title="ThemeProvider.jsx">
-import { useState, useContext } from 'react'
-
-const ThemeContext = React.createContext()
-
-export const ThemeProvider = ({ children, ...props }) =&gt; {
-    const [theme, setTheme] = useState('light')
-
-    const change = (name) =&gt; setTheme(name)
+    const change = (name) =&gt; setTheme(name);
 
     return (
 		&lt;ThemeContext.Provider
@@ -80,13 +49,90 @@ export const ThemeProvider = ({ children, ...props }) =&gt; {
                 theme,
                 change
             <span v-pre>}}</span>
-			{...props}
 		&gt;
             { children}
         &lt;/ThemeContext.Provider&gt;
     )
 }
 
-export default ThemeProvider
-export const useTheme = () =&gt; useContext(ThemeContext)
+export default ThemeProvider;
+export const useTheme = () =&gt; <u-code-mod>useContext</u-code-mod>(ThemeContext);
+</template>
+<template v-slot:last>
+import React, { useState, useContext } from 'react';
+
+// const ThemeContext = React.createContext({
+//     theme: 'light',
+//     change: (_: string) => {},
+// });
+
+const ThemeContext = <u-code-mod>React.createContext</u-code-mod><Object>(false);
+
+interface Props {
+    children: React.ReactNode;
+};
+
+export const ThemeProvider = ({ children }: Props) => {
+    const [theme, setTheme] = useState<string>('light');
+
+    const change = (value: string) => setTheme(value);
+
+    console.log(setTheme);
+
+    return (
+		&lt;ThemeContext.Provider
+            value=<span v-pre>{{</span>
+                theme,
+                change
+            <span v-pre>}}</span>
+		&gt;
+            { children}
+        &lt;/ThemeContext.Provider&gt;
+    )
+}
+
+export default ThemeProvider;
+export const useTheme = () => <u-code-mod>useContext</u-code-mod>(ThemeContext);
+</template>
+</v-two-code>
+
+<h5>Корневой компонент</h5>
+<ul class="list-point">
+    <li>Просто обернуть в <em>ThemeProvider</em></li>
+</ul>
+<v-code lang="js" title="index.jsx">
+import ThemeProvider from './ThemeProvider';
+import { View, Change } from './Components';
+
+const App = () =&gt; (
+    &lt;<u-code>ThemeProvider</u-code>&gt;
+        &lt;View /&gt;
+        &lt;Change /&gt;
+    &lt;/<u-code>ThemeProvider</u-code>&gt;
+);
+
+export default App;
+</v-code>
+
+<h5>Дочерние компоненты</h5>
+<ul class="list-point">
+    <li>Можно использовать хук <em>useTheme</em> для доступа к значению текущей темы и функции изменения темы</li>
+</ul>
+<v-code lang="js" title="Components.jsx">
+import { useTheme } from './ThemeProvider';
+
+const View = () =&gt; {
+    const isTheme = <u-code>useTheme</u-code>();
+    return isTheme.theme;
+};
+
+const Change = () =&gt; {
+    const isTheme = <u-code>useTheme</u-code>();
+    return (
+        &lt;&gt;
+            &lt;button onClick={() =&gt; isTheme.change('dark')}&gt;Dark&lt;/button&gt;
+            &lt;button onClick={() =&gt; isTheme.change('light')}&gt;Light&lt;/button&gt;
+        &lt;/&gt;
+    )
+};
 </v-code>
