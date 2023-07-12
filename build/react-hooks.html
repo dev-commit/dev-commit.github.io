@@ -1298,7 +1298,7 @@ const ThemeProvider = ({ children }) =&gt; {
                 change
             <span v-pre>}}</span>
 		&gt;
-            { children}
+            {children}
         &lt;/ThemeContext.Provider&gt;
     )
 }
@@ -1307,7 +1307,7 @@ export default ThemeProvider;
 export const useTheme = () =&gt; <u-code-mod>useContext</u-code-mod>(ThemeContext);
 </template>
 <template v-slot:last>
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useMemo } from 'react';
 
 // const ThemeContext = React.createContext({
 //     theme: 'light',
@@ -1325,16 +1325,17 @@ export const ThemeProvider = ({ children }: Props) => {
 
     const change = (value: string) => setTheme(value);
 
-    console.log(setTheme);
+    // Можно обернуть в useMemo
+    const preparedProviderValue = useMemo(
+        () => ({ theme, change }),
+        [theme, change]
+    );
 
     return (
 		&lt;ThemeContext.Provider
-            value=<span v-pre>{{</span>
-                theme,
-                change
-            <span v-pre>}}</span>
-		&gt;
-            { children}
+            value={preparedProviderValue}
+        &gt;
+            {children}
         &lt;/ThemeContext.Provider&gt;
     )
 }
