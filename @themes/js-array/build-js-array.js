@@ -23,7 +23,7 @@ ARR_MODULE = [
         themes: [
             [root+'methods/push',      setTheme(1, ['push', 'pop', 'unshift', 'shift'])],
             [root+'methods/length',    setTheme(1, ['length', 'reverse', 'concat'])],
-            [root+'methods/sort',      setTheme(1, ['sort'])],
+            [root+'methods/sort',      setTheme(1, ['sort', 'toSorted'])],
             [root+'methods/join',      setTheme(1, ['join', 'split'])],
             [root+'methods/slice',     setTheme(1, ['slice', 'splice'])],
             [],
