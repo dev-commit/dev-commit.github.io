@@ -52,6 +52,7 @@ const ARR_LINKS = [
     null,
     { page: 'react-query',             theme: 'crimson',  title: 'react-query' },
     { page: 'react-use',               theme: 'crimson',  title: 'react-use' },
+    { page: 'react-select',            theme: 'crimson',  title: 'react-select' },
     { page: 'dayjs',                   theme: 'brown',    title: 'Day.js' },
     { page: 'ramda',                   theme: 'white',    title: 'Ramda' },
     { page: 'lodash',                  theme: 'white',    title: 'Lodash' },
