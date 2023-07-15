@@ -9,8 +9,6 @@ ARR_MODULE = [
             [root+'vscode/snippets',          'Сниппеты'],
             [root+'vscode/settings',          'Настройки'],
             [root+'vscode/shortcuts',         'Shortcuts'],
-            [root+'vscode/extension-eslint',   setTheme(1, ['ESLint'])],
-            [root+'vscode/extension-prettier', setTheme(1, ['Prettier'])],
         ]
     },
     {

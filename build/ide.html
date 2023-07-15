@@ -75,26 +75,6 @@
             Shortcuts
         </a>
     </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__ide/vscode/extension-eslint"
-            href="#ide/vscode/extension-eslint"
-        >
-            <u-menu>ESLint</u-menu>
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__ide/vscode/extension-prettier"
-            href="#ide/vscode/extension-prettier"
-        >
-            <u-menu>Prettier</u-menu>
-        </a>
-    </li>
 </ul><h4>🏷️ Редакторы код</h4><ul>
     <li>
         <a
@@ -293,53 +273,6 @@
 <ul class="list-point">
     <li><u-code-text>Ctrl</u-code-text> + <u-code-text>Пробел</u-code-text> - при клике рядом с неимпортированным компонентом, добавляет <u>import</u> этого компонента</li>
 </ul>
-
-</div><div id="ide/vscode/extension-eslint"><h2>ESLint</h2>
-
-<ul class="list-point">
-    <li><u-code-text>Ctrl</u-code-text> + <u-code-text>Shift</u-code-text> + <u-code-text>P</u-code-text></li>
-    <li>ESLint: Fix all auto-fixable Problems</li>
-    <li>Фиксит на основе конфига ESLint проекта</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Disable</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js step" title="">
-// eslint-disable
-disable для всего файла (прописывается в начале файла)
-</v-code>
-
-<v-code lang="js step" title="">
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-&lt;Formik onSubmit={() =&gt; {}}&gt;&lt;/Formik&gt;
-</v-code>
-
-<v-code lang="js step" title="">
-// eslint-disable-next-line no-console
-console.log('Hello');
-</v-code>
-
-<ul class="list-point">
-    <li>Обработка ошибки <i>"Too many nested callbacks (4). Maximum allowed is 3"</i> (цикл в цикле)</li>
-</ul>
-<v-code lang="js step" title="">
-// eslint-disable-next-line max-nested-callbacks
-foo1(function() {
-    foo2(function() {
-        foo3(function() {
-            foo4(function() {
-                // Do something
-            });
-        });
-    });
-});
-</v-code>
-</div><div id="ide/vscode/extension-prettier"><h2>Prettier - Code formatter</h2>
-
-<u-link-wrapper>
-    <a href="https://prettier.io/" target="_blank">https://prettier.io/</a>
-</u-link-wrapper>
 
 </div><div id="ide/editors/atom"><h2>Информация</h2>
 

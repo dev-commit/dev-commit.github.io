@@ -87,6 +87,7 @@ const ARR_LINKS = [
     { page: 'git',                     theme: 'crimson',  title: action+'Git' },
     { page: 'typescript',              theme: 'crimson',  title: action+'TypeScript' },
     { page: 'webpack',                 theme: 'crimson',  title: 'Webpack' },
+    { page: 'linters',                 theme: 'crimson',  title: 'ESLint | Prettier' },
     { page: 'npm',                     theme: 'brown',    title: 'NPM | Yarn' },
     { page: 'cmd',                     theme: 'brown',    title: 'CMD' },
     { page: 'gulp',                    theme: 'gray',     title: 'Gulp' },
