@@ -19,7 +19,7 @@ emoji = {
     coin:      '🪙 ',
     label:     '🏷️ ',
     icecream:  '🍧 ',
-}
+};
 
 // getLink(root, 'info'),      // => main/info
 // getLink(root, 'install'),   // => main/install'
@@ -27,8 +27,6 @@ emoji = {
 // getLink(root, 'variants'),  // => main/variants
 // getLink(root, 'structure'), // => main/structure
 // getLink(root, 'algoritm'),  // => main/algoritm
-
-
 
 function getLink(root, item, updated = false) {
     function checkUp() {
@@ -45,7 +43,7 @@ function getLink(root, item, updated = false) {
         case 'structure': return [root+'main/structure', emoji.code+'Структура', false, checkUp()];
         case 'algoritm':  return [root+'main/algoritm',  emoji.star+'Алгоритм', false, checkUp()];
     }
-}
+};
 
 function setTheme(tag, arr) {
     let resultTag = '';
@@ -66,7 +64,7 @@ function setTheme(tag, arr) {
     });
 
     return result.join(' ');
-}
+};
 
 var up = `<u-inline-border></u-inline-border>`;
 
@@ -74,7 +72,7 @@ function setHighlightCode() {
     document.querySelectorAll('pre code').forEach((block) => {
         hljs.highlightBlock(block);
     });
-}
+};
 
 function setActiveLink(file) {
     const links = document.querySelectorAll('.menu-link');
@@ -85,7 +83,7 @@ function setActiveLink(file) {
 
     const currentLink = document.getElementById(file+'link');
     currentLink.classList.add('menu-link-active');
-}
+};
 
 //----------------------------------------
 // Clipboard
@@ -98,12 +96,12 @@ function setClipboard() {
             copyToClipboard(e.target);
         })
     })
-}
+};
 
 // Clear current selection
 function clearClipboard() {
     window.getSelection().removeAllRanges();
-}
+};
 
 function copyToClipboard(element) {
     let range = document.createRange();
@@ -114,7 +112,7 @@ function copyToClipboard(element) {
     window.getSelection().addRange(range);
     document.execCommand('copy');
     clearClipboard();
-}
+};
 
 //----------------------------------------
 // localStorage
@@ -127,8 +125,8 @@ function getLocalStorage(key) {
     }
 
     return '';
-}
+};
 
 function setLocalStorage(key, data) {
     localStorage.setItem(key, JSON.stringify(data));
-}
+};
