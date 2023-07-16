@@ -2,7 +2,7 @@ const fs = require('fs');
 const nodeEval = require('node-eval');
 
 import { createDir } from './utils/dir';
-import { getIndexHTML } from './html/html-page';
+import { renderPage } from './templates/renderPage';
 
 const PATH_PAGES = 'pages';
 
@@ -12,7 +12,7 @@ nodeEval(fs.readFileSync('./@modules/@links.js', 'utf8'));
 
 ARR_LINKS.forEach(module => {
     if (module) {
-        const page = getIndexHTML({
+        const page = renderPage({
             up: '../',
             title: module.title,
             page: module.page,

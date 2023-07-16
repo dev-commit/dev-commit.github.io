@@ -1,7 +1,7 @@
 const nodeEval = require('node-eval');
 const fs = require('fs');
 
-const getListHTML = (id, title) => (`
+const renderMenu = (id, title) => (`
     <li>
         <a
             class="menu-link"
@@ -13,7 +13,7 @@ const getListHTML = (id, title) => (`
     </li>
 `);
 
-export const getThemesHTML = (page) => {
+export const renderThemes = (page) => {
     nodeEval(fs.readFileSync('src/js/utils.js', 'utf8'));
     nodeEval(fs.readFileSync(`@themes/${page}/build-${page}.js`, 'utf8'));
 
@@ -30,7 +30,7 @@ export const getThemesHTML = (page) => {
                 const content = fs.readFileSync(file, 'utf8');
                 const id = elements[0];
 
-                menu += getListHTML(id, elements[1]);
+                menu += renderMenu(id, elements[1]);
                 html += `<div id="${id}">${content}</div>`;
             }
         })

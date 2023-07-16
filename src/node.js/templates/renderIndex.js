@@ -1,4 +1,4 @@
-export const getIndexPageHTML = (title) => (`
+export const renderIndex = (title) => (`
     <!DOCTYPE html>
     <html>
     <head>

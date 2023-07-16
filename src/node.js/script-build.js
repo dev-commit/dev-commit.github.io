@@ -1,9 +1,9 @@
 const fs = require('fs');
 const nodeEval = require('node-eval');
 
-import { getThemesHTML } from './html/html-themes';
 import { createDir } from './utils/dir';
-import { getIndexHTML } from './html/html-page';
+import { renderThemes } from './templates/renderThemes';
+import { renderPage } from './templates/renderPage';
 
 const PATH_PAGES = 'build';
 
@@ -13,9 +13,9 @@ nodeEval(fs.readFileSync('./@modules/@links.js', 'utf8'));
 
 ARR_LINKS.forEach(module => {
     if (module) {
-        const { html, menu } = getThemesHTML(module.page);
+        const { html, menu } = renderThemes(module.page);
 
-        const page = getIndexHTML({
+        const page = renderPage({
             up: '../',
             title: module.title,
             page: module.page,
