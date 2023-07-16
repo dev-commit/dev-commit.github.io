@@ -47,7 +47,7 @@ export const getIndexHTML = ({ up, title, page, menu, content }) => (`
         <head>
             <title>${title}</title>
             <meta charset="UTF-8">
-            <link rel="icon" type="image/png" href="${up}src/img/favicon.svg">
+            <link rel="icon" type="image/png" href="${up}favicon.svg">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
             <script src="${up}src/js/utils.js"></script>
