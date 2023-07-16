@@ -1,5 +1,4 @@
-
-const PATH = 'C:/Users/Tony/Desktop/Repo/dev-commit.github.io';
+import { nodeConfig } from '../../../custom/nodeConfig';
 
 const getMenuHTML = () => (`
     <slot v-for="itemTitle in themesContent">
@@ -31,7 +30,7 @@ const getMenuHTML = () => (`
                     <a
                         v-if="isLocalhost"
                         class="menu-link-vscode"
-                        :href="'vscode://file/'+'${PATH}'+'/@themes/'+itemTheme[0]+'.html'">
+                        :href="'vscode://file/'+'${nodeConfig.vscode}'+'/@themes/'+itemTheme[0]+'.html'">
                     </a>
                 </li>
                 <hr v-else />
@@ -47,7 +46,7 @@ export const getIndexHTML = ({ up, title, page, menu, content }) => (`
         <head>
             <title>${title}</title>
             <meta charset="UTF-8">
-            <link rel="icon" type="image/png" href="${up}favicon.svg">
+            <link rel="icon" type="image/png" href="${up}custom/favicon.svg">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
             <script src="${up}src/js/utils.js"></script>

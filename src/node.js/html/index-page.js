@@ -1,8 +1,8 @@
-
+export const getIndexPageHTML = (title) => (`
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Dev Commit</title>
+        <title>${title}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="custom/favicon.svg">
@@ -60,3 +60,4 @@
         <script src="src/vue.js/index.js"></script>
     </body>
     </html>
+`);

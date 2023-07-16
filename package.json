@@ -3,8 +3,10 @@
     "version": "0.1.0",
     "scripts": {
         "build": "node -r esm ./src/node.js/script-build.js",
+        "index": "node -r esm ./src/node.js/script-index.js",
         "pages": "node -r esm ./src/node.js/script-pages.js",
-        "deploy": "npm run build && npm run pages"
+        "deploy": "npm run build && npm run pages",
+        "all": "npm run index && npm run build && npm run pages"
     },
     "dependencies": {
         "esm": "^3.2.25",
