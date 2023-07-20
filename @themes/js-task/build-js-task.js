@@ -49,7 +49,7 @@ ARR_MODULE = [
         themes: [
             [root+'algoritms/anagram',            emoji.star+'Anagram', false, 'done'],
             [root+'algoritms/palindrome',         emoji.star+'Palindrome', false, 'done'],
-            [root+'algoritms/compose',            emoji.star+'Compose'],
+            [root+'algoritms/compose',            emoji.star+'Compose', false, 'done'],
             [root+'algoritms/memoization',        emoji.star+'Memoization'],
             [root+'algoritms/duplicate',          emoji.star+'Duplicate Array'],
         ]

@@ -1449,42 +1449,84 @@ const isPalindrom = str => {
 </v-code>
 </div><div id="js-task/algoritms/compose"><h2>Compose</h2>
 
-<!------------------------------------------------------------->
-<h4>Постановка задачи</h4>
-<!------------------------------------------------------------->
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Постановка задачи</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li>Написать функцию <em>compose</em>, <em>add</em>, <em>mul</em></li>
-    <li><u>add</u> и <u>mul</u> - каррированные функции (только на 2 вызова)</li>
-    <li>Функция <u>compose</u> принимает неограниченное кол-во функций и применяет эти функции в обратном порядке</li>
+    <li>Написать функцию <em>compose</em>, которая принимает неограниченное кол-во функций и применяет эти функции в обратном порядке</li>
 </ul>
 
-<v-code lang="js" title="">
-const composed = compose(mul(2), add(5), add(2));
-console.log(composed(3)); // 20 
-console.log([1, 2, 6].map(composed)); // [16, 18, 26]
-</v-code>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Решение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
-<h4>Решение</h4>
+<h4>Одно значение в возвращаемой функции</h4>
 <!------------------------------------------------------------->
-<v-code lang="js" title="">
-function compose(...rest) {  
-	return function(count) {
+
+<h5>Результат выполнения</h5>
+<v-code lang="js none" title="">
+const a1 = compose(mul(2), add(5), add(2))(3); // => 20 
+</v-code>
+
+<h5>Решение</h5>
+<v-code lang="js border" title="">
+const compose = (...rest) => {
+	return (value) => {
 		return rest.reduceRight((prevValue, currentValue) => {
 			return currentValue(prevValue);
-		}, count);
+		}, value);
 	}
 }
-function add(count1) {
-	return function(count2) {
+</v-code>
+
+<h5>Вспомогательные функции</h5>
+<v-code lang="js none" title="">
+// <em>add</em> и <em>mul</em> - каррированные функции
+const add = (count1) => {
+	return (count2) => {
 		return count1 + count2;
 	}
 }
-function mul(count1) {
-	return function(count2) {
+const mul = (count1) => {
+	return (count2) => {
 		return count1 * count2;
 	}
 }
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Массив значений в возвращаемой функции</h4>
+<!------------------------------------------------------------->
+<h5>Результат выполнения</h5>
+<v-code lang="js none" title="">
+// Равносильно: square(double(2))
+const a1 = compose(square, double)(2); // => 16
+
+// Равносильно: square(double(sum(3, 4)))
+const a2 = compose(square, double, sum)(3, 4); // => 196
+</v-code>
+
+<h5>Решение</h5>
+<v-code lang="js border" title="">
+const compose = (...rest) => {
+	return (...values) => {
+		return rest.reduceRight((prevValue, currentValue, index) => {
+			// Дополнительная проверка
+			if (index === rest.length - 1) {
+				return currentValue(...prevValue); 
+			}
+			return currentValue(prevValue);
+		}, values);
+	}
+}
+</v-code>
+
+<h5>Вспомогательные функции</h5>
+<v-code lang="js none" title="">
+const square = (x) => x * x;
+const double = (x) => x * 2;
+const sum = (a, b) => a + b;
 </v-code>
 </div><div id="js-task/algoritms/memoization"><h2>Мемоизация</h2>
 
@@ -1545,12 +1587,12 @@ toUpperMemoized('abcdef') // не выполнится
 </div><div id="js-task/algoritms/duplicate"><h2>Duplicate</h2>
 
 <v-code lang="js" title="">
-console.log([1, 2, 3, 4].duplicate()) // [1, 2, 3, 4, 1, 2, 3, 4]
+console.log([1, 2, 3, 4].duplicate()); // [1, 2, 3, 4, 1, 2, 3, 4]
 Array.prototype.duplicate = function() {
     return [...this, ...this];
 }
 
-console.log([1, 2, 3, 4].duplicate()) // [1, 2, 3, 4, 1, 2, 3, 4]
+console.log([1, 2, 3, 4].duplicate()); // [1, 2, 3, 4, 1, 2, 3, 4]
 Array.prototype.duplicate = function() {
     return this.concat(this);
 }
