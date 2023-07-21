@@ -1673,16 +1673,28 @@ c[a] === c[b]	// => true
 
 </div><div id="js-task/objects/shallow-equal"><h2>Поверхностное сравнение объектов</h2>
 
-<v-code lang="js" title="">
+<ul class="list-point">
+	<li>Объекты сравниваются по ссылки: если структура объектов одинаковая, но разные ссылки, то результатом сравнения будет false</li>
+	<li>Решение показывает сравнение объектов только первого уровня вложенности</li>
+</ul>
+
+<h5>Результат выполнения</h5>
+<v-code lang="js none" title="">
 const obj1 = {
-	name: 'MyName'
+	name: 'Jack'
 }
 const obj2 = {
-	name: 'MyName',
-	'asas': 'asass'
+	name: 'Jack'
 }
 
-function shallowEqual (obj1, obj2) {
+const a1 = obj1 === obj2; // => false
+const a2 = shallowEqual(obj1, obj2); // => true
+</v-code>
+
+<h5>Решение</h5>
+<v-code lang="js border" title="">
+const shallowEqual = (obj1, obj2) => {
+	// Передали не объекты
 	if (obj1 === obj2){
 		return true;
 	}
@@ -1690,8 +1702,9 @@ function shallowEqual (obj1, obj2) {
 	const keys1 = Object.keys(obj1);
 	const keys2 = Object.keys(obj2);
 
+	// Несовпадает кол-во ключей объектов
 	if (keys1.length !== keys2.length) {
-		return false
+		return false;
 	}
 
 	for (let key in obj1) {
@@ -1702,8 +1715,6 @@ function shallowEqual (obj1, obj2) {
 
 	return true;
 }
-
-shallowEqual(obj1, obj2);
 </v-code>
 </div><div id="js-task/objects/deep-equal"><h2>Глубокое сравнение объектов</h2>
 
