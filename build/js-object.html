@@ -189,6 +189,16 @@
     <li>
         <a
             class="menu-link"
+            id="id__js-object/conversion/toString-vs-valueOf"
+            href="#js-object/conversion/toString-vs-valueOf"
+        >
+            ⭐️ toString vs valueOf
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
             id="id__js-object/conversion/toString"
             href="#js-object/conversion/toString"
         >
@@ -882,6 +892,62 @@ const a = Object.<u-code>isFrozen</u-code>(person);
 if ({} && []) {
 	alert( "Все объекты - true!" ); // alert сработает
 }
+</v-code>
+</div><div id="js-object/conversion/toString-vs-valueOf"><h2>toString vs valueOf</h2>
+
+<v-two><template v-slot:first>
+<ul class="list-point">
+    <li>По умолчанию будет использоваться метод <em>valueOf</em></li>
+    <li>Если нет <em>valueOf</em>, то будет использоваться <em>toString</em></li>
+</ul>
+<v-code lang="js" title="">
+const user = {
+	name: 'Tony',
+	age: 23,
+	toString: function() {
+		return this.name;
+	},
+	valueOf: function() {
+		return this.age;
+	},
+};
+
+console.log(user + 1);       // => 24
+console.log('Hello' + user); // => "Hello23"
+</v-code>
+</template><template v-slot:last>
+<ul class="list-point">
+    <li>Собственная реализация метода <em>toString</em></li>
+    <li>Без реализации метода <em>valueOf</em></li>
+</ul>
+<v-code lang="js" title="">
+const user = {
+	name: 'Tony',
+	age: 23,
+	toString: function() {
+		return this.name;
+	},
+	// valueOf: function() {
+	// 	return this.age;
+	// },
+};
+
+console.log(user + 1);       // => "Tony1"
+console.log('Hello' + user); // => "HelloTony"
+</v-code>
+</template></v-two>
+
+<ul class="list-point">
+    <li>Без реализации методов <em>toString</em> и <em>valueOf</em></li>
+</ul>
+<v-code lang="js" title="">
+const user = {
+	name: 'Tony',
+	age: 23,
+};
+
+console.log(user + 1);       // => "[object Object]1"
+console.log('Hello' + user); // => "Hello[object Object]"
 </v-code>
 </div><div id="js-object/conversion/toString"><h2>Преобразование toString</h2>
 

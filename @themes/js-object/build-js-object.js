@@ -31,10 +31,11 @@ ARR_MODULE = [
         title: 'Преобразования объектов',
         accent: true,
         themes: [
-            [root+'conversion/logical', 'Логическое'],
-            [root+'conversion/toString', setTheme(1, ['toString'])+' Строковое'],
-            [root+'conversion/valueOf',  setTheme(1, ['valueOf'])+ ' Численное'],
-            [root+'conversion/toPrimitive',  setTheme(1, ['Symbol.toPrimitive'])],
+            [root+'conversion/logical',             'Логическое'],
+            [root+'conversion/toString-vs-valueOf', emoji.star+'toString vs valueOf', false, 'done'],
+            [root+'conversion/toString',            setTheme(1, ['toString'])+' Строковое'],
+            [root+'conversion/valueOf',             setTheme(1, ['valueOf'])+ ' Численное'],
+            [root+'conversion/toPrimitive',         setTheme(1, ['Symbol.toPrimitive'])],
         ]
     },
     {
