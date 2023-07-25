@@ -99,7 +99,8 @@ ARR_MODULE = [
             [root+'react/useState',  setTheme(3, ['useState'])],
             [root+'react/useRef',    setTheme(3, ['useRef'])],
             [root+'react/children',  setTheme(3, ['Children'])],
-            [root+'react/types',     'Типы'],
+            [root+'react/services',  'Services'],
+            [root+'react/types',     'Types'],
             [root+'react/samples',   emoji.code+'Примеры'],
         ]
     },
