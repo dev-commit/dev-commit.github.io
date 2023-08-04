@@ -1,0 +1,376 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Auth</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/auth/build-auth.js"></script>
+        </head>
+        <body>
+
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="link" v-html="'Auth'"></a>
+                    </div>
+                    <h4>🏷️ JWT</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__auth/jwt/info"
+            href="#auth/jwt/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+</ul><h4>🏷️ Сервисы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__auth/services/auth0"
+            href="#auth/services/auth0"
+        >
+            <u-menu>auth0</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__auth/services/okta"
+            href="#auth/services/okta"
+        >
+            <u-menu>okta</u-menu>
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="auth/jwt/info"><h2>Информация</h2>
+
+<u-link-wrapper>
+    <a href="https://jwt.io/" target="_blank">https://jwt.io/</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>JSON Web Tokens</li>
+</ul>
+
+
+</div><div id="auth/services/auth0"><h2>Auth0</h2>
+
+<u-link-wrapper>
+    <a href="https://auth0.com/" target="_blank">https://auth0.com/</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Auth0</u-text-define> - инструмент аутентификации как сервиса, который упрощает реализацию функций, связанных с проверкой подлинности для вашего приложения или сайта</li>
+</ul>
+</div><div id="auth/services/okta"><h2>Okta</h2>
+
+<u-link-wrapper>
+    <div><a href="https://www.okta.com/" target="_blank">https://www.okta.com/</a> Okta</div>
+    <div><a href="https://cli.okta.com/" target="_blank">https://cli.okta.com/</a> Okta CLI</div>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Vue.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Установка</h4>
+<!------------------------------------------------------------->
+<v-pre-npm>
+npm i --save-dev <u-code-accent>@okta/okta-auth-js</u-code-accent>
+npm i --save-dev <u-code-accent>@okta/okta-vue</u-code-accent>
+</v-pre-npm>
+
+<!------------------------------------------------------------->
+<h4>API</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+import { useAuth } from '@okta/okta-vue';
+
+const auth = useAuth();
+</v-code>
+
+<h5>Authorization</h5>
+<v-code lang="js step" title="">
+// Авторизация с редиректом
+// Откроется форма Okta для авторизации
+// После авторизации произойдет редирект на redirectUri, указанный в конфиге
+// redirectUri: 'http://localhost:8080/login/callback',
+auth.token.getWithRedirect({
+	responseType: 'id_token'
+});
+
+// Авторизация без редиректа
+// Вернет Promise
+auth.signInWithCredentials({
+	username: 'username',
+	password: 'password'
+})
+</v-code>
+
+<h5>tokenManager</h5>
+<v-code lang="js step" title="">
+// Добавляет данные в tokenManager (хранится в LocalStorage) в момент получения токена
+auth.tokenManager.add('idToken', response.tokens.idToken);
+auth.tokenManager.setTokens({ accessToken, idToken });
+
+// Читает данные из tokenManager (LocalStorage) в момент валидации токена tokenManager
+auth.tokenManager.get('idToken').then(data => console.log('tokenManager', data));
+
+const expireTime = auth.tokenManager.getExpireTime(idToken);
+</v-code>
+
+<h5>session</h5>
+<v-code lang="js step" title="">
+// Получить данные о текущей сессии (активна примерно 2 часа)
+auth.session.get().then(data => console.log('session', data));
+</v-code>
+
+<v-code lang="js" title="">
+// Без запроса на Backend
+auth.token.verify(idToken).then(data => console.log('verify', data));
+// С заросом на Backend
+auth.token.getUserInfo(accessToken, idToken).then(data => console.log('getUserInfo', data));
+
+const user = auth.getUser().then(data => console.log(data));
+
+// undefined
+const accessToken = auth.getAccessToken();
+console.log(accessToken);
+
+const authState = auth.authStateManager.getAuthState();
+console.log(authState);
+
+// Вероятно, берет из getAuthState()
+// Всегда возвращает false
+const isAuthenticated = auth.isAuthenticated().then(data => console.log(data));
+console.log(isAuthenticated);
+
+const a = auth.token.isLoginRedirect();
+console.log(a);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Config</h4>
+<!------------------------------------------------------------->
+<v-tabs :tabs="['oktaConfig.js', 'client.js']">
+
+<template v-slot:1>
+<v-path>src\.vuepress\oktaConfig.js</v-path>
+<v-code lang="js" title="">
+const clientId = '***';
+const domain = 'dev-***.okta.com';
+
+export const oktaConfig = {
+    issuer: `https://${domain}/oauth2/default`,
+    clientId: clientId,
+    // redirectUri: window.location.origin + '/login/callback',
+    // redirectUri: 'http://localhost:8080/login/callback',
+    scopes: ['openid', 'profile', 'email']
+};
+</v-code>
+</template>
+
+<template v-slot:2>
+<v-path>src\.vuepress\client.js</v-path>
+<v-code lang="js" title="">
+import { defineClientConfig } from '@vuepress/client'
+
+import { OktaAuth } from '@okta/okta-auth-js';
+import OktaVue from '@okta/okta-vue';
+import { oktaConfig } from './oktaConfig';
+
+const oktaAuth = new OktaAuth(oktaConfig);
+
+export default defineClientConfig({
+    enhance({ app, router, siteData }) {
+        app.use(OktaVue, { oktaAuth });
+    },
+    setup() {},
+    layouts: {},
+    rootComponents: [],
+})
+</v-code>
+</template>
+</v-tabs>
+
+<!------------------------------------------------------------->
+<h4>Components</h4>
+<!------------------------------------------------------------->
+<v-tabs :tabs="['Auth.vue', 'AuthCheck.vue', 'config.js', 'index.md']">
+
+<template v-slot:1>
+<v-path>src\.vuepress\components\auth\Auth.vue</v-path>
+<v-code lang="js" title="">
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;button @click="login"&gt;Login&lt;/button&gt;&lt;br&gt;
+        &lt;button @click="logout"&gt;Logout&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { useAuth } from '@okta/okta-vue';
+
+const auth = useAuth();
+
+const login = async () =&gt; {
+    auth.signInWithCredentials({
+      username: '***@gmail.ru',
+      password: '***'
+    })
+        .then(transaction =&gt; {
+            if (transaction.status === 'SUCCESS') {
+                return auth.token.getWithoutPrompt({
+                    responseType: ['id_token', 'token'],
+                    sessionToken: transaction.sessionToken,
+                }).then(response =&gt; {
+                    const accessToken = response.tokens.accessToken;
+                    const idToken = response.tokens.idToken;
+
+                    localStorage.accessToken = JSON.stringify(accessToken);
+                    localStorage.idToken = JSON.stringify(idToken);
+
+                    console.log('Login');
+                })
+            }
+        })
+        .catch(err =&gt; {
+            console.error(err.message);
+        })
+}
+
+const logout = async () =&gt; {
+    await auth.signOut()
+}
+&lt;/script&gt;
+</v-code>
+</template>
+
+<!--  -->
+
+<template v-slot:2>
+<v-path>src\.vuepress\components\auth\AuthCheck.vue</v-path>
+<v-code lang="js" title="">
+&lt;template&gt;
+    &lt;button v-on:click='checkLogin'&gt;AuthCheck&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { useAuth } from '@okta/okta-vue';
+
+const auth = useAuth();
+
+const checkLogin = async () =&gt; {
+    const accessToken = JSON.parse(localStorage.accessToken);
+    const idToken = JSON.parse(localStorage.idToken);
+
+    // auth.session.get().then(data =&gt; console.log('session', data));
+}
+&lt;/script&gt;
+</v-code>
+</template>
+
+<!--  -->
+
+<template v-slot:3>
+<v-path>src\.vuepress\config.js</v-path>
+<v-code lang="js" title="">
+import { defineUserConfig } from 'vuepress';
+import { getDirname, path } from '@vuepress/utils';
+import { registerComponentsPlugin } from '@vuepress/plugin-register-components';
+
+const __dirname = getDirname(import.meta.url);
+
+export default defineUserConfig({
+	plugins: [
+		registerComponentsPlugin({
+			components: {
+<u-code-wrapper>
+				['Auth']: path.resolve(__dirname, './components/auth/Auth.vue')
+				['AuthCheck']: path.resolve(__dirname, './components/auth/AuthCheck.vue')
+
+</u-code-wrapper>
+			},
+		}),
+	]
+})
+</v-code>
+</template>
+
+<!--  -->
+
+<template v-slot:4>
+<v-path>src\index.md</v-path>
+<v-code lang="html" title="">
+&lt;Auth /&gt;
+&lt;AuthCheck /&gt;
+</v-code>
+</template>
+
+</v-tabs>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+        </body>
+    </html>

@@ -222,6 +222,42 @@ Vue.component('v-sandbox', {
 	`
 })
 
+Vue.component('v-tabs', {
+	props: ['tabs'],
+	data() {
+		return {
+			currentTab: 1,
+		};
+	},
+	mounted() {
+		this.$refs.content.innerHTML = this.$refs[this.currentTab][0].innerHTML;
+	},
+	methods: {
+		menu(i) {
+		  this.$refs.content.innerHTML = this.$refs[i][0].innerHTML;
+		  this.currentTab = i;
+		},
+	},
+    template: `
+		<div class="v-tabs-container">
+			<div class="v-tabs-tabs">
+				<div v-for="(item, i) in tabs" :key="i">
+					<button
+						class="v-tabs-button"
+						:class="i + 1 === currentTab && 'v-tabs-active'"
+						@click="menu(i + 1)"
+						v-html="item"
+					></button>
+					<div :ref="i + 1" class="v-tabs-hidden">
+						<slot :name="i + 1"></slot>
+					</div>
+				</div>
+			</div>
+			<div class="v-tabs-content" ref="content">Content</div>
+		</div>
+	`,
+})
+
 const app = new Vue({
 	el: '#content'
 })

@@ -11,7 +11,7 @@ ARR_MODULE = [
             [root+'main/structure-files',       emoji.theory+'Структура проекта', false, 'done'],
             [],
             getLink(root, 'info'),
-            ['react-js/reconciler/virtual-dom', emoji.theory+'Virtual DOM (Общее)', false, 'done'],
+            ['react-js/reconciler/virtual-dom', emoji.theory+'Virtual DOM (Общее)'],
         ]
     },
     {
