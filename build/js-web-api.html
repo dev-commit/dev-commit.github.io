@@ -600,6 +600,32 @@ function dbSelect() {
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Флаг httpOnly</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Флаг <em>httpOnly</em> позволяет сделать доступной Cookie только с сервера, js не может получить доступ к Cookie</li>
+	<li>В cookie можно положить Refresh Token</li>
+</ul>
+
+<v-code lang="js" title="">
+const express = require("express");
+const cookie = require("cookie");
+
+const authRouter = express.Router();
+
+authRouter.get("/logout", (req, res) => {
+	res.setHeader(
+		"Set-Cookie",
+		cookie.serialize("refreshToken", "", {
+			<u-code>httpOnly</u-code>: true,
+			maxAge: 0,
+		})
+	);
+	res.sendStatus(200);
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Типы куки</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ol class="list-num">

@@ -1,0 +1,18 @@
+<h2>Авторизация с помощью сессий</h2>
+
+<ul class="list-point">
+    <li>Используются Cookie и сама сессия хранится в БД на сервере</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li>Клиент присылает запрос на <u>Сервер</u> sdsd</li>
+    <li>Сервер сохраняет информацию о Клиенте и генерирует случайный ID</li>
+    <li>Сервер отправляет ID клиенту в Cookies</li>
+    <li>Каждый запрос к Серверу Клиент подписывает полученным ID</li>
+    <li>Сервер смотрит в хранилище и если все хорошо, то работает с пользователем</li>
+</ol>
+
+<img src="/@img/auth/session-cookie.png" width="800px" />

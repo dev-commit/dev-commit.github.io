@@ -164,6 +164,21 @@ b {
 	font-weight: 600;
 	color: rgba(var(--color-violet), .9);
 }
+u {
+	text-decoration: none;
+	position: relative;
+	font-family: Roboto-Regular;
+}
+u::after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	border-bottom: 1px solid rgb(var(--color-gray-30));
+}
+
 p {
 	padding: 0 26px;
 }
@@ -212,7 +227,7 @@ TABLE
 /***************************************************/
 table {
 	font-size: 14px;
-	line-height: 1;
+	line-height: 1.3;
 }
 table td,
 table th {

@@ -1,0 +1,64 @@
+<h2>Токены</h2>
+
+<ul class="list-point">
+    <li>В каждом токене есть поле <u>"iat"</u> (issue at) - момент, когда токен был выпущен</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Виды токенов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<table class="half-width" width="750px">
+    <tr>
+        <th>Access Token</th>
+        <th>Refresh Token</th>
+    </tr>
+    <tr>
+        <td><em>› Авторизация</em>: Сервер присылает Access Token, который можно храниить в LocalStorage или Redux Store</td>
+        <td><em>› Авторизация</em>: Сервер не присылает Refresh Token, а устанавливает его в Cookie с флагом <u>httpOnly</u>, чтобы только Сервер имел к ним доступ. Время жизни Cookie будет такое же как у Refresh Token</td>
+    </tr>
+    <tr>
+        <td><em>› Клиент</em>: отправляет токен на каждый запрос на Сервер в Authorization Headers. В Headers токен будет вида: <u>"Bearer токен"</u></td>
+        <td><em>› Клиент</em>: отправляет токен для получения новой пары Access Token + Refresh Token</td>
+    </tr>
+    <tr>
+        <td><em>› Использование</em>: многоразовый</td>
+        <td><em>› Использование</em>: одноразовый</td>
+    </tr>
+    <tr>
+        <td><em>› Время жизни</em>: около 10 минут</td>
+        <td><em>› Время жизни</em>: больше чем у Access Token</td>
+    </tr>
+</table>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Структура JWT токена</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li><em>Header</em> - тип токена</li>
+    <li><em>Payload</em> - данные, которые прислали в ответ</li>
+    <li><em>Verify Signature</em> - криптонрафическая подпись, полученная путем выполнения функции, описанной в поле <u>Header -> "alg"</u></li>
+</ol>
+
+<img src="/@img/auth/jwt-token-structure.png" width="800px" />
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка Cookie</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const express = require("express");
+const cookie = require("cookie");
+
+const authRouter = express.Router();
+
+authRouter.get("/logout", (req, res) => {
+	res.setHeader(
+		"Set-Cookie",
+		cookie.serialize("refreshToken", "", {
+			httpOnly: true,
+			maxAge: 0,
+		})
+	);
+	res.sendStatus(200);
+});
+</v-code>
