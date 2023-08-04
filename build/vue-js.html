@@ -72,7 +72,7 @@
             id="id__vue-js/usage/cdn"
             href="#vue-js/usage/cdn"
         >
-            🧲 CDN <u-code-text>Vue 2</u-code-text>
+            🧲 CDN <u-code-accent>Vue 2</u-code-accent>
         </a>
     </li>
 
@@ -82,7 +82,7 @@
             id="id__vue-js/usage/vue-cli"
             href="#vue-js/usage/vue-cli"
         >
-            🧲 Vue CLI <u-code-text>Vue 2</u-code-text>
+            🧲 Vue CLI <u-code-accent>Vue 2</u-code-accent>
         </a>
     </li>
 
@@ -756,10 +756,13 @@ new Vue({
 	› <s>main.js</s>
 </v-tree>
 
+<v-tabs :tabs="['main.js', 'App.vue', 'components/Header.vue']">
+
+<template v-slot:1>
 <!------------------------------------------------------------->
 <v-path>main.js</v-path>
 <!------------------------------------------------------------->
-<v-code lang="js dark" title="">
+<v-code lang="js" title="">
 import Vue from "vue";
 import App from "./App.vue";
 
@@ -774,11 +777,13 @@ new Vue({
 //   render: h => h(App)
 // }).$mount("#app");
 </v-code>
+</template>
 
+<template v-slot:2>
 <!------------------------------------------------------------->
 <v-path>App.vue</v-path>
 <!------------------------------------------------------------->
-<v-code lang="html dark" title="">
+<v-code lang="html" title="">
 &lt;template&gt;
   &lt;div id="app"&gt;
     &lt;img src="./assets/icon.png" width="200" /&gt;
@@ -814,11 +819,13 @@ h1 {
 }
 &lt;/style&gt;
 </v-code>
+</template>
 
+<template v-slot:3>
 <!------------------------------------------------------------->
 <v-path>components/Header.vue</v-path>
 <!------------------------------------------------------------->
-<v-code lang="html dark" title="">
+<v-code lang="html" title="">
 &lt;template&gt;
   &lt;div&gt;
     &lt;h1&gt;<span v-pre>{{ message }}</span>&lt;/h1&gt;
@@ -845,6 +852,9 @@ h1 {
 }
 &lt;/style&gt;
 </v-code>
+</template>
+
+</v-tabs>
 </div><div id="vue-js/usage/vite"><h2>Vite (Vue 3)</h2>
 
 <v-tree>
@@ -858,10 +868,13 @@ h1 {
 	› <s>main.js</s>
 </v-tree>
 
+<v-tabs :tabs="['main.js', 'App.vue', 'components/Header.vue']">
+
+<template v-slot:1>
 <!------------------------------------------------------------->
 <v-path>main.js</v-path>
 <!------------------------------------------------------------->
-<v-code lang="js dark" title="">
+<v-code lang="js" title="">
 import { createApp } from 'vue'
 import App from './App.vue'
 
@@ -869,11 +882,13 @@ import './assets/main.css'
 
 createApp(App).mount('#app')
 </v-code>
+</template>
 
+<template v-slot:2>
 <!------------------------------------------------------------->
 <v-path>App.vue</v-path>
 <!------------------------------------------------------------->
-<v-code lang="html dark" title="">
+<v-code lang="html" title="">
 &lt;template&gt;
   &lt;div id="app"&gt;
     &lt;img src="./assets/icon.png" width="200" /&gt;
@@ -900,11 +915,13 @@ h1 {
 }
 &lt;/style&gt;
 </v-code>
+</template>
 
+<template v-slot:3>
 <!------------------------------------------------------------->
 <v-path>components/Header.vue</v-path>
 <!------------------------------------------------------------->
-<v-code lang="html dark" title="">
+<v-code lang="html" title="">
 &lt;template&gt;
   &lt;div&gt;
     &lt;h1&gt;<span v-pre>{{ message }}</span>&lt;/h1&gt;
@@ -932,13 +949,16 @@ h1 {
 }
 &lt;/style&gt;
 </v-code>
+</template>
+
+</v-tabs>
 </div><div id="vue-js/lifecycle/vue2"><h2>Lifecycle Vue 2</h2>
 
 <v-two><template v-slot:first>
 	<!------------------------------------------------------------->
 	<h4>Диаграмма жизненного цикла</h4>
 	<!------------------------------------------------------------->
-	<img src="/@img/vue/lifecycle-vue2.png" width="550px">
+	<img src="/@img/vue/lifecycle-vue2.png" width="500px">
 </template><template v-slot:last>
 	<!------------------------------------------------------------->
 	<h4>Комментарии</h4>
@@ -987,7 +1007,7 @@ h1 {
 	<!------------------------------------------------------------->
 	<h4>Диаграмма жизненного цикла</h4>
 	<!------------------------------------------------------------->
-	<img src="/@img/vue/lifecycle-vue3.png" width="550px">
+	<img src="/@img/vue/lifecycle-vue3.png" width="500px">
 </template><template v-slot:last>
 	<!------------------------------------------------------------->
 	<h4>Хуки жизненного цикла экземпляра</h4>

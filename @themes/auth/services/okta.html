@@ -96,7 +96,9 @@ console.log(a);
 <v-tabs :tabs="['oktaConfig.js', 'client.js']">
 
 <template v-slot:1>
+<!------------------------------------------------------------->
 <v-path>src\.vuepress\oktaConfig.js</v-path>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 const clientId = '***';
 const domain = 'dev-***.okta.com';
@@ -112,7 +114,9 @@ export const oktaConfig = {
 </template>
 
 <template v-slot:2>
+<!------------------------------------------------------------->
 <v-path>src\.vuepress\client.js</v-path>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 import { defineClientConfig } from '@vuepress/client'
 
@@ -140,7 +144,9 @@ export default defineClientConfig({
 <v-tabs :tabs="['Auth.vue', 'AuthCheck.vue', 'config.js', 'index.md']">
 
 <template v-slot:1>
+<!------------------------------------------------------------->
 <v-path>src\.vuepress\components\auth\Auth.vue</v-path>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 &lt;template&gt;
     &lt;div&gt;
@@ -187,10 +193,10 @@ const logout = async () =&gt; {
 </v-code>
 </template>
 
-<!--  -->
-
 <template v-slot:2>
+<!------------------------------------------------------------->
 <v-path>src\.vuepress\components\auth\AuthCheck.vue</v-path>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 &lt;template&gt;
     &lt;button v-on:click='checkLogin'&gt;AuthCheck&lt;/button&gt;
@@ -211,10 +217,10 @@ const checkLogin = async () =&gt; {
 </v-code>
 </template>
 
-<!--  -->
-
 <template v-slot:3>
+<!------------------------------------------------------------->
 <v-path>src\.vuepress\config.js</v-path>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 import { defineUserConfig } from 'vuepress';
 import { getDirname, path } from '@vuepress/utils';
@@ -238,10 +244,10 @@ export default defineUserConfig({
 </v-code>
 </template>
 
-<!--  -->
-
 <template v-slot:4>
+<!------------------------------------------------------------->
 <v-path>src\index.md</v-path>
+<!------------------------------------------------------------->
 <v-code lang="html" title="">
 &lt;Auth /&gt;
 &lt;AuthCheck /&gt;

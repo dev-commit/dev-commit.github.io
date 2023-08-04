@@ -190,7 +190,7 @@ Vue.component('v-alert', {
 
 Vue.component('v-path', {
     template: `
-		<h4>
+		<h4 class="v-path-container">
 			<u-code-text>☄️</u-code-text>
 			<i>
 				<slot></slot>

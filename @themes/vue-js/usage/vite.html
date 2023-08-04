@@ -11,10 +11,13 @@
 	› <s>main.js</s>
 </v-tree>
 
+<v-tabs :tabs="['main.js', 'App.vue', 'components/Header.vue']">
+
+<template v-slot:1>
 <!------------------------------------------------------------->
 <v-path>main.js</v-path>
 <!------------------------------------------------------------->
-<v-code lang="js dark" title="">
+<v-code lang="js" title="">
 import { createApp } from 'vue'
 import App from './App.vue'
 
@@ -22,11 +25,13 @@ import './assets/main.css'
 
 createApp(App).mount('#app')
 </v-code>
+</template>
 
+<template v-slot:2>
 <!------------------------------------------------------------->
 <v-path>App.vue</v-path>
 <!------------------------------------------------------------->
-<v-code lang="html dark" title="">
+<v-code lang="html" title="">
 &lt;template&gt;
   &lt;div id="app"&gt;
     &lt;img src="./assets/icon.png" width="200" /&gt;
@@ -53,11 +58,13 @@ h1 {
 }
 &lt;/style&gt;
 </v-code>
+</template>
 
+<template v-slot:3>
 <!------------------------------------------------------------->
 <v-path>components/Header.vue</v-path>
 <!------------------------------------------------------------->
-<v-code lang="html dark" title="">
+<v-code lang="html" title="">
 &lt;template&gt;
   &lt;div&gt;
     &lt;h1&gt;<span v-pre>{{ message }}</span>&lt;/h1&gt;
@@ -85,3 +92,6 @@ h1 {
 }
 &lt;/style&gt;
 </v-code>
+</template>
+
+</v-tabs>

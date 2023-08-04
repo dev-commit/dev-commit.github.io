@@ -1,6 +1,6 @@
 root = 'vue-js/';
 
-const vue2 = ' <u-code-text>Vue 2</u-code-text>';
+const vue2 = ' <u-code-accent>Vue 2</u-code-accent>';
 const vue3 = ' <u-code-mod>Vue 3</u-code-mod>';
 
 ARR_MODULE = [
