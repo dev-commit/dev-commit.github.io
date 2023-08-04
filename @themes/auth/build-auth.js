@@ -10,9 +10,10 @@ ARR_MODULE = [
     {
         title: 'JWT',
         themes: [
-            [root+'jwt/info',      emoji.theory+'Информация'],
-            [root+'jwt/algoritm', 'Алгоритм работы'],
-            [root+'jwt/tokens',   'Токены'],
+            [root+'jwt/info',        emoji.theory+'Информация'],
+            [root+'jwt/algoritm',   'Алгоритм работы'],
+            [root+'jwt/tokens',     'Токены'],
+            [root+'jwt/secret-key', 'Secret Key'],
         ]
     },
     {
