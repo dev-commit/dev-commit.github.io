@@ -1,5 +1,8 @@
 const HIDDEN_MENU_STORE = 'HIDDEN_MENU_STORE';
 const LOCALHOST = '127.0.0.1';
+const MOBILE_WIDTH = 900;
+
+let currentIsHideMenu = false;
 
 new Vue({
     el: '#menu',
@@ -48,6 +51,14 @@ new Vue({
         if (url.indexOf(LOCALHOST) !== -1) {
             this.isLocalhost = true;
         }
+
+        window.addEventListener('resize', () => {
+            if (document.body.clientWidth < MOBILE_WIDTH) {
+                this.isHideMenu = true;
+            } else {
+                this.isHideMenu = getLocalStorage(HIDDEN_MENU_STORE);
+            }
+        })
     },
     created() {
         if (location.href.indexOf('build') === -1) {

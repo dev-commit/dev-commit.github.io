@@ -7,21 +7,29 @@
 
 <v-code lang="js" title="">
 const btn = document.getElementById('btn');
-btn.addEventListener('click', getButton);
-
-function getButton(event) {
-	const a = event.<u>type</u>;             // название события (н-р click)
-	const a = event.<u>target</u>;           // инициатор события
-	const a = event.<u>currentTarget</u>;    // элемент на котором сработал обработчик. Значение – обычно такое же, как и у this, но если обработчик является функцией-стрелкой или при помощи bind привязан другой объект в качестве this, то мы можем получить элемент из event.currentTarget
-	const a = event.<u>eventPhase</u>;       // номер фазы, на которой событие было поймано (Event.CAPTURING_PHASE=1, Event.AT_TARGET=2, Event.BUBBLING_PAGE=3)
-	const a = event.<u>timeStamp</u>;        // объект Date, указывающий, когда произошло событие
-	const a = event.<u>bubbles</u>;          // true если событие может всплывать по дереву элементов. события blur, focus, load, unload не всплывают
-	const a = event.<u>cancelable</u>;       // true если с этим событием связано действие по умолчанию и его можно отменить preventDefault
-	const a = event.<u>clientX</u>;          // координата X курсора в момент клика относительно окна, для событий мыши
-	const a = event.<u>clientY</u>;          // координата Y курсора в момент клика относительно окна, для событий мыши
-
-	event.<u>preventDefault()</u>;           // отключение действия события по умолчанию
-	event.<u>stopPropagation()</u>;          // прекращение всплытия
-	event.<u>stopImmediatePropagation()</u>; // прекращение всплытия и остановка обработки событий на текущем элементе
-}
+btn.addEventListener('click', (event) => console.log(<u-code>event</u-code>));
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объект события (Event)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h5>Возвращает объект/данные</h5>
+<ul class="list-point">
+	<li>event.<u-code-text>type</u-code-text> - название события (н-р click)</li>
+	<li>event.<u-code-text>target</u-code-text> - инициатор события</li>
+	<li>event.<u-code-text>currentTarget</u-code-text> - элемент на котором сработал обработчик. Значение – обычно такое же, как и у this, но если обработчик является функцией-стрелкой или при помощи bind привязан другой объект в качестве this, то мы можем получить элемент из event.currentTarget</li>
+	<li>event.<u-code-text>eventPhase</u-code-text> - номер фазы, на которой событие было поймано (Event.CAPTURING_PHASE=1, Event.AT_TARGET=2, Event.BUBBLING_PAGE=3)</li>
+	<li>event.<u-code-text>timeStamp</u-code-text> - объект Date, указывающий, когда произошло событие</li>
+	<li>event.<u-code-text>bubbles</u-code-text> - true если событие может всплывать по дереву элементов. события blur, focus, load, unload не всплывают</li>
+	<li>event.<u-code-text>cancelable</u-code-text> - true если с этим событием связано действие по умолчанию и его можно отменить preventDefault</li>
+	<li>event.<u-code-text>clientX</u-code-text> - координата X курсора в момент клика относительно окна, для событий мыши</li>
+	<li>event.<u-code-text>clientY</u-code-text> - координата Y курсора в момент клика относительно окна, для событий мыши</li>
+</ul>
+
+<h5>Методы</h5>
+<ul class="list-point">
+	<li>event.<u-code-text>preventDefault()</u-code-text> - отключение действия события по умолчанию</li>
+	<li>event.<u-code-text>stopPropagation()</u-code-text> - прекращение всплытия</li>
+	<li>event.<u-code-text>stopImmediatePropagation()</u-code-text> - прекращение всплытия и остановка обработки событий на текущем элементе</li>
+</ul>
