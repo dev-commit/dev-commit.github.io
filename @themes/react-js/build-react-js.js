@@ -5,9 +5,10 @@ ARR_MODULE = [
         title: 'Общее',
         themes: [
             getLink(root, 'install'),
-            [root+'main/version',    emoji.fire+'Версии'],
-            [root+'main/info',       emoji.theory+'Информация'],
-            [root+'main/patterns',   emoji.theory+'Шаблоны проектирования'],
+            [root+'main/create-react-app', setTheme(2, ['create-react-app'])],
+            [root+'main/version',          emoji.fire+'Версии'],
+            [root+'main/info',             emoji.theory+'Информация'],
+            [root+'main/patterns',         emoji.theory+'Шаблоны проектирования'],
         ]
     },
     {
@@ -80,7 +81,7 @@ ARR_MODULE = [
     {
         title: 'React Plugins',
         themes: [
-            [root+'react-plugins/create-react-app', setTheme(2, ['create-react-app'])],
+            
             [root+'react-plugins/classnames',       setTheme(2, ['classnames'])],
         ]
     },
