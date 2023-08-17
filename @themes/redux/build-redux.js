@@ -8,6 +8,8 @@ ARR_MODULE = [
             [root+'scheme/structure-realization', emoji.fire+'Структура реализации'],
             [root+'code/redux',                   emoji.code+'Redux'],
             [root+'code/react-redux',             emoji.code+'React-Redux'],
+
+            [root+'main/redux-compare',  setTheme(2, ['redux', 'react-redux', 'redux-toolkit'])],
         ]
     },
     {

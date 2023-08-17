@@ -8,8 +8,8 @@ const store = <u-code>createStore</u-code>(reducerFunction); // создание
 store.<u-code>getState</u-code>();                           // получить состояние store
 store.<u-code>subscribe</u-code>();                          // подписка на изменение store
 store.<u-code>dispatch</u-code>({                            // событие обновления состояния store
-    type: 'тип_события', 
-    payload: 'данные' 
+    type: 'НазваниеСобытия', 
+    payload: 'Данные' 
 }); 
 </v-code>
 
@@ -43,9 +43,8 @@ store.<u-code>dispatch</u-code>({ type: 'ADD_PRODUCT', payload: 'Product1' });
 store.<u-code>dispatch</u-code>({ type: 'ADD_PRODUCT', payload: 'Product2' });
 </v-code>
 
-<v-code lang="js" title="">
-// Данные, которые вернет "action" в "changeStore"
-// => {type: "@@redux/INITn.9.1.1.y.1"}          // всегда когда redux инициализирован
-// => {type: "ADD_PRODUCT", payload: "Product1"} // добавленный action
+<h5>Данные, которые вернет "action" в "changeStore"</h5>
+<v-code lang="js none" title="">
+{type: "@@redux/INITn.9.1.1.y.1"}          // всегда когда redux инициализирован
+{type: "ADD_PRODUCT", payload: "Product1"} // добавленный action
 </v-code>
-
