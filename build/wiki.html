@@ -1247,6 +1247,59 @@ Hidden Content
     <template v-slot:1>Hello1</template>
     <template v-slot:2>Hello2</template>
 </v-tabs>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two><template v-slot:first>
+<v-code lang="html" title="">
+&lt;v-tabs :tabs="['Title 1', 'Title 2']"&gt;
+
+&lt;template v-slot:1&gt;
+&lt;!-------------------------------------------------------------&gt;
+&lt;v-path&gt;Title 1&lt;/v-path&gt;
+&lt;!-------------------------------------------------------------&gt;
+&lt;v-code lang="js" title=""&gt;
+// Code 1
+&lt;/v-code&gt;
+&lt;/template&gt;
+
+&lt;template v-slot:2&gt;
+&lt;!-------------------------------------------------------------&gt;
+&lt;v-path&gt;Title 2&lt;/v-path&gt;
+&lt;!-------------------------------------------------------------&gt;
+&lt;v-code lang="js" title=""&gt;
+// Code 2
+&lt;/v-code&gt;
+&lt;/template&gt;
+
+&lt;/v-tabs&gt;
+</v-code>
+
+</template><template v-slot:last>
+<v-tabs :tabs="['Title 1', 'Title 2']">
+
+<template v-slot:1>
+<!------------------------------------------------------------->
+<v-path>Title 1</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Code 1
+</v-code>
+</template>
+
+<template v-slot:2>
+<!------------------------------------------------------------->
+<v-path>Title 2</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Code 2
+</v-code>
+</template>
+
+</v-tabs>
+</template></v-two>
 </div><div id="wiki/structure/login"><h2>Логин и пароль</h2>
 
 <v-code lang="html step" title="">

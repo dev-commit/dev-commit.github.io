@@ -1,5 +1,8 @@
 <h2>Пример</h2>
 
+<v-tabs :tabs="['webpack.config.js', 'exposes.json', 'exposes', 'public\index.html']">
+
+<template v-slot:1>
 <!------------------------------------------------------------->
 <v-path>webpack.config.js</v-path>
 <!------------------------------------------------------------->
@@ -30,7 +33,9 @@ module.exports = (env, argv) => {
     };
 };
 </v-code>
+</template>
 
+<template v-slot:2>
 <!------------------------------------------------------------->
 <v-path>exposes.json</v-path>
 <!------------------------------------------------------------->
@@ -39,7 +44,9 @@ module.exports = (env, argv) => {
 	"./Accordion": "./exposes/Accordion.ts",
 }
 </v-code>
+</template>
 
+<template v-slot:3>
 <!------------------------------------------------------------->
 <v-path>exposes</v-path>
 <!------------------------------------------------------------->
@@ -53,7 +60,9 @@ export { Accordion } from './Accordion';
 // > src\Accordion\Accordion.tsx
 export const Accordion = () => {}
 </v-code>
+</template>
 
+<template v-slot:4>
 <!------------------------------------------------------------->
 <v-path>public\index.html</v-path>
 <!------------------------------------------------------------->
@@ -70,3 +79,6 @@ export const Accordion = () => {}
 &lt;/body&gt;
 &lt;/html&gt;
 </v-code>
+</template>
+
+</v-tabs>

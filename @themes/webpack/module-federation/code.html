@@ -3,6 +3,12 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>import</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-tabs :tabs="['webpack.config.js', 'Component']">
+<template v-slot:1>
+<!------------------------------------------------------------->
+<v-path>webpack.config.js</v-path>
+<!------------------------------------------------------------->
 <v-code lang="js" title="webpack.config.js">
 module.exports = {
     plugins = [
@@ -15,7 +21,13 @@ module.exports = {
     ];
 };
 </v-code>
+</template>
 
+<template v-slot:2>
+<!------------------------------------------------------------->
+<v-path>App</v-path>
+<!------------------------------------------------------------->
+<h5>import</h5>
 <v-code lang="js" title="import">
 // Обычный импорт
 import Header from 'header/App';
@@ -24,6 +36,7 @@ import Header from 'header/App';
 const Header = React.lazy(() => import('header/App'));
 </v-code>
 
+<h5>component</h5>
 <v-code lang="js" title="component">
 const App = () =&gt; (
 	&lt;&gt;
@@ -35,3 +48,5 @@ const App = () =&gt; (
 	&lt;/&gt;
 )
 </v-code>
+</template>
+</v-tabs>

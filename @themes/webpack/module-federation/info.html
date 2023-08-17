@@ -1,5 +1,20 @@
 <h2>Webpack 5. Module Federation (MF)</h2>
 
+<v-two><template v-slot:first>
+<ul class="list-point">
+    <li>Есть 2 приложения - неважно на чем они написаны (в примере Next.js и React.js)</li>
+    <li>Их можно встроить в приложение-контейнер Host Container</li>
+    <li>Похоже на iFrame, но при использованиие iFrame отдается приложение полностью</li>
+    <li>Для Module Federation отдается JS-код и уже он запускается в Host Container. Можно отдать не весь код приложения, а только определенные части и всё что можно экспортировать: отдельный компонент, константу и т.д.</li>
+    <li>Экспортируется JavaScript-код, поэтому исходное приложение может быть написано на любом фреймворке</li>
+    <hr class="small">
+    <li>Module Federation можно шарить зависимости: установить 1 раз и остальные приложения могут использовать уже установленные зависимости</li>
+</ul>
+</template><template v-slot:last>
+<img src="/@img/webpack/module-federation-container.png" width="100%" />
+</template></v-two>
+
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Терминология</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

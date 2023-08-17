@@ -36,6 +36,7 @@ ARR_MODULE = [
             [root+'tech/windows',        setTheme(1, ['Windows'])],
             [root+'tech/telegram',       setTheme(1, ['Telegram'])],
             [root+'tech/google-chrome',  setTheme(1, ['Google Chrome'])],
+            [root+'tech/timeweb',        setTheme(1, ['Timeweb'])],
             [root+'tech/photoshop',      setTheme(1, ['Adobe Photoshop'])],
             [root+'tech/denwer',         setTheme(1, ['Denwer'])],
         ]

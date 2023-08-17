@@ -524,6 +524,21 @@ module.exports = {
 </v-code>
 </div><div id="webpack/module-federation/info"><h2>Webpack 5. Module Federation (MF)</h2>
 
+<v-two><template v-slot:first>
+<ul class="list-point">
+    <li>Есть 2 приложения - неважно на чем они написаны (в примере Next.js и React.js)</li>
+    <li>Их можно встроить в приложение-контейнер Host Container</li>
+    <li>Похоже на iFrame, но при использованиие iFrame отдается приложение полностью</li>
+    <li>Для Module Federation отдается JS-код и уже он запускается в Host Container. Можно отдать не весь код приложения, а только определенные части и всё что можно экспортировать: отдельный компонент, константу и т.д.</li>
+    <li>Экспортируется JavaScript-код, поэтому исходное приложение может быть написано на любом фреймворке</li>
+    <hr class="small">
+    <li>Module Federation можно шарить зависимости: установить 1 раз и остальные приложения могут использовать уже установленные зависимости</li>
+</ul>
+</template><template v-slot:last>
+<img src="/@img/webpack/module-federation-container.png" width="100%" />
+</template></v-two>
+
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Терминология</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -621,6 +636,12 @@ module.exports = {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>import</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-tabs :tabs="['webpack.config.js', 'Component']">
+<template v-slot:1>
+<!------------------------------------------------------------->
+<v-path>webpack.config.js</v-path>
+<!------------------------------------------------------------->
 <v-code lang="js" title="webpack.config.js">
 module.exports = {
     plugins = [
@@ -633,7 +654,13 @@ module.exports = {
     ];
 };
 </v-code>
+</template>
 
+<template v-slot:2>
+<!------------------------------------------------------------->
+<v-path>App</v-path>
+<!------------------------------------------------------------->
+<h5>import</h5>
 <v-code lang="js" title="import">
 // Обычный импорт
 import Header from 'header/App';
@@ -642,6 +669,7 @@ import Header from 'header/App';
 const Header = React.lazy(() => import('header/App'));
 </v-code>
 
+<h5>component</h5>
 <v-code lang="js" title="component">
 const App = () =&gt; (
 	&lt;&gt;
@@ -653,6 +681,8 @@ const App = () =&gt; (
 	&lt;/&gt;
 )
 </v-code>
+</template>
+</v-tabs>
 </div><div id="webpack/module-federation/server"><h2>Сервер</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -876,6 +906,9 @@ module.exports = {
 </v-code>
 </div><div id="webpack/module-federation/sample"><h2>Пример</h2>
 
+<v-tabs :tabs="['webpack.config.js', 'exposes.json', 'exposes', 'public\index.html']">
+
+<template v-slot:1>
 <!------------------------------------------------------------->
 <v-path>webpack.config.js</v-path>
 <!------------------------------------------------------------->
@@ -906,7 +939,9 @@ module.exports = (env, argv) => {
     };
 };
 </v-code>
+</template>
 
+<template v-slot:2>
 <!------------------------------------------------------------->
 <v-path>exposes.json</v-path>
 <!------------------------------------------------------------->
@@ -915,7 +950,9 @@ module.exports = (env, argv) => {
 	"./Accordion": "./exposes/Accordion.ts",
 }
 </v-code>
+</template>
 
+<template v-slot:3>
 <!------------------------------------------------------------->
 <v-path>exposes</v-path>
 <!------------------------------------------------------------->
@@ -929,7 +966,9 @@ export { Accordion } from './Accordion';
 // > src\Accordion\Accordion.tsx
 export const Accordion = () => {}
 </v-code>
+</template>
 
+<template v-slot:4>
 <!------------------------------------------------------------->
 <v-path>public\index.html</v-path>
 <!------------------------------------------------------------->
@@ -946,6 +985,9 @@ export const Accordion = () => {}
 &lt;/body&gt;
 &lt;/html&gt;
 </v-code>
+</template>
+
+</v-tabs>
 </div><div id="webpack/plugins/webpack"><h2>webpack</h2>
 
 <v-pre-npm>
