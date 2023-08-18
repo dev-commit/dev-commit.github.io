@@ -36,6 +36,7 @@ ARR_MODULE = [
             [root+'methods/flat',      setTheme(1, ['flat'])],
             [root+'methods/flatMap',   setTheme(1, ['flatMap'])],
             [root+'methods/fill',      setTheme(1, ['fill'])],
+            [root+'methods/at',        setTheme(1, ['at'])],
         ]
     },
     {
