@@ -399,10 +399,20 @@
     <li>
         <a
             class="menu-link"
+            id="id__git/github/github-pages"
+            href="#git/github/github-pages"
+        >
+            ⭐️ Github Pages
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
             id="id__git/github/github-cli"
             href="#git/github/github-cli"
         >
-            🔥 GitHub CLI
+            ⭐️ GitHub CLI
         </a>
     </li>
 
@@ -1848,6 +1858,73 @@ https://github.com/Account/Repo.git  # соединение по HTTPS
     <li>Можно изменить данные учетки или ее удалить</li>
     <li>Если учетка была удалена, при следующем взаимодействии в консоле, git попросит ввести логин и пароль в отдельном окне авторизации</li>
 </ul>
+</div><div id="git/github/github-pages"><h2>Github Pages</h2>
+
+<u-link-wrapper>
+	<a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+	<a href="https://docs.github.com/en/pages" target="_blank">GitHub Pages Documentation</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Информация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h5>Ветка</h5>
+<ul class="list-point">
+	<li>По умолчанию GitHub Pages настроен на ветку <u>gh-pages</u></li>
+    <li>Ветку можно переключить вручную: Settings -> Pages -> Branch -> ...</li>
+</ul>
+
+<h5>Нейминг</h5>
+<ul class="list-point">
+    <li>Если название репозитория совпадает с названием акканута "account-name" - это будет корневой репозиторий: <br>
+    <em>https://github.com/account-name</em> ➡️ <em>https://account-name.github.io/</em></li>
+    <li>Если репозиторий не корневой то через "/" добавится название репозитория:<br>
+    <em>https://github.com/project-name</em> ➡️ <em>https://account-name.github.io/project-name</em>
+    </li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Деплой через gh-pages</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Библиотека gh-pages берет файлы из директории <u>build</u> и деплоит в связанный репозиторий на GitHib. Если в удаленном репозитории уже есть ветка <u>gh-pages</u>, то деплой происходи в нее. Если ветки нет, то она создается</li>
+</ul>
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>gh-pages</u-code-accent>
+</v-pre-npm>
+
+<!------------------------------------------------------------->
+<h4>React приложение на Create React App</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Если для проекта используется Create React App, то обязательно нужно указывать <u>"homepage"</u> если проект находится не в корне (не по адресу <em>https://account-name.github.io/</em>). В данном случае проект находится по адресу <em>https://account-name.github.io/project-name/</em></li>
+    <li>При сборке, к каждому пути будет добавлен <u>"project-name"</u>. Если не указать, то в пути будет <u>"/"</u>, что будет искать файл в <em>https://account-name.github.io/</em>, а не в <em>https://account-name.github.io/project-name/</em></li>
+    <li>После build, в консоле будет сообщение: <i>"The project was built assuming it is hosted at /project-name/. You can control this with the homepage field in your package.json"</i></li>
+</ul>
+
+<v-code lang="js" title="package.json">
+{
+	"homepage": "https://account-name.github.io/project-name/",
+	"devDependencies": {
+		"gh-pages": "^3.2.3",
+	},
+	"scripts": {
+		"build": "react-scripts build",
+		"gh-pages": "gh-pages -d build",
+		"deploy": "npm run build && npm run gh-pages"
+	},
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>React приложение на vite-template-redux</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><a href="https://github.com/reduxjs/redux-templates/tree/master/packages/vite-template-redux" target="_blank">https://github.com/reduxjs/redux-templates/tree/master/packages/vite-template-redux</a></li>
+    <li>Для шаблона "vite-template-redux" задание homepage не сработало, пути не подставлись</li>
+</ul>
 </div><div id="git/github/github-cli"><h2>GitHub CLI</h2>
 
 <u-link-wrapper>
@@ -2021,16 +2098,7 @@ copy id_rsa* key_backup
 	<hr>
 	<a href="https://www.youtube.com/playlist?list=PL3LQJkGQtzc5rDeb7FjACNb6sOW300yA0" target="_blank">YouTube PlayList: Glo Academy</a>
 	<a href="https://www.youtube.com/watch?v=SEvR78OhGtw" target="_blank">YouTube: Git. Большой практический выпуск</a>
-	<hr>
-	<a href="https://help.github.com/en/github/working-with-github-pages" target="_blank">GitHub Pages Docs</a>
 </u-link-wrapper>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Прочее</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-	<li>Ветка <u>gh-pages</u> предосталяет доступ к ветке в GitHub Pages <u-code>https://USER_NAME.github.io/NAME_BRANCH</u-code></li>
-</ul>
 </div><div id="git/theory/principle"><h2>Принцип работы</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
