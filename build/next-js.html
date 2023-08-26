@@ -65,6 +65,16 @@
             <u-menu>CDN</u-menu>
         </a>
     </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__next-js/main/img"
+            href="#next-js/main/img"
+        >
+            Изображения
+        </a>
+    </li>
 </ul><h4>🏷️ Общее</h4><ul>
     <li>
         <a
@@ -399,6 +409,91 @@ npm <u-code-accent>create-next-app@latest</u-code-accent>
     <li>Географически распределённая сетевая инфраструктура, позволяющая оптимизировать доставку и дистрибуцию содержимого конечным пользователям в сети Интернет</li>
     <li>Использование контент-провайдерами CDN способствует увеличению скорости загрузки интернет-пользователями аудио-, видео-, программного, игрового и других видов цифрового содержимого в точках присутствия сети CDN</li>
 </ul>
+</div><div id="next-js/main/img"><h2>Подключение изображений</h2>
+
+<!------------------------------------------------------------->
+<h4>1. Глобальный файл из директории "public"</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Обязательно задавать атрибуты <u>width</u> и <u>height</u></li>
+</ul>
+
+<v-code lang="js" title="">
+import Image from 'next/image';
+
+const App = () => {
+    return (
+        &lt;Image
+            src="/logo.png"
+            width="200"
+            height="200"
+            alt="Logo"
+            priority
+        /&gt;
+    )
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Локальный файл</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://nextjs.org/docs/app/building-your-application/optimizing/images#local-images" target="_blank">https://nextjs.org/docs/app/building-your-application/optimizing/images#local-images</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Не обязательно задавать атрибуты <u>width</u> и <u>height</u></li>
+</ul>
+
+<v-code lang="js" title="">
+import Image from 'next/image';
+import logo from './img/logo.svg';
+
+const App = () => {
+    return (
+        &lt;Image
+            src={logo}
+            alt="Logo"
+            priority
+            className={styles.logo}
+        /&gt;
+    )
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Background-image в CSS</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Работает как обычно</li>
+</ul>
+
+<v-code lang="css" title="">
+.item {
+    background-image: url(./img/logo.svg);
+	width: 200px;
+	height: 200px;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>4. Background-image в JSX</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import Image from 'next/image';
+import logo from './img/logo.svg';
+
+const App = () => {
+    return (
+        &lt;div style=<span v-pre>{{
+            backgroundImage: `url(${logo.src})`,
+            width: '200px',
+            height: '200px',
+            backgroundSize: 'contain'
+        }</span>&gt;&lt;/div&gt;
+    )
+}
+</v-code>
 </div><div id="next-js/common/layout"><h2>Создание Layout (Контейнеров)</h2>
 
 <ul class="list-point">

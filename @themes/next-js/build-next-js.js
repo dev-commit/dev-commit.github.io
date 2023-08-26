@@ -7,7 +7,8 @@ ARR_MODULE = [
             getLink(root, 'info'),
             getLink(root, 'install'),
             [root+'main/ssr-ssg', setTheme(1, ['SSR', 'SSG'])],
-            [root+'main/cdn', setTheme(1, ['CDN'])],
+            [root+'main/cdn',     setTheme(1, ['CDN'])],
+            [root+'main/img',     'Изображения', false, 'done'],
         ]
     },
     {
