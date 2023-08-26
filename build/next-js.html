@@ -49,10 +49,20 @@
     <li>
         <a
             class="menu-link"
-            id="id__next-js/main/ssr-ssg"
-            href="#next-js/main/ssr-ssg"
+            id="id__next-js/main/ssr"
+            href="#next-js/main/ssr"
         >
-            <u-menu>SSR</u-menu> <u-menu>SSG</u-menu>
+            <u-menu>SSR</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__next-js/main/ssg"
+            href="#next-js/main/ssg"
+        >
+            <u-menu>SSG</u-menu>
         </a>
     </li>
 
@@ -391,17 +401,79 @@ npm <u-code-accent>create-next-app@latest</u-code-accent>
 	}
 }
 </v-code>
-</div><div id="next-js/main/ssr-ssg"><h2>SSR, SSG</h2>
+</div><div id="next-js/main/ssr"><h2>SSR</h2>
 
 <ul class="list-point">
     <li><u-text-define>SSR</u-text-define> - Server-side Rendering</li>
     <li>HTML генерируется <u>при каждом запросе</u></li>
 </ul>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Build</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>По умолчанию, Next.js формирует сборку для SSR. Это значит, что для запуска проекта нужен сервер с Node.js - н-р: Vercel</li>
+</ul>
+</div><div id="next-js/main/ssg"><h2>SSG</h2>
+
 <ul class="list-point">
     <li><u-text-define>SSG</u-text-define> - Static Site Generation</li>
     <li>HTML генерируется <u>во время сборки</u> и будет повторно использоваться при каждом запросе</li>
 </ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Build</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Настройка next.config.js</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Что формировать сборку под SSG нужно настроить next.config.js</li>
+</ul>
+
+<v-code lang="js" title="next.config.js">
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    <u-code>output: 'export',</u-code>
+}
+
+module.exports = nextConfig
+</v-code>
+
+<ul class="list-point">
+    <li>После этого при build будет создаваться директория <u>out</u> c файлами проекта, которые можно загрузить, н-р на GitHub Pages</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. Устранение ошибки с оптимизацией Image</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>При использовании Image из 'next/image' при build появится ошибка</li>
+</ul>
+
+<v-code lang="js" title="">
+import Image from 'next/image';
+</v-code>
+
+<u-message-error>
+Image Optimization using the default loader is not compatible with export. Possible solutions:
+<ul class="list-point">
+    <li>Use `next start` to run a server, which includes the Image Optimization API</li>
+    <li>Configure `images.unoptimized = true` in `next.config.js` to disable the Image Optimization API</li>
+</ul>
+Read more: <a href="https://nextjs.org/docs/messages/export-image-api" target="_blank">https://nextjs.org/docs/messages/export-image-api</a>
+</u-message-error>
+
+<h5>1 способ: Отключить оптимизацию</h5>
+<v-code lang="js" title="next.config.js"> 
+module.exports = {
+  images: {
+    unoptimized: true,
+  },
+}
+</v-code>
 </div><div id="next-js/main/cdn"><h2>CDN</h2>
 
 <ul class="list-point">
