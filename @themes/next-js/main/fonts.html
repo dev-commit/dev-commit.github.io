@@ -1,0 +1,150 @@
+<h2>Шрифты</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Google Fonts</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://nextjs.org/docs/app/building-your-application/optimizing/fonts#google-fonts" target="_blank">https://nextjs.org/docs/app/building-your-application/optimizing/fonts#google-fonts</a>
+</u-link-wrapper>
+
+<u-message-ok>
+<ul>
+    <li>Для доступа к шрифту используется CSS-переменная</li>
+    <li>Импортировать можно любой шрифт, доступный в Google Fonts</li>
+</ul>
+</u-message-ok>
+<v-tabs :tabs="['app/fonts.js', 'app/layout.jsx', 'app/globals.css']">
+
+<template v-slot:1>
+<!------------------------------------------------------------->
+<v-path>app/fonts.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import cn from 'classnames';
+import { Roboto } from 'next/font/google';
+
+export const robotoRegular = Roboto({
+    subsets: ['cyrillic'], // latin
+    display: 'swap',
+    weight: '400',
+    variable: '<u-code-accent>--font-roboto-regular</u-code-accent>',
+})
+
+export default cn(
+    robotoRegular.variable,
+    // Другие шрифты
+);
+</v-code>
+</template>
+
+<template v-slot:2>
+<!------------------------------------------------------------->
+<v-path>app/layout.jsx</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import FontClasses from './fonts';
+
+const RootLayout = (props) => {
+    const { children } = props;
+
+    return (
+        &lt;html lang="ru" className={FontClasses}&gt;
+            &lt;body&gt;
+                {children}
+            &lt;/body&gt;
+        &lt;/html&gt;
+    )
+}
+
+export default RootLayout;
+</v-code>
+</template>
+
+<template v-slot:3>
+<!------------------------------------------------------------->
+<v-path>app/globals.css</v-path>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+body {
+    font-family: var(<u-code-accent>--font-roboto-regular</u-code-accent>);
+}
+</v-code>
+</template>
+
+</v-tabs>
+
+<!--  -->
+
+<v-details title="Шрифт Roboto">
+<v-path>node_modules\next\dist\compiled\@next\font\dist\google\index.d.ts</v-path>
+<v-code lang="js" title="">
+const Roboto = {
+    weight: '100' | '300' | '400' | '500' | '700' | '900', // массив или значение
+    style: 'normal' | 'italic', // массив или значение
+    subsets: ['cyrillic' | 'cyrillic-ext' | 'greek' | 'greek-ext' | 'latin' | 'latin-ext' | 'vietnamese'],
+}
+</v-code>
+</v-details>
+
+<!------------------------------------------------------------->
+<h4>Variable Fonts и стандартные шрифты</h4>
+<!------------------------------------------------------------->
+<v-two><template v-slot:first>
+<h5>Variable Fonts</h5>
+<u-link-wrapper>
+    <a href="https://fonts.google.com/variablefonts" target="_blank">https://fonts.google.com/variablefonts</a>
+</u-link-wrapper>
+<ul class="list-point">
+    <li>Для вариантивных шрифтов не нужно задавать "weight"</li>
+</ul>
+<v-code lang="js" title="">
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+    subsets: ['latin'],
+    display: 'swap',
+})
+</v-code>
+</template><template v-slot:last>
+<h5>Стандартные шрифты</h5>
+<u-link-wrapper>
+    <a href="https://fonts.google.com" target="_blank">https://fonts.google.com</a>
+</u-link-wrapper>
+<ul class="list-point">
+    <li>Нужно задавать "weight"</li>
+</ul>
+<v-code lang="js" title="">
+import { Roboto } from 'next/font/google';
+
+export const robotoRegular = Roboto({
+    subsets: ['latin'],
+    display: 'swap',
+    weight: '400',
+})
+</v-code>
+
+</template></v-two>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Local Fonts</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://nextjs.org/docs/app/building-your-application/optimizing/fonts#local-fonts" target="_blank">https://nextjs.org/docs/app/building-your-application/optimizing/fonts#local-fonts</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+import localFont from 'next/font/local';
+</v-code>

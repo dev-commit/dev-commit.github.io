@@ -1925,6 +1925,33 @@ npm i --save-dev <u-code-accent>gh-pages</u-code-accent>
     <li><a href="https://github.com/reduxjs/redux-templates/tree/master/packages/vite-template-redux" target="_blank">https://github.com/reduxjs/redux-templates/tree/master/packages/vite-template-redux</a></li>
     <li>Для шаблона "vite-template-redux" задание homepage не сработало, пути не подставлись</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Особенности Github Pages</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+По умолчанию GitHub Pages не обрабатывает файлы, начинающиеся с нижнего подчёркивания. В <a href="https://docs.github.com/ru/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll" target="_blank">документации</a> предлагается три решения этой проблемы:
+<ol class="list-num">
+    <li>Не использовать файлы, начинающиеся с нижнего подчёркивания</li>
+    <li>Добавить файл <u>.nojekyll</u> в корневую папку сайта</li>
+    <li>Использовать директиву <u>include</u> в файле <u>_config.yml</u> чтобы Jekyll не игнорировал эти файлы</li>
+</ol>
+
+<h5>Добавить файл .nojekyll в корневую папку сайта</h5>
+<ul class="list-point">
+    <li>Если создать пустой файл .nojekyll, то он не зугружется в ветку "gh-pages" при запуске скрипта <em>npm run gh-pages</em></li>
+    <li>Для этого нужно поменять скрипт "gh-pages"</li>
+</ul>
+
+<v-code lang="js" title="package.json">
+{
+    "scripts": {
+        // Исходный
+        "gh-pages": "gh-pages -d build",
+        // Новый
+        "gh-pages": "gh-pages -d build -t true",
+    },
+}
+</v-code>
 </div><div id="git/github/github-cli"><h2>GitHub CLI</h2>
 
 <u-link-wrapper>

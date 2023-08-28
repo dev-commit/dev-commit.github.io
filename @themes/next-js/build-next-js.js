@@ -4,32 +4,28 @@ ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            getLink(root, 'info'),
-            getLink(root, 'install'),
-            [root+'main/ssr', setTheme(1, ['SSR']), false, 'done'],
-            [root+'main/ssg', setTheme(1, ['SSG']), false, 'done'],
-            [root+'main/cdn', setTheme(1, ['CDN'])],
-            [root+'main/img', 'Изображения', false, 'done'],
+            getLink(root, 'info', 'done'),
+            getLink(root, 'install', 'done'),
+            [root+'main/ssr',   setTheme(1, ['SSR']), false, 'done'],
+            [root+'main/ssg',   setTheme(1, ['SSG']), false, 'done'],
+            [root+'main/cdn',   setTheme(1, ['CDN']), false, 'done'],
+            [root+'main/img',   'Изображения', false, 'done'],
+            [root+'main/fonts', 'Шрифты', false, 'done'],
         ]
     },
     {
         title: 'Общее',
         themes: [
-            [root+'common/layout',       emoji.chevron+'Создание Layout'],
-            [root+'common/google-fonts', emoji.chevron+'Добавление Google Fonts'],
+            [root+'common/layout',       'Создание Layout'],
+            [root+'common/google-fonts', 'Добавление Google Fonts'],
+            [root+'common/App',          setTheme(5, ['App'])],
         ]
     },
     {
         title: 'Компоненты',
         themes: [
-            [root+'components/Head',    setTheme(1, ['Head'])],
-        ]
-    },
-    {
-        title: 'Custom',
-        themes: [
-            [root+'custom/Document', setTheme(5, ['Document'])],
-            [root+'custom/App',      setTheme(5, ['App'])],
+            [root+'components/Head',     setTheme(1, ['Head'])],
+            [root+'components/Document', setTheme(1, ['Document'])],   
         ]
     },
     {
@@ -53,14 +49,13 @@ ARR_MODULE = [
         title: 'Роутинг',
         themes: [
             [root+'routing/structure',      emoji.theory+'Структура'],
+            [root+'routing/useRouter',      setTheme(3, ['useRouter'])],
+            [root+'routing/Router',         setTheme(1, ['Router'])],
+            [root+'routing/Link',           setTheme(1, ['Link'])],
             [root+'routing/dynamic-route',  emoji.code+'Динамический параметр в URL'],
             [root+'routing/push-route',     emoji.code+'Программное добавление роута'],
             [root+'routing/links-route',    emoji.code+'Ссылки на страницы'],
             [root+'routing/page-404',       emoji.code+'Страница 404'],
-            [],
-            [root+'routing/useRouter',      setTheme(3, ['useRouter'])],
-            [root+'routing/Router',         setTheme(1, ['Router'])],
-            [root+'routing/Link',           setTheme(1, ['Link'])],
         ]
     },
     {
