@@ -5,8 +5,16 @@
 </ul>
 
 <v-pre-npm>
-npm <u-code-accent>create-next-app@latest</u-code-accent>
+npx <u-code-accent>create-next-app@latest</u-code-accent>
 </v-pre-npm>
+
+<u-message-info>
+	У Next.js 2 верии роутера. При установке спросит, какой использовать:
+	<ul>
+		<li><em>App Router</em> (recomended)</li>
+		<li><em>Pages Router</em> (старый)</li>
+	</ul>
+</u-message-info>
 
 <!------------------------------------------------------------->
 <v-path>package.json</v-path>
@@ -14,11 +22,12 @@ npm <u-code-accent>create-next-app@latest</u-code-accent>
 <ul class="list-point">
 	<li><u-code-text>npm run dev</u-code-text> - server</li>
 	<li><u-code-text>npm run build</u-code-text> - build</li>
+	<li><u-code-text>npm run start</u-code-text> - выдаёт ошибку</li>
 </ul>
 
 <v-code lang="json" title="">
 {
-	"name": project-name",
+	"name": "project-name",
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",

@@ -82,7 +82,7 @@
             id="id__next-js/main/img"
             href="#next-js/main/img"
         >
-            Изображения
+            Images
         </a>
     </li>
 
@@ -92,7 +92,47 @@
             id="id__next-js/main/fonts"
             href="#next-js/main/fonts"
         >
-            Шрифты
+            Fonts
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__next-js/main/layouts"
+            href="#next-js/main/layouts"
+        >
+            Layouts
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__next-js/main/pages"
+            href="#next-js/main/pages"
+        >
+            Pages
+        </a>
+    </li>
+</ul><h4>🏷️ Деплой</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__next-js/deploy/vercel"
+            href="#next-js/deploy/vercel"
+        >
+            Vercel (SSR)
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__git/github/github-pages"
+            href="#git/github/github-pages"
+        >
+            Github Pages (SSG)
         </a>
     </li>
 </ul><h4>🏷️ Общее</h4><ul>
@@ -122,7 +162,17 @@
             id="id__next-js/common/App"
             href="#next-js/common/App"
         >
-            <u-menu-outline>App</u-menu-outline>
+            App
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__next-js/common/backend"
+            href="#next-js/common/backend"
+        >
+            Backend
         </a>
     </li>
 </ul><h4>🏷️ Компоненты</h4><ul>
@@ -295,36 +345,6 @@
             🧲 Страница 404
         </a>
     </li>
-</ul><h4>🏷️ Backend</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__next-js/backend/info"
-            href="#next-js/backend/info"
-        >
-            📑 Информация
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__next-js/backend/api"
-            href="#next-js/backend/api"
-        >
-            🧲 API
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__next-js/backend/api-dynamic"
-            href="#next-js/backend/api-dynamic"
-        >
-            🧲 API с динамическим параметром в URL
-        </a>
-    </li>
 </ul><h4>🏷️ Настройки</h4><ul>
     <li>
         <a
@@ -343,16 +363,6 @@
             href="#next-js/settings/typescript"
         >
             TypeScript
-        </a>
-    </li>
-</ul><h4>🏷️ Деплой</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__next-js/deploy/vercel"
-            href="#next-js/deploy/vercel"
-        >
-            Vercel
         </a>
     </li>
 </ul>
@@ -388,8 +398,16 @@
 </ul>
 
 <v-pre-npm>
-npm <u-code-accent>create-next-app@latest</u-code-accent>
+npx <u-code-accent>create-next-app@latest</u-code-accent>
 </v-pre-npm>
+
+<u-message-info>
+	У Next.js 2 верии роутера. При установке спросит, какой использовать:
+	<ul>
+		<li><em>App Router</em> (recomended)</li>
+		<li><em>Pages Router</em> (старый)</li>
+	</ul>
+</u-message-info>
 
 <!------------------------------------------------------------->
 <v-path>package.json</v-path>
@@ -397,11 +415,12 @@ npm <u-code-accent>create-next-app@latest</u-code-accent>
 <ul class="list-point">
 	<li><u-code-text>npm run dev</u-code-text> - server</li>
 	<li><u-code-text>npm run build</u-code-text> - build</li>
+	<li><u-code-text>npm run start</u-code-text> - выдаёт ошибку</li>
 </ul>
 
 <v-code lang="json" title="">
 {
-	"name": project-name",
+	"name": "project-name",
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
@@ -729,11 +748,297 @@ export const robotoRegular = Roboto({
 <v-code lang="js" title="">
 import localFont from 'next/font/local';
 </v-code>
+</div><div id="next-js/main/layouts"><h2>Layouts</h2>
+
+<u-link-wrapper>
+    <a href="https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts" target="_blank">https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Root Layout</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Root Layout</u-text-define> - главный обязательный Layout для всех страниц приложения</li>
+    <li>Позволяет изменять исходный HTML-код, возвращаемый с сервера</li>
+    <li>Должен определять теги <u-code-text>&lt;html&gt;</u-code-text> и <u-code-text>&lt;body&gt;</u-code-text>, т.к. Next.js не создает их автоматически</li>
+    <li>Сам <u>RootLayout</u> явно не вызывается. Привязка происходит под капотом</li>
+</ul>
+
+<v-code lang="js border" title="app/layout.jsx">
+export const metadata = {
+    title: 'Название проекта',
+    description: 'Описание проекта',
+}
+
+const RootLayout = (props) => {
+    const { children } = props;
+
+    return (
+        &lt;html lang="en"&gt;
+            &lt;body&gt;
+                {children}
+            &lt;/body&gt;
+        &lt;/html&gt;
+    )
+}
+
+export default RootLayout;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Metadata</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://nextjs.org/docs/app/building-your-application/optimizing/metadata" target="_blank">https://nextjs.org/docs/app/building-your-application/optimizing/metadata</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Используется для определения метаданных приложения: meta, link тегов внутри HTML, head элементов</li>
+    <li>При использовании обоих этих вариантов Next.js автоматически сгенерирует соответствующие <em>&lt;head&gt;</em> элементы для страниц</li>
+    <li>Метаданныке могут быть статические (объявление объекта) и динамические (объявлении функции)</li>
+</ul>
+
+<v-code lang="js" title="">
+// Явно в коде не вызывается - всё происходит под капотом
+export const metadata = {
+    title: 'Название проекта',
+    description: 'Описание проекта',
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Layout для страницы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Любая страница может определить собственный Layout. Для этого нужно добавить <u>layout.js</u> рядом с <u>page.js</u> (в примере страница <u>Dashboard</u>)</li>
+    <li>В константу <u>metadata</u> также можно добавить метоинформацию</li>
+    <li>Явно <u>DashboardLayout</u> вызывать не нужно - он автоматически подключится к странице</li>
+</ul>
+
+<img src="/@img/next.js/layouts.png" width="250px" />
+
+<v-code lang="js" title="app/dashboard/layout.jsx">
+export const metadata = {
+    title: 'Новый заголовок',
+    description: 'Новое описание',
+}
+
+const DashboardLayout = (props) => {
+    const { children } = props;
+
+    return (
+        &lt;section&gt;
+            {/* Include shared UI here e.g. a header or sidebar */}
+            &lt;nav&gt;Navbar&lt;/nav&gt;
+            {children}
+        &lt;/section&gt;
+    )
+}
+
+export default DashboardLayout;
+</v-code>
+</div><div id="next-js/main/pages"><h2>Pages</h2>
+
+<u-link-wrapper>
+    <a href="https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts" target="_blank">https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Next.js ищет имя <em>page.js</em> в директории <em>app</em> для формировани роутов</li>
+</ul>
+
+<img src="/@img/next.js/pages.png" width="400px" />
+
+<v-code lang="js" title="app/page.tsx">
+// `app/page.tsx` is the UI for the `/` URL
+export default function Page() {
+    return &lt;h1&gt;Hello, Home page!&lt;/h1&gt;
+}
+</v-code>
+
+<v-code lang="js" title="app/dashboard/page.tsx">
+// `app/dashboard/page.tsx` is the UI for the `/dashboard` URL
+export default function Page() {
+    return &lt;h1&gt;Hello, Dashboard Page!&lt;/h1&gt;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование директории <u>pages</u></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-message-error>
+    <ul>
+        <li>В Next.js поддерживается предыдущая версия роутинга, когда страницу можно размещать в директории <em>pages</em> (как при использовании старой версии <em>Pages Router</em>)</li>
+        <li>Для таких страниц будет недоступен <u>Root Layout</u> и нужно будет создавать собственный, которым нужно обернуть компонент</li>
+        <li>Если в собсвенном Layout использовать тег <u-code-text>&lt;html&gt;</u-code-text>, то будет ошибка</li>
+    </ul>
+</u-message-error>
+
+<h5>Пример для страницы Dashboard</h5>
+
+<ul class="list-point">
+    <li>Next.js увидит, что в директории <u>"pages"</u> есть директория <u>"dashboard"</u> и создаст роут <em>/dashboard</em></li>
+</ul>
+
+<v-tabs :tabs="['index.jsx', 'LayoutDashboard.jsx']">
+
+<template v-slot:1>
+<!------------------------------------------------------------->
+<v-path>pages/dashboard/index.jsx</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import LayoutDashboard from '../../layouts/LayoutDashboard';
+
+const DashboardPage = () => {
+    return (
+        &lt;LayoutLinks&gt;
+            &lt;h1&gt;Dashboard&lt;/h1&gt;
+        &lt;/LayoutLinks&gt;
+    )
+}
+
+export default LinksPage;
+</v-code>
+</template>
+
+<template v-slot:2>
+<!------------------------------------------------------------->
+<v-path>layouts/LayoutDashboard.jsx</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import Head from 'next/head';
+
+const LayoutDashboard = (props) => {
+    const { children } = props;
+
+    return (
+        <>
+            &lt;Head&gt;
+                &lt;title&gt;Название&lt;/title&gt;
+                &lt;meta name=&quot;description&quot; content=&quot;Описание&quot;&gt;&lt;/meta&gt;
+            &lt;/Head&gt;
+            &lt;main&gt;
+                {children}
+            &lt;/main&gt;
+        </>
+    )
+}
+
+export default LayoutDashboard;
+</v-code>
+</template>
+
+</v-tabs>
+</div><div id="next-js/deploy/vercel"><h2>Деплой на Vercel</h2>
+
+<ol class="list-num">
+	<li>Залить на Github</li>
+	<li>На сайт Vercel <a href="https://vercel.com/solutions/nextjs" target="_blank">https://vercel.com/solutions/nextjs</a></li>
+	<li>"Deploy Now"</li>
+	<li>Import Git Repository -> Continue with Github</li>
+	<li><a href="https://vercel.com/new" target="_blank">https://vercel.com/new</a></li>
+	<li>Import для нужного Git-репозитория</li>
+	<li>Deploy</li>
+	<li>Ссылка на приложение</li>
+</ol>
+</div><div id="git/github/github-pages"><h2>Github Pages</h2>
+
+<u-link-wrapper>
+	<a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+	<a href="https://docs.github.com/en/pages" target="_blank">GitHub Pages Documentation</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Информация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h5>Ветка</h5>
+<ul class="list-point">
+	<li>По умолчанию GitHub Pages настроен на ветку <u>gh-pages</u></li>
+    <li>Ветку можно переключить вручную: Settings -> Pages -> Branch -> ...</li>
+</ul>
+
+<h5>Нейминг</h5>
+<ul class="list-point">
+    <li>Если название репозитория совпадает с названием акканута "account-name" - это будет корневой репозиторий: <br>
+    <em>https://github.com/account-name</em> ➡️ <em>https://account-name.github.io/</em></li>
+    <li>Если репозиторий не корневой то через "/" добавится название репозитория:<br>
+    <em>https://github.com/project-name</em> ➡️ <em>https://account-name.github.io/project-name</em>
+    </li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Деплой через gh-pages</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Библиотека gh-pages берет файлы из директории <u>build</u> и деплоит в связанный репозиторий на GitHib. Если в удаленном репозитории уже есть ветка <u>gh-pages</u>, то деплой происходи в нее. Если ветки нет, то она создается</li>
+</ul>
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>gh-pages</u-code-accent>
+</v-pre-npm>
+
+<!------------------------------------------------------------->
+<h4>React приложение на Create React App</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Если для проекта используется Create React App, то обязательно нужно указывать <u>"homepage"</u> если проект находится не в корне (не по адресу <em>https://account-name.github.io/</em>). В данном случае проект находится по адресу <em>https://account-name.github.io/project-name/</em></li>
+    <li>При сборке, к каждому пути будет добавлен <u>"project-name"</u>. Если не указать, то в пути будет <u>"/"</u>, что будет искать файл в <em>https://account-name.github.io/</em>, а не в <em>https://account-name.github.io/project-name/</em></li>
+    <li>После build, в консоле будет сообщение: <i>"The project was built assuming it is hosted at /project-name/. You can control this with the homepage field in your package.json"</i></li>
+</ul>
+
+<v-code lang="js" title="package.json">
+{
+	"homepage": "https://account-name.github.io/project-name/",
+	"devDependencies": {
+		"gh-pages": "^3.2.3",
+	},
+	"scripts": {
+		"build": "react-scripts build",
+		"gh-pages": "gh-pages -d build",
+		"deploy": "npm run build && npm run gh-pages"
+	},
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>React приложение на vite-template-redux</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><a href="https://github.com/reduxjs/redux-templates/tree/master/packages/vite-template-redux" target="_blank">https://github.com/reduxjs/redux-templates/tree/master/packages/vite-template-redux</a></li>
+    <li>Для шаблона "vite-template-redux" задание homepage не сработало, пути не подставлись</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Особенности Github Pages</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+По умолчанию GitHub Pages не обрабатывает файлы, начинающиеся с нижнего подчёркивания. В <a href="https://docs.github.com/ru/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll" target="_blank">документации</a> предлагается три решения этой проблемы:
+<ol class="list-num">
+    <li>Не использовать файлы, начинающиеся с нижнего подчёркивания</li>
+    <li>Добавить файл <u>.nojekyll</u> в корневую папку сайта</li>
+    <li>Использовать директиву <u>include</u> в файле <u>_config.yml</u> чтобы Jekyll не игнорировал эти файлы</li>
+</ol>
+
+<h5>Добавить файл .nojekyll в корневую папку сайта</h5>
+<ul class="list-point">
+    <li>Если создать пустой файл .nojekyll, то он не зугружется в ветку "gh-pages" при запуске скрипта <em>npm run gh-pages</em></li>
+    <li>Для этого нужно поменять скрипт "gh-pages"</li>
+</ul>
+
+<v-code lang="js" title="package.json">
+{
+    "scripts": {
+        // Исходный
+        "gh-pages": "gh-pages -d build",
+        // Новый
+        "gh-pages": "gh-pages -d build -t true",
+    },
+}
+</v-code>
 </div><div id="next-js/common/layout"><h2>Создание Layout (Контейнеров)</h2>
 
 <ul class="list-point">
-    <li>Обычный React-компонент, в который оборачивается страница или ее часть</li>
-    <li>Обычно находится в корне в директории <u>components</u></li>
+    <li>Layout - обычный React-компонент, в который оборачивается страница или ее часть</li>
     <li>Подключается по необходимост на любую страницу</li>
 </ul>
 
@@ -895,6 +1200,12 @@ body {
     font-family: 'Bakbak One', cursive;
 }
 </v-code>
+</div><div id="next-js/common/backend"><h2>Информация</h2>
+
+<ul class="list-point">
+    <li>Возможность писать Backend на Node.js</li>
+    <li>Файл: <em>./pages/api/EndpointName.js</em></li>
+</ul>
 </div><div id="next-js/components/Head"><h2>Head</h2>
 
 <ul class="list-point">
@@ -1445,16 +1756,6 @@ const ErrorPage = () => {
 
 export default ErrorPage;
 </v-code>
-</div><div id="next-js/backend/info"><h2>Информация</h2>
-
-<ul class="list-point">
-    <li>Возможность писать Backend на Node.js</li>
-    <li>Файл: <em>./pages/api/EndpointName.js</em></li>
-</ul>
-</div><div id="next-js/backend/api"><h2>API</h2>
-
-</div><div id="next-js/backend/api-dynamic"><h2>API с динамическим параметром в URL</h2>
-
 </div><div id="next-js/settings/next-config"><h2>next.config.js</h2>
 
 <u-link-wrapper>
@@ -1531,18 +1832,6 @@ npm i --save-dev <u-code-accent>typescript</u-code-accent> <u-code-accent>@types
     <li>Установить зависимости</li>
     <li>Запустить серипт <u-code-light>npm run dev</u-code-light></li>
     <li>Создается файл <u>tsconfig.json</u></li>
-</ol>
-</div><div id="next-js/deploy/vercel"><h2>Деплой на Vercel</h2>
-
-<ol class="list-num">
-	<li>Залить на Github</li>
-	<li>На сайт Vercel <a href="https://vercel.com/solutions/nextjs" target="_blank">https://vercel.com/solutions/nextjs</a></li>
-	<li>"Deploy Now"</li>
-	<li>Import Git Repository -> Continue with Github</li>
-	<li><a href="https://vercel.com/new" target="_blank">https://vercel.com/new</a></li>
-	<li>Import для нужного Git-репозитория</li>
-	<li>Deploy</li>
-	<li>Ссылка на приложение</li>
 </ol>
 </div></div>
                 </div>

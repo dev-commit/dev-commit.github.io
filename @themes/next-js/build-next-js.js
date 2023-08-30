@@ -3,14 +3,25 @@ root = 'next-js/';
 ARR_MODULE = [
     {
         title: 'Основное',
+        accent: true,
         themes: [
             getLink(root, 'info', 'done'),
             getLink(root, 'install', 'done'),
-            [root+'main/ssr',   setTheme(1, ['SSR']), false, 'done'],
-            [root+'main/ssg',   setTheme(1, ['SSG']), false, 'done'],
-            [root+'main/cdn',   setTheme(1, ['CDN']), false, 'done'],
-            [root+'main/img',   'Изображения', false, 'done'],
-            [root+'main/fonts', 'Шрифты', false, 'done'],
+            [root+'main/ssr',     setTheme(1, ['SSR']), false, 'done'],
+            [root+'main/ssg',     setTheme(1, ['SSG']), false, 'done'],
+            [root+'main/cdn',     setTheme(1, ['CDN']), false, 'done'],
+            [root+'main/img',     'Images', false, 'done'],
+            [root+'main/fonts',   'Fonts', false, 'done'],
+            [root+'main/layouts', 'Layouts', false, 'done'],
+            [root+'main/pages',   'Pages', false, 'done'],
+        ]
+    },
+    {
+        title: 'Деплой',
+        accent: true,
+        themes: [
+            [root+'deploy/vercel',      'Vercel (SSR)', false, 'done'],
+            ['git/github/github-pages', 'Github Pages (SSG)', false, 'done'],
         ]
     },
     {
@@ -18,7 +29,8 @@ ARR_MODULE = [
         themes: [
             [root+'common/layout',       'Создание Layout'],
             [root+'common/google-fonts', 'Добавление Google Fonts'],
-            [root+'common/App',          setTheme(5, ['App'])],
+            [root+'common/App',          'App'],
+            [root+'common/backend',      'Backend'],
         ]
     },
     {
@@ -59,24 +71,10 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Backend',
-        themes: [
-            [root+'backend/info',        emoji.theory+'Информация'],
-            [root+'backend/api',         emoji.code+'API'],
-            [root+'backend/api-dynamic', emoji.code+'API с динамическим параметром в URL'],
-        ]
-    },
-    {
         title: 'Настройки',
         themes: [
             [root+'settings/next-config',  setTheme(5, ['next.config.js'])],
             [root+'settings/typescript',   'TypeScript'],
-        ]
-    },
-    {
-        title: 'Деплой',
-        themes: [
-            [root+'deploy/vercel', 'Vercel'],
         ]
     },
 ]

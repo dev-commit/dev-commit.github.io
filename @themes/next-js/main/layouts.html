@@ -1,0 +1,89 @@
+<h2>Layouts</h2>
+
+<u-link-wrapper>
+    <a href="https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts" target="_blank">https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Root Layout</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Root Layout</u-text-define> - главный обязательный Layout для всех страниц приложения</li>
+    <li>Позволяет изменять исходный HTML-код, возвращаемый с сервера</li>
+    <li>Должен определять теги <u-code-text>&lt;html&gt;</u-code-text> и <u-code-text>&lt;body&gt;</u-code-text>, т.к. Next.js не создает их автоматически</li>
+    <li>Сам <u>RootLayout</u> явно не вызывается. Привязка происходит под капотом</li>
+</ul>
+
+<v-code lang="js border" title="app/layout.jsx">
+export const metadata = {
+    title: 'Название проекта',
+    description: 'Описание проекта',
+}
+
+const RootLayout = (props) => {
+    const { children } = props;
+
+    return (
+        &lt;html lang="en"&gt;
+            &lt;body&gt;
+                {children}
+            &lt;/body&gt;
+        &lt;/html&gt;
+    )
+}
+
+export default RootLayout;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Metadata</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://nextjs.org/docs/app/building-your-application/optimizing/metadata" target="_blank">https://nextjs.org/docs/app/building-your-application/optimizing/metadata</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Используется для определения метаданных приложения: meta, link тегов внутри HTML, head элементов</li>
+    <li>При использовании обоих этих вариантов Next.js автоматически сгенерирует соответствующие <em>&lt;head&gt;</em> элементы для страниц</li>
+    <li>Метаданныке могут быть статические (объявление объекта) и динамические (объявлении функции)</li>
+</ul>
+
+<v-code lang="js" title="">
+// Явно в коде не вызывается - всё происходит под капотом
+export const metadata = {
+    title: 'Название проекта',
+    description: 'Описание проекта',
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Layout для страницы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Любая страница может определить собственный Layout. Для этого нужно добавить <u>layout.js</u> рядом с <u>page.js</u> (в примере страница <u>Dashboard</u>)</li>
+    <li>В константу <u>metadata</u> также можно добавить метоинформацию</li>
+    <li>Явно <u>DashboardLayout</u> вызывать не нужно - он автоматически подключится к странице</li>
+</ul>
+
+<img src="/@img/next.js/layouts.png" width="250px" />
+
+<v-code lang="js" title="app/dashboard/layout.jsx">
+export const metadata = {
+    title: 'Новый заголовок',
+    description: 'Новое описание',
+}
+
+const DashboardLayout = (props) => {
+    const { children } = props;
+
+    return (
+        &lt;section&gt;
+            {/* Include shared UI here e.g. a header or sidebar */}
+            &lt;nav&gt;Navbar&lt;/nav&gt;
+            {children}
+        &lt;/section&gt;
+    )
+}
+
+export default DashboardLayout;
+</v-code>
