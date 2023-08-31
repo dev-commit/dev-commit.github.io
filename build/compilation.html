@@ -640,6 +640,14 @@ howdns.works/ep1/
     <li>В поле объект прописать explorer: <u-code>explorer C:\Users\anduser\Desktop\1.bat</u-code></li>
 </ol>
 
+<!------------------------------------------------------------->
+<h4>3. Гиберанация</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Для Windows 11 нет пунката гибернации в меню Пуск</li>
+    <li><a href="https://remontka.pro/hibernation-windows-11/" target="_blank">https://remontka.pro/hibernation-windows-11/</a></li>
+</ul>
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Установка Windows</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -663,6 +671,54 @@ howdns.works/ep1/
     <li><u-code-text>**Жирный**</u-code-text></li>
     <li><u-code-text>~~Зачеркнутый~~</u-code-text></li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Telegram Bot</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Создать бота</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li>Открыть бота BotFather <a href="https://t.me/BotFather" target="_blank">https://t.me/BotFather</a></li>
+    <li>Создать нового бота <em>"/newbot"</em></li>
+    <li>Ввести имя для бота (произвольное)</li>
+    <li>Ввести username (должно заканчиаваться на <u>"bot"</u>, н-р: "my_bot")</li>
+    <li>После создание бота появится <u>"Token to access the HTTP API"</u></li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>2. Получить ID пользователя</h4>
+<!------------------------------------------------------------->
+После этого нужно получить id пользователя Telegram, которому будут отправляться сообщения
+
+<ol class="list-num">
+    <li>Перейти по ссылке <a href="https://t.me/getmyid_bot" target="_blank">https://t.me/getmyid_bot</a> и запустить бота в своем Telegram</li>
+    <li>В ответ бот выдаст сообщение: "Your user ID: xxxx; Current chat ID: xxxx"</li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>3. Отправка сообщение в бот через сайт</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;button id=&quot;send&quot;&gt;Send&lt;/button&gt;
+</v-code>
+
+<v-code lang="js" title="">
+const userId = 'xxxx';
+const token = 'xxxx:xxxx';
+const message = 'O brave new world';
+
+const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${userId}&text=${message}`;
+
+const element = document.querySelector('#send');
+
+element.addEventListener('click', () => {
+    fetch(url)
+        .then(res => res.json())
+        .then(body => console.log(body))	
+});
+</v-code>
 </div><div id="compilation/tech/google-chrome"><h2>Google Chrome</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
