@@ -10,6 +10,7 @@ ARR_MODULE = [
             [root+'code/react-redux',             emoji.code+'React-Redux'],
             [root+'main/redux-compare',           setTheme(2, ['redux', 'react-redux', 'redux-toolkit'])],
             [root+'code/redux-toolkit',           'Redux Toolkit'],
+            [root+'code/redux-saga',              'Redux Saga'],
         ]
     },
     {

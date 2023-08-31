@@ -1,0 +1,110 @@
+<h2>Redux Saga</h2>
+
+<u-link-wrapper>
+    <a href="https://redux-saga.js.org/" target="_blank">https://redux-saga.js.org/</a>
+</u-link-wrapper>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+# Redux Toolkit
+npm i --save <u-code-accent>react-redux</u-code-accent> <u-code-accent>@reduxjs/toolkit</u-code-accent>
+# Redux Saga
+npm i --save <u-code-accent>redux-saga</u-code-accent>
+</v-pre-npm>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Методы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>call</u-text-define> - вернет только объект описывающий эту операцию и redux-saga сможет позаботиться о вызове и возвращении результатов в функцию-генератор</li>
+    <li><u-text-define>put</u-text-define> - вместо отправления действий (dispatch action) внутри функции-генератора, put возвращает объект с инструкциями для промежуточного слоя (middleware) - отправить действие</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Доступ к значению Store из Saga</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-tabs :tabs="['sagas.js', 'selectors.js', 'store.js']">
+
+<template v-slot:1>
+<!------------------------------------------------------------->
+<v-path>sagas.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Данные из Селектора
+import { select } from "redux-saga/effects"
+
+export function* setCurrentStepAsync() {
+    const isTimer: boolean = yield select(getTimerSelector)
+}
+</v-code>
+<v-code lang="js" title="">
+// Данные напрямую из Store
+import { store } from "./store"
+
+export function* setCurrentStepAsync() {
+    const isTimer = store.getState().playground.isTimer
+}
+</v-code>
+</template>
+
+<template v-slot:2>
+<!------------------------------------------------------------->
+<v-path>selectors.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { createSelector } from "reselect"
+
+const getTimer = (state) => state.playground.isTimer
+export const getTimerSelector = createSelector(getTimer, (state) => state)
+</v-code>
+</template>
+
+<template v-slot:3>
+<!------------------------------------------------------------->
+<v-path>store.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { configureStore } from "@reduxjs/toolkit"
+
+export const store = configureStore({
+    reducer: {
+        playground: playgroundReducer,
+    },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware),
+})
+</v-code>
+</template>
+
+</v-tabs>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>redux-saga vs redux-thunk</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><em>redux-thunk</em> использует callback, поэтому возникает callback-hell</li>
+    <li><em>redux-saga</em> использует генераторы, что избавляет от callback-hell</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Вопросы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Почему redux saga использует генераторы, а не асинхронные функции?</h4>
+<!------------------------------------------------------------->
+
+<h5>Ответ от ChatGPT</h5>
+<ol class="list-num">
+    <li><em>Управление потоком</em>: Генераторы предоставляют более гибкий и контролируемый способ управления потоком выполнения. Redux Saga позволяет паузить, возобновлять и отменять выполнение саги, что делает его мощным инструментом для сложных сценариев управления потоком данных</li>
+    <li><em>Параллельное выполнение</em>: Генераторы позволяют легко создавать параллельные задачи и координировать их выполнение. Саги могут запускать несколько веток выполнения и ждать, пока все они завершатся</li>
+    <li><em>Отмена задач</em>: Redux Saga обеспечивает механизм отмены выполнения саги, что может быть сложнее с асинхронными функциями. Это полезно, например, когда пользователь выполняет действие, которое требует отмены предыдущих запросов или задач</li>
+</ol>
