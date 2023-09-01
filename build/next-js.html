@@ -75,12 +75,12 @@
             <u-menu>CDN</u-menu>
         </a>
     </li>
-
+</ul><h4>🏷️ Компоненты</h4><ul>
     <li>
         <a
             class="menu-link"
-            id="id__next-js/main/img"
-            href="#next-js/main/img"
+            id="id__next-js/components/img"
+            href="#next-js/components/img"
         >
             Images
         </a>
@@ -89,18 +89,28 @@
     <li>
         <a
             class="menu-link"
-            id="id__next-js/main/fonts"
-            href="#next-js/main/fonts"
+            id="id__next-js/components/fonts"
+            href="#next-js/components/fonts"
         >
             Fonts
+        </a>
+    </li>
+</ul><h4>🏷️ Структура</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__next-js/structure/pages"
+            href="#next-js/structure/pages"
+        >
+            Pages
         </a>
     </li>
 
     <li>
         <a
             class="menu-link"
-            id="id__next-js/main/layouts"
-            href="#next-js/main/layouts"
+            id="id__next-js/structure/layouts"
+            href="#next-js/structure/layouts"
         >
             Layouts
         </a>
@@ -109,10 +119,10 @@
     <li>
         <a
             class="menu-link"
-            id="id__next-js/main/pages"
-            href="#next-js/main/pages"
+            id="id__next-js/structure/templates"
+            href="#next-js/structure/templates"
         >
-            Pages
+            Templates
         </a>
     </li>
 </ul><h4>🏷️ Деплой</h4><ul>
@@ -175,12 +185,12 @@
             Backend
         </a>
     </li>
-</ul><h4>🏷️ Компоненты</h4><ul>
+
     <li>
         <a
             class="menu-link"
-            id="id__next-js/components/Head"
-            href="#next-js/components/Head"
+            id="id__next-js/common/Head"
+            href="#next-js/common/Head"
         >
             <u-menu>Head</u-menu>
         </a>
@@ -189,8 +199,8 @@
     <li>
         <a
             class="menu-link"
-            id="id__next-js/components/Document"
-            href="#next-js/components/Document"
+            id="id__next-js/common/Document"
+            href="#next-js/common/Document"
         >
             <u-menu>Document</u-menu>
         </a>
@@ -415,7 +425,7 @@ npx <u-code-accent>create-next-app@latest</u-code-accent>
 <ul class="list-point">
 	<li><u-code-text>npm run dev</u-code-text> - server</li>
 	<li><u-code-text>npm run build</u-code-text> - build</li>
-	<li><u-code-text>npm run start</u-code-text> - выдаёт ошибку</li>
+	<li><u-code-text>npm run start</u-code-text> - start a Next.js production server (выдаёт ошибку)</li>
 </ul>
 
 <v-code lang="json" title="">
@@ -513,7 +523,7 @@ module.exports = {
     <li>Географически распределённая сетевая инфраструктура, позволяющая оптимизировать доставку и дистрибуцию содержимого конечным пользователям в сети Интернет</li>
     <li>Использование контент-провайдерами CDN способствует увеличению скорости загрузки интернет-пользователями аудио-, видео-, программного, игрового и других видов цифрового содержимого в точках присутствия сети CDN</li>
 </ul>
-</div><div id="next-js/main/img"><h2>Подключение изображений</h2>
+</div><div id="next-js/components/img"><h2>Подключение изображений</h2>
 
 <!------------------------------------------------------------->
 <h4>1. Глобальный файл из директории "public"</h4>
@@ -598,7 +608,7 @@ const App = () => {
     )
 }
 </v-code>
-</div><div id="next-js/main/fonts"><h2>Шрифты</h2>
+</div><div id="next-js/components/fonts"><h2>Шрифты</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>1. Google Fonts</h3>
@@ -748,7 +758,103 @@ export const robotoRegular = Roboto({
 <v-code lang="js" title="">
 import localFont from 'next/font/local';
 </v-code>
-</div><div id="next-js/main/layouts"><h2>Layouts</h2>
+</div><div id="next-js/structure/pages"><h2>Pages</h2>
+
+<u-link-wrapper>
+    <a href="https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts" target="_blank">https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Next.js ищет имя <em>page.js</em> в директории <em>app</em> для формировани роутов</li>
+</ul>
+
+<img src="/@img/next.js/pages.png" width="400px" />
+
+<v-code lang="js" title="app/page.tsx">
+// `app/page.tsx` is the UI for the `/` URL
+export default function Page() {
+    return &lt;h1&gt;Hello, Home page!&lt;/h1&gt;
+}
+</v-code>
+
+<v-code lang="js" title="app/dashboard/page.tsx">
+// `app/dashboard/page.tsx` is the UI for the `/dashboard` URL
+export default function Page() {
+    return &lt;h1&gt;Hello, Dashboard Page!&lt;/h1&gt;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование <u>Pages Router</u></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://nextjs.org/docs/getting-started/installation#the-pages-directory-optional" target="_blank">https://nextjs.org/docs/getting-started/installation#the-pages-directory-optional</a>
+</u-link-wrapper>
+
+<u-message-error>
+    <ul>
+        <li>В Next.js поддерживается предыдущая версия роутинга, когда страницу можно размещать в директории <em>pages</em></li>
+        <li>Для таких страниц будет недоступен <u>Root Layout</u> и нужно будет создавать собственный, которым нужно обернуть компонент</li>
+        <li>Если в собсвенном Layout использовать тег <u-code-text>&lt;html&gt;</u-code-text>, то будет ошибка</li>
+    </ul>
+</u-message-error>
+
+<h5>Пример для страницы Dashboard</h5>
+
+<ul class="list-point">
+    <li>Next.js увидит, что в директории <u>"pages"</u> есть директория <u>"dashboard"</u> и создаст роут <em>/dashboard</em></li>
+</ul>
+
+<v-tabs :tabs="['index.jsx', 'LayoutDashboard.jsx']">
+
+<template v-slot:1>
+<!------------------------------------------------------------->
+<v-path>pages/dashboard/index.jsx</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import LayoutDashboard from '../../layouts/LayoutDashboard';
+
+const DashboardPage = () => {
+    return (
+        &lt;LayoutLinks&gt;
+            &lt;h1&gt;Dashboard&lt;/h1&gt;
+        &lt;/LayoutLinks&gt;
+    )
+}
+
+export default LinksPage;
+</v-code>
+</template>
+
+<template v-slot:2>
+<!------------------------------------------------------------->
+<v-path>layouts/LayoutDashboard.jsx</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import Head from 'next/head';
+
+const LayoutDashboard = (props) => {
+    const { children } = props;
+
+    return (
+        <>
+            &lt;Head&gt;
+                &lt;title&gt;Название&lt;/title&gt;
+                &lt;meta name=&quot;description&quot; content=&quot;Описание&quot;&gt;&lt;/meta&gt;
+            &lt;/Head&gt;
+            &lt;main&gt;
+                {children}
+            &lt;/main&gt;
+        </>
+    )
+}
+
+export default LayoutDashboard;
+</v-code>
+</template>
+
+</v-tabs>
+</div><div id="next-js/structure/layouts"><h2>Layouts</h2>
 
 <u-link-wrapper>
     <a href="https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts" target="_blank">https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts</a>
@@ -837,98 +943,32 @@ const DashboardLayout = (props) => {
 
 export default DashboardLayout;
 </v-code>
-</div><div id="next-js/main/pages"><h2>Pages</h2>
-
-<u-link-wrapper>
-    <a href="https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts" target="_blank">https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts</a>
-</u-link-wrapper>
+</div><div id="next-js/structure/templates"><h2>Templates</h2>
 
 <ul class="list-point">
-    <li>Next.js ищет имя <em>page.js</em> в директории <em>app</em> для формировани роутов</li>
+    <li>Шаблоны похожи на макеты в том, что они оборачивают каждый дочерний макет или страницу</li>
+    <li>В отличие от макетов, которые сохраняются на всех маршрутах и ​​сохраняют состояние, шаблоны создают новый экземпляр для каждого из своих дочерних элементов при навигации. Это означает, что когда пользователь перемещается между маршрутами, имеющими общий шаблон, монтируется новый экземпляр компонента, элементы DOM воссоздаются, состояние не сохраняется , а эффекты повторно синхронизируются</li>
+    <li>Шаблон можно определить путем экспорта компонента React по умолчанию из template.jsфайла. Компонент должен принимать <u>children</u> реквизит</li>
 </ul>
 
-<img src="/@img/next.js/pages.png" width="400px" />
+<img src="/@img/next.js/templates.png" width="220px" />
 
-<v-code lang="js" title="app/page.tsx">
-// `app/page.tsx` is the UI for the `/` URL
-export default function Page() {
-    return &lt;h1&gt;Hello, Home page!&lt;/h1&gt;
+<v-code lang="js" title="">
+export default function Template({ children }) {
+	return &lt;div&gt;{children}&lt;/div&gt;
 }
 </v-code>
-
-<v-code lang="js" title="app/dashboard/page.tsx">
-// `app/dashboard/page.tsx` is the UI for the `/dashboard` URL
-export default function Page() {
-    return &lt;h1&gt;Hello, Dashboard Page!&lt;/h1&gt;
-}
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Использование директории <u>pages</u></h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<u-message-error>
-    <ul>
-        <li>В Next.js поддерживается предыдущая версия роутинга, когда страницу можно размещать в директории <em>pages</em> (как при использовании старой версии <em>Pages Router</em>)</li>
-        <li>Для таких страниц будет недоступен <u>Root Layout</u> и нужно будет создавать собственный, которым нужно обернуть компонент</li>
-        <li>Если в собсвенном Layout использовать тег <u-code-text>&lt;html&gt;</u-code-text>, то будет ошибка</li>
-    </ul>
-</u-message-error>
-
-<h5>Пример для страницы Dashboard</h5>
 
 <ul class="list-point">
-    <li>Next.js увидит, что в директории <u>"pages"</u> есть директория <u>"dashboard"</u> и создаст роут <em>/dashboard</em></li>
+    <li>С точки зрения вложенности, template.js отображается между макетом и его дочерними элементами. Вот упрощенный вывод:</li>
 </ul>
 
-<v-tabs :tabs="['index.jsx', 'LayoutDashboard.jsx']">
-
-<template v-slot:1>
-<!------------------------------------------------------------->
-<v-path>pages/dashboard/index.jsx</v-path>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-import LayoutDashboard from '../../layouts/LayoutDashboard';
-
-const DashboardPage = () => {
-    return (
-        &lt;LayoutLinks&gt;
-            &lt;h1&gt;Dashboard&lt;/h1&gt;
-        &lt;/LayoutLinks&gt;
-    )
-}
-
-export default LinksPage;
+<v-code lang="html" title="">
+&lt;Layout&gt;
+    {/* Note that the template is given a unique key. */}
+    &lt;Template key={routeParam}&gt;{children}&lt;/Template&gt;
+&lt;/Layout&gt;
 </v-code>
-</template>
-
-<template v-slot:2>
-<!------------------------------------------------------------->
-<v-path>layouts/LayoutDashboard.jsx</v-path>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-import Head from 'next/head';
-
-const LayoutDashboard = (props) => {
-    const { children } = props;
-
-    return (
-        <>
-            &lt;Head&gt;
-                &lt;title&gt;Название&lt;/title&gt;
-                &lt;meta name=&quot;description&quot; content=&quot;Описание&quot;&gt;&lt;/meta&gt;
-            &lt;/Head&gt;
-            &lt;main&gt;
-                {children}
-            &lt;/main&gt;
-        </>
-    )
-}
-
-export default LayoutDashboard;
-</v-code>
-</template>
-
-</v-tabs>
 </div><div id="next-js/deploy/vercel"><h2>Деплой на Vercel</h2>
 
 <ol class="list-num">
@@ -1206,7 +1246,7 @@ body {
     <li>Возможность писать Backend на Node.js</li>
     <li>Файл: <em>./pages/api/EndpointName.js</em></li>
 </ul>
-</div><div id="next-js/components/Head"><h2>Head</h2>
+</div><div id="next-js/common/Head"><h2>Head</h2>
 
 <ul class="list-point">
     <li>Изменение раздела <em>&lt;head&gt;&lt;/head&gt;</em></li>
@@ -1230,7 +1270,7 @@ const App = () =&gt; {
 
 export default App;
 </v-code>
-</div><div id="next-js/components/Document"><h2>Custom `Document`</h2>
+</div><div id="next-js/common/Document"><h2>Custom `Document`</h2>
 
 <u-link-wrapper>
     <a href="https://nextjs.org/docs/advanced-features/custom-document" target="_blank">https://nextjs.org/docs/advanced-features/custom-document</a>

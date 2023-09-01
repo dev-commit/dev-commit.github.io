@@ -7,13 +7,26 @@ ARR_MODULE = [
         themes: [
             getLink(root, 'info', 'done'),
             getLink(root, 'install', 'done'),
-            [root+'main/ssr',     setTheme(1, ['SSR']), false, 'done'],
-            [root+'main/ssg',     setTheme(1, ['SSG']), false, 'done'],
-            [root+'main/cdn',     setTheme(1, ['CDN']), false, 'done'],
-            [root+'main/img',     'Images', false, 'done'],
-            [root+'main/fonts',   'Fonts', false, 'done'],
-            [root+'main/layouts', 'Layouts', false, 'done'],
-            [root+'main/pages',   'Pages', false, 'done'],
+            [root+'main/ssr', setTheme(1, ['SSR']), false, 'done'],
+            [root+'main/ssg', setTheme(1, ['SSG']), false, 'done'],
+            [root+'main/cdn', setTheme(1, ['CDN']), false, 'done'],
+        ]
+    },
+    {
+        title: 'Компоненты',
+        accent: true,
+        themes: [
+            [root+'components/img',   'Images', false, 'done'],
+            [root+'components/fonts', 'Fonts', false, 'done'],
+        ]
+    },
+    {
+        title: 'Структура',
+        accent: true,
+        themes: [
+            [root+'structure/pages',     'Pages', false, 'done'],
+            [root+'structure/layouts',   'Layouts', false, 'done'],
+            [root+'structure/templates', 'Templates', false, 'done'],
         ]
     },
     {
@@ -31,13 +44,8 @@ ARR_MODULE = [
             [root+'common/google-fonts', 'Добавление Google Fonts'],
             [root+'common/App',          'App'],
             [root+'common/backend',      'Backend'],
-        ]
-    },
-    {
-        title: 'Компоненты',
-        themes: [
-            [root+'components/Head',     setTheme(1, ['Head'])],
-            [root+'components/Document', setTheme(1, ['Document'])],   
+            [root+'common/Head',         setTheme(1, ['Head'])],
+            [root+'common/Document',     setTheme(1, ['Document'])],  
         ]
     },
     {

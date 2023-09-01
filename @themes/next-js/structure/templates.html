@@ -1,0 +1,26 @@
+<h2>Templates</h2>
+
+<ul class="list-point">
+    <li>Шаблоны похожи на макеты в том, что они оборачивают каждый дочерний макет или страницу</li>
+    <li>В отличие от макетов, которые сохраняются на всех маршрутах и ​​сохраняют состояние, шаблоны создают новый экземпляр для каждого из своих дочерних элементов при навигации. Это означает, что когда пользователь перемещается между маршрутами, имеющими общий шаблон, монтируется новый экземпляр компонента, элементы DOM воссоздаются, состояние не сохраняется , а эффекты повторно синхронизируются</li>
+    <li>Шаблон можно определить путем экспорта компонента React по умолчанию из template.jsфайла. Компонент должен принимать <u>children</u> реквизит</li>
+</ul>
+
+<img src="/@img/next.js/templates.png" width="220px" />
+
+<v-code lang="js" title="">
+export default function Template({ children }) {
+	return &lt;div&gt;{children}&lt;/div&gt;
+}
+</v-code>
+
+<ul class="list-point">
+    <li>С точки зрения вложенности, template.js отображается между макетом и его дочерними элементами. Вот упрощенный вывод:</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;Layout&gt;
+    {/* Note that the template is given a unique key. */}
+    &lt;Template key={routeParam}&gt;{children}&lt;/Template&gt;
+&lt;/Layout&gt;
+</v-code>
