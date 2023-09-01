@@ -5,84 +5,62 @@ ARR_MODULE = [
         title: 'Основное',
         accent: true,
         themes: [
-            getLink(root, 'info', 'done'),
-            getLink(root, 'install', 'done'),
-            [root+'main/ssr', setTheme(1, ['SSR']), false, 'done'],
-            [root+'main/ssg', setTheme(1, ['SSG']), false, 'done'],
-            [root+'main/cdn', setTheme(1, ['CDN']), false, 'done'],
+            getLink(root, 'info'),
+            getLink(root, 'install'),
+            [root+'main/ssr', setTheme(1, ['SSR'])],
+            [root+'main/ssg', setTheme(1, ['SSG'])],
+            [root+'main/cdn', setTheme(1, ['CDN'])],
         ]
     },
     {
         title: 'Компоненты',
         accent: true,
         themes: [
-            [root+'components/img',   'Images', false, 'done'],
-            [root+'components/fonts', 'Fonts', false, 'done'],
+            [root+'components/images', emoji.star+'Images'],
+            [root+'components/fonts',  emoji.star+'Fonts'],
+            [root+'components/styles', emoji.star+'Styles'],
         ]
     },
     {
         title: 'Структура',
         accent: true,
         themes: [
-            [root+'structure/pages',     'Pages', false, 'done'],
-            [root+'structure/layouts',   'Layouts', false, 'done'],
-            [root+'structure/templates', 'Templates', false, 'done'],
-        ]
-    },
-    {
-        title: 'Деплой',
-        accent: true,
-        themes: [
-            [root+'deploy/vercel',      'Vercel (SSR)', false, 'done'],
-            ['git/github/github-pages', 'Github Pages (SSG)', false, 'done'],
-        ]
-    },
-    {
-        title: 'Общее',
-        themes: [
-            [root+'common/layout',       'Создание Layout'],
-            [root+'common/google-fonts', 'Добавление Google Fonts'],
-            [root+'common/App',          'App'],
-            [root+'common/backend',      'Backend'],
-            [root+'common/Head',         setTheme(1, ['Head'])],
-            [root+'common/Document',     setTheme(1, ['Document'])],  
-        ]
-    },
-    {
-        title: 'Запросы на сервер',
-        themes: [
-            [root+'fetch/info',               emoji.theory+'Информация'],
-            [root+'fetch/getInitialProps',    setTheme(1, ['getInitialProps'])],
-            [root+'fetch/getServerSideProps', setTheme(1, ['getServerSideProps'])],
-            [root+'fetch/getStaticProps',     setTheme(1, ['getStaticProps'])],
-        ]
-    },
-    {
-        title: 'Стили',
-        themes: [
-            [root+'styles/jsx',  'JSX'],
-            [root+'styles/css',  'CSS-файл'],
-            [root+'styles/sass', 'Sass'],
+            [root+'structure/pages',     'Pages'],
+            [root+'structure/layouts',   'Layouts'],
+            [root+'structure/templates', 'Templates'],
         ]
     },
     {
         title: 'Роутинг',
+        accent: true,
         themes: [
-            [root+'routing/structure',      emoji.theory+'Структура'],
-            [root+'routing/useRouter',      setTheme(3, ['useRouter'])],
-            [root+'routing/Router',         setTheme(1, ['Router'])],
-            [root+'routing/Link',           setTheme(1, ['Link'])],
-            [root+'routing/dynamic-route',  emoji.code+'Динамический параметр в URL'],
-            [root+'routing/push-route',     emoji.code+'Программное добавление роута'],
-            [root+'routing/links-route',    emoji.code+'Ссылки на страницы'],
-            [root+'routing/page-404',       emoji.code+'Страница 404'],
+            [root+'routing/components/Link',   setTheme(1, ['Link'])],
+            [root+'routing/hooks/usePathname', setTheme(3, ['usePathname'])],
+            [root+'routing/hooks/useRouter',   setTheme(3, ['useRouter'])],
+            [root+'routing/hooks/useParams',   setTheme(3, ['useParams'])],
+            [root+'routing/page-404',          emoji.code+'Страница 404'],
         ]
     },
     {
         title: 'Настройки',
         themes: [
-            [root+'settings/next-config',  setTheme(5, ['next.config.js'])],
-            [root+'settings/typescript',   'TypeScript'],
+            [root+'settings/env',  setTheme(5, ['ENV-переменные'])],
+        ]
+    },
+    {
+        title: 'Деплой',
+        themes: [
+            [root+'deploy/vercel',      'Vercel (SSR)'],
+            ['git/github/github-pages', 'Github Pages (SSG)'],
+        ]
+    },
+    {
+        title: 'Запросы на сервер',
+        themes: [
+            [root+'fetch/info',               emoji.theory+'Информация', false, 'check'],
+            [root+'fetch/getInitialProps',    setTheme(1, ['getInitialProps']), false, 'check'],
+            [root+'fetch/getServerSideProps', setTheme(1, ['getServerSideProps']), false, 'check'],
+            [root+'fetch/getStaticProps',     setTheme(1, ['getStaticProps']), false, 'check'],
         ]
     },
 ]

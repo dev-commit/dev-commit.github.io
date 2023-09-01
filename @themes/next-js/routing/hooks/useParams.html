@@ -1,0 +1,28 @@
+<h2>useParams</h2>
+
+<u-link-wrapper>
+    <a href="https://nextjs.org/docs/app/api-reference/functions/use-params" target="_blank">https://nextjs.org/docs/app/api-reference/functions/use-params</a>
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useParams" after="" arg="()">
+    Client Component hook, который позволяет получить динамические параметры маршрута, заполненные текущим URL-адресом
+    </v-method>
+</div>
+
+<v-code lang="js" title="">
+'use client'
+ 
+import { useParams } from 'next/navigation';
+
+const App = () => {
+    const params = <u-code-mod>useParams</u-code-mod>();
+
+    // Route -> /shop/[tag]/[item]
+    // URL -> /shop/shoes/nike-air-max-97
+    // `params` -> { tag: 'shoes', item: 'nike-air-max-97' }
+    console.log(params);
+
+    return &lt;&gt;&lt;/&gt;
+}
+</v-code>

@@ -1,0 +1,61 @@
+<h2>Стили</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>CSS</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li>Глобальные стили в <em>app/globals.css</em></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>CSS Modules</h4>
+<!------------------------------------------------------------->
+<v-tabs :tabs="['App.jsx', 'App.module.css']">
+
+<template v-slot:1>
+<!------------------------------------------------------------->
+<v-path>App.jsx</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import styles from './App.module.css';
+
+const App = () => {
+    return (
+        &lt;h1 className={styles.header}&gt;Header&lt;/h1&gt;
+    )
+}
+
+export default App;
+</v-code>
+</template>
+
+<template v-slot:2>
+<!------------------------------------------------------------->
+<v-path>App.module.css</v-path>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+.header {
+    color: yellowgreen;
+}
+</v-code>
+
+</template>
+
+</v-tabs>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Sass</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-pre-npm>
+npm i --save <u-code-accent>sass</u-code-accent>
+</v-pre-npm>
+
+<!------------------------------------------------------------->
+<h4>CSS Modules</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Аналогично с CSS Modules, только импортируется файл <em>App.module.scss</em></li>
+</ul>
