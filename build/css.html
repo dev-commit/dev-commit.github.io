@@ -242,7 +242,7 @@
             id="id__css/color-module/colors-hex"
             href="#css/color-module/colors-hex"
         >
-            1. <u-menu-accent>HEX</u-menu-accent>
+            1. <u-menu-accent>Hexadecimal Colors</u-menu-accent>
         </a>
     </li>
 
@@ -252,7 +252,7 @@
             id="id__css/color-module/colors-rgb"
             href="#css/color-module/colors-rgb"
         >
-            2. <u-menu-accent>RGB</u-menu-accent>
+            2. <u-menu-accent>rgb</u-menu-accent> <u-menu-accent>rgba</u-menu-accent>
         </a>
     </li>
 
@@ -262,7 +262,7 @@
             id="id__css/color-module/colors-hsl"
             href="#css/color-module/colors-hsl"
         >
-            3. <u-menu-accent>HSL</u-menu-accent>
+            3. <u-menu-accent>hsl</u-menu-accent> <u-menu-accent>hsla</u-menu-accent>
         </a>
     </li>
 
@@ -279,10 +279,10 @@
     <li>
         <a
             class="menu-link"
-            id="id__css/color-module/colors-stanfart"
-            href="#css/color-module/colors-stanfart"
+            id="id__css/color-module/colors-predefined"
+            href="#css/color-module/colors-predefined"
         >
-            5. Стандартные
+            5. <u-menu-accent>Predefined</u-menu-accent>
         </a>
     </li>
 
@@ -543,6 +543,36 @@
             href="#css/main/text-decoration"
         >
             <u-menu>text-decoration</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__css/main/scroll-behavior"
+            href="#css/main/scroll-behavior"
+        >
+            <u-menu>scroll-behavior</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__css/main/where"
+            href="#css/main/where"
+        >
+            <u-menu>:where</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__css/main/is"
+            href="#css/main/is"
+        >
+            <u-menu>:is</u-menu>
         </a>
     </li>
 
@@ -1539,100 +1569,160 @@ div { color: #0000ff; }  /* blue */
 0%   # 00
 </template>
 </v-two-code>
-</div><div id="css/color-module/colors-rgb"><h2>RGB</h2>
+</div><div id="css/color-module/colors-rgb"><h2>rgb() и rgba()</h2>
 
-<v-code lang="bash border" title="Функция">
-rgb(
-	red,    # 0 - 255 или 0% - 100%
-	green,  # 0 - 255 или 0% - 100%
-	blue,   # 0 - 255 или 0% - 100%
-	alpha   # 0  - 1
-);
-</v-code>
-
-<ul class="list-point">
-    <li><u-text-define>red</u-text-define> (красный) - интенсивность цвета</li>
-    <li><u-text-define>green</u-text-define> (зеленый) - интенсивность цвета</li>
-    <li><u-text-define>blue</u-text-define> (синий) - интенсивность цвета</li>
-    <li><u-text-define>alpha</u-text-define> (прозрачность) - альфа-канал</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>RGB цвета</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="css" title="">
-div { color: rgb(255, 0, 0); }  /* red */
-div { color: rgb(0, 255, 0); }  /* green */
-div { color: rgb(0, 0, 255); }  /* blue */
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>RGBA цвета</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li>Значения цвета RGBA являются расширением значений цвета RGB с альфа-каналом, который определяет непрозрачность объекта</li>
-    <li>RGBA цвет задается с помощью функции <u>RGBA()</u>, которая имеет синтаксис: <u-code-text>rgba(red, green, blue, alpha)</u-code-text></li>
-    <li>Параметр Alpha является числом между 0,0 (полностью прозрачным) и 1,0 (полностью непрозрачным)</li>
-</ul>
-
-<v-code lang="js border" title="Функция">
-rgba(red, green, blue, alpha);
-</v-code>
-
-<v-code lang="css" title="">
-div { color: rgba(255, 0, 0, 0.3); }   /* red with opacity */
-div { color: rgba(0, 255, 0, 0.3); }   /* green with opacity */
-div { color: rgba(0, 0, 255, 0.3); }   /* blue with opacity */
-</v-code>
-
-
-
-</div><div id="css/color-module/colors-hsl"><h2>HSL</h2>
-
-<v-code lang="bash border" title="Функция">
-hsla(
-	hue,         # 0  - 360 градусов
-	saturation,  # 0% - 100%
-	lightness,   # 0% - 100%
-	alpha        # 0  - 1
-);
-</v-code>
-
-<ul class="list-point">
-    <li><u-text-define>hue</u-text-define> (оттенок) - позиция цвета на цветовом круге. 0 (или 360)-красный, 120-зеленый, 240-синий</li>
-    <li><u-text-define>saturation</u-text-define> (насыщенность) - насколько насыщенным (ярким) будет цвет. 0% означает оттенок серого и 100%-полный цвет</li>
-    <li><u-text-define>lightness</u-text-define> (осветление) - насколько светлым или темным будет цвет. 0%-черный, 100%-белый</li>
-    <li><u-text-define>alpha</u-text-define> (прозрачность) - альфа-канал</li>
-</ul>
+<v-two-code type="css border;css border" comment="rgb();rgba()">
+<template v-slot:first>
+div {
+    /* Красный */
+    color: rgb(255, 0, 0);
+    /* Зеленый */
+    color: rgb(0, 255, 0);
+    /* Синий */
+    color: rgb(0, 0, 255);
+    /* Зеленый с прозрачностью 0.7 (новый вариант) */
+    color: rgb(0 255 0 / 0.7);
+}
+</template>
+<template v-slot:last>
+div {
+    /* Красный с прозрачностью 0.7 */
+    color: rgba(255, 0, 0, 0.7);
+    /* Зеленый с прозрачностью 0.7 */
+    color: rgba(0, 255, 0, 0.7);
+    /* Синий с прозрачностью 0.7 */
+    color: rgba(0, 0, 255, 0.7);
+}
+</template>
+</v-two-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>HSL цвета</h3>
+<h3>Параметры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="css" title="">
-div { color: hsl(120, 100%, 50%); }   /* green */
-div { color: hsl(120, 100%, 75%); }   /* light green */
-div { color: hsl(120, 100%, 25%); }   /* dark green */
-div { color: hsl(120, 60%,  70%); }   /* pastel green */
-</v-code>
+<table>
+    <tr>
+        <th>№</th>
+        <th>Параметр</th>
+        <th>Описание</th>
+        <th>Диапазон</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td><u-text-define>red</u-text-define> (красный)</td>
+        <td>Интенсивность цвета</td>
+        <td>0 - 255 или 0% - 100%</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td><u-text-define>green</u-text-define> (зеленый)</td>
+        <td>Интенсивность цвета</td>
+        <td>0 - 255 или 0% - 100%</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td><u-text-define>blue</u-text-define> (синий)</td>
+        <td>Интенсивность цвета</td>
+        <td>0 - 255 или 0% - 100%</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td><u-text-define>alpha</u-text-define> (прозрачность)</td>
+        <td>
+            Альфа-канал:
+            <ul class="list-point">
+                <li><em>0</em> - полностью прозрачный</li>
+                <li><em>1</em> - полностью непрозрачный</li>
+            </ul>
+        </td>
+        <td>0 - 1</td>
+    </tr>
+</table>
+</div><div id="css/color-module/colors-hsl"><h2>hsl() и hsla()</h2>
+
+<v-two-code type="css border;css border" comment="hsl();hsla()">
+<template v-slot:first>
+div {
+    /* Зеленый */
+    color: hsl(120, 100%, 50%);
+    /* Зеленый осветленный */
+    color: hsl(120, 100%, 75%);
+    /* Зеленый затенённый */
+    color: hsl(120, 100%, 25%);
+    /* Зеленый ненасыщенный */
+    color: hsl(120, 60%,  50%);
+    /* Зеленый с прозрачностью 0.7 (новый вариант) */
+    color: hsl(120 100% 50% / 0.7);
+}
+</template>
+<template v-slot:last>
+div {
+    /* Красный с прозрачностью 0.7 */
+    color: hsla(0, 100%, 50%, 0.7);
+    /* Зеленый с прозрачностью 0.7 */
+    color: hsla(120, 100%, 50%, 0.7);
+    /* Синий с прозрачностью 0.7 */
+    color: hsla(240, 100%, 50%, 0.7);
+}
+</template>
+</v-two-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>HSLA цвета</h3>
+<h3>Параметры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li>Значения цвета HSLA являются расширением значений цвета HSL с альфа-каналом, который определяет непрозрачность объекта</li>
-    <li>Параметр Alpha является числом между 0,0 (полностью прозрачным) и 1,0 (полностью непрозрачным)</li>
-</ul>
-
-<v-code lang="js border" title="Функция">
-hsla(hue, saturation, lightness, alpha);
-</v-code>
-
-<v-code lang="css" title="">
-div { color: hsla(120, 100%, 50%, 0.3); }  /* green */
-div { color: hsla(120, 100%, 75%, 0.3); }  /* light green */
-div { color: hsla(120, 100%, 25%, 0.3); }  /* dark green */
-div { color: hsla(120, 60%,  70%, 0.3); }  /* pastel green */
-</v-code>
+<table>
+    <tr>
+        <th>№</th>
+        <th>Параметр</th>
+        <th>Описание</th>
+        <th>Диапазон</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td><u-text-define>hue</u-text-define> (оттенок)</td>
+        <td>Позиция цвета на цветовом круге:
+            <ul class="list-point">
+                <li><em>0</em> или <em>360</em> - красный</li>
+                <li><em>120</em> - зеленый</li>
+                <li><em>240</em> - синий</li>
+            </ul>
+        </td>
+        <td>0 - 360 градусов</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td><u-text-define>saturation</u-text-define> (насыщенность)</td>
+        <td>
+            <ul class="list-point">
+                <li><em>0%</em> - оттенок серого</li>
+                <li><em>100%</em> - полный цвет</li>
+            </ul>
+        </td>
+        <td>0% - 100%</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td><u-text-define>lightness</u-text-define> (осветление)</td>
+        <td>
+            <ul class="list-point">
+                <li><em>0%</em> - черный</li>
+                <li><em>100%</em> - белый</li>
+            </ul>
+        </td>
+        <td>0% - 100%</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td><u-text-define>alpha</u-text-define> (прозрачность)</td>
+        <td>
+            Альфа-канал:
+            <ul class="list-point">
+                <li><em>0</em> - полностью прозрачный</li>
+                <li><em>1</em> - полностью непрозрачный</li>
+            </ul>
+        </td>
+        <td>0 - 1</td>
+    </tr>
+</table>
 </div><div id="css/color-module/colors-hwb"><h2>HWB</h2>
 
 <u-link-wrapper>
@@ -1653,7 +1743,7 @@ div {
 	color: hwb(90, 0%, 0%, 0.4);
 }
 </v-code>
-</div><div id="css/color-module/colors-stanfart"><h2>Стандартные/кросс-браузерные имена цветов</h2>
+</div><div id="css/color-module/colors-predefined"><h2>Стандартные/кросс-браузерные имена цветов</h2>
 
 <ul class="list-point">
     <li>140 цветовые имена предопределены в спецификации цвета HTML и CSS</li>
@@ -2708,6 +2798,54 @@ div {
         <td><div style="text-decoration: underline solid hotpink; text-decoration-thickness: 3px">3px</div></td>
     </tr>
 </table>
+</div><div id="css/main/scroll-behavior"><h2>scroll-behavior</h2>
+
+<ul class="list-point">
+    <li><u-text-define>scroll-behavior</u-text-define> - CSS-свойство, которое определяет поведение прокрутки для любого элемента на странице</li>
+</ul>
+
+<v-code lang="css" title="">
+html {
+	scroll-behavior: auto:   /* Мгновенный переход (по-умолчанию) */
+	scroll-behavior: smooth; /* Плавная прокрутка к элементу */
+}
+</v-code>
+
+<v-code lang="html" title="">
+&lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;
+</v-code>
+
+<v-code lang="html" title="">
+&lt;section id=&quot;about&quot;&gt;&lt;/section&gt;
+</v-code>
+</div><div id="css/main/where"><h2>:where</h2>
+
+<v-two-code type="css;css" comment=";">
+<template v-slot:first>
+.card h1, .card h2, .card h3 {
+    /*  */
+}
+</template>
+<template v-slot:last>
+.card <u-code>:where</u-code>(h1, h2, h3) {
+    /*  */
+}
+</template>
+</v-two-code>
+</div><div id="css/main/is"><h2>:is</h2>
+
+<v-two-code type="css;css" comment=";">
+<template v-slot:first>
+.item:hover, .item:focus {
+    /*  */
+}
+</template>
+<template v-slot:last>
+.item<u-code>:is</u-code>(:hover, :focus) {
+    /*  */
+}
+</template>
+</v-two-code>
 </div><div id="css/main/px"><h2>Единицы измерения</h2>
 
 <v-code lang="bash" title="">
