@@ -1,73 +1,31 @@
 <h2>Ипользование</h2>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Установка</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-pre-npm>
-npm i --save <u-code-accent>@material-ui/core</u-code-accent>
-</v-pre-npm>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Варианты импортов</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-import Button from '@material-ui/core/Button';
-import { Button } from '@material-ui/core';
+<h5>Варианты импортов</h5>
+<v-code lang="js step" title="">
+import { Button } from "@mui/material"
+import Button from "@mui/material/Button"
 </v-code>
+
+<h5>TypeScript</h5>
+<v-code lang="js step" title="">
+import { ButtonProps } from "@mui/material"
+</v-code>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Простой пример</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-import { Button } from '@material-ui/core';
+import { Button } from "@mui/material"
 
-const Material = () =&gt; {
+const App = () =&gt; {
     return (
         &lt;Button variant="contained" color="primary"&gt;
-            Hello World
+            Click
         &lt;/Button&gt;
     );
 }
 
-export default Material;
+export default App
 </v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Стилизация</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="Material.jsx">
-import { withStyles } from '@material-ui/core/styles';
-import { Button } from '@material-ui/core';
-import styles from './MaterialStyles';
-
-const Material = ({ classes }) =&gt; {
-    return (
-        &lt;div className={classes.container}&gt;
-            &lt;Button
-                variant="contained"
-                color="primary"
-                onClick={() =&gt; { alert('clicked') <span v-pre>}}</span>
-                classes=<span v-pre>{{</span> root: classes.root <span v-pre>}}</span>
-            &gt;
-                Hello World
-            &lt;/Button&gt;
-        &lt;/div&gt;
-    );
-}
-
-export default withStyles(styles)(Material);
-</v-code>
-
-<v-code lang="js" title="MaterialStyles.css">
-const MaterialStyles = () => ({
-    container: {
-        border: '2px solid blue',
-    },
-    root: {
-        color: 'yellow' 
-    }
-});
-
-export default MaterialStyles;
-</v-code>
-

@@ -19,6 +19,26 @@ FONT
 @font-face { font-family: Consolas;       src: url(../fonts/Consolas.ttf); }
 
 /***************************************************
+LINK
+/***************************************************/
+a {
+	text-decoration: none;
+	color: rgb(var(--color-violet-medium));
+}
+a.link {
+	position: relative;
+}
+a.link::after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	border-bottom: 1px solid rgb(var(--color-violet-medium));
+}
+
+/***************************************************
 CODE
 /***************************************************/
 pre {
@@ -64,10 +84,6 @@ code.red {
 
 code.none u-code-title {
 	display: none;
-}
-code a {
-	text-decoration: underline;
-	color: rgb(var(--color-sea-green-dark));
 }
 
 /***************************************************
@@ -200,9 +216,6 @@ hr.small {
 }
 ul {
 	list-style-type: circle;
-}
-ul a {
-	color: rgb(var(--color-violet-medium));
 }
 summary {
 	cursor: pointer;

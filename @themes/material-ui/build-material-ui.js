@@ -4,17 +4,19 @@ ARR_MODULE = [
     {
         title: 'Основы',
         themes: [
-            getLink(root, 'info'),
-            getLink(root, 'use'),
-            [root+'main/bugs-styled-components', 'Bugs Styled Components'],
-            [root+'main/spacing',                setTheme(1, ['spacing'])],
+            getLink(root, 'info', 'done'),
+            getLink(root, 'install', 'done'),
+            getLink(root, 'use', 'done'),
+            [root+'main/styles', 'Стилизация', false, 'done'],
         ]
     },
     {
-        title: 'Методы',
+        title: 'Стилизация',
         themes: [
-            [root+'methods/with-styles', emoji.chevron+setTheme(1, ['withStyles'])],
-            [root+'methods/make-styles', emoji.chevron+setTheme(1, ['makeStyles'])],
+            [root+'styling/with-styles', setTheme(1, ['withStyles']), false, 'check'],
+            [root+'styling/make-styles', setTheme(1, ['makeStyles']), false, 'check'],
+            [root+'styling/spacing',     setTheme(5, ['spacing']), false, 'check'],
+            [root+'styling/variants',    'Варианты CSS in JS', false, 'check'],
         ]
     },
 ]

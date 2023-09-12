@@ -23,12 +23,15 @@ const Component = () => {
 }
 </v-code>
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Custom Hook useStyles</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
-<h5>Hook</h5>
-<v-code lang="js step" title="">
+<v-tabs :tabs="['Hook', 'Component', 'Styles']">
+
+<template v-slot:1>
+<v-code lang="js" title="">
 import React, { useMemo }  from 'react';
 import { StyleRulesCallback } from '@material-ui/core';
 import { Theme } from '@material-ui/core';
@@ -44,9 +47,10 @@ const useStyles = (getStyles: StyleRulesCallback&lt;Theme, {}&gt;) => {
     return useMakeStyles();
 }
 </v-code>
+</template>
 
-<h5>Component</h5>
-<v-code lang="js step" title="">
+<template v-slot:2>
+<v-code lang="js" title="">
 import React from 'react';
 
 import { useStyles } from './useStyles';
@@ -61,9 +65,10 @@ const App = () => {
 
 export default App;
 </v-code>
+</template>
 
-<h5>Styles</h5>
-<v-code lang="js step" title="">
+<template v-slot:3>
+<v-code lang="js" title="">
 const AppStyles = () => ({
     container: {
         border: '2px solid blue',
@@ -72,6 +77,9 @@ const AppStyles = () => ({
 
 export default AppStyles;
 </v-code>
+</template>
+
+</v-tabs>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

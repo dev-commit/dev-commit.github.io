@@ -1,0 +1,140 @@
+<h2>Стилизация</h2>
+
+<v-sandbox url="https://codesandbox.io/s/material-ui-custom-styling-9v353z" ok="true" title="Material-Ui Custom Styling" />
+
+<ul class="list-point">
+    <li><em>className</em></li>
+    <li><em>classes</em></li>
+    <li><em>sx</em></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование <em>className</em></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li>Material UI завязан на CSS-in-JS библиотеке Emotion</li>
+    <li>При использовании CSS-in-JS, стили будут ниже и смогут переопределить стандартные стили: 
+    	<a href="https://mui.com/material-ui/guides/interoperability/#css-injection-order" target="_blank" class="link">css-injection-order</a>, 
+    	<a href="https://mui.com/system/styles/api/#stylesprovider" target="_blank" class="link">stylesprovider</a>
+	</li> 
+</ul>
+
+<u-message-info>
+    <ul>
+        <li>Если использовать Material UI с обычными CSS-modules, то стили, прокинутые в компоненты Material UI <u>не будут применяться</u>, т.к. они будут располагаться выше, чем стандартные стили Material UI</li>
+        <li>Для фикса, нужно обернуть приложение в <u-code-text>&lt;StyledEngineProvider&gt;</u-code-text> с props <em>injectFirst</em></li>
+        <li><a href="https://mui.com/material-ui/guides/interoperability/#css-injection-order" target="_blank" class="link">https://mui.com/material-ui/guides/interoperability/#css-injection-order</a></li>
+    </ul>
+</u-message-info>
+
+<v-tabs :tabs="['main.jsx', 'App.jsx', 'styles.module.css']">
+
+<template v-slot:1>
+<!------------------------------------------------------------->
+<v-path>./src/main.jsx</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import ReactDOM from "react-dom/client"
+import { StyledEngineProvider } from "@mui/material/styles"
+
+import App from "./App"
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+    &lt;<u-code>StyledEngineProvider</u-code> injectFirst&gt;
+        &lt;App /&gt;
+    &lt;/<u-code>StyledEngineProvider</u-code>&gt;,
+)
+</v-code>
+</template>
+
+<template v-slot:2>
+<!------------------------------------------------------------->
+<v-path>./App.jsx</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import Button from "@mui/material/Button"
+import styles from "./styles.module.css"
+
+const App = (props) => {
+    const { children, className = "" } = props
+
+    return (
+        &lt;Button className={styles.button}&gt;
+            Click
+        &lt;/Button&gt;
+    )
+}
+
+export default App
+</v-code>
+</template>
+
+<template v-slot:3>
+<!------------------------------------------------------------->
+<v-path>./styles.module.css</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+.button {
+    color: white;
+    background-color: yellowgreen;
+}
+</v-code>
+</template>
+
+</v-tabs>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование Emotion + Typescript</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Для использования Emotion + Typescript, нужно изменить <u>tsconfig.json</u></li>
+    <li><a href="https://emotion.sh/docs/typescript" target="_blank" class="link">https://emotion.sh/docs/typescript</a></li>
+</ul>
+
+
+<v-tabs :tabs="['tsconfig.json', 'App.tsx']">
+
+<template v-slot:1>
+<!------------------------------------------------------------->
+<v-path>tsconfig.json</v-path>
+<!------------------------------------------------------------->
+<v-code lang="json" title="">
+{
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "jsxImportSource": "@emotion/react",
+    },
+}
+</v-code>
+</template>
+
+<template v-slot:2>
+<!------------------------------------------------------------->
+<v-path>App.tsx</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { css } from "@emotion/react"
+
+const buttonStyles = {
+  color: "white",
+  backgroundColor: "yellowgreen",
+};
+
+const App = () => {
+    return (
+        &lt;&gt;
+            &lt;div css={css({ color: &quot;blue&quot; })}&gt;Hello&lt;/div&gt;
+            &lt;div css=<span v-pre>{{</span> color: &quot;blue&quot; <span v-pre>}}</span>&gt;Hello&lt;/div&gt;
+            &lt;Button css={buttonStyles}&gt;Click&lt;/Button&gt;
+        &lt;/&gt;
+    )
+}
+
+export default App
+</v-code>
+</template>
+
+</v-tabs>
+

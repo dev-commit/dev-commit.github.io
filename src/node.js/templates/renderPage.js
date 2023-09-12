@@ -25,7 +25,7 @@ export const renderPage = ({ up, title, page, menu, content }) => (`
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="link" v-html="'${title}'"></a>
+                        <a href="#links" class="top-link" v-html="'${title}'"></a>
                     </div>
                     ${menu ? menu : renderPageMenu()}
                 </div>
