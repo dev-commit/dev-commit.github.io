@@ -29,6 +29,16 @@
     <li>
         <a
             class="menu-link"
+            id="id__linters/main/install"
+            href="#linters/main/install"
+        >
+            🧲 Установка и настройка
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
             id="id__linters/main/ESLint"
             href="#linters/main/ESLint"
         >
@@ -66,7 +76,55 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="linters/main/ESLint"><h2>ESLint</h2>
+                    <div id="content"><div id="linters/main/install"><h2>Установка и настройка</h2>
+
+<ul class="list-point">
+    <li>Для React-приложения</li>
+</ul>
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>eslint</u-code-accent> <u-code-accent>eslint-config-react-app</u-code-accent> <u-code-accent>eslint-plugin-prettier</u-code-accent>
+</v-pre-npm>
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>prettier</u-code-accent> <u-code-accent>prettier-config-nick</u-code-accent>
+</v-pre-npm>
+
+<v-path>package.json</v-path>
+<v-code lang="json" title="">
+{
+    "scripts": {
+        "format": "prettier --write .",
+        "lint": "eslint ."
+    },
+    "devDependencies": {
+        "eslint": "^8.49.0",
+        "eslint-config-react-app": "^7.0.1",
+        "eslint-plugin-prettier": "^5.0.0",
+        "prettier": "^3.0.3",
+        "prettier-config-nick": "^1.0.8"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ],
+        "plugins": [
+            "prettier"
+        ],
+        "rules": {
+            "prettier/prettier": "error",
+            "react/jsx-no-target-blank": "off"
+        }
+    },
+    "prettier": "prettier-config-nick"
+}
+</v-code>
+</div><div id="linters/main/ESLint"><h2>ESLint</h2>
+
+<u-link-wrapper>
+    <a href="https://eslint.org/" target="_blank">https://eslint.org/</a>
+</u-link-wrapper>
 
 <ul class="list-point">
     <li><u-code-text>Ctrl</u-code-text> + <u-code-text>Shift</u-code-text> + <u-code-text>P</u-code-text></li>
