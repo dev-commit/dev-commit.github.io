@@ -1196,8 +1196,17 @@ npm i --save-dev <u-code-accent>gh-pages</u-code-accent>
 <!------------------------------------------------------------->
 <ul class="list-point">
     <li><a href="https://github.com/reduxjs/redux-templates/tree/master/packages/vite-template-redux" target="_blank">https://github.com/reduxjs/redux-templates/tree/master/packages/vite-template-redux</a></li>
-    <li>Для шаблона "vite-template-redux" задание homepage не сработало, пути не подставлись</li>
+    <li>Для шаблона "vite-template-redux" нужно задать <u>base</u> в <u>vite.config.ts</u></li>
+    <li>При этом не нужно указывать <u>homepage</u> в <u>package.json</u></li>
 </ul>
+
+<v-code lang="js" title="vite.config.ts">
+import { defineConfig } from "vitest/config"
+
+export default defineConfig({
+  base: "/repo-name/",
+})
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Особенности Github Pages</h3>
