@@ -1319,6 +1319,7 @@ Hidden Content
 </template></v-two>
 </div><div id="wiki/vue-components/v-breadcrumbs"><h2><u-code-text>v-breadcrumbs</u-code-text></h2>
 
+<v-two><template v-slot:first>
 <v-code lang="html" title="">
 &lt;v-breadcrumbs
     :items=&quot;[
@@ -1328,14 +1329,27 @@ Hidden Content
     ]&quot;
 /&gt;
 </v-code>
+</template><template v-slot:last>
+<p>
+    <v-breadcrumbs
+        :items="[
+            'Item1',
+            'Item2',
+            'Item3'
+        ]"
+    />
+</p>
+</template></v-two>
 
-<v-breadcrumbs
-    :items="[
-        'Item1',
-        'Item2',
-        'Item3'
-    ]"
-/>
+<v-two><template v-slot:first>
+<v-code lang="html" title="">
+&lt;v-breadcrumbs <u-code>keys</u-code> :items=&quot;[&#39;Ctrl&#39;, &#39;Shift&#39;, &#39;P&#39;]&quot; /&gt;
+</v-code>
+</template><template v-slot:last>
+<p>
+    <v-breadcrumbs keys :items="['Ctrl', 'Shift', 'P']" />
+</p>
+</template></v-two>
 </div><div id="wiki/structure/login"><h2>Логин и пароль</h2>
 
 <v-code lang="html step" title="">

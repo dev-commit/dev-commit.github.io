@@ -272,12 +272,38 @@ Vue.component('v-tabs', {
 })
 
 Vue.component('v-breadcrumbs', {
-	props: ['items'],
+	props: {
+		items: Array,
+		keys: Boolean,
+	},
+	methods: {
+		getSymbol() {
+			let symbol = '➝';
+
+			if (this.keys) {
+				symbol = '+';
+			}
+
+			return `&nbsp;${symbol}&nbsp;&nbsp;`;
+		},
+		getTag(item) {
+			let tag = 'u-code-light';
+
+			if (this.keys) {
+				tag = 'u-code-text';
+			}
+
+			return `<${tag}>${item}</${tag}>`;
+		}
+	},
     template: `
 		<span>
 			<span v-for="(item, i) in items" :key="i">
-				<u-code-light>{{ item }}</u-code-light>
-				<span v-if="i !== items.length - 1"> ➝ </span>
+				<span v-html="getTag(item)"></span>
+				<span
+					v-html="getSymbol()"
+					v-if="i !== items.length - 1"
+				/>
 			</span>
 		</span>
 	`,
