@@ -271,6 +271,18 @@ Vue.component('v-tabs', {
 	`,
 })
 
+Vue.component('v-breadcrumbs', {
+	props: ['items'],
+    template: `
+		<span>
+			<span v-for="(item, i) in items" :key="i">
+				<u-code-light>{{ item }}</u-code-light>
+				<span v-if="i !== items.length - 1"> ➝ </span>
+			</span>
+		</span>
+	`,
+})
+
 const app = new Vue({
 	el: '#content'
 })

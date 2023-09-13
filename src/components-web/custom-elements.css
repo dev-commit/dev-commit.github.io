@@ -21,7 +21,7 @@ u-lt {
 }
 
 u-menu, u-menu-accent, u-menu-code, u-menu-border, u-menu-unactive, u-menu-outline, u-menu-gray, u-menu-error,
-u-code-flat, u-code-light
+u-code-flat, u-code-text, u-code-light
 {
 	display: inline-block;
 }
@@ -137,7 +137,7 @@ u-menu-outline {
 /*******************************************
 CODE
 *******************************************/
-u-code, u-code-accent, u-code-mod, u-code-text {
+u-code, u-code-accent, u-code-mod {
 	font-family: monospace;
 	padding: 1.5px 5px;
 	border: 1px solid;
@@ -161,21 +161,26 @@ u-code-mod {
 	border-color: rgba(var(--color-sea-green-dark), .9);
 	color: rgb(var(--color-white)) !important;
 }
+
+u-code-text, u-code-light {
+	font-family: monospace;
+	padding: 0 5px;
+	border-radius: 3px;
+	line-height: 1.4em;
+	font-size: 14px;
+}
 u-code-text {
-	background-color: rgba(var(--color-brown), .2);
+	border: 1px solid;
 	border-color: rgba(var(--color-brown), .3);
-	color: rgb(var(--color-orange)) !important;
+	background-color: rgba(var(--color-brown), .2);
+	color: rgb(var(--color-orange));
 }
 u-code-light {
-	font-family: monospace;
-	padding: 2px 5px;
-	background: rgb(var(--color-white));
+	background-color: rgb(var(--color-white));
 	color: rgb(var(--color-orange));
-	border-radius: 3px;
-	line-height: 1.5em;
-	font-size: 14px;
 	box-shadow: .1px .1px 5px 1px rgba(var(--color-black), .15);
 }
+
 u-code-flat {
 	font-family: monospace;
 	line-height: 1.5em;
