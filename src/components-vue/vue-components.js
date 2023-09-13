@@ -204,13 +204,18 @@ Vue.component('v-tree', {
 })
 
 Vue.component('v-sandbox', {
-	props: ['url', 'title', 'ok', 'codepen'],
+	props: {
+		url: String,
+		title: String,
+		codepen: Boolean,
+		codesandbox: Boolean
+	},
     template: `
 		<div class="v-sandbox">
 			<span :class="{
-				none: true,
-				codesandbox: ok && !codepen,
-				codepen: ok && codepen,
+				item: true,
+				codesandbox: codesandbox,
+				codepen: codepen,
 			}">
 				⭐️ <a
 					:href="url"
