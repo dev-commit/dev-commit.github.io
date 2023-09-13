@@ -210,6 +210,14 @@ Vue.component('v-sandbox', {
 		codepen: Boolean,
 		codesandbox: Boolean
 	},
+	methods: {
+		getTitle() {
+			if (this.title) return this.title;
+			if (this.codesandbox) return 'CodeSandbox';
+			if (this.codepen) return 'CodePen';
+			return 'Code Sample';
+		}
+	},
     template: `
 		<div class="v-sandbox">
 			<span :class="{
@@ -219,7 +227,7 @@ Vue.component('v-sandbox', {
 			}">
 				⭐️ <a
 					:href="url"
-					v-html="title ? title : (codepen ? 'CodePen' : 'CodeSandbox')"
+					v-html="getTitle()"
 					target="_blank"
 				></a>
 			</span>

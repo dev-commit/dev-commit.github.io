@@ -1,6 +1,9 @@
 <h2>Vue CLI (Vue 2)</h2>
 
-<v-sandbox ok="true" url="https://codesandbox.io/s/vue2-cli-basic-6t3kru" />
+<v-sandbox
+    codesandbox
+    url="https://codesandbox.io/s/vue2-cli-basic-6t3kru"
+/>
 
 <v-tree>
 📂 <u-code-mod>src</u-code-mod>
@@ -23,10 +26,10 @@ import Vue from "vue";
 import App from "./App.vue";
 
 new Vue({
-  el: "#app",
-  render: function (h) {
-    return h(App);
-  }
+    el: "#app",
+    render: function (h) {
+        return h(App);
+    }
 });
 
 // new Vue({
@@ -41,37 +44,37 @@ new Vue({
 <!------------------------------------------------------------->
 <v-code lang="html" title="">
 &lt;template&gt;
-  &lt;div id="app"&gt;
-    &lt;img src="./assets/icon.png" width="200" /&gt;
-    &lt;h1&gt;Text App&lt;/h1&gt;
-    &lt;h2&gt;<span v-pre>{{ text }}</span>&lt;/h2&gt;
-    &lt;app-header message="Text Header"&gt;&lt;/app-header&gt;
-  &lt;/div&gt;
+    &lt;div id="app"&gt;
+        &lt;img src="./assets/icon.png" width="200" /&gt;
+        &lt;h1&gt;Text App&lt;/h1&gt;
+        &lt;h2&gt;<span v-pre>{{ text }}</span>&lt;/h2&gt;
+        &lt;app-header message="Text Header"&gt;&lt;/app-header&gt;
+    &lt;/div&gt;
 &lt;/template&gt;
 
 &lt;script&gt;
 import Header from "./components/Header.vue";
 
 export default {
-  components: {
-    "app-header": Header,
-  },
-  data() {
-    return {
-      text: "Text in Vue",
-    };
-  },
-  methods: {
-    testMethod() {
-      //
+    components: {
+        "app-header": Header,
     },
-  },
+    data() {
+        return {
+            text: "Text in Vue",
+        };
+    },
+    methods: {
+        testMethod() {
+            //
+        },
+    },
 };
 &lt;/script&gt;
 
 &lt;style scoped&gt;
 h1 {
-  color: blue;
+    color: blue;
 }
 &lt;/style&gt;
 </v-code>
@@ -83,28 +86,28 @@ h1 {
 <!------------------------------------------------------------->
 <v-code lang="html" title="">
 &lt;template&gt;
-  &lt;div&gt;
-    &lt;h1&gt;<span v-pre>{{ message }}</span>&lt;/h1&gt;
-    &lt;h2&gt;<span v-pre>{{ text }}</span>&lt;/h2&gt;
-  &lt;/div&gt;
+    &lt;div&gt;
+        &lt;h1&gt;<span v-pre>{{ message }}</span>&lt;/h1&gt;
+        &lt;h2&gt;<span v-pre>{{ text }}</span>&lt;/h2&gt;
+    &lt;/div&gt;
 &lt;/template&gt;
 
 &lt;script&gt;
 export default {
-  data() {
-    return {
-      text: "Text in Header",
-    };
-  },
-  props: {
-    message: String,
-  },
+    data() {
+        return {
+            text: "Text in Header",
+        };
+    },
+    props: {
+        message: String,
+    },
 };
 &lt;/script&gt;
 
 &lt;style scoped&gt;
 h1 {
-  color: orange;
+    color: orange;
 }
 &lt;/style&gt;
 </v-code>
