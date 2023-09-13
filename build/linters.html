@@ -35,24 +35,74 @@
             🧲 Установка и настройка
         </a>
     </li>
-
+</ul><h4>🏷️ Prettier</h4><ul>
     <li>
         <a
             class="menu-link"
-            id="id__linters/main/ESLint"
-            href="#linters/main/ESLint"
+            id="id__linters/prettier/info"
+            href="#linters/prettier/info"
         >
-            ESLint
+            📑 Информация
         </a>
     </li>
 
     <li>
         <a
             class="menu-link"
-            id="id__linters/main/Prettier"
-            href="#linters/main/Prettier"
+            id="id__linters/prettier/vscode-plugin"
+            href="#linters/prettier/vscode-plugin"
         >
-            Prettier
+            Плагин для VSCode
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__linters/prettier/prettierrc"
+            href="#linters/prettier/prettierrc"
+        >
+            <u-menu-outline>.prettierrc.json</u-menu-outline>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__linters/prettier/prettierignore"
+            href="#linters/prettier/prettierignore"
+        >
+            <u-menu-outline>.prettierignore</u-menu-outline>
+        </a>
+    </li>
+</ul><h4>🏷️ ESLint</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__linters/eslint/info"
+            href="#linters/eslint/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__linters/eslint/main"
+            href="#linters/eslint/main"
+        >
+            Основное
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__linters/eslint/disable"
+            href="#linters/eslint/disable"
+        >
+            Disable
         </a>
     </li>
 </ul>
@@ -95,7 +145,8 @@ npm i --save-dev <u-code-accent>prettier</u-code-accent> <u-code-accent>prettier
 {
     "scripts": {
         "format": "prettier --write .",
-        "lint": "eslint ."
+        "lint": "eslint .",
+        "lint:file": "eslint src src/components/App.jsx",
     },
     "devDependencies": {
         "eslint": "^8.49.0",
@@ -120,67 +171,7 @@ npm i --save-dev <u-code-accent>prettier</u-code-accent> <u-code-accent>prettier
     "prettier": "prettier-config-nick"
 }
 </v-code>
-</div><div id="linters/main/ESLint"><h2>ESLint</h2>
-
-<u-link-wrapper>
-    <a href="https://eslint.org/" target="_blank">https://eslint.org/</a>
-</u-link-wrapper>
-
-<ul class="list-point">
-    <li><u-text-define>ESLint</u-text-define> - проблемы с кодом. Проблемы могут быть любыми: от потенциальных ошибок во время выполнения до несоблюдения лучших практик и проблем со стилем</li>
-</ul>
-
-<ul class="list-point">
-    <li><u-code-text>Ctrl</u-code-text> + <u-code-text>Shift</u-code-text> + <u-code-text>P</u-code-text></li>
-    <li>ESLint: Fix all auto-fixable Problems</li>
-    <li>Фиксит на основе конфига ESLint проекта</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Disable</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js step" title="">
-// eslint-disable
-disable для всего файла (прописывается в начале файла)
-</v-code>
-
-<v-code lang="js step" title="">
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-&lt;Formik onSubmit={() =&gt; {}}&gt;&lt;/Formik&gt;
-</v-code>
-
-<v-code lang="js step" title="">
-// eslint-disable-next-line no-console
-console.log('Hello');
-</v-code>
-
-<ul class="list-point">
-    <li>Обработка ошибки <i>"Too many nested callbacks (4). Maximum allowed is 3"</i> (цикл в цикле)</li>
-</ul>
-<v-code lang="js step" title="">
-// eslint-disable-next-line max-nested-callbacks
-foo1(function() {
-    foo2(function() {
-        foo3(function() {
-            foo4(function() {
-                // Do something
-            });
-        });
-    });
-});
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Проверка файла</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="package.json">
-{
-    "scripts": {
-        "lint:file": "eslint src src/components/App.jsx",
-    }
-}
-</v-code>
-</div><div id="linters/main/Prettier"><h2>Prettier - Code formatter</h2>
+</div><div id="linters/prettier/info"><h2>Информация</h2>
 
 <u-link-wrapper>
     <a href="https://prettier.io/" target="_blank">https://prettier.io/</a>
@@ -189,11 +180,8 @@ foo1(function() {
 <ul class="list-point">
     <li><u-text-define>Prettier</u-text-define> - форматирование кода</li>
 </ul>
+</div><div id="linters/prettier/vscode-plugin"><h2>Плагин для VSCode</h2>
 
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Плагин для VSCode</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode" target="_blank" class="link">Prettier - Code formatter</a></li>
 </ul>
@@ -276,11 +264,8 @@ foo1(function() {
         <u-code-light>Prettier</u-code-light>
     </li>
 </ul>
+</div><div id="linters/prettier/prettierrc"><h2>Файл .prettierrc.json</h2>
 
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Файл .prettierrc.json</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li>Если в проекте есть файл <u>.prettierrc.json</u>, то конфиги будут браться из него</li>
 </ul>
@@ -312,19 +297,61 @@ foo1(function() {
 <ul class="list-point">
     <li>Если в проекте нет файла <u>.prettierrc.json</u>, то будут браться стандартные конфиги из IDE</li>
 </ul>
+</div><div id="linters/prettier/prettierignore"><h2>Файл .prettierignore</h2>
 
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Файл .prettierignore</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li><u-code-text>src</u-code-text> - запретить директорию "src"</li>
     <li><u-code-text>*.html</u-code-text> - запретить файлы html</li>
     <li><u-code-text>*</u-code-text> - запретить все файлы</li>
 </ul>
+</div><div id="linters/eslint/info"><h2>Информация</h2>
 
+<u-link-wrapper>
+    <a href="https://eslint.org/" target="_blank">https://eslint.org/</a>
+</u-link-wrapper>
 
+<ul class="list-point">
+    <li><u-text-define>ESLint</u-text-define> - проблемы с кодом. Проблемы могут быть любыми: от потенциальных ошибок во время выполнения до несоблюдения лучших практик и проблем со стилем</li>
+</ul>
+</div><div id="linters/eslint/main"><h2>ESLint</h2>
 
+<ul class="list-point">
+    <li><u-code-text>Ctrl</u-code-text> + <u-code-text>Shift</u-code-text> + <u-code-text>P</u-code-text></li>
+    <li>ESLint: Fix all auto-fixable Problems</li>
+    <li>Фиксит на основе конфига ESLint проекта</li>
+</ul>
+</div><div id="linters/eslint/disable"><h2>Disable</h2>
+
+<v-code lang="js step" title="">
+// eslint-disable
+disable для всего файла (прописывается в начале файла)
+</v-code>
+
+<v-code lang="js step" title="">
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+&lt;Formik onSubmit={() =&gt; {}}&gt;&lt;/Formik&gt;
+</v-code>
+
+<v-code lang="js step" title="">
+// eslint-disable-next-line no-console
+console.log('Hello');
+</v-code>
+
+<ul class="list-point">
+    <li>Обработка ошибки <i>"Too many nested callbacks (4). Maximum allowed is 3"</i> (цикл в цикле)</li>
+</ul>
+<v-code lang="js step" title="">
+// eslint-disable-next-line max-nested-callbacks
+foo1(function() {
+    foo2(function() {
+        foo3(function() {
+            foo4(function() {
+                // Do something
+            });
+        });
+    });
+});
+</v-code>
 </div></div>
                 </div>
             </div>

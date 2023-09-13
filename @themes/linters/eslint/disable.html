@@ -1,0 +1,32 @@
+<h2>Disable</h2>
+
+<v-code lang="js step" title="">
+// eslint-disable
+disable для всего файла (прописывается в начале файла)
+</v-code>
+
+<v-code lang="js step" title="">
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+&lt;Formik onSubmit={() =&gt; {}}&gt;&lt;/Formik&gt;
+</v-code>
+
+<v-code lang="js step" title="">
+// eslint-disable-next-line no-console
+console.log('Hello');
+</v-code>
+
+<ul class="list-point">
+    <li>Обработка ошибки <i>"Too many nested callbacks (4). Maximum allowed is 3"</i> (цикл в цикле)</li>
+</ul>
+<v-code lang="js step" title="">
+// eslint-disable-next-line max-nested-callbacks
+foo1(function() {
+    foo2(function() {
+        foo3(function() {
+            foo4(function() {
+                // Do something
+            });
+        });
+    });
+});
+</v-code>
