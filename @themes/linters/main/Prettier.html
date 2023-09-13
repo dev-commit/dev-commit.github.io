@@ -4,6 +4,11 @@
     <a href="https://prettier.io/" target="_blank">https://prettier.io/</a>
 </u-link-wrapper>
 
+<ul class="list-point">
+    <li><u-text-define>Prettier</u-text-define> - форматирование кода</li>
+</ul>
+
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Плагин для VSCode</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -50,7 +55,7 @@
 <img src="/@img/prettier/config-format/03.png" width="400px" />
 
 <ul class="list-point">
-    <li>В примере Prettier будет применяться ко всем файлам HTML в проекте для которого была запущена Command Palette</li>
+    <li>В примере Prettier будет применяться ко всем файлам HTML во всех проектах</li>
 </ul>
 
 <!------------------------------------------------------------->
@@ -71,6 +76,61 @@
 
 <img src="/@img/prettier/config-format-onsave/01.png" width="400px" />
 
+<!------------------------------------------------------------->
+<h4>4. Стандартный конфиг Prettier в VSCode</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Если в проекте есть файл <u>.prettierrc.json</u>, то конфиги будут браться из него, а не из настроек VSCode</li>
+</ul>
+
+<ul class="list-point">
+    <li>
+        <u-code-light>File</u-code-light> ➝
+        <u-code-light>Preferences</u-code-light> ➝
+        <u-code-light>Settings</u-code-light>
+    </li>
+    <li>
+        <u-code-light>Extensions</u-code-light> ➝
+        <u-code-light>Prettier</u-code-light>
+    </li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файл .prettierrc.json</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Если в проекте есть файл <u>.prettierrc.json</u>, то конфиги будут браться из него</li>
+</ul>
+
+<v-code lang="json" title=".prettierrc.json">
+{
+    "trailingComma": "es5",
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true
+}
+</v-code>
+
+<ul class="list-point">
+    <li>Если используется npm, то можно устновить пакет с конфигами и подключить его в <u>package.json</u></li>
+</ul>
+
+<v-code lang="json" title="package.json">
+{
+    "devDependencies": {
+        "prettier-config-nick": "^1.0.2",
+    },
+    "prettier": "prettier-config-nick"
+}
+</v-code>
+
+<hr>
+
+<ul class="list-point">
+    <li>Если в проекте нет файла <u>.prettierrc.json</u>, то будут браться стандартные конфиги из IDE</li>
+</ul>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Файл .prettierignore</h3>
@@ -80,3 +140,6 @@
     <li><u-code-text>*.html</u-code-text> - запретить файлы html</li>
     <li><u-code-text>*</u-code-text> - запретить все файлы</li>
 </ul>
+
+
+
