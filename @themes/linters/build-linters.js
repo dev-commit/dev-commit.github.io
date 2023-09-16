@@ -24,4 +24,18 @@ ARR_MODULE = [
             [root+'eslint/disable', 'Disable'],
         ]
     },
+    {
+        title: 'Stylelint',
+        themes: [
+            [root+'stylelint/info', emoji.theory+'Информация'],
+        ]
+    },
+    {
+        title: 'Husky',
+        themes: [
+            [root+'husky/info',    emoji.theory+'Информация'],
+            [root+'husky/install', emoji.code+'Установка и настройка'],
+        ]
+    },
 ]
+

@@ -4,16 +4,26 @@
     <li>Для React-приложения</li>
 </ul>
 
+<h5>ESLint</h5>
 <v-pre-npm>
 npm i --save-dev <u-code-accent>eslint</u-code-accent> <u-code-accent>eslint-config-react-app</u-code-accent> <u-code-accent>eslint-plugin-prettier</u-code-accent>
 </v-pre-npm>
 
+<h5>Prettier</h5>
 <v-pre-npm>
 npm i --save-dev <u-code-accent>prettier</u-code-accent> <u-code-accent>prettier-config-nick</u-code-accent>
 </v-pre-npm>
 
+<h5>Stylelint</h5>
+<ul class="list-point">
+    <li>Не используеся в конфиге</li>
+</ul>
+<v-pre-npm>
+npm i --save-dev <u-code-accent>stylelint</u-code-accent> <u-code-accent>stylelint-config-concentric-order</u-code-accent> <u-code-accent>stylelint-config-sass-guidelines</u-code-accent>
+</v-pre-npm>
+
 <v-path>package.json</v-path>
-<v-code lang="json" title="">
+<v-code lang="js" title="">
 {
     "scripts": {
         "format": "prettier --write .",
@@ -24,8 +34,13 @@ npm i --save-dev <u-code-accent>prettier</u-code-accent> <u-code-accent>prettier
         "eslint": "^8.49.0",
         "eslint-config-react-app": "^7.0.1",
         "eslint-plugin-prettier": "^5.0.0",
+
         "prettier": "^3.0.3",
-        "prettier-config-nick": "^1.0.8"
+        "prettier-config-nick": "^1.0.8",
+
+        // "stylelint": "^13.13.1",
+        // "stylelint-config-concentric-order": "^4.0.1",
+        // "stylelint-config-sass-guidelines": "^8.0.0"
     },
     "eslintConfig": {
         "extends": [

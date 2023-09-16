@@ -2,7 +2,7 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>ESLint | Prettier</title>
+            <title>Linters</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
@@ -23,7 +23,7 @@
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link" v-html="'ESLint | Prettier'"></a>
+                        <a href="#links" class="top-link" v-html="'Linters'"></a>
                     </div>
                     <h4>🏷️ Основы</h4><ul>
     <li>
@@ -105,6 +105,36 @@
             Disable
         </a>
     </li>
+</ul><h4>🏷️ Stylelint</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__linters/stylelint/info"
+            href="#linters/stylelint/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+</ul><h4>🏷️ Husky</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__linters/husky/info"
+            href="#linters/husky/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__linters/husky/install"
+            href="#linters/husky/install"
+        >
+            🧲 Установка и настройка
+        </a>
+    </li>
 </ul>
                 </div>
 
@@ -132,16 +162,26 @@
     <li>Для React-приложения</li>
 </ul>
 
+<h5>ESLint</h5>
 <v-pre-npm>
 npm i --save-dev <u-code-accent>eslint</u-code-accent> <u-code-accent>eslint-config-react-app</u-code-accent> <u-code-accent>eslint-plugin-prettier</u-code-accent>
 </v-pre-npm>
 
+<h5>Prettier</h5>
 <v-pre-npm>
 npm i --save-dev <u-code-accent>prettier</u-code-accent> <u-code-accent>prettier-config-nick</u-code-accent>
 </v-pre-npm>
 
+<h5>Stylelint</h5>
+<ul class="list-point">
+    <li>Не используеся в конфиге</li>
+</ul>
+<v-pre-npm>
+npm i --save-dev <u-code-accent>stylelint</u-code-accent> <u-code-accent>stylelint-config-concentric-order</u-code-accent> <u-code-accent>stylelint-config-sass-guidelines</u-code-accent>
+</v-pre-npm>
+
 <v-path>package.json</v-path>
-<v-code lang="json" title="">
+<v-code lang="js" title="">
 {
     "scripts": {
         "format": "prettier --write .",
@@ -152,8 +192,13 @@ npm i --save-dev <u-code-accent>prettier</u-code-accent> <u-code-accent>prettier
         "eslint": "^8.49.0",
         "eslint-config-react-app": "^7.0.1",
         "eslint-plugin-prettier": "^5.0.0",
+
         "prettier": "^3.0.3",
-        "prettier-config-nick": "^1.0.8"
+        "prettier-config-nick": "^1.0.8",
+
+        // "stylelint": "^13.13.1",
+        // "stylelint-config-concentric-order": "^4.0.1",
+        // "stylelint-config-sass-guidelines": "^8.0.0"
     },
     "eslintConfig": {
         "extends": [
@@ -376,6 +421,103 @@ foo1(function() {
     });
 });
 </v-code>
+</div><div id="linters/stylelint/info"><h2>Информация</h2>
+
+<u-link-wrapper>
+    <a href="https://stylelint.io/" target="_blank">https://stylelint.io/</a>
+</u-link-wrapper>
+</div><div id="linters/husky/info"><h2>Информация</h2>
+
+<u-link-wrapper>
+    <a href="https://typicode.github.io/husky/" target="_blank">https://typicode.github.io/husky/</a>
+</u-link-wrapper>
+
+</div><div id="linters/husky/install"><h2>Установка и настройка</h2>
+
+<u-link-wrapper>
+    <a href="https://github.com/Umayarz18/commit-better-code-with-husky-prettier-eslint-lint-staged/blob/main/package.json" target="_blank">Пример файла package.json</a>
+</u-link-wrapper>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. husky-init</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npx <u-code-accent>husky-init</u-code-accent>
+</v-pre-npm>
+
+<ul class="list-point">
+    <li><u-inline-circle>1</u-inline-circle> Устанавливает <em>husky</em> (не нужно отдельно установливать <u>npm i --save-dev lint-staged</u>)</li>
+    <li><u-inline-circle>2</u-inline-circle> Добавляет скрипт <em>prepare</em> в <u>package.json</u></li>
+</ul>
+
+<v-code lang="js" title="package.json">
+{
+    "scripts": {
+        "prepare": "husky install"
+    },
+    "devDependencies": {
+        "husky": "^8.0.0"
+    }
+}
+</v-code>
+
+<ul class="list-point">
+    <li><u-inline-circle>3</u-inline-circle> Добавляет в проект директорию <em>.husky</em></li>
+    <li>Внутри директории можно создавать файлы, соответствующие хукам git</li>
+    <li>В директории уже есть хук <em>pre-commit</em>, предназначенный для форматирования и проверки кода перед его фиксацией в репозитории</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. lint-staged</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npm i --save-dev <u-code-accent>lint-staged</u-code-accent>
+</v-pre-npm>
+
+<h5>1. Добавится зависимость в package.json</h5>
+<v-code lang="js" title="">
+{
+    "devDependencies": {
+        "lint-staged": "^14.0.1",
+    }
+}
+</v-code>
+
+<h5>2. Изменить package.json</h5>
+<v-code lang="json" title="package.json">
+{
+    "lint-staged": {
+        "**/*.{js,jsx,ts,tsx}": [
+            "npx prettier --write",
+            "npx eslint --fix"
+        ]
+    }
+}
+</v-code>
+
+<h5>3. Изменить файл pre-commit</h5>
+<ul class="list-point">
+    <li>Добавить скрипт <u>npx lint-staged</u></li>
+</ul>
+
+<v-code lang="bash" title=".husky/pre-commit">
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx lint-staged
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Commit</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При коммите, будет запущен скрипт для eslint и prettier</li>
+    <li>В случае обнаружения ошибок, коммит не будет применен</li>
+</ul>
+
 </div></div>
                 </div>
             </div>

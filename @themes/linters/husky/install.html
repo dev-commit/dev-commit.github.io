@@ -1,0 +1,86 @@
+<h2>Установка и настройка</h2>
+
+<u-link-wrapper>
+    <a href="https://github.com/Umayarz18/commit-better-code-with-husky-prettier-eslint-lint-staged/blob/main/package.json" target="_blank">Пример файла package.json</a>
+</u-link-wrapper>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. husky-init</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npx <u-code-accent>husky-init</u-code-accent>
+</v-pre-npm>
+
+<ul class="list-point">
+    <li><u-inline-circle>1</u-inline-circle> Устанавливает <em>husky</em> (не нужно отдельно установливать <u>npm i --save-dev lint-staged</u>)</li>
+    <li><u-inline-circle>2</u-inline-circle> Добавляет скрипт <em>prepare</em> в <u>package.json</u></li>
+</ul>
+
+<v-code lang="js" title="package.json">
+{
+    "scripts": {
+        "prepare": "husky install"
+    },
+    "devDependencies": {
+        "husky": "^8.0.0"
+    }
+}
+</v-code>
+
+<ul class="list-point">
+    <li><u-inline-circle>3</u-inline-circle> Добавляет в проект директорию <em>.husky</em></li>
+    <li>Внутри директории можно создавать файлы, соответствующие хукам git</li>
+    <li>В директории уже есть хук <em>pre-commit</em>, предназначенный для форматирования и проверки кода перед его фиксацией в репозитории</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. lint-staged</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npm i --save-dev <u-code-accent>lint-staged</u-code-accent>
+</v-pre-npm>
+
+<h5>1. Добавится зависимость в package.json</h5>
+<v-code lang="js" title="">
+{
+    "devDependencies": {
+        "lint-staged": "^14.0.1",
+    }
+}
+</v-code>
+
+<h5>2. Изменить package.json</h5>
+<v-code lang="json" title="package.json">
+{
+    "lint-staged": {
+        "**/*.{js,jsx,ts,tsx}": [
+            "npx prettier --write",
+            "npx eslint --fix"
+        ]
+    }
+}
+</v-code>
+
+<h5>3. Изменить файл pre-commit</h5>
+<ul class="list-point">
+    <li>Добавить скрипт <u>npx lint-staged</u></li>
+</ul>
+
+<v-code lang="bash" title=".husky/pre-commit">
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx lint-staged
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Commit</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При коммите, будет запущен скрипт для eslint и prettier</li>
+    <li>В случае обнаружения ошибок, коммит не будет применен</li>
+</ul>
+
