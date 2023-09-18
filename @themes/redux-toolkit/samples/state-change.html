@@ -1,0 +1,31 @@
+<h2>Изменение state</h2>
+
+<u-message-error>
+    <ul>
+        <li>Не работает обновление state через присвоение нового объекта (возможно, так и нужно)</li>
+        <li>Вероятно, нужно разобрать раздел из документации <a href="https://redux-toolkit.js.org/usage/immer-reducers" target="_blank" class="link">https://redux-toolkit.js.org/usage/immer-reducers</a></li>
+    </ul>
+</u-message-error>
+
+<v-code lang="js" title="">
+import { createSlice } from "@reduxjs/toolkit";
+
+export const counterSlice = createSlice({
+    name: "counter",
+    initialState: {
+        value: 0
+    },
+    reducers: {
+        changeValue1: (state) => {
+            // Работает
+            state.value = 1;
+        },
+        changeValue2: (state) => {
+            // Не работает
+            state = {
+                value: 2
+            };
+        }
+    }
+});
+</v-code>

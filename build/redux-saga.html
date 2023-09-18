@@ -1,0 +1,243 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Redux Saga</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/redux-saga/build-redux-saga.js"></script>
+        </head>
+        <body>
+
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link" v-html="'Redux Saga'"></a>
+                    </div>
+                    <h4>🏷️ Основы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__redux-saga/main/info"
+            href="#redux-saga/main/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__redux-saga/main/install"
+            href="#redux-saga/main/install"
+        >
+            🧲 Установка и настройка
+        </a>
+    </li>
+</ul><h4>🏷️ Общее</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__redux-saga/common/methods"
+            href="#redux-saga/common/methods"
+        >
+            ⭐️ Методы
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__redux-saga/common/accessing-store-value"
+            href="#redux-saga/common/accessing-store-value"
+        >
+            Доступ к значению Store
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__redux-saga/common/saga-vs-thunk"
+            href="#redux-saga/common/saga-vs-thunk"
+        >
+            redux-saga vs redux-thunk
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__redux-saga/common/questions"
+            href="#redux-saga/common/questions"
+        >
+            Вопросы
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="redux-saga/main/info"><h2>Информация</h2>
+
+<u-link-wrapper>
+    <a href="https://redux-saga.js.org/" target="_blank">https://redux-saga.js.org/</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+	<li>Работа с side-effects</li>
+</ul>
+</div><div id="redux-saga/main/install"><h2>Установка и настройка</h2>
+
+<v-pre-npm>
+# Redux Toolkit
+npm i --save <u-code-accent>react-redux</u-code-accent> <u-code-accent>@reduxjs/toolkit</u-code-accent>
+# Redux Saga
+npm i --save <u-code-accent>redux-saga</u-code-accent>
+</v-pre-npm>
+</div><div id="redux-saga/common/methods"><h2>Методы</h2>
+
+<ul class="list-point">
+    <li><u-text-define>call</u-text-define> - вернет только объект описывающий эту операцию и redux-saga сможет позаботиться о вызове и возвращении результатов в функцию-генератор</li>
+    <li><u-text-define>put</u-text-define> - вместо отправления действий (dispatch action) внутри функции-генератора, put возвращает объект с инструкциями для промежуточного слоя (middleware) - отправить действие</li>
+</ul>
+</div><div id="redux-saga/common/accessing-store-value"><h2>Доступ к значению Store из Saga</h2>
+
+<v-tabs :tabs="['sagas.js', 'selectors.js', 'store.js']">
+
+<template v-slot:1>
+<!------------------------------------------------------------->
+<v-path>sagas.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Данные из Селектора
+import { select } from "redux-saga/effects"
+
+export function* setCurrentStepAsync() {
+    const isTimer: boolean = yield select(getTimerSelector)
+}
+</v-code>
+<v-code lang="js" title="">
+// Данные напрямую из Store
+import { store } from "./store"
+
+export function* setCurrentStepAsync() {
+    const isTimer = store.getState().playground.isTimer
+}
+</v-code>
+</template>
+
+<template v-slot:2>
+<!------------------------------------------------------------->
+<v-path>selectors.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { createSelector } from "reselect"
+
+const getTimer = (state) => state.playground.isTimer
+export const getTimerSelector = createSelector(getTimer, (state) => state)
+</v-code>
+</template>
+
+<template v-slot:3>
+<!------------------------------------------------------------->
+<v-path>store.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { configureStore } from "@reduxjs/toolkit"
+
+export const store = configureStore({
+    reducer: {
+        playground: playgroundReducer,
+    },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware),
+})
+</v-code>
+</template>
+
+</v-tabs>
+</div><div id="redux-saga/common/saga-vs-thunk"><h2>redux-saga vs redux-thunk</h2>
+
+<ul class="list-point">
+    <li><em>redux-thunk</em> использует callback, поэтому возникает callback-hell</li>
+    <li><em>redux-saga</em> использует генераторы, что избавляет от callback-hell</li>
+</ul>
+</div><div id="redux-saga/common/questions"><h2>Вопросы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Почему redux saga использует генераторы, а не async await</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Ответ от ChatGPT</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li><em>Управление потоком</em>: Генераторы предоставляют более гибкий и контролируемый способ управления потоком выполнения. Redux Saga позволяет паузить, возобновлять и отменять выполнение саги, что делает его мощным инструментом для сложных сценариев управления потоком данных</li>
+    <li><em>Параллельное выполнение</em>: Генераторы позволяют легко создавать параллельные задачи и координировать их выполнение. Саги могут запускать несколько веток выполнения и ждать, пока все они завершатся</li>
+    <li><em>Отмена задач</em>: Redux Saga обеспечивает механизм отмены выполнения саги, что может быть сложнее с асинхронными функциями. Это полезно, например, когда пользователь выполняет действие, которое требует отмены предыдущих запросов или задач</li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>Ответ из Google</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<a href="https://github.com/redux-saga/redux-saga/issues/987#issuecomment-301039792" target="_blank" class="link">Ссылка на issue</a>
+	<li>redux-saga нельзя переписать на async / await - в нем используются обещания и сложнее координировать с ними «параллельные» задачи. Это также означало бы большие изменения в семантике, в том, как все работает на самом деле. В примере эффект выбора синхронный - этого нельзя добиться с помощью обещаний.</li>
+	<li>Сага, являясь интерпретатором эффектов, дает нам полный контроль над тем, как и когда эти эффекты разрешаются + эффекты - это просто простой объект, который легко сопоставить и можно отслеживать, что также намного сложнее с Promises.</li>
+</ul>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+        </body>
+    </html>

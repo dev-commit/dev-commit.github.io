@@ -2,14 +2,14 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>Reselect</title>
+            <title>Redux Toolkit</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
 
             <script src="../src/js/utils.js"></script>
             <!-- Own JavaScript -->
-            <script src="../@themes/reselect/build-reselect.js"></script>
+            <script src="../@themes/redux-toolkit/build-redux-toolkit.js"></script>
         </head>
         <body>
 
@@ -23,39 +23,47 @@
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link" v-html="'Reselect'"></a>
+                        <a href="#links" class="top-link" v-html="'Redux Toolkit'"></a>
                     </div>
-                    <h4>🏷️ Основы</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__reselect/main/info"
-            href="#reselect/main/info"
-        >
-            📑 Информация
-        </a>
-    </li>
+                    
+    <slot v-for="itemTitle in themesContent">
+        <h4
+            v-html="(!itemTitle.child ? themesEmoji : '')+' '+itemTitle.title"
+            :class="{
+                accent: itemTitle.accent,
+                selected: itemTitle.selected,
+                child: itemTitle.child
+            }"
+        ></h4>
+        <ul>
+            <slot v-for="(itemTheme, i) in itemTitle.themes">
+                <li
+                    v-if="itemTheme[0]"
+                    :class="{
+                        child: itemTheme[2],
+                        done: itemTheme[3] == 'done',
+                        check: itemTheme[3] == 'check',
+                    }"
+                >
+                    <a
+                        class="menu-link"
+                        :id="itemTheme[0]+'link'"
+                        :href="'#'+itemTheme[0]"
+                        @click="buildContent(itemTheme[0])"
+                        v-html="itemTheme[1]"
+                    ></a>
+                    <a
+                        v-if="isLocalhost"
+                        class="menu-link-vscode"
+                        :href="'vscode://file/'+'C:/Users/Tony/Desktop/Repo/dev-commit.github.io'+'/@themes/'+itemTheme[0]+'.html'">
+                    </a>
+                </li>
+                <hr v-else />
+            </slot>
 
-    <li>
-        <a
-            class="menu-link"
-            id="id__reselect/main/install"
-            href="#reselect/main/install"
-        >
-            🧲 Установка и настройка
-        </a>
-    </li>
+        </ul>
+    </slot>
 
-    <li>
-        <a
-            class="menu-link"
-            id="id__reselect/main/use"
-            href="#reselect/main/use"
-        >
-            🔥 Базовый пример
-        </a>
-    </li>
-</ul>
                 </div>
 
                 <div id="wrapper">
@@ -76,55 +84,7 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="reselect/main/info"><h2>Информация</h2>
-
-<u-link-wrapper>
-    <a href="https://github.com/reduxjs/reselect" target="_blank">GitHub</a>
-</u-link-wrapper>
-
-<ul class="list-point">
-    <li><u-text-define>Селектор</u-text-define> - функция, принимающая <u>state</u> и возвращающая значение, полученное на основе <u>state</u></li>
-    <li><u-code-text>reselectmapStateToProps</u-code-text> срабатывает каждый раз, когда происходит изменение <u>state</u></li>
-</ul>
-</div><div id="reselect/main/install"><h2>Установка и настройка</h2>
-
-<v-pre-npm>
-npm i --save-dev <u-code-accent>reselect</u-code-accent>
-</v-pre-npm>
-</div><div id="reselect/main/use"><h2>Ипользование</h2>
-
-<v-code lang="js" title="">
-import { <u-code>createSelector</u-code> } from 'reselect';
-
-const getUsers = (state) => {
-	return state.users;
-}
-
-// getUsers - селектор, чтобы получить значения
-// users - придут полученнные значения из getUsers
-
-export const getUsersSelector = createSelector(getUsers, (users) => {
-	return users.filter(u => true);
-})
-</v-code>
-
-<v-code lang="js" title="">
-const mapStateToProps = (state) => {
-	return {
-		users: getUsersSelector(state)
-	}
-}
-</v-code>
-
-<v-code lang="js" title="">
-const mySelector = <u-code>createSelector</u-code>(
-	первыйСелектор, второйСелектор,
-	(значениеПервогоСелектора, значениеВторогоСелектора) => {
-		//
-	}
-)
-</v-code>
-</div></div>
+                    <div id="content"></div>
                 </div>
             </div>
 

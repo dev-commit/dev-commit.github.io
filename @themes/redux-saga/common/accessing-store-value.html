@@ -1,0 +1,56 @@
+<h2>Доступ к значению Store из Saga</h2>
+
+<v-tabs :tabs="['sagas.js', 'selectors.js', 'store.js']">
+
+<template v-slot:1>
+<!------------------------------------------------------------->
+<v-path>sagas.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Данные из Селектора
+import { select } from "redux-saga/effects"
+
+export function* setCurrentStepAsync() {
+    const isTimer: boolean = yield select(getTimerSelector)
+}
+</v-code>
+<v-code lang="js" title="">
+// Данные напрямую из Store
+import { store } from "./store"
+
+export function* setCurrentStepAsync() {
+    const isTimer = store.getState().playground.isTimer
+}
+</v-code>
+</template>
+
+<template v-slot:2>
+<!------------------------------------------------------------->
+<v-path>selectors.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { createSelector } from "reselect"
+
+const getTimer = (state) => state.playground.isTimer
+export const getTimerSelector = createSelector(getTimer, (state) => state)
+</v-code>
+</template>
+
+<template v-slot:3>
+<!------------------------------------------------------------->
+<v-path>store.js</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { configureStore } from "@reduxjs/toolkit"
+
+export const store = configureStore({
+    reducer: {
+        playground: playgroundReducer,
+    },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware),
+})
+</v-code>
+</template>
+
+</v-tabs>

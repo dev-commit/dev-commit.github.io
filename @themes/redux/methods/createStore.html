@@ -1,0 +1,100 @@
+<h2>createStore</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="createStore" after="" arg="(reducer*, initialState, middleware)">
+    Создание store
+    </v-method>
+
+	<v-method-arg arg="reducer">функция-обработчик изменений (редьюсер)</v-method-arg>
+	<v-method-arg arg="initialState">начальное состояние</v-method-arg>
+	<v-method-arg arg="middleware">берет входные данные и передает дальше</v-method-arg>
+</div>
+
+<v-code lang="js" title="">
+import { createStore } from 'redux';
+import rootReducer from './reducers';
+
+export const store = <u-code>createStore</u-code>(rootReducer);
+</v-code>
+
+<u-link-wrapper>
+    <a href="https://github.com/reduxjs/redux/blob/master/src/createStore.ts" target="_blank">Реализация createStore из redux</a>
+</u-link-wrapper>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Упрощённая реализация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code>state</u-code> - свойство, от изменения которого зависит состояние других объектов</li>
+    <li><u-code>action</u-code> - объект с полями<u>"type"</u> и <u>payload</u></li>
+    <li><u-code>subscribers</u-code> - список зависящих от <u>state</u> объектов</li>
+    <li><u-code-text>subscribe</u-code-text> - подписка на изменения <u>state</u></li>
+    <li><u-code-text>getState</u-code-text> - геттер для получения <u>state</u></li>
+    <li><u-code-text>dispatch</u-code-text> - изменение <u>state</u></li>
+    <li><u-code-text>reducer</u-code-text> - функция, которая будет использоваться для изменения <u>state</u> при вызове <u>dispatch</u></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>createStore()</h4>
+<!------------------------------------------------------------->
+<v-code lang="js border" title="">
+const createStore = (reducer, initialState) => {
+    let state = <u-code>reducer</u-code>(initialState, { type: '@@redux/INIT' });
+    let subscribers = [];
+
+    return {
+        <u-code-accent>subscribe</u-code-accent>(subscriber) {
+            // Добавление нового подписчика в список
+            subscribers.push(subscriber);
+            // Возвращает функцию для удаления подписчика
+            return () => {
+                subscribers = subscribers.filter(el => el !== subscriber);
+            };
+        },
+        <u-code-accent>getState</u-code-accent>() {
+            return state;
+        },
+        <u-code-accent>dispatch</u-code-accent>(action) {
+            // Передается предыдущее состояние и action. Возвращается новое состояние
+            state = <u-code>reducer</u-code>(state, action);
+            // Уведомление подписчиков об изменении состояния
+            subscribers.forEach(el => el())
+        },
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример использования</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const counterReducer = (state = 0, action) => {
+    switch (action.type) {
+        case 'INCREMENT': return state + 1;
+        case 'DECREMENT': return state - 1;
+        default: return state;
+    }   
+}
+
+// Создание store
+const store = <u-code>createStore</u-code>(counterReducer, 0);
+
+// Создание подписчика
+const subscriber = () => {
+  console.log('Current state:', store.<u-code>getState</u-code>());
+};
+
+// Подписка на изменение состояния
+const unsubscribe = store.<u-code>subscribe</u-code>(subscriber);
+
+// Изменение state
+store.<u-code>dispatch</u-code>({ type: 'INCREMENT' }); // => 1
+store.<u-code>dispatch</u-code>({ type: 'DECREMENT' }); // => 0
+
+// Удаление подписчика
+unsubscribe();
+
+// No output - подписчик уже удален
+store.<u-code>dispatch</u-code>({ type: 'INCREMENT' }); 
+</v-code>
