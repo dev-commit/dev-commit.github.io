@@ -1,0 +1,33 @@
+<h2>Настройка порядка импортов</h2>
+
+<u-link-wrapper>
+    <a href="https://github.com/trivago/prettier-plugin-sort-imports" target="_blank">https://github.com/trivago/prettier-plugin-sort-imports</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="package.json">
+{
+    "devDependencies": {
+        "@trivago/prettier-plugin-sort-imports": "^3.2.0",
+    },
+}
+</v-code>
+
+<v-code lang="js" title=".prettierrc.json">
+module.exports = {
+    importOrder: [
+        '^react$',
+        '&lt;THIRD_PARTY_MODULES&gt;',
+        'types|Types',
+        'utils|config|constants|hooks|services|store|context',
+        '^pages',
+        '^layouts',
+        '^components',
+        '^ui-kit',
+        &#39;^[.].*(?&lt;!.module.scss)$|^[.][.].*(?&lt;!.module.scss)$&#39;,
+        'scss',
+    ],
+    importOrderSeparation: true,
+    importOrderSortSpecifiers: true,
+};
+</v-code>
+

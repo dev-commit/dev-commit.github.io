@@ -1,8 +1,10 @@
 <h2>Файл .prettierrc.json</h2>
 
-<ul class="list-point">
-    <li>Если в проекте есть файл <u>.prettierrc.json</u>, то конфиги будут браться из него</li>
-</ul>
+<u-message-info>
+    <ul>
+        <li>Если в проекте есть файл <u>.prettierrc.json</u>, то конфиги будут браться из него</li>
+    </ul>
+</u-message-info>
 
 <v-code lang="json" title=".prettierrc.json">
 {
@@ -26,45 +28,8 @@
 }
 </v-code>
 
-<hr>
-
-<ul class="list-point">
-    <li>Если в проекте нет файла <u>.prettierrc.json</u>, то будут браться стандартные конфиги из IDE</li>
-</ul>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Примеры</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<!------------------------------------------------------------->
-<h4>Настройка импортов importOrder</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title=".prettierrc.json">
-module.exports = {
-    printWidth: 100,
-    tabWidth: 2,
-    useTabs: false,
-    semi: true,
-    singleQuote: true,
-    trailingComma: 'all',
-    bracketSpacing: true,
-    bracketSameLine: false,
-    arrowParens: 'avoid',
-    endOfLine: 'auto',
-    importOrder: [
-        '^react$',
-        '&lt;THIRD_PARTY_MODULES&gt;',
-        'types|Types',
-        'utils|config|constants|hooks|services|store|context',
-        '^pages',
-        '^layouts',
-        '^components',
-        '^ui-kit',
-        &#39;^[.].*(?&lt;!.module.scss)$|^[.][.].*(?&lt;!.module.scss)$&#39;,
-        'scss',
-    ],
-    importOrderSeparation: true,
-    importOrderSortSpecifiers: true,
-};
-</v-code>
+<u-message-info>
+    <ul>
+        <li>Если в проекте нет файла <u>.prettierrc.json</u>, то будут браться стандартные конфиги из IDE</li>
+    </ul>
+</u-message-info>

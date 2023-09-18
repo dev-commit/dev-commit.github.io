@@ -75,6 +75,16 @@
             <u-menu-outline>.prettierignore</u-menu-outline>
         </a>
     </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__linters/prettier/import-order"
+            href="#linters/prettier/import-order"
+        >
+            Настройка порядка импортов
+        </a>
+    </li>
 </ul><h4>🏷️ ESLint</h4><ul>
     <li>
         <a
@@ -111,6 +121,16 @@
             class="menu-link"
             id="id__linters/stylelint/info"
             href="#linters/stylelint/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+</ul><h4>🏷️ TSLint</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__linters/tslint/info"
+            href="#linters/tslint/info"
         >
             📑 Информация
         </a>
@@ -335,9 +355,11 @@ npm i --save-dev <u-code-accent>stylelint</u-code-accent> <u-code-accent>styleli
 </ul>
 </div><div id="linters/prettier/prettierrc"><h2>Файл .prettierrc.json</h2>
 
-<ul class="list-point">
-    <li>Если в проекте есть файл <u>.prettierrc.json</u>, то конфиги будут браться из него</li>
-</ul>
+<u-message-info>
+    <ul>
+        <li>Если в проекте есть файл <u>.prettierrc.json</u>, то конфиги будут браться из него</li>
+    </ul>
+</u-message-info>
 
 <v-code lang="json" title=".prettierrc.json">
 {
@@ -361,32 +383,34 @@ npm i --save-dev <u-code-accent>stylelint</u-code-accent> <u-code-accent>styleli
 }
 </v-code>
 
-<hr>
+<u-message-info>
+    <ul>
+        <li>Если в проекте нет файла <u>.prettierrc.json</u>, то будут браться стандартные конфиги из IDE</li>
+    </ul>
+</u-message-info>
+</div><div id="linters/prettier/prettierignore"><h2>Файл .prettierignore</h2>
 
 <ul class="list-point">
-    <li>Если в проекте нет файла <u>.prettierrc.json</u>, то будут браться стандартные конфиги из IDE</li>
+    <li><u-code-text>src</u-code-text> - запретить директорию "src"</li>
+    <li><u-code-text>*.html</u-code-text> - запретить файлы html</li>
+    <li><u-code-text>*</u-code-text> - запретить все файлы</li>
 </ul>
+</div><div id="linters/prettier/import-order"><h2>Настройка порядка импортов</h2>
 
+<u-link-wrapper>
+    <a href="https://github.com/trivago/prettier-plugin-sort-imports" target="_blank">https://github.com/trivago/prettier-plugin-sort-imports</a>
+</u-link-wrapper>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Примеры</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="package.json">
+{
+    "devDependencies": {
+        "@trivago/prettier-plugin-sort-imports": "^3.2.0",
+    },
+}
+</v-code>
 
-<!------------------------------------------------------------->
-<h4>Настройка импортов importOrder</h4>
-<!------------------------------------------------------------->
 <v-code lang="js" title=".prettierrc.json">
 module.exports = {
-    printWidth: 100,
-    tabWidth: 2,
-    useTabs: false,
-    semi: true,
-    singleQuote: true,
-    trailingComma: 'all',
-    bracketSpacing: true,
-    bracketSameLine: false,
-    arrowParens: 'avoid',
-    endOfLine: 'auto',
     importOrder: [
         '^react$',
         '&lt;THIRD_PARTY_MODULES&gt;',
@@ -403,13 +427,7 @@ module.exports = {
     importOrderSortSpecifiers: true,
 };
 </v-code>
-</div><div id="linters/prettier/prettierignore"><h2>Файл .prettierignore</h2>
 
-<ul class="list-point">
-    <li><u-code-text>src</u-code-text> - запретить директорию "src"</li>
-    <li><u-code-text>*.html</u-code-text> - запретить файлы html</li>
-    <li><u-code-text>*</u-code-text> - запретить все файлы</li>
-</ul>
 </div><div id="linters/eslint/info"><h2>Информация</h2>
 
 <u-link-wrapper>
@@ -417,7 +435,7 @@ module.exports = {
 </u-link-wrapper>
 
 <ul class="list-point">
-    <li><u-text-define>ESLint</u-text-define> - проблемы с кодом. Проблемы могут быть любыми: от потенциальных ошибок во время выполнения до несоблюдения лучших практик и проблем со стилем</li>
+    <li><u-text-define>ESLint</u-text-define> - нахождение ошибок в коде. Ошибки могут быть любыми: от потенциальных ошибок во время выполнения до несоблюдения лучших практик и проблем со стилем</li>
 </ul>
 </div><div id="linters/eslint/main"><h2>ESLint</h2>
 
@@ -463,6 +481,19 @@ foo1(function() {
 <u-link-wrapper>
     <a href="https://stylelint.io/" target="_blank">https://stylelint.io/</a>
 </u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Stylelint</u-text-define> - форматирование стилей</li>
+</ul>
+</div><div id="linters/tslint/info"><h2>Информация</h2>
+
+<u-link-wrapper>
+    <a href="https://palantir.github.io/tslint/" target="_blank">https://palantir.github.io/tslint/</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>TSLint</u-text-define> - форматирование для TypeScript</li>
+</ul>
 </div><div id="linters/husky/info"><h2>Информация</h2>
 
 <u-link-wrapper>

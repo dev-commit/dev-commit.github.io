@@ -13,13 +13,13 @@ ARR_MODULE = [
     {
         title: 'Agile',
         themes: [
-            [root+'agile/agile',    emoji.star+'Agile'],
-            [root+'agile/scrum',    emoji.star+'Scrum'],
-            [root+'agile/kanban',   emoji.star+'Kanban'],
-            [root+'agile/meetings', 'Meetings'],
-            [root+'agile/team',     'Команда'],
-            [root+'agile/backlog',  'Tasls, Backlog, Sprint'],
+            [root+'agile/agile',         emoji.star+'Agile'],
+            [root+'agile/scrum',         emoji.star+'Scrum'],
+            [root+'agile/kanban',        emoji.star+'Kanban'],
+            [root+'agile/meetings',     'Meetings'],
+            [root+'agile/story-points', 'Story Points'],
+            [root+'agile/team',         'Команда'],
+            [root+'agile/backlog',      'Tasls, Backlog, Sprint'],
         ]
     },
 ]
-

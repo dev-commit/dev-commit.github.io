@@ -2,16 +2,6 @@ root = 'compilation/';
 
 ARR_MODULE = [
     {
-        title: 'CI / CD',
-        themes: [
-            [root+'deployment/info',                   emoji.theory+'Информация'],
-            [root+'deployment/continuous-integration', emoji.baseball+'1. Continuous Integration'],
-            [root+'deployment/continuous-delivery',    emoji.baseball+'2. Continuous Delivery'],
-            [root+'deployment/continuous-deployment',  emoji.baseball+'3. Continuous Deployment'],
-            [root+'deployment/software-deployment',    emoji.baseball+'Software Deployment'],
-        ]
-    },
-    {
         title: 'MVC ...',
         themes: [
             [root+'application-architecture/info', emoji.theory+'Шаблоны проектирования'],
@@ -26,7 +16,6 @@ ARR_MODULE = [
             [root+'web/web-applications',     'Виды веб-приложений'],
             [root+'web/evolution-web-design', 'Эволюция веб-дизайна'],
             [root+'web/frameworks',           'Фреймворки'],
-            [root+'web/site-load',            'Загрузка сайта'],
             [root+'web/webkit',               'Браузерные движки'],
         ]
     },
