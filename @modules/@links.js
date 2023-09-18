@@ -11,7 +11,8 @@ const ARR_LINKS = [
     { page: 'js-task',                 theme: 'brown',    title: 'Задачи' },
     { page: 'compilation',             theme: 'gray',     title: '🔥' },
     { page: 'agile',                   theme: 'gray',     title: 'Agile | Jira' },
-    { page: 'ci-cd',                   theme: 'gray',     title: 'CI/CD' },
+    { page: 'ci-cd',                   theme: 'gray',     title: 'CI / CD' },
+    { page: 'mvc',                     theme: 'gray',     title: 'MVC ...' },
     { page: 'english',                 theme: 'gray',     title: 'English' },
     { page: 'wiki',                    theme: 'blue',     title: 'Wiki' },
     null,
@@ -49,19 +50,13 @@ const ARR_LINKS = [
     null,
     { page: 'redux',                   theme: 'violet',   title: 'Redux' },
     { page: 'react-redux',             theme: 'violet',   title: 'React Redux' },
-
     { page: 'redux-toolkit',           theme: 'violet',   title: 'Redux Toolkit' },
     { page: 'redux-saga',              theme: 'violet',   title: 'Redux Saga' },
-
-
-
-
-
-    { page: 'reselect',                theme: 'white',   title: 'Reselect' },
+    { page: 'reselect',                theme: 'violet',   title: 'Reselect' },
     null,
     { page: 'formik',                  theme: 'violet',   title: 'Formik' },
-    { page: 'react-hook-form',         theme: 'actual',   title: 'React Hook Form' },
     { page: 'yup',                     theme: 'violet',   title: 'Yup' },
+    { page: 'react-hook-form',         theme: 'actual',   title: 'React Hook Form' },
     { page: 'react-final-form',        theme: 'white',    title: 'React Final Form' },
     null,
     { page: 'next-js',                 theme: 'violet',   title: 'Next.js' },

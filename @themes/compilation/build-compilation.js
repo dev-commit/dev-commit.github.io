@@ -2,21 +2,13 @@ root = 'compilation/';
 
 ARR_MODULE = [
     {
-        title: 'MVC ...',
-        themes: [
-            [root+'application-architecture/info', emoji.theory+'Шаблоны проектирования'],
-            [root+'application-architecture/mvc',  emoji.lemon+'MVC'],
-            [root+'application-architecture/mvvm', emoji.lemon+'MVVM'],
-        ]
-    },
-    {
         title: 'Web',
         themes: [
             [root+'web/i18n',                 setTheme(1, ['i18n', 'L10n', 'a11y'])],
             [root+'web/web-applications',     'Виды веб-приложений'],
-            [root+'web/evolution-web-design', 'Эволюция веб-дизайна'],
             [root+'web/frameworks',           'Фреймворки'],
             [root+'web/webkit',               'Браузерные движки'],
+            [root+'web/evolution-web-design', 'Эволюция веб-дизайна'],
         ]
     },
     {
@@ -36,9 +28,10 @@ ARR_MODULE = [
             [root+'other/imports',              emoji.chevron+'Порядок импортов'],
             [root+'other/version',              emoji.chevron+'Политика версионирования'],
             [root+'other/name-case',            'Соглашение по именованию'],
-            [root+'other/prefix',               'Префиксы'],
             [root+'other/specification-stage',  'Стадии спецификации'],
+            [],
             [root+'other/dictionary',           'Словарь'],
+            [root+'other/prefix',               'Префиксы'],
             [root+'other/polyfill',             'Полифиллы'],
             [root+'other/trash',                'Свалка'],
         ]
