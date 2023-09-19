@@ -1,0 +1,500 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>GitHub ...</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/git-managers/build-git-managers.js"></script>
+        </head>
+        <body>
+
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link" v-html="'GitHub ...'"></a>
+                    </div>
+                    <h4>🏷️ GitHub</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__git-managers/github/ssh"
+            href="#git-managers/github/ssh"
+        >
+            🧲 Подключение по SSH
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__git-managers/github/github-pages"
+            href="#git-managers/github/github-pages"
+        >
+            ⭐️ Github Pages
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__git-managers/github/github-cli"
+            href="#git-managers/github/github-cli"
+        >
+            ⭐️ GitHub CLI
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__git-managers/github/github-desktop"
+            href="#git-managers/github/github-desktop"
+        >
+            GitHub Desktop
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__git-managers/github/github-api"
+            href="#git-managers/github/github-api"
+        >
+            Github API
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__git-managers/github/github-readme-stats"
+            href="#git-managers/github/github-readme-stats"
+        >
+            <u-menu>github-readme-stats</u-menu>
+        </a>
+    </li>
+</ul><h4>🏷️ Bitbucket</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__git-managers/bitbucket/ssh"
+            href="#git-managers/bitbucket/ssh"
+        >
+            🧲 Подключение по SSH
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="git-managers/github/ssh"><h2>SSH keys</h2>
+
+<u-link-wrapper>
+	<a href="https://www.gitignore.io/" target="_blank">Generate GitIgnore</a>
+	<a href="https://www.youtube.com/playlist?list=PL3LQJkGQtzc5rDeb7FjACNb6sOW300yA0" target="_blank">[playlist] GitHub</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Два вида соединения</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+git@github.com:Account/Repo.git      # соединение по SSH
+https://github.com/Account/Repo.git  # соединение по HTTPS
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>SSH</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Git Bash</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://git-scm.com/" target="_blank">https://git-scm.com/</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>1. Install Git</li>
+
+    <li>2. Open Git Bash</li>
+	<u-code-text>$ cd путь_до_папки ($ cd и перетащить папку)</u-code-text>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. Generating a new SSH key</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank">Generating a new SSH key</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>1. Generating a new SSH key</li>
+	<u-code-text>$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"</u-code-text>
+
+    <li>2. Adding your SSH key to the ssh-agent</li>
+	<u-code-text>$ eval $(ssh-agent -s)</u-code-text>
+
+    <li>3. Add your SSH private key to the ssh-agent</li>
+	<u-code-text>$ ssh-add ~/.ssh/id_rsa</u-code-text>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Add the SSH key to your GitHub account</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account" target="_blank">Adding a new SSH key to your GitHub account</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+	<li>1. Copy the SSH key to your clipboard</li>
+	<u-code-text>$ clip < ~/.ssh/id_rsa.pub</u-code-text>
+
+	<li>2. https://github.com/ -> Settings -> SSH and GPG keys -> New SSH key</li>
+	<li>Ввести название ключа</li>
+	<li>Вставить ключ скопированный в буфер обмена на 1 этапе</li>
+
+	<li>3. https://github.com/ -> Репозиторий -> Clone or download -> Use SSH -> Скопировать строку</li>
+
+	<li>4. Git Bash</li>
+	<u-code-text>$ git clone git@github.com:name_account/name_repo.git</u-code-text>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>HTTPS / HTTP</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При подключении по HTTPS / HTTP требуется единоразовый ввода логина и пароля от учетной записи</li>
+    <li>После этого логин и пароль сохранятся на компьютере</li>
+
+    <hr>
+    <li>Если изенился логин/пароль, необходимо обновить данные учетной записи</li>
+    <li>Панель управления -> Учетные записи пользователей -> Диспетчер учетных данных</li>
+    <li><u-code-text>git:https://github.com</u-code-text> так выглядит учетка для Git</li>
+    <li>Можно изменить данные учетки или ее удалить</li>
+    <li>Если учетка была удалена, при следующем взаимодействии в консоле, git попросит ввести логин и пароль в отдельном окне авторизации</li>
+</ul>
+</div><div id="git-managers/github/github-pages"><h2>Github Pages</h2>
+
+<u-link-wrapper>
+	<a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+	<a href="https://docs.github.com/en/pages" target="_blank">GitHub Pages Documentation</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Информация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h5>Ветка</h5>
+<ul class="list-point">
+	<li>По умолчанию GitHub Pages настроен на ветку <u>gh-pages</u></li>
+    <li>Ветку можно переключить вручную: Settings -> Pages -> Branch -> ...</li>
+</ul>
+
+<h5>Нейминг</h5>
+<ul class="list-point">
+    <li>Если название репозитория совпадает с названием акканута "account-name" - это будет корневой репозиторий: <br>
+    <em>https://github.com/account-name</em> ➡️ <em>https://account-name.github.io/</em></li>
+    <li>Если репозиторий не корневой то через "/" добавится название репозитория:<br>
+    <em>https://github.com/project-name</em> ➡️ <em>https://account-name.github.io/project-name</em>
+    </li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Деплой через gh-pages</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Библиотека gh-pages берет файлы из директории <u>build</u> и деплоит в связанный репозиторий на GitHib. Если в удаленном репозитории уже есть ветка <u>gh-pages</u>, то деплой происходи в нее. Если ветки нет, то она создается</li>
+</ul>
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>gh-pages</u-code-accent>
+</v-pre-npm>
+
+<!------------------------------------------------------------->
+<h4>React приложение на Create React App</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Если для проекта используется Create React App, то обязательно нужно указывать <u>"homepage"</u> если проект находится не в корне (не по адресу <em>https://account-name.github.io/</em>). В данном случае проект находится по адресу <em>https://account-name.github.io/project-name/</em></li>
+    <li>При сборке, к каждому пути будет добавлен <u>"project-name"</u>. Если не указать, то в пути будет <u>"/"</u>, что будет искать файл в <em>https://account-name.github.io/</em>, а не в <em>https://account-name.github.io/project-name/</em></li>
+    <li>После build, в консоле будет сообщение: <i>"The project was built assuming it is hosted at /project-name/. You can control this with the homepage field in your package.json"</i></li>
+</ul>
+
+<v-code lang="js" title="package.json">
+{
+	"homepage": "https://account-name.github.io/project-name/",
+	"devDependencies": {
+		"gh-pages": "^3.2.3",
+	},
+	"scripts": {
+		"build": "react-scripts build",
+		"gh-pages": "gh-pages -d build",
+		"deploy": "npm run build && npm run gh-pages"
+	},
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>React приложение на vite-template-redux</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><a href="https://github.com/reduxjs/redux-templates/tree/master/packages/vite-template-redux" target="_blank" class="link">https://github.com/reduxjs/redux-templates/tree/master/packages/vite-template-redux</a></li>
+    <li>Для шаблона "vite-template-redux" нужно задать <u>base</u> в <u>vite.config.ts</u></li>
+    <li>При этом не нужно указывать <u>homepage</u> в <u>package.json</u></li>
+</ul>
+
+<v-code lang="js" title="vite.config.ts">
+import { defineConfig } from "vitest/config"
+
+export default defineConfig({
+  base: "/repo-name/",
+})
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Особенности Github Pages</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+По умолчанию GitHub Pages не обрабатывает файлы, начинающиеся с нижнего подчёркивания. В <a href="https://docs.github.com/ru/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll" target="_blank" class="link">документации</a> предлагается три решения этой проблемы:
+<ol class="list-num">
+    <li>Не использовать файлы, начинающиеся с нижнего подчёркивания</li>
+    <li>Добавить файл <u>.nojekyll</u> в корневую папку сайта</li>
+    <li>Использовать директиву <u>include</u> в файле <u>_config.yml</u> чтобы Jekyll не игнорировал эти файлы</li>
+</ol>
+
+<h5>Добавить файл .nojekyll в корневую папку сайта</h5>
+<ul class="list-point">
+    <li>Если создать пустой файл .nojekyll, то он не зугружется в ветку "gh-pages" при запуске скрипта <em>npm run gh-pages</em></li>
+    <li>Для этого нужно поменять скрипт "gh-pages"</li>
+</ul>
+
+<v-code lang="js" title="package.json">
+{
+    "scripts": {
+        // Исходный
+        "gh-pages": "gh-pages -d build",
+        // Новый
+        "gh-pages": "gh-pages -d build -t true",
+    },
+}
+</v-code>
+</div><div id="git-managers/github/github-cli"><h2>GitHub CLI</h2>
+
+<u-link-wrapper>
+	<a href="https://cli.github.com/" target="_blank">https://cli.github.com/</a>
+	<a href="https://cli.github.com/manual/" target="_blank">https://cli.github.com/manual/</a>
+	<a href="https://github.com/cli/cli/" target="_blank">https://github.com/cli/cli/</a>
+</u-link-wrapper>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Команды</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Общее</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+gh auth login                   # Аутентификация
+gh repo clone UserName/RepoName # Клонирование репозитория
+gh commands                     # Доступные команды
+code .                          # Открыват проект в редакторе по умолчанию
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Issue</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+gh issue <u-code>status</u-code>  # Issue статус
+gh issue <u-code>list</u-code>    # Список issue
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Pull Request</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+gh pr <u-code>create</u-code>  # Создает PR
+gh pr <u-code>diff</u-code>    # Показывает изменения в PR
+gh pr <u-code>review</u-code>  # Добавить апрув / коммент на ревью
+gh pr <u-code>merge</u-code>   # Merge PR
+</v-code>
+</div><div id="git-managers/github/github-desktop"><h2>GitHub Desktop</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Pull request</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+GitHub Desktop -> Branch -> Create pull request -> 
+github.com -> (Open a pull request) Create pull request
+github.com -> Merge pull request -> Confirm merge -> "Pull request successfully merged and closed"
+GitHub Desktop -> Fetch origin
+</v-code>
+</div><div id="git-managers/github/github-api"><h2>Github API</h2>
+
+<u-link-wrapper>
+    <a href="https://api.github.com/user/repos" target="_blank">https://api.github.com/user/repos</a>
+    <a href="https://api.github.com/repos/anton-sergeenkov/React-StarWars" target="_blank">https://api.github.com/repos/anton-sergeenkov/React-StarWars</a>
+</u-link-wrapper>
+</div><div id="git-managers/github/github-readme-stats"><h2>github-readme-stats</h2>
+
+<u-link-wrapper>
+    <a href="https://github.com/anuraghazra/github-readme-stats" target="_blank">https://github.com/anuraghazra/github-readme-stats</a>
+    <a href="https://github.com/Qeenon/Qeenon/blob/master/README.md" target="_blank">https://github.com/Qeenon/Qeenon/blob/master/README.md</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ссылки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://github-readme-stats.vercel.app/api/top-langs/?username=anton-sergeenkov&theme=dracula&layout=compact&hide_border=true" target="_blank">https://github-readme-stats.vercel.app/api/top-langs/?username=anton-sergeenkov&theme=dracula&layout=compact&hide_border=true</a>
+    <a href="https://github-readme-stats.vercel.app/api?username=anton-sergeenkov&theme=dracula&show_icons=true&count_private=true&include_all_commits=true&hide_border=true" target="_blank">https://github-readme-stats.vercel.app/api?username=anton-sergeenkov&theme=dracula&show_icons=true&count_private=true&include_all_commits=true&hide_border=true</a>
+</u-link-wrapper>
+</div><div id="git-managers/bitbucket/ssh"><h2>SSH keys</h2>
+
+<u-link-wrapper>
+    <a href="https://confluence.atlassian.com/bitbucketserver0610/creating-ssh-keys-989761219.html" target="_blank">SSH keys</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>1. Создание нового ключа SSH</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Запустить командную строку под админом</li>
+</ul>
+
+<v-marker marker="*"></v-marker> <em>Команда на создание ключа</em>
+<v-code lang="bash step" title="">
+ssh-keygen -t rsa -C "your_email@example.com"
+</v-code>
+
+<v-marker marker="*"></v-marker> <em>Ответ консоли</em>
+<v-code lang="bash step" title="">
+Generating public/private rsa key pair.
+Enter file in which to save the key (C:\Users\user/.ssh/id_rsa):
+</v-code>
+
+<v-marker marker="*"></v-marker> <em>После нажатия enter, будет запрос на ввод и подтверждение кодовой фразы</em>
+<v-code lang="bash step" title="">
+Created directory 'C:\Users\user/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+</v-code>
+
+<v-marker marker="*"></v-marker> <em>Информация после ввода пароля</em>
+<v-code lang="bash step" title="">
+Your identification has been saved in C:\Users\user/.ssh/id_rsa.
+Your public key has been saved in C:\Users\user/.ssh/id_rsa.pub.
+The key fingerprint is: SHA256:ЗдесьБудетКлюч ЗдесьБудетEmail
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Установка ключа в аккаунт Bitbucket</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Перейти в аккаунт на Bitbucket в раздел SSH keys</li>
+    <li><a href="https://bitbucket.region.vtb.ru/plugins/servlet/ssh/account/keys" target="_blank" class="link">https://bitbucket.region.vtb.ru/plugins/servlet/ssh/account/keys</a></li>
+    <li>Выбрать <u>Add key</u> и указать <u>public key</u> из <u>C:\Users\user/.ssh/id_rsa.pub.</u></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Клонирование репозитория чеерез SSH</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>У репозитория выбрать <u>clone -> SSH</u></li>
+</ul>
+
+<v-marker marker="*"></v-marker> <em>Командная строка</em>
+<v-code lang="bash step" title="">
+git clone СкопированныйАдрес
+</v-code>
+
+<v-marker marker="*"></v-marker> <em>Вывод консоли</em>
+<v-code lang="bash step" title="">
+The authenticity of host `НазваниеХоста` can't be established.
+RSA key fingerprint is `ДанныеПоКлючу`
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+</v-code>
+
+<v-marker marker="*"></v-marker> <em>Ввод passphrase, указанного при регистрации ключа</em>
+<v-code lang="bash step" title="">
+Enter passphrase for key '/c/Users/user/.ssh/id_rsa':
+</v-code>
+
+<v-marker marker="*"></v-marker> <em>Клонирование репозитория</em>
+<v-code lang="bash step" title="">
+remote: Enumerating objects: 7715, done.
+remote: Counting objects: 100% (7715/7715), done.
+remote: Compressing objects: 100% (3142/3142), done.
+remote: Total 7715 (delta 4636), reused 7018 (delta 4132)
+Receiving objects: 100% (7715/7715), 2.45 MiB | 2.10 MiB/s, done.
+Resolving deltas: 100% (4636/4636), done.
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>4. Прочее</h4>
+<!------------------------------------------------------------->
+<v-marker marker="*"></v-marker> <em>Проверка существующих ключей SSH</em>
+<v-code lang="bash step" title="">
+cd %userprofile%/.ssh
+</v-code>
+
+<v-marker marker="*"></v-marker> <em>Создание резервной копию старых ключей SSH</em>
+<v-code lang="bash step" title="">
+mkdir key_backup
+copy id_rsa* key_backup
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+        </body>
+    </html>

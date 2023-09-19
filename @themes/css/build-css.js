@@ -2,6 +2,78 @@ root = 'css/';
 
 ARR_MODULE = [
     {
+        title: 'Единицы измерения',
+        themes: [
+            [root+'sizes/px',         'Единицы измерения'],
+            [root+'sizes/vh',         setTheme(5, ['vw', 'vh', 'vmin', 'vmax'])],
+        ]
+    },
+    {
+        title: 'Блочная модель',
+        themes: [
+            [root+'box-model/box-sizing', setTheme(5, ['box-sizing'])],
+            [root+'box-model/display',    setTheme(5, ['display'])],
+            [root+'box-model/position',   setTheme(5, ['position'])],
+        ]
+    },
+    {
+        title: 'Преобразования и размеры',
+        themes: [
+            [root+'transform/transition', setTheme(5, ['transition'])],
+            [root+'transform/transform',  setTheme(5, ['transform'])],
+            [root+'transform/animation',  setTheme(5, ['animation', '@keyframes'])],
+        ]
+    },
+    {
+        title: 'Текст',
+        themes: [
+            [root+'text/fonts-add',       'Шрифты'],
+            [root+'text/font',            setTheme(5, ['font-*', 'text-*', '...'])],
+            [root+'text/text-decoration', setTheme(5, ['text-decoration'])],
+            [root+'text/initial-letter',  setTheme(5, ['initial-letter'])],
+        ]
+    },
+    {
+        title: 'Свойства',
+        selected: true,
+        themes: [
+            [root+'properties/box-shadow',      setTheme(5, ['box-shadow', 'text-shadow'])],
+            [root+'properties/overflow',        setTheme(5, ['overflow'])],
+            [root+'properties/background',      setTheme(5, ['background'])],
+            [root+'properties/border',          setTheme(5, ['border'])],
+            [root+'properties/ul',              setTheme(5, ['ul', 'ol'])],
+            [root+'properties/scrollbar',       setTheme(5, ['scrollbar'])],
+            [root+'properties/scroll-behavior', setTheme(5, ['scroll-behavior'])],
+        ]
+    },
+    {
+        title: 'Правила',
+        selected: true,
+        themes: [
+            [root+'rules/import',   setTheme(5, ['@import'])],
+            [root+'rules/supports', setTheme(5, ['@supports'])],
+        ]
+    },
+    {
+        title: 'Функции',
+        selected: true,
+        themes: [
+            [root+'functions/calc',      setTheme(5, ['calc()'])],
+            [root+'functions/attr',      setTheme(5, ['attr()'])],
+            [root+'functions/image-set', setTheme(5, ['image-set()'])],
+        ]
+    },
+    {
+        title: 'Псевдоклассы',
+        selected: true,
+        themes: [
+            [root+'pseudo-classes/where', setTheme(5, [':where'])],
+            [root+'pseudo-classes/is',    setTheme(5, [':is'])],
+        ]
+    },
+
+
+    {
         title: 'База',
         themes: [
             [root+'basic/pattern',              emoji.code+'Шаблон'],
@@ -26,14 +98,7 @@ ARR_MODULE = [
             [root+'adaptive/browser-style',      emoji.lemon+'Стилизация браузера'],
         ]
     },
-    {
-        title: 'Блочная модель',
-        themes: [
-            [root+'box-model/box-sizing',  setTheme(1, ['box-sizing'])],
-            [root+'box-model/display',     setTheme(1, ['display'])],
-            [root+'box-model/position',    setTheme(1, ['position'])],
-        ]
-    },
+
     {
         title: 'Layout',
         themes: [
@@ -66,14 +131,7 @@ ARR_MODULE = [
             [root+'color-module/colors-func',       emoji.star+'Цветовые функции'],
         ]
     },
-    {
-        title: 'Преобразования',
-        themes: [
-            [root+'transform/transition',        setTheme(1, ['transition'])],
-            [root+'transform/transform',         setTheme(1, ['transform'])],
-            [root+'transform/animation',         setTheme(1, ['animation', '@keyframes'])],
-        ]
-    },
+
     {
         title: 'Графика',
         themes: [
@@ -96,24 +154,9 @@ ARR_MODULE = [
         title: 'Основное',
         themes: [
             getLink(root, 'info'),
-            [root+'main/import',          setTheme(1, ['@import'])],
-            [root+'main/supports',        setTheme(1, ['@supports'])],
-            [root+'main/shadow',          setTheme(1, ['box-shadow', 'text-shadow'])],
-            [root+'main/overflow',        setTheme(1, ['overflow'])],
-            [root+'main/background',      setTheme(1, ['background'])],
-            [root+'main/lists',           setTheme(1, ['ul', 'ol'])],
-            [root+'main/calc',            setTheme(1, ['calc()'])],
-            [root+'main/scrollbar',       setTheme(1, ['scrollbar'])],
-            [root+'main/viewport',        setTheme(1, ['vw', 'vh', 'vmin', 'vmax'])],
-            [root+'main/text-decoration', setTheme(1, ['text-decoration'])],
-            [root+'main/scroll-behavior', setTheme(1, ['scroll-behavior'])],
-            [root+'main/where',           setTheme(1, [':where'])],
-            [root+'main/is',              setTheme(1, [':is'])],
-            [root+'main/px',              'Единицы измерения'],
-            [root+'main/actions',         'События браузера'],
-            [root+'main/font',            'Текст'],
-            [root+'main/pixel-perfect',   'Pixel Perfect'],
-            [root+'main/samples',         'Примеры'],
+            [root+'main/actions',       'События браузера'],
+            [root+'main/pixel-perfect', 'Pixel Perfect'],
+            [root+'main/samples',       'Примеры'],
         ]
     },
 ]

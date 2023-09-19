@@ -88,6 +88,7 @@ const ARR_LINKS = [
     { page: 'bem',                     theme: 'green',    title: 'BEM' },
     null,
     { page: 'git',                     theme: 'crimson',  title: action+'Git' },
+    { page: 'git-managers',            theme: 'crimson',  title: 'GitHub ...' },
     { page: 'typescript',              theme: 'crimson',  title: action+'TypeScript' },
     { page: 'ide',                     theme: 'crimson',  title: 'IDE' },
     { page: 'linters',                 theme: 'crimson',  title: 'Linters' },

@@ -23,9 +23,10 @@ ARR_MODULE = [
         title: 'ESLint',
         accent: 'true',
         themes: [
-            [root+'eslint/info',    emoji.theory+'Информация'],
-            [root+'eslint/main',    'Основное'],
-            [root+'eslint/disable', 'Disable'],
+            [root+'eslint/info',         emoji.theory+'Информация'],
+            [root+'eslint/main',         'Основное'],
+            [root+'eslint/disable',      'Disable'],
+            [root+'eslint/import-order', 'Настройка порядка импортов'],
         ]
     },
     {

@@ -1,0 +1,17 @@
+<h2>image-set()</h2>
+
+<ul class="list-point">
+    <li>Функция позволяет указать список изображений, которые браузер сможет выбрать в качестве фонового изображения, основываясь на том, что он знает о возможностях своего дисплея и скорости соединения</li>
+    <li>Это аналогично тому, что вы делаете со свойством srcset</li>
+</ul>
+
+<v-code lang="css" title="">
+.responsive-background {
+    background-image: 
+        image-set(
+            "image.png" 1x,
+            "image-2x.png" 2x,
+            "image-print.png" 600dpi
+        );
+}
+</v-code>
