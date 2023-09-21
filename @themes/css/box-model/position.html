@@ -1,4 +1,4 @@
-<h2>Position</h2>
+<h2>position</h2>
 
 <ul class="list-point">
     <li><u-code-text>static</u-code-text> - статичное (стандартное позиционирование)</li>
@@ -17,6 +17,46 @@ div {
 	position: sticky;
 }
 </v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Особенности</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><em>static</em> и <em>relative</em> сохраняют своё естественное положение в потоке документа, в то время как <em>absolute</em> и <em>fixed</em> «вырываются» из потока документа и становятся плавающими</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>sticky</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Элемент с position <em>sticky</em> может перемещаться только в пределах контейнера, в котором находится</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;!-- НЕ РАБОТАЕТ!!! --&gt;
+&lt;style&gt;
+    .sticky {
+        position: sticky;
+        top: 0;
+    }
+&lt;/style&gt;
+
+&lt;div class=&quot;wrapper&quot;&gt;
+    &lt;div class=&quot;sticky&quot;&gt;
+        Контент
+    &lt;/div&gt;
+&lt;/div&gt;
+</v-code>
+
+<ul class="list-point">
+    <li>«Липкое» позиционирование состоит из двух основных частей: «липкого» элемента и «липкого» контейнера</li>
+    <li>«Липкий» элемент — это элемент, которому задали position: sticky. Элемент будет становиться плавающим, как только область видимости достигнет определённой позиции, например <u>top: 0px</u></li>
+    <li>«Липкий» контейнер — это HTML-элемент, который оборачивает «липкий» элемент. Это максимальная область, в которой может перемещаться наш элемент</li>
+    <li>При задании элементу position: sticky, его родитель автоматически становится «липким» контейнером!</li>
+    <li>Контейнер будет являться областью видимости для элемента. «Липкий» элемент не может выйти за пределы своего «липкого» контейнера</li>
+</ul>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Задачи</h3>

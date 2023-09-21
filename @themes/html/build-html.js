@@ -13,11 +13,11 @@ ARR_MODULE = [
     {
         title: 'Элементы',
         themes: [
-            [root+'elements/img',     emoji.cookie+'Изображения'],
-            [root+'elements/form',    emoji.cookie+'Элементы формы'],
-            [root+'elements/link',    emoji.cookie+'Ссылки'],
-            [root+'elements/video',   emoji.cookie+'Видео и аудио'],
-            [root+'elements/table',   emoji.cookie+'Таблицы'],
+            [root+'elements/img',     emoji.star+'Изображения'],
+            [root+'elements/form',    emoji.star+'Элементы формы'],
+            [root+'elements/link',    emoji.star+'Ссылки'],
+            [root+'elements/video',   emoji.star+'Видео и аудио'],
+            [root+'elements/table',   emoji.star+'Таблицы'],
         ]
     },
     {

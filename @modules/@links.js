@@ -80,6 +80,7 @@ const ARR_LINKS = [
     null,
     { page: 'html',                    theme: 'green',    title: 'HTML' },
     { page: 'css',                     theme: 'green',    title: 'CSS' },
+    { page: 'css-properties',          theme: 'green',    title: 'CSS props' },
     { page: 'css-flexbox',             theme: 'green',    title: 'Flexbox' },
     { page: 'css-grid',                theme: 'green',    title: 'CSS Grid' },
     { page: 'svg',                     theme: 'green',    title: 'SVG' },
