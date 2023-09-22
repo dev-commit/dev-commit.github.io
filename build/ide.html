@@ -236,25 +236,13 @@
     <li>Ввести название</li>
 </ul>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Файл сниппета</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="react.code-snippets">
 {
-    "react": {
-        "scope": "javascript,javascriptreact",
-        "prefix": "component",
+    "testName": {
+        "scope": "javascript",
+        "prefix": "log",
         "body": [
-            "import styles from './${1}.module.css';",
-            "",
-            "const ${1} = () => {",
-            "\treturn (",
-            "\t\t<>${2}</>",
-            "\t)",
-            "}",
-            "",
-            "export default ${1};",
-            ""
+            "console.log('')",
         ]
     }
 }
@@ -276,6 +264,11 @@
     <li><u-code-text>body</u-code-text> - тело сниппета</li>
     <li><u-code-text>description</u-code-text> - описание сниппета</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файл сниппета</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
 </div><div id="ide/vscode/settings"><h2>Настройки редактора</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -302,6 +295,34 @@
     </li>
 </ul>
 <img src="/@img/ide/vscode/settings-compact-folder.png" width="500px" />
+
+
+<!------------------------------------------------------------->
+<h4>Смена CRLF на LF</h4>
+<!------------------------------------------------------------->
+<u-message-info>
+    <ul>
+        <li><em>LF</em> и <em>CRLF</em> - стандартные завершающие символы</li>
+        <li><u-code-text>LF</u-code-text> - символ перевода строки на платформах Linux</li>
+        <li><u-code-text>CRLF</u-code-text> - символы возврата каретки и перевода строки на платформах Windows</li>
+    </ul>
+</u-message-info>
+
+<ul class="list-point">
+    <li>При создании нового файла он будет в формате <em>LF</em></li>
+</ul>
+
+<img src="/@img/ide/vscode/setting-eol.png" width="500px" />
+
+<ul class="list-point">
+    <li>Можно создать файл <u>settings.json</u> и там изменить настройки</li>
+</ul>
+
+<v-code lang="js" title=".vscode/settings.json">
+{
+    "files.eol": "\n",
+}
+</v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Внешний вид</h3>
