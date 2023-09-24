@@ -1555,18 +1555,14 @@ git <u-code>difftool</u-code>             # запускает внешнюю у
 </div>
 
 <v-code lang="bash" title="">
-git <u-code>config --global</u-code> user.name <em>"user_name"</em>   # задание user.name
-git <u-code>config --global</u-code> user.email <em>"user_email"</em> # задание user.email
-git <u-code>config --list</u-code>                           # вывод настроек
-</v-code>
+# Задание user.name
+git <u-code>config --global</u-code> user.name <em>"user_name"</em>
 
-<!------------------------------------------------------------->
-<h4>Переключение CRLF / LF</h4>
-<!------------------------------------------------------------->
-<v-code lang="bash" title="">
-# C:\Users\UserName\.gitconfig
-git config --global core.autocrlf input
-git config --global core.safecrlf warn
+# Задание user.email
+git <u-code>config --global</u-code> user.email <em>"user_email"</em>
+
+# Вывод настроек
+git <u-code>config --list</u-code>
 </v-code>
 </div><div id="git/command/help"><div class="v-method-wrapper">
     <v-method before="git " method="help" after="" arg="">
@@ -1672,7 +1668,45 @@ git <u-code>blame</u-code> -L 5,8       # указать интересующи�
 </v-code>
 </div><div id="git/other/crlf"><h2>"LF" и "CRLF"</h2>
 
-<u-message-warn>При клонировании, Git меняет файлы с "LF" на "CRLF"</u-message-warn>
+<u-message-error>При клонировании или смене ветки, Git меняет файлы с "LF" на "CRLF"</u-message-error>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сравнение значений</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://habr.com/ru/articles/703072/" target="_blank">https://habr.com/ru/articles/703072/</a>
+</u-link-wrapper>
+
+<table>
+    <tr>
+        <th>«core.autocrlf»</th>
+        <th>Команды <u-code-text>add</u-code-text> <u-code-text>commit</u-code-text></th>
+        <th>База данных Git</th>
+        <th>Команда <u-code-text>checkout</u-code-text></th>
+    </tr>
+    <tr>
+        <td class="accent">«true»</td>
+        <td>CRLF -> LF</td>
+        <td>LF</td>
+        <td>LF -> CRLF</td>
+    </tr>
+    <tr>
+        <td class="accent">«false»</td>
+        <td>Без конвертации</td>
+        <td>CRLF и/или LF</td>
+        <td>Без конвертации</td>
+    </tr>
+    <tr>
+        <td class="accent">«input»</td>
+        <td>CRLF -> LF</td>
+        <td>LF</td>
+        <td>Без конвертации</td>
+    </tr>
+</table>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Решение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
 <h4>1. Проверить конфиг</h4>
@@ -1682,11 +1716,12 @@ git config core.autocrlf
 </v-code>
 
 <ul class="list-point">
-    <li>Если false, то ок - иначе поменять</li>
+    <li>Если значение отличное от <u>false</u>, то поменять</li>
 </ul>
 
-<v-code lang="js" title="">
-git config --global core.autocrlf false
+<v-code lang="bash" title="">
+git config --global core.autocrlf false # глобально
+git config --local core.autocrlf true   # для проекта
 </v-code>
 
 <!------------------------------------------------------------->
