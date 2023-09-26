@@ -1,0 +1,139 @@
+<h2>Хук контекста useContext</h2>
+
+<u-link-wrapper>
+    <a href="https://react.dev/reference/react/useContext" target="_blank">useContext</a>
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useContext" after="" arg="()">
+	Можно подписаться на контекст React без использования каких-либо вложений
+    </v-method>
+    <v-method-arg arg="obj">объект контекста (значение, возвращённое из <u-code-text>React.createContext</u-code-text>)</v-method-arg>
+    <v-method-return>Возвращает текущее значение контекста для принятого контекста</v-method-return>
+</div>
+
+<ul class="list-point">
+    <li>Текущее значение контекста определяется пропом value ближайшего <u-code-text>&lt;MyContext.Provider&gt;</u-code-text> над вызывающим компонентом в дереве</li>
+</ul>
+
+<v-code lang="js border" title="">
+import { useContext } from 'react';
+
+const value = <u-code>useContext</u-code>(MyContext);
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример: Смена темы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h5>Создание Provider и Hook</h5>
+
+<ul class="list-point">
+    <li>Вариант для JavaScript и TypeScript</li>
+</ul>
+<v-two-code type="js;js" comment="ThemeProvider.<u-code-accent>jsx</u-code-accent>;ThemeProvider.<u-code-accent>tsx</u-code-accent>">
+<template v-slot:first>
+import { useState, useContext } from 'react';
+
+const ThemeContext = <u-code-mod>React.createContext</u-code-mod>();
+
+const ThemeProvider = ({ children }) =&gt; {
+    const [theme, setTheme] = useState('light');
+
+    const change = (name) =&gt; setTheme(name);
+
+    return (
+		&lt;ThemeContext.Provider
+            value=<span v-pre>{{</span>
+                theme,
+                change
+            <span v-pre>}}</span>
+		&gt;
+            {children}
+        &lt;/ThemeContext.Provider&gt;
+    )
+}
+
+export default ThemeProvider;
+export const useTheme = () =&gt; <u-code-mod>useContext</u-code-mod>(ThemeContext);
+</template>
+<template v-slot:last>
+import React, { useState, useContext, useMemo } from 'react';
+
+// const ThemeContext = React.createContext({
+//     theme: 'light',
+//     change: (_: string) => {},
+// });
+
+const ThemeContext = <u-code-mod>React.createContext</u-code-mod>&lt;Object&gt;(false);
+
+interface Props {
+    children: React.ReactNode;
+};
+
+export const ThemeProvider = ({ children }: Props) => {
+    const [theme, setTheme] = useState<string>('light');
+
+    const change = (value: string) => setTheme(value);
+
+    // Можно обернуть в useMemo
+    const preparedProviderValue = useMemo(
+        () => ({ theme, change }),
+        [theme, change]
+    );
+
+    return (
+		&lt;ThemeContext.Provider
+            value={preparedProviderValue}
+        &gt;
+            {children}
+        &lt;/ThemeContext.Provider&gt;
+    )
+}
+
+export default ThemeProvider;
+export const useTheme = () => <u-code-mod>useContext</u-code-mod>(ThemeContext);
+</template>
+</v-two-code>
+
+<h5>Корневой компонент</h5>
+<ul class="list-point">
+    <li>Просто обернуть в <em>ThemeProvider</em></li>
+</ul>
+<v-code lang="js" title="index.jsx">
+import ThemeProvider from './ThemeProvider';
+import { View, Change } from './Components';
+
+const App = () =&gt; (
+    &lt;<u-code>ThemeProvider</u-code>&gt;
+        &lt;View /&gt;
+        &lt;Change /&gt;
+    &lt;/<u-code>ThemeProvider</u-code>&gt;
+);
+
+export default App;
+</v-code>
+
+<h5>Дочерние компоненты</h5>
+<ul class="list-point">
+    <li>Можно использовать хук <em>useTheme</em> для доступа к значению текущей темы и функции изменения темы</li>
+</ul>
+<v-code lang="js" title="Components.jsx">
+import { useTheme } from './ThemeProvider';
+
+const View = () =&gt; {
+    const isTheme = <u-code>useTheme</u-code>();
+    return isTheme.theme;
+};
+
+const Change = () =&gt; {
+    const isTheme = <u-code>useTheme</u-code>();
+    return (
+        &lt;&gt;
+            &lt;button onClick={() =&gt; isTheme.change('dark')}&gt;Dark&lt;/button&gt;
+            &lt;button onClick={() =&gt; isTheme.change('light')}&gt;Light&lt;/button&gt;
+        &lt;/&gt;
+    )
+};
+</v-code>

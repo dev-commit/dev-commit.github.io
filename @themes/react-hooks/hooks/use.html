@@ -1,0 +1,62 @@
+<h2>use</h2>
+
+<u-message-error>
+    <ul>
+        <li>В настоящее время Hook use доступен только в React’s canary and experimental channels</li>
+        <li><a href="https://react.dev/community/versioning-policy#all-release-channels" target="_blank" class="link">Узнать больше</a></li>
+    </ul>
+</u-message-error>
+
+<u-link-wrapper>
+    <a href="https://react.dev/reference/react/use" target="_blank">use</a>
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="use" after="" arg="(resource)">
+    Позволяет читать значение ресурса, например Promise или context
+    </v-method>
+	<v-method-arg arg="resource">источник данных, из которых вы хотите прочитать значение. Ресурсом может быть <u>Promise</u> или <u>context</u></v-method-arg>
+	<v-method-return></v-method-return>
+</div>
+
+<ul class="list-point">
+    <li>В отличие от всех других React Hooks, хук можно вызывать внутри циклов и условных операторов, таких как if</li>
+    <li>Как и другие хуки React, вызывающая функция use должна быть компонентом или хуком</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Чтение Context</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { use } from 'react'
+
+const App = () => {
+    const theme = use(ThemeContext)
+    //
+}
+</v-code>
+
+<v-code lang="js" title="">
+const Main = () => {
+    &lt;ThemeContext.Provider value=&quot;dark&quot;&gt;
+        &lt;App /&gt;
+    &lt;/ThemeContext.Provider&gt;
+}
+</v-code>
+
+<ul class="list-point">
+    <li>В отличие от <u>useContext</u>, <u>use</u> может вызываться в условных выражениях и циклах, например if</li>
+</ul>
+
+<v-code lang="js" title="">
+import { use } from 'react'
+
+const App = () => {
+    if (true) {
+        const theme = use(ThemeContext)
+        return &lt;hr className={theme} /&gt;
+    }
+    //
+}
+</v-code>

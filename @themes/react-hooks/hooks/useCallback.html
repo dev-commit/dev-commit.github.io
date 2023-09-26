@@ -1,0 +1,191 @@
+<h2>Хук useCallback</h2>
+
+<u-link-wrapper>
+    <a href="https://react.dev/reference/react/useCallback" target="_blank">useCallback</a>
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useCallback" after="" arg="(factory, deps)">
+	Оборачивает коллбэк и его полностью возвращает. Необходим, чтобы функция не изменялась при новом рендере - кэшировалась, а также чтобы не было рекурсивных вызовов.
+    </v-method>
+	<v-method-arg arg="factory">коллбэк</v-method-arg>
+	<v-method-arg arg="deps">dependencies - массив, с указанием от чего зависит useCallback</v-method-arg>
+    <v-method-return>Возвращает мемоизированный колбэк</v-method-return>
+</div>
+
+<v-code lang="js border" title="">
+import { useCallback } from 'react';
+
+const memoizedCallback = useCallback(() => {
+	doSomething(a, b);
+}, [a, b]);
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>useMemo vs useCallback</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js step;js step" comment="useCallback;useMemo">
+<template v-slot:first>
+// Возвращает саму функцию
+const memoizedCallback = useCallback(() => {
+	doSomething(a, b);
+}, [a, b]);
+</template>
+<template v-slot:last>
+// Возвращает результат выполнения функции
+const memoizedValue = useMemo(() => {
+    return doSomething(a, b);
+}, [a, b]);
+</template>
+</v-two-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Проблематика и решение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-message-comment>
+    <ul class="list-point">
+        <li>В обычном состоянии при каждом ререндере компонента создается новая ссылка на функцию</li>
+        <li>React использует неглубокое сравнение объектов (функции тоже объекты), чтобы определить, обновляется ли значение или нет</li>
+        <li>Если функция используется в качестве dependencies в <em>useEffect</em>, то будет перерендер</li>
+        <li>Если функция передается в качестве <em>props</em> в дочерний компонент, то будет перерендер дочернего компонента - даже с <em>React.memo</em>, т.к. каждый раз будет приходить новая ссылка</li>
+    </ul>
+</u-message-comment>
+
+<h5>Решение через useCallback</h5>
+<ul class="list-point">
+    <li><u-code-accent>useCallback</u-code-accent> - мемоизирует <u>ссылку на функцию</u>, чтобы она НЕ пересоздавалась каждый раз при перерендере</li>
+    <li>Мемоизированную ссылку можно прокинуть в дочерний компонент, обернутый в <em>React.memo</em>, при этом, у дочернего компонента не будет перерендера при перерендере родительского компонента (конечно, если не изменились другие props)</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Передача function в виде dependencies для useEffect</h4>
+<!------------------------------------------------------------->
+<u-message-error>
+<ul class="list-point">
+    <li>Непонятен алгоритм, когда нужно передавать function в виде dependencies для useEffect</li>
+    <li>Возможно, необходимо определить не передали ли новую функцию - если не поместить в dependencies, то вызовется не та</li>
+</ul>
+</u-message-error>
+
+<v-sandbox
+    codesandbox
+    url="https://codesandbox.io/s/usecallback-with-useeffect-8y5xd8"
+/>
+
+<v-two-border title="useCallback;Basic"><template v-slot:first>
+<v-code lang="js" title="">
+import { useState, useEffect, useCallback } from "react";
+
+const App = () => {
+    const [value, setValue] = useState("");
+
+    const onChange = (e) => setValue(e.target.value);
+<u-code-wrapper>
+    const foo = <u-code-mod>useCallback</u-code-mod>(() => {}, []);
+
+</u-code-wrapper>
+    useEffect(() => {
+        console.log("Effect");
+    }, [<u-code>foo</u-code>]);
+
+    console.log("Render");
+
+    return &lt;input
+        type="text" value={value} onChange={onChange}
+    /&gt;;
+};
+</v-code>
+
+<p><b>Output</b></p>
+<ol>
+    <li>Монтирование: "Render", "Effect"</li>
+    <li>Обновление (вызов setValue): "Render"</li>
+</ol>
+
+</template><template v-slot:last>
+<v-code lang="js" title="">
+import { useState, useEffect } from "react";
+
+const App = () => {
+    const [value, setValue] = useState("");
+
+    const onChange = (e) => setValue(e.target.value);
+<u-code-wrapper>
+    const foo = () => {};
+
+</u-code-wrapper>
+    useEffect(() => {
+        console.log("Effect");
+    }, [<u-code>foo</u-code>]);
+
+    console.log("Render");
+
+    return &lt;input
+        type="text" value={value} onChange={onChange}
+    /&gt;;
+};
+</v-code>
+
+<p><b>Output</b></p>
+<ol>
+    <li>Монтирование: "Render", "Effect"</li>
+    <li>Обновление (вызов setValue): "Render", "Effect"</li>
+</ol>
+</template></v-two-border>
+
+<!------------------------------------------------------------->
+<h4>Примеры</h4>
+<!------------------------------------------------------------->
+
+<v-sandbox
+    needcheck
+    codesandbox
+    url="https://codesandbox.io/s/usecallback-peredacha-funkcii-v-dependencies-yos1o"
+    title="useCallback - передача функции в dependencies"
+/>
+<v-sandbox
+    needcheck
+    codesandbox
+    url="https://codesandbox.io/s/usecallback-vs-usememo-qcdm7q"
+    title="useCallback vs useMemo"
+/>
+
+<!-- 
+<v-code lang="js" title="">
+import { useState, useEffect, useCallback } from 'react';
+
+const App = () =&gt; {
+    const [count, setCount] = useState(1)
+    const [items, setItems] = useState([])
+
+    // Если не вызывать useCallback, то будет лишний раз вызываться useEffect
+    // при любом изменении state
+    const generateItemsFromAPI = useCallback((indexNumber) =&gt; {
+        return new Array(count).fill('').map((_, i) =&gt; `Элемент ${i + indexNumber}`)
+    }, [count])
+
+    useEffect(() =&gt; {
+        const newItems = generateItemsFromAPI(42)
+        setItems(newItems)
+        console.log('render')
+    }, [generateItemsFromAPI])
+
+    return (
+        &lt;&gt;
+            &lt;h1&gt;Количество элементов: {count}&lt;/h1&gt;
+            &lt;button onClick={() =&gt; setCount(prev =&gt; prev + 1)}&gt;Добавить&lt;/button&gt;
+            &lt;ul&gt;
+                {items.map(i =&gt; &lt;li key={i}&gt;{i}&lt;/li&gt;)}
+            &lt;/ul&gt;
+        &lt;/&gt;
+    )
+}
+</v-code>
+-->

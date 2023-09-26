@@ -132,6 +132,7 @@ ARR_MODULE = [
             [root+'algoritms/event-emitter',      'EventEmitter', false, 'check'],
             [root+'algoritms/series',             'Series', false, 'check'],
             [root+'algoritms/shop-queue',         'Магазин с кассами', false, 'check'],
+            [root+'algoritms/three-statements',   '3 утверждения', false, 'check'],
         ]
     },
 ]
