@@ -93,9 +93,11 @@ const ARR_LINKS = [
     { page: 'typescript',              theme: 'crimson',  title: action+'TypeScript' },
     { page: 'ide',                     theme: 'crimson',  title: 'IDE' },
     { page: 'linters',                 theme: 'crimson',  title: 'Linters' },
+    { page: 'vite',                    theme: 'crimson',  title: 'Vite' },
+
+    { page: 'webpack',                 theme: 'brown',    title: 'Webpack' },
     { page: 'npm',                     theme: 'brown',    title: 'NPM | Yarn' },
     { page: 'cmd',                     theme: 'brown',    title: 'CMD' },
-    { page: 'webpack',                 theme: 'brown',    title: 'Webpack' },
     { page: 'dayjs',                   theme: 'brown',    title: 'Day.js' },
     { page: 'ramda',                   theme: 'brown',    title: 'Ramda' },
     { page: 'lodash',                  theme: 'brown',    title: 'Lodash' },
