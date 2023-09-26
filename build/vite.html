@@ -2,14 +2,14 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>⚾️ TypeScript</title>
+            <title>Vite</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
 
             <script src="../src/js/utils.js"></script>
             <!-- Own JavaScript -->
-            <script src="../@themes/typescript/build-typescript.js"></script>
+            <script src="../@themes/vite/build-vite.js"></script>
         </head>
         <body>
 
@@ -23,47 +23,19 @@
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link" v-html="'⚾️ TypeScript'"></a>
+                        <a href="#links" class="top-link" v-html="'Vite'"></a>
                     </div>
-                    
-    <slot v-for="itemTitle in themesContent">
-        <h4
-            v-html="(!itemTitle.child ? themesEmoji : '')+' '+itemTitle.title"
-            :class="{
-                accent: itemTitle.accent,
-                selected: itemTitle.selected,
-                child: itemTitle.child
-            }"
-        ></h4>
-        <ul>
-            <slot v-for="(itemTheme, i) in itemTitle.themes">
-                <li
-                    v-if="itemTheme[0]"
-                    :class="{
-                        child: itemTheme[2],
-                        done: itemTheme[3] == 'done',
-                        check: itemTheme[3] == 'check',
-                    }"
-                >
-                    <a
-                        class="menu-link"
-                        :id="itemTheme[0]+'link'"
-                        :href="'#'+itemTheme[0]"
-                        @click="buildContent(itemTheme[0])"
-                        v-html="itemTheme[1]"
-                    ></a>
-                    <a
-                        v-if="isLocalhost"
-                        class="menu-link-vscode"
-                        :href="'vscode://file/'+'C:/Users/Tony/Desktop/Repo/dev-commit.github.io'+'/@themes/'+itemTheme[0]+'.html'">
-                    </a>
-                </li>
-                <hr v-else />
-            </slot>
-
-        </ul>
-    </slot>
-
+                    <h4>🏷️ Основы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__vite/main/info"
+            href="#vite/main/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+</ul>
                 </div>
 
                 <div id="wrapper">
@@ -84,7 +56,26 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"></div>
+                    <div id="content"><div id="vite/main/info"><h2>Информация</h2>
+
+<u-link-wrapper>
+    <a href="https://vitejs.dev/" target="_blank">https://vitejs.dev/</a>
+</u-link-wrapper>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>ESBuild</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://esbuild.github.io/" target="_blank">https://esbuild.github.io/</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Vite использует для build зависимостей <u>ESBuild</u></li>
+    <li>ESBuild написан на <u>Go</u></li>
+    <li>ESBuild гораздо быстрее, чем любой бандлер, написанный на JS, н-р Webpack</li>
+</ul>
+</div></div>
                 </div>
             </div>
 

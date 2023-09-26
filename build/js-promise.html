@@ -89,10 +89,20 @@
     <li>
         <a
             class="menu-link"
-            id="id__js-promise/methods/all-settled"
-            href="#js-promise/methods/all-settled"
+            id="id__js-promise/methods/allSettled"
+            href="#js-promise/methods/allSettled"
         >
             <u-menu-accent>Promise.allSettled</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-promise/methods/any"
+            href="#js-promise/methods/any"
+        >
+            <u-menu-accent>Promise.any</u-menu-accent>
         </a>
     </li>
 </ul><h4>🏷️ Примеры</h4><ul>
@@ -672,7 +682,7 @@ Promise.<u-code>race</u-code>([p1, p2])
 	.then(value => console.log(value));
     // => "promise-2-1000"
 </v-code>
-</div><div id="js-promise/methods/all-settled"><h2>Promise.allSettled()</h2>
+</div><div id="js-promise/methods/allSettled"><h2>Promise.allSettled()</h2>
 
 <div class="v-method-wrapper">
     <v-method before="Promise." method="allSettled" after="" arg="([iterable])">
@@ -696,6 +706,35 @@ Promise.allSettled(promises)
         console.log(response2); // { status: 'rejected', reason: 'error' }
         console.log(response3); // { status: 'fulfilled', value: 1 }
 })
+</v-code>
+</div><div id="js-promise/methods/any"><h2>Promise.any()</h2>
+
+<u-link-wrapper>
+    <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise/any" target="_blank">MDN</a>
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="Promise." method="any" after="" arg="([iterable])">
+    Является противоположностью для Promise.all()
+    </v-method>
+	<v-method-arg arg="iterable">массив (или другой итерируемый объект) промисов</v-method-arg>
+	<v-method-return>
+        Как только один из Promise выполнится успешно, вернет единственный объект Promise со значением выполненного промиса.
+        Если ни один из промисов не завершится успешно, то возвращённый объект Promise будет отклонён с одним из значений: массив содержащий причины ошибки (отклонения), или AggregateError
+        </ul>
+    </v-method-return>
+</div>
+
+<v-code lang="js" title="">
+const promise1 = Promise.reject(0);
+const promise2 = new Promise((resolve) => setTimeout(resolve, 100, 'quick'));
+const promise3 = new Promise((resolve) => setTimeout(resolve, 500, 'slow'));
+
+const promises = [promise1, promise2, promise3];
+
+Promise.any(promises).then((value) => console.log(value));
+
+// Expected output: "quick"
 </v-code>
 </div><div id="js-promise/samples/then"><h2>.then</h2>
 

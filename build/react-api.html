@@ -589,26 +589,33 @@ class Child extends Component {
 
 </div><div id="react-api/optimization/react-memo"><h2>React.memo</h2>
 
+<u-link-wrapper>
+    <a href="https://react.dev/reference/react/memo" target="_blank">memo</a>
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="memo" after="" arg="(SomeComponent, arePropsEqual?)">
+    Позволяет пропустить повторный рендеринг компонента, если его свойства не изменились
+    </v-method>
+	<v-method-arg arg="SomeComponent">компонент, который нужно мемоизировать</v-method-arg>
+	<v-method-arg arg="arePropsEqual?">функция, которая принимает два аргумента: предыдущие реквизиты компонента и его новые реквизиты. Он должен вернуть true, если старые и новые реквизиты равны: то есть, если компонент будет отображать один и тот же вывод и вести себя с новыми реквизитами так же, как и со старыми. В противном случае он должен вернуться false. Обычно вы не указываете эту функцию. По умолчанию React сравнивает каждый реквизит с Object.is</v-method-arg>
+    <v-method-return>Мемоизированный компонент</v-method-return>
+</div>
+
 <v-code lang="js border" title="">
-import { memo } from 'react';
+import { memo } from 'react'
 
 const App = (props) => {
 	//
 }
 
-export default <u-code>memo</u-code>(App);
+export default <u-code>memo</u-code>(App)
 </v-code>
 
-<v-code lang="js border" title="">
-import { memo } from 'react';
 
-export const App = <u-code>memo</u-code>(
-    (props) => {
-        //
-    },
-);
-</v-code>
-
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Теория</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li><u-text-define>React.memo</u-text-define> - компонент высшего порядка. Он похож на <u-code-text>React.PureComponent</u-code-text>, но предназначен для функциональных компонентов</li>
     <li>Если функциональный компонент всегда рендерит одинаковый результат для одних и тех же пропсов, вы можете обернуть его в вызов <u-code-text>React.memo</u-code-text> для повышения производительности в некоторых случаях, <u>мемоизируя</u> результат. Это значит, что React будет использовать результат последнего рендера, избегая повторного рендеринга</li>
@@ -616,27 +623,28 @@ export const App = <u-code>memo</u-code>(
     <li>Этот метод предназначен только для <u>оптимизации производительности</u>. Не полагайтесь на него, чтобы «предотвратить» рендер, так как это может привести к ошибкам</li>
 </ul>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Примеры</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-import React from 'react';
 
-function MyComponent(props) {
-	// рендер с использованием пропсов
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование areEqual</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>В отличие от метода <u-text-underline>shouldComponentUpdate()</u-text-underline> для классовых компонентов, функция <u-code-text>areEqual</u-code-text> возвращает <u-code-text>true</u-code-text>, если пропсы равны, и значение <u-code-text>false</u-code-text>, если пропсы не равны</li>
+</ul>
+
+<v-code lang="js" title="">
+import { memo } from 'react'
+
+const App = () => {
+    // рендер с использованием пропсов
 }
 
-function areEqual(prevProps, nextProps) {
+const areEqual = (prevProps, nextProps) => {
 	// возвращает true, если nextProps рендерит
 	// тот же результат что и prevProps, иначе возвращает false
 }
 
-export default React.memo(MyComponent, areEqual);
+export default memo(App, areEqual);
 </v-code>
-
-<ul class="list-point">
-    <li>В отличие от метода <u-text-underline>shouldComponentUpdate()</u-text-underline> для классовых компонентов, функция <u-code-text>areEqual</u-code-text> возвращает <u-code-text>true</u-code-text>, если пропсы равны, и значение <u-code-text>false</u-code-text>, если пропсы не равны</li>
-</ul>
 </div><div id="react-api/optimization/react-lazy"><h2>Задержка (Suspense)</h2>
 
 <ul class="list-point">

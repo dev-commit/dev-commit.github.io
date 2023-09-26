@@ -5,7 +5,7 @@
 // none1, none2
 
 const theory = '🪃 ';
-const action = '🪙 ';
+const action = '⚾️ ';
 
 const ARR_LINKS = [
     { page: 'js-task',                 theme: 'brown',    title: 'Задачи' },
