@@ -7,6 +7,12 @@
     </ul>
 </u-message-error>
 
+<v-tabs :tabs="['Slice', 'Component']">
+
+<template v-slot:1>
+<!------------------------------------------------------------->
+<v-path>./store/slices</v-path>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -16,16 +22,55 @@ export const counterSlice = createSlice({
         value: 0
     },
     reducers: {
+        // Работает
         changeValue1: (state) => {
-            // Работает
-            state.value = 1;
+            state.value = 1
         },
+<u-code-wrapper>
+        // Не работает
         changeValue2: (state) => {
-            // Не работает
             state = {
-                value: 2
-            };
-        }
-    }
-});
+                ...state,
+                value: 2,
+            }
+        },
+
+</u-code-wrapper>
+        // Работает
+        changeValue3: (state) => {
+            return {
+                ...state,
+                value: 3,
+            }
+        },
+    },
+})
 </v-code>
+</template>
+
+<template v-slot:2>
+<!------------------------------------------------------------->
+<v-path>./App</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { useAppDispatch, useAppSelector } from "../../app/hooks"
+
+import { changeValue1, changeValue2, changeValue3 } from "./store/slices"
+
+const App = () => {
+    const state = useAppSelector((state) => state.playground)
+    const dispatch = useAppDispatch()
+
+    return (
+        &lt;div&gt;
+            &lt;button onClick={() =&gt; dispatch(changeValue1())}&gt;changeValue1&lt;/button&gt;
+            &lt;button onClick={() =&gt; dispatch(changeValue2())}&gt;changeValue2&lt;/button&gt;
+            &lt;button onClick={() =&gt; dispatch(changeValue3())}&gt;changeValue3&lt;/button&gt;
+            {state.value}
+        &lt;/div&gt;
+    )
+}
+</v-code>
+</template>
+
+</v-tabs>
