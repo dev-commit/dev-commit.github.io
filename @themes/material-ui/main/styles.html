@@ -32,6 +32,20 @@
     </ul>
 </u-message-info>
 
+<u-message-error>
+    <ul>
+        <li>Проблема возникает только при добавлении опции "jsxImportSource" в tsconfig.json</li>
+        <li>Если опция не добалена, то нет необходимости использовать <u-code-text>StyledEngineProvider</u-code-text></li>
+    </ul>
+<v-code lang="json" title="tsconfig.json">
+{
+    "compilerOptions": {
+        "jsxImportSource": "@emotion/react",
+    },
+}
+</v-code>
+</u-message-error>
+
 <v-tabs :tabs="['main.jsx', 'App.jsx', 'styles.module.css']">
 
 <template v-slot:1>
