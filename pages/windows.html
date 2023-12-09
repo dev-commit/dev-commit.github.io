@@ -2,14 +2,14 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>Parcel</title>
+            <title>Windows</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
 
             <script src="../src/js/utils.js"></script>
             <!-- Own JavaScript -->
-            <script src="../@themes/parcel/build-parcel.js"></script>
+            <script src="../@themes/windows/build-windows.js"></script>
         </head>
         <body>
 
@@ -23,29 +23,47 @@
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link" v-html="'Parcel'"></a>
+                        <a href="#links" class="top-link" v-html="'Windows'"></a>
                     </div>
-                    <h4>🏷️ Основы</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__parcel/main/info"
-            href="#parcel/main/info"
-        >
-            📑 Информация
-        </a>
-    </li>
+                    
+    <slot v-for="itemTitle in themesContent">
+        <h4
+            v-html="(!itemTitle.child ? themesEmoji : '')+' '+itemTitle.title"
+            :class="{
+                accent: itemTitle.accent,
+                selected: itemTitle.selected,
+                child: itemTitle.child
+            }"
+        ></h4>
+        <ul>
+            <slot v-for="(itemTheme, i) in itemTitle.themes">
+                <li
+                    v-if="itemTheme[0]"
+                    :class="{
+                        child: itemTheme[2],
+                        done: itemTheme[3] == 'done',
+                        check: itemTheme[3] == 'check',
+                    }"
+                >
+                    <a
+                        class="menu-link"
+                        :id="itemTheme[0]+'link'"
+                        :href="'#'+itemTheme[0]"
+                        @click="buildContent(itemTheme[0])"
+                        v-html="itemTheme[1]"
+                    ></a>
+                    <a
+                        v-if="isLocalhost"
+                        class="menu-link-vscode"
+                        :href="'vscode://file/'+'C:/Users/Tony/Desktop/Repo/dev-commit.github.io'+'/@themes/'+itemTheme[0]+'.html'">
+                    </a>
+                </li>
+                <hr v-else />
+            </slot>
 
-    <li>
-        <a
-            class="menu-link"
-            id="id__parcel/main/error"
-            href="#parcel/main/error"
-        >
-            Ошибки
-        </a>
-    </li>
-</ul>
+        </ul>
+    </slot>
+
                 </div>
 
                 <div id="wrapper">
@@ -66,60 +84,7 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="parcel/main/info"><h2>Информация</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Установка</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-npm install -g parcel-bundler # установка глобально
-npm init -y                   # создание package.json в папке проекта
-parcel index.html             # запуск сервера разработки http://localhost:1234/
-parcel build index.html       # продакшен-сборка
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Файлы</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="html" title="index.html">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-	&lt;meta charset="UTF-8"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-	&lt;script src="./index.js"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</v-code> 
-
-<v-code lang="js" title="index.js">
-console.log('Hello');
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Скрипты в package.json</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-{
-	"scripts": {
-		"dev": "parcel &lt;your entry file&gt;",
-		"build": "parcel build &lt;your entry file&gt;"
-	}
-}
-</v-code>
-
-<v-code lang="js" title="">
-npm run dev
-npm run build
-</v-code>
-</div><div id="parcel/main/error"><h2>Ошибки</h2>
-
-<ul class="list-point">
-    <li><u-code-text>"parcel-bundler": "1.12.4"</u-code-text> - Ошибка Invalid Version: undefined</li>
-    <li><u-code-text>"parcel-bundler": "1.12.3"</u-code-text> - Корректно</li>
-</ul>
-</div></div>
+                    <div id="content"></div>
                 </div>
             </div>
 

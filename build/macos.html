@@ -2,14 +2,14 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>Parcel</title>
+            <title>MacOS</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
 
             <script src="../src/js/utils.js"></script>
             <!-- Own JavaScript -->
-            <script src="../@themes/parcel/build-parcel.js"></script>
+            <script src="../@themes/macos/build-macos.js"></script>
         </head>
         <body>
 
@@ -23,26 +23,16 @@
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link" v-html="'Parcel'"></a>
+                        <a href="#links" class="top-link" v-html="'MacOS'"></a>
                     </div>
-                    <h4>🏷️ Основы</h4><ul>
+                    <h4>🏷️ Основное</h4><ul>
     <li>
         <a
             class="menu-link"
-            id="id__parcel/main/info"
-            href="#parcel/main/info"
+            id="id__macos/main/shortcuts"
+            href="#macos/main/shortcuts"
         >
-            📑 Информация
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__parcel/main/error"
-            href="#parcel/main/error"
-        >
-            Ошибки
+            Keyboard shortcuts
         </a>
     </li>
 </ul>
@@ -66,58 +56,19 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="parcel/main/info"><h2>Информация</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Установка</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-npm install -g parcel-bundler # установка глобально
-npm init -y                   # создание package.json в папке проекта
-parcel index.html             # запуск сервера разработки http://localhost:1234/
-parcel build index.html       # продакшен-сборка
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Файлы</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="html" title="index.html">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-	&lt;meta charset="UTF-8"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-	&lt;script src="./index.js"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</v-code> 
-
-<v-code lang="js" title="index.js">
-console.log('Hello');
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Скрипты в package.json</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-{
-	"scripts": {
-		"dev": "parcel &lt;your entry file&gt;",
-		"build": "parcel build &lt;your entry file&gt;"
-	}
-}
-</v-code>
-
-<v-code lang="js" title="">
-npm run dev
-npm run build
-</v-code>
-</div><div id="parcel/main/error"><h2>Ошибки</h2>
+                    <div id="content"><div id="macos/main/shortcuts"><h2>Keyboard shortcuts</h2>
 
 <ul class="list-point">
-    <li><u-code-text>"parcel-bundler": "1.12.4"</u-code-text> - Ошибка Invalid Version: undefined</li>
-    <li><u-code-text>"parcel-bundler": "1.12.3"</u-code-text> - Корректно</li>
+    <li><v-breadcrumbs keys :items="['Command', 'M']" /> - свернуть приложение</li>
+    <li><v-breadcrumbs keys :items="['Command', 'Q']" /> - закрыть приложение</li>
+    <li><v-breadcrumbs keys :items="['Command', 'H']" /> - скрыть приложение</li>
+    <hr>
+    <li><v-breadcrumbs keys :items="['Command', 'Shift', '.']" /> - покажет все скрытые файлы в директории</li>
+    <li><v-breadcrumbs keys :items="['Command', 'Shift', '3']" /> - снимок ВСЕГО экрана (сохраняется на рабочий стол)</li>
+    <li><v-breadcrumbs keys :items="['Command', 'Shift', '4']" /> - снимок ЧАСТИ экрана (сохраняется на рабочий стол)</li>
+    <hr>
+    <li><v-breadcrumbs keys :items="['Command', 'Backspace']" /> - удалить файл</li>
+    <li><v-breadcrumbs keys :items="['Fn', 'F', '']" /> - открыть / закрыть приложение в полноэкранном режиме</li>
 </ul>
 </div></div>
                 </div>

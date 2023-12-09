@@ -101,9 +101,12 @@ const ARR_LINKS = [
     { page: 'dayjs',                   theme: 'brown',    title: 'Day.js' },
     { page: 'ramda',                   theme: 'brown',    title: 'Ramda' },
     { page: 'lodash',                  theme: 'brown',    title: 'Lodash' },
-    { page: 'linux',                   theme: 'brown',    title: 'Linux' },
+
     { page: 'blockchain',              theme: 'brown',    title: 'Blockchain' },
     null,
+    { page: 'windows',                 theme: 'green',    title: 'Windows' },
+    { page: 'linux',                   theme: 'green',    title: 'Linux' },
+    { page: 'macos',                   theme: 'green',    title: 'MacOS' },
     { page: 'python',                  theme: 'white',    title: 'Python' },
     { page: 'php',                     theme: 'white',    title: 'PHP' },
     { page: 'jquery',                  theme: 'white',    title: 'jQuery' },

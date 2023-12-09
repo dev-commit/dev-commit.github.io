@@ -2,14 +2,14 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>react-query</title>
+            <title>Windows</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
 
             <script src="../src/js/utils.js"></script>
             <!-- Own JavaScript -->
-            <script src="../@themes/react-query/build-react-query.js"></script>
+            <script src="../@themes/windows/build-windows.js"></script>
         </head>
         <body>
 
@@ -23,36 +23,36 @@
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link" v-html="'react-query'"></a>
+                        <a href="#links" class="top-link" v-html="'Windows'"></a>
                     </div>
-                    <h4>🏷️ Основы</h4><ul>
+                    <h4>🏷️ Основное</h4><ul>
     <li>
         <a
             class="menu-link"
-            id="id__react-query/main/info"
-            href="#react-query/main/info"
+            id="id__windows/main/shortcuts"
+            href="#windows/main/shortcuts"
         >
-            📑 Информация
-        </a>
-    </li>
-</ul><h4>🏷️ Варианты</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__react-query/variants/basic"
-            href="#react-query/variants/basic"
-        >
-            🧲 Базовый пример
+            Keyboard shortcuts
         </a>
     </li>
 
     <li>
         <a
             class="menu-link"
-            id="id__react-query/variants/react-query-devtools"
-            href="#react-query/variants/react-query-devtools"
+            id="id__windows/main/tasks"
+            href="#windows/main/tasks"
         >
-            🧲 ReactQuery Devtools
+            Задачи
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__windows/main/install"
+            href="#windows/main/install"
+        >
+            Установка Windows
         </a>
     </li>
 </ul>
@@ -76,77 +76,50 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="react-query/main/info"><h2>Информация</h2>
+                    <div id="content"><div id="windows/main/shortcuts"><h2>Keyboard shortcuts</h2>
 
-<u-link-wrapper>
-    <a href="https://react-query.tanstack.com/overview" target="_blank">https://react-query.tanstack.com/overview</a>
-</u-link-wrapper>
-
-<v-pre-npm>
-npm i --save <u-code-accent>react-query</u-code-accent>
-</v-pre-npm>
-</div><div id="react-query/variants/basic"><h2>Базовый пример</h2>
+<ul class="list-point">
+    <li><v-breadcrumbs keys :items="['Win', 'Shift', 'S']" /> - скриншот (Win 10)</li>
+    <li><v-breadcrumbs keys :items="['Win', 'R']" /> - открывается окно "Выполнить"</li>
+</ul>
+</div><div id="windows/main/tasks"><h2>Задачи</h2>
 
 <!------------------------------------------------------------->
-<h4>Корневой компонент</h4>
+<h4>1. Как сделать, чтобы ноутбук работал и не выключался при закрытии крышки в Windows 10</h4>
 <!------------------------------------------------------------->
-<v-code lang="js" title="">
-import { QueryClient, QueryClientProvider } from 'react-query'
-
-import { Example } from './Example';
-
-const queryClient = new <u-code>QueryClient</u-code>();
-
-const App = () =&gt; {
-    return (
-        &lt;<u-code>QueryClientProvider</u-code> client={queryClient}&gt;
-            &lt;Example /&gt;
-        &lt;/<u-code>QueryClientProvider</u-code>&gt;
-    )
-}
-
-export default App;
-</v-code>
+<ol class="list-num">
+    <li>Нажать <v-breadcrumbs keys :items="['Win', 'R']" /></li>
+    <li>Ввести <u-code>powercfg.cpl</u-code></li>
+    <li>В открывшемся окне настроек электропитания, слева, нажмите по пункту «Действие при закрытии крышки»</li>
+</ol>
 
 <!------------------------------------------------------------->
-<h4>Использование</h4>
+<h4>2. Добавление ярлыка для файла на панель задач</h4>
 <!------------------------------------------------------------->
-<v-code lang="js" title="">
-import { useQuery } from 'react-query'
-
-export const Example = () =&gt; {
-    const { isLoading, error, data } = <u-code>useQuery</u-code>('repoData', getResource);
-
-    if (isLoading) return 'Loading...'
-
-    if (error) return 'An error has occurred: ' + error.message
-
-    return (
-        &lt;h1&gt;{data.name}&lt;/h1&gt;
-    )
-}
-</v-code>
+<ol class="list-num">
+    <li>Создать ярлык файла</li>
+    <li>Открыть свойства ярлыка</li>
+    <li>В поле объект прописать explorer: <u-code>explorer C:\Users\anduser\Desktop\1.bat</u-code></li>
+</ol>
 
 <!------------------------------------------------------------->
-<h4>Утилиты</h4>
+<h4>3. Гиберанация</h4>
 <!------------------------------------------------------------->
-<v-code lang="js" title="">
-const getResource = async () =&gt; {
-    const res = await fetch('https://api.github.com/repos/tannerlinsley/react-query');
-    return await res.json();
-}
-</v-code>
-</div><div id="react-query/variants/react-query-devtools"><h2>ReactQuery Devtools</h2>
+<ul class="list-point">
+    <li>Для Windows 11 нет пунката гибернации в меню Пуск</li>
+    <li><a href="https://remontka.pro/hibernation-windows-11/" target="_blank" class="link">https://remontka.pro/hibernation-windows-11/</a></li>
+</ul>
+</div><div id="windows/main/install"><h2>Установка Windows</h2>
 
-<v-code lang="js" title="">
-import { ReactQueryDevtools } from 'react-query/devtools';
-
-const App = () =&gt; {
-    return (
-        &lt;<u-code>ReactQueryDevtools</u-code> initialIsOpen /&gt;
-    )
-}
-</v-code>
+<!------------------------------------------------------------->
+<h4>Ошибка установки</h4>
+<!------------------------------------------------------------->
+<ul class="list-none">
+    <li>Невозможно установить Windows в раздел 1 диска 0</li>
+    <li>Установка Windows на данный диск невозможна.</li>
+    <li>На выбранном диске находится таблица MBR-разделов.</li>
+    <li>В системах EFI Windows можно установить только на GPT-диск.</li>
+</ul>
 </div></div>
                 </div>
             </div>
