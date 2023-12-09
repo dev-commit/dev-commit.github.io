@@ -104,9 +104,9 @@ const ARR_LINKS = [
 
     { page: 'blockchain',              theme: 'brown',    title: 'Blockchain' },
     null,
+    { page: 'macos',                   theme: 'green',    title: 'MacOS' },
     { page: 'windows',                 theme: 'green',    title: 'Windows' },
     { page: 'linux',                   theme: 'green',    title: 'Linux' },
-    { page: 'macos',                   theme: 'green',    title: 'MacOS' },
     { page: 'python',                  theme: 'white',    title: 'Python' },
     { page: 'php',                     theme: 'white',    title: 'PHP' },
     { page: 'jquery',                  theme: 'white',    title: 'jQuery' },
