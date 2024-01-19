@@ -1,7 +1,29 @@
 <h2>useRef</h2>
 
 <v-code lang="js" title="">
-const a = useRef&lt;HTMLButtonElement&gt;(null);
-const a = useRef&lt;HTMLDivElement&gt;(null);
-const a = useRef&lt;HTMLInputElement&gt;();
+const ref = useRef&lt;HTMLButtonElement&gt;(null)
+const ref = useRef&lt;HTMLDivElement&gt;(null)
+const ref = useRef&lt;HTMLInputElement&gt;()
+const ref = useRef&lt;number&gt;()
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>HTMLInputElement</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import * as React from 'react'
+
+const App = () => {
+  const ref = React.useRef&lt;HTMLInputElement&gt;(null)
+
+  React.useEffect(() => {
+    if (ref.current) {
+      ref.current.focus()
+    }
+  }, [])
+
+  return &lt;input ref={ref} /&gt;
+}
+
+export default App
 </v-code>
