@@ -2358,9 +2358,31 @@ interface IAppProps {
 </div><div id="typescript/react/useRef"><h2>useRef</h2>
 
 <v-code lang="js" title="">
-const a = useRef&lt;HTMLButtonElement&gt;(null);
-const a = useRef&lt;HTMLDivElement&gt;(null);
-const a = useRef&lt;HTMLInputElement&gt;();
+const ref = useRef&lt;HTMLButtonElement&gt;(null)
+const ref = useRef&lt;HTMLDivElement&gt;(null)
+const ref = useRef&lt;HTMLInputElement&gt;()
+const ref = useRef&lt;number&gt;()
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>HTMLInputElement</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import * as React from 'react'
+
+const App = () => {
+  const ref = React.useRef&lt;HTMLInputElement&gt;(null)
+
+  React.useEffect(() => {
+    if (ref.current) {
+      ref.current.focus()
+    }
+  }, [])
+
+  return &lt;input ref={ref} /&gt;
+}
+
+export default App
 </v-code>
 </div><div id="typescript/react/children"><h2>Children</h2>
 
@@ -2398,25 +2420,11 @@ inperface Props {
 <v-path>src/services/user/user.ts</v-path>
 
 <v-code lang="js" title="">
-export const get = async (id: string): Promise<IUserModel> => {
-    //
-}
-
-export const create = async (payload: any): Promise<any> => {
-    //
-}
-
-export const update = async (id: string, payload: any): Promise<any> => {
-    //
-}
-
-export const remove = async (id: string): Promise<void> => {
-    //
-}
-
-export const getList = async (params: any = {}): Promise<any> => {
-    //
-}
+export const get = async (id: string): Promise<IUserModel> => {}
+export const create = async (payload: any): Promise<any> => {}
+export const update = async (id: string, payload: any): Promise<any> => {}
+export const remove = async (id: string): Promise<void> => {}
+export const getList = async (params: any = {}): Promise<any> => {}
 </v-code>
 
 <v-path>src/services/user/types.ts</v-path>
