@@ -1,4 +1,4 @@
-import { renderPageMenu } from './renderPageMenu';
+import { renderPageMenu } from './renderPageMenu.js';
 
 export const renderPage = ({ up, title, page, menu, content }) => (`
     <!DOCTYPE html>

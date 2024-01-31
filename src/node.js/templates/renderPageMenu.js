@@ -1,4 +1,4 @@
-import { nodeConfig } from '../../../custom/nodeConfig';
+import { nodeConfig } from '../../../custom/nodeConfig.js';
 
 export const renderPageMenu = () => (`
     <slot v-for="itemTitle in themesContent">

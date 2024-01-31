@@ -1,5 +1,5 @@
-const fs = require('fs');
-const rimraf = require('rimraf');
+import fs from 'fs';
+import rimraf from 'rimraf';
 
 export const createDir = (path) => {
     rimraf.sync(path);

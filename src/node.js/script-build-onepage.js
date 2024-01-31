@@ -1,9 +1,9 @@
-const fs = require('fs');
-const nodeEval = require('node-eval');
+import fs from 'fs';
+import nodeEval from 'node-eval';
 
-import { createDir } from './utils/dir';
-import { renderThemes } from './templates/renderThemes';
-import { renderPage } from './templates/renderPage';
+import { createDir } from './utils/dir.js';
+import { renderThemes } from './templates/renderThemes.js';
+import { renderPage } from './templates/renderPage.js';
 
 const PATH_PAGES = 'build';
 

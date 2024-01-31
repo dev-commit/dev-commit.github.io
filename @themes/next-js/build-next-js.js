@@ -10,6 +10,7 @@ ARR_MODULE = [
             [root+'main/ssr', setTheme(1, ['SSR'])],
             [root+'main/ssg', setTheme(1, ['SSG'])],
             [root+'main/cdn', setTheme(1, ['CDN'])],
+            [root+'main/lazy-loading', 'Lazy Loading'],
         ]
     },
     {

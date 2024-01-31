@@ -1,0 +1,14 @@
+<h2>Lazy Loading</h2>
+
+<u-link-wrapper>
+    <a href="https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading" target="_blank">https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+import dynamic from "next/dynamic"
+
+const Header = dynamic(async () => await import("../components/Header"), {
+  loading: () => &lt;p&gt;Loading...&lt;/p&gt;,
+  ssr: false,
+})
+</v-code>

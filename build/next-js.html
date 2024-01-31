@@ -75,6 +75,16 @@
             <u-menu>CDN</u-menu>
         </a>
     </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__next-js/main/lazy-loading"
+            href="#next-js/main/lazy-loading"
+        >
+            Lazy Loading
+        </a>
+    </li>
 </ul><h4>🏷️ Компоненты</h4><ul>
     <li>
         <a
@@ -403,6 +413,20 @@ module.exports = {
     <li>Географически распределённая сетевая инфраструктура, позволяющая оптимизировать доставку и дистрибуцию содержимого конечным пользователям в сети Интернет</li>
     <li>Использование контент-провайдерами CDN способствует увеличению скорости загрузки интернет-пользователями аудио-, видео-, программного, игрового и других видов цифрового содержимого в точках присутствия сети CDN</li>
 </ul>
+</div><div id="next-js/main/lazy-loading"><h2>Lazy Loading</h2>
+
+<u-link-wrapper>
+    <a href="https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading" target="_blank">https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+import dynamic from "next/dynamic"
+
+const Header = dynamic(async () => await import("../components/Header"), {
+  loading: () => &lt;p&gt;Loading...&lt;/p&gt;,
+  ssr: false,
+})
+</v-code>
 </div><div id="next-js/components/images"><h2>Подключение изображений</h2>
 
 <!------------------------------------------------------------->

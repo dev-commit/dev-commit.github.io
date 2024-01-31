@@ -1,12 +1,14 @@
 {
     "name": "app",
     "version": "0.1.0",
+    "type": "module",
     "scripts": {
-        "build": "node -r esm ./src/node.js/script-build.js",
-        "pages": "node -r esm ./src/node.js/script-pages.js",
-        "index": "node -r esm ./src/node.js/script-index.js",
-        "layout": "npm run build && npm run pages",
-        "all": "npm run index && npm run build && npm run pages"
+        "build-onepage": "node ./src/node.js/script-build-onepage.js",
+        "build-pages": "node ./src/node.js/script-build-pages.js",
+        "build-index": "node ./src/node.js/script-build-index.js",
+        "build": "npm run build-onepage && npm run build-pages && npm run build-index",
+        "commit": "git add . && git commit -m \"Bash Script Commit\" && git push origin head",
+        "deploy": "npm run build && npm run commit"
     },
     "dependencies": {
         "esm": "^3.2.25",

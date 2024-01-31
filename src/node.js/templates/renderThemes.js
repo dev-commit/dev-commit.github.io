@@ -1,5 +1,5 @@
-const nodeEval = require('node-eval');
-const fs = require('fs');
+import fs from 'fs';
+import nodeEval from 'node-eval';
 
 const renderMenu = (id, title) => (`
     <li>
