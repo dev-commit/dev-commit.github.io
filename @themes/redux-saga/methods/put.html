@@ -1,6 +1,14 @@
-<h2>Методы</h2>
+<h2>put</h2>
 
 <ul class="list-point">
-    <li><u-text-define>call</u-text-define> - вернет только объект описывающий эту операцию и redux-saga сможет позаботиться о вызове и возвращении результатов в функцию-генератор</li>
     <li><u-text-define>put</u-text-define> - вместо отправления действий (dispatch action) внутри функции-генератора, put возвращает объект с инструкциями для промежуточного слоя (middleware) - отправить действие</li>
+    <li><u>Вызов Action, который поменяет State</u></li>
 </ul>
+
+<v-code lang="js dark" title="">
+import { put } from 'redux-saga/effects'
+</v-code>
+
+<v-code lang="js" title="">
+yield put(setLoading(true))
+</v-code>

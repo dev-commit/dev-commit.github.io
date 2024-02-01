@@ -45,17 +45,117 @@
             🧲 Установка и настройка
         </a>
     </li>
-</ul><h4>🏷️ Общее</h4><ul>
+</ul><h4>🏷️ Методы</h4><ul>
     <li>
         <a
             class="menu-link"
-            id="id__redux-saga/common/methods"
-            href="#redux-saga/common/methods"
+            id="id__redux-saga/methods/call"
+            href="#redux-saga/methods/call"
         >
-            ⭐️ Методы
+            <u-menu>call</u-menu>
         </a>
     </li>
 
+    <li>
+        <a
+            class="menu-link"
+            id="id__redux-saga/methods/put"
+            href="#redux-saga/methods/put"
+        >
+            <u-menu>put</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__redux-saga/methods/take"
+            href="#redux-saga/methods/take"
+        >
+            <u-menu>take</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__redux-saga/methods/all"
+            href="#redux-saga/methods/all"
+        >
+            <u-menu>all</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__redux-saga/methods/delay"
+            href="#redux-saga/methods/delay"
+        >
+            <u-menu>delay</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__redux-saga/methods/fork"
+            href="#redux-saga/methods/fork"
+        >
+            <u-menu>fork</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__redux-saga/methods/select"
+            href="#redux-saga/methods/select"
+        >
+            <u-menu>select</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__redux-saga/methods/cancel"
+            href="#redux-saga/methods/cancel"
+        >
+            <u-menu>cancel</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__redux-saga/methods/debounce"
+            href="#redux-saga/methods/debounce"
+        >
+            <u-menu>debounce</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__redux-saga/methods/takeEvery"
+            href="#redux-saga/methods/takeEvery"
+        >
+            <u-menu>takeEvery</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__redux-saga/methods/takeLatest"
+            href="#redux-saga/methods/takeLatest"
+        >
+            <u-menu>takeLatest</u-menu>
+        </a>
+    </li>
+</ul><h4>🏷️ Общее</h4><ul>
     <li>
         <a
             class="menu-link"
@@ -123,12 +223,189 @@ npm i --save <u-code-accent>react-redux</u-code-accent> <u-code-accent>@reduxjs/
 # Redux Saga
 npm i --save <u-code-accent>redux-saga</u-code-accent>
 </v-pre-npm>
-</div><div id="redux-saga/common/methods"><h2>Методы</h2>
+</div><div id="redux-saga/methods/call"><h2>call</h2>
 
 <ul class="list-point">
     <li><u-text-define>call</u-text-define> - вернет только объект описывающий эту операцию и redux-saga сможет позаботиться о вызове и возвращении результатов в функцию-генератор</li>
-    <li><u-text-define>put</u-text-define> - вместо отправления действий (dispatch action) внутри функции-генератора, put возвращает объект с инструкциями для промежуточного слоя (middleware) - отправить действие</li>
+    <li><u>Вызов API</u></li>
 </ul>
+
+<v-code lang="js dark" title="">
+import { call } from 'redux-saga/effects'
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вызов</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const { data } = yield call(request.get, Account.Get)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вызов другого генератора без аргументов</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+yield call(getData)
+
+export function* getData() {
+  //
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вызов другого генератора с 1 аргументом</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+yield call(getData, 'Hello')
+
+export function* getData(a: string) {
+  //
+}
+</v-code>
+
+</div><div id="redux-saga/methods/put"><h2>put</h2>
+
+<ul class="list-point">
+    <li><u-text-define>put</u-text-define> - вместо отправления действий (dispatch action) внутри функции-генератора, put возвращает объект с инструкциями для промежуточного слоя (middleware) - отправить действие</li>
+    <li><u>Вызов Action, который поменяет State</u></li>
+</ul>
+
+<v-code lang="js dark" title="">
+import { put } from 'redux-saga/effects'
+</v-code>
+
+<v-code lang="js" title="">
+yield put(setLoading(true))
+</v-code>
+</div><div id="redux-saga/methods/take"><h2>take</h2>
+
+<ul class="list-point">
+    <li><u-text-define>take</u-text-define></li>
+    <li>Вызов Action</li>
+    <li>Неизвестно в чем отличие от <em>put</em></li>
+</ul>
+
+<v-code lang="js dark" title="">
+import { take } from 'redux-saga/effects'
+</v-code>
+
+<v-code lang="js" title="">
+yield take(setAccount)
+</v-code>
+</div><div id="redux-saga/methods/all"><h2>all</h2>
+
+<ul class="list-point">
+    <li><u-text-define>all</u-text-define></li>
+    <li>Несколько элементов</li>
+</ul>
+
+<v-code lang="js dark" title="">
+import { all } from 'redux-saga/effects'
+</v-code>
+
+<v-code lang="js" title="">
+yield all([put(setServerErrors(documentErrors)), put(setLoading(false))])
+</v-code>
+</div><div id="redux-saga/methods/delay"><h2>delay</h2>
+
+<ul class="list-point">
+    <li><u-text-define>delay</u-text-define> - добавление задержки</li>
+</ul>
+
+<v-code lang="js dark" title="">
+import { delay } from 'redux-saga/effects'
+</v-code>
+
+<v-code lang="js" title="">
+yield delay(1000)
+</v-code>
+</div><div id="redux-saga/methods/fork"><h2>fork</h2>
+
+<ul class="list-point">
+    <li><u-text-define>fork</u-text-define></li>
+</ul>
+
+<v-code lang="js dark" title="">
+import { fork } from 'redux-saga/effects'
+</v-code>
+
+<v-code lang="js" title="">
+yield fork(trackingSaga)
+</v-code>
+</div><div id="redux-saga/methods/select"><h2>select</h2>
+
+<ul class="list-point">
+    <li><u-text-define>select</u-text-define></li>
+</ul>
+
+<v-code lang="js dark" title="">
+import { select } from 'redux-saga/effects'
+</v-code>
+
+<v-code lang="js" title="">
+const settingsHintIsShown = yield select(selectIsPrivateMessageSettingsHintShown)
+</v-code>
+</div><div id="redux-saga/methods/cancel"><h2>cancel</h2>
+
+<ul class="list-point">
+    <li><u-text-define>cancel</u-text-define></li>
+</ul>
+
+<v-code lang="js dark" title="">
+import { cancel } from 'redux-saga/effects'
+</v-code>
+
+<v-code lang="js" title="">
+yield cancel()
+</v-code>
+</div><div id="redux-saga/methods/debounce"><h2>debounce</h2>
+
+<ul class="list-point">
+    <li><u-text-define>debounce</u-text-define></li>
+</ul>
+
+<v-code lang="js dark" title="">
+import { debounce } from 'redux-saga/effects'
+</v-code>
+
+<v-code lang="js" title="">
+yield debounce(300, fetchStudiosList.type, fetchStudiosWithParamsGenerator)
+</v-code>
+</div><div id="redux-saga/methods/takeEvery"><h2>takeEvery</h2>
+
+<ul class="list-point">
+    <li><u-text-define>takeEvery</u-text-define></li>
+    <li>Используется когда необходимы результаты всех предыдущих задач</li>
+    <li>В этом случае все предыдущие саги и их возвращаемые значения являются взаимозависимыми, а не только самые последние</li>
+    <li>Очень похожа на redux-thunk по своему поведению и методологии. По сути, это оболочка yield take</li>
+    <li>takeEvery позволяет обрабатывать одновременные действия. Например, пользователь нажимает кнопку «Загрузить пользователя» 2 раза подряд с высокой скоростью, второй щелчок отправит действие USER_REQUESTED, в то время как fetchUser, запущенный при первом нажатии, еще не завершился</li>
+</ul>
+
+<v-code lang="js dark" title="">
+import { takeEvery } from 'redux-saga/effects'
+</v-code>
+
+<v-code lang="js" title="">
+yield takeEvery(onAxiosResponse.type, checkAppCompatibilityBreakingFeatures)
+</v-code>
+</div><div id="redux-saga/methods/takeLatest"><h2>takeLatest</h2>
+
+<ul class="list-point">
+    <li><u-text-define>takeLatest</u-text-define></li>
+    <li>Используется если внутренний/внешний экземпляр или пользователь интерфейса могут инициировать несколько последовательных действий и желателен только вывод последнего значения</li>
+    <li>Получает только ответ на последний запрос, который был запущен, и ее можно рассматривать как оболочку для `yield take`</li>
+    <li>Хорошим примером могут быть быстрые вызовы API-интерфейса брокера для получения текущего тикера стоимости акций, где интерес представляют только самые последние/самые последние значения</li>
+    <li>takeEvery не обрабатывает неупорядоченные ответы задач. Нет никакой гарантии, что задачи завершатся в том же порядке, в котором они были запущены. Чтобы обрабатывать ответы, не соответствующие порядку, вы можете использовать takeLatest</li>
+    <li>takeLatest вместо этого запускает новую задачу fetchUser для каждого отправленного действия USER_REQUESTED. Поскольку takeLatest отменяет любую ожидающую задачу, начатую ранее, мы гарантируем, что если пользователь быстро инициирует несколько последовательных действий USER_REQUESTED, мы завершим только последнее действие</li>
+</ul>
+
+<v-code lang="js dark" title="">
+import { takeLatest } from 'redux-saga/effects'
+</v-code>
+
+<v-code lang="js" title="">
+yield takeLatest(showReloadAppModalAttempt.type, reloadAppModalAttempt)
+</v-code>
 </div><div id="redux-saga/common/accessing-store-value"><h2>Доступ к значению Store из Saga</h2>
 
 <v-tabs :tabs="['sagas.js', 'selectors.js', 'store.js']">

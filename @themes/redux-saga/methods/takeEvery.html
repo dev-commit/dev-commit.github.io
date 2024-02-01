@@ -1,0 +1,17 @@
+<h2>takeEvery</h2>
+
+<ul class="list-point">
+    <li><u-text-define>takeEvery</u-text-define></li>
+    <li>Используется когда необходимы результаты всех предыдущих задач</li>
+    <li>В этом случае все предыдущие саги и их возвращаемые значения являются взаимозависимыми, а не только самые последние</li>
+    <li>Очень похожа на redux-thunk по своему поведению и методологии. По сути, это оболочка yield take</li>
+    <li>takeEvery позволяет обрабатывать одновременные действия. Например, пользователь нажимает кнопку «Загрузить пользователя» 2 раза подряд с высокой скоростью, второй щелчок отправит действие USER_REQUESTED, в то время как fetchUser, запущенный при первом нажатии, еще не завершился</li>
+</ul>
+
+<v-code lang="js dark" title="">
+import { takeEvery } from 'redux-saga/effects'
+</v-code>
+
+<v-code lang="js" title="">
+yield takeEvery(onAxiosResponse.type, checkAppCompatibilityBreakingFeatures)
+</v-code>
