@@ -1,5 +1,6 @@
 const HIDDEN_MENU_STORE = 'HIDDEN_MENU_STORE';
-const LOCALHOST = '127.0.0.1';
+// const LOCALHOST = '127.0.0.1';
+const LOCALHOST = '192.168.244.140';
 const MOBILE_WIDTH = 900;
 
 let currentIsHideMenu = false;
