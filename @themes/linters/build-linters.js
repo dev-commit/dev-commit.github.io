@@ -27,6 +27,7 @@ ARR_MODULE = [
             [root+'eslint/main',         'Основное'],
             [root+'eslint/disable',      'Disable'],
             [root+'eslint/import-order', 'Настройка порядка импортов'],
+            [root+'eslint/eslintrc',     setTheme(5, ['.eslintrc.js'])],
         ]
     },
     {

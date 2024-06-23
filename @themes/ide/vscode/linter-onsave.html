@@ -1,0 +1,40 @@
+<h2>Linter OnSave</h2>
+
+<u-link-wrapper>
+    <a href="https://www.digitalocean.com/community/tutorials/workflow-auto-eslinting" target="_blank">https://www.digitalocean.com/community/tutorials/workflow-auto-eslinting</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Настройка</h4>
+<!------------------------------------------------------------->
+<v-breadcrumbs
+    :items="[
+        'File',
+        'Preferences',
+        'Settings',
+        'Поиск (найти `Code Actions On Save`)'
+    ]"
+/>
+
+<!------------------------------------------------------------->
+<h4>Конфигурация</h4>
+<!------------------------------------------------------------->
+<v-path>.vscode/settings.json</v-path>
+
+<u>Было</u>
+<v-code lang="json" title="">
+{
+  "editor.codeActionsOnSave": null
+}
+</v-code>
+
+<u>Стало</u>
+<v-code lang="json" title="">
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.validate": ["javascript"]
+}
+</v-code>
+

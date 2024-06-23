@@ -125,6 +125,16 @@
             Настройка порядка импортов
         </a>
     </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__linters/eslint/eslintrc"
+            href="#linters/eslint/eslintrc"
+        >
+            <u-menu-outline>.eslintrc.js</u-menu-outline>
+        </a>
+    </li>
 </ul><h4>🏷️ Stylelint</h4><ul>
     <li>
         <a
@@ -537,6 +547,49 @@ module.exports = {
         ],
     },
 };
+</v-code>
+</div><div id="linters/eslint/eslintrc"><h2>.eslintrc.js</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Правила</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+module.exports = {
+  // ...
+  'rules': {
+    'quotes': ['error', 'single'],
+  }
+};
+</v-code>
+
+<!------------------------------------------------------------->
+<h5><u-code>quotes</u-code> - кавычки</h5>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+'quotes': ['error', 'single'], // Одинарные
+'quotes': ['error', 'double '], // Двойные
+</v-code>
+
+<!------------------------------------------------------------->
+<h5><u-code>semi</u-code> - использование “;”</h5>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+'semi': ['error', 'always'], // Всегда
+</v-code>
+
+<!------------------------------------------------------------->
+<h5><u-code>indent</u-code> - отступы</h5>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+'indent': ['error', 2], // Использование 2 пробелов для отступов
+</v-code>
+
+<!------------------------------------------------------------->
+<h5><u-code>no-multi-spaces</u-code> - удаление дополнительны отступов</h5>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+'no-multi-spaces': ['error']
 </v-code>
 </div><div id="linters/stylelint/info"><h2>Информация</h2>
 

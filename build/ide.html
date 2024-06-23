@@ -85,7 +85,27 @@
             Default editor for Git
         </a>
     </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__ide/vscode/linter-onsave"
+            href="#ide/vscode/linter-onsave"
+        >
+            Linter OnSave
+        </a>
+    </li>
 </ul><h4>🏷️ Редакторы код</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__ide/editors/editors"
+            href="#ide/editors/editors"
+        >
+            📑 Редакторы кода
+        </a>
+    </li>
+
     <li>
         <a
             class="menu-link"
@@ -113,16 +133,6 @@
             href="#ide/editors/notepad"
         >
             Notepad++
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__ide/editors/atom"
-            href="#ide/editors/atom"
-        >
-            Atom
         </a>
     </li>
 </ul><h4>🏷️ Плагины</h4><ul>
@@ -408,6 +418,71 @@ which code
 [core]
 	editor = "/home/anton/.vscode-server/bin/863d2581ecda6849923a2118d93a088b0745d9d6/bin/remote-cli/code" --wait
 </v-code>
+</div><div id="ide/vscode/linter-onsave"><h2>Linter OnSave</h2>
+
+<u-link-wrapper>
+    <a href="https://www.digitalocean.com/community/tutorials/workflow-auto-eslinting" target="_blank">https://www.digitalocean.com/community/tutorials/workflow-auto-eslinting</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Настройка</h4>
+<!------------------------------------------------------------->
+<v-breadcrumbs
+    :items="[
+        'File',
+        'Preferences',
+        'Settings',
+        'Поиск (найти `Code Actions On Save`)'
+    ]"
+/>
+
+<!------------------------------------------------------------->
+<h4>Конфигурация</h4>
+<!------------------------------------------------------------->
+<v-path>.vscode/settings.json</v-path>
+
+<u>Было</u>
+<v-code lang="json" title="">
+{
+  "editor.codeActionsOnSave": null
+}
+</v-code>
+
+<u>Стало</u>
+<v-code lang="json" title="">
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.validate": ["javascript"]
+}
+</v-code>
+
+</div><div id="ide/editors/editors"><h2>Редакторы кода</h2>
+
+<!------------------------------------------------------------->
+<u>Основные</u>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
+    <a href="https://zed.dev/" target="_blank">Zed</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<u>JetBrains</u>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://www.jetbrains.com/ru-ru/webstorm/" target="_blank">JetBrains WebStorm</a>
+    <a href="https://www.jetbrains.com/ru-ru/fleet/" target="_blank">JetBrains Fleet</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<u>Простые</u>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a>
+    <a href="https://notepad-plus-plus.org/" target="_blank">Notepad++</a>
+</u-link-wrapper>
 </div><div id="ide/editors/codesandbox"><h2>Настройка</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -466,32 +541,6 @@ Preferences -> Package Control -> Remove Package  -> NamePackage
     <li>Вкладка <em>"Margins/Border/Edge"</em></li>
     <li>Вкладка <em>"MISC."</em></li>
 </ul>
-</div><div id="ide/editors/atom"><h2>Информация</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Команды</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="bash" title="">
-Ctrl + Shift + P # палитра команд
-Ctrl + Alt + B   # atom-beautify
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Сниппеты</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li><u-code-text>emmet-snippets-compatibility</u-code-text> - плагин для сниппетов в html, чтобы не срабатыват emmet</li>
-    <li><u-code-text>Палитра команд</u-code-text> -> <u-code-text>Editor: Log Cursor Scope</u-code-text> - определение типа файла</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Terminal</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<u-link-wrapper>
-    <a href="https://atom.io/packages/platformio-ide-terminal" target="_blank">+PlatformIO IDE Terminal</a>
-    <a href="https://atom.io/packages/run-in-terminal" target="_blank">run-in-terminal package</a>
-    <a href="https://atom.io/packages/termination" target="_blank">Termination</a>
-</u-link-wrapper>
 </div><div id="ide/plugins/emmet"><h2>Emmet</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

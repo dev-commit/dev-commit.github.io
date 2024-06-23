@@ -10,15 +10,16 @@ ARR_MODULE = [
             [root+'vscode/settings',  'Настройки'],
             [root+'vscode/shortcuts', 'Shortcuts'],
             [root+'vscode/default-git-editor', 'Default editor for Git'],
+            [root+'vscode/linter-onsave', 'Linter OnSave'],
         ]
     },
     {
         title: 'Редакторы код',
         themes: [
+            [root+'editors/editors',  emoji.theory+'Редакторы кода'],
             [root+'editors/codesandbox',  'CodeSandbox'],
             [root+'editors/sublime-text', 'Sublime Text'],
             [root+'editors/notepad',      'Notepad++'],
-            [root+'editors/atom',         'Atom'],
         ]
     },
     {
