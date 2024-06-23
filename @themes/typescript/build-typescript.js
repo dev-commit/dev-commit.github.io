@@ -95,19 +95,29 @@ ARR_MODULE = [
     {
         title: 'React',
         themes: [
-            [root+'react/component', setTheme(3, ['Component'])],
-            [root+'react/useState',  setTheme(3, ['useState'])],
-            [root+'react/useRef',    setTheme(3, ['useRef'])],
-            [root+'react/children',  setTheme(3, ['Children'])],
-            [root+'react/services',  'Services'],
-            [root+'react/types',     'Types'],
-            [root+'react/samples',   emoji.code+'Примеры'],
+            [root+'react/types',        emoji.unicorn+'Типы в React'],
+            [root+'react/component',    setTheme(3, ['Component'])],
+            [root+'react/useState',     setTheme(3, ['useState'])],
+            [root+'react/useRef',       setTheme(3, ['useRef'])],
+            [root+'react/children',     setTheme(3, ['Children'])],
+            [root+'react/react-router', setTheme(3, ['react-router'])],
+            [root+'react/setInterval',  'setInterval в useRef'],
+            [root+'react/services',     'Описание сервисов'],
+            [root+'react/samples',      emoji.code+'Примеры'],
+        ]
+    },
+    {
+        title: 'Примеры',
+        themes: [
+            [root+'samples/string-for-object-key', emoji.star+'Передача строки для ключа объекта'],
+            [root+'samples/generics-typing',      'Типизация через Дженерики'],
+            [root+'samples/array-of-objects',     'Массив объектов'],
+            [root+'samples/type-argument',        'Тип принимает агрумент'],
         ]
     },
     {
         title: 'Прочее',
         themes: [
-            [root+'other/samples',  emoji.code+'Примеры'],
             [root+'other/guards',  'Guards'],
             [root+'other/ide',     'IDE'],
         ]

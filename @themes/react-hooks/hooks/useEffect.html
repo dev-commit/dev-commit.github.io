@@ -143,6 +143,27 @@ static getDerivedStateFromProps(nextProps, prevState) {
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример</h4>
+<!------------------------------------------------------------->
+
+<ul class="list-point">
+    <li>Если в useEffect есть return и указанные зависимости в массиве зависимостей [counter], то функция из return будет выполняться при каждом update из массива зависимостей <u>перед следующем ренедером</u></li>
+</ul>
+
+<v-code lang="js" title="">
+useEffect(() => {
+	return () => {
+		console.log('Hello);
+	}
+}, [counter]);
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Теория</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">

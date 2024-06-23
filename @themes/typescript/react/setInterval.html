@@ -1,0 +1,21 @@
+<h2>React useRef setInterval</h2>
+
+<v-code lang="js" title="">
+import { useEffect, useRef } from "react"
+
+const App = () => {
+    const refreshIntervalId = useRef&lt;ReturnType&lt;typeof setInterval&gt; | null&gt;(null)
+
+  useEffect(() => {
+    refreshIntervalId.current = setInterval(() => {
+      //
+    }, 1000)
+
+    return () => {
+      clearInterval(refreshIntervalId.current as NodeJS.Timeout)
+    }
+  }, [])
+
+  return ()
+}
+</v-code>

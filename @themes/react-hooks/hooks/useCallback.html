@@ -189,3 +189,26 @@ const App = () =&gt; {
 }
 </v-code>
 -->
+
+<!------------------------------------------------------------->
+<h4>useCallback и useState</h4>
+<!------------------------------------------------------------->
+<u-message-error>Не проверено</u-message-error>
+
+<v-code lang="js" title="useCallback">
+import { memo, useState, useCallback } from 'react';
+
+const HookModalComponent = (props) => {
+  const [input, setInput] = useState('');
+
+  // В зависимости не нужно передавать setInput, потому что setInput не меняет свою ссылку
+  // (не точно, проверить!)
+  const handleInput = useCallback((event) => {
+    setInput(event.currentTarget.value);
+  }, []);
+
+  return (&lt;input onInput={handleInput} /&gt;);
+};
+
+export const HookModal = memo(HookModalComponent, () => true);
+</v-code>

@@ -489,6 +489,16 @@
     <li>
         <a
             class="menu-link"
+            id="id__typescript/react/types"
+            href="#typescript/react/types"
+        >
+            🦄 Типы в React
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
             id="id__typescript/react/component"
             href="#typescript/react/component"
         >
@@ -529,20 +539,30 @@
     <li>
         <a
             class="menu-link"
-            id="id__typescript/react/services"
-            href="#typescript/react/services"
+            id="id__typescript/react/react-router"
+            href="#typescript/react/react-router"
         >
-            Services
+            <u-menu-accent>react-router</u-menu-accent>
         </a>
     </li>
 
     <li>
         <a
             class="menu-link"
-            id="id__typescript/react/types"
-            href="#typescript/react/types"
+            id="id__typescript/react/setInterval"
+            href="#typescript/react/setInterval"
         >
-            Types
+            setInterval в useRef
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/react/services"
+            href="#typescript/react/services"
+        >
+            Описание сервисов
         </a>
     </li>
 
@@ -555,17 +575,47 @@
             🧲 Примеры
         </a>
     </li>
-</ul><h4>🏷️ Прочее</h4><ul>
+</ul><h4>🏷️ Примеры</h4><ul>
     <li>
         <a
             class="menu-link"
-            id="id__typescript/other/samples"
-            href="#typescript/other/samples"
+            id="id__typescript/samples/string-for-object-key"
+            href="#typescript/samples/string-for-object-key"
         >
-            🧲 Примеры
+            ⭐️ Передача строки для ключа объекта
         </a>
     </li>
 
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/samples/generics-typing"
+            href="#typescript/samples/generics-typing"
+        >
+            Типизация через Дженерики
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/samples/array-of-objects"
+            href="#typescript/samples/array-of-objects"
+        >
+            Массив объектов
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/samples/type-argument"
+            href="#typescript/samples/type-argument"
+        >
+            Тип принимает агрумент
+        </a>
+    </li>
+</ul><h4>🏷️ Прочее</h4><ul>
     <li>
         <a
             class="menu-link"
@@ -1009,6 +1059,19 @@ const a: Fields = {
 </template>
 </v-two-code>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Promise&lt;void&gt;</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Асинхронная функция возвращает Promise, даже если нет return</li>
+    <li>Если нет return, то будет Promise&lt;void&gt;</li>
+</ul>
+
+<v-code lang="js" title="">
+export const foo = async (): Promise&lt;void&gt; => {
+    //
+};
+</v-code>
 </div><div id="typescript/types/object"><h2>object</h2>
 
 <ul class="list-point">
@@ -2259,7 +2322,43 @@ export type Document = Required<
 	}
 >
 </v-code>
+</div><div id="typescript/react/types"><h2>Типы</h2>
+
+<v-code lang="js step" title="">
+// Для Input
+const handleChange = (event: React.<u-code>ChangeEvent</u-code>&lt;<u-code>HTMLInputElement</u-code>&gt;): void => {
+    const { value } = event.target;
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Нужно проверить</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const handleClick = (event: React.SyntheticEvent): void => {
+    //
+}
+const handleClick = (event: SyntheticEvent&lt;EventTarget&gt;) => {
+    //
+}
+</v-code>
+
+<v-code lang="js" title="">
+type Props = {
+    tooltip: React.ReactElement;
+    navTab: React.HTMLAttributes&lt;HTMLButtonElement&gt;;
+    style?: React.CSSProperties;
+}
+</v-code>
+
+<v-code lang="js" title="">
+const root: HTMLElement | null = document.querySelector(':root');
+</v-code>
 </div><div id="typescript/react/component"><h2>Component</h2>
+
+<ul class="list-point">
+    <li><u-text-define>VFC</u-text-define> - тип React для функционального компонента без children</li>
+</ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Props</h3>
@@ -2415,6 +2514,39 @@ inperface Props {
 	children: React.ReactNode;
 }
 </v-code>
+</div><div id="typescript/react/react-router"><h2>react-router</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>RouteComponentProps</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { RouteComponentProps } from 'react-router';
+history: RouteComponentProps['history'];
+
+import { useHistory } from 'react-router-dom';
+const history = useHistory();
+</v-code>
+</div><div id="typescript/react/setInterval"><h2>React useRef setInterval</h2>
+
+<v-code lang="js" title="">
+import { useEffect, useRef } from "react"
+
+const App = () => {
+    const refreshIntervalId = useRef&lt;ReturnType&lt;typeof setInterval&gt; | null&gt;(null)
+
+  useEffect(() => {
+    refreshIntervalId.current = setInterval(() => {
+      //
+    }, 1000)
+
+    return () => {
+      clearInterval(refreshIntervalId.current as NodeJS.Timeout)
+    }
+  }, [])
+
+  return ()
+}
+</v-code>
 </div><div id="typescript/react/services"><h2>Services</h2>
 
 <v-path>src/services/user/user.ts</v-path>
@@ -2448,38 +2580,6 @@ export const getList = async (params: any = {}): Promise<any> => {}
     <li>IUserFilterParams</li>
     <li>IUserSearchParams</li>
 </ul>
-</div><div id="typescript/react/types"><h2>Типы</h2>
-
-<v-code lang="js step" title="">
-// Для Input
-const handleChange = (event: React.<u-code>ChangeEvent</u-code>&lt;<u-code>HTMLInputElement</u-code>&gt;): void => {
-    const { value } = event.target;
-};
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Нужно проверить</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-const handleClick = (event: React.SyntheticEvent): void => {
-    //
-}
-const handleClick = (event: SyntheticEvent&lt;EventTarget&gt;) => {
-    //
-}
-</v-code>
-
-<v-code lang="js" title="">
-type Props = {
-    tooltip: React.ReactElement;
-    navTab: React.HTMLAttributes&lt;HTMLButtonElement&gt;;
-    style?: React.CSSProperties;
-}
-</v-code>
-
-<v-code lang="js" title="">
-const root: HTMLElement | null = document.querySelector(':root');
-</v-code>
 </div><div id="typescript/react/samples"><h2>Примеры типизации</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -2528,12 +2628,58 @@ export function App(props) {
     );
 }
 </v-code>
-</div><div id="typescript/other/samples"><h2>Примеры</h2>
+</div><div id="typescript/samples/string-for-object-key"><h2>Передача строки для ключа объекта</h2>
 
+<!------------------------------------------------------------->
+<h4>Поля</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+interface IIcons {
+    [key: string]: IconDefenition;
+}
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Типизация через Дженерики</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+const icon: IIcons = {
+    Icon1: faIcon1,
+    Icon2: faIcon2,
+}
+
+icon['Icon1']
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Рефы</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+interface ITooltipRefs {
+  [key: string]: HTMLDivElement | null
+}
+
+const tooltipRefs: ITooltipRefs = {}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>as keyof</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+export const MAP_ARROW_CODES: IMapArrowCodes = {
+  ArrowUp: "⬆️",
+  ArrowDown: "⬇️",
+  ArrowRight: "➡️",
+  ArrowLeft: "⬅️",
+}
+
+export interface IMapArrowCodes {
+  ArrowUp: string
+  ArrowDown: string
+  ArrowRight: string
+  ArrowLeft: string
+}
+
+const currentValue = MAP_ARROW_CODES.ArrowUp
+
+MAP_ARROW_CODES[currentValue as keyof IMapArrowCodes]
+</v-code>
+</div><div id="typescript/samples/generics-typing"><h2>Типизация через Дженерики</h2>
 
 <ul class="list-point">
     <li>Задача: Типизировать функцию customMap</li>
@@ -2551,10 +2697,8 @@ console.log(
 	});
 )
 </v-code>
+</div><div id="typescript/samples/array-of-objects"><h2>Массив объектов</h2>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Массив объектов</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 // Объект с ключом "name"
 type FieldType = {
@@ -2577,10 +2721,7 @@ const fields: MyFields2 = [
 	{ name: 'age' },
 ];
 </v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Тип принимает агрумент</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+</div><div id="typescript/samples/type-argument"><h2>Тип принимает агрумент</h2>
 
 <i>AllowedValues строка</i>
 <v-code lang="js" title="">
@@ -2619,6 +2760,7 @@ const fields: MyFields = [
 	},
 ];
 </v-code>
+
 </div><div id="typescript/other/guards"><h2>Guards</h2>
 
 <ul class="list-point">

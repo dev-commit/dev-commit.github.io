@@ -9,6 +9,7 @@ ARR_MODULE = [
             [root+'vscode/snippets',  'Сниппеты'],
             [root+'vscode/settings',  'Настройки'],
             [root+'vscode/shortcuts', 'Shortcuts'],
+            [root+'vscode/default-git-editor', 'Default editor for Git'],
         ]
     },
     {
@@ -20,8 +21,6 @@ ARR_MODULE = [
             [root+'editors/atom',         'Atom'],
         ]
     },
-
-    
     {
         title: 'Плагины',
         themes: [

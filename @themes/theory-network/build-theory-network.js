@@ -15,6 +15,7 @@ ARR_MODULE = [
             [root+'http/http',                emoji.fire+'HTTP'],
             [root+'http/http2',               'HTTP/2'],
             [root+'http/https',               'HTTPS'],
+            [root+'http/http-and-https',      'HTTP и HTTPS'],
             [root+'http/1-http-structure',    emoji.star+'1. Структура протокола'],
             [root+'http/2-http-methods',      emoji.star+'2. HTTP Methods'],
             [root+'http/3-http-headers',      emoji.star+'3. HTTP Headers'],
