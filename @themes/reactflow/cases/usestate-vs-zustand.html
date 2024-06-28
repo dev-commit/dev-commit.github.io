@@ -1,0 +1,77 @@
+<h2>useState vs Zustand</h2>
+
+<v-two-code type="js;js" comment="useState;Zustand">
+<template v-slot:first>
+import { useCallback } from "react";
+import ReactFlow, {
+  addEdge,
+  useEdgesState,
+  useNodesState,
+} from "reactflow";
+
+const App = () =&gt; {
+  const [nodes, setNodes, onNodesChange] = useNodesState([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+
+  const onConnect = useCallback(
+    (connection) =&gt; {
+      setEdges((eds) =&gt; addEdge(...connection, eds));
+    },
+    [setEdges]
+  );
+
+  return (
+    &lt;ReactFlow
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      onConnect={onConnect}
+    /&gt;
+  );
+};
+</template>
+<template v-slot:last>
+import { useCallback } from "react";
+import ReactFlow, {
+  addEdge,
+  useEdgesState,
+  useNodesState,
+} from "reactflow";
+
+import { useShallow } from "zustand/react/shallow";
+import useStore from "../store/store";
+
+const selector = (state) =&gt; ({
+  nodes: state.nodes,
+  edges: state.edges,
+  onNodesChange: state.onNodesChange,
+  onEdgesChange: state.onEdgesChange,
+  onConnect: state.onConnect,
+  setNodes: state.setNodes,
+  setEdges: state.setEdges,
+});
+
+const App = () =&gt; {
+  const {
+    nodes,
+    edges,
+    onNodesChange,
+    onEdgesChange,
+    onConnect,
+    setNodes,
+    setEdges,
+  } = useStore(useShallow(selector));
+
+  return (
+    &lt;ReactFlow
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      onConnect={onConnect}
+    /&gt;
+  );
+};
+</template>
+</v-two-code>

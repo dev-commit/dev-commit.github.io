@@ -1,0 +1,28 @@
+<h2>Nodes</h2>
+
+<h5>type</h5>
+<ul class="list-point">
+    <li><em>default</em> - edge top, bottom</li>
+    <li><em>input</em> - edge bottom</li>
+    <li><em>output</em> - edge top</li>
+    <li><em>group</em> - нет edge, нет label. как-то по-другому используется</li>
+</ul>
+
+<v-code lang="js" title="">
+export const initialNodes = [
+    {
+        id: "node1",
+        // type: "default" | "input" | "output" | "group",
+        position: { x: 100, y: 100 },
+        data: { label: "Node 1" },
+        style: { backgroundColor: "#6ede87", color: "white" },
+    },
+    {
+        id: "node2",
+        position: { x: 100, y: 100 },
+        data: {
+            label: &lt;span style=<span v-pre>{{ color: "yellowgreen" }}</span>&gt;Node 2&lt;/span&gt;,
+        },
+    },
+];
+</v-code>

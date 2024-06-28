@@ -1,0 +1,413 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>React Flow</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/reactflow/build-reactflow.js"></script>
+        </head>
+        <body>
+
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link" v-html="'React Flow'"></a>
+                    </div>
+                    <h4>🏷️ Основы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__reactflow/main/info"
+            href="#reactflow/main/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__reactflow/main/install"
+            href="#reactflow/main/install"
+        >
+            🧲 Установка и настройка
+        </a>
+    </li>
+</ul><h4>🏷️ Cases</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__reactflow/cases/usestate-vs-zustand"
+            href="#reactflow/cases/usestate-vs-zustand"
+        >
+            ⭐️ useState vs Zustand
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__reactflow/cases/classNames"
+            href="#reactflow/cases/classNames"
+        >
+            classNames
+        </a>
+    </li>
+</ul><h4>🏷️ Components</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__reactflow/components/Handle"
+            href="#reactflow/components/Handle"
+        >
+            &lt;Handle /&gt;
+        </a>
+    </li>
+</ul><h4>🏷️ Elements</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__reactflow/elements/nodes"
+            href="#reactflow/elements/nodes"
+        >
+            Nodes
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__reactflow/elements/edges"
+            href="#reactflow/elements/edges"
+        >
+            Edges
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__reactflow/elements/custom-edge"
+            href="#reactflow/elements/custom-edge"
+        >
+            Custom Edge
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__reactflow/elements/edge-styles"
+            href="#reactflow/elements/edge-styles"
+        >
+            Edge Styles
+        </a>
+    </li>
+</ul><h4>🏷️ Methods</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__reactflow/methods/onConnect"
+            href="#reactflow/methods/onConnect"
+        >
+            <u-menu>onConnect</u-menu>
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="reactflow/main/info"><h2>Информация</h2>
+
+<u-link-wrapper>
+    <a href="https://reactflow.dev/learn" target="_blank">Documentation</a>
+</u-link-wrapper>
+</div><div id="reactflow/main/install"><h2>Установка и настройка</h2>
+
+<!------------------------------------------------------------->
+<h4>Vite template</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://reactflow.dev/learn#vite-template" target="_blank">Vite template</a>
+</u-link-wrapper>
+
+<v-pre-npm>
+npx degit <u-code-accent>xyflow/vite-react-flow-template</u-code-accent> <i>app-name</i>
+</v-pre-npm>
+
+<!------------------------------------------------------------->
+<h4>Installation</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://reactflow.dev/learn#installation" target="_blank">Installation</a>
+</u-link-wrapper>
+
+<v-pre-npm>
+npm create <u-code-accent>vite@latest</u-code-accent> <i>app-name</i> -- --template react
+npm i <u-code-accent>reactflow</u-code-accent>
+</v-pre-npm>
+</div><div id="reactflow/cases/usestate-vs-zustand"><h2>useState vs Zustand</h2>
+
+<v-two-code type="js;js" comment="useState;Zustand">
+<template v-slot:first>
+import { useCallback } from "react";
+import ReactFlow, {
+  addEdge,
+  useEdgesState,
+  useNodesState,
+} from "reactflow";
+
+const App = () =&gt; {
+  const [nodes, setNodes, onNodesChange] = useNodesState([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+
+  const onConnect = useCallback(
+    (connection) =&gt; {
+      setEdges((eds) =&gt; addEdge(...connection, eds));
+    },
+    [setEdges]
+  );
+
+  return (
+    &lt;ReactFlow
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      onConnect={onConnect}
+    /&gt;
+  );
+};
+</template>
+<template v-slot:last>
+import { useCallback } from "react";
+import ReactFlow, {
+  addEdge,
+  useEdgesState,
+  useNodesState,
+} from "reactflow";
+
+import { useShallow } from "zustand/react/shallow";
+import useStore from "../store/store";
+
+const selector = (state) =&gt; ({
+  nodes: state.nodes,
+  edges: state.edges,
+  onNodesChange: state.onNodesChange,
+  onEdgesChange: state.onEdgesChange,
+  onConnect: state.onConnect,
+  setNodes: state.setNodes,
+  setEdges: state.setEdges,
+});
+
+const App = () =&gt; {
+  const {
+    nodes,
+    edges,
+    onNodesChange,
+    onEdgesChange,
+    onConnect,
+    setNodes,
+    setEdges,
+  } = useStore(useShallow(selector));
+
+  return (
+    &lt;ReactFlow
+      nodes={nodes}
+      edges={edges}
+      onNodesChange={onNodesChange}
+      onEdgesChange={onEdgesChange}
+      onConnect={onConnect}
+    /&gt;
+  );
+};
+</template>
+</v-two-code>
+</div><div id="reactflow/cases/classNames"><h2>classNames</h2>
+
+<ul class="list-point">
+    <li><em>nodrag</em> - запрет перетаскивания холста</li>
+    <li><em>nopan</em> - ...</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;div className="nodrag nopan" /&gt;
+</v-code>
+</div><div id="reactflow/components/Handle"><h2>&lt;Handle /&gt;</h2>
+
+<v-code lang="js" title="">
+const handleStyle = { left: 50, background: "blue" };
+
+&lt;Handle
+  type="target" // "source" | "target"
+  position={Position.Top}
+  isConnectable={isConnectable}
+  id={id + "-top"}
+  style={handleStyle}
+/&gt;;
+</v-code>
+</div><div id="reactflow/elements/nodes"><h2>Nodes</h2>
+
+<h5>type</h5>
+<ul class="list-point">
+    <li><em>default</em> - edge top, bottom</li>
+    <li><em>input</em> - edge bottom</li>
+    <li><em>output</em> - edge top</li>
+    <li><em>group</em> - нет edge, нет label. как-то по-другому используется</li>
+</ul>
+
+<v-code lang="js" title="">
+export const initialNodes = [
+    {
+        id: "node1",
+        // type: "default" | "input" | "output" | "group",
+        position: { x: 100, y: 100 },
+        data: { label: "Node 1" },
+        style: { backgroundColor: "#6ede87", color: "white" },
+    },
+    {
+        id: "node2",
+        position: { x: 100, y: 100 },
+        data: {
+            label: &lt;span style=<span v-pre>{{ color: "yellowgreen" }}</span>&gt;Node 2&lt;/span&gt;,
+        },
+    },
+];
+</v-code>
+</div><div id="reactflow/elements/edges"><h2>Edges</h2>
+
+<ul class="list-point">
+    <li><em>id</em> - ID линии</li>
+    <li><em>source</em> - От какого Node выходит</li>
+    <li><em>target</em> - В какой Node приходит</li>
+    <li><em>label</em> - Метка</li>
+    <li><em>type</em> - Тип линии ("step" | "...")</li>
+    <li><em>animated</em> - Анимированная пунктирная линия (true | false)</li>
+    <li><em>sourceHandle</em> - К какому именно входу коннектится (сверху, снизу, справа, слева)</li>
+</ul>
+
+<v-code lang="js" title="">
+export const initialEdges = [
+  {
+    id: "edge1",
+    source: "node1",
+    target: "node2"
+  },
+  {
+    id: "edge2",
+    source: "node2",
+    target: "node3",
+    type: "step",
+    label: "to the",
+  },
+];
+</v-code>
+</div><div id="reactflow/elements/custom-edge"><h2>Custom Edge</h2>
+
+<v-code lang="js" title="">
+import { BaseEdge } from "reactflow";
+
+import {
+  getBezierPath
+  getSimpleBezierPath
+  getSmoothStepPath
+  getStraightPath
+} from "reactflow";
+
+
+const CustomEdge = (props) =&gt; {
+  const { id, sourceX, sourceY, targetX, targetY } = props;
+
+  const [edgePath] = getSmoothStepPath({
+    sourceX,
+    sourceY,
+    targetX,
+    targetY,
+  });
+
+  return &lt;BaseEdge id={id} path={edgePath} /&gt;;
+};
+
+export default CustomEdge;
+</v-code>
+</div><div id="reactflow/elements/edge-styles"><h2>Edge Styles</h2>
+
+<v-code lang="js" title="">
+const connectionLineStyle = { stroke: "#c4c4c4" };
+
+const edgeOptions = {
+  type: "smoothstep",
+  style: {
+    stroke: "#2b2b2b",
+  },
+};
+
+&lt;ReactFlow
+  connectionLineStyle={connectionLineStyle}
+  defaultEdgeOptions={edgeOptions}
+/&gt;;
+</v-code>
+</div><div id="reactflow/methods/onConnect"><h2>onConnect</h2>
+
+<v-code lang="js" title="">
+const onConnect = useCallback(
+  (connection) => setEdges((eds) => addEdge(connection, eds)),
+  [setEdges]
+);
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+        </body>
+    </html>

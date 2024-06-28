@@ -1,0 +1,28 @@
+<h2>Custom Edge</h2>
+
+<v-code lang="js" title="">
+import { BaseEdge } from "reactflow";
+
+import {
+  getBezierPath
+  getSimpleBezierPath
+  getSmoothStepPath
+  getStraightPath
+} from "reactflow";
+
+
+const CustomEdge = (props) =&gt; {
+  const { id, sourceX, sourceY, targetX, targetY } = props;
+
+  const [edgePath] = getSmoothStepPath({
+    sourceX,
+    sourceY,
+    targetX,
+    targetY,
+  });
+
+  return &lt;BaseEdge id={id} path={edgePath} /&gt;;
+};
+
+export default CustomEdge;
+</v-code>
