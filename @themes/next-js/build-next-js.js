@@ -52,7 +52,7 @@ ARR_MODULE = [
         title: 'Деплой',
         themes: [
             [root+'deploy/vercel',      'Vercel (SSR)'],
-            ['git-managers/github/github-pages', 'Github Pages (SSG)'],
+            [root+'deploy/github-pages', 'Github Pages (SSG)'],
         ]
     },
     {

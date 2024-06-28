@@ -1,0 +1,35 @@
+<h2>Деплой React + Vite (Vite Template)</h2>
+
+<!------------------------------------------------------------->
+<h4>React приложение на vite-template-redux</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><a href="https://github.com/reduxjs/redux-templates/tree/master/packages/vite-template-redux" target="_blank" class="link">https://github.com/reduxjs/redux-templates/tree/master/packages/vite-template-redux</a></li>
+    <li>Для шаблона "vite-template-redux" нужно задать <u>base</u> в <u>vite.config.ts</u></li>
+    <li>При этом не нужно указывать <u>homepage</u> в <u>package.json</u></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файлы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="vite.config.ts">
+import { defineConfig } from "vitest/config"
+
+export default defineConfig({
+  base: "/repo-name/",
+})
+</v-code>
+
+<v-code lang="js" title="package.json">
+{
+  "type": "module",
+  "scripts": {
+    "build": "tsc && vite build",
+    "gh-pages": "gh-pages -d build",
+    "deploy": "npm run build && npm run gh-pages"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
+}
+</v-code>

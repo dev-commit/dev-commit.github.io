@@ -1,0 +1,17 @@
+<h2>Установка и настройка</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>gh-pages</u-code-accent>
+</v-pre-npm>
+
+<v-code lang="js" title="package.json">
+{
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  },
+  "scripts": {
+    "gh-pages": "gh-pages -d build",
+    "deploy": "npm run build && npm run gh-pages"
+  }
+}
+</v-code>

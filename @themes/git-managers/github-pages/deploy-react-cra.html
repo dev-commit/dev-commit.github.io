@@ -1,0 +1,24 @@
+<h2>Деплой React + Webpack (Create React App)</h2>
+
+<ul class="list-point">
+    <li>Если для проекта используется Create React App, то обязательно нужно указывать <u>"homepage"</u> если проект находится не в корне (не по адресу <em>https://account-name.github.io/</em>). В данном случае проект находится по адресу <em>https://account-name.github.io/project-name/</em></li>
+    <li>При сборке, к каждому пути будет добавлен <u>"project-name"</u>. Если не указать, то в пути будет <u>"/"</u>, что будет искать файл в <em>https://account-name.github.io/</em>, а не в <em>https://account-name.github.io/project-name/</em></li>
+    <li>После build, в консоле будет сообщение: <i>"The project was built assuming it is hosted at /project-name/. You can control this with the homepage field in your package.json"</i></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файлы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="package.json">
+{
+  "homepage": "https://account-name.github.io/project-name/",
+  "scripts": {
+    "build": "react-scripts build",
+    "gh-pages": "gh-pages -d build",
+    "deploy": "npm run build && npm run gh-pages"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
+}
+</v-code>

@@ -39,16 +39,6 @@
     <li>
         <a
             class="menu-link"
-            id="id__git-managers/github/github-pages"
-            href="#git-managers/github/github-pages"
-        >
-            ⭐️ Github Pages
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
             id="id__git-managers/github/github-cli"
             href="#git-managers/github/github-cli"
         >
@@ -83,6 +73,56 @@
             href="#git-managers/github/github-readme-stats"
         >
             <u-menu>github-readme-stats</u-menu>
+        </a>
+    </li>
+</ul><h4>🏷️ Github Pages</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__git-managers/github-pages/info"
+            href="#git-managers/github-pages/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__git-managers/github-pages/install"
+            href="#git-managers/github-pages/install"
+        >
+            🧲 Установка и настройка
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__git-managers/github-pages/deploy"
+            href="#git-managers/github-pages/deploy"
+        >
+            Деплой
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__git-managers/github-pages/deploy-react-cra"
+            href="#git-managers/github-pages/deploy-react-cra"
+        >
+            Деплой React + Webpack (CRA)
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__git-managers/github-pages/deploy-react-vite"
+            href="#git-managers/github-pages/deploy-react-vite"
+        >
+            Деплой React + Vite (Vite Template)
         </a>
     </li>
 </ul><h4>🏷️ Bitbucket</h4><ul>
@@ -203,109 +243,6 @@ https://github.com/Account/Repo.git  # соединение по HTTPS
     <li>Можно изменить данные учетки или ее удалить</li>
     <li>Если учетка была удалена, при следующем взаимодействии в консоле, git попросит ввести логин и пароль в отдельном окне авторизации</li>
 </ul>
-</div><div id="git-managers/github/github-pages"><h2>Github Pages</h2>
-
-<u-link-wrapper>
-	<a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
-	<a href="https://docs.github.com/en/pages" target="_blank">GitHub Pages Documentation</a>
-</u-link-wrapper>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Информация</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<h5>Ветка</h5>
-<ul class="list-point">
-	<li>По умолчанию GitHub Pages настроен на ветку <u>gh-pages</u></li>
-    <li>Ветку можно переключить вручную: Settings -> Pages -> Branch -> ...</li>
-</ul>
-
-<h5>Нейминг</h5>
-<ul class="list-point">
-    <li>Если название репозитория совпадает с названием акканута "account-name" - это будет корневой репозиторий: <br>
-    <em>https://github.com/account-name</em> ➡️ <em>https://account-name.github.io/</em></li>
-    <li>Если репозиторий не корневой то через "/" добавится название репозитория:<br>
-    <em>https://github.com/project-name</em> ➡️ <em>https://account-name.github.io/project-name</em>
-    </li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Деплой через gh-pages</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li>Библиотека gh-pages берет файлы из директории <u>build</u> и деплоит в связанный репозиторий на GitHib. Если в удаленном репозитории уже есть ветка <u>gh-pages</u>, то деплой происходи в нее. Если ветки нет, то она создается</li>
-</ul>
-
-<v-pre-npm>
-npm i --save-dev <u-code-accent>gh-pages</u-code-accent>
-</v-pre-npm>
-
-<!------------------------------------------------------------->
-<h4>React приложение на Create React App</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li>Если для проекта используется Create React App, то обязательно нужно указывать <u>"homepage"</u> если проект находится не в корне (не по адресу <em>https://account-name.github.io/</em>). В данном случае проект находится по адресу <em>https://account-name.github.io/project-name/</em></li>
-    <li>При сборке, к каждому пути будет добавлен <u>"project-name"</u>. Если не указать, то в пути будет <u>"/"</u>, что будет искать файл в <em>https://account-name.github.io/</em>, а не в <em>https://account-name.github.io/project-name/</em></li>
-    <li>После build, в консоле будет сообщение: <i>"The project was built assuming it is hosted at /project-name/. You can control this with the homepage field in your package.json"</i></li>
-</ul>
-
-<v-code lang="js" title="package.json">
-{
-	"homepage": "https://account-name.github.io/project-name/",
-	"devDependencies": {
-		"gh-pages": "^3.2.3",
-	},
-	"scripts": {
-		"build": "react-scripts build",
-		"gh-pages": "gh-pages -d build",
-		"deploy": "npm run build && npm run gh-pages"
-	},
-}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>React приложение на vite-template-redux</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li><a href="https://github.com/reduxjs/redux-templates/tree/master/packages/vite-template-redux" target="_blank" class="link">https://github.com/reduxjs/redux-templates/tree/master/packages/vite-template-redux</a></li>
-    <li>Для шаблона "vite-template-redux" нужно задать <u>base</u> в <u>vite.config.ts</u></li>
-    <li>При этом не нужно указывать <u>homepage</u> в <u>package.json</u></li>
-</ul>
-
-<v-code lang="js" title="vite.config.ts">
-import { defineConfig } from "vitest/config"
-
-export default defineConfig({
-  base: "/repo-name/",
-})
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Особенности Github Pages</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-По умолчанию GitHub Pages не обрабатывает файлы, начинающиеся с нижнего подчёркивания. В <a href="https://docs.github.com/ru/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll" target="_blank" class="link">документации</a> предлагается три решения этой проблемы:
-<ol class="list-num">
-    <li>Не использовать файлы, начинающиеся с нижнего подчёркивания</li>
-    <li>Добавить файл <u>.nojekyll</u> в корневую папку сайта</li>
-    <li>Использовать директиву <u>include</u> в файле <u>_config.yml</u> чтобы Jekyll не игнорировал эти файлы</li>
-</ol>
-
-<h5>Добавить файл .nojekyll в корневую папку сайта</h5>
-<ul class="list-point">
-    <li>Если создать пустой файл .nojekyll, то он не зугружется в ветку "gh-pages" при запуске скрипта <em>npm run gh-pages</em></li>
-    <li>Для этого нужно поменять скрипт "gh-pages"</li>
-</ul>
-
-<v-code lang="js" title="package.json">
-{
-    "scripts": {
-        // Исходный
-        "gh-pages": "gh-pages -d build",
-        // Новый
-        "gh-pages": "gh-pages -d build -t true",
-    },
-}
-</v-code>
 </div><div id="git-managers/github/github-cli"><h2>GitHub CLI</h2>
 
 <u-link-wrapper>
@@ -377,6 +314,142 @@ GitHub Desktop -> Fetch origin
     <a href="https://github-readme-stats.vercel.app/api/top-langs/?username=anton-sergeenkov&theme=dracula&layout=compact&hide_border=true" target="_blank">https://github-readme-stats.vercel.app/api/top-langs/?username=anton-sergeenkov&theme=dracula&layout=compact&hide_border=true</a>
     <a href="https://github-readme-stats.vercel.app/api?username=anton-sergeenkov&theme=dracula&show_icons=true&count_private=true&include_all_commits=true&hide_border=true" target="_blank">https://github-readme-stats.vercel.app/api?username=anton-sergeenkov&theme=dracula&show_icons=true&count_private=true&include_all_commits=true&hide_border=true</a>
 </u-link-wrapper>
+</div><div id="git-managers/github-pages/info"><h2>Информация</h2>
+
+<u-link-wrapper>
+	<a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+	<a href="https://docs.github.com/en/pages" target="_blank">GitHub Pages Documentation</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Информация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h5>Ветка</h5>
+<ul class="list-point">
+	<li>По умолчанию GitHub Pages настроен на ветку <u>gh-pages</u></li>
+    <li>Ветку можно переключить вручную: Settings -> Pages -> Branch -> ...</li>
+</ul>
+
+<h5>Нейминг</h5>
+<ul class="list-point">
+    <li>Если название репозитория совпадает с названием акканута "account-name" - это будет корневой репозиторий: <br>
+    <em>https://github.com/account-name</em> ➡️ <em>https://account-name.github.io/</em></li>
+    <li>Если репозиторий не корневой то через "/" добавится название репозитория:<br>
+    <em>https://github.com/project-name</em> ➡️ <em>https://account-name.github.io/project-name</em>
+    </li>
+</ul>
+</div><div id="git-managers/github-pages/install"><h2>Установка и настройка</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>gh-pages</u-code-accent>
+</v-pre-npm>
+
+<v-code lang="js" title="package.json">
+{
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  },
+  "scripts": {
+    "gh-pages": "gh-pages -d build",
+    "deploy": "npm run build && npm run gh-pages"
+  }
+}
+</v-code>
+</div><div id="git-managers/github-pages/deploy"><h2>Деплой</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Деплой через gh-pages</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Библиотека gh-pages берет файлы из директории <u>build</u> и деплоит в связанный репозиторий на GitHib. Если в удаленном репозитории уже есть ветка <u>gh-pages</u>, то деплой происходи в нее. Если ветки нет, то она создается</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Особенности Github Pages</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+По умолчанию GitHub Pages не обрабатывает файлы, начинающиеся с нижнего подчёркивания. В <a href="https://docs.github.com/ru/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll" target="_blank" class="link">документации</a> предлагается три решения этой проблемы:
+<ol class="list-num">
+    <li>Не использовать файлы, начинающиеся с нижнего подчёркивания</li>
+    <li>Добавить файл <u>.nojekyll</u> в корневую папку сайта</li>
+    <li>Использовать директиву <u>include</u> в файле <u>_config.yml</u> чтобы Jekyll не игнорировал эти файлы</li>
+</ol>
+
+<h5>Добавить файл .nojekyll в корневую папку сайта</h5>
+<ul class="list-point">
+    <li>Если создать пустой файл .nojekyll, то он не зугружется в ветку "gh-pages" при запуске скрипта <em>npm run gh-pages</em></li>
+    <li>Для этого нужно поменять скрипт "gh-pages"</li>
+</ul>
+
+<v-code lang="js" title="package.json">
+{
+    "scripts": {
+        // Исходный
+        "gh-pages": "gh-pages -d build",
+        // Новый
+        "gh-pages": "gh-pages -d build -t true",
+    },
+}
+</v-code>
+</div><div id="git-managers/github-pages/deploy-react-cra"><h2>Деплой React + Webpack (Create React App)</h2>
+
+<ul class="list-point">
+    <li>Если для проекта используется Create React App, то обязательно нужно указывать <u>"homepage"</u> если проект находится не в корне (не по адресу <em>https://account-name.github.io/</em>). В данном случае проект находится по адресу <em>https://account-name.github.io/project-name/</em></li>
+    <li>При сборке, к каждому пути будет добавлен <u>"project-name"</u>. Если не указать, то в пути будет <u>"/"</u>, что будет искать файл в <em>https://account-name.github.io/</em>, а не в <em>https://account-name.github.io/project-name/</em></li>
+    <li>После build, в консоле будет сообщение: <i>"The project was built assuming it is hosted at /project-name/. You can control this with the homepage field in your package.json"</i></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файлы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="package.json">
+{
+  "homepage": "https://account-name.github.io/project-name/",
+  "scripts": {
+    "build": "react-scripts build",
+    "gh-pages": "gh-pages -d build",
+    "deploy": "npm run build && npm run gh-pages"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
+}
+</v-code>
+</div><div id="git-managers/github-pages/deploy-react-vite"><h2>Деплой React + Vite (Vite Template)</h2>
+
+<!------------------------------------------------------------->
+<h4>React приложение на vite-template-redux</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><a href="https://github.com/reduxjs/redux-templates/tree/master/packages/vite-template-redux" target="_blank" class="link">https://github.com/reduxjs/redux-templates/tree/master/packages/vite-template-redux</a></li>
+    <li>Для шаблона "vite-template-redux" нужно задать <u>base</u> в <u>vite.config.ts</u></li>
+    <li>При этом не нужно указывать <u>homepage</u> в <u>package.json</u></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файлы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="vite.config.ts">
+import { defineConfig } from "vitest/config"
+
+export default defineConfig({
+  base: "/repo-name/",
+})
+</v-code>
+
+<v-code lang="js" title="package.json">
+{
+  "type": "module",
+  "scripts": {
+    "build": "tsc && vite build",
+    "gh-pages": "gh-pages -d build",
+    "deploy": "npm run build && npm run gh-pages"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  }
+}
+</v-code>
 </div><div id="git-managers/bitbucket/ssh"><h2>SSH keys</h2>
 
 <u-link-wrapper>
