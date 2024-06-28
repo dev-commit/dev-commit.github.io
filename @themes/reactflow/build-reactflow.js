@@ -18,22 +18,39 @@ ARR_MODULE = [
     {
         title: 'Components',
         themes: [
-            [root+'components/Handle', '&lt;Handle /&gt;'],
+            [root+'components/Handle', setTheme(1, ['&lt;Handle /&gt;'])],
         ]
     },
     {
         title: 'Elements',
+    },
+    {
+        title: 'Nodes',
+        child: true,
         themes: [
-            [root+'elements/nodes', 'Nodes'],
-            [root+'elements/edges', 'Edges'],
-            [root+'elements/custom-edge', 'Custom Edge', true],
-            [root+'elements/edge-styles', 'Edge Styles', true],
+            [root+'elements/nodes', emoji.chevron+'Nodes'],
+        ]
+    },
+    {
+        title: 'Edges',
+        child: true,
+        themes: [
+            [root+'elements/edges', emoji.chevron+'Edges'],
+            [root+'elements/custom-edge', 'Custom Edge'],
+            [root+'elements/edge-styles', 'Edge Styles'],
         ]
     },
     {
         title: 'Methods',
         themes: [
             [root+'methods/onConnect', setTheme(1, ['onConnect'])],
+        ]
+    },
+    {
+        title: 'Implementation',
+        themes: [
+            [root+'implementation/topics', 'Темы из документации'],
+            [root+'implementation/features', 'Функционал'],
         ]
     },
 ]
