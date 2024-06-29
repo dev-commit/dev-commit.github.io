@@ -99,6 +99,16 @@
     <li>
         <a
             class="menu-link"
+            id="id__js-regexp/other/variants"
+            href="#js-regexp/other/variants"
+        >
+            🧲 Варианты
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
             id="id__js-regexp/other/string"
             href="#js-regexp/other/string"
         >
@@ -336,6 +346,26 @@ console.log(regexp.test(str));
 🟠 <mark>/мир/</mark>   # регистрозависимый поиск (несовпадение регистра)
 🟢 <mark>/мир/i</mark>  # регистроНЕзависимый поиск
 </v-code>
+</div><div id="js-regexp/other/variants"><h2>Варианты</h2>
+
+<table>
+    <tr><td class="accent">Text</td><td>/^[а-яА-Яёa-zA-Z0-9\s]+$/iu</td></tr>
+    <tr><td class="accent">Name</td><td>/^[а-яА-Яёa-zA-Z-]+$/iu</td></tr>
+    <tr><td class="accent">First Name</td><td>/^(([А-ЯЁ][а-яё]*)|([A-Z][a-z]*))$/</td></tr>
+    <tr><td class="accent">Last Name</td><td>/^((([А-Я][а-я]*)(-|$))|([A-Z][a-z]*)(-|$))+$/</td></tr>
+    <tr><td class="accent">Organization</td><td>/^[а-яА-Яёa-zA-Z0-9.\-_,:;!\\/"№'()#%@+*$&\s]+$/iu</td></tr>
+    <tr><td class="accent">Login</td><td>/^[a-zA-Z0-9.\-_]+$/iu</td></tr>
+    <tr><td class="accent">URL</td><td>/^(http:\/\/|https:\/\/)?[a-z0-9]+([-.][a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/</td></tr>
+    <tr><td class="accent">Phone</th><td>/([0-9\+\(\)\-\ \/])$/</td></tr>
+    <tr><td class="accent">Allowed Phone Symbols</td><td>/^[\d+\s-()]*$/gm</td></tr>
+    <tr><td class="accent">Website</td><td>/(^(http|https):\/\/)|^$/</td></tr>
+    <tr><td class="accent">E-mail 1</td><td>/^[-._A-Za-z0-9]+@(?:[A-Za-z0-9][-a-z0-9]+\.)+[A-Za-z]{2,}|^$/</td></tr>
+    <tr><td class="accent">E-mail 2</td><td>/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i</td></tr>
+    <tr><td class="accent">Password 1</td><td>/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])[a-zA-Z\d]{6,12}$/</td></tr>
+    <tr><td class="accent">Password 2</td><td>/^[а-яА-Яёa-zA-Z0-9.\-_#%@!+*$&]+$/iu</td></tr>
+    <tr><td class="accent">Cyrillic</td><td>/\W/</td></tr>
+    <tr><td class="accent">Skype</td><td>/^[_.:A-Za-z0-9]+$/</td></tr>
+</table>
 </div><div id="js-regexp/other/string"><h2>Строки</h2>
 
 <!------------------------------------------------------------->
