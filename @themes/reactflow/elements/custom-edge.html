@@ -1,28 +1,51 @@
 <h2>Custom Edge</h2>
 
-<v-code lang="js" title="">
-import { BaseEdge } from "reactflow";
+<ul class="list-point">
+    <li><u-code-text>&lt;BaseEdge&gt;</u-code-text> - линия</li>
+    <li><u-code-text>&lt;EdgeLabelRenderer&gt;</u-code-text> - кастомные элементов на линии</li>
+</ul>
+
+<v-code lang="ts" title="">
+import { BaseEdge, EdgeLabelRenderer } from "reactflow"
 
 import {
   getBezierPath
-  getSimpleBezierPath
-  getSmoothStepPath
-  getStraightPath
-} from "reactflow";
+  // getSimpleBezierPath
+  // getSmoothStepPath
+  // getStraightPath
+} from "reactflow"
 
+interface ICustomEdgeProps {
+  id: string
+  sourceX: number
+  sourceY: number
+  targetX: number
+  targetY: number
+}
 
-const CustomEdge = (props) =&gt; {
+const CustomEdge: React.FC&lt;ICustomEdgeProps&gt; = (props) => {
   const { id, sourceX, sourceY, targetX, targetY } = props;
 
-  const [edgePath] = getSmoothStepPath({
-    sourceX,
-    sourceY,
-    targetX,
-    targetY,
-  });
+  const [edgePath] = getBezierPath({ sourceX, sourceY, targetX, targetY });
 
-  return &lt;BaseEdge id={id} path={edgePath} /&gt;;
-};
+  const styleEdgeLabelRenderer = {
+    transform: `translate(-50%, -50%) translate(${labelX}px,${labelY}px)`
+  }
+  const onClick = () => {}
+
+  return (
+    &lt;&gt;
+      &lt;<u-code-mod>BaseEdge</u-code-mod> id={id} path={edgePath} /&gt;
+      &lt;<u-code-mod>EdgeLabelRenderer</u-code-mod>&gt;
+        &lt;button
+          style=<span v-pre>{styleEdgeLabelRenderer}
+          className={cn("nodrag", "nopan")}
+          onClick={onClick}
+        /&gt;
+      &lt;/EdgeLabelRenderer&gt;
+    &lt;/&gt;
+  )
+}
 
 export default CustomEdge;
 </v-code>

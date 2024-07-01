@@ -9,10 +9,11 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Cases',
+        title: 'Zustand',
+        accent: true,
         themes: [
-            [root+'cases/usestate-vs-zustand', emoji.star+'useState vs Zustand'],
-            [root+'cases/classNames', 'classNames'],
+            [root+'zustand/usestate-vs-zustand', emoji.star+'useState vs Zustand'],
+            [root+'zustand/useStore', setTheme(5, ['useStore'])],
         ]
     },
     {
@@ -44,6 +45,12 @@ ARR_MODULE = [
         title: 'Methods',
         themes: [
             [root+'methods/onConnect', setTheme(1, ['onConnect'])],
+        ]
+    },
+    {
+        title: 'Styles',
+        themes: [
+            [root+'styles/classNames', 'classNames'],
         ]
     },
     {

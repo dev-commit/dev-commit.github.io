@@ -1,0 +1,32 @@
+<h2>useStore</h2>
+
+<!------------------------------------------------------------->
+<h4>Простой вариант</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import useStore from "../store/store"
+
+const App: React.FC = () => {
+  const nodes = useStore((state) => state.nodes)
+  const setNodes = useStore((state) => state.setNodes)
+  //
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Селектор</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { useShallow } from "zustand/react/shallow"
+import useStore, { RFState } from "../store/store"
+
+const selector = (state: RFState) => ({
+  nodes: state.nodes,
+  setNodes: state.setNodes,
+})
+
+const App: React.FC = () => {
+  const { nodes, setNodes } = useStore(useShallow(selector))
+  //
+}
+</v-code>
