@@ -15,6 +15,7 @@ ARR_MODULE = [
         title: 'Cases',
         child: true,
         themes: [
+            [root+'vscode/cases/workspases', emoji.star+'Несколько Workspaces'],
             [root+'vscode/cases/open-vscode-with-url', 'Opening VS Code with URLs'],
             [root+'vscode/cases/default-git-editor', 'Default editor for Git'],
             [root+'vscode/cases/linter-onsave', 'Linter OnSave'],

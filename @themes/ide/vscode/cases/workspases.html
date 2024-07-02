@@ -1,0 +1,74 @@
+<h2>Несколько Workspaces</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>VSCode Extensions</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://marketplace.visualstudio.com/items?itemName=tomsaunders-code.workspace-explorer" target="_blank">Workspace Explorer (не проверял)</a>
+    
+    <a href="https://marketplace.visualstudio.com/search?term=workspace&target=VSCode&category=All%20categories&sortBy=Relevance" target="_blank">Поиск по расширениям</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>VSCode расширение Workspace Sidebar</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+ 
+<!------------------------------------------------------------->
+<h4>1. Сохранить Workspase</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Открыть рабочее Workspase в VSCode</li>
+    <li>Сохранить Workspases в отдельный файл: <u>File -> Save Workspace as...</u>. У меня путь <u>D:\Workspaces</u></li>
+</ul>
+
+<h5>Структура файла</h5>
+<v-code lang="json" title="workspaceName.code-workspace">
+{
+	"folders": [
+		{
+			"name": "Name Workspace 1",
+			"path": "C:/Users/UserName/Desktop/Repo/repo1"
+		},
+		{
+			"name": "Name Workspace 2",
+			"path": "C:/Users/UserName/Desktop/Repo/repo2"
+		},
+	]
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Установить расширение Workspace Sidebar</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=sketchbuch.vsc-workspace-sidebar" target="_blank">Workspace Sidebar</a></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Конфиг</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Отукрыть файл конфига и указать путь к сохраненным Workspaces</li>
+</ul>
+
+<v-path>C:\Users\UserName\AppData\Roaming\Code\User\settings.json</v-path>
+
+<v-code lang="json" title="">
+{
+  "workspaceSidebar.rootFolders": [
+    {
+      "path": "D:\\Workspaces",
+      "excludeHiddenFolders": true
+    }
+  ]
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>4. Интерфейс</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>В VSCode появится вкладка "Workspaces"</li>
+</ul>
+
+<img src="/@img/ide/vscode/workspace-sidebar.png" width="400px" />

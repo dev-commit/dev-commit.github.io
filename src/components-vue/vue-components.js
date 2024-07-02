@@ -190,12 +190,12 @@ Vue.component('v-alert', {
 
 Vue.component('v-path', {
     template: `
-		<h4 class="v-path-container">
-			<u-code-text>☄️</u-code-text>
-			<i>
+		<div class="v-path-container">
+			<span class="v-path-divider"></span>
+			<span>
 				<slot></slot>
-			</i>
-		</h4>
+			</span>
+		</div>
 	`,
 })
 
