@@ -4,13 +4,20 @@ ARR_MODULE = [
     {
         title: 'VSCode',
         themes: [
-            [root+'vscode/info',      emoji.theory+'Информация'],
             [root+'vscode/plugins',   emoji.code+'Плагины'],
             [root+'vscode/snippets',  'Сниппеты'],
             [root+'vscode/settings',  'Настройки'],
             [root+'vscode/shortcuts', 'Shortcuts'],
-            [root+'vscode/default-git-editor', 'Default editor for Git'],
-            [root+'vscode/linter-onsave', 'Linter OnSave'],
+
+        ]
+    },
+    {
+        title: 'Cases',
+        child: true,
+        themes: [
+            [root+'vscode/cases/open-vscode-with-url', 'Opening VS Code with URLs'],
+            [root+'vscode/cases/default-git-editor', 'Default editor for Git'],
+            [root+'vscode/cases/linter-onsave', 'Linter OnSave'],
         ]
     },
     {
