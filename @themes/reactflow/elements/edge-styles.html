@@ -1,6 +1,8 @@
 <h2>Edge Styles</h2>
 
 <v-code lang="js" title="">
+import { ConnectionLineType } from "reactflow"
+
 const connectionLineStyle = { stroke: "#c4c4c4" };
 
 const edgeOptions = {
@@ -10,8 +12,13 @@ const edgeOptions = {
   },
 };
 
-&lt;ReactFlow
-  connectionLineStyle={connectionLineStyle}
-  defaultEdgeOptions={edgeOptions}
-/&gt;;
+const App = () => {
+  return (
+    &lt;ReactFlow
+      connectionLineStyle={connectionLineStyle}
+      defaultEdgeOptions={edgeOptions}
+      connectionLineType={ConnectionLineType.SmoothStep}
+    /&gt;
+  )
+}
 </v-code>

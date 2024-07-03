@@ -12,8 +12,19 @@ ARR_MODULE = [
         title: 'Zustand',
         accent: true,
         themes: [
+            [root+'zustand/info', emoji.theory+'Информация'],
+            [root+'zustand/install', emoji.code+'Установка и настройка'],
             [root+'zustand/usestate-vs-zustand', emoji.star+'useState vs Zustand'],
             [root+'zustand/useStore', setTheme(5, ['useStore'])],
+        ]
+    },
+    {
+        title: 'Dagre',
+        accent: true,
+        themes: [
+            [root+'dagre/info', emoji.theory+'Информация'],
+            [root+'dagre/install', emoji.code+'Установка и настройка'],
+            [root+'dagre/use', emoji.fire+'Использование'],
         ]
     },
     {

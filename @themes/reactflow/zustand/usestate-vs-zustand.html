@@ -2,23 +2,24 @@
 
 <v-two-code type="js;js" comment="useState;Zustand">
 <template v-slot:first>
-import { useCallback } from "react";
+import { useCallback } from "react"
 import ReactFlow, {
   addEdge,
   useEdgesState,
   useNodesState,
-} from "reactflow";
+  Connection
+} from "reactflow"
 
 const App = () =&gt; {
-  const [nodes, setNodes, onNodesChange] = useNodesState([]);
-  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const [nodes, setNodes, onNodesChange] = useNodesState([])
+  const [edges, setEdges, onEdgesChange] = useEdgesState([])
 
   const onConnect = useCallback(
-    (connection) =&gt; {
-      setEdges((eds) =&gt; addEdge(...connection, eds));
+    (connection: Connection) => {
+      setEdges((eds) => addEdge(connection, eds))
     },
-    [setEdges]
-  );
+    [setEdges],
+  )
 
   return (
     &lt;ReactFlow
@@ -28,19 +29,19 @@ const App = () =&gt; {
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
     /&gt;
-  );
-};
+  )
+}
 </template>
 <template v-slot:last>
-import { useCallback } from "react";
+import { useCallback } from "react"
 import ReactFlow, {
   addEdge,
   useEdgesState,
   useNodesState,
-} from "reactflow";
+} from "reactflow"
 
-import { useShallow } from "zustand/react/shallow";
-import useStore from "../store/store";
+import { useShallow } from "zustand/react/shallow"
+import useStore from "../store/store"
 
 const selector = (state) =&gt; ({
   nodes: state.nodes,
@@ -50,7 +51,7 @@ const selector = (state) =&gt; ({
   onConnect: state.onConnect,
   setNodes: state.setNodes,
   setEdges: state.setEdges,
-});
+})
 
 const App = () =&gt; {
   const {
@@ -61,7 +62,7 @@ const App = () =&gt; {
     onConnect,
     setNodes,
     setEdges,
-  } = useStore(useShallow(selector));
+  } = useStore(useShallow(selector))
 
   return (
     &lt;ReactFlow
@@ -71,7 +72,7 @@ const App = () =&gt; {
       onEdgesChange={onEdgesChange}
       onConnect={onConnect}
     /&gt;
-  );
-};
+  )
+}
 </template>
 </v-two-code>
