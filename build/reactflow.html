@@ -396,21 +396,21 @@ npm i <u-code-accent>@dagrejs/dagre</u-code-accent>
     <a href="https://reactflow.dev/examples/layout/dagre" target="_blank">Пример использования 2 (разобрано)</a>
 </u-link-wrapper>
 
-<v-tabs :tabs="['Базовый пример без Dagre', 'Использование Dagre', 'Общий файл initial']">
-<template v-slot:1>
-<v-code lang="js" title="">
+
+<v-two-code type="js;js" comment="Базовый пример без Dagre;Использование Dagre">
+<template v-slot:first>
 import { useCallback } from "react"
 import ReactFlow, {
   addEdge,
   useEdgesState,
   useNodesState,
   Connection,
-  Panel,
 } from "reactflow"
-
 import "reactflow/dist/style.css"
 
-import { initialNodes, initialEdges } from "./initial"
+import { initialNodes, initialEdges } from "./initialState"
+
+const style = { width: "600px", height: "600px", border: "1px solid" }
 
 const App = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes)
@@ -424,7 +424,62 @@ const App = () => {
   )
 
   return (
-    &lt;div style=<span v-pre>{{</span> width: &quot;600px&quot;, height: &quot;600px&quot;, border: &quot;1px solid&quot; }}&gt;
+    &lt;div style={style}&gt;
+      &lt;ReactFlow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+      /&gt;
+    &lt;/div&gt;
+  )
+}
+
+export default App
+</template>
+<template v-slot:last>
+import { useCallback } from "react"
+import ReactFlow, {
+  addEdge,
+  useEdgesState,
+  useNodesState,
+  Connection,
+  Panel,
+} from "reactflow"
+import "reactflow/dist/style.css"
+
+// import { initialNodes, initialEdges } from "./initialState"
+<u-code-wrapper>
+import { dagreNodes, dagreEdges, getDagreLayoutedElements } from "./dagreState"
+
+</u-code-wrapper>
+const style = { width: "600px", height: "600px", border: "1px solid" }
+
+const App = () => {
+  const [nodes, setNodes, onNodesChange] = useNodesState(dagreNodes)
+  const [edges, setEdges, onEdgesChange] = useEdgesState(dagreEdges)
+
+  const onConnect = useCallback(
+    (connection: Connection) => {
+      setEdges((eds) => addEdge(connection, eds))
+    },
+    [setEdges],
+  )
+<u-code-wrapper>
+  const onDagreLayout = useCallback(
+    (direction: string) => {
+      const { nodes: layoutedNodes, edges: layoutedEdges } =
+        getDagreLayoutedElements(nodes, edges, direction)
+
+      setNodes([...layoutedNodes])
+      setEdges([...layoutedEdges])
+    },
+    [nodes, edges, setNodes, setEdges],
+  )
+</u-code-wrapper>
+  return (
+    &lt;div style={style}&gt;
       &lt;ReactFlow
         nodes={nodes}
         edges={edges}
@@ -432,37 +487,64 @@ const App = () => {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
       &gt;
+<u-code-wrapper>
         &lt;Panel position=&quot;top-right&quot;&gt;
-          &lt;button onClick={() =&gt; onLayout(&quot;TB&quot;)}&gt;vertical layout&lt;/button&gt;
-          &lt;button onClick={() =&gt; onLayout(&quot;LR&quot;)}&gt;horizontal layout&lt;/button&gt;
+          &lt;button onClick={() =&gt; onDagreLayout(&quot;TB&quot;)}&gt;Vertical layout&lt;/button&gt;
+          &lt;button onClick={() =&gt; onDagreLayout(&quot;LR&quot;)}&gt;Horizontal layout&lt;/button&gt;
         &lt;/Panel&gt;
+</u-code-wrapper>
       &lt;/ReactFlow&gt;
     &lt;/div&gt;
   )
 }
 
 export default App
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Общие файлы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-tabs :tabs="['initialState.ts', 'dagreState.ts']">
+<template v-slot:1>
+<v-code lang="js" title="">
+import { Node, Edge } from "reactflow"
+
+const edgeType = "straight"
+
+export const initialNodes: Node[] = [
+  {
+    id: "node-1",
+    type: "input",
+    data: { label: "Start" },
+    position: { x: 100, y: 100 },
+  },
+  {
+    id: "node-2",
+    data: { label: "Middle" },
+    position: { x: 150, y: 200 },
+  },
+  {
+    id: "node-3",
+    type: "output",
+    data: { label: "End" },
+    position: { x: 200, y: 300 },
+  },
+]
+
+export const initialEdges: Edge[] = [
+  { id: "edge-1", source: "node-1", target: "node-2", type: edgeType },
+  { id: "edge-2", source: "node-2", target: "node-3", type: edgeType },
+]
 </v-code>
 </template>
 
 <template v-slot:2>
 <v-code lang="js" title="">
-import { useCallback } from "react"
-import ReactFlow, {
-  addEdge,
-  useEdgesState,
-  useNodesState,
-  Panel,
-  Connection,
-  Node,
-  Edge,
-  Position,
-} from "reactflow"
+import { Node, Edge, Position } from "reactflow"
 import Dagre from "@dagrejs/dagre"
 
-import "reactflow/dist/style.css"
-
-import { initialNodes, initialEdges } from "./initial"
+import { initialNodes, initialEdges } from "./initialState"
 
 const dagreGraph = new Dagre.graphlib.Graph()
 dagreGraph.setDefaultEdgeLabel(() => ({}))
@@ -470,7 +552,7 @@ dagreGraph.setDefaultEdgeLabel(() => ({}))
 const nodeWidth = 172
 const nodeHeight = 36
 
-const getLayoutedElements = (
+export const getDagreLayoutedElements = (
   nodes: Node[],
   edges: Edge[],
   direction = "TB",
@@ -504,88 +586,14 @@ const getLayoutedElements = (
   return { nodes, edges }
 }
 
-const { nodes: layoutedNodes, edges: layoutedEdges } = getLayoutedElements(
+const { nodes: dagreNodes, edges: dagreEdges } = getDagreLayoutedElements(
   initialNodes,
   initialEdges,
 )
 
-const App = () => {
-  const [nodes, setNodes, onNodesChange] = useNodesState(layoutedNodes)
-  const [edges, setEdges, onEdgesChange] = useEdgesState(layoutedEdges)
-
-  const onConnect = useCallback(
-    (connection: Connection) => {
-      setEdges((eds) => addEdge(connection, eds))
-    },
-    [setEdges],
-  )
-
-  const onLayout = useCallback(
-    (direction: string) => {
-      const { nodes: layoutedNodes, edges: layoutedEdges } =
-        getLayoutedElements(nodes, edges, direction)
-
-      setNodes([...layoutedNodes])
-      setEdges([...layoutedEdges])
-    },
-    [nodes, edges, setNodes, setEdges],
-  )
-
-  return (
-    &lt;div style=<span v-pre>{{</span> width: &quot;600px&quot;, height: &quot;600px&quot;, border: &quot;1px solid&quot; }}&gt;
-      &lt;ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-      &gt;
-        &lt;Panel position=&quot;top-right&quot;&gt;
-          &lt;button onClick={() =&gt; onLayout(&quot;TB&quot;)}&gt;vertical layout&lt;/button&gt;
-          &lt;button onClick={() =&gt; onLayout(&quot;LR&quot;)}&gt;horizontal layout&lt;/button&gt;
-        &lt;/Panel&gt;
-      &lt;/ReactFlow&gt;
-    &lt;/div&gt;
-  )
-}
-
-export default App
+export { dagreNodes, dagreEdges }
 </v-code>
 </template>
-
-<template v-slot:3>
-<v-code lang="js" title="">
-const edgeType = "straight"
-
-import { Node, Edge } from "reactflow"
-
-export const initialNodes: Node[] = [
-  {
-    id: "1",
-    type: "input",
-    data: { label: "input" },
-    position: { x: 100, y: 100 },
-  },
-  {
-    id: "2",
-    data: { label: "input" },
-    position: { x: 150, y: 200 },
-  },
-  {
-    id: "3",
-    type: "output",
-    data: { label: "output" },
-    position: { x: 200, y: 300 },
-  },
-]
-
-export const initialEdges: Edge[] = [
-  { id: "e1", source: "1", target: "2", type: edgeType },
-  { id: "e2", source: "2", target: "3", type: edgeType },
-]
-</v-code>
-</template>
-
 </v-tabs>
 </div><div id="reactflow/components/Handle"><h2>&lt;Handle /&gt;</h2>
 
