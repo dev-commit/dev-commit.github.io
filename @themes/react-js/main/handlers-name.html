@@ -1,0 +1,41 @@
+<h2>Название обработчиков событий</h2>
+
+<ul class="list-point">
+    <li><u-text-define>on</u-text-define> - функция внутри компонента. Может приходить из props</li>
+    <li><u-text-define>handle</u-text-define> / <u-text-define>handler</u-text-define> - функции внутри компонента, которые передаются в props другому компоненту</li>
+</ul>
+
+<v-code lang="js" title="">
+const App = () => {
+  // Используется внутри компонента
+  const <em>onChange</em> = () => null
+
+  // Передается в props другого компонента
+  const <em>handleClick</em> = () => null
+
+  return (
+    &lt;&gt;
+      &lt;input onChange={onChange} /&gt;
+      &lt;Child onClick={handleClick} /&gt;
+    &lt;/&gt;
+  )
+}
+</v-code>
+
+<v-code lang="js" title="">
+const Child = (props) => {
+	// Берется из props
+  const { onClick } = props
+
+  return null
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>onClick</u-code-text> <u-code-text>onButtonClick</u-code-text></li>
+    <li><u-code-text>onChange</u-code-text> <u-code-text>onInputChange</u-code-text></li>
+    <li><u-code-text>handleFiltersApply</u-code-text> <u-code-text>filtersUpdateHandler</u-code-text></li>
+</ul>

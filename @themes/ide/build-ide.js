@@ -4,9 +4,9 @@ ARR_MODULE = [
     {
         title: 'VSCode',
         themes: [
-            [root+'vscode/plugins',   emoji.code+'Плагины'],
+            [root+'vscode/plugins',   emoji.fire+'Плагины'],
+            [root+'vscode/settings',  emoji.fire+'Настройки'],
             [root+'vscode/snippets',  'Сниппеты'],
-            [root+'vscode/settings',  'Настройки'],
             [root+'vscode/shortcuts', 'Shortcuts'],
 
         ]

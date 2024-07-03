@@ -173,8 +173,8 @@ Vue.component('v-copy', {
 })
 
 Vue.component('v-link', {
-	props: ['url'],
-    template: `<a :href="url" target="_blank" v-html="url"></a>`,
+	props: ['url', "title"],
+    template: `<a :href="url" target="_blank" class="link" v-html="title ? title : url"></a>`,
 })
 
 Vue.component('v-alert', {

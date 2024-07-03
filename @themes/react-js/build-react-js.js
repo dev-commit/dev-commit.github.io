@@ -5,6 +5,7 @@ ARR_MODULE = [
         title: 'Общее',
         themes: [
             getLink(root, 'install'),
+            [root+'main/handlers-name',    emoji.fire+'Название обработчиков'],
             [root+'main/create-react-app', setTheme(2, ['create-react-app'])],
             [root+'main/version',          emoji.fire+'Версии'],
             [root+'main/info',             emoji.theory+'Информация'],
