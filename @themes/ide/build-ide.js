@@ -24,7 +24,6 @@ ARR_MODULE = [
     {
         title: 'Редакторы код',
         themes: [
-            [root+'editors/editors',  emoji.theory+'Редакторы кода'],
             [root+'editors/codesandbox',  'CodeSandbox'],
             [root+'editors/sublime-text', 'Sublime Text'],
             [root+'editors/notepad',      'Notepad++'],
