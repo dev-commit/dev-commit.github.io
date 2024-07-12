@@ -12,42 +12,60 @@
 	<v-method-arg arg="deps">dependencies - массив, с указанием от чего зависит useEffect</v-method-arg>
 </div>
 
-<v-code lang="js border" title="">
+<v-code lang="js none" title="">
 import { useEffect } from 'react';
 </v-code>
 
-<v-code lang="js border" title="">
-// <b><u-code-text>componentDidMount</u-code-text> и <u-code-text>componentDidUpdate</u-code-text></b>
-// Отсделить каждый рендеринг компонента. Выполняется после каждого рендера и обновления
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h5><u-menu-code>componentDidMount</u-menu-code> <u-menu-code>componentDidUpdate</u-menu-code></h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Отсделить каждый рендеринг компонента. Выполняется после каждого рендера и обновления</li>
+</ul>
+<v-code lang="js step" title="">
 useEffect(() => {
 	document.title = 'Заголовок';
 });
 </v-code>
 
-<v-code lang="js border" title="">
-// <b><u-code-text>componentDidMount</u-code-text></b>
+<!------------------------------------------------------------->
+<h5><u-menu-code>componentDidMount</u-menu-code></h5>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
 useEffect(() => {
 	document.title = 'Заголовок';
 }, []);
 </v-code>
 
-<v-code lang="js border" title="">
-// <b><u-code-text>componentDidUpdate</u-code-text></b>
-// Выполнит эффект, только если count изменился при отрисовке
+<!------------------------------------------------------------->
+<h5><u-menu-code>componentDidUpdate</u-menu-code></h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Выполнит эффект, только если count изменился при отрисовке</li>
+</ul>
+<v-code lang="js step" title="">
 useEffect(() => {
 	document.title = `Вы нажали ${this.state.count} раз`;
 }, [count]); 
 </v-code>
 
-<v-code lang="js border" title="">
-// <b><u-code-text>componentWillUnmount</u-code-text></b>
+<!------------------------------------------------------------->
+<h5><u-menu-code>componentWillUnmount</u-menu-code></h5>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
 useEffect(() => () => {
 	window.removeEventListener('resize', onResize);
 }, []);
 </v-code>
 
-<v-code lang="js border" title="">
-// <b><u-code-text>componentDidMount</u-code-text> и <u-code-text>componentWillUnmount</u-code-text></b>
+<!------------------------------------------------------------->
+<h5><u-menu-code>componentDidMount</u-menu-code> <u-menu-code>componentWillUnmount</u-menu-code></h5>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
 useEffect(() => {
     // componentDidMount
     window.addEventListener('resize', onResize, false);
@@ -59,10 +77,107 @@ useEffect(() => {
 </v-code>
 
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Кейсы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Async в useEffect</h4>
+<!------------------------------------------------------------->
+<ul class="list-comment">
+    <li>Почему нельзя использовать async внутри useEffect?</li>
+</ul>
+
+<ul class="list-point">
+    <li>useEffect может вернуть Callback Function (componentWillUnmount) или undefined</li>
+    <li>Асинхронная функция вернет Promise, что будет некорректно</li>
+    <li>Вместо этого можно написать асинхронную анонимную самовызывающуюся функцию внутри useEffect</li>
+</ul>
+
+<v-two-border title="Верно;Ошибка"><template v-slot:first>
+<v-code lang="js" title="">
+// Обычная функция
+useEffect(() => {
+    (async function () {
+        console.log("Hello");
+    })();
+}, []);
+
+// Стлелочная функция
+useEffect(() => {
+    (async () => {
+        console.log("Hello");
+    })();
+}, []);
+</v-code>
+
+</template><template v-slot:last>
+<v-code lang="js none" title="">
+useEffect(async () => {
+    console.log("Hello");
+}, []);
+</v-code>
+
+<p>
+    <ul class="list-point">
+        <li>Ошибка: <i>"useEffect не должен возвращать ничего, кроме функции, которая используется для очистки. Похоже, вы написали useEffect(async () => ...) или вернули Promise"</i></li>
+    </ul>
+</p>
+</template></v-two-border>
+
+<!------------------------------------------------------------->
+<h4>useEffect и очередность при монтировании</h4>
+<!------------------------------------------------------------->
+<ul class="list-comment">
+    <li>Какой console.log раньше выведется?</li>
+</ul>
+
+<v-code lang="js" title="">
+const App = () => {
+  useEffect(() => {
+    console.log("Parent");
+  }, []);
+
+  return &lt;Child /&gt;;
+};
+</v-code>
+
+<v-code lang="js" title="">
+const Child = () => {
+  useEffect(() => {
+    console.log("Child");
+  }, []);
+
+  return &lt;h1&gt;Child&lt;/h1&gt;;
+};
+</v-code>
+
+<ul class="list-point">
+    <li>1. Child</li>
+    <li>2. Parent</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Return и Dependencies</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Если в useEffect есть return и указанные зависимости в массиве зависимостей [counter], то функция из return будет выполняться при каждом update из массива зависимостей <u>перед следующем ренедером</u></li>
+</ul>
+
+<v-code lang="js" title="">
+useEffect(() => {
+    return () => {
+		console.log('Hello);
+	}
+}, [counter]);
+</v-code>
+
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Переписывание на Хуки</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-details title="Примеры">
 
 <!------------------------------------------------------------->
 <h4>async await</h4>
@@ -142,30 +257,15 @@ static getDerivedStateFromProps(nextProps, prevState) {
 </v-two-code>
 
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Примеры</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<!------------------------------------------------------------->
-<h4>Пример</h4>
-<!------------------------------------------------------------->
-
-<ul class="list-point">
-    <li>Если в useEffect есть return и указанные зависимости в массиве зависимостей [counter], то функция из return будет выполняться при каждом update из массива зависимостей <u>перед следующем ренедером</u></li>
-</ul>
-
-<v-code lang="js" title="">
-useEffect(() => {
-	return () => {
-		console.log('Hello);
-	}
-}, [counter]);
-</v-code>
+</v-details>
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Теория</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-details title="Данные">
+
 <ul class="list-point">
     <li><u-text-define>Побочные эффекты</u-text-define> - операции, которые могут влиять на работу других компонентов и их нельзя выполнить во время рендера. Н-р: запрашивать данные, делать подписки или вручную менять DOM из React-компонента</li>
 </ul>
@@ -196,3 +296,5 @@ useEffect(() => {
     <li>React будет сбрасывать эффект перед тем, как компонент размонтируется. Однако, как мы уже знаем, эффекты выполняются не один раз, а при каждом рендере. Вот почему React также сбрасывает эффект из предыдущего рендера, перед тем, как запустить следующий</li>
     <li>React будет выполнять каждый используемый эффект в компоненте, согласно порядку их объявления</li>
 </ul>
+
+</v-details>
