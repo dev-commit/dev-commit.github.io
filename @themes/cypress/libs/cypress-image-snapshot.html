@@ -1,0 +1,54 @@
+<h2>cypress-image-snapshot</h2>
+
+<u-message-info>
+Скриншоты и видео
+</u-message-info>
+
+<ul class="list-point">
+    <li>Скриншоты и видео</li>
+    <li>Прогнать тесты и получить скриншоты и видео</li>
+</ul>
+
+<u-link-wrapper>
+    <a href="https://github.com/jaredpalmer/cypress-image-snapshot" target="_blank">https://github.com/jaredpalmer/cypress-image-snapshot</a>
+</u-link-wrapper>
+
+<v-path>package.json</v-path>
+<v-code lang="js" title="">
+"devDependencies": {
+    "cypress": "5.2.0",
+    "cypress-image-snapshot": "3.1.1"
+}
+</v-code>
+
+<v-path>cypress.json</v-path>
+<v-code lang="js" title="">
+{
+    "baseUrl": "http://localhost:4242/cards.credit.reissue",
+    "video": true,
+    "blacklistHosts": "www.google-analytics.com",
+    "projectId": "vo3e1i"
+}
+</v-code>
+
+<ul class="list-point">
+    <li>Для последней версии Cypress, ключ <u-code-text>blacklistHosts</u-code-text> нужно переименовать в <u-code-text>blockHosts</u-code-text></li>
+</ul>
+
+<v-code lang="bash" title="">
+    npx cypress open
+    npx cypress run
+</v-code>
+
+<v-path>./cypress/snapshots</v-path>
+<v-path>./cypress/videos</v-path>
+
+<!------------------------------------------------------------->
+<h4>Доступные браузеры в cypress@5.5.0</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Chrome 86</li>
+    <li>Firefox 82</li>
+    <li>Edge 86</li>
+    <li>Electron 85</li>
+</ul>

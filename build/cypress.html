@@ -59,6 +59,16 @@
     <li>
         <a
             class="menu-link"
+            id="id__cypress/methods/methods"
+            href="#cypress/methods/methods"
+        >
+            Общие методы
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
             id="id__cypress/methods/should"
             href="#cypress/methods/should"
         >
@@ -135,6 +145,56 @@
             <u-menu-accent>Support</u-menu-accent>
         </a>
     </li>
+</ul><h4>🏷️ Библиотеки</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__cypress/libs/cypress-image-snapshot"
+            href="#cypress/libs/cypress-image-snapshot"
+        >
+            <u-inline-circle>1</u-inline-circle> <u-menu-border>cypress-image-snapshot</u-menu-border>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__cypress/libs/mocha-allure-reporter"
+            href="#cypress/libs/mocha-allure-reporter"
+        >
+            <u-inline-circle>4</u-inline-circle> <u-menu-border>mocha-allure-reporter</u-menu-border> <u-menu-border>allure-commandline</u-menu-border>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__cypress/libs/cypress-mochawesome-reporter"
+            href="#cypress/libs/cypress-mochawesome-reporter"
+        >
+            <u-menu-border>cypress-mochawesome-reporter</u-menu-border>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__cypress/libs/cypress-visual-regression"
+            href="#cypress/libs/cypress-visual-regression"
+        >
+            <u-menu-border>cypress-visual-regression</u-menu-border>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__cypress/libs/cypress-file-upload"
+            href="#cypress/libs/cypress-file-upload"
+        >
+            <u-menu-border>cypress-file-upload</u-menu-border>
+        </a>
+    </li>
 </ul><h4>🏷️ Guides</h4><ul>
     <li>
         <a
@@ -143,6 +203,16 @@
             href="#cypress/guides/network-requests"
         >
             ⭐️ Network Requests
+        </a>
+    </li>
+</ul><h4>🏷️ Прочее</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__cypress/other/trash"
+            href="#cypress/other/trash"
+        >
+            Свалка
         </a>
     </li>
 </ul>
@@ -273,6 +343,104 @@ Cypress.Commands.add('checkTitle', (message) => {
 <v-code lang="js" title="">
 cy.<u-code>children</u-code>()
 cy.<u-code>and</u-code>('be.visible')
+</v-code>
+</div><div id="cypress/methods/methods"><h2>Общие методы</h2>
+
+<!------------------------------------------------------------->
+<h4>force</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Если элемент находится под другими элементами</li>
+</ul>
+
+<v-code lang="js" title="">
+cy.get('div').click({ force: true });
+cy.get('div', { force: true }).blur();
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>find()</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://docs.cypress.io/api/commands/find" target="_blank">https://docs.cypress.io/api/commands/find</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Получить дочерние элементы DOM определенного селектора</li>
+</ul>
+
+<v-code lang="js" title="">
+// получит все элементы &lt;tr&gt;
+cy.get('table').find('tbody')
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>eq</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://docs.cypress.io/api/commands/eq" target="_blank">https://docs.cypress.io/api/commands/eq</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Получить элемент DOM по определенному индексу в массиве элементов</li>
+</ul>
+
+<v-code lang="js" title="">
+// Первый &lt;tr&gt; таблицы должен содержать "Tony"
+cy.get('table tbody tr').eq(0).contains('Tony')
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>first()</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Yield first link in nav
+cy.get('nav a').first()
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>cy.go()</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://docs.cypress.io/api/commands/go" target="_blank">https://docs.cypress.io/api/commands/go</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+cy.go('back')
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>cy.contains()</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Найти контент на странице по тексту</li>
+</ul>
+
+<v-code lang="js" title="">
+cy.contains('button', 'Emergency Contact').click()
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>cy.get().within</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://docs.cypress.io/api/commands/within" target="_blank">https://docs.cypress.io/api/commands/within</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Охватывает все последующие команды cy внутри этого элемента. Полезно при работе с определенной группой элементов, например &lt;form&gt;</li>
+</ul>
+
+<v-code lang="js" title="">
+cy.get('.container').within(() => {
+  cy.get('.item').should('contain', 'Hello');
+});
+</v-code>
+
+<v-code lang="js" title="">
+cy.location('search').should('contain', 'query=fish');
+cy.get('.chip').children('.chip__btn').click();
+cy.log('Choose tag');
 </v-code>
 </div><div id="cypress/methods/should"><h2>should</h2>
 
@@ -664,6 +832,152 @@ import './commands';
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 </v-code>
+</div><div id="cypress/libs/cypress-image-snapshot"><h2>cypress-image-snapshot</h2>
+
+<u-message-info>
+Скриншоты и видео
+</u-message-info>
+
+<ul class="list-point">
+    <li>Скриншоты и видео</li>
+    <li>Прогнать тесты и получить скриншоты и видео</li>
+</ul>
+
+<u-link-wrapper>
+    <a href="https://github.com/jaredpalmer/cypress-image-snapshot" target="_blank">https://github.com/jaredpalmer/cypress-image-snapshot</a>
+</u-link-wrapper>
+
+<v-path>package.json</v-path>
+<v-code lang="js" title="">
+"devDependencies": {
+    "cypress": "5.2.0",
+    "cypress-image-snapshot": "3.1.1"
+}
+</v-code>
+
+<v-path>cypress.json</v-path>
+<v-code lang="js" title="">
+{
+    "baseUrl": "http://localhost:4242/cards.credit.reissue",
+    "video": true,
+    "blacklistHosts": "www.google-analytics.com",
+    "projectId": "vo3e1i"
+}
+</v-code>
+
+<ul class="list-point">
+    <li>Для последней версии Cypress, ключ <u-code-text>blacklistHosts</u-code-text> нужно переименовать в <u-code-text>blockHosts</u-code-text></li>
+</ul>
+
+<v-code lang="bash" title="">
+    npx cypress open
+    npx cypress run
+</v-code>
+
+<v-path>./cypress/snapshots</v-path>
+<v-path>./cypress/videos</v-path>
+
+<!------------------------------------------------------------->
+<h4>Доступные браузеры в cypress@5.5.0</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Chrome 86</li>
+    <li>Firefox 82</li>
+    <li>Edge 86</li>
+    <li>Electron 85</li>
+</ul>
+</div><div id="cypress/libs/mocha-allure-reporter"><h2>mocha-allure-reporter</h2>
+
+<u-message-info>
+Отчетность
+</u-message-info>
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>mocha-allure-reporter</u-code-accent> <u-code-accent>allure-commandline</u-code-accent>
+</v-pre-npm>
+
+<ul class="list-point">
+    <li>Axe - доступность</li>
+    <li>Allure - отчетность</li>
+</ul>
+</div><div id="cypress/libs/cypress-mochawesome-reporter"><h2>cypress-mochawesome-reporter</h2>
+
+<u-link-wrapper>
+    <a href="https://github.com/LironEr/cypress-mochawesome-reporter" target="_blank">https://github.com/LironEr/cypress-mochawesome-reporter</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Включает пакеты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>mochawesome</li>
+    <li>mochawesome-merge</li>
+    <li>mochawesome-report-generator</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка и настройка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>cypress-mochawesome-reporter</u-code-accent>
+</v-pre-npm>
+
+<v-path>cypress.json</v-path>
+<v-code lang="js" title="">
+{
+  "reporter": "cypress-mochawesome-reporter"
+}
+</v-code>
+
+<v-path>cypress/support/index.js</v-path>
+<v-code lang="js" title="">
+import 'cypress-mochawesome-reporter/register';
+</v-code>
+
+<v-path>package.json</v-path>
+<v-code lang="js" title="">
+"scripts": {
+	// базовый скрипт
+	"cypress:report": "generate-mochawesome-report",
+	// скрипт с указанием output
+	"cy:report": "generate-mochawesome-report --output cypress/reports/accessibility",
+	// скрипт на очистку
+    "cy:report:remove": "rm -rf cypress/screenshots cypress/results cypress/reports/accessibility"
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файлы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Фалы отчета создаются в "./cypress/results/json"</li>
+</ul>
+</div><div id="cypress/libs/cypress-visual-regression"><h2>cypress-visual-regression</h2>
+
+<u-message-info>
+Формирует файл с отличиями в вёрстке в "./cypress/snapshots/diff"
+</u-message-info>
+
+<u-link-wrapper>
+    <a href="https://github.com/mjhea0/cypress-visual-regression" target="_blank">https://github.com/mjhea0/cypress-visual-regression</a>
+</u-link-wrapper>
+</div><div id="cypress/libs/cypress-file-upload"><h2>cypress-file-upload</h2>
+
+<v-path>package.json</v-path>
+
+<v-code lang="js" title="">
+"devDependencies": {
+	"cypress-file-upload": "^5.0.8",
+}
+</v-code>
+
+<v-path>cypress/support/commands.ts</v-path>
+<v-code lang="js" title="">
+import 'cypress-file-upload';
+
+cy.get('[name="product_image"]').attachFile('new-food-photo.jpg');
+</v-code>
 </div><div id="cypress/guides/network-requests"><h2>Network Requests</h2>
 
 <u-link-wrapper>
@@ -718,6 +1032,234 @@ cy.<u-code>route</u-code>('GET', 'activities/*', '@activitiesJSON')
 // activities/*    - часть URL
 // @activitiesJSON - алиас fixture 
 </v-code>
+</div><div id="cypress/other/trash"><h2>Свалка</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Общее</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+cy.contains('Create Body Part').should('have.attr', 'href', '/body-parts/create');
+</v-code>
+
+<v-code lang="js" title="">
+cy.interceptSupplementsSearch().as('supplementsSearch');
+
+cy.wait('@supplementsSearch').then(i => {
+	assert.include(i.request.url, 'name=name');
+});
+
+Cypress.Commands.add('interceptSupplementsSearch', () => {
+  return cy.intercept('GET', Cypress.env('base_url') + '/supplements*', {
+    statusCode: 200,
+    fixture: 'supplements/supplements_search.json',
+  });
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Данные</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://docs.cypress.io/api/commands/intercept#Matching-with-RouteMatcher" target="_blank">https://docs.cypress.io/api/commands/intercept#Matching-with-RouteMatcher</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Передача query-параметров</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+cy.intercept({
+  pathname: '/search',
+  query: {
+    q: 'some terms',
+  },
+})
+</v-code>
+
+<u-link-wrapper>
+    <a href="https://docs.cypress.io/api/commands/intercept#Usage" target="_blank">https://docs.cypress.io/api/commands/intercept#Usage</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+cy.intercept('/users/**')
+cy.intercept('GET', '/users*')
+</v-code>
+
+<ul class="list-point">
+    <li>Помогает в случаях, когда запрос уходит например на /api/organizations/search?query= , но тебе не нужно учитывать этот query=</li>
+    <li>/users* - означает, что после * может быть всё, что угодно</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Input</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+cy.get('select[name="sex"]')
+  .should('have.value', 'male')
+  .select('female')
+  .should('have.value', 'female');
+
+cy.get('input[name="first_name"]').should('have.value', 'Alex');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Конструкции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+cy.get('selector').then($element => {
+  if ($element.is(':visible')) {
+    // checks
+  }
+});
+
+cy.get('button')
+  .should('have.id', 'new-user')
+  .then(($button) => {
+    // $button is yielded
+  })
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>TypeScript</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Если есть index.ts, то не нужно создавать index.d.ts</li>
+    <li>Будет ошибка</li>
+    <li>В cypress\support\index.ts</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Fixture</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// Команда
+Cypress.Commands.add('interceptRecipeByTags', (sort) => {
+  return cy.intercept('GET', `http://localhost:8080/api?sort_by=${sort}`, {
+      statusCode: 200,
+      fixture: 'recipe-by-tags.json',
+    },
+  );
+});
+
+// Вызов
+cy.interceptRecipeByTags('snack').as('snackTags');
+</v-code>
+
+<v-code lang="js" title="">
+Cypress.Commands.add('interceptPutRecipe', () => {
+  return cy.intercept('PUT', 'http://localhost:8080/api', {
+    fixture: '5-veg-omelette.json',
+  });
+});
+
+cy.interceptPutRecipe()
+</v-code>
+
+<v-code lang="js" title="">
+Cypress.Commands.add('interceptSearchRecipe', () => {
+  return cy.intercept(
+    {
+      method: 'POST',
+      url: 'http://localhost:8080/api',
+    },
+    { fixture: 'search.json' },
+  );
+});
+</v-code>
+
+<v-code lang="js" title="">
+Cypress.Commands.add('interceptSingleRecipe', () => {
+  return cy.intercept('/api/recipes/610bc14f54fb3e2bc22c4ec5*', {
+    fixture: 'meal-explorer/recipe.json',
+  });
+});
+
+Cypress.Commands.add('interceptDeleteRecipe', () => {
+  return cy.intercept('DELETE', '/api/recipes/*');
+});
+
+Cypress.Commands.add('interceptBulkImportRecipe', () => {
+  return cy.intercept('POST', '/api/recipes/bulk');
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Перехватить запрос к API и проверить значение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-path>cypress\support\interceptors.ts</v-path>
+
+<v-code lang="js" title="">
+Cypress.Commands.add('interceptUsersSearch', () => {
+  return cy.intercept('POST', '/user_search', {
+    statusCode: 200,
+    fixture: 'user_search.json',
+  });
+});
+</v-code>
+
+<v-path>cypress\integration\Users\clients.spec.ts</v-path>
+
+<v-code lang="js" title="">
+cy.interceptUsersSearch().as('userSearch');
+
+cy.wait('@userSearch').then(interception => {
+  assert.equal(interception.request.body.per_page, 50);
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Виды записей</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+Cypress.Commands.add('intercept1', () => {
+  return cy.intercept(
+    {
+      method: 'GET',
+      url: 'https://api.dev.upbodyapp.com/api/user/',
+    },
+    {
+      fixture: 'user.json',
+    },
+  );
+});
+</v-code>
+
+<v-code lang="js" title="">
+Cypress.Commands.add('intercept2', () => {
+  return cy.intercept('GET', 'https://api.dev.upbodyapp.com/api/user/', {
+    fixture: 'user.json',
+  });
+});
+</v-code>
+
+<v-code lang="js" title="">
+Cypress.Commands.add('intercept2', () => {
+  return cy.intercept('GET', 'https://api.dev.upbodyapp.com/api/user/', {
+    fixture: 'user.json',
+  });
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Указание query-параметров в GET</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Если будет несовпадение query-параметров (ключа или значения), то данные не перехватятся</li>
+</ul>
+
+<v-code lang="js" title="">
+Cypress.Commands.add('interceptor', () => {
+  return cy.intercept('GET', 'https://dev.com/params?role=user&active=true', {
+    fixture: 'data.json',
+  });
+});
+</v-code>
+
+<ul class="list-point">
+    <li>/params?role=user&active=true</li>
+    <li>/params?role=*&active=*</li>
+    <li>/params?*</li>
+</ul>
 </div></div>
                 </div>
             </div>

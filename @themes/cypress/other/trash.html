@@ -1,0 +1,228 @@
+<h2>Свалка</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Общее</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+cy.contains('Create Body Part').should('have.attr', 'href', '/body-parts/create');
+</v-code>
+
+<v-code lang="js" title="">
+cy.interceptSupplementsSearch().as('supplementsSearch');
+
+cy.wait('@supplementsSearch').then(i => {
+	assert.include(i.request.url, 'name=name');
+});
+
+Cypress.Commands.add('interceptSupplementsSearch', () => {
+  return cy.intercept('GET', Cypress.env('base_url') + '/supplements*', {
+    statusCode: 200,
+    fixture: 'supplements/supplements_search.json',
+  });
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Данные</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://docs.cypress.io/api/commands/intercept#Matching-with-RouteMatcher" target="_blank">https://docs.cypress.io/api/commands/intercept#Matching-with-RouteMatcher</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Передача query-параметров</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+cy.intercept({
+  pathname: '/search',
+  query: {
+    q: 'some terms',
+  },
+})
+</v-code>
+
+<u-link-wrapper>
+    <a href="https://docs.cypress.io/api/commands/intercept#Usage" target="_blank">https://docs.cypress.io/api/commands/intercept#Usage</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+cy.intercept('/users/**')
+cy.intercept('GET', '/users*')
+</v-code>
+
+<ul class="list-point">
+    <li>Помогает в случаях, когда запрос уходит например на /api/organizations/search?query= , но тебе не нужно учитывать этот query=</li>
+    <li>/users* - означает, что после * может быть всё, что угодно</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Input</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+cy.get('select[name="sex"]')
+  .should('have.value', 'male')
+  .select('female')
+  .should('have.value', 'female');
+
+cy.get('input[name="first_name"]').should('have.value', 'Alex');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Конструкции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+cy.get('selector').then($element => {
+  if ($element.is(':visible')) {
+    // checks
+  }
+});
+
+cy.get('button')
+  .should('have.id', 'new-user')
+  .then(($button) => {
+    // $button is yielded
+  })
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>TypeScript</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Если есть index.ts, то не нужно создавать index.d.ts</li>
+    <li>Будет ошибка</li>
+    <li>В cypress\support\index.ts</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Fixture</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// Команда
+Cypress.Commands.add('interceptRecipeByTags', (sort) => {
+  return cy.intercept('GET', `http://localhost:8080/api?sort_by=${sort}`, {
+      statusCode: 200,
+      fixture: 'recipe-by-tags.json',
+    },
+  );
+});
+
+// Вызов
+cy.interceptRecipeByTags('snack').as('snackTags');
+</v-code>
+
+<v-code lang="js" title="">
+Cypress.Commands.add('interceptPutRecipe', () => {
+  return cy.intercept('PUT', 'http://localhost:8080/api', {
+    fixture: '5-veg-omelette.json',
+  });
+});
+
+cy.interceptPutRecipe()
+</v-code>
+
+<v-code lang="js" title="">
+Cypress.Commands.add('interceptSearchRecipe', () => {
+  return cy.intercept(
+    {
+      method: 'POST',
+      url: 'http://localhost:8080/api',
+    },
+    { fixture: 'search.json' },
+  );
+});
+</v-code>
+
+<v-code lang="js" title="">
+Cypress.Commands.add('interceptSingleRecipe', () => {
+  return cy.intercept('/api/recipes/610bc14f54fb3e2bc22c4ec5*', {
+    fixture: 'meal-explorer/recipe.json',
+  });
+});
+
+Cypress.Commands.add('interceptDeleteRecipe', () => {
+  return cy.intercept('DELETE', '/api/recipes/*');
+});
+
+Cypress.Commands.add('interceptBulkImportRecipe', () => {
+  return cy.intercept('POST', '/api/recipes/bulk');
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Перехватить запрос к API и проверить значение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-path>cypress\support\interceptors.ts</v-path>
+
+<v-code lang="js" title="">
+Cypress.Commands.add('interceptUsersSearch', () => {
+  return cy.intercept('POST', '/user_search', {
+    statusCode: 200,
+    fixture: 'user_search.json',
+  });
+});
+</v-code>
+
+<v-path>cypress\integration\Users\clients.spec.ts</v-path>
+
+<v-code lang="js" title="">
+cy.interceptUsersSearch().as('userSearch');
+
+cy.wait('@userSearch').then(interception => {
+  assert.equal(interception.request.body.per_page, 50);
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Виды записей</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+Cypress.Commands.add('intercept1', () => {
+  return cy.intercept(
+    {
+      method: 'GET',
+      url: 'https://api.dev.upbodyapp.com/api/user/',
+    },
+    {
+      fixture: 'user.json',
+    },
+  );
+});
+</v-code>
+
+<v-code lang="js" title="">
+Cypress.Commands.add('intercept2', () => {
+  return cy.intercept('GET', 'https://api.dev.upbodyapp.com/api/user/', {
+    fixture: 'user.json',
+  });
+});
+</v-code>
+
+<v-code lang="js" title="">
+Cypress.Commands.add('intercept2', () => {
+  return cy.intercept('GET', 'https://api.dev.upbodyapp.com/api/user/', {
+    fixture: 'user.json',
+  });
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Указание query-параметров в GET</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Если будет несовпадение query-параметров (ключа или значения), то данные не перехватятся</li>
+</ul>
+
+<v-code lang="js" title="">
+Cypress.Commands.add('interceptor', () => {
+  return cy.intercept('GET', 'https://dev.com/params?role=user&active=true', {
+    fixture: 'data.json',
+  });
+});
+</v-code>
+
+<ul class="list-point">
+    <li>/params?role=user&active=true</li>
+    <li>/params?role=*&active=*</li>
+    <li>/params?*</li>
+</ul>

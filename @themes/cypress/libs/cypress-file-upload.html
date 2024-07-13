@@ -1,0 +1,16 @@
+<h2>cypress-file-upload</h2>
+
+<v-path>package.json</v-path>
+
+<v-code lang="js" title="">
+"devDependencies": {
+	"cypress-file-upload": "^5.0.8",
+}
+</v-code>
+
+<v-path>cypress/support/commands.ts</v-path>
+<v-code lang="js" title="">
+import 'cypress-file-upload';
+
+cy.get('[name="product_image"]').attachFile('new-food-photo.jpg');
+</v-code>

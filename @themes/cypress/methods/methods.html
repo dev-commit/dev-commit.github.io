@@ -1,0 +1,98 @@
+<h2>Общие методы</h2>
+
+<!------------------------------------------------------------->
+<h4>force</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Если элемент находится под другими элементами</li>
+</ul>
+
+<v-code lang="js" title="">
+cy.get('div').click({ force: true });
+cy.get('div', { force: true }).blur();
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>find()</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://docs.cypress.io/api/commands/find" target="_blank">https://docs.cypress.io/api/commands/find</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Получить дочерние элементы DOM определенного селектора</li>
+</ul>
+
+<v-code lang="js" title="">
+// получит все элементы &lt;tr&gt;
+cy.get('table').find('tbody')
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>eq</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://docs.cypress.io/api/commands/eq" target="_blank">https://docs.cypress.io/api/commands/eq</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Получить элемент DOM по определенному индексу в массиве элементов</li>
+</ul>
+
+<v-code lang="js" title="">
+// Первый &lt;tr&gt; таблицы должен содержать "Tony"
+cy.get('table tbody tr').eq(0).contains('Tony')
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>first()</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Yield first link in nav
+cy.get('nav a').first()
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>cy.go()</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://docs.cypress.io/api/commands/go" target="_blank">https://docs.cypress.io/api/commands/go</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+cy.go('back')
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>cy.contains()</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Найти контент на странице по тексту</li>
+</ul>
+
+<v-code lang="js" title="">
+cy.contains('button', 'Emergency Contact').click()
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>cy.get().within</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <a href="https://docs.cypress.io/api/commands/within" target="_blank">https://docs.cypress.io/api/commands/within</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Охватывает все последующие команды cy внутри этого элемента. Полезно при работе с определенной группой элементов, например &lt;form&gt;</li>
+</ul>
+
+<v-code lang="js" title="">
+cy.get('.container').within(() => {
+  cy.get('.item').should('contain', 'Hello');
+});
+</v-code>
+
+<v-code lang="js" title="">
+cy.location('search').should('contain', 'query=fish');
+cy.get('.chip').children('.chip__btn').click();
+cy.log('Choose tag');
+</v-code>

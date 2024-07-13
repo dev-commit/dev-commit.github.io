@@ -1,0 +1,53 @@
+<h2>cypress-mochawesome-reporter</h2>
+
+<u-link-wrapper>
+    <a href="https://github.com/LironEr/cypress-mochawesome-reporter" target="_blank">https://github.com/LironEr/cypress-mochawesome-reporter</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Включает пакеты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>mochawesome</li>
+    <li>mochawesome-merge</li>
+    <li>mochawesome-report-generator</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка и настройка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>cypress-mochawesome-reporter</u-code-accent>
+</v-pre-npm>
+
+<v-path>cypress.json</v-path>
+<v-code lang="js" title="">
+{
+  "reporter": "cypress-mochawesome-reporter"
+}
+</v-code>
+
+<v-path>cypress/support/index.js</v-path>
+<v-code lang="js" title="">
+import 'cypress-mochawesome-reporter/register';
+</v-code>
+
+<v-path>package.json</v-path>
+<v-code lang="js" title="">
+"scripts": {
+	// базовый скрипт
+	"cypress:report": "generate-mochawesome-report",
+	// скрипт с указанием output
+	"cy:report": "generate-mochawesome-report --output cypress/reports/accessibility",
+	// скрипт на очистку
+    "cy:report:remove": "rm -rf cypress/screenshots cypress/results cypress/reports/accessibility"
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файлы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Фалы отчета создаются в "./cypress/results/json"</li>
+</ul>
