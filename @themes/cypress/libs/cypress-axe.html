@@ -1,0 +1,370 @@
+<h2>cypress-axe</h2>
+
+<u-message-info>
+Доступность
+</u-message-info>
+
+<u-link-wrapper>
+    <a href="https://github.com/avanslaars/cypress-axe" target="_blank">https://github.com/avanslaars/cypress-axe</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка и настройка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npm i --save-dev <u-code-accent>cypress</u-code-accent> <u-code-accent>axe-core</u-code-accent> <u-code-accent>cypress-axe</u-code-accent>
+</v-pre-npm>
+
+<v-path>./cypress/support/index.js</v-path>
+<v-code lang="js" title="">
+import 'cypress-axe'
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-tabs :tabs="['index.html', './cypress/integration/starter.spec.js']">
+    <template v-slot:1>
+
+<v-code lang="html" title="">
+&lt;div id=&quot;root&quot; role=&quot;main&quot;&gt;
+    &lt;h1&gt;Hello&lt;/h1&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;h2&gt;Container&lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</v-code>
+
+    </template>
+    <template v-slot:2>
+
+<v-code lang="js" title="">
+/// &lt;reference types=&quot;cypress&quot; /&gt;
+
+const A11YOptions = {
+    runOnly: {
+        type: 'tag',
+        values: ['wcag2a', 'wcag2aa', 'section508']
+    }
+}
+
+describe('Starter', () => {
+    beforeEach(() => {
+        cy.visit('http://localhost:8081/index');
+        // 1. inject
+        cy.injectAxe();
+        
+        // 2. configure
+        // cy.configureAxe({
+        //     reporter: 'v2',
+        //     iframes: true
+        // })
+    });
+
+    it('Starter', function () {
+        cy.contains('Hello');
+
+        // 3. check all
+        cy.checkA11y();
+        // 4. check from element
+        cy.checkA11y('div.container');
+        // 5. check from element and options
+        cy.checkA11y('h1', A11YOptions);
+    });
+});
+</v-code>
+
+    </template>
+</v-tabs>
+
+<img src="/@img/cypress/cypress-axe-1.png" width="700px" />
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Cypress-Axe Commands</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><em>cy.injectAxe()</em> - inject the axe-core library. Должен идти после загрузки страницы</li>
+    <li><em>cy.checkA11y(context, options)</em> - можно вызвать только после cy.injectAxe(). Команда может вызываться в разных местах сценария для проверки или выявления нарушений доступности</li>
+
+    <ul class="list-point" style="margin-left: 20px;">
+        <li><b>context</b> - (необязательно) определяет область анализа - часть DOM, которую вы хотите анализировать. Обычно это документ или определенный селектор, такой как имя класса, идентификатор, селектор и т.д.</li>
+        <li><b>options</b> - (необязательно) Набор параметров, передаваемых в правила или проверки, временно изменяя их. Это контрастирует с axe.configure, который более постоянен</li>
+    </ul>
+    <li><em>cy.configureAxe()</em> - используется для определения пользовательских правил или для изменения существующих проверок и правил. С его помощью можно изменить стандартную отчетность, а также языковой стандарт для выходных сообщений</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1. checkA11y</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// exclude a specific button
+cy.checkA11y({
+    exclude: ['.article-action'],
+})
+</v-code>
+
+<v-code lang="js" title="">
+cy.checkA11y(
+    {
+        exclude: ['.article-action'],
+    },
+    {
+        rules: {
+            'empty-heading': { enabled: false },
+        },
+    },
+)
+</v-code>
+
+<v-code lang="js" title="">
+cy.checkA11y('.example-class', {
+    runOnly: {
+        type: 'tag',
+        values: ['wcag2a']
+    }
+})
+</v-code>
+
+<v-code lang="js" title="">
+cy.checkA11y(null, {
+    includedImpacts: ['critical']
+})
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. configureAxe</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+cy.configureAxe({
+    branding: {
+        brand: String,
+        application: String,
+    },
+    reporter: 'option',
+    checks: [Object],
+    rules: [Object],
+    locale: Object,
+})
+</v-code>
+
+<v-code lang="js" title="">
+cy.configureAxe({
+    reporter: 'v2',
+    iframes: true
+})
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Кастомизация вывода ошибок доступности в консоль</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Chrome Dev Tools -> Console</li>
+    <li><v-link url="https://docs.cypress.io/api/commands/task.html#Usage" /></li>
+    <li><v-link url="https://github.com/avanslaars/cypress-axe#using-the-violationcallback-argument" /></li>
+</ul>
+
+<img src="/@img/cypress/cypress-axe-2.png" width="750px" />
+
+<v-path>./cypress/plugins/index.js</v-path>
+<v-code lang="js" title="">
+/// &lt;reference types=&quot;cypress&quot; /&gt;
+
+module.exports = (on, config) => {
+    // `on` is used to hook into various events Cypress emits
+    // `config` is the resolved Cypress config
+
+    on('task', {
+        log(message) {
+            console.log(message)
+            return null
+        },
+        table(message) {
+            console.table(message)
+            return null
+        }
+    })
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Минимальный вариант использования</h4>
+<!------------------------------------------------------------->
+<v-path>./cypress/integration/starter.spec.js</v-path>
+<v-code lang="js" title="">
+it('Starter', function () {
+    cy.task('log', 'This will be output to the terminal')
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Кастомизация вывода ошибки</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+/// &lt;reference types=&quot;cypress&quot; /&gt;
+
+// Define at the top of the spec file or just import it
+function terminalLog(violations) {
+    const dataLog = `
+        ${violations.length} accessibility violation${ violations.length === 1 ? '' : 's' }
+        ${violations.length === 1 ? 'was' : 'were'} detected`
+
+    cy.task('log', dataLog)
+
+    // pluck specific keys to keep the table readable
+    const violationData = violations.map(
+        ({ id, impact, description, nodes }) => ({
+            id,
+            impact,
+            description,
+            nodes: nodes.length
+        })
+    )
+
+    cy.task('table', violationData)
+}
+
+describe('Starter', () => {
+    beforeEach(() => {
+        cy.visit('http://localhost:8081/index');
+        cy.injectAxe();
+    });
+
+    // Then in your test...
+    it('Logs violations to the terminal', () => {
+        cy.checkA11y(null, null, terminalLog)
+    })
+
+    it('Starter', function () {
+        cy.contains('Hello');
+        cy.checkA11y();
+    });
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Стандарты Accessibility</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<u-link-wrapper>
+    <a href="https://github.com/dequelabs/axe-core/blob/develop/doc/API.md#axe-core-tags" target="_blank">Ссылка на перечень стандартов (axe-core-tags)</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Правила сегмента 508 и WCAG являются основными стандартами, используемыми в мире</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><b>Раздел 508</b> - это стандарт доступности, установленный правительством США, чтобы гарантировать, что все сайты правительства США могут быть доступны людям с ограниченными возможностями</li>
+    <li><b>Рекомендации по доступности веб-контента или WCAG</b> характеризуют нормы открытости для людей, ассоциаций и правительств во всем мире. WCAG 2.0 был признан стандартом Международной организации по стандартизации (ISO), и многие страны приняли WCAG 2.0 в качестве своего законного стандарта открытости Интернета. (WCAG 2.1 уже доступен)</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>cypress-axe или axe-core поддерживает стандарты доступности</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>WCAG 2.1</li>
+    <li>WCAG 2.0</li>
+    <li>Section 508</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>У Cypress есть  собственные стандарты</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>best-practices</li>
+    <li>experimental</li>
+    <li>cat</li>
+</ul>
+
+<v-code lang="js" title="">
+// стандарты, которые используем: 
+// WCAG 2.0 Level A, WCAG 2.0 Level AA, Section-508
+
+const A11YOptions = {
+    runOnly: {
+        type: 'tag',
+        values: ['wcag2a', 'wcag2aa', 'section508']
+    }
+}
+
+it('Check', () => {
+    // Test the page at initial load
+    cy.checkA11y(null, A11YOptions)
+})
+</v-code>
+
+<ul class="list-point">
+    <li>Поскольку мы передали A11YOptions методу cy.checkA11y (), он проверяет соответствие заданным стандартам. Если параметры не переданы, он будет сверяться со всеми доступными стандартами, включая: best-practices, cat and experimental</li>
+</ul>
+
+<v-code lang="js" title="">
+// пример с заданием контейнера и списка опций
+const options = {
+    runOnly: {
+        type: 'tag',
+        values: ['wcag2a'],
+    },
+};
+cy.checkA11y('.cypress-wrapper', options);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Шаблон</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const A11YOptions = {
+    runOnly: {
+        type: 'tag',
+        values: [
+            'wcag2a',
+            'wcag2aa',
+            'wcag21a',
+            'wcag21aa',
+            'wcag***',
+            'ACT',
+            'section508',
+            // 'best-practice',
+            // 'section508.*.*',
+            // 'experimental',
+            // 'cat.*',
+        ]
+    }
+}
+</v-code>
+
+<v-code lang="js" title="">
+const A11YOptions = {
+    runOnly: {
+        type: 'tag',
+        values: ['wcag2a']
+    }
+}
+
+describe('...', () => {
+    before(() => {
+        // cy.visitWorkflowPage('...')
+        cy.injectAxe()
+    })
+
+    // it('Визуальный регресс', () => {
+    //     cy.matchPageSnapshots()
+    // })
+
+    it('Проверка доступности', () => {
+        cy.checkA11y(null, A11YOptions)
+    })
+})
+</v-code>
+
+<v-code lang="js" title="">
+describe('', () => {
+    before(() => {
+        // cy.visitWorkflowPage('reissue-process/reissue')
+        cy.injectAxe()
+    })
+
+    it('Проверка доступности', () => {
+        cy.checkA11y('[class$="src-grid-style--grid--1fbB"]')
+    })
+})
+</v-code>

@@ -35,6 +35,16 @@
             📑 Информация
         </a>
     </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__lodash/main/package-types"
+            href="#lodash/main/package-types"
+        >
+            Типы для пакетов
+        </a>
+    </li>
 </ul><h4>🏷️ Методы</h4><ul>
     <li>
         <a
@@ -43,6 +53,16 @@
             href="#lodash/methods/debounce"
         >
             <u-menu>debounce</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__lodash/methods/isEqual"
+            href="#lodash/methods/isEqual"
+        >
+            <u-menu>isEqual</u-menu>
         </a>
     </li>
 </ul>
@@ -74,6 +94,25 @@
 <v-pre-npm>
 npm i --save <u-code-accent>lodash</u-code-accent>
 </v-pre-npm>
+</div><div id="lodash/main/package-types"><h2>Типы для пакетов</h2>
+
+<v-path>package.json</v-path>
+<v-code lang="js" title="">
+{
+  "dependencies": {
+    "@types/lodash.debounce": "^4.0.6",
+    "@types/lodash.difference": "^4.5.7",
+    "@types/lodash.flow": "^3.5.6",
+    "@types/lodash.flowright": "^3.5.6",
+    "@types/lodash.get": "^4.4.6",
+    "@types/lodash.keyby": "^4.6.6",
+    "@types/lodash.merge": "^4.6.6",
+    "@types/lodash.omit": "^4.5.6",
+    "@types/lodash.snakecase": "^4.1.6",
+    "@types/lodash.throttle": "^4.1.6",
+  }
+}
+</v-code>
 </div><div id="lodash/methods/debounce"><h2>debounce</h2>
 
 <u-link-wrapper>
@@ -153,6 +192,29 @@ class App extends Component {
         //
     };
 }
+</v-code>
+</div><div id="lodash/methods/isEqual"><h2>isEqual</h2>
+
+<u-message-info>
+Сравнение объектов
+</u-message-info>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка и подключение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-pre-npm>
+npm i --save <u-code-accent>lodash</u-code-accent>
+# или
+npm i --save <u-code-accent>lodash.isequal</u-code-accent>
+</v-pre-npm>
+
+<v-code lang="js" title="">
+import isEqual from 'lodash.isequal';
+
+const obj1 = { a: 1 };
+const obj2 = { a: 1 };
+const res = isEqual(obj1, obj2); // => true
 </v-code>
 </div></div>
                 </div>

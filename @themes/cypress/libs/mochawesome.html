@@ -1,0 +1,107 @@
+<h2>mochawesome</h2>
+
+<u-message-info>
+Сформировать HTML-отчет для тестов на Cypress
+</u-message-info>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка и настройка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>cypress</u-code-accent> <u-code-accent>mochawesome</u-code-accent> <u-code-accent>mochawesome-merge</u-code-accent> <u-code-accent>mochawesome-report-generator</u-code-accent>
+</v-pre-npm>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>package.json</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+"scripts": {
+    "cy:report": "mochawesome-merge cypress/reports/integration/*.json > cypress/reports/mochareports/report.json && marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports"
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Варианты скриптов</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Разбитие по двум скриптам
+"scripts": {
+    "cy:report-generate": "mochawesome-merge cypress/reports/integration/*.json > cypress/reports/mochareports/report.json",
+    "cy:report-merge": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/integration"
+}
+</v-code>
+
+<v-code lang="js" title="">
+// Один большой скрипт из проекта
+"scrips": {
+    "cy:report": "mochawesome-merge reports/integration/*.json > reports/integration/mochawesome.json && marge reports/integration/mochawesome.json -f report -o reports/integration"
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>cypress.json</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+{
+    "baseUrl": "http://localhost:4242/cards.credit.reissue",
+    "video": true,
+    "blacklistHosts": "www.google-analytics.com",
+    "projectId": "vo3e1i",
+    "reporter": "mochawesome",
+    "reporterOptions": {
+        "reportDir": "cypress/reports/integration",
+        "overwrite": false,
+        "html": true,
+        "json": true
+    }
+}
+</v-code>
+
+<ul class="list-point">
+    <li>Для последней версии Cypress, ключ <u-code-text>blacklistHosts</u-code-text> нужно переименовать в <u-code-text>blockHosts</u-code-text></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Последовательность</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>npx cypress run</u-code-text></li>
+    <li>Создать директорию ./cypress/reports/mochareports если ее нет</li>
+    <li><u-code-text>npm run cy:report</u-code-text></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Библиотеки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. mochawesome</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><v-link url="https://github.com/adamgruber/mochawesome" /></li>
+    <li>Mochawesome - настраиваемый репортер для использования со средой тестирования Javascript, mocha. Работает вместе с mochawesome-report-generator для создания автономного отчета HTML / CSS для визуализации ваших тестовых прогонов</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. mochawesome-report-generator</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><v-link url="https://github.com/adamgruber/mochawesome-report-generator" /></li>
+    <li>Marge (mochawesome-report-generator) является аналогом mochawesome, настраиваемого репортера для использования со средой тестирования Javascript, mocha. Мардж берет выходные данные JSON от mochawesome и генерирует полноценный отчет HTML / CSS, который помогает визуализировать ваши наборы тестов</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. mochawesome-merge</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><v-link url="" />https://github.com/Antontelesh/mochawesome-merge</li>
+    <li>Объедините несколько отчетов Mochawesome JSON</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Дополнительные библиотеки (не устанавливал)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npm i --save-dev <u-code-accent>mocha</u-code-accent> <u-code-accent>cypress-multi-reporters</u-code-accent>
+</v-pre-npm>
