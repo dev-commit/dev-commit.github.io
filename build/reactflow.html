@@ -671,6 +671,20 @@ export const initialEdges = [
     <li><u-code-text>&lt;EdgeLabelRenderer&gt;</u-code-text> - кастомные элементов на линии</li>
 </ul>
 
+<v-code lang="js border" title="">
+export declare enum ConnectionLineType {
+  Bezier = "default",           // => getBezierPath
+  Straight = "straight",        // => getStraightPath
+  Step = "step",                // => 
+  SmoothStep = "smoothstep",    // => getSmoothStepPath
+  SimpleBezier = "simplebezier" // => getSimpleBezierPath
+}
+</v-code>
+
+<u-message-warn>
+Неизвестно что указать для "step". Нет "getStepPath"
+</u-message-warn>
+
 <v-code lang="ts" title="">
 import { BaseEdge, EdgeLabelRenderer } from "reactflow"
 
