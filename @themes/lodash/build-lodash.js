@@ -4,8 +4,7 @@ ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            getLink(root, 'info'),
-            [root+'main/package-types', 'Типы для пакетов'],
+            getLink(root, 'install'),
         ]
     },
     {
