@@ -1,0 +1,29 @@
+<h2>plugin-register-components</h2>
+
+<u-link-wrapper>
+    <a href="https://ecosystem.vuejs.press/plugins/tools/register-components" target="_blank">https://ecosystem.vuejs.press/plugins/tools/register-components</a>
+</u-link-wrapper>
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>@vuepress/plugin-register-components</u-code-accent>
+</v-pre-npm>
+
+<v-path>docs\.vuepress\config.js</v-path>
+<v-code lang="js" title="">
+import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
+import { getDirname, path } from "@vuepress/utils";
+
+const __dirname = getDirname(import.meta.url);
+
+export default defineUserConfig({
+    registerComponentsPlugin({
+      components: {
+        ["v-details"]: path.resolve(__dirname, "./components/v-details.vue"),
+        ["v-iframe"]: path.resolve(__dirname, "./components/v-iframe.vue"),
+      },
+    }),
+});
+</v-code>
+
+<v-path>docs\.vuepress\components\v-details.vue</v-path>
+<v-path>docs\.vuepress\components\v-iframe.vue</v-path>

@@ -4,8 +4,8 @@
 // actual, accent
 // none1, none2
 
-const theory = '🪃 ';
-const action = '⚾️ ';
+const theory = '📑 ';
+const action = '🍧 ';
 
 const ARR_LINKS = [
     { page: 'js-task',                 theme: 'brown',    title: 'Задачи' },
@@ -68,6 +68,7 @@ const ARR_LINKS = [
     { page: 'react-native',            theme: 'actual',   title: 'React Native' },
     null,
     { page: 'vue-js',                  theme: 'crimson',  title: action+'Vue.js' },
+    { page: 'vuepress',                theme: 'crimson',    title: 'VuePress' },
     { page: 'vue-vuex',                theme: 'white',    title: 'Vuex' },
     { page: 'vue-router',              theme: 'white',    title: 'Vue Router' },
     { page: 'vue-cli',                 theme: 'white',    title: 'Vue CLI' },

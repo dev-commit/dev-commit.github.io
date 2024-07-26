@@ -1,0 +1,24 @@
+<h2>Deploy</h2>
+
+<u-message-info>
+<ul class="list-point">
+    <li>Деплой стандартно через библиотеку <u>gh-pages</u></li>
+    <li><v-link url="https://dev-commit.github.io/pages/git-managers#git-managers/github-pages/info" title="Ссылка на методичку" /></li>
+</ul>
+</u-message-info>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Корректировка путей (если не корневая директория)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+Например, репозиторий и приложение находятся по следующим путям:
+<ul class="list-point">
+    <li><u>https://github.com/username/<u-code>workbook</u-code></u> - репозиторий</li>
+    <li><u>https://username.github.io/<u-code>workbook</u-code></u> - деплой приложения</li>
+</ul>
+
+<v-path>docs\.vuepress\config.js</v-path>
+<v-code lang="js" title="">
+export default defineUserConfig({
+    base: "/workbook/",
+});
+</v-code>

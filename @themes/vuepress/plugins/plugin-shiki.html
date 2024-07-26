@@ -1,0 +1,26 @@
+<h2>plugin-shiki</h2>
+
+<u-link-wrapper>
+    <a href="https://ecosystem.vuejs.press/plugins/markdown/shiki" target="_blank">https://ecosystem.vuejs.press/plugins/markdown/shiki</a>
+    <a href="https://shiki.style/themes" target="_blank">https://shiki.style/themes</a>
+    <a href="https://shiki.style/languages" target="_blank">https://shiki.style/languages</a>
+</u-link-wrapper>
+
+@vuepress/plugin-shiki
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>@vuepress/plugin-shiki@next</u-code-accent>
+</v-pre-npm>
+
+<v-path>docs\.vuepress\config.js</v-path>
+
+<v-code lang="js" title="">
+import { shikiPlugin } from "@vuepress/plugin-shiki";
+
+export default defineUserConfig({
+    shikiPlugin({
+      langs: ["js", "ts", "json", "vue", "md", "bash", "diff"],
+      theme: "one-light",
+    }),
+});
+</v-code>
