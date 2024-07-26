@@ -4,6 +4,13 @@ commentProto = ' <u-code-comment>__proto__</u-code-comment>';
 
 ARR_MODULE = [
     {
+        title: 'Use Cases',
+        accent: true,
+        themes: [
+            [root+'use-cases/add-prop-check', 'Добавить свойство с проверкой'],
+        ]
+    },
+    {
         title: 'Методы',
         accent: true,
         themes: [

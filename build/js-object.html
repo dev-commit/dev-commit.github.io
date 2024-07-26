@@ -25,7 +25,17 @@
                         >
                         <a href="#links" class="top-link" v-html="'Object'"></a>
                     </div>
-                    <h4>🏷️ Методы</h4><ul>
+                    <h4>🏷️ Use Cases</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-object/use-cases/add-prop-check"
+            href="#js-object/use-cases/add-prop-check"
+        >
+            Добавить свойство с проверкой
+        </a>
+    </li>
+</ul><h4>🏷️ Методы</h4><ul>
     <li>
         <a
             class="menu-link"
@@ -356,7 +366,21 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="js-object/methods/object-create"><h2>Object.create</h2>
+                    <div id="content"><div id="js-object/use-cases/add-prop-check"><h2>Добавить свойство с проверкой</h2>
+
+<ul class="list-point">
+    <li>Добавлять свойство только в том случае, если оно передано</li>
+</ul>
+
+<v-code lang="js" title="">
+const age = 23
+
+const obj = {
+	name: 'Tony',
+	...(age && {age})
+}
+</v-code>
+</div><div id="js-object/methods/object-create"><h2>Object.create</h2>
 
 <div class="v-method-wrapper">
     <v-method before="Object." method="create" after="" arg="(proto, propertiesObject)">
