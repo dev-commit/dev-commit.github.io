@@ -49,5 +49,14 @@ ARR_MODULE = [
             [root+'husky/install', emoji.code+'Установка и настройка'],
         ]
     },
+    {
+        title: 'MarkdownLint',
+        themes: [
+            [root+'markdownlint/disable', 'Disable'],
+        ]
+    },
 ]
+
+
+
 

@@ -372,6 +372,9 @@
     <li>Добавлять свойство только в том случае, если оно передано</li>
 </ul>
 
+<!------------------------------------------------------------->
+<h4>Основной пример</h4>
+<!------------------------------------------------------------->
 <v-code lang="js" title="">
 const age = 23
 
@@ -379,6 +382,49 @@ const obj = {
 	name: 'Tony',
 	...(age && {age})
 }
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример с флагом</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const flag = true;
+const obj = {
+	name: 'Tony',
+	...(flag && {`
+		age: 23
+	})
+}
+
+console.log(obj);
+</v-code>
+
+<v-code lang="js" title="">
+const flag = true;
+const age = flag && {
+	age: 23
+}
+
+const obj = {
+	name: 'Tony',
+	...age
+}
+
+// => { name: 'Tony', age: 23 }
+console.log(obj);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>React Component</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const flag = true;
+
+&lt;App
+    {...(flag &amp;&amp; {
+        title: &apos;Hello&apos;
+    })}
+/&gt;
 </v-code>
 </div><div id="js-object/methods/object-create"><h2>Object.create</h2>
 

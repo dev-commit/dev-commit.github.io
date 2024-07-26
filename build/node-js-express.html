@@ -229,6 +229,29 @@ app.<u-code-mod>get</u-code-mod>('/url', (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, '127.0.0.1');
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Общее</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const app = express();
+// app.use(express.json());
+
+// req - Readable, res - Writable
+app.post("path", parser,  (req, res) => {
+	// может получить req.body, только если указали app.use(express.json())
+	// иначе будет undefined, т.к. это stream
+  console.log(req.body);
+});
+
+// Можно добавить свой Middleware
+// parser - Middleware
+app.post("path", parser,  (req, res) => {
+	// можем получить req.body, только если указали app.use(express.json())
+	// иначе будет undefined, т.к. это stream
+  console.log(req.body);
+});
+</v-code>
 </div><div id="node-js-express/routing/routes"><h2>Маршрутизация</h2>
 
 <!------------------------------------------------------------->
