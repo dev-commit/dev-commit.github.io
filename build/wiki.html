@@ -39,16 +39,6 @@
     <li>
         <a
             class="menu-link"
-            id="id__wiki/main/snippets"
-            href="#wiki/main/snippets"
-        >
-            Сниппеты
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
             id="id__wiki/main/symbols"
             href="#wiki/main/symbols"
         >
@@ -435,111 +425,6 @@
 <v-code lang="html" title="">
 › <span v-pre>&lt;span v-pre&gt;{{ values: true }}&lt;/span&gt;</span>
 </v-code>
-</div><div id="wiki/main/snippets"><h2>Сниппеты</h2>
-
-<!------------------------------------------------------------->
-<h4>Headers</h4>
-<!------------------------------------------------------------->
-<table>
-    <tr>
-        <td><u-code-text>=h3</u-code-text></td>
-        <td>h3</td>
-    </tr>
-    <tr>
-        <td><u-code-text>=h4</u-code-text></td>
-        <td>h4</td>
-    </tr>
-</table>
-
-<!------------------------------------------------------------->
-<h4>Lists</h4>
-<!------------------------------------------------------------->
-<table>
-    <tr>
-        <td><u-code-text>=lp</u-code-text></td>
-        <td>ul -> list-point</td>
-    </tr>
-    <tr>
-        <td><u-code-text>=ln</u-code-text></td>
-        <td>ol -> list-num</td>
-    </tr>
-    <tr>
-        <td><u-code-text>=ld</u-code-text></td>
-        <td>ul -> list-point -> u-text-define</td>
-    </tr>
-</table>
-
-<!------------------------------------------------------------->
-<h4>Links</h4>
-<!------------------------------------------------------------->
-<table>
-    <tr>
-        <td><u-code-text>=a</u-code-text></td>
-        <td>a</td>
-    </tr>
-    <tr>
-        <td><u-code-text>=aw</u-code-text></td>
-        <td>u-link-wrapper -> a</td>
-    </tr>
-</table>
-
-<!------------------------------------------------------------->
-<h4>Code & Blocks</h4>
-<!------------------------------------------------------------->
-<table>
-    <tr>
-        <td><u-code-text>=c</u-code-text></td>
-        <td>v-code</td>
-    </tr>
-    <tr>
-        <td><u-code-text>=two</u-code-text></td>
-        <td>v-two</td>
-    </tr>
-    <tr>
-        <td><u-code-text>=twocode</u-code-text></td>
-        <td>v-two-code</td>
-    </tr>
-    <tr>
-        <td><u-code-text>=ct</u-code-text></td>
-        <td>u-code-text</td>
-    </tr>
-</table>
-
-<!------------------------------------------------------------->
-<h4>Messages</h4>
-<!------------------------------------------------------------->
-<table>
-    <tr>
-        <td><u-code-text>=mo</u-code-text></td>
-        <td>u-message-ok</td>
-    </tr>
-    <tr>
-        <td><u-code-text>=mi</u-code-text></td>
-        <td>u-message-info</td>
-    </tr>
-    <tr>
-        <td><u-code-text>=mw</u-code-text></td>
-        <td>u-message-warn</td>
-    </tr>
-    <tr>
-        <td><u-code-text>=me</u-code-text></td>
-        <td>u-message-error</td>
-    </tr>
-    <tr>
-        <td><u-code-text>=mc</u-code-text></td>
-        <td>u-message-comment</td>
-    </tr>
-</table>
-
-<!------------------------------------------------------------->
-<h4>Other</h4>
-<!------------------------------------------------------------->
-<table>
-    <tr>
-        <td><u-code-text>=t</u-code-text></td>
-        <td>v-tabs</td>
-    </tr>
-</table>
 </div><div id="wiki/main/symbols"><h2>Символы</h2>
 
 
@@ -1279,6 +1164,12 @@ Hidden Content
 <v-copy>Copy to clipboard</v-copy>
 </div><div id="wiki/vue-components/v-link"><h2><u-code-text>v-link</u-code-text></h2>
 
+<ul class="list-point">
+    <li><u-code-accent>url</u-code-accent> - string</li>
+    <li><u-code-accent>title</u-code-accent> - string</li>
+    <li><u-code-accent>block</u-code-accent> - boolean</li>
+</ul>
+
 <table>
     <tr>
         <td class="code">&lt;v-link url=&quot;https://yandex.ru/&quot; /&gt;</td>
@@ -1287,6 +1178,10 @@ Hidden Content
     <tr>
         <td class="code">&lt;v-link url=&quot;https://yandex.ru/&quot; title=&quot;Hello&quot; /&gt;</td>
         <td><v-link url="https://yandex.ru/" title="Hello" /></td>
+    </tr>
+    <tr>
+        <td class="code">&lt;v-link url=&quot;https://yandex.ru/&quot; block=&quot;true&quot; /&gt;</td>
+        <td><v-link url="https://yandex.ru/" block="true" /></td>
     </tr>
 </table>
 </div><div id="wiki/vue-components/v-tree"><h2><u-code-text>v-tree</u-code-text></h2>
