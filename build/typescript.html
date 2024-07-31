@@ -509,6 +509,16 @@
     <li>
         <a
             class="menu-link"
+            id="id__typescript/react/CSSProperties"
+            href="#typescript/react/CSSProperties"
+        >
+            <u-menu-accent>CSSProperties</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
             id="id__typescript/react/useState"
             href="#typescript/react/useState"
         >
@@ -2347,7 +2357,6 @@ const handleClick = (event: SyntheticEvent&lt;EventTarget&gt;) => {
 type Props = {
     tooltip: React.ReactElement;
     navTab: React.HTMLAttributes&lt;HTMLButtonElement&gt;;
-    style?: React.CSSProperties;
 }
 </v-code>
 
@@ -2433,6 +2442,33 @@ export interface <u-code>IBarProps</u-code> {
 const <u-code-accent>Bar</u-code-accent>: React.FC&lt;IBarProps&gt; = props =&gt; {
   return &lt;h1&gt;{props.data}&lt;/h1&gt;;
 };
+</v-code>
+</div><div id="typescript/react/CSSProperties"><h2>CSSProperties</h2>
+
+<v-code lang="js" title="">
+const App = () => {
+    return (
+        &lt;Child style=<span v-pre>{{</span> top: 10, left: 10 }} /&gt;
+    )
+}
+</v-code>
+
+<v-code lang="js" title="">
+import { CSSProperties } from "react"
+
+interface IChildProps {
+    id: string
+    style?: <u-code>CSSProperties</u-code>
+}
+
+const Child: React.FC<IChildProps> = (props) => {
+    const { style } = props
+
+    return (
+        &lt;div style={style}&gt;&lt;/div&gt;
+    )
+}
+
 </v-code>
 </div><div id="typescript/react/useState"><h2>useState</h2>
 

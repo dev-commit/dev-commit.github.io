@@ -97,6 +97,7 @@ ARR_MODULE = [
         themes: [
             [root+'react/types',        emoji.unicorn+'Типы в React'],
             [root+'react/component',    setTheme(3, ['Component'])],
+            [root+'react/CSSProperties',    setTheme(3, ['CSSProperties'])],
             [root+'react/useState',     setTheme(3, ['useState'])],
             [root+'react/useRef',       setTheme(3, ['useRef'])],
             [root+'react/children',     setTheme(3, ['Children'])],

@@ -342,7 +342,7 @@ const App = () => {
     return (
         &lt;&gt;
             &lt;div css={css({ color: &quot;blue&quot; })}&gt;Hello&lt;/div&gt;
-            &lt;div css=<span v-pre>{{</span> color: &quot;blue&quot; <span v-pre>}}</span>&gt;Hello&lt;/div&gt;
+            &lt;div css=<span v-pre>{{</span> color: &quot;blue&quot; }}&gt;Hello&lt;/div&gt;
             &lt;Button css={buttonStyles}&gt;Click&lt;/Button&gt;
         &lt;/&gt;
     )
@@ -378,8 +378,8 @@ const Material = ({ classes }) =&gt; {
             &lt;Button
                 variant="contained"
                 color="primary"
-                onClick={() =&gt; { alert('clicked') <span v-pre>}}</span>
-                classes=<span v-pre>{{</span> root: classes.root <span v-pre>}}</span>
+                onClick={() =&gt; { alert('clicked') }}
+                classes=<span v-pre>{{</span> root: classes.root }}
             &gt;
                 Hello World
             &lt;/Button&gt;
@@ -431,7 +431,7 @@ const Component = ({ classes }) => {
 		&lt;&gt;
 			&lt;div className={classes.wrapper}&gt;&lt;/div&gt;
 			&lt;div className={cn(classes.one, classes.two)}&gt;&lt;/div&gt;
-			&lt;OtherComponent classes=<span v-pre>{{</span> root: classes.test <span v-pre>}}</span> /&gt;
+			&lt;OtherComponent classes=<span v-pre>{{</span> root: classes.test }} /&gt;
 		&lt;/&gt;
 	);
 };
@@ -564,7 +564,7 @@ export const useStyles = makeStyles({
 const StatusButton = ({color, selected}) =&gt; {
     const btnClasses = useStyles({ color, selected });
     return (
-        &lt;Element classes=<span v-pre>{{</span> root: btnClasses.statusButton <span v-pre>}}</span> /&gt;
+        &lt;Element classes=<span v-pre>{{</span> root: btnClasses.statusButton }} /&gt;
     );
 };
 </v-code>
