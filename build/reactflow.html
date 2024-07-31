@@ -666,6 +666,10 @@ export const initialEdges = [
 </v-code>
 </div><div id="reactflow/elements/custom-edge"><h2>Custom Edge</h2>
 
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Custom Edge</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li><u-code-text>&lt;BaseEdge&gt;</u-code-text> - линия</li>
     <li><u-code-text>&lt;EdgeLabelRenderer&gt;</u-code-text> - кастомные элементов на линии</li>
@@ -684,6 +688,8 @@ export declare enum ConnectionLineType {
 <u-message-warn>
 Неизвестно что указать для "step". Нет "getStepPath"
 </u-message-warn>
+
+<v-path>./CustomEdge.tsx</v-path>
 
 <v-code lang="ts" title="">
 import { BaseEdge, EdgeLabelRenderer } from "reactflow"
@@ -727,7 +733,47 @@ const CustomEdge: React.FC&lt;ICustomEdgeProps&gt; = (props) => {
   )
 }
 
-export default CustomEdge;
+export default CustomEdge
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>App</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-path>./App.tsx</v-path>
+
+<v-code lang="js" title="">
+import CustomEdge from "./CustomEdge"
+
+const edgeTypes: EdgeTypes = {
+  'custom-edge': CustomEdge,
+}
+
+const App  = () => {
+  return (
+    &lt;ReactFlow
+      edgeTypes={edgeTypes}
+    /&gt;
+  )
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>initialState</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-path>./initialState.ts</v-path>
+
+<v-code lang="js" title="">
+export const initialEdges = [
+  {
+    id: "edge-1",
+    source: "node-1",
+    target: "node-2",
+    type: 'custom-edge',
+  },
+]
 </v-code>
 </div><div id="reactflow/elements/edge-styles"><h2>Edge Styles</h2>
 

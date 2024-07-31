@@ -200,7 +200,7 @@ Vue.component('v-path', {
     template: `
 		<div class="v-path-container">
 			<span class="v-path-divider"></span>
-			<span>
+			<span class="v-path-wrapper">
 				<slot></slot>
 			</span>
 		</div>
