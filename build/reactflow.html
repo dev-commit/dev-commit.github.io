@@ -668,14 +668,26 @@ export const initialEdges = [
 
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Custom Edge</h3>
+<h3>Элементы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li><u-code-text>&lt;BaseEdge&gt;</u-code-text> - линия</li>
-    <li><u-code-text>&lt;EdgeLabelRenderer&gt;</u-code-text> - кастомные элементов на линии</li>
+    <li><u-text-define>&lt;BaseEdge&gt;</u-text-define> - линия. Можно передать <u>markerEnd</u></li>
+    <li><u-text-define>&lt;EdgeLabelRenderer&gt;</u-text-define> - кастомные элементов на линии</li>
 </ul>
 
-<v-code lang="js border" title="">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Тип линии</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>ConnectionLineType</h4>
+<!------------------------------------------------------------->
+<u-message-warn>
+Неизвестно что указать для "step". Нет "getStepPath"
+</u-message-warn>
+
+<v-code lang="js none" title="">
 export declare enum ConnectionLineType {
   Bezier = "default",           // => getBezierPath
   Straight = "straight",        // => getStraightPath
@@ -685,47 +697,63 @@ export declare enum ConnectionLineType {
 }
 </v-code>
 
-<u-message-warn>
-Неизвестно что указать для "step". Нет "getStepPath"
-</u-message-warn>
-
-
-<v-tabs :tabs="['./CustomEdge.tsx', './App.tsx', './initialState.ts']">
-<template v-slot:1>
-<v-code lang="ts" title="">
-import { BaseEdge, EdgeLabelRenderer } from "reactflow"
-
+<!------------------------------------------------------------->
+<h4>Указание типа линии</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
 import {
   getBezierPath
-  // getSimpleBezierPath
-  // getSmoothStepPath
-  // getStraightPath
+  getSimpleBezierPath
+  getSmoothStepPath
+  getStraightPath
 } from "reactflow"
+</v-code>
 
-interface ICustomEdgeProps {
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-tabs :tabs="['CustomEdge.tsx', 'App.tsx', 'initialState.ts']">
+<template v-slot:1>
+<v-code lang="ts" title="">
+import { BaseEdge, EdgeLabelRenderer, getStraightPath } from "reactflow"
+
+interface IEdgeLabelProps {
   id: string
   sourceX: number
   sourceY: number
   targetX: number
   targetY: number
+  source: string
+  target: string
+  markerEnd?: string
 }
 
 const CustomEdge: React.FC&lt;ICustomEdgeProps&gt; = (props) => {
-  const { id, sourceX, sourceY, targetX, targetY } = props;
+  const {
+    id,
+    sourceX,
+    sourceY,
+    targetX,
+    targetY,
+    // source: nodeSource,
+    // target: nodeTarget,
+    markerEnd,
+  } = props
 
-  const [edgePath] = getBezierPath({ sourceX, sourceY, targetX, targetY });
+  const [edgePath] = getStraightPath({ sourceX, sourceY, targetX, targetY });
 
-  const styleEdgeLabelRenderer = {
+  const styleCenter = {
     transform: `translate(-50%, -50%) translate(${labelX}px,${labelY}px)`
   }
   const onClick = () => {}
 
   return (
     &lt;&gt;
-      &lt;<u-code-mod>BaseEdge</u-code-mod> id={id} path={edgePath} /&gt;
-      &lt;<u-code-mod>EdgeLabelRenderer</u-code-mod>&gt;
+      &lt;<u-code-accent>BaseEdge</u-code-accent> id={id} path={edgePath} markerEnd={markerEnd} /&gt;
+      &lt;<u-code-accent>EdgeLabelRenderer</u-code-accent>&gt;
         &lt;button
-          style={styleEdgeLabelRenderer}
+          style={styleCenter}
           className={cn("nodrag", "nopan")}
           onClick={onClick}
         /&gt;
@@ -749,6 +777,12 @@ const edgeTypes: EdgeTypes = {
 const edgeOptions = {
   // type: 'step',
   type: 'custom-edge',
+  markerEnd: {
+    type: MarkerType.ArrowClosed,
+    width: 25,
+    height: 25,
+    color: "#FF0072",
+  },
 }
 
 const App  = () => {
@@ -775,6 +809,7 @@ export const initialEdges = [
 </v-code>
 </template>
 </v-tabs>
+
 </div><div id="reactflow/elements/edge-styles"><h2>Edge Styles</h2>
 
 <v-code lang="js" title="">
