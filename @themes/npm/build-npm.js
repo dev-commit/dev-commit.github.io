@@ -18,6 +18,7 @@ ARR_MODULE = [
         themes: [
             [root+'packages/http-server',  setTheme(2, ['http-server'])],
             [root+'packages/json-server',  setTheme(2, ['json-server'])],
+            [root+'packages/npm-check-updates', setTheme(2, ['npm-check-updates'])],
             [root+'packages/concurrently', setTheme(2, ['concurrently'])],
         ]
     },
