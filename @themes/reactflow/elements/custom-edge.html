@@ -23,8 +23,9 @@ export declare enum ConnectionLineType {
 Неизвестно что указать для "step". Нет "getStepPath"
 </u-message-warn>
 
-<v-path>./CustomEdge.tsx</v-path>
 
+<v-tabs :tabs="['./CustomEdge.tsx', './App.tsx', './initialState.ts']">
+<template v-slot:1>
 <v-code lang="ts" title="">
 import { BaseEdge, EdgeLabelRenderer } from "reactflow"
 
@@ -69,13 +70,9 @@ const CustomEdge: React.FC&lt;ICustomEdgeProps&gt; = (props) => {
 
 export default CustomEdge
 </v-code>
+</template>
 
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>App</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-path>./App.tsx</v-path>
-
+<template v-slot:2>
 <v-code lang="js" title="">
 import CustomEdge from "./CustomEdge"
 
@@ -83,22 +80,23 @@ const edgeTypes: EdgeTypes = {
   'custom-edge': CustomEdge,
 }
 
+const edgeOptions = {
+  // type: 'step',
+  type: 'custom-edge',
+}
+
 const App  = () => {
   return (
     &lt;ReactFlow
       edgeTypes={edgeTypes}
+      defaultEdgeOptions={edgeOptions}
     /&gt;
   )
 }
 </v-code>
+</template>
 
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>initialState</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<v-path>./initialState.ts</v-path>
-
+<template v-slot:3>
 <v-code lang="js" title="">
 export const initialEdges = [
   {
@@ -109,3 +107,5 @@ export const initialEdges = [
   },
 ]
 </v-code>
+</template>
+</v-tabs>
