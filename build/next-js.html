@@ -205,6 +205,36 @@
             <u-menu-outline>ENV-переменные</u-menu-outline>
         </a>
     </li>
+</ul><h4>🏷️ TypeScript</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__next-js/typescript/install"
+            href="#next-js/typescript/install"
+        >
+            🧲 Установка и настройка
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__next-js/typescript/tsconfig"
+            href="#next-js/typescript/tsconfig"
+        >
+            tsconfig.json
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__next-js/typescript/custom-types"
+            href="#next-js/typescript/custom-types"
+        >
+            Пользовательские типы
+        </a>
+    </li>
 </ul><h4>🏷️ Деплой</h4><ul>
     <li>
         <a
@@ -1154,6 +1184,128 @@ API_URL=https://jsonplaceholder.typicode.com/
 </template>
 
 </v-tabs>
+</div><div id="next-js/typescript/install"><h2>Установка и настройка</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>typescript</u-code-accent>
+    <u-code-accent>@types/node</u-code-accent>
+    <u-code-accent>@types/react</u-code-accent>
+    <u-code-accent>@types/react-dom</u-code-accent>
+</v-pre-npm>
+
+<v-path>package.json</v-path>
+<v-code lang="json" title="">
+{
+  "dependencies": {
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "14.2.4"
+  },
+  "devDependencies": {
+<u-code-wrapper>
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+
+</u-code-wrapper>
+    "eslint": "^8",
+    "eslint-config-next": "14.2.4"
+  }
+}
+</v-code>
+</div><div id="next-js/typescript/tsconfig"><h2>tsconfig.json</h2>
+
+<v-path>tsconfig.json</v-path>
+<v-code lang="js" title="">
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+<</div><div id="next-js/typescript/custom-types"><h2>Пользовательские типы</h2>
+
+<u-link-wrapper>
+    <a href="https://nextjs.org/docs/pages/building-your-application/configuring/typescript#custom-type-declarations" target="_blank">Documentation: Custom Type Declarations</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файл "next-env.d.ts" и tsconfig.json</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Файл "next-env.d.ts" генерируется автоматически, поэтому любые внесенные изменения будут перезаписаны при запуске проекта</li>
+</ul>
+
+<v-path>next-env.d</v-path>
+<v-code lang="js" title="">
+/// &lt;reference types=&quot;next&quot; /&gt;
+/// &lt;reference types=&quot;next/image-types/global&quot; /&gt;
+
+// NOTE: This file should not be edited
+// see https://nextjs.org/docs/basic-features/typescript for more information.
+</v-code>
+
+<ul class="list-point">
+    <li>Вместо этого нужно создать новый файл, например "types.d.ts" и указать его в tsconfig.json</li>
+</ul>
+
+<v-path>types.d.ts</v-path>
+<v-code lang="js" title="">
+interface IRootLayout {
+  children: React.ReactNode
+}
+</v-code>
+
+<v-path>tsconfig.json</v-path>
+<v-code lang="js" title="">
+{
+  "include": [
+    "types.d.ts",
+    "next-env.d.ts",
+  ],
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование типов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Для использования пользовательских типов не нужен дополнительный импорт типа</li>
+</ul>
+
+<v-path>app\layout.tsx</v-path>
+<v-code lang="js" title="">
+const RootLayout = (props: IRootLayout) => {
+  const { children } = props
+
+  return (
+    &lt;html lang=&quot;ru&quot; className={FontClasses}&gt;
+      &lt;body&gt;{children}&lt;/body&gt;
+    &lt;/html&gt;
+  )
+}
+</v-code>
 </div><div id="next-js/deploy/vercel"><h2>Деплой на Vercel</h2>
 
 <ol class="list-num">

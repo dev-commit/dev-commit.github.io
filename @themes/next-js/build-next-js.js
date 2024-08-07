@@ -48,6 +48,16 @@ ARR_MODULE = [
             [root+'settings/env',  setTheme(5, ['ENV-переменные'])],
         ]
     },
+
+    {
+        title: 'TypeScript',
+        themes: [
+            [root+'typescript/install', emoji.code+'Установка и настройка'],
+            [root+'typescript/tsconfig', 'tsconfig.json'],
+            [root+'typescript/custom-types', 'Пользовательские типы'],
+        ]
+    },
+
     {
         title: 'Деплой',
         themes: [

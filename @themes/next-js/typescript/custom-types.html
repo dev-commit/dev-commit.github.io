@@ -1,0 +1,62 @@
+<h2>Пользовательские типы</h2>
+
+<u-link-wrapper>
+    <a href="https://nextjs.org/docs/pages/building-your-application/configuring/typescript#custom-type-declarations" target="_blank">Documentation: Custom Type Declarations</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файл "next-env.d.ts" и tsconfig.json</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Файл "next-env.d.ts" генерируется автоматически, поэтому любые внесенные изменения будут перезаписаны при запуске проекта</li>
+</ul>
+
+<v-path>next-env.d</v-path>
+<v-code lang="js" title="">
+/// &lt;reference types=&quot;next&quot; /&gt;
+/// &lt;reference types=&quot;next/image-types/global&quot; /&gt;
+
+// NOTE: This file should not be edited
+// see https://nextjs.org/docs/basic-features/typescript for more information.
+</v-code>
+
+<ul class="list-point">
+    <li>Вместо этого нужно создать новый файл, например "types.d.ts" и указать его в tsconfig.json</li>
+</ul>
+
+<v-path>types.d.ts</v-path>
+<v-code lang="js" title="">
+interface IRootLayout {
+  children: React.ReactNode
+}
+</v-code>
+
+<v-path>tsconfig.json</v-path>
+<v-code lang="js" title="">
+{
+  "include": [
+    "types.d.ts",
+    "next-env.d.ts",
+  ],
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование типов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Для использования пользовательских типов не нужен дополнительный импорт типа</li>
+</ul>
+
+<v-path>app\layout.tsx</v-path>
+<v-code lang="js" title="">
+const RootLayout = (props: IRootLayout) => {
+  const { children } = props
+
+  return (
+    &lt;html lang=&quot;ru&quot; className={FontClasses}&gt;
+      &lt;body&gt;{children}&lt;/body&gt;
+    &lt;/html&gt;
+  )
+}
+</v-code>
