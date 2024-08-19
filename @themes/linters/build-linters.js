@@ -50,8 +50,9 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'MarkdownLint',
+        title: 'MarkdownLint (VSCode Extension)',
         themes: [
+            [root+'markdownlint/info',    emoji.theory+'Информация'],
             [root+'markdownlint/disable', 'Disable'],
         ]
     },
