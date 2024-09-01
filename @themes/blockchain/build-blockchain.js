@@ -1,7 +1,6 @@
 root = 'blockchain/';
 
 ARR_MODULE = [
-
     {
         title: 'Основное',
         themes: [
@@ -40,6 +39,13 @@ ARR_MODULE = [
             [root+'application-web3/application-web3', emoji.theory+'Application Web 3.0'],
             [root+'application-web3/web3',             setTheme(1, ['Web3.js', 'Ethers.js'])],
             [root+'application-web3/truffle',          setTheme(6, ['Truffle'])],
+        ]
+    },
+    {
+        title: 'Теория',
+        themes: [
+            [root+'theory/crypto-coins', emoji.theory+'Crypto Coins'],
+            [root+'theory/subtypes-cryptocurrency', emoji.theory+'Подтипы криптовалюты'],
         ]
     },
 ]
