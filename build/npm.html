@@ -149,10 +149,50 @@
     <li>
         <a
             class="menu-link"
-            id="id__npm/yarn/main"
-            href="#npm/yarn/main"
+            id="id__npm/yarn/info"
+            href="#npm/yarn/info"
         >
-            Основное
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__npm/yarn/install"
+            href="#npm/yarn/install"
+        >
+            🧲 Установка и настройка
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__npm/yarn/commands"
+            href="#npm/yarn/commands"
+        >
+            Команды
+        </a>
+    </li>
+</ul><h4>🏷️ Pnpm</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__npm/pnpm/info"
+            href="#npm/pnpm/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__npm/pnpm/install"
+            href="#npm/pnpm/install"
+        >
+            🧲 Установка и настройка
         </a>
     </li>
 </ul>
@@ -523,10 +563,23 @@ npm run server # выполнение скрипта из package.json (анал
 	<li>При вызове <em>npm install</em>, npm установит пакеты указанные в dependencies, но не в devDependencies</li>
 	<li>Если сделать <em>npm install</em> внутри папки, в которой есть package.json, то установятся и те, и другие</li>
 </ul>
-</div><div id="npm/yarn/main"><h2>Основное</h2>
+</div><div id="npm/yarn/info"><h2>Информация</h2>
+
+<u-link-wrapper>
+    <a href="https://yarnpkg.com/" target="_blank">https://yarnpkg.com/</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Yarn</u-text-define> - менеджер пакетов</li>
+</ul>
+</div><div id="npm/yarn/install"><h2>Установка и настройка</h2>
+
+<v-pre-npm>
+npm i -g <u-code-accent>yarn</u-code-accent>
+</v-pre-npm>
+</div><div id="npm/yarn/commands"><h2>Команды</h2>
 
 <v-code lang="bash" title="">
-npm i yarn -g                 # установка yarn
 yarn                          # установка всех зависимостей из package.json
 yarn add name_package         # установка в "dependencies" (npm i --save)
 yarn add --dev name_package   # установка в "devDependencies" (npm i --save-dev)
@@ -535,6 +588,24 @@ yarn add --dev name_package   # установка в "devDependencies" (npm i -
 <v-code lang="bash" title="">
 yarn add @material-ui/icons -W
 </v-code>
+</div><div id="npm/pnpm/info"><h2>Информация</h2>
+
+<u-link-wrapper>
+    <a href="https://pnpm.io/" target="_blank">https://pnpm.io/</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Pnpm</u-text-define> - менеджер пакетов</li>
+</ul>
+</div><div id="npm/pnpm/install"><h2>Установка и настройка</h2>
+
+<u-link-wrapper>
+    <a href="https://pnpm.io/ru/installation" target="_blank">https://pnpm.io/ru/installation</a>
+</u-link-wrapper>
+
+<v-pre-npm>
+npm i -g <u-code-accent>pnpm</u-code-accent>
+</v-pre-npm>
 </div></div>
                 </div>
             </div>

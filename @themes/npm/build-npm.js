@@ -32,7 +32,16 @@ ARR_MODULE = [
     {
         title: 'Yarn',
         themes: [
-            [root+'yarn/main', 'Основное'],
+            [root+'yarn/info', emoji.theory+'Информация'],
+            [root+'yarn/install', emoji.code+'Установка и настройка'],
+            [root+'yarn/commands', 'Команды'],
+        ]
+    },
+    {
+        title: 'Pnpm',
+        themes: [
+            [root+'pnpm/info', emoji.theory+'Информация'],
+            [root+'pnpm/install', emoji.code+'Установка и настройка'],
         ]
     },
 ]
