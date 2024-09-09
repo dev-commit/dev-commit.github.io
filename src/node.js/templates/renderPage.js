@@ -14,6 +14,9 @@ export const renderPage = ({ up, title, page, menu, content }) => (`
             <script src="${up}@themes/${page}/build-${page}.js"></script>
         </head>
         <body>
+            <div id="search">
+                <a href="/search">🎲</a>
+            </div>
 
             <div id="container">
                 <div id="menu" :class="{ hide:isHideMenu }">
