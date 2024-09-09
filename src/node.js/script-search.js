@@ -62,7 +62,7 @@ async function extractAndSaveHeadings() {
 
 
   if (headings.length > 0) {
-    fs.writeFileSync("search.js", 'const searchArr = ' + JSON.stringify(headings), "utf-8") // Запись заголовков в .js файл
+    fs.writeFileSync("search-data.js", 'const searchArr = ' + JSON.stringify(headings), "utf-8") // Запись заголовков в .js файл
     console.log("Saved in file search.js")
   } else {
     console.log("No data")

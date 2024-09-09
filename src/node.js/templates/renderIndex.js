@@ -9,10 +9,6 @@ export const renderIndex = (title) => (`
     </head>
     <body>
 
-        <div id="search">
-            <a href="./search">🎲</a>
-        </div>
-
         <div id="container">
             <div id="wrapper">
 

@@ -282,18 +282,38 @@ MENU HIDE
 /***************************************************
 SEARCH
 /***************************************************/
-#search {
+.search-wrapper {
 	position: absolute;
 	top: 20px;
 	right: 20px;
-	width: 35px;
-	height: 35px;
-	background-color: #ebebeb;
-	border-radius: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	width: 200px;
+	border: 1px solid gray;
+	height: auto;
+	max-height: 500px;
+	overflow-y: auto;
+	z-index: 100;
+	background-color: #fff;
+	box-shadow: var(--box-shadow);
 }
+.search-link {
+	text-decoration: none;
+	color: gray;
+	display: block;
+	margin-bottom: 4px;
+	font-family: sans-serif;
+	border-bottom: 1px solid #e2e2e2;
+	padding: 5px 10px;
+}
+.search-link:last-child {
+	border-bottom: none;
+}
+.search-input {
+	width: 100%;
+	padding: 10px;
+	outline: none;
+	border: 1px solid #e2e2e2;
+}
+
 
 /***************************************************
 ADAPTIVE

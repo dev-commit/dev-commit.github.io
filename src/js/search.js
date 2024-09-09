@@ -1,0 +1,31 @@
+const inputElement = document.getElementById('search-input');
+const resultElement = document.getElementById('search-result');
+
+inputElement.value = ''
+
+inputElement.addEventListener('input', function(event) {
+    const value = event.target.value;
+
+    const resultArr = []
+
+    searchArr.forEach(element => {
+        element.title.forEach(el => {
+            const a1 = el.toUpperCase()
+            const a2 = value.toUpperCase()
+
+            if (a1.includes(a2)) {
+                resultArr.push({
+                    title: el,
+                    path: element.path
+                })
+            }
+        })
+    })
+
+    let html = '';
+    resultArr.forEach(element => {
+        html += `<a class="search-link" href="${element.path}">${element.title}</a>`
+    })
+
+    resultElement.innerHTML = html
+});

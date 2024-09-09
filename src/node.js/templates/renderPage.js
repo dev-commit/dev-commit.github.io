@@ -14,8 +14,10 @@ export const renderPage = ({ up, title, page, menu, content }) => (`
             <script src="${up}@themes/${page}/build-${page}.js"></script>
         </head>
         <body>
-            <div id="search">
-                <a href="/search">🎲</a>
+
+            <div class="search-wrapper">
+                <input class="search-input" id="search-input" type="text" />
+                <div id="search-result"></div>
             </div>
 
             <div id="container">
@@ -76,6 +78,10 @@ export const renderPage = ({ up, title, page, menu, content }) => (`
             <script src="${up}src/js/init.js"></script>
             <script src="${up}@modules/@links.js"></script>
             <script src="${up}src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="${up}search-data.js"></script>
+            <script src="${up}src/js/search.js"></script>
         </body>
     </html>
 `);
