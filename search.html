@@ -1,46 +1,78 @@
-
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>Search</title>
-      <meta charset="UTF-8">
-      <style>
-    a {
-      text-decoration: none;
-      color: gray;
-      display: block;
-      margin-bottom: 4px;
-      font-family: sans-serif;
-      border-bottom: 1px solid gray;
-      padding: 5px;
-      max-width: 50%;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="custom/favicon.svg">
+    <title>Search</title>
+    <style>
+    * {
+        box-sizing: border-box;
     }
-  </style>
-    </head>
-    <body>
-      <a href="/pages/agile#agile/agile/agile">Agile,Agile-манифест</a>
-<a href="/pages/agile#agile/agile/backlog">Board and Tasks,Backlog,Sprint,Cпринт</a>
-<a href="/pages/bem#bem/main/info">БЭМ</a>
-<a href="/pages/js-array#js-array/cycles/every">every,/some</a>
-<a href="/pages/js-array#js-array/cycles/filter">filter</a>
-<a href="/pages/js-array#js-array/cycles/for-while">for,while</a>
-<a href="/pages/js-array#js-array/cycles/forEach">forEach</a>
-<a href="/pages/js-array#js-array/cycles/map">map</a>
-<a href="/pages/js-array#js-array/cycles/reduce">reduce,reduceRight</a>
-<a href="/pages/js-array#js-array/methods/at">Array.prototype.at()</a>
-<a href="/pages/js-array#js-array/methods/fill">Array.prototype.fill()</a>
-<a href="/pages/js-array#js-array/methods/find">Array.prototype.find()</a>
-<a href="/pages/js-array#js-array/methods/flat">flat</a>
-<a href="/pages/js-array#js-array/methods/flatMap">Array.prototype.flatMap()</a>
-<a href="/pages/js-array#js-array/methods/from">Array.from()</a>
-<a href="/pages/js-array#js-array/methods/includes">includes</a>
-<a href="/pages/js-array#js-array/methods/indexOf">indexOf,lastIndexOf</a>
-<a href="/pages/js-array#js-array/methods/isArray">isArray</a>
-<a href="/pages/js-array#js-array/methods/join">join,split</a>
-<a href="/pages/js-array#js-array/methods/length">length,reverse,concat</a>
-<a href="/pages/js-array#js-array/methods/push">push,pop,unshift,shift</a>
-<a href="/pages/js-array#js-array/methods/slice">slice,splice</a>
-<a href="/pages/js-array#js-array/methods/sort">sort,toSorted</a>
-    </body>
-    </html>
-  
+    .wrapper {
+        width: 300px;
+        border: 1px solid #000;
+        height: 500px;
+        overflow-y: auto;
+    }
+    a {
+        text-decoration: none;
+        color: gray;
+        display: block;
+        margin-bottom: 4px;
+        font-family: sans-serif;
+        border-bottom: 1px solid gray;
+        padding: 5px 10px;
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        outline: 1px solid gray;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <input id="input" type="text" />
+        <div id="result"></div>
+    </div>
+
+    <script src="search.js"></script>
+
+    <script>
+        const inputElement = document.getElementById('input');
+        const resultElement = document.getElementById('result');
+
+        inputElement.value = ''
+
+        inputElement.addEventListener('input', function(event) {
+            const value = event.target.value;
+
+            const resultArr = []
+
+            searchArr.forEach(element => {
+                element.title.forEach(el => {
+                    const a1 = el.toUpperCase()
+                    const a2 = value.toUpperCase()
+
+                    if (a1.includes(a2)) {
+                        resultArr.push({
+                            title: el,
+                            path: element.path
+                        })
+                    }
+                })
+            })
+
+            const inputElement = document.getElementById('input');
+
+            let html = '';
+            resultArr.forEach(element => {
+                html += `<a href="${element.path}">${element.title}</a>`
+            })
+
+            resultElement.innerHTML = html
+        });
+    </script>
+</body>
+</html>

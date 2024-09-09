@@ -18,36 +18,6 @@ const checkFile = (file) => {
   return urlLocal+result
 }
 
-const getHtml = (data) => {
-  const styles = `
-    a {
-      text-decoration: none;
-      color: gray;
-      display: block;
-      margin-bottom: 4px;
-      font-family: sans-serif;
-      border-bottom: 1px solid gray;
-      padding: 5px;
-      max-width: 50%;
-    }
-  `
-  const html = `
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>Search</title>
-      <meta charset="UTF-8">
-      <style>${styles}</style>
-    </head>
-    <body>
-      ${data}
-    </body>
-    </html>
-  `
-
-  return html;
-}
-
 //----------------------------------------------
 
 // Функция для поиска всех .html файлов в директории src и поддиректориях
@@ -62,7 +32,7 @@ function findHtmlFiles(dir) {
 
 // Функция для извлечения текста между тегами <h1></h1>
 function extractTagsContent(htmlContent) {
-  const regex = /<search>(.*?)<\/search>/g
+  const regex = /<f-search>(.*?)<\/f-search>/g
   const matches = []
   let match
   while ((match = regex.exec(htmlContent)) !== null) {
@@ -70,7 +40,6 @@ function extractTagsContent(htmlContent) {
   }
   return matches
 }
-
 
 // Главная функция для поиска заголовков и записи их в .html файл
 async function extractAndSaveHeadings() {
@@ -83,15 +52,18 @@ async function extractAndSaveHeadings() {
 
     if (tagHeadings.length !== 0) {
       const filePath = checkFile(file)
-      const html = `<a href="${filePath}">${tagHeadings}</a>`
-      headings = headings.concat(html) // Добавление заголовков в общий массив
+
+      headings.push({
+        title: tagHeadings,
+        path: filePath
+      })
     }
   })
 
+
   if (headings.length > 0) {
-    const html = getHtml(headings.join("\n"))
-    fs.writeFileSync("search.html", html, "utf-8") // Запись заголовков в .html файл
-    console.log("Saved in file search.html")
+    fs.writeFileSync("search.js", 'const searchArr = ' + JSON.stringify(headings), "utf-8") // Запись заголовков в .js файл
+    console.log("Saved in file search.js")
   } else {
     console.log("No data")
   }
