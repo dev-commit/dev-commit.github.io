@@ -14,12 +14,6 @@ export const renderPage = ({ up, title, page, menu, content }) => (`
             <script src="${up}@themes/${page}/build-${page}.js"></script>
         </head>
         <body>
-
-            <div class="search-wrapper">
-                <input class="search-input" id="search-input" type="text" autocomplete="off" />
-                <div id="search-result"></div>
-            </div>
-
             <div id="container">
                 <div id="menu" :class="{ hide:isHideMenu }">
                     <div id="top">
@@ -32,9 +26,16 @@ export const renderPage = ({ up, title, page, menu, content }) => (`
                         >
                         <a href="#links" class="top-link" v-html="'${title}'"></a>
                     </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
                     ${menu ? menu : renderPageMenu()}
                 </div>
 
+    
                 <div id="wrapper">
                     <div id="links">
                         <ul>

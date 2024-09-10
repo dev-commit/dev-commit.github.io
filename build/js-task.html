@@ -12,12 +12,6 @@
             <script src="../@themes/js-task/build-js-task.js"></script>
         </head>
         <body>
-
-            <div class="search-wrapper">
-                <input class="search-input" id="search-input" type="text" autocomplete="off" />
-                <div id="search-result"></div>
-            </div>
-
             <div id="container">
                 <div id="menu" :class="{ hide:isHideMenu }">
                     <div id="top">
@@ -30,6 +24,12 @@
                         >
                         <a href="#links" class="top-link" v-html="'Задачи'"></a>
                     </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
                     <h4>🏷️ Полифилы</h4><ul></ul><h4>🏷️ Objects & Context</h4><ul>
     <li>
         <a
@@ -633,6 +633,7 @@
 </ul>
                 </div>
 
+    
                 <div id="wrapper">
                     <div id="links">
                         <ul>

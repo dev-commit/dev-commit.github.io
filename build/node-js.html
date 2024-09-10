@@ -12,12 +12,6 @@
             <script src="../@themes/node-js/build-node-js.js"></script>
         </head>
         <body>
-
-            <div class="search-wrapper">
-                <input class="search-input" id="search-input" type="text" autocomplete="off" />
-                <div id="search-result"></div>
-            </div>
-
             <div id="container">
                 <div id="menu" :class="{ hide:isHideMenu }">
                     <div id="top">
@@ -30,6 +24,12 @@
                         >
                         <a href="#links" class="top-link" v-html="'Node.js'"></a>
                     </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
                     <h4>🏷️ Теория</h4><ul>
     <li>
         <a
@@ -313,6 +313,7 @@
 </ul>
                 </div>
 
+    
                 <div id="wrapper">
                     <div id="links">
                         <ul>

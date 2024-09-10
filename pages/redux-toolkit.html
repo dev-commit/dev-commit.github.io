@@ -12,12 +12,6 @@
             <script src="../@themes/redux-toolkit/build-redux-toolkit.js"></script>
         </head>
         <body>
-
-            <div class="search-wrapper">
-                <input class="search-input" id="search-input" type="text" autocomplete="off" />
-                <div id="search-result"></div>
-            </div>
-
             <div id="container">
                 <div id="menu" :class="{ hide:isHideMenu }">
                     <div id="top">
@@ -30,6 +24,12 @@
                         >
                         <a href="#links" class="top-link" v-html="'Redux Toolkit'"></a>
                     </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
                     
     <slot v-for="itemTitle in themesContent">
         <h4
@@ -71,6 +71,7 @@
 
                 </div>
 
+    
                 <div id="wrapper">
                     <div id="links">
                         <ul>
