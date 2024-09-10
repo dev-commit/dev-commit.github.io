@@ -7,6 +7,7 @@ ARR_MODULE = [
             [root+'vscode/settings',  emoji.fire+'Настройки'],
             [root+'vscode/snippets',  'Сниппеты'],
             [root+'vscode/shortcuts', 'Shortcuts'],
+            [root+'vscode/profile-editor', 'Редактор профилей'],
         ]
     },
     {
