@@ -15,7 +15,7 @@ inputElement.addEventListener('input', function(event) {
 
             if (a1.includes(a2)) {
                 resultArr.push({
-                    title: el,
+                    title: el.replace(/->/g, '›'),
                     path: element.path
                 })
             }

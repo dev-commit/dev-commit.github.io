@@ -23,7 +23,6 @@ ARR_MODULE = [
         title: 'Прочее',
         themes: [
             [root+'other/variants',      emoji.code+'Варианты'],
-            [root+'other/string',        'Строки'],
             [root+'other/regexp-class',  'Класс RegExp'],
         ]
     },

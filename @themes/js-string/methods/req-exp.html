@@ -1,0 +1,57 @@
+<h2>ReqExp</h2>
+
+<!-- TODO:
+<f-search>String -> search()</f-search>
+<f-search>String -> match()</f-search>
+<f-search>String -> split()</f-search>
+<f-search>String -> replace()</f-search>
+-->
+
+<!------------------------------------------------------------->
+<h4>search() - возвращает позицию первого элемента</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// игнорирует флаг global
+const text = "О дивный новый мир";
+const pattern = /мы/;
+const result = text.search(pattern); // 9
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>match() - возвращает само совпадение</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// не игнорирует флаг global
+const text = "О дивный новый мир";
+const pattern = /новый/;
+const result = text.match(pattern); // ["новый", index: 9, input: "О дивный новый мир", groups: undefined]
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>split() - преобразование строки с заданным разделителем в массив </h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const pattern = /[\s,]+/;
+const result = text.split(pattern); // разделитель пробел
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>replace() - ищет совпадение и заменяет</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const text = 'привет мир';
+const pattern = /привет/;
+
+text = text.replace(pattern, function(match) {
+    return match.toUpperCase();
+});
+</v-code>
+
+<v-code lang="js" title="">
+str = str.replace(/'/g, '"');         // поменять одинарные кавычки на двойные
+str = str.replace(/«/g, '"');         // поменять « 
+str = str.replace(/»/g, '"');         // поменять »
+str = str.replace(/–/g, '-');         // поменять "–"
+str = str.replace(/\r|\n/g, '');      // убрать перенос строки
+str = str.replace(/<\/?[^>]+>/g, ''); // удалить html теги из текста
+</v-code>
