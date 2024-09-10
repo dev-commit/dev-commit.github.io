@@ -326,11 +326,15 @@ console.log(a[1].age);  // 25
 <ul class="list-point">
 	<li><u-code-list>map</u-code-list> - для трансформации массива в массив</li>
 	<li><u-code-list>forEach</u-code-list> - для перебора массива</li>
-	<li><u-code-list>reduce/reduceRight</u-code-list> - для прохода по массиву с вычислением значения</li>
+	<li><u-code-list>reduce / reduceRight</u-code-list> - для прохода по массиву с вычислением значения</li>
 	<li><u-code-list>filter</u-code-list> - для фильтрации массива</li>
-	<li><u-code-list>every/some</u-code-list> - для проверки массива</li>
+	<li><u-code-list>every / some</u-code-list> - для проверки массива</li>
 </ul>
-</div><div id="js-array/cycles/map"><h2><f-search>map</f-search></h2>
+</div><div id="js-array/cycles/map"><!-- TODO:
+<f-search>JS -> Array -> map</f-search>
+-->
+
+<h2>map</h2>
 
 <div class="v-method-wrapper">
     <v-method before="arr." method="map" after="" arg="(callback, thisArg)">
@@ -366,7 +370,11 @@ const doubles = numbers.map((num) => {
 console.log(numbers); // => [1, 2, 3]
 console.log(doubles); // => [2, 4, 6]
 </v-code>
-</div><div id="js-array/cycles/forEach"><h2><f-search>forEach</f-search></h2>
+</div><div id="js-array/cycles/forEach"><!-- TODO:
+<f-search>JS -> Array -> forEach</f-search>
+-->
+
+<h2>forEach</h2>
 
 <div class="v-method-wrapper">
     <v-method before="arr." method="forEach" after="" arg="(callback, thisArg)">
@@ -407,7 +415,12 @@ arr.forEach((element, index, arr) => {
 // 'Апельсин' 1  Array(3)
 // 'Груша'    2  Array(3)
 </v-code>
-</div><div id="js-array/cycles/reduce"><h2><f-search>reduce</f-search>/<f-search>reduceRight</f-search></h2>
+</div><div id="js-array/cycles/reduce"><!-- TODO:
+<f-search>JS -> Array -> reduce</f-search>
+<f-search>JS -> Array -> reduceRight</f-search>
+-->
+
+<h2>reduce / reduceRight</h2>
 
 <div class="v-method-wrapper">
     <v-method before="arr." method="reduce/reduceRight" after="" arg="(callback, initialValue)">
@@ -503,7 +516,11 @@ console.log(res);
 // 	stars: 100,
 // }
 </v-code>
-</div><div id="js-array/cycles/filter"><h2><f-search>filter</f-search></h2>
+</div><div id="js-array/cycles/filter"><!-- TODO:
+<f-search>JS -> Array -> filter</f-search>
+-->
+
+<h2>filter</h2>
 
 <div class="v-method-wrapper">
     <v-method before="arr." method="filter" after="" arg="(callback, thisArg)">
@@ -544,10 +561,15 @@ console.log(result); // => [1, 2, 3]
 const arr = ['Tony', 'Jack', 'Nick', 'Tony and Jane'];
 const result = arr.filter(item => item.<u-code>includes</u-code>('Tony')); // => ["Tony", "Tony and Jane"]
 </v-code>
-</div><div id="js-array/cycles/every"><h2><f-search>every</f-search>/<f-search>some</f-search></h2>
+</div><div id="js-array/cycles/every"><!-- TODO:
+<f-search>JS -> Array -> every</f-search>
+<f-search>JS -> Array -> some</f-search>
+-->
+
+<h2>every / some</h2>
 
 <div class="v-method-wrapper">
-    <v-method before="arr." method="every/some" after="" arg="(callback, thisArg)">
+    <v-method before="arr." method="every / some" after="" arg="(callback, thisArg)">
     проверяет, удовлетворяют ли <i><u>все/какие-нибудь</u></i> элементы массива условию, заданному в передаваемой функции
     </v-method>
 
@@ -601,10 +623,15 @@ const isPositive = number => {
 const result = arr.every(isPositive);
 const result = arr.some(isPositive);
 </v-code>
-</div><div id="js-array/cycles/for-while"><h2>Циклы</h2>
+</div><div id="js-array/cycles/for-while"><!-- TODO:
+<f-search>JS -> Array -> for</f-search>
+<f-search>JS -> Array -> while</f-search>
+-->
+
+<h2>Циклы</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Цикл <f-search>for</f-search></h3>
+<h3>Цикл for</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 for (let i = 1; i < 10; i++) {  
@@ -623,7 +650,7 @@ while (i < 10) {
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Цикл do <f-search>while</f-search></h3>
+<h3>Цикл do while</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 let i = 0;
@@ -641,7 +668,14 @@ continue // прекращает выполнение текущей итера�
 
 
 
-</div><div id="js-array/methods/push"><h2><f-search>push</f-search> / <f-search>pop</f-search> / <f-search>unshift</f-search> / <f-search>shift</f-search></h2>
+</div><div id="js-array/methods/push"><!-- TODO:
+<f-search>JS -> Array -> push</f-search>
+<f-search>JS -> Array -> pop</f-search>
+<f-search>JS -> Array -> unshift</f-search>
+<f-search>JS -> Array -> shift</f-search>
+-->
+
+<h2>push / pop / unshift / shift</h2>
 
 <v-code lang="js" title="">
 arr.<u-code>push</u-code>('Jack', 'Tony');    // добавляет элементы в конец
@@ -649,7 +683,13 @@ arr.<u-code>unshift</u-code>('Jack', 'Tony'); // добавляет элемен
 arr.<u-code>pop</u-code>();                   // удаляет и возвращает последний элемент
 arr.<u-code>shift</u-code>();                 // удаляет и возвращает первый элемент
 </v-code>
-</div><div id="js-array/methods/length"><h2><f-search>length</f-search> / <f-search>reverse</f-search> / <f-search>concat</f-search></h2>
+</div><div id="js-array/methods/length"><!-- TODO:
+<f-search>JS -> Array -> length</f-search>
+<f-search>JS -> Array -> reverse</f-search>
+<f-search>JS -> Array -> concat</f-search>
+-->
+
+<h2>length / reverse / concat</h2>
 
 <v-code lang="js" title="">
 // длина массива (индекс последнего элемента)
@@ -665,8 +705,12 @@ arr.<u-code>reverse</u-code>();
 // создаёт новый массив, в который копируются элементы из массивов
 const arr = arr1.<u-code>concat</u-code>(arr2, arr3);
 </v-code>
-</div><div id="js-array/methods/sort"><h2><f-search>sort</f-search> / <f-search>toSorted</f-search></h2>
+</div><div id="js-array/methods/sort"><!-- TODO:
+<f-search>JS -> Array -> sort</f-search>
+<f-search>JS -> Array -> toSorted</f-search>
+-->
 
+<h2>sort / toSorted</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>sort vs toSorted</h3>
@@ -716,7 +760,12 @@ arr.sort((a, b) => {
 
 console.log(arr);  // 1, 2, 15
 </v-code>
-</div><div id="js-array/methods/join"><h2><f-search>join</f-search> / <f-search>split</f-search></h2>
+</div><div id="js-array/methods/join"><!-- TODO:
+<f-search>JS -> Array -> join</f-search>
+<f-search>JS -> Array -> split</f-search>
+-->
+
+<h2>join / split</h2>
 
 <v-code lang="js" title="">
 // преобразование массива в строку с заданным разделителем
@@ -727,7 +776,12 @@ const str = arr.<u-code>join</u-code>('.');
 // преобразование строки с заданным разделителем в массив
 const arr = str.<u-code>split</u-code>(';');
 </v-code>
-</div><div id="js-array/methods/slice"><h2><f-search>slice</f-search> / <f-search>splice</f-search></h2>
+</div><div id="js-array/methods/slice"><!-- TODO:
+<f-search>JS -> Array -> slice</f-search>
+<f-search>JS -> Array -> splice</f-search>
+-->
+
+<h2>slice / splice</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>slice</h3>
@@ -756,7 +810,11 @@ arr.<u-code>splice</u-code>(1, 2, 'Алексей", "Билл');
 // удалить с последнего индекса-1 1 элемент (отрицательная позиция отсчитывается с конца)
 arr.<u-code>splice</u-code>(-1, 1);
 </v-code>
-</div><div id="js-array/methods/includes"><h2><f-search>includes</f-search></h2>
+</div><div id="js-array/methods/includes"><!-- TODO:
+<f-search>JS -> Array -> includes</f-search>
+-->
+
+<h2>includes</h2>
 
 <ul class="list-point">
     <li>Метод <u>includes()</u> определяет, содержит ли массив определённый элемент, возвращая в зависимости от этого true или false</li>
@@ -773,7 +831,12 @@ const arrPets = ['cat', 'dog', 'bat'];
 console.log(pets.<u-code>includes</u-code>('cat'));   // => true
 console.log(pets.<u-code>includes</u-code>('at'));    // => false
 </v-code>
-</div><div id="js-array/methods/indexOf"><h2><f-search>indexOf</f-search> / <f-search>lastIndexOf</f-search></h2>
+</div><div id="js-array/methods/indexOf"><!-- TODO:
+<f-search>JS -> Array -> indexOf</f-search>
+<f-search>JS -> Array -> lastIndexOf</f-search>
+-->
+
+<h2>indexOf / lastIndexOf</h2>
 
 <v-code lang="js" title="">
 // возвращает первый индекс, по которому элемент может быть найден в массиве
@@ -786,7 +849,11 @@ const a = colors.<u-code>indexOf</u-code>('white');
 // или -1, если такого индекса нет 
 const a = colors.<u-code>lastIndexOf</u-code>('white');
 </v-code>
-</div><div id="js-array/methods/find"><h2><f-search>Array.prototype.find()</f-search></h2>
+</div><div id="js-array/methods/find"><!-- TODO:
+<f-search>JS -> Array -> Array.prototype.find()</f-search>
+-->
+
+<h2>Array.prototype.find()</h2>
 
 <ul class="list-point">
     <li><u-text-define>find()</u-text-define> - возвращает <u>значение первого найденного в массиве элемента</u>, которое удовлетворяет условию переданному в callback функции. В противном случае возвращается <u>undefined</u></li>
@@ -816,14 +883,22 @@ const result = arr.<u-code>findIndex</u-code>((element) => {
 
 console.log(result); // => 2
 </v-code>
-</div><div id="js-array/methods/isArray"><h2><f-search>isArray</f-search></h2>
+</div><div id="js-array/methods/isArray"><!-- TODO:
+<f-search>JS -> Array -> isArray</f-search>
+-->
+
+<h2>isArray</h2>
 
 <v-code lang="js" title="">
 // проверка на массив
 const a = Array.<u-code>isArray</u-code>([1, 2, 3]);   // true
 const b = Array.<u-code>isArray</u-code>('Not Array'); // false
 </v-code>
-</div><div id="js-array/methods/from"><h2><f-search>Array.from()</f-search></h2>
+</div><div id="js-array/methods/from"><!-- TODO:
+<f-search>JS -> Array -> Array.from()</f-search>
+-->
+
+<h2>Array.from()</h2>
 
 <div class="v-method-wrapper">
     <v-method before="Array." method="from" after="" arg="(arrayLike, mapFn, thisArg)">
@@ -863,7 +938,11 @@ const a = Array.from([1, 2, 3], x => x + x); // [2, 4, 6]
 // Генерирование последовательности чисел
 const a = Array.from({ length: 5 }, (v, k) => k); // [0, 1, 2, 3, 4]
 </v-code>
-</div><div id="js-array/methods/flat"><h2><f-search>flat</f-search></h2>
+</div><div id="js-array/methods/flat"><!-- TODO:
+<f-search>JS -> Array -> flat</f-search>
+-->
+
+<h2>flat</h2>
 
 <div class="v-method-wrapper">
     <v-method before="arr" method="flat" after="" arg="(depth)">
@@ -886,7 +965,11 @@ const a2 = arr.<u-code-mod>flat</u-code-mod>(2); // => [1,2,3,4,5,6,7,8,9,10]
 
 console.log(a1);
 </v-code>
-</div><div id="js-array/methods/flatMap"><h2><f-search>Array.prototype.flatMap()</f-search></h2>
+</div><div id="js-array/methods/flatMap"><!-- TODO:
+<f-search>JS -> Array -> Array.prototype.flatMap()</f-search>
+-->
+
+<h2>Array.prototype.flatMap()</h2>
 
 <ul class="list-point">
 	<li>Получить плоский массив из объекта</li>
@@ -901,7 +984,11 @@ const checkedRows = {
 const b = Object.values(checkedRows).flatMap(value => value);
 // => [1, 2, 3, 4, 5, 6]
 </v-code>
-</div><div id="js-array/methods/fill"><h2><f-search>Array.prototype.fill()</f-search></h2>
+</div><div id="js-array/methods/fill"><!-- TODO:
+<f-search>JS -> Array -> Array.prototype.fill()</f-search>
+-->
+
+<h2>Array.prototype.fill()</h2>
 
 <div class="v-method-wrapper">
     <v-method before="[]." method="fill" after="" arg="(value*, start, end)">
@@ -920,7 +1007,11 @@ const b = Object.values(checkedRows).flatMap(value => value);
 [1, 2, 3].fill(4, 1);     // [1, 4, 4]
 [1, 2, 3].fill(4, 1, 2);  // [1, 4, 3]
 </v-code>
-</div><div id="js-array/methods/at"><h2><f-search>Array.prototype.at()</f-search></h2>
+</div><div id="js-array/methods/at"><!-- TODO:
+<f-search>JS -> Array -> Array.prototype.at()</f-search>
+-->
+
+<h2>Array.prototype.at()</h2>
 
 <u-link-wrapper>
     <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/at" target="_blank">https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/at</a>
