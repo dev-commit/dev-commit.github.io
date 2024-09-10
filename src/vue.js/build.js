@@ -52,13 +52,13 @@ new Vue({
             this.isLocalhost = true;
         }
 
-        window.addEventListener('resize', () => {
-            if (document.body.clientWidth < MOBILE_WIDTH) {
-                this.isHideMenu = true;
-            } else {
-                this.isHideMenu = getLocalStorage(HIDDEN_MENU_STORE);
-            }
-        })
+        // window.addEventListener('resize', () => {
+        //     if (document.body.clientWidth < MOBILE_WIDTH) {
+        //         this.isHideMenu = true;
+        //     } else {
+        //         this.isHideMenu = getLocalStorage(HIDDEN_MENU_STORE);
+        //     }
+        // })
     },
     created() {
         if (location.href.indexOf('build') === -1) {
