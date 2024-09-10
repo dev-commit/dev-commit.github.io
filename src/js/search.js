@@ -28,8 +28,9 @@ inputElement.addEventListener('input', function(event) {
             <button
                 class="search-button"
                 onclick="
-                    window.location.href = window.location.origin + '${element.path}';
-                    window.location.reload()
+                    history.pushState(null, '', window.location.origin + '${element.path}');
+                    // window.location.href = window.location.origin + '${element.path}';
+                    window.location.reload();
                 "
             >
                 ${element.title}
