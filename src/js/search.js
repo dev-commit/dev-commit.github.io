@@ -29,8 +29,7 @@ inputElement.addEventListener('input', function(event) {
 
     let html = '';
     resultArr.forEach(element => {
-        // html += `<a class="search-link" href="${element.path}">${element.title}</a>`
-        html += `<button class="search-link" onclick="${onClick}">${element.title}</button>`
+        html += `<a class="search-link" href="${element.path}">${element.title}</a>`
     })
 
     resultElement.innerHTML = html
