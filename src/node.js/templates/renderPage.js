@@ -16,7 +16,7 @@ export const renderPage = ({ up, title, page, menu, content }) => (`
         <body>
 
             <div class="search-wrapper">
-                <input class="search-input" id="search-input" type="text" />
+                <input class="search-input" id="search-input" type="text" autocomplete="off" />
                 <div id="search-result"></div>
             </div>
 
