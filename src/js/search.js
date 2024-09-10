@@ -1,18 +1,17 @@
-const inputElement = document.getElementById('search-input');
-const resultElement = document.getElementById('search-result');
-const linksElement = document.getElementById('links');
+const inputElement = document.getElementById('search-input')
+const resultElement = document.getElementById('search-result')
+const linksElement = document.getElementById('links')
 
 inputElement.value = ''
 
 inputElement.addEventListener('input', function(event) {
-    const value = event.target.value;
-
+    const value = event.target.value
     const resultArr = []
 
     searchArr.forEach(element => {
         element.title.forEach(el => {
-            const a1 = el.toUpperCase()
-            const a2 = value.toUpperCase()
+            const a1 = el.toLowerCase()
+            const a2 = value.toLowerCase()
 
             if (a1.includes(a2)) {
                 resultArr.push({
@@ -39,10 +38,14 @@ inputElement.addEventListener('input', function(event) {
         `
     })
 
-    resultElement.innerHTML = html
+    if (value !== '') {
+        resultElement.innerHTML = html
+    } else {
+        resultElement.innerHTML = ''
+    }
 });
 
 linksElement.addEventListener('click', function(event) {
-    resultElement.innerHTML = '';
-    inputElement.value = '';
+    resultElement.innerHTML = ''
+    inputElement.value = ''
 });

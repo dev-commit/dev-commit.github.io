@@ -25,7 +25,6 @@ const arrCustomElements = [
 	...arrMessage,
 	...arrBlocks,
 	...arrStructure,
-	...arrFetures,
 ];
 
 arrCustomElements.forEach(function(element) {
