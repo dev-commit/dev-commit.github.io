@@ -22,10 +22,18 @@ inputElement.addEventListener('input', function(event) {
         })
     })
 
+    const onClick = `
+        console.log(1);
+        console.log(2)
+    `
+
     let html = '';
     resultArr.forEach(element => {
-        html += `<a class="search-link" href="${element.path}">${element.title}</a>`
+        // html += `<a class="search-link" href="${element.path}">${element.title}</a>`
+        html += `<button class="search-link" onclick="${onClick}">${element.title}</button>`
     })
 
     resultElement.innerHTML = html
 });
+
+
