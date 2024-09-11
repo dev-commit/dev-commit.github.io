@@ -1,0 +1,52 @@
+<!-- TODO:
+<f-search>Aliases -> Webpack</f-search>
+-->
+
+<h2>Webpack</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Настройка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-path>./webpack/alias.js</v-path>
+<v-code lang="js" title="">
+const path = require('path');
+const { SRC_PATH } = require('./constants');
+
+module.exports = {
+    'crm-components': path.join(SRC_PATH, 'components'),
+};
+</v-code>
+
+<v-path>./webpack/constants.js</v-path>
+<v-code lang="js" title="">
+const path = require('path');
+
+const ROOT_PATH = path.join(__dirname, '..');
+
+exports.ROOT_PATH = ROOT_PATH;
+exports.SRC_PATH = path.join(ROOT_PATH, './src');
+</v-code>
+
+<v-path>./webpack/base.config.js</v-path>
+<v-code lang="js" title="">
+const alias = require('./alias.js');
+
+module.exports = {
+    resolve: {
+        alias,
+        // extensions: ['.js', '.jsx'],
+    },
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+// пусть с алиасом
+'components/notification/notification.jsx'
+// полный путь
+'./src/components/notification/notification.jsx'
+</v-code>

@@ -1,0 +1,54 @@
+<!-- TODO:
+<f-search>React -> Styles -> CSS in JS</f-search>
+-->
+
+<h2>CSS in JS</h2>
+
+<u-link-wrapper>
+    <a href="https://cssinjs.org/" target="_blank">JSS</a>
+    <a href="https://www.styled-components.com/" target="_blank">Styled Components</a>
+    <a href="https://github.com/threepointone/glamor" target="_blank">Glamor</a>
+    <a href="https://emotion.sh/docs/introduction" target="_blank">Emotion</a>
+    <a href="https://linaria.now.sh/" target="_blank">Linaria (CSS Custom Properties)</a>
+</u-link-wrapper>
+
+<b>Реализация CSS in JS</b>
+
+<v-code lang="html" title="HTML">
+&lt;div id="app"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="JavaScript">
+const styles = `
+    #app {
+        width: 200px;
+        height: 200px;
+        background: yellowgreen;
+    }
+`;
+
+const stylesElement = document.createElement('style');
+stylesElement.appendChild(document.createTextNode(styles));
+document.body.appendChild(stylesElement);
+</v-code>
+
+<ul class="list-point">
+    <li>Добавление <u-code-text>&lt;style&gt;</u-code-text> происходит во время монтирования компонента во всех библиотеках, за исключением <u>Linaria</u>, где работа с CSS Custom Properties</li>
+</ul>
+
+<v-code lang="html" title="Результат">
+&lt;html&gt;
+&lt;head&gt;
+    &lt;style&gt;
+        #app {
+            width: 200px;
+            height: 200px;
+            background: yellowgreen;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="app"&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</v-code>

@@ -1,0 +1,33 @@
+<!-- TODO:
+<f-search>Aliases -> Vite</f-search>
+-->
+
+<h2>Vite</h2>
+
+<v-path>vite.config.ts</v-path>
+
+<ul class="list-point">
+    <li>Не нужно ничего изменять</li>
+</ul>
+
+<v-code lang="js" title="">
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+})
+</v-code>
+
+<v-path>tsconfig.json</v-path>
+<v-code lang="json" title="">
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/src/*": ["src/*"]
+    }
+  },
+}
+</v-code>

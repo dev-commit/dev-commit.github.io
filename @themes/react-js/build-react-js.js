@@ -13,6 +13,25 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'Aliases',
+        accent: true,
+        themes: [
+            [root+'aliases/vite', 'Vite'],
+            [root+'aliases/create-react-app', 'Create React App'],
+            [root+'aliases/webpack', 'Webpack'],
+        ]
+    },
+    {
+        title: 'Стилизация',
+        accent: true,
+        themes: [
+            [root+'styles/css-file', '1. Отдельный CSS файл'],
+            [root+'styles/inline-styles', '2. Инлайновая стилизация'],
+            [root+'styles/css-modules', '3. CSS Modules'],
+            [root+'styles/css-in-js', '4. CSS in JS'],
+        ]
+    },
+    {
         title: 'Реконсиляция',
         accent: true,
         themes: [
@@ -62,7 +81,6 @@ ARR_MODULE = [
             [root+'processing-data-output/handling-events',         'Обработка событий'],
             [root+'processing-data-output/controlled-components',   'Controlled Components'],
             [root+'processing-data-output/uncontrolled-components', 'Uncontrolled Components'],
-            [root+'processing-data-output/css',                     'CSS'],
             [root+'processing-data-output/conditional-rendering',   'Условный рендеринг'],
             [root+'processing-data-output/lists-and-keys',          'Списки и ключи'],
             [root+'processing-data-output/error-boundaries',        'Предохранители'],

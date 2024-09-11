@@ -90,6 +90,76 @@
             📑 Шаблоны проектирования
         </a>
     </li>
+</ul><h4>🏷️ Aliases</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-js/aliases/vite"
+            href="#react-js/aliases/vite"
+        >
+            Vite
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-js/aliases/create-react-app"
+            href="#react-js/aliases/create-react-app"
+        >
+            Create React App
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-js/aliases/webpack"
+            href="#react-js/aliases/webpack"
+        >
+            Webpack
+        </a>
+    </li>
+</ul><h4>🏷️ Стилизация</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-js/styles/css-file"
+            href="#react-js/styles/css-file"
+        >
+            1. Отдельный CSS файл
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-js/styles/inline-styles"
+            href="#react-js/styles/inline-styles"
+        >
+            2. Инлайновая стилизация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-js/styles/css-modules"
+            href="#react-js/styles/css-modules"
+        >
+            3. CSS Modules
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-js/styles/css-in-js"
+            href="#react-js/styles/css-in-js"
+        >
+            4. CSS in JS
+        </a>
+    </li>
 </ul><h4>🏷️ Реконсиляция</h4><ul>
     <li>
         <a
@@ -338,16 +408,6 @@
             href="#react-js/processing-data-output/uncontrolled-components"
         >
             Uncontrolled Components
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__react-js/processing-data-output/css"
-            href="#react-js/processing-data-output/css"
-        >
-            CSS
         </a>
     </li>
 
@@ -1021,6 +1081,264 @@ const App = ({ children }) => [
     &lt;Main key="main"&gt;{children}&lt;/Main&gt;,
     &lt;Footer key="footer" /&gt;,
 ]
+</v-code>
+</div><div id="react-js/aliases/vite"><!-- TODO:
+<f-search>Aliases -> Vite</f-search>
+-->
+
+<h2>Vite</h2>
+
+<v-path>vite.config.ts</v-path>
+
+<ul class="list-point">
+    <li>Не нужно ничего изменять</li>
+</ul>
+
+<v-code lang="js" title="">
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+})
+</v-code>
+
+<v-path>tsconfig.json</v-path>
+<v-code lang="json" title="">
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/src/*": ["src/*"]
+    }
+  },
+}
+</v-code>
+</div><div id="react-js/aliases/create-react-app"><!-- TODO:
+<f-search>Aliases -> Create React App</f-search>
+-->
+
+<h2>Create React App (react-app-rewired)</h2>
+
+<u-link-wrapper>
+    <a href="https://github.com/timarney/react-app-rewired" target="_blank">https://github.com/timarney/react-app-rewired</a>
+    <a href="https://github.com/oklas/react-app-rewire-alias" target="_blank">https://github.com/oklas/react-app-rewire-alias</a>
+</u-link-wrapper>
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>react-app-rewired</u-code-accent>
+npm i --save-dev <u-code-accent>react-app-rewire-alias</u-code-accent>
+</v-pre-npm>
+
+<v-path>config-overrides.js</v-path>
+<v-code lang="js" title="">
+const { alias } = require('react-app-rewire-alias')
+
+module.exports = function override(config) {
+    alias({
+        '@uicomponents': 'src/hello/this/is/the/path/to/ui/components',
+        "@lib": "lib", // in root of app outside of src
+    })(config)
+    return config;
+}
+</v-code>
+
+<v-path>package.json</v-path>
+<v-code lang="js" title="">
+"scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject"
+}
+</v-code>
+</div><div id="react-js/aliases/webpack"><!-- TODO:
+<f-search>Aliases -> Webpack</f-search>
+-->
+
+<h2>Webpack</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Настройка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-path>./webpack/alias.js</v-path>
+<v-code lang="js" title="">
+const path = require('path');
+const { SRC_PATH } = require('./constants');
+
+module.exports = {
+    'crm-components': path.join(SRC_PATH, 'components'),
+};
+</v-code>
+
+<v-path>./webpack/constants.js</v-path>
+<v-code lang="js" title="">
+const path = require('path');
+
+const ROOT_PATH = path.join(__dirname, '..');
+
+exports.ROOT_PATH = ROOT_PATH;
+exports.SRC_PATH = path.join(ROOT_PATH, './src');
+</v-code>
+
+<v-path>./webpack/base.config.js</v-path>
+<v-code lang="js" title="">
+const alias = require('./alias.js');
+
+module.exports = {
+    resolve: {
+        alias,
+        // extensions: ['.js', '.jsx'],
+    },
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+// пусть с алиасом
+'components/notification/notification.jsx'
+// полный путь
+'./src/components/notification/notification.jsx'
+</v-code>
+</div><div id="react-js/styles/css-file"><!-- TODO:
+<f-search>React -> Styles -> CSS файл</f-search>
+-->
+
+<h2>Отдельный CSS файл</h2>
+
+<v-code lang="js" title="">
+import './index.css';
+
+render() {
+	return (&lt;div className="header"&gt;&lt;/div&gt;);
+}
+</v-code>
+</div><div id="react-js/styles/inline-styles"><!-- TODO:
+<f-search>React -> Styles -> Инлайновая стилизация</f-search>
+-->
+
+<h2>Инлайновая стилизация</h2>
+
+<v-code lang="js" title="">
+const style = {
+	width: '200px',
+	height: '200px',
+	background: 'yellowgreen'
+}
+
+export default class App extends React.Component {
+	render() {
+		return (
+            &lt;div style={style}&gt;&lt;/div&gt;
+        );
+	}
+}
+</v-code>
+</div><div id="react-js/styles/css-modules"><!-- TODO:
+<f-search>React -> Styles -> CSS Modules</f-search>
+-->
+
+<h2>CSS Modules</h2>
+
+<u-link-wrapper>
+    <a href="https://github.com/css-modules/css-modules" target="_blank">CSS Modules</a>
+</u-link-wrapper>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Create Ract App</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>К названию файла дописать <u>module.css</u></li>
+</ul>
+
+<v-code lang="js" title="">
+import styles from './App.module.css';
+
+const App = () => {
+    return (&lt;div className={styles.header}&gt;&lt;/div&gt;)
+}
+
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Глобальный CSS</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Поскольку вы используете синтаксис импорта ES6, вы можете использовать один и тот же синтаксис для импорта таблицы стилей</li>
+</ul>
+
+<v-code lang="js" title="">
+import './App.css';
+</v-code>
+
+<ul class="list-point">
+    <li>Кроме того, вы можете перенести свой класс `:global` на глобальную область (этот модуль CSS не будет его модулировать, например: добавление случайного идентификатора рядом с ним)</li>
+</ul>
+
+<v-code lang="css" title="">
+:global(.myclass) {
+	background-color: red;
+}
+</v-code>
+</div><div id="react-js/styles/css-in-js"><!-- TODO:
+<f-search>React -> Styles -> CSS in JS</f-search>
+-->
+
+<h2>CSS in JS</h2>
+
+<u-link-wrapper>
+    <a href="https://cssinjs.org/" target="_blank">JSS</a>
+    <a href="https://www.styled-components.com/" target="_blank">Styled Components</a>
+    <a href="https://github.com/threepointone/glamor" target="_blank">Glamor</a>
+    <a href="https://emotion.sh/docs/introduction" target="_blank">Emotion</a>
+    <a href="https://linaria.now.sh/" target="_blank">Linaria (CSS Custom Properties)</a>
+</u-link-wrapper>
+
+<b>Реализация CSS in JS</b>
+
+<v-code lang="html" title="HTML">
+&lt;div id="app"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="JavaScript">
+const styles = `
+    #app {
+        width: 200px;
+        height: 200px;
+        background: yellowgreen;
+    }
+`;
+
+const stylesElement = document.createElement('style');
+stylesElement.appendChild(document.createTextNode(styles));
+document.body.appendChild(stylesElement);
+</v-code>
+
+<ul class="list-point">
+    <li>Добавление <u-code-text>&lt;style&gt;</u-code-text> происходит во время монтирования компонента во всех библиотеках, за исключением <u>Linaria</u>, где работа с CSS Custom Properties</li>
+</ul>
+
+<v-code lang="html" title="Результат">
+&lt;html&gt;
+&lt;head&gt;
+    &lt;style&gt;
+        #app {
+            width: 200px;
+            height: 200px;
+            background: yellowgreen;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="app"&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </v-code>
 </div><div id="react-js/reconciler/virtual-dom"><h2>Virtual DOM</h2>
 
@@ -2561,112 +2879,6 @@ class FileInput extends React.Component {
 }
 </v-code>
 
-</div><div id="react-js/processing-data-output/css"><h2>Стилизация компонентов</h2>
-
-<u-link-wrapper>
-    <a href="https://medium.com/@stasonmars/руководство-по-трём-способам-стилизации-в-react-2ca5c0c7464b" target="_blank">Руководство по трём способам стилизации в React</a>
-</u-link-wrapper>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Методы стилизации</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<!------------------------------------------------------------->
-<h4>1. Отдельный CSS файл</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-import './index.css';
-
-render() {
-	return (&lt;div className="header"&gt;&lt;/div&gt;);
-}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>2. Инлайновая стилизация</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-const style = {
-	width: '200px',
-	height: '200px',
-	background: 'yellowgreen'
-}
-
-export default class App extends React.Component {
-	render() {
-		return (
-            &lt;div style={style}&gt;&lt;/div&gt;
-        );
-	}
-}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>3. CSS Modules</h4>
-<!------------------------------------------------------------->
-<u-link-wrapper>
-    <a href="https://github.com/css-modules/css-modules" target="_blank">CSS Modules</a>
-</u-link-wrapper>
-
-<v-code lang="js" title="">
-import classes from './Component.css';
-
-render() {
-	return (&lt;div className={classes.headerItem}&gt;&lt;/div&gt;);
-}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>4. CSS in JS</h4>
-<!------------------------------------------------------------->
-<u-link-wrapper>
-    <a href="https://cssinjs.org/" target="_blank">JSS</a>
-    <a href="https://www.styled-components.com/" target="_blank">Styled Components</a>
-    <a href="https://github.com/threepointone/glamor" target="_blank">Glamor</a>
-    <a href="https://emotion.sh/docs/introduction" target="_blank">Emotion</a>
-    <a href="https://linaria.now.sh/" target="_blank">Linaria (CSS Custom Properties)</a>
-</u-link-wrapper>
-
-<b>Реализация CSS in JS</b>
-
-<v-code lang="html" title="HTML">
-&lt;div id="app"&gt;&lt;/div&gt;
-</v-code>
-
-<v-code lang="js" title="JavaScript">
-const styles = `
-    #app {
-        width: 200px;
-        height: 200px;
-        background: yellowgreen;
-    }
-`;
-
-const stylesElement = document.createElement('style');
-stylesElement.appendChild(document.createTextNode(styles));
-document.body.appendChild(stylesElement);
-</v-code>
-
-<ul class="list-point">
-    <li>Добавление <u-code-text>&lt;style&gt;</u-code-text> происходит во время монтирования компонента во всех библиотеках, за исключением <u>Linaria</u>, где работа с CSS Custom Properties</li>
-</ul>
-
-<v-code lang="html" title="Результат">
-&lt;html&gt;
-&lt;head&gt;
-    &lt;style&gt;
-        #app {
-            width: 200px;
-            height: 200px;
-            background: yellowgreen;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id="app"&gt;&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</v-code>
 </div><div id="react-js/processing-data-output/conditional-rendering"><h2>Условный рендеринг</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

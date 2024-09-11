@@ -1,0 +1,38 @@
+<!-- TODO:
+<f-search>Aliases -> Create React App</f-search>
+-->
+
+<h2>Create React App (react-app-rewired)</h2>
+
+<u-link-wrapper>
+    <a href="https://github.com/timarney/react-app-rewired" target="_blank">https://github.com/timarney/react-app-rewired</a>
+    <a href="https://github.com/oklas/react-app-rewire-alias" target="_blank">https://github.com/oklas/react-app-rewire-alias</a>
+</u-link-wrapper>
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>react-app-rewired</u-code-accent>
+npm i --save-dev <u-code-accent>react-app-rewire-alias</u-code-accent>
+</v-pre-npm>
+
+<v-path>config-overrides.js</v-path>
+<v-code lang="js" title="">
+const { alias } = require('react-app-rewire-alias')
+
+module.exports = function override(config) {
+    alias({
+        '@uicomponents': 'src/hello/this/is/the/path/to/ui/components',
+        "@lib": "lib", // in root of app outside of src
+    })(config)
+    return config;
+}
+</v-code>
+
+<v-path>package.json</v-path>
+<v-code lang="js" title="">
+"scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject"
+}
+</v-code>

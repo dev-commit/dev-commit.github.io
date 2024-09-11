@@ -1,0 +1,47 @@
+<!-- TODO:
+<f-search>React -> Styles -> CSS Modules</f-search>
+-->
+
+<h2>CSS Modules</h2>
+
+<u-link-wrapper>
+    <a href="https://github.com/css-modules/css-modules" target="_blank">CSS Modules</a>
+</u-link-wrapper>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Create Ract App</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>К названию файла дописать <u>module.css</u></li>
+</ul>
+
+<v-code lang="js" title="">
+import styles from './App.module.css';
+
+const App = () => {
+    return (&lt;div className={styles.header}&gt;&lt;/div&gt;)
+}
+
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Глобальный CSS</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Поскольку вы используете синтаксис импорта ES6, вы можете использовать один и тот же синтаксис для импорта таблицы стилей</li>
+</ul>
+
+<v-code lang="js" title="">
+import './App.css';
+</v-code>
+
+<ul class="list-point">
+    <li>Кроме того, вы можете перенести свой класс `:global` на глобальную область (этот модуль CSS не будет его модулировать, например: добавление случайного идентификатора рядом с ним)</li>
+</ul>
+
+<v-code lang="css" title="">
+:global(.myclass) {
+	background-color: red;
+}
+</v-code>
