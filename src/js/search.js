@@ -39,7 +39,7 @@ inputElement.addEventListener('input', function(event) {
     })
 
     if (value !== '') {
-        resultElement.innerHTML = html
+        resultElement.innerHTML = '<div class="search-result-wrapper">'+html+'<div>'
     } else {
         resultElement.innerHTML = ''
     }
