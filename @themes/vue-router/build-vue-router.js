@@ -13,15 +13,15 @@ ARR_MODULE = [
     {
         title: 'Варианты',
         themes: [
-            [root+'variants/path-static',       emoji.chevron+'Статический путь'],
-            [root+'variants/path-dynamic',      emoji.chevron+'Динамический путь'],
-            [root+'variants/path-comparison',   emoji.chevron+'Сопоставление путей'],
-            [root+'variants/navigation',        emoji.chevron+'Программная навигация'],
-            [root+'variants/passing-props',     emoji.chevron+'Входные параметры (props)'],
-            [root+'variants/navigation-guards', emoji.chevron+'Навигационные хуки'],
-            [root+'variants/scroll-behavior',   emoji.chevron+'Поведение прокрутки страницы'],
-            [root+'variants/lazy-loading',      emoji.chevron+'Леннивая загрузка маршрутов'],
-            [root+'variants/active-link',       emoji.chevron+'Стилизация активной ссылки'],
+            [root+'variants/path-static',       'Статический путь'],
+            [root+'variants/path-dynamic',      'Динамический путь'],
+            [root+'variants/path-comparison',   'Сопоставление путей'],
+            [root+'variants/navigation',        'Программная навигация'],
+            [root+'variants/passing-props',     'Входные параметры (props)'],
+            [root+'variants/navigation-guards', 'Навигационные хуки'],
+            [root+'variants/scroll-behavior',   'Поведение прокрутки страницы'],
+            [root+'variants/lazy-loading',      'Леннивая загрузка маршрутов'],
+            [root+'variants/active-link',       'Стилизация активной ссылки'],
         ]
     },
 ]

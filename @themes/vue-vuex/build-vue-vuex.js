@@ -11,12 +11,12 @@ ARR_MODULE = [
     {
         title: 'Элементы',
         themes: [
-            [root+'elements/store',     emoji.chevron+'0. Хранилище (store)'],
-            [root+'elements/state',     emoji.chevron+'1. Состояние (state)'],
-            [root+'elements/getters',   emoji.chevron+'2. Геттеры (getters)'],
-            [root+'elements/mutations', emoji.chevron+'3. Мутации (mutations)'],
-            [root+'elements/actions',   emoji.chevron+'4. Действия (actions)'],
-            [root+'elements/modules',   emoji.chevron+'5. Модули (modules)'],
+            [root+'elements/store',     '0. Хранилище (store)'],
+            [root+'elements/state',     '1. Состояние (state)'],
+            [root+'elements/getters',   '2. Геттеры (getters)'],
+            [root+'elements/mutations', '3. Мутации (mutations)'],
+            [root+'elements/actions',   '4. Действия (actions)'],
+            [root+'elements/modules',   '5. Модули (modules)'],
         ]
     },
     {
