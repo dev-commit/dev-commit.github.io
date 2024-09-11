@@ -120,7 +120,6 @@ ARR_MODULE = [
         title: 'Прочее',
         themes: [
             [root+'other/guards',  'Guards'],
-            [root+'other/ide',     'IDE'],
         ]
     },
 ]
