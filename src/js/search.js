@@ -1,6 +1,6 @@
 const inputElement = document.getElementById('search-input')
 const resultElement = document.getElementById('search-result')
-const linksElement = document.getElementById('links')
+const containerElement = document.getElementById('container')
 
 inputElement.value = ''
 
@@ -45,7 +45,7 @@ inputElement.addEventListener('input', function(event) {
     }
 });
 
-linksElement.addEventListener('click', function(event) {
+containerElement.addEventListener('click', function(event) {
     resultElement.innerHTML = ''
     inputElement.value = ''
 });
