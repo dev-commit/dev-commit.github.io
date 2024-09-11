@@ -332,10 +332,10 @@ console.log(a[1].age);  // 25
 	<li><u-code-list>every / some</u-code-list> - для проверки массива</li>
 </ul>
 </div><div id="js-array/cycles/map"><!-- TODO:
-<f-search>JS -> Array -> map</f-search>
+<f-search>JS -> Array -> map()</f-search>
 -->
 
-<h2>map</h2>
+<h2>map()</h2>
 
 <div class="v-method-wrapper">
     <v-method before="arr." method="map" after="" arg="(callback, thisArg)">
@@ -372,10 +372,10 @@ console.log(numbers); // => [1, 2, 3]
 console.log(doubles); // => [2, 4, 6]
 </v-code>
 </div><div id="js-array/cycles/forEach"><!-- TODO:
-<f-search>JS -> Array -> forEach</f-search>
+<f-search>JS -> Array -> forEach()</f-search>
 -->
 
-<h2>forEach</h2>
+<h2>forEach()</h2>
 
 <div class="v-method-wrapper">
     <v-method before="arr." method="forEach" after="" arg="(callback, thisArg)">
@@ -417,8 +417,8 @@ arr.forEach((element, index, arr) => {
 // 'Груша'    2  Array(3)
 </v-code>
 </div><div id="js-array/cycles/reduce"><!-- TODO:
-<f-search>JS -> Array -> reduce</f-search>
-<f-search>JS -> Array -> reduceRight</f-search>
+<f-search>JS -> Array -> reduce()</f-search>
+<f-search>JS -> Array -> reduceRight()</f-search>
 -->
 
 <h2>reduce / reduceRight</h2>
@@ -518,10 +518,10 @@ console.log(res);
 // }
 </v-code>
 </div><div id="js-array/cycles/filter"><!-- TODO:
-<f-search>JS -> Array -> filter</f-search>
+<f-search>JS -> Array -> filter()</f-search>
 -->
 
-<h2>filter</h2>
+<h2>filter()</h2>
 
 <div class="v-method-wrapper">
     <v-method before="arr." method="filter" after="" arg="(callback, thisArg)">
@@ -563,11 +563,11 @@ const arr = ['Tony', 'Jack', 'Nick', 'Tony and Jane'];
 const result = arr.filter(item => item.<u-code>includes</u-code>('Tony')); // => ["Tony", "Tony and Jane"]
 </v-code>
 </div><div id="js-array/cycles/every"><!-- TODO:
-<f-search>JS -> Array -> every</f-search>
-<f-search>JS -> Array -> some</f-search>
+<f-search>JS -> Array -> every()</f-search>
+<f-search>JS -> Array -> some()</f-search>
 -->
 
-<h2>every / some</h2>
+<h2>every() / some()</h2>
 
 <div class="v-method-wrapper">
     <v-method before="arr." method="every / some" after="" arg="(callback, thisArg)">
@@ -670,27 +670,27 @@ continue // прекращает выполнение текущей итера�
 
 
 </div><div id="js-array/methods/push"><!-- TODO:
-<f-search>JS -> Array -> push</f-search>
-<f-search>JS -> Array -> pop</f-search>
-<f-search>JS -> Array -> unshift</f-search>
-<f-search>JS -> Array -> shift</f-search>
+<f-search>JS -> Array -> push()</f-search>
+<f-search>JS -> Array -> pop()</f-search>
+<f-search>JS -> Array -> unshift()</f-search>
+<f-search>JS -> Array -> shift()</f-search>
 -->
 
-<h2>push / pop / unshift / shift</h2>
+<h2>push(), pop(), unshift(), shift()</h2>
 
 <v-code lang="js" title="">
-arr.<u-code>push</u-code>('Jack', 'Tony');    // добавляет элементы в конец
-arr.<u-code>unshift</u-code>('Jack', 'Tony'); // добавляет элементы в начало
-arr.<u-code>pop</u-code>();                   // удаляет и возвращает последний элемент
-arr.<u-code>shift</u-code>();                 // удаляет и возвращает первый элемент
+arr.<u-code>push</u-code>('Jack', 'Tony');    // Добавляет элементы в конец
+arr.<u-code>unshift</u-code>('Jack', 'Tony'); // Добавляет элементы в начало
+arr.<u-code>pop</u-code>();                   // Удаляет и возвращает последний элемент
+arr.<u-code>shift</u-code>();                 // Удаляет и возвращает первый элемент
 </v-code>
 </div><div id="js-array/methods/length"><!-- TODO:
 <f-search>JS -> Array -> length</f-search>
-<f-search>JS -> Array -> reverse</f-search>
-<f-search>JS -> Array -> concat</f-search>
+<f-search>JS -> Array -> reverse()</f-search>
+<f-search>JS -> Array -> concat()</f-search>
 -->
 
-<h2>length / reverse / concat</h2>
+<h2>length, reverse(), concat()</h2>
 
 <v-code lang="js" title="">
 // длина массива (индекс последнего элемента)
@@ -707,11 +707,11 @@ arr.<u-code>reverse</u-code>();
 const arr = arr1.<u-code>concat</u-code>(arr2, arr3);
 </v-code>
 </div><div id="js-array/methods/sort"><!-- TODO:
-<f-search>JS -> Array -> sort</f-search>
-<f-search>JS -> Array -> toSorted</f-search>
+<f-search>JS -> Array -> sort()</f-search>
+<f-search>JS -> Array -> toSorted()</f-search>
 -->
 
-<h2>sort / toSorted</h2>
+<h2>sort(), toSorted()</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>sort vs toSorted</h3>
@@ -762,33 +762,36 @@ arr.sort((a, b) => {
 console.log(arr);  // 1, 2, 15
 </v-code>
 </div><div id="js-array/methods/join"><!-- TODO:
-<f-search>JS -> Array -> join</f-search>
+<f-search>JS -> Array -> join()</f-search>
 -->
 
-<h2>join</h2>
+<h2>join()</h2>
 
 <v-code lang="js" title="">
 // Преобразование массива в строку с заданным разделителем
 const str = arr.<u-code>join</u-code>('.');
 </v-code>
 </div><div id="js-array/methods/slice"><!-- TODO:
-<f-search>JS -> Array -> slice</f-search>
-<f-search>JS -> Array -> splice</f-search>
+<f-search>JS -> Array -> slice()</f-search>
+<f-search>JS -> Array -> splice()</f-search>
 -->
 
-<h2>slice / splice</h2>
+<h2>slice(), splice()</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>slice</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-// копировать с 1 до 7 не включая, если не указан второй аргумент, то до конца
-const arr2 = arr1.<u-code>slice</u-code>(1, 7);
-// копировать с 1 до конца
-const arr2 = arr1.<u-code>slice</u-code>(1);
-// копировать c 2 элемента с конца и дальше
-const arr2 = arr.<u-code>slice</u-code>(-2);
-// копировать весь массив
+// Копировать с 1 до 7 не включая, если не указан второй аргумент, то до конца
+const arr2 = arr1.<u-code>slice</u-code>(1, 7)
+
+// Копировать с 1 до конца
+const arr2 = arr1.<u-code>slice</u-code>(1)
+
+// Копировать c 2 элемента с конца и дальше
+const arr2 = arr.<u-code>slice</u-code>(-2)
+
+// Копировать весь массив
 const arr2 = arr.<u-code>slice</u-code>();
 </v-code>
 
@@ -796,20 +799,23 @@ const arr2 = arr.<u-code>slice</u-code>();
 <h3>splice</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-// удалить с 3 индекса 2 элемента
-arr.<u-code>splice</u-code>(3, 2);
-// добавление элементов
-arr.<u-code>splice</u-code>(2, 0, 'Алина', 'Марина');
-// замена элементов (заменить 2 удаленных элемента на Алексей, Билл)
-arr.<u-code>splice</u-code>(1, 2, 'Алексей", "Билл');
-// удалить с последнего индекса-1 1 элемент (отрицательная позиция отсчитывается с конца)
+// Удалить с 3 индекса 2 элемента
+arr.<u-code>splice</u-code>(3, 2)
+
+// Добавление элементов
+arr.<u-code>splice</u-code>(2, 0, 'Алина', 'Марина')
+
+// Замена элементов (заменить 2 удаленных элемента на Алексей, Билл)
+arr.<u-code>splice</u-code>(1, 2, 'Алексей", "Билл')
+
+// Удалить с последнего индекса-1 1 элемент (отрицательная позиция отсчитывается с конца)
 arr.<u-code>splice</u-code>(-1, 1);
 </v-code>
 </div><div id="js-array/methods/includes"><!-- TODO:
-<f-search>JS -> Array -> includes</f-search>
+<f-search>JS -> Array -> includes()</f-search>
 -->
 
-<h2>includes</h2>
+<h2>includes()</h2>
 
 <ul class="list-point">
     <li>Метод <u>includes()</u> определяет, содержит ли массив определённый элемент, возвращая в зависимости от этого true или false</li>
@@ -827,11 +833,11 @@ console.log(pets.<u-code>includes</u-code>('cat'));   // => true
 console.log(pets.<u-code>includes</u-code>('at'));    // => false
 </v-code>
 </div><div id="js-array/methods/indexOf"><!-- TODO:
-<f-search>JS -> Array -> indexOf</f-search>
-<f-search>JS -> Array -> lastIndexOf</f-search>
+<f-search>JS -> Array -> indexOf()</f-search>
+<f-search>JS -> Array -> lastIndexOf()</f-search>
 -->
 
-<h2>indexOf / lastIndexOf</h2>
+<h2>indexOf() / lastIndexOf()</h2>
 
 <v-code lang="js" title="">
 // возвращает первый индекс, по которому элемент может быть найден в массиве
@@ -879,10 +885,10 @@ const result = arr.<u-code>findIndex</u-code>((element) => {
 console.log(result); // => 2
 </v-code>
 </div><div id="js-array/methods/isArray"><!-- TODO:
-<f-search>JS -> Array -> isArray</f-search>
+<f-search>JS -> Array -> isArray()</f-search>
 -->
 
-<h2>isArray</h2>
+<h2>isArray()</h2>
 
 <v-code lang="js" title="">
 // проверка на массив
@@ -934,10 +940,10 @@ const a = Array.from([1, 2, 3], x => x + x); // [2, 4, 6]
 const a = Array.from({ length: 5 }, (v, k) => k); // [0, 1, 2, 3, 4]
 </v-code>
 </div><div id="js-array/methods/flat"><!-- TODO:
-<f-search>JS -> Array -> flat</f-search>
+<f-search>JS -> Array -> flat()</f-search>
 -->
 
-<h2>flat</h2>
+<h2>flat()</h2>
 
 <div class="v-method-wrapper">
     <v-method before="arr" method="flat" after="" arg="(depth)">
