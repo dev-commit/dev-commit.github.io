@@ -30,14 +30,54 @@
                         <div id="search-result"></div>
                     </div>
 
-                    <h4>🏷️ Методы</h4><ul>
+                    <h4>🏷️ Основное</h4><ul>
     <li>
         <a
             class="menu-link"
-            id="id__js-string/methods/main"
-            href="#js-string/methods/main"
+            id="id__js-string/main/info"
+            href="#js-string/main/info"
         >
-            Основные
+            📑 Информация
+        </a>
+    </li>
+</ul><h4>🏷️ Методы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/methods/length"
+            href="#js-string/methods/length"
+        >
+            <u-menu>length</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/methods/trim"
+            href="#js-string/methods/trim"
+        >
+            <u-menu>trim</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/methods/toString"
+            href="#js-string/methods/toString"
+        >
+            <u-menu>toString</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/methods/toUpperCase"
+            href="#js-string/methods/toUpperCase"
+        >
+            <u-menu>toUpperCase</u-menu> <u-menu>toLowerCase</u-menu>
         </a>
     </li>
 
@@ -48,6 +88,16 @@
             href="#js-string/methods/indexOf"
         >
             <u-menu>indexOf</u-menu> <u-menu>lastIndexOf</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/methods/split"
+            href="#js-string/methods/split"
+        >
+            <u-menu>split</u-menu> + ReqExp
         </a>
     </li>
 
@@ -70,14 +120,34 @@
             <u-menu>charAt</u-menu> <u-menu>charCodeAt</u-menu>
         </a>
     </li>
+</ul><h4>🏷️ ReqExp</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/reqexp/replace"
+            href="#js-string/reqexp/replace"
+        >
+            <u-menu>replace</u-menu>
+        </a>
+    </li>
 
     <li>
         <a
             class="menu-link"
-            id="id__js-string/methods/req-exp"
-            href="#js-string/methods/req-exp"
+            id="id__js-string/reqexp/match"
+            href="#js-string/reqexp/match"
         >
-            ReqExp
+            <u-menu>match</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/reqexp/search"
+            href="#js-string/reqexp/search"
+        >
+            <u-menu>search</u-menu>
         </a>
     </li>
 </ul><h4>🏷️ Прочее</h4><ul>
@@ -112,51 +182,94 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="js-string/methods/main"><!-- TODO:
+                    <div id="content"><div id="js-string/main/info"><h2>Информация</h2>
+
+<ul class="list-point">
+    <li>Строки в JavaScript имеют внутреннюю кодировку Юникод</li>
+</ul>
+</div><div id="js-string/methods/length"><!-- TODO:
 <f-search>String -> length</f-search>
-<f-search>String -> toString()</f-search>
-<f-search>String -> split</f-search>
-<f-search>String -> trim</f-search>
-<f-search>String -> toUpperCase</f-search>
-<f-search>String -> toLowerCase</f-search>
 -->
 
-<h2>Основные</h2>
-
-<ul class="list-point"></ul>
-	<li>Строки в JavaScript имеют внутреннюю кодировку Юникод</li>
-</ul>
+<h2>length</h2>
 
 <v-code lang="js" title="">
-const a = str.<u-code>length</u-code>;       // длина строки
-77.<u-code>toString()</u-code>;              // преобразование в строку
-const arr = str.<u-code>split</u-code>(';'); // преобразование строки с заданным разделителем в массив
-const str = str.<u-code>trim</u-code>();     // обрезает пробелы с начала и конца строки
+// Возвращает длину строки
+const a = str.<u-code>length</u-code>;
 </v-code>
+</div><div id="js-string/methods/trim"><!-- TODO:
+<f-search>String -> trim()</f-search>
+-->
+
+<h2>trim()</h2>
 
 <v-code lang="js" title="">
-const name = name.<u-code>toUpperCase</u-code>(); // верхний регистр
-const name = name.<u-code>toLowerCase</u-code>(); // нижний регистр
+// Обрезает пробелы в начале и конце строки
+const str = str.<u-code>trim</u-code>();
+</v-code>
+</div><div id="js-string/methods/toString"><!-- TODO:
+<f-search>String -> toString()</f-search>
+-->
+
+<h2>toString()</h2>
+
+<v-code lang="js" title="">
+// Преобразование в строку
+77.<u-code>toString()</u-code>;
+</v-code>
+</div><div id="js-string/methods/toUpperCase"><!-- TODO:
+<f-search>String -> toUpperCase()</f-search>
+<f-search>String -> toLowerCase()</f-search>
+-->
+
+<h2>toUpperCase(), toLowerCase() - работа с регистром</h2>
+
+<v-code lang="js" title="">
+// Верхний регистр
+const name = name.<u-code>toUpperCase</u-code>();
+// Нижний регистр 
+const name = name.<u-code>toLowerCase</u-code>();
 </v-code>
 </div><div id="js-string/methods/indexOf"><!-- TODO:
-<f-search>String -> indexOf</f-search>
-<f-search>String -> lastIndexOf</f-search>
+<f-search>String -> indexOf()</f-search>
+<f-search>String -> lastIndexOf()</f-search>
 -->
 
-<h2>Поиск в строке совпадений с образцом</h2>
+<h2>indexOf(), lastIndexOf() - поиск в строке совпадений с образцом</h2>
 
 <v-code lang="js" title="">
 const pos = str.<u-code>indexOf</u-code>('name');     // с начала (-1 не найдено)
 const pos = str.indexOf('name', 2);  // поиск начат с позиции 2
 const pos = str.<u-code>lastIndexOf</u-code>('name'); // с конца (-1 не найдено)
 </v-code>
-</div><div id="js-string/methods/substring"><!-- TODO:
-<f-search>String -> substring</f-search>
-<f-search>String -> substr</f-search>
-<f-search>String -> slice</f-search>
+</div><div id="js-string/methods/split"><!-- TODO:
+<f-search>String -> split()</f-search>
 -->
 
-<h2>Взятие подстроки: substring, substr, slice<</h2>
+<h2>split()</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Базовое использование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// Преобразование строки с заданным разделителем в массив
+const arr = str.<u-code>split</u-code>(';');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>ReqExp</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const pattern = /[\s,]+/;
+const result = text.split(pattern); // разделитель пробел
+</v-code>
+</div><div id="js-string/methods/substring"><!-- TODO:
+<f-search>String -> substring()</f-search>
+<f-search>String -> substr()</f-search>
+<f-search>String -> slice()</f-search>
+-->
+
+<h2>substring(), substr(), slice() - взятие подстроки</h2>
 
 <u-code-list>slice</u-code-list>
 <ul class="list-point">
@@ -197,11 +310,11 @@ const root = str.<u-code>substr</u-code>(1, 4);  // вырезать с 1 поз
 const root = str.<u-code>substr</u-code>(1);     // вырезать с 1 позиции до конца строки
 </v-code>
 </div><div id="js-string/methods/charAt"><!-- TODO:
-<f-search>String -> charAt</f-search>
-<f-search>String -> charCodeAt</f-search>
+<f-search>String -> charAt()</f-search>
+<f-search>String -> charCodeAt()</f-search>
 -->
 
-<h2>charAt, charCodeAt</h2>
+<h2>charAt(), charCodeAt()</h2>
 
 <v-code lang="js" title="">
 // возвращает символ строки по индексу
@@ -214,46 +327,16 @@ const root = <u-code>charCodeAt</u-code>(2);
 alert( "".charAt(0) ); // пустая строка
 alert( "" [0] );       // undefined
 </v-code>
-</div><div id="js-string/methods/req-exp"><h2>ReqExp</h2>
-
-<!-- TODO:
-<f-search>String -> search()</f-search>
-<f-search>String -> match()</f-search>
-<f-search>String -> split()</f-search>
+</div><div id="js-string/reqexp/replace"><!-- TODO:
 <f-search>String -> replace()</f-search>
 -->
 
-<!------------------------------------------------------------->
-<h4>search() - возвращает позицию первого элемента</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-// игнорирует флаг global
-const text = "О дивный новый мир";
-const pattern = /мы/;
-const result = text.search(pattern); // 9
-</v-code>
+<h2>replace()</h2>
 
-<!------------------------------------------------------------->
-<h4>match() - возвращает само совпадение</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-// не игнорирует флаг global
-const text = "О дивный новый мир";
-const pattern = /новый/;
-const result = text.match(pattern); // ["новый", index: 9, input: "О дивный новый мир", groups: undefined]
-</v-code>
+<u-message-info>
+Ищет совпадение и заменяет
+</u-message-info>
 
-<!------------------------------------------------------------->
-<h4>split() - преобразование строки с заданным разделителем в массив </h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-const pattern = /[\s,]+/;
-const result = text.split(pattern); // разделитель пробел
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>replace() - ищет совпадение и заменяет</h4>
-<!------------------------------------------------------------->
 <v-code lang="js" title="">
 const text = 'привет мир';
 const pattern = /привет/;
@@ -264,14 +347,54 @@ text = text.replace(pattern, function(match) {
 </v-code>
 
 <v-code lang="js" title="">
-str = str.replace(/'/g, '"');         // поменять одинарные кавычки на двойные
-str = str.replace(/«/g, '"');         // поменять « 
-str = str.replace(/»/g, '"');         // поменять »
-str = str.replace(/–/g, '-');         // поменять "–"
-str = str.replace(/\r|\n/g, '');      // убрать перенос строки
-str = str.replace(/<\/?[^>]+>/g, ''); // удалить html теги из текста
+str = str.replace(/'/g, '"');         // Поменять одинарные кавычки на двойные
+str = str.replace(/«/g, '"');         // Поменять « 
+str = str.replace(/»/g, '"');         // Поменять »
+str = str.replace(/–/g, '-');         // Поменять "–"
+str = str.replace(/\r|\n/g, '');      // Убрать перенос строки
+str = str.replace(/<\/?[^>]+>/g, ''); // Удалить HTML теги из текста
 </v-code>
-</div><div id="js-string/other/samples"><h2>Примеры</h2>
+</div><div id="js-string/reqexp/match"><!-- TODO:
+<f-search>String -> match()</f-search>
+-->
+
+<h2>match()</h2>
+
+<u-message-info>
+Возвращает само совпадение
+</u-message-info>
+
+<v-code lang="js" title="">
+// Не игнорирует флаг global
+const text = "О дивный новый мир";
+const pattern = /новый/;
+const result = text.match(pattern); // ["новый", index: 9, input: "О дивный новый мир", groups: undefined]
+</v-code>
+</div><div id="js-string/reqexp/search"><!-- TODO:
+<f-search>String -> search()</f-search>
+-->
+
+<h2>search()</h2>
+
+<u-message-info>
+Возвращает позицию первого элемента
+</u-message-info>
+
+<v-code lang="js" title="">
+// Игнорирует флаг global
+const text = "О дивный новый мир";
+const pattern = /мы/;
+const result = text.search(pattern); // 9
+</v-code>
+</div><div id="js-string/other/samples"><!-- TODO:
+<f-search>String -> Примеры -> Перебор строки</f-search>
+<f-search>String -> Примеры -> Длина числа</f-search>
+<f-search>String -> Примеры -> Сложение строки и чисел</f-search>
+<f-search>String -> Примеры -> Экранирование кавычек</f-search>
+<f-search>String -> Примеры -> Проверка на заполненное поле</f-search>
+-->
+
+<h2>Примеры</h2>
 
 <!------------------------------------------------------------->
 <h4>Перебор строки</h4>
@@ -291,7 +414,7 @@ const a = id.toString().length;
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>Сложение</h4>
+<h4>Сложение строки и чисел</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 "Blink" + 181 + 1;   // "Blink1811"

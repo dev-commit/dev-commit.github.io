@@ -1,0 +1,27 @@
+<!-- TODO:
+<f-search>String -> replace()</f-search>
+-->
+
+<h2>replace()</h2>
+
+<u-message-info>
+Ищет совпадение и заменяет
+</u-message-info>
+
+<v-code lang="js" title="">
+const text = 'привет мир';
+const pattern = /привет/;
+
+text = text.replace(pattern, function(match) {
+    return match.toUpperCase();
+});
+</v-code>
+
+<v-code lang="js" title="">
+str = str.replace(/'/g, '"');         // Поменять одинарные кавычки на двойные
+str = str.replace(/«/g, '"');         // Поменять « 
+str = str.replace(/»/g, '"');         // Поменять »
+str = str.replace(/–/g, '-');         // Поменять "–"
+str = str.replace(/\r|\n/g, '');      // Убрать перенос строки
+str = str.replace(/<\/?[^>]+>/g, ''); // Удалить HTML теги из текста
+</v-code>
