@@ -137,7 +137,7 @@
             id="id__js-string/reqexp/match"
             href="#js-string/reqexp/match"
         >
-            <u-menu>match</u-menu>
+            <u-menu>match</u-menu> <u-menu>exec</u-menu>
         </a>
     </li>
 
@@ -148,6 +148,16 @@
             href="#js-string/reqexp/search"
         >
             <u-menu>search</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/reqexp/test"
+            href="#js-string/reqexp/test"
+        >
+            <u-menu>test</u-menu>
         </a>
     </li>
 </ul><h4>🏷️ Прочее</h4><ul>
@@ -328,7 +338,7 @@ alert( "".charAt(0) ); // пустая строка
 alert( "" [0] );       // undefined
 </v-code>
 </div><div id="js-string/reqexp/replace"><!-- TODO:
-<f-search>String -> replace()</f-search>
+<f-search>String -> ReqExp -> replace()</f-search>
 -->
 
 <h2>replace()</h2>
@@ -355,11 +365,15 @@ str = str.replace(/\r|\n/g, '');      // Убрать перенос строк�
 str = str.replace(/<\/?[^>]+>/g, ''); // Удалить HTML теги из текста
 </v-code>
 </div><div id="js-string/reqexp/match"><!-- TODO:
-<f-search>String -> match()</f-search>
+<f-search>String -> ReqExp -> match()</f-search>
+<f-search>String -> ReqExp -> exec()</f-search>
 -->
 
-<h2>match()</h2>
+<h2>match(), exec()</h2>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>match()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <u-message-info>
 Возвращает само совпадение
 </u-message-info>
@@ -370,8 +384,28 @@ const text = "О дивный новый мир";
 const pattern = /новый/;
 const result = text.match(pattern); // ["новый", index: 9, input: "О дивный новый мир", groups: undefined]
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>exec()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-message-info>
+Аналогичен match()
+</u-message-info>
+
+<ul class="list-point">
+    <li>Если не установлен флаг global, результат аналогичен методу match</li>
+    <li>Если установлен флаг global, получаем 1 первый match</li>
+</ul>
+
+<v-code lang="js" title="">
+const text = "О дивный новый мир";
+const pattern = /новый/g;
+const result = pattern.exec(text); 
+</v-code>
+
+
 </div><div id="js-string/reqexp/search"><!-- TODO:
-<f-search>String -> search()</f-search>
+<f-search>String -> ReqExp -> search()</f-search>
 -->
 
 <h2>search()</h2>
@@ -385,6 +419,21 @@ const result = text.match(pattern); // ["новый", index: 9, input: "О ди�
 const text = "О дивный новый мир";
 const pattern = /мы/;
 const result = text.search(pattern); // 9
+</v-code>
+</div><div id="js-string/reqexp/test"><!-- TODO:
+<f-search>String -> ReqExp -> test()</f-search>
+-->
+
+<h2>test()</h2>
+
+<u-message-info>
+Проверка соответствия строки регулярному выражению (true/false)
+</u-message-info>
+
+<v-code lang="js" title="">
+const text = "О дивный новый мир";
+const pattern = /новый/;
+const result = pattern.test(text); 
 </v-code>
 </div><div id="js-string/other/samples"><!-- TODO:
 <f-search>String -> Примеры -> Перебор строки</f-search>

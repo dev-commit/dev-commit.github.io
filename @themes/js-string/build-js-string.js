@@ -25,8 +25,9 @@ ARR_MODULE = [
         title: 'ReqExp',
         themes: [
             [root+'reqexp/replace', setTheme(1, ['replace'])],
-            [root+'reqexp/match', setTheme(1, ['match'])],
+            [root+'reqexp/match', setTheme(1, ['match', 'exec'])],
             [root+'reqexp/search', setTheme(1, ['search'])],
+            [root+'reqexp/test', setTheme(1, ['test'])],
         ]
     },
     {

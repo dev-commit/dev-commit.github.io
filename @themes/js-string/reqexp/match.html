@@ -1,9 +1,13 @@
 <!-- TODO:
-<f-search>String -> match()</f-search>
+<f-search>String -> ReqExp -> match()</f-search>
+<f-search>String -> ReqExp -> exec()</f-search>
 -->
 
-<h2>match()</h2>
+<h2>match(), exec()</h2>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>match()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <u-message-info>
 Возвращает само совпадение
 </u-message-info>
@@ -14,3 +18,23 @@ const text = "О дивный новый мир";
 const pattern = /новый/;
 const result = text.match(pattern); // ["новый", index: 9, input: "О дивный новый мир", groups: undefined]
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>exec()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-message-info>
+Аналогичен match()
+</u-message-info>
+
+<ul class="list-point">
+    <li>Если не установлен флаг global, результат аналогичен методу match</li>
+    <li>Если установлен флаг global, получаем 1 первый match</li>
+</ul>
+
+<v-code lang="js" title="">
+const text = "О дивный новый мир";
+const pattern = /новый/g;
+const result = pattern.exec(text); 
+</v-code>
+
+
