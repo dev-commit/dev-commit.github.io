@@ -24,7 +24,7 @@ const search = `
 const ARR_LINKS = [
     { page: 'js-task',                 theme: 'brown ',   title: search+'Задачи' },
     { page: 'compilation',             theme: 'gray',     title: search+'🔥' },
-    { page: 'agile',                   theme: 'gray',     title: search+'Agile | Jira' },
+    { page: 'agile',                   theme: 'gray',     title: 'Agile | Jira' },
     { page: 'ci-cd',                   theme: 'gray',     title: search+'CI / CD' },
     { page: 'mvc',                     theme: 'gray',     title: search+'MVC ...' },
     { page: 'english',                 theme: 'gray',     title: 'English' },
