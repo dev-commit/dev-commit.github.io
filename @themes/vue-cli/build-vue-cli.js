@@ -7,7 +7,7 @@ ARR_MODULE = [
             getLink(root, 'info'),
             [root+'main/components-system', 'Компоненты системы'],
             [root+'main/npm-command',       'Npm / Vue Command'],
-            [root+'main/import_export',     setTheme(1, ['import', 'export'])],
+            [root+'main/import-export',     setTheme(1, ['import', 'export'])],
             [root+'main/vscode',            'Настройка Visual Studio Code'],
         ]
     },

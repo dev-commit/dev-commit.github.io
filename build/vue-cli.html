@@ -2,20 +2,7 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-Vue CLI</title>
+            <title>Vue CLI</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
@@ -35,20 +22,7 @@ Vue CLI</title>
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link">
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-Vue CLI</a>
+                        <a href="#links" class="top-link">Vue CLI</a>
                     </div>
 
                     <div class="search-wrapper">
@@ -90,8 +64,8 @@ Vue CLI</a>
     <li>
         <a
             class="menu-link"
-            id="id__vue-cli/main/import_export"
-            href="#vue-cli/main/import_export"
+            id="id__vue-cli/main/import-export"
+            href="#vue-cli/main/import-export"
         >
             <u-menu>import</u-menu> <u-menu>export</u-menu>
         </a>
@@ -240,31 +214,14 @@ vue ui
 <p>Добавление новых плагинов</p>
 <v-code lang="bash" title="">
 vue add vuex
-</v-code></div><div id="vue-cli/main/import_export"><h2>Импорт и экспорт</h2>
-
-<!------------------------------------------------------------->
-<h4>Переменная</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-export var a = 10                                  // App.vue
-import {a} from './App.vue'                        // main.js
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Функция</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-export function greet() {
-	console.log('Hello');
-}
-</v-code>
+</v-code></div><div id="vue-cli/main/import-export"><h2>Импорт и экспорт</h2>
 
 <!------------------------------------------------------------->
 <h4>Компонент</h4>
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
-export default {}                                  // Header.vue
-import Header from './components/Header.vue'       // App.vue
+export default {}                            // Header.vue
+import Header from './components/Header.vue' // App.vue
 </v-code>
 
 <!------------------------------------------------------------->
@@ -272,18 +229,6 @@ import Header from './components/Header.vue'       // App.vue
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 import listJSON from '../assets/json/catalog.json' // json
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Варианты</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-export {multiply, divide};                         // экспорт нескольких элементов
-import { sum, multiply } from './utils.js'         // импорт нескольких избранных элементов
-import * as utils from './utils.js'                // импорт всего, что экспортирует модуль
-export {sum as add, multiply}                      // псевдоними для экспортируемых сущностей
-import { add, multiply as mult } from './utils.js' // псевдоними для импортируемых сущностей
-import './ui'                                      // если не указывать файл, то import index.js из "ui"
 </v-code>
 </div><div id="vue-cli/main/vscode"><h2>Настройка Visual Studio Code</h2>
 
