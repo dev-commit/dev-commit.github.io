@@ -28,7 +28,7 @@ const ARR_LINKS = [
     { page: 'ci-cd',                   theme: 'gray',     title: search+'CI / CD' },
     { page: 'mvc',                     theme: 'gray',     title: search+'MVC ...' },
     { page: 'english',                 theme: 'gray',     title: 'English' },
-    { page: 'wiki',                    theme: 'blue',     title: search+'Wiki' },
+    { page: 'wiki',                    theme: 'blue',     title: 'Wiki' },
     null,
     { page: 'theory-algoritms',        theme: 'accent',   title: search+'Algorithms' },
     { page: 'theory-data-structures',  theme: 'accent',   title: search+'Data Structures' },
