@@ -14,8 +14,12 @@ inputElement.addEventListener('input', function(event) {
             const a2 = value.toLowerCase()
 
             if (a1.includes(a2)) {
+                const title = el
+                    .replace(/->/g, '›')
+                    .replace( /&lt;(.*?)&gt;/g, '<u-code-light>&lt;$1&gt;</u-code-light>')
+
                 resultArr.push({
-                    title: el.replace(/->/g, '›'),
+                    title,
                     path: element.path
                 })
             }
