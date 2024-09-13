@@ -87,7 +87,7 @@ const ARR_LINKS = [
     { page: 'vue-vuex',                theme: 'white',    title: search+'Vuex' },
     { page: 'vue-router',              theme: 'white',    title: search+'Vue Router' },
     { page: 'vue-cli',                 theme: 'white',    title: search+'Vue CLI' },
-    { page: 'vue-plugins',             theme: 'white',    title: search+'Vue Plugins' },
+    { page: 'vue-plugins',             theme: 'white',    title: 'Vue Plugins' },
     null,
     { page: 'testing',                 theme: 'brown',    title: search+theory+'Testing' },
     { page: 'jest',                    theme: 'brown',    title: search+'Jest' },
