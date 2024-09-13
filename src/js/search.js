@@ -18,7 +18,7 @@ inputElement.addEventListener('input', function(event) {
                     .replace(/->/g, '›')
                     // .replace(/&lt;(.*?)&gt;/g, '<u-code-light>&lt;$1&gt;</u-code-light>')
                     // .replace(/<u>(.*?)<\/u>/g, '<em>$1</em>')
-                    .replace(/<u>(.*?)<\/u>/g, '<u-code-light>$1</u-code-light>')
+                    .replace(/<u>(.*?)<\/u>/g, '<em>$1</em>')
 
                 console.log(title)
 
