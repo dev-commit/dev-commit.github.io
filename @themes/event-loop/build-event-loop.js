@@ -31,6 +31,7 @@ ARR_MODULE = [
         title: 'Оптимизация',
         accent: true,
         themes: [
+            [root+'optimization/loading-website', emoji.theory+'Загрузка сайта'],
             [root+'optimization/info',            emoji.theory+'Оптимизация загрузки'],
             [root+'optimization/website-loading', emoji.theory+'Загрузка веб-страницы'],
             [root+'optimization/caching',         'Кэширование'],

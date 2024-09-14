@@ -23,7 +23,7 @@ const search = `
 
 const ARR_LINKS = [
     { page: 'js-task',                 theme: 'brown ',   title: search+'Задачи' },
-    { page: 'compilation',             theme: 'gray',     title: search+'🔥' },
+    { page: 'compilation',             theme: 'gray',     title: '🍧' },
     { page: 'agile',                   theme: 'gray',     title: 'Agile | Jira' },
     { page: 'ci-cd',                   theme: 'gray',     title: 'CI / CD' },
     { page: 'mvc',                     theme: 'gray',     title: 'MVC ...' },
@@ -35,6 +35,7 @@ const ARR_LINKS = [
     { page: 'theory-design-patterns',  theme: 'accent',   title: search+'Design Patterns' },
     { page: 'theory-solid',            theme: 'accent',   title: 'SOLID' },
     { page: 'theory-paradigms',        theme: 'accent',   title: search+'Парадигмы' },
+    { page: 'theory-refactoring',      theme: 'accent',   title: 'Refactoring' },
     null,
     { page: 'js',                      theme: 'green',    title: search+action+'JavaScript' },
     { page: 'js-promise',              theme: 'green',    title: search+'Promise' },
@@ -122,6 +123,7 @@ const ARR_LINKS = [
     { page: 'macos',                   theme: 'green',    title: search+'MacOS' },
     { page: 'windows',                 theme: 'green',    title: search+'Windows' },
     { page: 'linux',                   theme: 'green',    title: search+'Linux' },
+    { page: 'applications',            theme: 'green',    title: 'Applications' },
     { page: 'python',                  theme: 'white',    title: search+'Python' },
     { page: 'php',                     theme: 'white',    title: search+'PHP' },
     { page: 'jquery',                  theme: 'white',    title: search+'jQuery' },

@@ -17,17 +17,6 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Стандарты кода',
-        themes: [
-            [root+'best-practices/dry',           emoji.chevron+'DRY'],
-            [root+'best-practices/kiss',          emoji.chevron+'KISS'],
-            [root+'best-practices/yagni',         emoji.chevron+'YAGNI'],
-            [root+'best-practices/code-smell',    'Запахи кода'],
-            [root+'best-practices/refactoring',   'Рефакторинг'],
-            [root+'best-practices/code-standart', 'Стандарты кода'],
-        ]
-    },
-    {
         title: 'Основное',
         themes: [
             getLink(root, 'info'),

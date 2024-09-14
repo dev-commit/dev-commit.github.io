@@ -1,0 +1,297 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Applications</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/applications/build-applications.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">Applications</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Applications</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__applications/apps/telegram"
+            href="#applications/apps/telegram"
+        >
+            Telegram
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__applications/apps/google-chrome"
+            href="#applications/apps/google-chrome"
+        >
+            Google Chrome
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__applications/apps/photoshop"
+            href="#applications/apps/photoshop"
+        >
+            Adobe Photoshop
+        </a>
+    </li>
+</ul><h4>🏷️ Development</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__applications/dev/denwer"
+            href="#applications/dev/denwer"
+        >
+            Denwer
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__applications/dev/timeweb"
+            href="#applications/dev/timeweb"
+        >
+            Timeweb
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="applications/apps/telegram"><!-- TODO:
+<f-search>Apps -> Telegram</f-search>
+-->
+
+<h2>Telegram</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Форматирование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>__Курсив__</u-code-text></li>
+    <li><u-code-text>**Жирный**</u-code-text></li>
+    <li><u-code-text>~~Зачеркнутый~~</u-code-text></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Telegram Bot</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Создать бота</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li>Открыть бота BotFather <a href="https://t.me/BotFather" target="_blank" class="link">https://t.me/BotFather</a></li>
+    <li>Создать нового бота <em>"/newbot"</em></li>
+    <li>Ввести имя для бота (произвольное)</li>
+    <li>Ввести username (должно заканчиаваться на <u>"bot"</u>, н-р: "my_bot")</li>
+    <li>После создание бота появится <u>"Token to access the HTTP API"</u></li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>2. Получить ID пользователя</h4>
+<!------------------------------------------------------------->
+После этого нужно получить id пользователя Telegram, которому будут отправляться сообщения
+
+<ol class="list-num">
+    <li>Перейти по ссылке <a href="https://t.me/getmyid_bot" target="_blank" class="link">https://t.me/getmyid_bot</a> и запустить бота в своем Telegram</li>
+    <li>В ответ бот выдаст сообщение: "Your user ID: xxxx; Current chat ID: xxxx"</li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>3. Отправка сообщение в бот через сайт</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;button id=&quot;send&quot;&gt;Send&lt;/button&gt;
+</v-code>
+
+<v-code lang="js" title="">
+const userId = 'xxxx';
+const token = 'xxxx:xxxx';
+const message = 'O brave new world';
+
+const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${userId}&text=${message}`;
+
+const element = document.querySelector('#send');
+
+element.addEventListener('click', () => {
+    fetch(url)
+        .then(res => res.json())
+        .then(body => console.log(body))	
+});
+</v-code>
+</div><div id="applications/apps/google-chrome"><!-- TODO:
+<f-search>Apps -> Google Chrome</f-search>
+-->
+
+<h2>Google Chrome</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Команды</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+Ctrl + F5         # перезагрузка без кэша
+Ctrl +            # увеличение шрифта консоли
+Ctrl + R          # перезагрузка
+Ctrl + Shift + R  # жесткая перезагрузка
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Закладки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+%LOCALAPPDATA%\Google\Chrome\User Data\Default
+C:\Users\User\AppData\Local\Google\Chrome\User Data\Default
+</v-code>
+
+<ul class="list-point">
+    <li>Bookmarks (текущая версия)</li>
+    <li>Bookmarks.bak (бэкап)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Экспериментальные возможности</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+chrome://flags
+</v-code>
+
+<ul class="list-point">
+    <li><u>Reading List</u> - список для чтения</li>
+    <li><u>Experimental Web Platform features</u> - CSS @apply</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Chrome: Мобильная версия</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Телефон -> Режим разработки</li>
+    <li>О телефоне -> Версия ПО -> Отладка по USB</li>
+</ul>
+
+<img src="/@img/other/chrome-mobile-version.png">
+</div><div id="applications/apps/photoshop"><!-- TODO:
+<f-search>Apps -> Adobe Photoshop</f-search>
+-->
+
+<h2>Adobe Photoshop</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Работа с PSD-макетом</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Панель со слоями (видимость слоев, текстовые слои)</li>
+    <li>Панель инструментов (Рамка, Пипетка, Заливка, Текст, Линейка)</li>
+    <li>Файл -> Экспортировать -> Сохранить для Web (jpg, png)</li>
+    <li>Перевод единицы измерения px (Редактирование -> Настройки -> Единицы измерения и линейки</li>
+</ul>
+</div><div id="applications/dev/denwer"><!-- TODO:
+<f-search>Apps -> Denwer</f-search>
+-->
+
+<h2>Denwer</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Изменение кодировки на utf-8</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+C:\WebServers\usr\local\apache\conf\httpd.conf
+"AddDefaultCharset windows-1251" -> "AddDefaultCharset utf-8"
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Настройки php</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+C:\WebServers\usr\local\php5\php.ini
+post_max_size = 8M
+</v-code>
+</div><div id="applications/dev/timeweb"><!-- TODO:
+<f-search>Apps -> Timeweb</f-search>
+-->
+
+<h2>Timeweb</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сайт на Node.js на Timeweb</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>"Виртуальный хостинг" не подойдет</li>
+    <li>Нужно выбирать VDS с готовой сборкой Node.js</li>
+    <li><a href="https://timeweb.cloud/vds-vps" target="_blank" class="link">https://timeweb.cloud/vds-vps</a></li>
+</ul>
+
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>
