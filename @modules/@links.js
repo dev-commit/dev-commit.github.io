@@ -46,7 +46,7 @@ const ARR_LINKS = [
     { page: 'js-function',             theme: 'green',    title: search+'Function' },
     { page: 'js-regexp',               theme: 'green',    title: 'RegExp' },
     { page: 'js-web-api',              theme: 'green',    title: search+'Web API' },
-    { page: 'canvas',                  theme: 'white',    title: search+'Canvas' },
+    { page: 'canvas',                  theme: 'white',    title: 'Canvas' },
     { page: 'js-web-components',       theme: 'white',    title: search+'WebComponents' },
     null,
     { page: 'event-loop',              theme: 'blue',     title: search+'Event Loop | Optimize' },

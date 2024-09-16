@@ -1,0 +1,42 @@
+<!-- TODO:
+<f-search>Canvas -> <u>&lt;canvas&gt;</u></f-search>
+<f-search>Canvas -> <u>getContext()</u></f-search>
+-->
+
+<h2>Основы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>HTML</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html step" title="">
+&lt;canvas id="canvas" style="display: block; border: 2px solid black;"&gt;
+	Your browser is not supported
+&lt;/canvas&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Выборка элемента</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+const canvas = document.getElementById('canvas')
+</v-code>
+
+<v-code lang="js" title="">
+canvas.width = 200
+canvas.height = 200
+//canvas.width = window.innerWidth
+//canvas.height = window.innerHeight
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Получение контекста: getContext()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+const ctx = canvas.getContext('2d');
+</v-code>
+
+<v-code lang="js" title="">
+ctx.fillStyle = 'yellowgreen';
+ctx.strokeStyle = 'black';
+ctx.lineWidth = 4;
+</v-code>

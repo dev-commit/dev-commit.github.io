@@ -2,20 +2,7 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-Canvas</title>
+            <title>Canvas</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
@@ -35,20 +22,7 @@ Canvas</title>
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link">
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-Canvas</a>
+                        <a href="#links" class="top-link">Canvas</a>
                     </div>
 
                     <div class="search-wrapper">
@@ -70,40 +44,100 @@ Canvas</a>
     <li>
         <a
             class="menu-link"
-            id="id__canvas/main/html"
-            href="#canvas/main/html"
+            id="id__canvas/main/code"
+            href="#canvas/main/code"
         >
-            HTML
+            🧲 Код
+        </a>
+    </li>
+</ul><h4>🏷️ Фигуры</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__canvas/figures/rectangle"
+            href="#canvas/figures/rectangle"
+        >
+            <u-menu>Rectangle</u-menu>
         </a>
     </li>
 
     <li>
         <a
             class="menu-link"
-            id="id__canvas/main/basic"
-            href="#canvas/main/basic"
+            id="id__canvas/figures/arc"
+            href="#canvas/figures/arc"
         >
-            Основы
+            <u-menu>Arc</u-menu>
         </a>
     </li>
 
     <li>
         <a
             class="menu-link"
-            id="id__canvas/main/figure"
-            href="#canvas/main/figure"
+            id="id__canvas/figures/line-path"
+            href="#canvas/figures/line-path"
         >
-            Фигуры
+            <u-menu>Line</u-menu> <u-menu>Path</u-menu>
+        </a>
+    </li>
+</ul><h4>🏷️ Элементы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__canvas/elements/gradient"
+            href="#canvas/elements/gradient"
+        >
+            Gradient
         </a>
     </li>
 
     <li>
         <a
             class="menu-link"
-            id="id__canvas/main/other"
-            href="#canvas/main/other"
+            id="id__canvas/elements/text"
+            href="#canvas/elements/text"
         >
-            Остальное
+            Text
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__canvas/elements/text-gradient"
+            href="#canvas/elements/text-gradient"
+        >
+            Text Gradient
+        </a>
+    </li>
+</ul><h4>🏷️ Методы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__canvas/methods/clearRect"
+            href="#canvas/methods/clearRect"
+        >
+            <u-menu-accent>clearRect</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__canvas/methods/scale"
+            href="#canvas/methods/scale"
+        >
+            <u-menu-accent>scale</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__canvas/methods/rotate"
+            href="#canvas/methods/rotate"
+        >
+            <u-menu-accent>rotate</u-menu-accent>
         </a>
     </li>
 </ul>
@@ -134,42 +168,54 @@ Canvas</a>
 	<a href="https://www.pixijs.com/" target="_blank">PixiJS</a>
 	<a href="https://threejs.org/" target="_blank">three.js</a>
 </u-link-wrapper>
-</div><div id="canvas/main/html"><h2>HTML</h2>
+</div><div id="canvas/main/code"><!-- TODO:
+<f-search>Canvas -> <u>&lt;canvas&gt;</u></f-search>
+<f-search>Canvas -> <u>getContext()</u></f-search>
+-->
 
-<v-code lang="html" title="">
+<h2>Основы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>HTML</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html step" title="">
 &lt;canvas id="canvas" style="display: block; border: 2px solid black;"&gt;
 	Your browser is not supported
 &lt;/canvas&gt;
 </v-code>
-</div><div id="canvas/main/basic"><h2>Основы</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Выборка и получение контекста</h3>
+<h3>Выборка элемента</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+const canvas = document.getElementById('canvas')
+</v-code>
+
 <v-code lang="js" title="">
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
-canvas.width = 200;
-canvas.height = 200;
-//canvas.width = window.innerWidth;
-//canvas.height = window.innerHeight;
+canvas.width = 200
+canvas.height = 200
+//canvas.width = window.innerWidth
+//canvas.height = window.innerHeight
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Общие свойства</h3>
+<h3>Получение контекста: getContext()</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+const ctx = canvas.getContext('2d');
+</v-code>
+
 <v-code lang="js" title="">
 ctx.fillStyle = 'yellowgreen';
 ctx.strokeStyle = 'black';
 ctx.lineWidth = 4;
 </v-code>
-</div><div id="canvas/main/figure"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h2>Объекты</h2>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+</div><div id="canvas/figures/rectangle"><!-- TODO:
+<f-search>Canvas -> <u>Rectangle</u></f-search>
+-->
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Rectangle</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2>Rectangle</h2>
+
 <v-two-fix><template v-slot:first>
 <v-code lang="js" title="">
 ctx.fillRect(0,0,100,100);   // fill
@@ -178,10 +224,12 @@ ctx.strokeRect(0,0,100,100); // stroke
 </template><template v-slot:last>
 <img src="/@img/canvas/rectangle1.png" class="img200">
 </template></v-two-fix>
+</div><div id="canvas/figures/arc"><!-- TODO:
+<f-search>Canvas -> <u>Arc</u></f-search>
+-->
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Arc</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2>Arc</h2>
+
 <v-two-fix><template v-slot:first>
 <v-code lang="js" title="">
 ctx.beginPath();
@@ -194,7 +242,7 @@ ctx.stroke(); // stroke
 <img src="/@img/canvas/arc1.png" class="img200">
 </template></v-two-fix>
 
-<v-code lang="js" title="">
+<v-code lang="js none" title="">
 arc();
 1 - координаты центра окружности (x)
 2 - координаты центра окружности (y)
@@ -203,10 +251,13 @@ arc();
 5 - end angle (360deg = pi*2)
 6 - рисование по часовой (false) / против (true) часовой стрелки
 </v-code>
+</div><div id="canvas/figures/line-path"><!-- TODO:
+<f-search>Canvas -> <u>Line</u></f-search>
+<f-search>Canvas -> <u>Path</u></f-search>
+-->
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Line, Path</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2>Line, Path</h2>
+
 <v-two-fix><template v-slot:first>
 <v-code lang="js" title="">
 ctx.beginPath();
@@ -226,10 +277,12 @@ ctx.stroke();
 </template><template v-slot:last>
 <img src="/@img/canvas/path1.png" class="img200">
 </template></v-two-fix>
+</div><div id="canvas/elements/gradient"><!-- TODO:
+<f-search>Canvas -> Gradient</f-search>
+-->
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Gradient</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2>Gradient</h2>
+
 <v-two-fix><template v-slot:first>
 <v-code lang="js" title="">
 const grad = ctx.createLinearGradient(0, 100, 100, 0);
@@ -241,10 +294,12 @@ ctx.fillRect(50, 50, 100, 100);
 </template><template v-slot:last>
 <img src="/@img/canvas/gradient1.png" class="img200">
 </template></v-two-fix>
+</div><div id="canvas/elements/text"><!-- TODO:
+<f-search>Canvas -> Text</f-search>
+-->
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Text</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2>Text</h2>
+
 <v-two-fix><template v-slot:first>
 <v-code lang="js" title="">
 ctx.textAlign = 'center';
@@ -254,10 +309,12 @@ ctx.fillText('Hello World', canvas.width/2, canvas.height/2); // по центр
 </template><template v-slot:last>
 <img src="/@img/canvas/text1.png" class="img200">
 </template></v-two-fix>
+</div><div id="canvas/elements/text-gradient"><!-- TODO:
+<f-search>Canvas -> Text Gradient</f-search>
+-->
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Text Gradient</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2>Text Gradient</h2>
+
 <v-two-fix><template v-slot:first>
 <v-code lang="js" title="">
 const grad = ctx.createLinearGradient(0, 0, 150, 0);
@@ -272,12 +329,32 @@ ctx.fillText('Hello World', 20, 35);
 </template><template v-slot:last>
 <img src="/@img/canvas/text2.png" class="img200">
 </template></v-two-fix>
-</div><div id="canvas/main/other"><h2>Остальное</h2>
+</div><div id="canvas/methods/clearRect"><!-- TODO:
+<f-search>Canvas -> <u>clearRect()</u></f-search>
+-->
+
+<h2>clearRect()</h2>
 
 <v-code lang="js" title="">
 ctx.clearRect(0, 0, canvas.width, canvas.height); // очистка холста
-ctx.scale(2,2);                                   // масштабирование (x,y)
-ctx.rotate(10 * Math.PI/180);                     // поворот на 10deg
+</v-code>
+</div><div id="canvas/methods/scale"><!-- TODO:
+<f-search>Canvas -> <u>scale()</u></f-search>
+-->
+
+<h2>scale()</h2>
+
+<v-code lang="js" title="">
+ctx.scale(2,2);  // масштабирование (x,y)
+</v-code>
+</div><div id="canvas/methods/rotate"><!-- TODO:
+<f-search>Canvas -> <u>rotate()</u></f-search>
+-->
+
+<h2>rotate()</h2>
+
+<v-code lang="js" title="">
+ctx.rotate(10 * Math.PI/180); // поворот на 10deg
 </v-code>
 </div></div>
                 </div>
