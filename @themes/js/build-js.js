@@ -18,7 +18,7 @@ ARR_MODULE = [
         themes: [
             [root+'variables/hoisting',     emoji.fire+'Всплытие'],
             [root+'variables/variables',    setTheme(1, ['var', 'let', 'const'])],
-            [root+'variables/variables-create',     emoji.theory+'Создание переменных'],
+            [root+'variables/variables-create', emoji.theory+'Создание переменных'],
         ]
     },
     {
@@ -37,15 +37,6 @@ ARR_MODULE = [
         themes: [
             [root+'es6+/nullish-coalescing-operator', 'Оператор '+setTheme(1, ['??'])],
             [root+'es6+/optional-chaining',           'Оператор '+setTheme(1, ['?.'])],
-        ]
-    },
-    {
-        title: 'Асинхронный код',
-        themes: [
-    		[root+'async/collback',   setTheme(3, ['1'])+' Collback Function'],
-		    [root+'async/generators', setTheme(3, ['2'])+' Generators (ES6)'],
-		    [root+'async/async-func', setTheme(3, ['3'])+' Async Function (ES2017)'],
-		    [root+'async/timeout',    setTheme(1, ['setTimeout', 'setInterval'])],
         ]
     },
     {

@@ -22,8 +22,6 @@ const search = `
 `
 
 const ARR_LINKS = [
-
-
     { page: 'js-task',                 theme: 'brown ',   title: search+'Задачи' },
     { page: 'compilation',             theme: 'gray',     title: '🍧' },
     { page: 'agile',                   theme: 'gray',     title: 'Agile | Jira' },
@@ -46,6 +44,7 @@ const ARR_LINKS = [
     { page: 'js-function',             theme: 'green',    title: search+'Function' },
     { page: 'js-class',                theme: 'green',    title: search+'Class' },
     null,
+    { page: 'js-async',                theme: 'green',    title: 'Async' },
     { page: 'js-promise',              theme: 'green',    title: search+'Promise' },
     { page: 'js-ajax',                 theme: 'green',    title: 'Ajax' },
     { page: 'theory-network',          theme: 'blue',     title: search+theory+'HTTP | Protocols' },
