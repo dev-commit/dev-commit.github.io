@@ -1,8 +1,8 @@
-root = 'applications/';
+root = 'software/';
 
 ARR_MODULE = [
     {
-        title: 'Applications',
+        title: 'Common Software',
         themes: [
             [root+'apps/telegram',      'Telegram'],
             [root+'apps/google-chrome', 'Google Chrome'],
