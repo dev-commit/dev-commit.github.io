@@ -72,7 +72,7 @@ const ARR_LINKS = [
     { page: 'reselect',                theme: 'violet',   title: 'Reselect' },
     null,
     { page: 'formik',                  theme: 'violet',   title: search+'Formik' },
-    { page: 'yup',                     theme: 'violet',   title: search+'Yup' },
+    { page: 'yup',                     theme: 'violet',   title: 'Yup' },
     { page: 'react-hook-form',         theme: 'actual',   title: 'React Hook Form' },
     { page: 'react-final-form',        theme: 'white',    title: 'React Final Form' },
     null,
