@@ -4,9 +4,9 @@ ARR_MODULE = [
     {
         title: 'Асинхронный код',
         themes: [
-    		[root+'async/collback',   setTheme(3, ['1'])+' Collback Function'],
-		    [root+'async/generators', setTheme(3, ['2'])+' Generators (ES6)'],
-		    [root+'async/async-func', setTheme(3, ['3'])+' Async Function (ES2017)'],
+    		[root+'async/collback',   '1. Collback Function'],
+		    [root+'async/generators', '2. Generators (ES6)'],
+		    [root+'async/async-func', '3. Async Function (ES2017)'],
         ]
     },
     {
