@@ -22,6 +22,8 @@ const search = `
 `
 
 const ARR_LINKS = [
+    { page: 'network',                    theme: 'blue',     title: 'Network' },
+
     { page: 'js-task',                 theme: 'brown ',   title: search+'Задачи' },
     { page: 'compilation',             theme: 'gray',     title: '🍧' },
     { page: 'agile',                   theme: 'gray',     title: 'Agile | Jira' },
@@ -51,8 +53,9 @@ const ARR_LINKS = [
     null,
     { page: 'event-loop',              theme: 'blue',     title: search+'Event Loop | Optimize' },
     { page: 'theory-network',          theme: 'blue',     title: search+theory+'HTTP | Protocols' },
-    { page: 'js-ajax',                 theme: 'blue',     title: search+'Network | Ajax' },
+    { page: 'js-ajax',                 theme: 'blue',     title: 'Ajax' },
     { page: 'auth',                    theme: 'blue',     title: search+'Auth' },
+
     null,
     { page: 'react-js',                theme: 'violet',   title: search+action+'React.js' },
     { page: 'react-hooks',             theme: 'violet',   title: 'React Hooks' },
