@@ -1,0 +1,485 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>⭐️ React App</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/react-app/build-react-app.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">⭐️ React App</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Starter</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-app/main/new-project"
+            href="#react-app/main/new-project"
+        >
+            Новый проект
+        </a>
+    </li>
+</ul><h4>🏷️ Структура файлов</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-app/file-structure/structure"
+            href="#react-app/file-structure/structure"
+        >
+            Структура
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-app/file-structure/types"
+            href="#react-app/file-structure/types"
+        >
+            📂 src › 📂 types
+        </a>
+    </li>
+</ul><h4>🏷️ services</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-app/services/instance"
+            href="#react-app/services/instance"
+        >
+            Создание instance
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-app/services/services"
+            href="#react-app/services/services"
+        >
+            Сервисы для AXIOS
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-app/services/error-handling"
+            href="#react-app/services/error-handling"
+        >
+            Обработка ошибок
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="react-app/main/new-project"><!-- DATA: Internal Links -->
+
+<h2>Новый проект</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Установить шаблон и зависимости</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+npm create vite@latest
+</v-code>
+
+<ul class="list-point">
+    <li>В процессе установки можно выбрать фреймворк и TS</li>
+</ul>
+
+<v-code lang="js" title="">
+cd vite-ts-app
+npm install
+npm run dev
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Настроить Eslint и Prettier</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Установить axios</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+npm i --save axios
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>4. Настроить Алиасы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+</div><div id="react-app/file-structure/structure"><h2>Структура</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Корневой узел</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>📂 public</li>
+    <li>📂 docs</li>
+    <li>📂 src</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Директория src</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h5>Structure</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>📂 components</li>
+    <li>📂 containers</li>
+    <li>📂 layouts</li>
+    <li>📂 pages</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Utils</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>📂 utils</li>
+    <li>📂 config</li>
+    <li>📂 hooks</li>
+    <li>📂 hoc</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Common</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>📂 ui-kit</li>
+    <li>📂 constants</li>
+    <li>📂 context</li>
+    <li>📂 services / api</li>
+    <li>📂 store</li>
+    <li>📂 styles</li>
+    <li>📂 types</li>
+    <li>📂 routes</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Other</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>📂 i18n</li>
+    <li>📂 helpers</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Files</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>› index.tsx</li>
+</ul>
+</div><div id="react-app/file-structure/types"><h2>Types</h2>
+
+<v-tree>
+📂 <u-code-mod>types</u-code-mod>
+	› <s>index.d.ts</s>
+</v-tree>
+
+<v-path>index.d.ts</v-path>
+
+<v-code lang="js" title="">
+declare global {
+  interface Window {
+    store: RootState;
+  }
+}
+</v-code>
+</div><div id="react-app/services/instance"><h2>Создание instance</h2>
+
+ <v-tree>
+📂 <u-code-mod>services</u-code-mod>
+	› <s>init.ts</s>
+</v-tree>
+
+<v-path>services/init.ts</v-path>
+
+<v-code lang="js" title="">
+import axios from "axios"
+
+export const instance = axios.create({
+  baseURL: "https://website/api/",
+  // timeout: 1000,
+  // headers: {
+  //   "Access-Control-Allow-Origin": "*",
+  // },
+})
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Init Function</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-path>init.ts</v-path>
+
+<v-code lang="js" title="">
+const init = (): AxiosInstance => {
+  const accessToken = TokenStorage.get().access;
+
+  const client = axios.create({
+    baseURL: process.env.REACT_APP_API_URL,
+    headers: { common: { Authorization: accessToken } },
+    paramsSerializer: params => qs.stringify(params),
+  });
+
+  // client.interceptors.response.use();
+
+  return client;
+}
+</v-code>
+</div><div id="react-app/services/services"><h2>Сервисы</h2>
+
+<u-message-info>
+Используется AXIOS
+</u-message-info>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Создание instance</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Services</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>На примере API для "users"</li>
+</ul>
+
+<v-tree>
+📂 <u-code-mod>services</u-code-mod>
+  📂 <b>name</b>
+    › <s>types.ts</s>
+    › <s>name.ts</s>
+</v-tree>
+
+<v-code lang="js" title="">
+import * as t from './types'
+
+import { instance } from "../init"
+
+const URL = '/user'
+</v-code>
+
+<v-code lang="js" title="">
+interface IUserModel {
+  name: string
+  age: number
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>get</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+interface IGetResponse {
+  data: IUserModel
+}
+
+export const get = async (id: string): Promise&lt;t.IUserModel&gt; => {
+  const { data } = await instance.get&lt;t.IGetResponse&gt;(`${URL}/${id}`)
+  return data.user
+};
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>list</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+interface IGetListResponse {
+  data: IUserModel[]
+}
+
+export const getList = async (): Promise&lt;t.IGetListResponse&gt; => {
+  const { data } = await instance.get&lt;t.IGetListResponse&gt;(URL)
+  return data
+};
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>create</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+interface ICreatePayload {
+    id: string
+}
+interface ICreateResponse {
+    //
+}
+
+export const create = async (payload: t.ICreatePayload): Promise&lt;t.IUserModel&gt; => {
+  const { data } = await instance.post&lt;t.ICreateResponse&gt;(URL, payload);
+  return data.user;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>update</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+interface IUpdateResponse {
+  //
+}
+
+export const update = async (
+  id: string,
+  payload: t.IUpdatePayload,
+): Promise&lt;t.IUserModel&gt; => {
+  const { data } = await instance.put&lt;t.IUpdateResponse&gt;(`${URL}/${id}`, payload)
+  return data.user;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>remove</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+export const remove = async (id: string): Promise&lt;void&gt; => {
+  return await instance.delete(`${URL}/${id}`);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>search</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+interface ISearchParams {
+  //
+}
+interface ISearchResponse {
+  //
+}
+
+export const search = async (params: t.ISearchParams = {}): Promise<t.ISearchResponse> => {
+  const { data } = await instance.post<t.ISearchResponse>(`${URL}/search`, params)
+  return data
+};
+</v-code>
+</div><div id="react-app/services/error-handling"><h2>Обработка ошибок</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Через Promise</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+export const getList = async () => {
+  const promise = instance.get("url")
+
+  promise
+    .then((response) => {
+      console.log(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Async Function. Try / Catch</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+export const getList = async () => {
+  try {
+    const { data } = await instance.get("url")
+    return data
+  } catch (error) {
+    // @ts-ignore
+    return error.message
+  }
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Async Function. Функция-обертка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+export const getList = async () => {
+  const { data } = await instance.get("url")
+  return data
+}
+
+export const catchApiErrors = async (responseFunction) => {
+  try {
+    return await responseFunction();
+  } catch (error) {
+    // @ts-ignore
+    return error;
+  }
+}
+
+const getData = async () => {
+  const data = await catchApiErrors(getList)
+  console.log(data)
+}
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

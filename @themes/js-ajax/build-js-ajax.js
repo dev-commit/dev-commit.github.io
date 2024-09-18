@@ -2,7 +2,7 @@ root = 'js-ajax/';
 
 ARR_MODULE = [
     {
-        title: 'Ajax',
+        title: 'Axios',
         accent: true,
         themes: [
             [root+'axios/info', 'Информация'],

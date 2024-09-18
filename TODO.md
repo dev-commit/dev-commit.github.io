@@ -20,3 +20,8 @@ https://dev-commit.github.io/pages/wiki#wiki/main/symbols
 ### ⭐️ FIXME (временно решено)
 - Search. Если результат поиска выпадает на текущую страницу, то URL меняется, но контент не меняется. Временно решено перезагрузкой страницы
 - Мобильная версия. При вводе в поиск, скрывается левое меню. Скорее всего связано с "window.addEventListener('resize')" из "src\vue.js\build.js". При наборе текса в input, появлятся клавиатура, которая может вызвать resize. Временно решено закомментированным кодом с "window.addEventListener('resize')"
+
+----
+
+## Data
+- <!-- DATA: Internal Links -->

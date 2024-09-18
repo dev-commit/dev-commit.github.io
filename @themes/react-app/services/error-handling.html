@@ -1,0 +1,57 @@
+<h2>Обработка ошибок</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Через Promise</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+export const getList = async () => {
+  const promise = instance.get("url")
+
+  promise
+    .then((response) => {
+      console.log(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Async Function. Try / Catch</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+export const getList = async () => {
+  try {
+    const { data } = await instance.get("url")
+    return data
+  } catch (error) {
+    // @ts-ignore
+    return error.message
+  }
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Async Function. Функция-обертка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+export const getList = async () => {
+  const { data } = await instance.get("url")
+  return data
+}
+
+export const catchApiErrors = async (responseFunction) => {
+  try {
+    return await responseFunction();
+  } catch (error) {
+    // @ts-ignore
+    return error;
+  }
+}
+
+const getData = async () => {
+  const data = await catchApiErrors(getList)
+  console.log(data)
+}
+</v-code>

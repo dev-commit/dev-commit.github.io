@@ -6,6 +6,7 @@
 
 const theory = '📑 ';
 const action = '🍧 ';
+const accent = '⭐️ ';
 const search = `
     <div
         style="
@@ -57,6 +58,7 @@ const ARR_LINKS = [
     { page: 'canvas',                  theme: 'white',    title: 'Canvas' },
     { page: 'web-components',          theme: 'white',    title: search+'WebComponents' },
     null,
+    { page: 'react-app',               theme: 'accent',   title: accent+'React App' },
     { page: 'react-js',                theme: 'violet',   title: search+action+'React.js' },
     { page: 'react-hooks',             theme: 'violet',   title: 'React Hooks' },
     { page: 'react-api',               theme: 'violet',   title: search+'React API' },

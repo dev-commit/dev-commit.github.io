@@ -1,0 +1,41 @@
+<h2>Создание instance</h2>
+
+ <v-tree>
+📂 <u-code-mod>services</u-code-mod>
+	› <s>init.ts</s>
+</v-tree>
+
+<v-path>services/init.ts</v-path>
+
+<v-code lang="js" title="">
+import axios from "axios"
+
+export const instance = axios.create({
+  baseURL: "https://website/api/",
+  // timeout: 1000,
+  // headers: {
+  //   "Access-Control-Allow-Origin": "*",
+  // },
+})
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Init Function</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-path>init.ts</v-path>
+
+<v-code lang="js" title="">
+const init = (): AxiosInstance => {
+  const accessToken = TokenStorage.get().access;
+
+  const client = axios.create({
+    baseURL: process.env.REACT_APP_API_URL,
+    headers: { common: { Authorization: accessToken } },
+    paramsSerializer: params => qs.stringify(params),
+  });
+
+  // client.interceptors.response.use();
+
+  return client;
+}
+</v-code>
