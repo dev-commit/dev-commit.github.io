@@ -34,6 +34,7 @@ ARR_MODULE = [
         title: 'Stylelint',
         themes: [
             [root+'stylelint/info', emoji.theory+'Информация'],
+            [root+'stylelint/install', emoji.theory+'Установка и настройка'],
         ]
     },
     {

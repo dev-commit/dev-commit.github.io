@@ -23,5 +23,7 @@ https://dev-commit.github.io/pages/wiki#wiki/main/symbols
 
 ----
 
-## Data
-- <!-- DATA: Internal Links -->
+## Internal Links
+```
+<a data-attr="internal" href="/pages/react-js#react-js/aliases/vite">Link</a>
+```

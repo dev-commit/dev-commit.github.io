@@ -9,15 +9,29 @@
 npm i --save-dev <u-code-accent>eslint</u-code-accent> <u-code-accent>eslint-config-react-app</u-code-accent> <u-code-accent>eslint-plugin-prettier</u-code-accent>
 </v-pre-npm>
 
+<u-message-error>
+<ul class="list-point">
+    <li>Проблема при установке <u>eslint-config-react-app</u></li>
+    <li>Плагин пока не совмести с новой версией eslint 9. Нужно использовать версию 8, н-р <u>"eslint": "^8.57.0"</u></li>
+</ul>
+</u-message-error>
+
+<v-details title="Детали">
+<ul class="list-point">
+    <li>Можно установить с флагом <u>"--force"</u></li>
+</ul>
+
+<v-code lang="plaintext none" title="">
+ERESOLVE unable to resolve dependency tree
+Found: eslint@9.10.0
+Could not resolve dependency:
+peer eslint@"^8.0.0" from eslint-config-react-app@7.0.1
+</v-code>        
+</v-details>
+
 <h5>Prettier</h5>
 <v-pre-npm>
 npm i --save-dev <u-code-accent>prettier</u-code-accent> <u-code-accent>prettier-config-nick</u-code-accent>
-</v-pre-npm>
-
-<h5>Stylelint</h5>
-<u-message-error>Не используеся в конфиге и в проекте</u-message-error>
-<v-pre-npm>
-npm i --save-dev <u-code-accent>stylelint</u-code-accent> <u-code-accent>stylelint-config-concentric-order</u-code-accent> <u-code-accent>stylelint-config-sass-guidelines</u-code-accent>
 </v-pre-npm>
 
 <v-path>package.json</v-path>
@@ -35,15 +49,10 @@ npm i --save-dev <u-code-accent>stylelint</u-code-accent> <u-code-accent>styleli
 
         "prettier": "^3.0.3",
         "prettier-config-nick": "^1.0.8",
-
-        // "stylelint": "^13.13.1",
-        // "stylelint-config-concentric-order": "^4.0.1",
-        // "stylelint-config-sass-guidelines": "^8.0.0"
     },
     "eslintConfig": {
         "extends": [
-            "react-app",
-            "react-app/jest"
+            "react-app"
         ],
         "plugins": [
             "prettier"
