@@ -15,10 +15,10 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'services',
+        title: 'AXIOS Services',
         themes: [
             [root+'services/instance', 'Создание instance'],
-            [root+'services/services', 'Сервисы для AXIOS'],
+            [root+'services/services', 'Services'],
             [root+'services/error-handling', 'Обработка ошибок'],
         ]
     },
