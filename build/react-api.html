@@ -2,20 +2,7 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-React API</title>
+            <title>React API</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
@@ -35,20 +22,7 @@ React API</title>
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link">
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-React API</a>
+                        <a href="#links" class="top-link">React API</a>
                     </div>
 
                     <div class="search-wrapper">
@@ -267,7 +241,11 @@ React API</a>
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="react-api/react/startTransition"><h2>startTransition</h2>
+                    <div id="content"><div id="react-api/react/startTransition"><!-- TODO:
+<f-search>React API -> startTransition()</f-search>
+-->
+
+<h2>startTransition()</h2>
 
 <ul class="list-point">
     <li>Метод добавлен для обновления состояния компонента, которое влечет за собой тяжелые вычисления. Например, фильтрация списка. Это позволяет значительно улучшить пользовательский ввод и отклик интерфейса, т.к. помечает тяжелые обновления компонента как «переходы» — transitions</li>
@@ -287,7 +265,14 @@ startTransition(() => {
     setSearchQuery(input);
 });
 </v-code>
-</div><div id="react-api/react/createContext"><h2>Контекст</h2>
+</div><div id="react-api/react/createContext"><!-- TODO:
+<f-search>React API -> React.createContext()</f-search>
+<f-search>React API -> Context.Provider</f-search>
+<f-search>React API -> Class.contextType</f-search>
+<f-search>React API -> Context.Consumer</f-search>
+-->
+
+<h2>Контекст</h2>
 
 <ul class="list-point">
     <li><u-text-define>Контекст</u-text-define> - позволяет передавать данные через дерево компонентов без необходимости передавать пропсы на промежуточных уровнях</li>
@@ -301,7 +286,7 @@ startTransition(() => {
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
-<h4>1. React.createContext</h4>
+<h4>1. React.createContext()</h4>
 <!------------------------------------------------------------->
 
 <div class="v-method-wrapper">
@@ -443,7 +428,11 @@ class ThemedButton extends Component {
 
 
 
-</div><div id="react-api/react/Fragment"><h2>Фрагменты</h2>
+</div><div id="react-api/react/Fragment"><!-- TODO:
+<f-search>React API -> Фрагменты</f-search>
+-->
+
+<h2>Фрагменты</h2>
 
 <ul class="list-point">
     <li><u-text-define>Фрагменты</u-text-define> - позволяют формировать список дочерних элементов, не создавая лишних узлов в DOM</li>
@@ -506,7 +495,11 @@ export default class App extends Component {
 	}
 }
 </v-code>
-</div><div id="react-api/react/StrictMode"><h2>&lt;StrictMode&gt;</h2>
+</div><div id="react-api/react/StrictMode"><!-- TODO:
+<f-search>React API -> &lt;StrictMode&gt;</f-search>
+-->
+
+<h2>&lt;StrictMode&gt;</h2>
 
 <u-message-warn>
 <ul>
@@ -539,8 +532,11 @@ root.render(
     <u-code>&lt;/StrictMode&gt;</u-code>
 );
 </v-code>
-</div><div id="react-api/react-dom/createPortal"><h2>Порталы</h2>
+</div><div id="react-api/react-dom/createPortal"><!-- TODO:
+<f-search>React API -> ReactDOM.createPortal()</f-search>
+-->
 
+<h2>Порталы</h2>
 
 <div class="v-method-wrapper">
     <v-method before="ReactDOM." method="createPortal" after="" arg="(child, container)">
@@ -603,7 +599,12 @@ class Child extends Component {
 <v-code lang="html" title="index.html">
 &lt;div id="root"&gt;&lt;/div&gt;
 &lt;div id="portal"&gt;&lt;/div&gt;
-</v-code></div><div id="react-api/optimization/info"><h2>Информация</h2>
+</v-code></div><div id="react-api/optimization/info"><!-- TODO:
+<f-search>React API -> Мемоизация</f-search>
+<f-search>React API -> Виртуализация</f-search>
+-->
+
+<h2>Информация</h2>
 
 <ul class="list-point">
     <li><u-text-define>Мемоизация</u-text-define> - сохранение результатов выполнения функций для предотвращения повторных вычислений. Это один из способов оптимизации, применяемый для увеличения скорости выполнения компьютерных программ</li>
@@ -618,7 +619,11 @@ class Child extends Component {
     <li>Список элементов и при скролле отображаются только те элементы, которые видит пользователь</li>
 </ul>
 
-</div><div id="react-api/optimization/react-memo"><h2>React.memo</h2>
+</div><div id="react-api/optimization/react-memo"><!-- TODO:
+<f-search>React API -> React.memo()</f-search>
+-->
+
+<h2>React.memo()</h2>
 
 <u-link-wrapper>
     <a href="https://react.dev/reference/react/memo" target="_blank">memo</a>
@@ -676,7 +681,12 @@ const areEqual = (prevProps, nextProps) => {
 
 export default memo(App, areEqual);
 </v-code>
-</div><div id="react-api/optimization/react-lazy"><h2>Задержка (Suspense)</h2>
+</div><div id="react-api/optimization/react-lazy"><!-- TODO:
+<f-search>React API -> React.lazy()</f-search>
+<f-search>React API -> React.Suspense</f-search>
+-->
+
+<h2>Задержка (Suspense)</h2>
 
 <ul class="list-point">
     <li><u-code-text>React.lazy()</u-code-text> - позволяет вам определять компонент, который загружается динамически. Это помогает уменьшить размер сборки, откладывая загрузку компонентов, которые не используются во время первоначального рендера</li>
@@ -696,7 +706,11 @@ const App = () =&gt; (
     &lt;/&gt;
 );
 </v-code>
-</div><div id="react-api/common/dangerously-set-inner-html"><h2>dangerouslySetInnerHTML</h2>
+</div><div id="react-api/common/dangerously-set-inner-html"><!-- TODO:
+<f-search>React API -> dangerouslySetInnerHTML</f-search>
+-->
+
+<h2>dangerouslySetInnerHTML</h2>
 
 <ul class="list-point">
     <li>Свойству <u-code-text>innerHTML</u-code-text> в DOM браузера соответствует <u-code-text>dangerouslySetInnerHTML</u-code-text> в React. Как правило, вставка HTML из кода рискованна, так как можно случайно подвергнуть ваших пользователей атаке межсайтового скриптинга.</li>
@@ -715,7 +729,11 @@ export default function App() {
 
 ReactDOM.render(&lt;App /&gt;, document.getElementById('root')); // =&gt; Привет
 </v-code>
-</div><div id="react-api/legacy/set-state"><h2>setState()</h2>
+</div><div id="react-api/legacy/set-state"><!-- TODO:
+<f-search>React API -> Class -> setState()</f-search>
+-->
+
+<h2>setState()</h2>
 
 <v-two-code type="js;js" comment="Состояние не зависит от предыдущего состояния;Состояние зависит от предыдущего состояния">
 <template v-slot:first>
@@ -828,7 +846,11 @@ incrementCount(){
 	}));
 }
 </template>
-</v-two-code></div><div id="react-api/legacy/force-update"><h2>forceUpdate()</h2>
+</v-two-code></div><div id="react-api/legacy/force-update"><!-- TODO:
+<f-search>React API -> forceUpdate()</f-search>
+-->
+
+<h2>forceUpdate()</h2>
 
 <ul class="list-point">
     <li>По умолчанию при изменении состояния компонента или пропсов, происходит повторный рендер. Если ваш метод <u>render()</u> зависит от некоторых других данных, вы можете указать React необходимость в повторном рендере, вызвав <u>forceUpdate()</u></li>
@@ -843,7 +865,11 @@ incrementCount(){
 
 	<v-method-arg arg="callback">callback</v-method-arg>
 </div>
-</div><div id="react-api/legacy/Component"><h2>React.Component</h2>
+</div><div id="react-api/legacy/Component"><!-- TODO:
+<f-search>React API -> Class -> React.Component</f-search>
+-->
+
+<h2>React.Component</h2>
 
 <v-code lang="js" title="">
 // точка входа в библиотеку React
@@ -864,7 +890,11 @@ export default class App extends <u-code>Component</u-code> {
 }
 </template>
 </v-two-code>
-</div><div id="react-api/legacy/react-pure-component"><h2>React.PureComponent</h2>
+</div><div id="react-api/legacy/react-pure-component"><!-- TODO:
+<f-search>React API -> Class -> React.PureComponent</f-search>
+-->
+
+<h2>React.PureComponent</h2>
 
 <ul class="list-point">
     <li><u-text-define>React.PureComponent</u-text-define> похож на <u-code-text>React.Component</u-code-text>. Отличие заключается в том, что <u-code-text>React.Component</u-code-text> не реализует <u-code-text>shouldComponentUpdate()</u-code-text>, а <u-code-text>React.PureComponent</u-code-text> реализует его поверхностным сравнением пропсов и состояния</li>
@@ -945,7 +975,11 @@ ReactDOM.render(&lt;A someProps={2} /&gt;, root);
     <li>Дальнейшие методы Updating lifecycle не вызываются</li>
 </ol>
 
-</div><div id="react-api/legacy/children"><h2>Children</h2>
+</div><div id="react-api/legacy/children"><!-- TODO:
+<f-search>React API -> React.Children</f-search>
+-->
+
+<h2>React.Children</h2>
 
 <div class="v-method-wrapper">
     <v-method before="props." method="children" after="" arg="">
@@ -1036,7 +1070,11 @@ const Child = (props) =&gt; {
 	);
 };
 </v-code>
-</div><div id="react-api/legacy/createElement"><h2>React.createElement</h2>
+</div><div id="react-api/legacy/createElement"><!-- TODO:
+<f-search>React API -> React.createElement()</f-search>
+-->
+
+<h2>React.createElement()</h2>
 
 <ul class="list-point">
     <li>Код, написанный с использованием <u-code-text>JSX</u-code-text>, будет преобразован в <u-code-text>React.createElement()</u-code-text></li>
@@ -1106,7 +1144,12 @@ const title = React.createElement('div', null, 'Привет, мир!'),
 const title = e('div', null, 'Привет, мир!'),
 </template>
 </v-two-code>
-</div><div id="react-api/legacy/createRef"><h2>Рефы и DOM</h2>
+</div><div id="react-api/legacy/createRef"><!-- TODO:
+<f-search>React API -> createRef()</f-search>
+<f-search>React API -> forwardRef()</f-search>
+-->
+
+<h2>Рефы и DOM</h2>
 
 <div class="v-method-wrapper">
     <v-method before="React." method="createRef" after="" arg="()">
@@ -1297,7 +1340,11 @@ export default class App extends Component {
 	}
 }
 </v-code>
-</div><div id="react-api/legacy/createFactory"><h2>React.createFactory()</h2>
+</div><div id="react-api/legacy/createFactory"><!-- TODO:
+<f-search>React API -> React.createFactory()</f-search>
+-->
+
+<h2>React.createFactory()</h2>
 
 <ul class="list-point">
     <li>Этот вспомогательный метод считается устаревшим, и мы рекомендуем использовать либо <u>JSX</u>, либо напрямую <u>React.createElement()</u></li>
@@ -1314,7 +1361,11 @@ export default class App extends Component {
 	<v-method-return>Функция, которая создаёт элементы React заданного типа</v-method-return>
 </div>
 
-</div><div id="react-api/legacy/cloneElement"><h2>React.cloneElement</h2>
+</div><div id="react-api/legacy/cloneElement"><!-- TODO:
+<f-search>React API -> React.cloneElement()</f-search>
+-->
+
+<h2>React.cloneElement()</h2>
 
 <ul class="list-point">
     <li>Реакт элементы нельзя изменять после того как они были созданы, но можно создавать модифицированные копии при помощи React.cloneElement()</li>
@@ -1331,7 +1382,11 @@ export default class App extends Component {
 
 	<v-method-return>Новый React-элемент</v-method-return>
 </div>
-</div><div id="react-api/legacy/isValidElement"><h2>isValidElement()</h2>
+</div><div id="react-api/legacy/isValidElement"><!-- TODO:
+<f-search>React API -> isValidElement()</f-search>
+-->
+
+<h2>isValidElement()</h2>
 
 <div class="v-method-wrapper">
     <v-method before="React." method="isValidElement" after="" arg="(object)">
