@@ -5,7 +5,7 @@ THEME:
 */
 
 // const theory = '<span style="filter: drop-shadow(0px 0px 0.2px #000);">📑</span> ';
-const accent = '<span style="filter: drop-shadow(0px 0px 0.5px #000);">⭐️</span> ';
+const accent = '<span style="filter: drop-shadow(0px 0px 0.5px #000);">⭐️ </span>';
 const search = `
     <div
         style="
