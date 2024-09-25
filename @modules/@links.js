@@ -4,9 +4,8 @@ THEME:
 - react | node | js | vue | html
 */
 
-const theory = '📑 ';
-const action = '🍧 ';
-const accent = '⭐️ ';
+// const theory = '<span style="filter: drop-shadow(0px 0px 0.2px #000);">📑</span> ';
+const accent = '<span style="filter: drop-shadow(0px 0px 0.5px #000);">⭐️</span> ';
 const search = `
     <div
         style="
@@ -27,7 +26,7 @@ const search = `
 const ARR_LINKS = [
     { page: 'wiki',                    theme: 'primary',   title: 'Wiki' },
     { page: 'js-task',                 theme: 'primary ',  title: search+'Задачи' },
-    { page: 'compilation',             theme: 'secondary', title: '🍧' },
+    { page: 'compilation',             theme: 'primary',   title: accent },
     { page: 'agile',                   theme: 'secondary', title: 'Agile | Jira' },
     { page: 'ci-cd',                   theme: 'secondary', title: 'CI / CD' },
     { page: 'mvc',                     theme: 'secondary', title: 'MVC ...' },
@@ -40,7 +39,7 @@ const ARR_LINKS = [
     { page: 'theory-paradigms',        theme: 'accent',    title: search+'Парадигмы' },
     { page: 'theory-refactoring',      theme: 'accent',    title: 'Refactoring' },
     null,
-    { page: 'js',                      theme: 'js',        title: search+action+'JavaScript' },
+    { page: 'js',                      theme: 'js',        title: search+accent+'JavaScript' },
     { page: 'js-object',               theme: 'js',        title: search+'Object' },
     { page: 'js-array',                theme: 'js',        title: 'Array' },
     { page: 'js-string',               theme: 'js',        title: 'String' },
@@ -52,7 +51,7 @@ const ARR_LINKS = [
     { page: 'js-ajax',                 theme: 'js',        title: 'Ajax' },
     { page: 'react-query',             theme: 'react',     title: 'React Query' },
     { page: 'swr',                     theme: 'react',     title: 'SWR' },
-    { page: 'theory-network',          theme: 'primary',   title: search+theory+'HTTP | Protocols' },
+    { page: 'theory-network',          theme: 'primary',   title: search+'HTTP | Protocols' },
     { page: 'network',                 theme: 'primary',   title: 'Network' },
     { page: 'auth',                    theme: 'primary',   title: search+'Auth' },
     { page: 'event-loop',              theme: 'primary',   title: search+'Event Loop | Optimize' },
@@ -63,7 +62,7 @@ const ARR_LINKS = [
     { page: 'web-components',          theme: 'secondary', title: search+'Web Components' },
     null,
     { page: 'react-app',               theme: 'accent',    title: accent+'React App' },
-    { page: 'react-js',                theme: 'react',     title: search+action+'React.js' },
+    { page: 'react-js',                theme: 'react',     title: search+accent+'React.js' },
     { page: 'react-hooks',             theme: 'react',     title: 'React Hooks' },
     { page: 'react-api',               theme: 'react',     title: 'React API' },
     { page: 'react-router',            theme: 'react',     title: search+'React Router' },
@@ -91,14 +90,14 @@ const ARR_LINKS = [
     { page: 'mongodb',                 theme: 'actual',    title: 'MongoDB' },
     { page: 'react-native',            theme: 'actual',    title: 'React Native' },
     null,
-    { page: 'vue-js',                  theme: 'vue',       title: search+action+'Vue.js' },
+    { page: 'vue-js',                  theme: 'vue',       title: search+accent+'Vue.js' },
     { page: 'vuepress',                theme: 'vue',       title: search+'VuePress' },
     { page: 'vue-vuex',                theme: 'secondary', title: search+'Vuex' },
     { page: 'vue-router',              theme: 'secondary', title: search+'Vue Router' },
     { page: 'vue-cli',                 theme: 'secondary', title: 'Vue CLI' },
     { page: 'vue-plugins',             theme: 'secondary', title: 'Vue Plugins' },
     null,
-    { page: 'testing',                 theme: 'primary',   title: search+theory+'Testing' },
+    { page: 'testing',                 theme: 'primary',   title: search+'Testing' },
     { page: 'jest',                    theme: 'primary',   title: search+'Jest' },
     { page: 'enzyme',                  theme: 'primary',   title: search+'Enzyme + Jest' },
     { page: 'react-testing',           theme: 'primary',   title: search+'React Testing' },
@@ -114,9 +113,9 @@ const ARR_LINKS = [
     { page: 'bootstrap',               theme: 'secondary', title: 'Bootstrap' },
     { page: 'bem',                     theme: 'secondary', title: 'BEM' },
     null,
-    { page: 'git',                     theme: 'tech',      title: search+action+'Git' },
+    { page: 'git',                     theme: 'tech',      title: search+accent+'Git' },
     { page: 'git-managers',            theme: 'tech',      title: search+'Git Repo' },
-    { page: 'typescript',              theme: 'tech',      title: search+action+'TypeScript' },
+    { page: 'typescript',              theme: 'tech',      title: search+accent+'TypeScript' },
     { page: 'ide',                     theme: 'tech',      title: search+'IDE' },
     { page: 'linters',                 theme: 'tech',      title: search+'Linters' },
     { page: 'vite',                    theme: 'tech',      title: 'Vite' },
