@@ -9,7 +9,74 @@
     <v-link block="true" url="https://swr.vercel.app/ru/blog/swr-v2.ru#useswrmutation" />
 </u-link-wrapper>
 
+<div class="v-method-wrapper">
+    <v-method before="" method="useSWRMutation" after="" arg="(url, fetcher, options)">
+    Хук для удаленных мутаций. Удаленные мутации запускаются только вручную, а не автоматически, как <u>useSWR</u>
+    </v-method>
+
+	<v-method-arg arg="url">URL для запроса</v-method-arg>
+	<v-method-arg arg="fetcher(key, { arg })">Асинхронная функция, в которой происходит запрос. принимает URL, переданный первым аргументом в useSWRMutation</v-method-arg>
+	<v-method-arg arg="options">Необязательный объект со <a href="https://swr.vercel.app/ru/docs/mutation.ru#useswrmutation" target="_blank">свойствами</a></v-method-arg>
+
+	<v-method-return>{ data, error, isMutating, trigger, reset }</v-method-return>
+</div>
+
+<h5>Return</h5>
 
 <ul class="list-point">
-    <li><u-text-define>useSWRMutation()</u-text-define> - запускается вручную</li>
+    <li><u-code-text>data</u-code-text> - данные для заданного ключа, возвращаемые из fetcher</li>
+    <li><u-code-text>error</u-code-text> - ошибка, выданная fetcher (или undefined)</li>
+    <li><u-code-text>isMutating</u-code-text> - если есть текущая удаленная мутация</li>
+    <li><u-code-text>trigger(arg, options)</u-code-text> - функция для запуска удаленной мутаци (выполнение запроса к API)</li>
+    <li><u-code-text>reset()</u-code-text> - функция для сброса состояния (data, error, isMutating)</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+export const useSampleMutation = () => {
+  const { data, error, isMutating, trigger, reset } = useSWRMutation(
+    "https://jsonplaceholder.typicode.com/todos/1",
+    async (url) => {
+      const res = await fetch(url)
+      return await res.json()
+    },
+  )
+
+  return {
+    data,
+    error,
+    isMutating,
+    trigger,
+    reset,
+  }
+}
+</v-code>
+
+<v-code lang="js" title="">
+const Profile: React.FC = () => {
+  const { trigger, isMutating, error } = useSampleMutation()
+
+  const onClick = async () => {
+    try {
+      const result = await trigger()
+      console.log(result)
+    } catch (e) {
+      // Обработка ошибки
+      console.log(e)
+    }
+  }
+
+  // Возможно, не нужно использовать try/catch в onClick
+  // В error отображается аналогичная ошибка
+  console.log("error", error)
+
+  return (
+    &lt;button disabled={isMutating} onClick={onClick}&gt;
+      Click
+    &lt;/button&gt;
+  )
+}
+</v-code>

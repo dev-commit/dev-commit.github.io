@@ -1,9 +1,67 @@
 <!-- TODO:
-<f-search>SWR -> useSWRMutation</f-search>
+<f-search>SWR -> useSWR</f-search>
 -->
 
 <h2>useSWR</h2>
 
+<div class="v-method-wrapper">
+    <v-method before="" method="useSWR" after="" arg="(url, fetcher)">
+    Запускается автоматически
+    </v-method>
+
+	<v-method-arg arg="url">URL для запроса</v-method-arg>
+	<v-method-arg arg="fetcher(key, { arg })">Асинхронная функция, в которой происходит запрос. Принимает URL, переданный первым аргументом в useSWR</v-method-arg>
+
+	<v-method-return>{ data, error, isLoading }</v-method-return>
+</div>
+
+<h5>Return</h5>
+
 <ul class="list-point">
-    <li><u-text-define>useSWR()</u-text-define> - запускается автоматически</li>
+    <li><u-code-text>data</u-code-text> - данные, возвращенные от API</li>
+    <li><u-code-text>error</u-code-text> - ошибки, если есть. если нет, то вернет - undefined</li>
+    <li><u-code-text>isLoading</u-code-text> - статус загрузки: при совершении запроса будет true, после завершения запроса - false</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+export const useSample = () => {
+  const { data, error, isLoading } = useSWR(
+    "https://jsonplaceholder.typicode.com/todos/1",
+    async (url) => {
+      const res = await fetch(url)
+      return await res.json()
+    },
+  )
+
+  return {
+    data,
+    error,
+    isLoading,
+  }
+}
+</v-code>
+
+<v-code lang="js" title="">
+const App = () => {
+    const { data, error, isLoading } = useSample()
+
+    if (error) return &lt;div&gt;Error&lt;/div&gt;
+    if (isLoading) return &lt;div&gt;Loading...&lt;/div&gt;
+   
+    return &lt;div&gt;Hi, {data.title}&lt;/div&gt;
+}
+</v-code>
+
+<v-code lang="js" title="">
+console.log(data)
+{
+    "userId": 1,
+    "id": 1,
+    "title": "delectus aut autem",
+    "completed": false
+}
+</v-code>

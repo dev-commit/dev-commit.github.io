@@ -96,20 +96,108 @@
 <u-link-wrapper>
     <v-link block="true" url="https://swr.vercel.app/ru/docs/" />
 </u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Кеширование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>В API будет отправлен всего 1 запрос, т.к. они используют один и тот же ключ SWR - <u>useUser</u>, а запрос автоматически выводится, кешируется и распределяется</li>
+</ul>
+
+<v-code lang="js" title="">
+const App = () =&gt; {
+  return (
+    &lt;&gt;
+      &lt;Content /&gt;
+      &lt;Avatar /&gt;
+    &lt;/&gt;
+  )
+}
+
+const Content = () =&gt; {
+  const { user, isLoading } = useUser()
+  if (isLoading) return &lt;Spinner /&gt;
+  return &lt;h1&gt;&Scy; &vcy;&ocy;&zcy;&vcy;&rcy;&acy;&shchcy;&iecy;&ncy;&icy;&iecy;&mcy;, {user.name}&lt;/h1&gt;
+}
+
+const Avatar = () =&gt; {
+  const { user, isLoading } = useUser()
+  if (isLoading) return &lt;Spinner /&gt;
+  return &lt;img src={user.avatar} alt={user.name} /&gt;
+}
+</v-code>
 </div><div id="swr/main/install"><h2>Установка и настройка</h2>
 
 <v-pre-npm>
 npm i --save <u-code-accent>swr</u-code-accent>
 </v-pre-npm>
 </div><div id="swr/api/useSWR"><!-- TODO:
-<f-search>SWR -> useSWRMutation</f-search>
+<f-search>SWR -> useSWR</f-search>
 -->
 
 <h2>useSWR</h2>
 
+<div class="v-method-wrapper">
+    <v-method before="" method="useSWR" after="" arg="(url, fetcher)">
+    Запускается автоматически
+    </v-method>
+
+	<v-method-arg arg="url">URL для запроса</v-method-arg>
+	<v-method-arg arg="fetcher(key, { arg })">Асинхронная функция, в которой происходит запрос. Принимает URL, переданный первым аргументом в useSWR</v-method-arg>
+
+	<v-method-return>{ data, error, isLoading }</v-method-return>
+</div>
+
+<h5>Return</h5>
+
 <ul class="list-point">
-    <li><u-text-define>useSWR()</u-text-define> - запускается автоматически</li>
+    <li><u-code-text>data</u-code-text> - данные, возвращенные от API</li>
+    <li><u-code-text>error</u-code-text> - ошибки, если есть. если нет, то вернет - undefined</li>
+    <li><u-code-text>isLoading</u-code-text> - статус загрузки: при совершении запроса будет true, после завершения запроса - false</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+export const useSample = () => {
+  const { data, error, isLoading } = useSWR(
+    "https://jsonplaceholder.typicode.com/todos/1",
+    async (url) => {
+      const res = await fetch(url)
+      return await res.json()
+    },
+  )
+
+  return {
+    data,
+    error,
+    isLoading,
+  }
+}
+</v-code>
+
+<v-code lang="js" title="">
+const App = () => {
+    const { data, error, isLoading } = useSample()
+
+    if (error) return &lt;div&gt;Error&lt;/div&gt;
+    if (isLoading) return &lt;div&gt;Loading...&lt;/div&gt;
+   
+    return &lt;div&gt;Hi, {data.title}&lt;/div&gt;
+}
+</v-code>
+
+<v-code lang="js" title="">
+console.log(data)
+{
+    "userId": 1,
+    "id": 1,
+    "title": "delectus aut autem",
+    "completed": false
+}
+</v-code>
 </div><div id="swr/api/useSWRMutation"><!-- TODO:
 <f-search>SWR -> useSWRMutation</f-search>
 -->
@@ -121,10 +209,77 @@ npm i --save <u-code-accent>swr</u-code-accent>
     <v-link block="true" url="https://swr.vercel.app/ru/blog/swr-v2.ru#useswrmutation" />
 </u-link-wrapper>
 
+<div class="v-method-wrapper">
+    <v-method before="" method="useSWRMutation" after="" arg="(url, fetcher, options)">
+    Хук для удаленных мутаций. Удаленные мутации запускаются только вручную, а не автоматически, как <u>useSWR</u>
+    </v-method>
+
+	<v-method-arg arg="url">URL для запроса</v-method-arg>
+	<v-method-arg arg="fetcher(key, { arg })">Асинхронная функция, в которой происходит запрос. принимает URL, переданный первым аргументом в useSWRMutation</v-method-arg>
+	<v-method-arg arg="options">Необязательный объект со <a href="https://swr.vercel.app/ru/docs/mutation.ru#useswrmutation" target="_blank">свойствами</a></v-method-arg>
+
+	<v-method-return>{ data, error, isMutating, trigger, reset }</v-method-return>
+</div>
+
+<h5>Return</h5>
 
 <ul class="list-point">
-    <li><u-text-define>useSWRMutation()</u-text-define> - запускается вручную</li>
+    <li><u-code-text>data</u-code-text> - данные для заданного ключа, возвращаемые из fetcher</li>
+    <li><u-code-text>error</u-code-text> - ошибка, выданная fetcher (или undefined)</li>
+    <li><u-code-text>isMutating</u-code-text> - если есть текущая удаленная мутация</li>
+    <li><u-code-text>trigger(arg, options)</u-code-text> - функция для запуска удаленной мутаци (выполнение запроса к API)</li>
+    <li><u-code-text>reset()</u-code-text> - функция для сброса состояния (data, error, isMutating)</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+export const useSampleMutation = () => {
+  const { data, error, isMutating, trigger, reset } = useSWRMutation(
+    "https://jsonplaceholder.typicode.com/todos/1",
+    async (url) => {
+      const res = await fetch(url)
+      return await res.json()
+    },
+  )
+
+  return {
+    data,
+    error,
+    isMutating,
+    trigger,
+    reset,
+  }
+}
+</v-code>
+
+<v-code lang="js" title="">
+const Profile: React.FC = () => {
+  const { trigger, isMutating, error } = useSampleMutation()
+
+  const onClick = async () => {
+    try {
+      const result = await trigger()
+      console.log(result)
+    } catch (e) {
+      // Обработка ошибки
+      console.log(e)
+    }
+  }
+
+  // Возможно, не нужно использовать try/catch в onClick
+  // В error отображается аналогичная ошибка
+  console.log("error", error)
+
+  return (
+    &lt;button disabled={isMutating} onClick={onClick}&gt;
+      Click
+    &lt;/button&gt;
+  )
+}
+</v-code>
 </div></div>
                 </div>
             </div>
