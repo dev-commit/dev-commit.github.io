@@ -2,20 +2,7 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-Function</title>
+            <title>Function</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
@@ -35,20 +22,7 @@ Function</title>
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link">
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-Function</a>
+                        <a href="#links" class="top-link">Function</a>
                     </div>
 
                     <div class="search-wrapper">
@@ -177,7 +151,11 @@ Function</a>
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="js-function/closures/closures"><h2>Замыкания</h2>
+                    <div id="content"><div id="js-function/closures/closures"><!-- TODO:
+<f-search>JS -> Function -> Замыкания, LexicalEnvironment</f-search>
+-->
+
+<h2>Замыкания</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Теория</h3>
@@ -334,7 +312,11 @@ console.log(counter()); // 0
 console.log(counter()); // 1 
 console.log(counter()); // 2 
 </v-code>
-</div><div id="js-function/closures/environment"><h2>Лексическая и динамическая область видимости</h2>
+</div><div id="js-function/closures/environment"><!-- TODO:
+<f-search>JS -> Function -> Лексическая и динамическая область видимости</f-search>
+-->
+
+<h2>Лексическая и динамическая область видимости</h2>
 
 <ul class="list-point">
     <li><u-text-define>Лексическая (статическая) область видимости</u-text-define> - при создании функции, она запоминает Lexical Environment в котором была <u>СОЗДАНА</u></li>
@@ -369,7 +351,11 @@ bar(); // EC - LE ER.outer - bar.[[Evironment]]
 
 // => 20
 </v-code>
-</div><div id="js-function/closures/funarg"><h2>Фунарг-проблема</h2>
+</div><div id="js-function/closures/funarg"><!-- TODO:
+<f-search>JS -> Function -> Фунарг-проблема</f-search>
+-->
+
+<h2>Фунарг-проблема</h2>
 
 <u-link-wrapper>
 	<a href="http://dmitrysoshnikov.com/ecmascript/ru-chapter-6-closures/#funarg-problema" target="_blank">Тонкости ECMA-262-3</a>
@@ -476,7 +462,14 @@ someFn(); // 10 - и при статической и при динамичес�
 <ul class="list-point">
     <li>Функции называют объектами первого класса, потому что они обрабатываются также, как и любое другое значение в JS. Они могут присваиваться переменным, быть свойством объекта (методом), элементом массива, аргументом другой функции, значением, возвращаемым функцией. Единственным отличием функции от любого другого значения в JS является то, что функция может быть выполнена или вызвана</li>
 </ul>
-</div><div id="js-function/function/announcement"><h2>Объявление</h2>
+</div><div id="js-function/function/announcement"><!-- TODO:
+<f-search>JS -> Function -> Function Declaration</f-search>
+<f-search>JS -> Function -> Function Expression</f-search>
+<f-search>JS -> Function -> IIFE (анонинимная самовызывающаяся)</f-search>
+<f-search>JS -> Function -> new Function</f-search>
+-->
+
+<h2>Объявление</h2>
 
 <ul class="list-point">
 	<li><u-text-define>Function Declaration</u-text-define> - функция, объявленная в основном потоке кода, создаются интерпретатором до выполнения кода</li>
@@ -601,7 +594,11 @@ const sum = new Function('a,b', 'return a+b;');
 const result = sum(1, 2);
 alert(result); // 3
 </v-code>
-</div><div id="js-function/function/arrow"><h2>Стрелочные функции (ES6)</h2>
+</div><div id="js-function/function/arrow"><!-- TODO:
+<f-search>JS -> Function -> Стрелочные функции</f-search>
+-->
+
+<h2>Стрелочные функции (ES6)</h2>
 
 <u-link-wrapper>
 	<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank">MDN</a>
@@ -796,7 +793,11 @@ const getPerson = function() {
 })();
 </template>
 </v-two-code>
-</div><div id="js-function/function/parameters"><h2>Параметры функции (ES6)</h2>
+</div><div id="js-function/function/parameters"><!-- TODO:
+<f-search>JS -> Function -> Параметры функции</f-search>
+-->
+
+<h2>Параметры функции (ES6)</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Параметры по умолчанию (default parameters)</h3>
@@ -859,7 +860,11 @@ function my(a, b, ...numbers) {
 }
 my(1, 2, 3, 4);
 </v-code>
-</div><div id="js-function/function/arguments"><h2>Псевдомассив аргументов "arguments"</h2>
+</div><div id="js-function/function/arguments"><!-- TODO:
+<f-search>JS -> Function -> arguments</f-search>
+-->
+
+<h2>Псевдомассив аргументов "arguments"</h2>
 
 <ul class="list-point">
 	<li>Любая функция может быть вызвана с произвольным количеством аргументов</li>
@@ -912,7 +917,11 @@ showMessage({
 	contents: "Вы вызвали функцию"
 });
 </v-code>
-</div><div id="js-function/function/recursion"><h2>Рекурсия</h2>
+</div><div id="js-function/function/recursion"><!-- TODO:
+<f-search>JS -> Function -> Рекурсия</f-search>
+-->
+
+<h2>Рекурсия</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Информация</h3>
@@ -944,7 +953,11 @@ function pow(x, n) {
 }
 alert( pow(2, 3) ); // 8
 </v-code>
-</div><div id="js-function/function/named-function-expression"><h2>Named Function Expression</h2>
+</div><div id="js-function/function/named-function-expression"><!-- TODO:
+<f-search>JS -> Function -> Named Function Expression</f-search>
+-->
+
+<h2>Named Function Expression</h2>
 
 <ul class="list-point">
 	<li><u-text-define>Named Function Expression (NFE)</u-text-define> - именованные функциональные выражения</li>

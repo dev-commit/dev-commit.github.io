@@ -1,13 +1,7 @@
 root = 'theory-network/';
 
 ARR_MODULE = [
-    {
-        title: 'Теория',
-        themes: [
-            [root+'theory/client-server', emoji.theory+'Client-Server'],
-            [root+'theory/url',           emoji.theory+'URL и URI'],
-        ]
-    },
+
     {
         title: 'HTTP',
         accent: true,
