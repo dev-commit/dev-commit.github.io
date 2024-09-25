@@ -2,14 +2,14 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>react-query</title>
+            <title>SWR</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
 
             <script src="../src/js/utils.js"></script>
             <!-- Own JavaScript -->
-            <script src="../@themes/react-query/build-react-query.js"></script>
+            <script src="../@themes/swr/build-swr.js"></script>
         </head>
         <body>
             <div id="container">
@@ -22,7 +22,7 @@
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link">react-query</a>
+                        <a href="#links" class="top-link">SWR</a>
                     </div>
 
                     <div class="search-wrapper">
@@ -30,37 +30,45 @@
                         <div id="search-result"></div>
                     </div>
 
-                    <h4>🏷️ Основы</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__react-query/main/info"
-            href="#react-query/main/info"
-        >
-            📑 Информация
-        </a>
-    </li>
-</ul><h4>🏷️ Варианты</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__react-query/variants/basic"
-            href="#react-query/variants/basic"
-        >
-            🧲 Базовый пример
-        </a>
-    </li>
+                    
+    <slot v-for="itemTitle in themesContent">
+        <h4
+            v-html="(!itemTitle.child ? themesEmoji : '')+' '+itemTitle.title"
+            :class="{
+                accent: itemTitle.accent,
+                selected: itemTitle.selected,
+                child: itemTitle.child
+            }"
+        ></h4>
+        <ul>
+            <slot v-for="(itemTheme, i) in itemTitle.themes">
+                <li
+                    v-if="itemTheme[0]"
+                    :class="{
+                        child: itemTheme[2],
+                        done: itemTheme[3] == 'done',
+                        check: itemTheme[3] == 'check',
+                    }"
+                >
+                    <a
+                        class="menu-link"
+                        :id="itemTheme[0]+'link'"
+                        :href="'#'+itemTheme[0]"
+                        @click="buildContent(itemTheme[0])"
+                        v-html="itemTheme[1]"
+                    ></a>
+                    <a
+                        v-if="isLocalhost"
+                        class="menu-link-vscode"
+                        :href="'vscode://file/'+'C:/Users/Anton/Desktop/Repo/dev-commit.github.io'+'/@themes/'+itemTheme[0]+'.html'">
+                    </a>
+                </li>
+                <hr v-else />
+            </slot>
 
-    <li>
-        <a
-            class="menu-link"
-            id="id__react-query/variants/react-query-devtools"
-            href="#react-query/variants/react-query-devtools"
-        >
-            🧲 ReactQuery Devtools
-        </a>
-    </li>
-</ul>
+        </ul>
+    </slot>
+
                 </div>
 
                 <div id="wrapper">
@@ -81,82 +89,7 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="react-query/main/info"><!-- TODO:
-<f-search>react-query -> react-query</f-search>
--->
-
-<h2>Информация</h2>
-
-<u-link-wrapper>
-    <a href="https://react-query.tanstack.com/overview" target="_blank">https://react-query.tanstack.com/overview</a>
-</u-link-wrapper>
-
-<v-pre-npm>
-npm i --save <u-code-accent>react-query</u-code-accent>
-</v-pre-npm>
-</div><div id="react-query/variants/basic"><h2>Базовый пример</h2>
-
-<!------------------------------------------------------------->
-<h4>Корневой компонент</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-import { QueryClient, QueryClientProvider } from 'react-query'
-
-import { Example } from './Example';
-
-const queryClient = new <u-code>QueryClient</u-code>();
-
-const App = () =&gt; {
-    return (
-        &lt;<u-code>QueryClientProvider</u-code> client={queryClient}&gt;
-            &lt;Example /&gt;
-        &lt;/<u-code>QueryClientProvider</u-code>&gt;
-    )
-}
-
-export default App;
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Использование</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-import { useQuery } from 'react-query'
-
-export const Example = () =&gt; {
-    const { isLoading, error, data } = <u-code>useQuery</u-code>('repoData', getResource);
-
-    if (isLoading) return 'Loading...'
-
-    if (error) return 'An error has occurred: ' + error.message
-
-    return (
-        &lt;h1&gt;{data.name}&lt;/h1&gt;
-    )
-}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Утилиты</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-const getResource = async () =&gt; {
-    const res = await fetch('https://api.github.com/repos/tannerlinsley/react-query');
-    return await res.json();
-}
-</v-code>
-</div><div id="react-query/variants/react-query-devtools"><h2>ReactQuery Devtools</h2>
-
-<v-code lang="js" title="">
-import { ReactQueryDevtools } from 'react-query/devtools';
-
-const App = () =&gt; {
-    return (
-        &lt;<u-code>ReactQueryDevtools</u-code> initialIsOpen /&gt;
-    )
-}
-</v-code>
-</div></div>
+                    <div id="content"></div>
                 </div>
             </div>
 

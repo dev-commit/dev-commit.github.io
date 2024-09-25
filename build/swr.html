@@ -2,14 +2,14 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>react-query</title>
+            <title>SWR</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
 
             <script src="../src/js/utils.js"></script>
             <!-- Own JavaScript -->
-            <script src="../@themes/react-query/build-react-query.js"></script>
+            <script src="../@themes/swr/build-swr.js"></script>
         </head>
         <body>
             <div id="container">
@@ -22,7 +22,7 @@
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link">react-query</a>
+                        <a href="#links" class="top-link">SWR</a>
                     </div>
 
                     <div class="search-wrapper">
@@ -34,30 +34,40 @@
     <li>
         <a
             class="menu-link"
-            id="id__react-query/main/info"
-            href="#react-query/main/info"
+            id="id__swr/main/info"
+            href="#swr/main/info"
         >
             📑 Информация
-        </a>
-    </li>
-</ul><h4>🏷️ Варианты</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__react-query/variants/basic"
-            href="#react-query/variants/basic"
-        >
-            🧲 Базовый пример
         </a>
     </li>
 
     <li>
         <a
             class="menu-link"
-            id="id__react-query/variants/react-query-devtools"
-            href="#react-query/variants/react-query-devtools"
+            id="id__swr/main/install"
+            href="#swr/main/install"
         >
-            🧲 ReactQuery Devtools
+            🧲 Установка и настройка
+        </a>
+    </li>
+</ul><h4>🏷️ API</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__swr/api/useSWR"
+            href="#swr/api/useSWR"
+        >
+            <u-menu>useSWR</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__swr/api/useSWRMutation"
+            href="#swr/api/useSWRMutation"
+        >
+            <u-menu>useSWRMutation</u-menu>
         </a>
     </li>
 </ul>
@@ -81,81 +91,34 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="react-query/main/info"><!-- TODO:
-<f-search>react-query -> react-query</f-search>
--->
-
-<h2>Информация</h2>
+                    <div id="content"><div id="swr/main/info"><h2>Информация</h2>
 
 <u-link-wrapper>
-    <a href="https://react-query.tanstack.com/overview" target="_blank">https://react-query.tanstack.com/overview</a>
+    <a href="https://swr.vercel.app/ru/docs/" target="_blank">https://swr.vercel.app/ru/docs/</a>
 </u-link-wrapper>
+</div><div id="swr/main/install"><h2>Установка и настройка</h2>
 
 <v-pre-npm>
-npm i --save <u-code-accent>react-query</u-code-accent>
+npm i --save <u-code-accent>swr</u-code-accent>
 </v-pre-npm>
-</div><div id="react-query/variants/basic"><h2>Базовый пример</h2>
+</div><div id="swr/api/useSWR"><!-- TODO:
+<f-search>SWR -> useSWRMutation</f-search>
+-->
 
-<!------------------------------------------------------------->
-<h4>Корневой компонент</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-import { QueryClient, QueryClientProvider } from 'react-query'
+<h2>useSWR</h2>
 
-import { Example } from './Example';
+<ul class="list-point">
+    <li><u-text-define>useSWR()</u-text-define> - запускается автоматически</li>
+</ul>
+</div><div id="swr/api/useSWRMutation"><!-- TODO:
+<f-search>SWR -> useSWRMutation</f-search>
+-->
 
-const queryClient = new <u-code>QueryClient</u-code>();
+<h2>useSWRMutation</h2>
 
-const App = () =&gt; {
-    return (
-        &lt;<u-code>QueryClientProvider</u-code> client={queryClient}&gt;
-            &lt;Example /&gt;
-        &lt;/<u-code>QueryClientProvider</u-code>&gt;
-    )
-}
-
-export default App;
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Использование</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-import { useQuery } from 'react-query'
-
-export const Example = () =&gt; {
-    const { isLoading, error, data } = <u-code>useQuery</u-code>('repoData', getResource);
-
-    if (isLoading) return 'Loading...'
-
-    if (error) return 'An error has occurred: ' + error.message
-
-    return (
-        &lt;h1&gt;{data.name}&lt;/h1&gt;
-    )
-}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Утилиты</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-const getResource = async () =&gt; {
-    const res = await fetch('https://api.github.com/repos/tannerlinsley/react-query');
-    return await res.json();
-}
-</v-code>
-</div><div id="react-query/variants/react-query-devtools"><h2>ReactQuery Devtools</h2>
-
-<v-code lang="js" title="">
-import { ReactQueryDevtools } from 'react-query/devtools';
-
-const App = () =&gt; {
-    return (
-        &lt;<u-code>ReactQueryDevtools</u-code> initialIsOpen /&gt;
-    )
-}
-</v-code>
+<ul class="list-point">
+    <li><u-text-define>useSWRMutation()</u-text-define> - запускается вручную</li>
+</ul>
 </div></div>
                 </div>
             </div>
