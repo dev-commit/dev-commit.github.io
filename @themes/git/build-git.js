@@ -4,8 +4,8 @@ ARR_MODULE = [
     {
         title: 'Use Case',
         themes: [
-            [root+'usecase/squash-commit',   emoji.code+setTheme(4, ['Squash Commit'])],
-            [root+'usecase/reset-changes',   emoji.code+setTheme(4, ['Отмена изменений'])],
+            [root+'usecase/squash-commit',   emoji.code+'Squash Commit'],
+            [root+'usecase/reset-changes',   emoji.code+'Отмена изменений'],
             [root+'usecase/common',          'Общее'],
         ]
     },

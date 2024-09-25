@@ -1,5 +1,5 @@
 <!-- TODO:
-<f-search>SWR -> useSWR</f-search>
+<f-search>SWR -> <u>useSWR()</u></f-search>
 -->
 
 <h2>useSWR</h2>
@@ -19,9 +19,11 @@
 <h5>Return</h5>
 
 <ul class="list-point">
-    <li><u-code-text>data</u-code-text> - данные, возвращенные от API</li>
-    <li><u-code-text>error</u-code-text> - ошибки, если есть. если нет, то вернет - undefined</li>
-    <li><u-code-text>isLoading</u-code-text> - статус загрузки: при совершении запроса будет true, после завершения запроса - false</li>
+    <li><u-code-text>data</u-code-text> - данные, возвращенные от API (или undefined, если не загружено)</li>
+    <li><u-code-text>error</u-code-text> - ошибка, выданная fetcher (или undefined)</li>
+    <li><u-code-text>isLoading</u-code-text> - статус загрузки: при совершении запроса будет true, после завершения запроса - false. Если есть текущий запрос и нет «загруженных данных». Резервные данные и предыдущие данные не считаются «загруженными данными»</li>
+    <li><u-code-text>isValidating</u-code-text> - если запрос или ревалидация загружается</li>
+    <li><u-code-text>mutate(data?, options?)</u-code-text> - функция для мутации закешированных данных</li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

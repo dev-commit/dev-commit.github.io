@@ -142,7 +142,7 @@ const Avatar = () =&gt; {
 npm i --save <u-code-accent>swr</u-code-accent>
 </v-pre-npm>
 </div><div id="swr/api/useSWR"><!-- TODO:
-<f-search>SWR -> useSWR</f-search>
+<f-search>SWR -> <u>useSWR()</u></f-search>
 -->
 
 <h2>useSWR</h2>
@@ -162,9 +162,11 @@ npm i --save <u-code-accent>swr</u-code-accent>
 <h5>Return</h5>
 
 <ul class="list-point">
-    <li><u-code-text>data</u-code-text> - данные, возвращенные от API</li>
-    <li><u-code-text>error</u-code-text> - ошибки, если есть. если нет, то вернет - undefined</li>
-    <li><u-code-text>isLoading</u-code-text> - статус загрузки: при совершении запроса будет true, после завершения запроса - false</li>
+    <li><u-code-text>data</u-code-text> - данные, возвращенные от API (или undefined, если не загружено)</li>
+    <li><u-code-text>error</u-code-text> - ошибка, выданная fetcher (или undefined)</li>
+    <li><u-code-text>isLoading</u-code-text> - статус загрузки: при совершении запроса будет true, после завершения запроса - false. Если есть текущий запрос и нет «загруженных данных». Резервные данные и предыдущие данные не считаются «загруженными данными»</li>
+    <li><u-code-text>isValidating</u-code-text> - если запрос или ревалидация загружается</li>
+    <li><u-code-text>mutate(data?, options?)</u-code-text> - функция для мутации закешированных данных</li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -210,7 +212,7 @@ console.log(data)
 }
 </v-code>
 </div><div id="swr/api/useSWRMutation"><!-- TODO:
-<f-search>SWR -> useSWRMutation</f-search>
+<f-search>SWR -> <u>useSWRMutation()</u></f-search>
 -->
 
 <h2>useSWRMutation</h2>
@@ -235,7 +237,7 @@ console.log(data)
 <h5>Return</h5>
 
 <ul class="list-point">
-    <li><u-code-text>data</u-code-text> - данные для заданного ключа, возвращаемые из fetcher</li>
+    <li><u-code-text>data</u-code-text> - данные, возвращенные от API (или undefined, если не загружено)</li>
     <li><u-code-text>error</u-code-text> - ошибка, выданная fetcher (или undefined)</li>
     <li><u-code-text>isMutating</u-code-text> - если есть текущая удаленная мутация</li>
     <li><u-code-text>trigger(arg, options)</u-code-text> - функция для запуска удаленной мутаци (выполнение запроса к API)</li>
@@ -300,7 +302,11 @@ const Profile: React.FC = () => {
   )
 }
 </v-code>
-</div><div id="swr/api/mutate"><h2>mutate</h2>
+</div><div id="swr/api/mutate"><!-- TODO:
+<f-search>SWR -> <u>mutate</u></f-search>
+-->
+
+<h2>mutate</h2>
 
 <ul class="list-point">
     <li><u-text-define>mutate</u-text-define> - функция, которая используется для обновления кеша вручную и инициирования повторного запроса на получение данных</li>

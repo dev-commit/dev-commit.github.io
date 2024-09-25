@@ -10,10 +10,10 @@ ARR_MODULE = [
     {
         title: 'Операции',
         themes: [
-            [root+'operations/variables',  'Переменные'],
-            [root+'operations/cascade',    'Вложенности'],
-            [root+'operations/color',      'Операции над цветами'],
-            [root+'operations/operations', 'Операции'],
+            [root+'operations/variables', 'Переменные'],
+            [root+'operations/cascade', 'Вложенности'],
+            [root+'operations/color', 'Операции над цветами'],
+            [root+'operations/math', 'Математические операции'],
         ]
     },
     {
