@@ -22,4 +22,20 @@ ARR_MODULE = [
             [root+'tech/jsonp', 'JSONP'],
         ]
     },
+    {
+        title: 'Работа с API',
+        themes: [
+            [root+'api/api',          emoji.theory+'API'],
+            [root+'api/rest-vs-soap', emoji.theory+'REST vs SOAP'],
+            [root+'api/rest',         emoji.fire+'REST API'],
+            [root+'api/soap',         'SOAP'],
+        ]
+    },
+    {
+        title: 'Hacking',
+        themes: [
+            [root+'hacking/xss',           'XSS'],
+            [root+'hacking/sql-injection', 'SQL инъекции'],
+        ]
+    },
 ]

@@ -22,23 +22,6 @@ ARR_MODULE = [
             [root+'protocols/osi',  emoji.theory+'Сетевая модель OSI'],
             [root+'protocols/tcp',  emoji.chevron+'TCP'],
             [root+'protocols/udp',  emoji.chevron+'UDP'],
-
-        ]
-    },
-    {
-        title: 'Работа с API',
-        themes: [
-            [root+'api/api',          emoji.theory+'API'],
-            [root+'api/rest-vs-soap', emoji.theory+'REST vs SOAP'],
-            [root+'api/rest',         emoji.fire+'REST API'],
-            [root+'api/soap',         'SOAP'],
-        ]
-    },
-    {
-        title: 'Hacking',
-        themes: [
-            [root+'hacking/xss',           'XSS'],
-            [root+'hacking/sql-injection', 'SQL инъекции'],
         ]
     },
 ]
