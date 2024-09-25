@@ -11,12 +11,12 @@
 
 <div class="v-method-wrapper">
     <v-method before="" method="useSWRMutation" after="" arg="(url, fetcher, options)">
-    Хук для удаленных мутаций. Удаленные мутации запускаются только вручную, а не автоматически, как <u>useSWR</u>
+    Хук для удаленных мутационных запросов (например, POST, PUT, DELETE). Удаленные мутации запускаются только вручную, а не автоматически, как <u>useSWR</u>
     </v-method>
 
-	<v-method-arg arg="url">URL для запроса</v-method-arg>
+	<v-method-arg arg="key">URL для запроса</v-method-arg>
 	<v-method-arg arg="fetcher(key, { arg })">Асинхронная функция, в которой происходит запрос. принимает URL, переданный первым аргументом в useSWRMutation</v-method-arg>
-	<v-method-arg arg="options">Необязательный объект со <a href="https://swr.vercel.app/ru/docs/mutation.ru#useswrmutation" target="_blank">свойствами</a></v-method-arg>
+	<v-method-arg arg="options">(опционально) объект со <a href="https://swr.vercel.app/ru/docs/mutation.ru#useswrmutation" target="_blank">свойствами</a></v-method-arg>
 
 	<v-method-return>{ data, error, isMutating, trigger, reset }</v-method-return>
 </div>
@@ -29,6 +29,15 @@
     <li><u-code-text>isMutating</u-code-text> - если есть текущая удаленная мутация</li>
     <li><u-code-text>trigger(arg, options)</u-code-text> - функция для запуска удаленной мутаци (выполнение запроса к API)</li>
     <li><u-code-text>reset()</u-code-text> - функция для сброса состояния (data, error, isMutating)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Данные</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><b>Основное назначение</b>: выполнение запросов, которые изменяют данные на сервере (например, создание или обновление записи)</li>
+    <li><b>Использование</b>: используется для выполнения операций, таких как отправка данных на сервер, с последующим обновлением кеша</li>
+    <li><b>Контекст использования</b>: идеально подходит для отправки данных через POST/PUT/DELETE запрос</li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

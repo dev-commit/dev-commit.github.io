@@ -13,6 +13,7 @@ ARR_MODULE = [
         themes: [
             [root+'api/useSWR', setTheme(1, ['useSWR'])],
             [root+'api/useSWRMutation', setTheme(1, ['useSWRMutation'])],
+            [root+'api/mutate', setTheme(5, ['mutate'])],
         ]
     },
 ]

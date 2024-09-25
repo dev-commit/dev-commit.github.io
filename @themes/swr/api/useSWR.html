@@ -9,8 +9,9 @@
     Запускается автоматически
     </v-method>
 
-	<v-method-arg arg="url">URL для запроса</v-method-arg>
+	<v-method-arg arg="key">URL для запроса</v-method-arg>
 	<v-method-arg arg="fetcher(key, { arg })">Асинхронная функция, в которой происходит запрос. Принимает URL, переданный первым аргументом в useSWR</v-method-arg>
+  <v-method-arg arg="options">(опционально) объект со <a href="https://swr.vercel.app/ru/docs/api#options" target="_blank">свойствами</a></v-method-arg>
 
 	<v-method-return>{ data, error, isLoading }</v-method-return>
 </div>
