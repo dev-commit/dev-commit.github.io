@@ -40,8 +40,9 @@
     <li><b>Контекст использования</b>: идеально подходит для отправки данных через POST/PUT/DELETE запрос</li>
 </ul>
 
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Примеры</h3>
+<h3>Cases</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
@@ -50,7 +51,7 @@
 
 <v-tabs :tabs="['api/sample.ts', 'App.tsx']">
 <template v-slot:1>
-<v-code lang="js" title="">
+<v-code lang="js" title="api/sample.ts">
 interface ISampleModel {
   userId: number
   id: number
@@ -61,6 +62,7 @@ interface ISampleModel {
 export const useSampleMutation = () => {
   const { data, error, isMutating, trigger, reset } = useSWRMutation(
     "https://jsonplaceholder.typicode.com/todos/1",
+    // В "url" передается первый аргумент из useSWRMutation
     async (url): Promise&lt;ISampleModel&gt; => {
       const res = await fetch(url)
       return await res.json()
@@ -78,24 +80,17 @@ export const useSampleMutation = () => {
 </v-code>
 </template>
 <template v-slot:2>
-<v-code lang="js" title="">
+<v-code lang="js" title="App.tsx">
 import { useSampleMutation } from "./api/sample"
 
 const App: React.FC = () => {
   const { trigger, isMutating, error } = useSampleMutation()
 
   const onClick = async () => {
-    try {
-      const data = await trigger()
-      console.log(data)
-    } catch (e) {
-      // Обработка ошибки
-      console.log(e)
-    }
+    const data = await trigger()
+    console.log(data)
   }
 
-  // Возможно, не нужно использовать try/catch в onClick
-  // В error отображается аналогичная ошибка
   console.log("error", error)
 
   return (
@@ -113,6 +108,147 @@ console.log(data)
     "id": 1,
     "title": "delectus aut autem",
     "completed": false
+}
+</v-code>
+</template>
+</v-tabs>
+
+<!------------------------------------------------------------->
+<h4>Обработка ошибок</h4>
+<!------------------------------------------------------------->
+<v-tabs :tabs="['Error из Хука', 'Try / Catch']">
+<template v-slot:1>
+<v-code lang="js" title="App.tsx">
+import { useSampleMutation } from "./api/sample"
+
+const App: React.FC = () => {
+  const { trigger, error } = useSampleMutation()
+
+  const onClick = async () => {
+    const data = await trigger()
+    console.log(data)
+  }
+
+  // error?.message
+  // error?.status
+  // error?.response?.data?.detail
+
+  return (
+    &lt;button onClick={onClick}&gt;
+      Click
+    &lt;/button&gt;
+  )
+}
+</v-code>
+</template>
+<template v-slot:2>
+<v-code lang="js" title="App.tsx">
+import { useSampleMutation } from "./api/sample"
+
+const App: React.FC = () => {
+  const { trigger } = useSampleMutation()
+
+  const onClick = async () => {
+    try {
+      const data = await trigger()
+      console.log(data)
+    } catch (e) {
+      // Обработка ошибки
+      console.log(e)
+    }
+  }
+
+  return (
+    &lt;button onClick={onClick}&gt;
+      Click
+    &lt;/button&gt;
+  )
+}
+</v-code>
+</template>
+</v-tabs>
+
+<!------------------------------------------------------------->
+<h4>Использование <em>isMutating</em> из Хука</h4>
+<!------------------------------------------------------------->
+<v-tabs :tabs="['Error из Хука']">
+<template v-slot:1>
+<v-code lang="js" title="App.tsx">
+import { useSampleMutation } from "./api/sample"
+
+const App: React.FC = () => {
+  const { trigger, isMutating } = useSampleMutation()
+
+  const onClick = async () => {
+    const data = await trigger()
+    console.log(data)
+  }
+
+  return (
+    &lt;button disabled={isMutating} onClick={onClick}&gt;
+      Click
+    &lt;/button&gt;
+  )
+}
+</v-code>
+</template>
+</v-tabs>
+
+<!------------------------------------------------------------->
+<h4>Передача аргументов в <em>trigger()</em></h4>
+<!------------------------------------------------------------->
+<v-tabs :tabs="['api/sample.ts', 'App.tsx']">
+<template v-slot:1>
+<v-code lang="js" title="api/sample.ts">
+export interface IUserModel {
+  id: number
+  name: string
+}
+
+interface IFetcherArg {
+  arg: {
+    username: string
+  }
+}
+
+export const useSampleMutation = () => {
+  const { data, error, isMutating, trigger, reset } = useSWRMutation(
+    URL,
+    // "_" - URL пробрасывается напрямую в fetcher
+    async (_, { arg }: IFetcherArg): Promise&lt;IUserModel&gt; => {
+      const { username } = arg
+      const { data } = await fetch(URL + `/${username}`)
+      return data
+    },
+  )
+
+  return {
+    data,
+    error,
+    isMutating,
+    trigger,
+    reset,
+  }
+}
+</v-code>
+</template>
+<template v-slot:2>
+<v-code lang="js" title="App.tsx">
+import { useSampleMutation } from "./api/sample"
+
+const App: React.FC = () => {
+  const { trigger } = useSampleMutation()
+
+  const onClick = async () => {
+    const data = await trigger({ username: "Tony" })
+    console.log(data)
+  }
+
+  return (
+    &lt;button onClick={onClick}&gt;
+      Click
+    &lt;/button&gt;
+  )
 }
 </v-code>
 </template>
