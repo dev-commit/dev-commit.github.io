@@ -41,14 +41,27 @@
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Пример</h3>
+<h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<!------------------------------------------------------------->
+<h4>Базовый пример</h4>
+<!------------------------------------------------------------->
+
+<v-tabs :tabs="['api/sample.ts', 'App.tsx']">
+<template v-slot:1>
 <v-code lang="js" title="">
+interface ISampleModel {
+  userId: number
+  id: number
+  title: string
+  completed: boolean
+}
+
 export const useSampleMutation = () => {
   const { data, error, isMutating, trigger, reset } = useSWRMutation(
     "https://jsonplaceholder.typicode.com/todos/1",
-    async (url) => {
+    async (url): Promise&lt;ISampleModel&gt; => {
       const res = await fetch(url)
       return await res.json()
     },
@@ -63,15 +76,18 @@ export const useSampleMutation = () => {
   }
 }
 </v-code>
-
+</template>
+<template v-slot:2>
 <v-code lang="js" title="">
-const Profile: React.FC = () => {
+import { useSampleMutation } from "./api/sample"
+
+const App: React.FC = () => {
   const { trigger, isMutating, error } = useSampleMutation()
 
   const onClick = async () => {
     try {
-      const result = await trigger()
-      console.log(result)
+      const data = await trigger()
+      console.log(data)
     } catch (e) {
       // Обработка ошибки
       console.log(e)
@@ -89,3 +105,15 @@ const Profile: React.FC = () => {
   )
 }
 </v-code>
+
+<v-code lang="js none" title="">
+console.log(data)
+{
+    "userId": 1,
+    "id": 1,
+    "title": "delectus aut autem",
+    "completed": false
+}
+</v-code>
+</template>
+</v-tabs>

@@ -13,7 +13,7 @@
 	<v-method-arg arg="fetcher(key, { arg })">Асинхронная функция, в которой происходит запрос. Принимает URL, переданный первым аргументом в useSWR</v-method-arg>
   <v-method-arg arg="options">(опционально) объект со <a href="https://swr.vercel.app/ru/docs/api#options" target="_blank">свойствами</a></v-method-arg>
 
-	<v-method-return>{ data, error, isLoading }</v-method-return>
+	<v-method-return>{ data, error, isLoading, mutate }</v-method-return>
 </div>
 
 <h5>Return</h5>
@@ -27,14 +27,26 @@
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Пример</h3>
+<h3>Примеры</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<!------------------------------------------------------------->
+<h4>Базовый пример</h4>
+<!------------------------------------------------------------->
+<v-tabs :tabs="['api/sample.ts', 'App.tsx']">
+<template v-slot:1>
 <v-code lang="js" title="">
+interface ISampleModel {
+  userId: number
+  id: number
+  title: string
+  completed: boolean
+}
+
 export const useSample = () => {
   const { data, error, isLoading } = useSWR(
     "https://jsonplaceholder.typicode.com/todos/1",
-    async (url) => {
+    async (url): Promise&lt;ISampleModel&gt; => {
       const res = await fetch(url)
       return await res.json()
     },
@@ -47,8 +59,11 @@ export const useSample = () => {
   }
 }
 </v-code>
-
+</template>
+<template v-slot:2>
 <v-code lang="js" title="">
+import { useSample } from "./api/sample"
+
 const App = () => {
     const { data, error, isLoading } = useSample()
 
@@ -59,7 +74,7 @@ const App = () => {
 }
 </v-code>
 
-<v-code lang="js" title="">
+<v-code lang="js none" title="">
 console.log(data)
 {
     "userId": 1,
@@ -68,3 +83,5 @@ console.log(data)
     "completed": false
 }
 </v-code>
+</template>
+</v-tabs>

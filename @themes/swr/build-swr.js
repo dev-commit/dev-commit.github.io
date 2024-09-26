@@ -16,6 +16,7 @@ ARR_MODULE = [
             [root+'api/mutate', setTheme(6, ['mutate'])],
             [root+'api/useSWRInfinite', setTheme(6, ['useSWRInfinite'])],
             [root+'api/useSWRSubscription', setTheme(6, ['useSWRSubscription'])],
+            [root+'api/SWRConfig', setTheme(6, ['SWRConfig', 'useSWRConfig'])],
         ]
     },
 ]
