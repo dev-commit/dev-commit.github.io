@@ -94,7 +94,13 @@
 <v-pre-npm>
 npm i --save <u-code-accent>react-query</u-code-accent>
 </v-pre-npm>
-</div><div id="react-query/variants/basic"><h2>Базовый пример</h2>
+</div><div id="react-query/variants/basic"><!-- TODO:
+<f-search>react-query -> <u>QueryClient()</u></f-search>
+<f-search>react-query -> <u>&lt;QueryClientProvider&gt;</u></f-search>
+<f-search>react-query -> <u>useQuery()</u></f-search>
+-->
+
+<h2>Базовый пример</h2>
 
 <!------------------------------------------------------------->
 <h4>Корневой компонент</h4>
@@ -102,9 +108,9 @@ npm i --save <u-code-accent>react-query</u-code-accent>
 <v-code lang="js" title="">
 import { QueryClient, QueryClientProvider } from 'react-query'
 
-import { Example } from './Example';
+import { Example } from './Example'
 
-const queryClient = new <u-code>QueryClient</u-code>();
+const queryClient = new <u-code>QueryClient</u-code>()
 
 const App = () =&gt; {
     return (
@@ -114,7 +120,7 @@ const App = () =&gt; {
     )
 }
 
-export default App;
+export default App
 </v-code>
 
 <!------------------------------------------------------------->
@@ -124,7 +130,7 @@ export default App;
 import { useQuery } from 'react-query'
 
 export const Example = () =&gt; {
-    const { isLoading, error, data } = <u-code>useQuery</u-code>('repoData', getResource);
+    const { isLoading, error, data } = <u-code>useQuery</u-code>('repoData', getResource)
 
     if (isLoading) return 'Loading...'
 
@@ -141,11 +147,15 @@ export const Example = () =&gt; {
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 const getResource = async () =&gt; {
-    const res = await fetch('https://api.github.com/repos/tannerlinsley/react-query');
-    return await res.json();
+    const res = await fetch('https://api.github.com/repos/tannerlinsley/react-query')
+    return await res.json()
 }
 </v-code>
-</div><div id="react-query/variants/react-query-devtools"><h2>ReactQuery Devtools</h2>
+</div><div id="react-query/variants/react-query-devtools"><!-- TODO:
+<f-search>react-query -> <u>&lt;ReactQueryDevtools&gt;</u></f-search>
+-->
+
+<h2>ReactQuery Devtools</h2>
 
 <v-code lang="js" title="">
 import { ReactQueryDevtools } from 'react-query/devtools';
