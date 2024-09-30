@@ -113,8 +113,8 @@ npm i --save <u-code-accent>zustand</u-code-accent>
 </v-pre-npm>
 </div><div id="zustand/main/use"><h2>Использование</h2>
 
-<v-path>./src/store/store.ts</v-path>
-
+<v-tabs :tabs="['./src/store/store.ts', './src/App.tsx']">
+<template v-slot:1>
 <v-code lang="js" title="">
 import { create } from "zustand"
 
@@ -139,9 +139,9 @@ const useStore = <u-code-accent>create</u-code-accent>&lt;IStore&gt;((set, get) 
 
 export default useStore
 </v-code>
+</template>
 
-<v-path>./src/App.tsx</v-path>
-
+<template v-slot:2>
 <v-code lang="js" title="">
 import useStore from "../store/store"
 
@@ -163,6 +163,8 @@ const App = () => {
 
 export default App
 </v-code>
+</template>
+</v-tabs>
 </div><div id="zustand/api/useStore"><!-- TODO:
 <f-search>Zustand -> useStore()</f-search>
 -->
