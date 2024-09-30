@@ -1,0 +1,94 @@
+<!-- TODO:
+<f-search>Zustand -> create()</f-search>
+-->
+
+<h2>create()</h2>
+
+<v-path>./src/store/store.ts</v-path>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Один файл store.ts</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+import { create } from "zustand"
+
+export interface IStore {
+  name: string
+  setName: (name: string) => void
+}
+
+const useStore = create&lt;IStore&gt;((set, get) => ({
+  name: "",
+  setName: (name: string) => {
+    set({
+      name,
+    })
+  },
+}))
+
+export default useStore
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файл для каждого элемента</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Все функции типа <u>createUsername()</u> хранятся в директории <u>store/elements</u></li>
+</ul>
+
+<v-details title="Types: TStoreGet, TStoreSet">
+<v-code lang="js red" title="">
+export type TStoreGet = () => IStore
+
+// Need Fix
+export type TStoreSet = {
+  (
+    partial:
+      | IStore
+      | Partial&lt;IStore&gt;
+      | ((state: IStore) => IStore | Partial&lt;IStore&gt;),
+    replace?: false,
+  ): void
+  (
+    state: IStore | ((state: IStore) => IStore),
+    replace: true,
+  ): void
+}
+</v-details>
+
+<v-code lang="js" title="">
+export interface IStoreUsername {
+  name: string
+  setName: (name: string) => void
+}
+
+const createUsername = (set: TStoreSet, get: TStoreGet): IStoreUsername => {
+  return {
+    name: "",
+    setName: (name: string) => {
+      set({
+        name,
+      })
+    },
+  }
+}
+</v-code>
+
+
+<v-code lang="js" title="">
+import { create } from "zustand"
+
+export interface IStore extends IStoreUsername {}
+
+const useStore = create&lt;IStore&gt;((set, get) => {
+  return {
+    ...createUsername(set, get),
+  }
+})
+
+export default useStore
+</v-code>
+
+
+</v-code>

@@ -1,0 +1,326 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Zustand</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/zustand/build-zustand.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">Zustand</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Основы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__zustand/main/info"
+            href="#zustand/main/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__zustand/main/install"
+            href="#zustand/main/install"
+        >
+            🧲 Установка и настройка
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__zustand/main/use"
+            href="#zustand/main/use"
+        >
+            🔥 Базовый пример
+        </a>
+    </li>
+</ul><h4>🏷️ API</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__zustand/api/useStore"
+            href="#zustand/api/useStore"
+        >
+            <u-menu>useStore</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__zustand/api/create"
+            href="#zustand/api/create"
+        >
+            <u-menu>create</u-menu>
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="zustand/main/info"><h2>Информация</h2>
+
+<u-link-wrapper>
+    <a href="https://docs.pmnd.rs/zustand/getting-started/introduction" target="_blank">Documentation</a>
+</u-link-wrapper>
+</div><div id="zustand/main/install"><h2>Установка и настройка</h2>
+
+<v-pre-npm>
+npm i --save <u-code-accent>zustand</u-code-accent>
+</v-pre-npm>
+</div><div id="zustand/main/use"><h2>Использование</h2>
+
+<v-path>./src/store/store.ts</v-path>
+
+<v-code lang="js" title="">
+import { create } from "zustand"
+
+export interface IStore {
+  name: string
+  setName: (name: string) => void
+  age: number
+}
+
+const useStore = <u-code-accent>create</u-code-accent>&lt;IStore&gt;((set, get) => ({
+  name: "",
+  age: 23,
+  setName: (name: string) => {
+    // Получили данные из другого состояния (если нужно)
+    const age = <u-code>get</u-code>().age
+    <u-code>set</u-code>({
+      // Изменили данные текущего состояния
+      name: name + age,
+    })
+  },
+}))
+
+export default useStore
+</v-code>
+
+<v-path>./src/App.tsx</v-path>
+
+<v-code lang="js" title="">
+import useStore from "../store/store"
+
+const App = () => {
+  const name = <u-code-accent>useStore</u-code-accent>((state) => state.name)
+  const setName = <u-code-accent>useStore</u-code-accent>((state) => state.setName)
+
+  const onClick = () => {
+    setName("Tony") // => "Tony23"
+  }
+
+  return (
+    &lt;&gt;
+      &lt;h1&gt;{name}&lt;/h1&gt;
+      &lt;button onClick={onClick}&gt;Click&lt;/button&gt;
+    &lt;/&gt;
+  )
+}
+
+export default App
+</v-code>
+</div><div id="zustand/api/useStore"><!-- TODO:
+<f-search>Zustand -> useStore()</f-search>
+-->
+
+<h2>useStore()</h2>
+
+<!------------------------------------------------------------->
+<h4>Простой вариант</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import useStore from "../store/store"
+
+const App: React.FC = () => {
+  const name = useStore((state) => state.name)
+  const setName = useStore((state) => state.setName)
+  //
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Селектор</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { useShallow } from "zustand/react/shallow"
+import useStore, { IStore } from "../store/store"
+
+const selector = (state: IStore) => ({
+  name: state.name,
+  setName: state.setName,
+})
+
+const App: React.FC = () => {
+  const { name, setName } = useStore(useShallow(selector))
+  //
+}
+</v-code>
+</div><div id="zustand/api/create"><!-- TODO:
+<f-search>Zustand -> create()</f-search>
+-->
+
+<h2>create()</h2>
+
+<v-path>./src/store/store.ts</v-path>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Один файл store.ts</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+import { create } from "zustand"
+
+export interface IStore {
+  name: string
+  setName: (name: string) => void
+}
+
+const useStore = create&lt;IStore&gt;((set, get) => ({
+  name: "",
+  setName: (name: string) => {
+    set({
+      name,
+    })
+  },
+}))
+
+export default useStore
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файл для каждого элемента</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Все функции типа <u>createUsername()</u> хранятся в директории <u>store/elements</u></li>
+</ul>
+
+<v-details title="Types: TStoreGet, TStoreSet">
+<v-code lang="js red" title="">
+export type TStoreGet = () => IStore
+
+// Need Fix
+export type TStoreSet = {
+  (
+    partial:
+      | IStore
+      | Partial&lt;IStore&gt;
+      | ((state: IStore) => IStore | Partial&lt;IStore&gt;),
+    replace?: false,
+  ): void
+  (
+    state: IStore | ((state: IStore) => IStore),
+    replace: true,
+  ): void
+}
+</v-details>
+
+<v-code lang="js" title="">
+export interface IStoreUsername {
+  name: string
+  setName: (name: string) => void
+}
+
+const createUsername = (set: TStoreSet, get: TStoreGet): IStoreUsername => {
+  return {
+    name: "",
+    setName: (name: string) => {
+      set({
+        name,
+      })
+    },
+  }
+}
+</v-code>
+
+
+<v-code lang="js" title="">
+import { create } from "zustand"
+
+export interface IStore extends IStoreUsername {}
+
+const useStore = create&lt;IStore&gt;((set, get) => {
+  return {
+    ...createUsername(set, get),
+  }
+})
+
+export default useStore
+</v-code>
+
+
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

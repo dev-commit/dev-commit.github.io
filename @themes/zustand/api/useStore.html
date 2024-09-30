@@ -1,0 +1,36 @@
+<!-- TODO:
+<f-search>Zustand -> useStore()</f-search>
+-->
+
+<h2>useStore()</h2>
+
+<!------------------------------------------------------------->
+<h4>Простой вариант</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import useStore from "../store/store"
+
+const App: React.FC = () => {
+  const name = useStore((state) => state.name)
+  const setName = useStore((state) => state.setName)
+  //
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Селектор</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { useShallow } from "zustand/react/shallow"
+import useStore, { IStore } from "../store/store"
+
+const selector = (state: IStore) => ({
+  name: state.name,
+  setName: state.setName,
+})
+
+const App: React.FC = () => {
+  const { name, setName } = useStore(useShallow(selector))
+  //
+}
+</v-code>

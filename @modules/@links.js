@@ -77,6 +77,7 @@ const ARR_LINKS = [
     { page: 'redux-toolkit',           theme: 'react',     title: 'Redux Toolkit' },
     { page: 'redux-saga',              theme: 'react',     title: search+'Redux Saga' },
     { page: 'reselect',                theme: 'react',     title: 'Reselect' },
+    { page: 'zustand',                 theme: 'react',     title: 'Zustand' },
     null,
     { page: 'formik',                  theme: 'react',     title: search+'Formik' },
     { page: 'yup',                     theme: 'react',     title: 'Yup' },

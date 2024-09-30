@@ -1,0 +1,52 @@
+<h2>Использование</h2>
+
+<v-path>./src/store/store.ts</v-path>
+
+<v-code lang="js" title="">
+import { create } from "zustand"
+
+export interface IStore {
+  name: string
+  setName: (name: string) => void
+  age: number
+}
+
+const useStore = <u-code-accent>create</u-code-accent>&lt;IStore&gt;((set, get) => ({
+  name: "",
+  age: 23,
+  setName: (name: string) => {
+    // Получили данные из другого состояния (если нужно)
+    const age = <u-code>get</u-code>().age
+    <u-code>set</u-code>({
+      // Изменили данные текущего состояния
+      name: name + age,
+    })
+  },
+}))
+
+export default useStore
+</v-code>
+
+<v-path>./src/App.tsx</v-path>
+
+<v-code lang="js" title="">
+import useStore from "../store/store"
+
+const App = () => {
+  const name = <u-code-accent>useStore</u-code-accent>((state) => state.name)
+  const setName = <u-code-accent>useStore</u-code-accent>((state) => state.setName)
+
+  const onClick = () => {
+    setName("Tony") // => "Tony23"
+  }
+
+  return (
+    &lt;&gt;
+      &lt;h1&gt;{name}&lt;/h1&gt;
+      &lt;button onClick={onClick}&gt;Click&lt;/button&gt;
+    &lt;/&gt;
+  )
+}
+
+export default App
+</v-code>

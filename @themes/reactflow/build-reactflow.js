@@ -13,7 +13,6 @@ ARR_MODULE = [
         accent: true,
         themes: [
             [root+'zustand/info', emoji.theory+'Информация'],
-            [root+'zustand/install', emoji.code+'Установка и настройка'],
             [root+'zustand/usestate-vs-zustand', emoji.star+'useState vs Zustand'],
             [root+'zustand/useStore', setTheme(5, ['useStore'])],
         ]
