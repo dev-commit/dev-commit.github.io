@@ -1,0 +1,52 @@
+<h2>Особенности</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Кеширование и дедупликация запросов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+  <v-link block="true" url="https://swr.vercel.app/ru/docs/advanced/performance#deduplication" />
+</u-link-wrapper>
+
+<ul class="list-point">
+  <li><u-text-define>Дедупликаци</u-text-define> - устранение дубликатов</li>
+  <li><u>Кеширование</u> и <u>дедупликация запросов</u> позволяет пропускать ненужные сетевые запросы</li>
+  <li>SWR глубоко сравнивает изменения данных по умолчанию. Если значение data не изменилось, повторный рендеринг запускаться не будет.</li>
+</ul>
+
+<v-code lang="js" title="">
+const useUser = () => {
+  return useSWR('/api/user', fetcher)
+}
+
+const Username = () => {
+  const { data } = useUser()
+  return &lt;h1&gt;{data.name}&lt;/h1&gt;
+}
+
+const App = () => {
+  return (
+    <>
+      &lt;User /&gt;
+      &lt;User /&gt;
+      &lt;User /&gt;
+    </>
+  )
+}
+</v-code>
+
+<ul class="list-point">
+  <li>В примере компонент <u>User</u> вызывается 3 раза, но в API будет отправлен только 1 запрос, т.к. они используют один и тот же ключ SWR - <u>useUser</u>, а запрос автоматически выводится, кешируется и распределяется</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Tree Shaking</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+  <v-link block="true" url="https://swr.vercel.app/ru/docs/advanced/performance#tree-shaking" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Для SWR можно легко применить Tree Shaking</li>
+    <li>Он не имеет side-effects</li>
+    <li>Это означает, что если вы импортируете только основной API useSWR, неиспользуемые API, такие, как useSWRInfinite, не будут включены в ваше приложение</li>
+</ul>

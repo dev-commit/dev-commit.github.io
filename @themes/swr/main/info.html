@@ -4,32 +4,3 @@
     <v-link block="true" url="https://swr.vercel.app/ru/docs/" />
 </u-link-wrapper>
 
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Кеширование</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li>В API будет отправлен всего 1 запрос, т.к. они используют один и тот же ключ SWR - <u>useUser</u>, а запрос автоматически выводится, кешируется и распределяется</li>
-</ul>
-
-<v-code lang="js" title="">
-const App = () =&gt; {
-  return (
-    &lt;&gt;
-      &lt;Content /&gt;
-      &lt;Avatar /&gt;
-    &lt;/&gt;
-  )
-}
-
-const Content = () =&gt; {
-  const { user, isLoading } = useUser()
-  if (isLoading) return &lt;Spinner /&gt;
-  return &lt;h1&gt;&Scy; &vcy;&ocy;&zcy;&vcy;&rcy;&acy;&shchcy;&iecy;&ncy;&icy;&iecy;&mcy;, {user.name}&lt;/h1&gt;
-}
-
-const Avatar = () =&gt; {
-  const { user, isLoading } = useUser()
-  if (isLoading) return &lt;Spinner /&gt;
-  return &lt;img src={user.avatar} alt={user.name} /&gt;
-}
-</v-code>
