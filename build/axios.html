@@ -1,0 +1,496 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Axios</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/axios/build-axios.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">Axios</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Основы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__axios/main/info"
+            href="#axios/main/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__axios/main/install"
+            href="#axios/main/install"
+        >
+            🧲 Установка и настройка
+        </a>
+    </li>
+</ul><h4>🏷️ Общее</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__axios/common/http-methods"
+            href="#axios/common/http-methods"
+        >
+            HTTP-методы
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__axios/common/samples"
+            href="#axios/common/samples"
+        >
+            Примеры
+        </a>
+    </li>
+</ul><h4>🏷️ Services</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__axios/services/instance"
+            href="#axios/services/instance"
+        >
+            Создание instance
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__axios/services/services"
+            href="#axios/services/services"
+        >
+            Services
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__axios/services/error-handling"
+            href="#axios/services/error-handling"
+        >
+            Обработка ошибок
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                                <li v-else class="splitter"></li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="axios/main/info"><!-- TODO:
+<f-search>Axios -> Axios</f-search>
+-->
+
+<h2>Информация</h2>
+
+<u-link-wrapper>
+	<a href="https://axios-http.com/docs/intro" target="_blank">Ducumentation</a>
+	<a href="https://github.com/axios/axios" target="_blank">GitHub</a>
+</u-link-wrapper>
+</div><div id="axios/main/install"><h2>Установка и настройка</h2>
+
+<v-pre-npm>
+npm i --save <u-code-accent>axios</u-code-accent>
+</v-pre-npm>
+
+<v-code lang="js" title="">
+import axios from 'axios'
+</v-code>
+</div><div id="axios/common/http-methods"><!-- TODO:
+<f-search>Axios -> <u>get()</u></f-search>
+<f-search>Axios -> <u>post()</u></f-search>
+<f-search>Axios -> <u>patch()</u></f-search>
+<f-search>Axios -> <u>delete()</u></f-search>
+-->
+
+<h2>HTTP-методы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>GET</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+const promise = axios.get("url");
+</v-code>
+
+<v-code lang="js" title="">
+promise
+	.then(response => {
+		console.log(response.data);
+	})
+	.catch(error => {
+		console.log(error)
+	});
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>POST</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+const promise = axios.post(
+	"url",
+	{
+		name: 'Tony',
+		age: 23
+	}
+)
+</v-code>
+
+<v-code lang="js" title="">
+promise
+	.then(response => {
+		console.log(response);
+	})
+	.catch(error => {
+		console.log(error)
+	});
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>PATCH</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+axios.patch("url", {
+    name: "Tony",
+	age: "23"
+  });
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>DELETE</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+await axios
+  .delete("url")
+  .catch(e => {
+	error(500, 'Error text');
+	throw e;
+  });
+</v-code>
+</div><div id="axios/common/samples"><h2>Примеры</h2>
+
+<!------------------------------------------------------------->
+<h4>async await</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import axios from "axios";
+
+const API_URL = 'https://gateway.marvel.com/v1/public/characters';
+const API_KEY = 'a5837db97d72016c81a7a776f4240db9';
+
+const getDataAxios = async (url) => {
+	const response = await axios.get(url, {
+		params: {
+			apikey: API_KEY
+		}
+	});
+	return response.data.data.results;
+}
+
+const getDataResult = async () => {
+	const data = await getDataAxios(API_URL);
+	console.log(data);
+}
+
+getDataResult();
+</v-code>
+</div><div id="axios/services/instance"><h2>Создание instance</h2>
+
+ <v-tree>
+📂 <u-code-mod>services</u-code-mod>
+	› <s>init.ts</s>
+</v-tree>
+
+<v-path>services/init.ts</v-path>
+
+<v-code lang="js" title="">
+import axios from "axios"
+
+export const instance = axios.create({
+  baseURL: "https://website/api/",
+  // timeout: 1000,
+  // headers: {
+  //   "Access-Control-Allow-Origin": "*",
+  // },
+})
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Init Function</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-path>init.ts</v-path>
+
+<v-code lang="js" title="">
+const init = (): AxiosInstance => {
+  const accessToken = TokenStorage.get().access;
+
+  const client = axios.create({
+    baseURL: process.env.REACT_APP_API_URL,
+    headers: { common: { Authorization: accessToken } },
+    paramsSerializer: params => qs.stringify(params),
+  });
+
+  // client.interceptors.response.use();
+
+  return client;
+}
+</v-code>
+</div><div id="axios/services/services"><h2>Сервисы</h2>
+
+<u-message-info>
+Используется AXIOS
+</u-message-info>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Создание instance</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Services</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>На примере API для "users"</li>
+</ul>
+
+<v-tree>
+📂 <u-code-mod>services</u-code-mod>
+  📂 <b>name</b>
+    › <s>types.ts</s>
+    › <s>name.ts</s>
+</v-tree>
+
+<v-code lang="js" title="">
+import * as t from './types'
+import { instance } from "../init"
+const URL = '/user'
+</v-code>
+
+<v-code lang="js" title="">
+interface IUserModel {
+  name: string
+  age: number
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>get</h4>
+<!------------------------------------------------------------->
+
+<v-code lang="js" title="">
+interface IGetResponse {
+  data: IUserModel
+}
+
+export const get = async (id: string): Promise&lt;t.IUserModel&gt; => {
+  const { data } = await instance.get&lt;t.IGetResponse&gt;(`${URL}/${id}`)
+  return data.user
+};
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>list</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+interface IGetListResponse {
+  data: IUserModel[]
+}
+
+export const getList = async (): Promise&lt;t.IGetListResponse&gt; => {
+  const { data } = await instance.get&lt;t.IGetListResponse&gt;(URL)
+  return data
+};
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>create</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+interface ICreatePayload {
+    id: string
+}
+interface ICreateResponse {
+    //
+}
+
+export const create = async (payload: t.ICreatePayload): Promise&lt;t.IUserModel&gt; => {
+  const { data } = await instance.post&lt;t.ICreateResponse&gt;(URL, payload);
+  return data.user;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>update</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+interface IUpdateResponse {
+  //
+}
+
+export const update = async (
+  id: string,
+  payload: t.IUpdatePayload,
+): Promise&lt;t.IUserModel&gt; => {
+  const { data } = await instance.put&lt;t.IUpdateResponse&gt;(`${URL}/${id}`, payload)
+  return data.user;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>remove</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+export const remove = async (id: string): Promise&lt;void&gt; => {
+  return await instance.delete(`${URL}/${id}`);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>search</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+interface ISearchParams {
+  //
+}
+interface ISearchResponse {
+  //
+}
+
+export const search = async (params: t.ISearchParams = {}): Promise<t.ISearchResponse> => {
+  const { data } = await instance.post<t.ISearchResponse>(`${URL}/search`, params)
+  return data
+};
+</v-code>
+</div><div id="axios/services/error-handling"><h2>Обработка ошибок</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Через Promise</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+export const getList = async () => {
+  const promise = instance.get("url")
+
+  promise
+    .then((response) => {
+      console.log(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Async Function. Try / Catch</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+export const getList = async () => {
+  try {
+    const { data } = await instance.get("url")
+    return data
+  } catch (error) {
+    // @ts-ignore
+    return error.message
+  }
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Async Function. Функция-обертка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+export const getList = async () => {
+  const { data } = await instance.get("url")
+  return data
+}
+
+export const catchApiErrors = async (responseFunction) => {
+  try {
+    return await responseFunction();
+  } catch (error) {
+    // @ts-ignore
+    return error;
+  }
+}
+
+const getData = async () => {
+  const data = await catchApiErrors(getList)
+  console.log(data)
+}
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

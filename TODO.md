@@ -25,5 +25,5 @@ https://dev-commit.github.io/pages/wiki#wiki/main/symbols
 
 ## Internal Links
 ```
-<a data-attr="internal" href="/pages/react-js#react-js/aliases/vite">Link</a>
+<a data-attr="internal" href="/pages/react-js#react-js/aliases/vite">DevCommit: Name</a>
 ```

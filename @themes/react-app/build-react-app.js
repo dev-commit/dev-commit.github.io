@@ -12,14 +12,7 @@ ARR_MODULE = [
         themes: [
             [root+'file-structure/structure', 'Структура'],
             [root+'file-structure/types', '📂 src › 📂 types'],
-        ]
-    },
-    {
-        title: 'AXIOS Services',
-        themes: [
-            [root+'services/instance', 'Создание instance'],
-            [root+'services/services', 'Services'],
-            [root+'services/error-handling', 'Обработка ошибок'],
+            [root+'file-structure/services', '📂 src › 📂 services'],
         ]
     },
 ]

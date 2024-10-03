@@ -60,34 +60,14 @@
             📂 src › 📂 types
         </a>
     </li>
-</ul><h4>🏷️ AXIOS Services</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__react-app/services/instance"
-            href="#react-app/services/instance"
-        >
-            Создание instance
-        </a>
-    </li>
 
     <li>
         <a
             class="menu-link"
-            id="id__react-app/services/services"
-            href="#react-app/services/services"
+            id="id__react-app/file-structure/services"
+            href="#react-app/file-structure/services"
         >
-            Services
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__react-app/services/error-handling"
-            href="#react-app/services/error-handling"
-        >
-            Обработка ошибок
+            📂 src › 📂 services
         </a>
     </li>
 </ul>
@@ -117,28 +97,28 @@
 <h3>1. Развернуть проект на Vite</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li><a data-attr="internal" href="/pages/vite#vite/main/install">Vite</a></li>
+    <li><a data-attr="internal" href="/pages/vite#vite/main/install">DevCommit: Vite</a></li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>2. Настроить Aliases</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li><a data-attr="internal" href="/pages/react-js#react-js/aliases/vite">Vite Aliases</a></li>
+    <li><a data-attr="internal" href="/pages/react-js#react-js/aliases/vite">DevCommit: Vite Aliases</a></li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>3. Настроить Eslint и Prettier</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li><a data-attr="internal" href="/pages/linters#linters/main/install">Eslint и Prettier</a></li>
+    <li><a data-attr="internal" href="/pages/linters#linters/main/install">DevCommit: Eslint и Prettier</a></li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>4. Установить Material-UI</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li><a data-attr="internal" href="/pages/material-ui#material-ui/main/install">Install Material-UI</a></li>
+    <li><a data-attr="internal" href="/pages/material-ui#material-ui/main/install">DevCommit: Install Material-UI</a></li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -235,229 +215,9 @@ declare global {
   }
 }
 </v-code>
-</div><div id="react-app/services/instance"><h2>Создание instance</h2>
+</div><div id="react-app/file-structure/services"><h2>Services</h2>
 
- <v-tree>
-📂 <u-code-mod>services</u-code-mod>
-	› <s>init.ts</s>
-</v-tree>
-
-<v-path>services/init.ts</v-path>
-
-<v-code lang="js" title="">
-import axios from "axios"
-
-export const instance = axios.create({
-  baseURL: "https://website/api/",
-  // timeout: 1000,
-  // headers: {
-  //   "Access-Control-Allow-Origin": "*",
-  // },
-})
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Init Function</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-path>init.ts</v-path>
-
-<v-code lang="js" title="">
-const init = (): AxiosInstance => {
-  const accessToken = TokenStorage.get().access;
-
-  const client = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
-    headers: { common: { Authorization: accessToken } },
-    paramsSerializer: params => qs.stringify(params),
-  });
-
-  // client.interceptors.response.use();
-
-  return client;
-}
-</v-code>
-</div><div id="react-app/services/services"><h2>Сервисы</h2>
-
-<u-message-info>
-Используется AXIOS
-</u-message-info>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Создание instance</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Services</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li>На примере API для "users"</li>
-</ul>
-
-<v-tree>
-📂 <u-code-mod>services</u-code-mod>
-  📂 <b>name</b>
-    › <s>types.ts</s>
-    › <s>name.ts</s>
-</v-tree>
-
-<v-code lang="js" title="">
-import * as t from './types'
-import { instance } from "../init"
-const URL = '/user'
-</v-code>
-
-<v-code lang="js" title="">
-interface IUserModel {
-  name: string
-  age: number
-}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>get</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-interface IGetResponse {
-  data: IUserModel
-}
-
-export const get = async (id: string): Promise&lt;t.IUserModel&gt; => {
-  const { data } = await instance.get&lt;t.IGetResponse&gt;(`${URL}/${id}`)
-  return data.user
-};
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>list</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-interface IGetListResponse {
-  data: IUserModel[]
-}
-
-export const getList = async (): Promise&lt;t.IGetListResponse&gt; => {
-  const { data } = await instance.get&lt;t.IGetListResponse&gt;(URL)
-  return data
-};
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>create</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-interface ICreatePayload {
-    id: string
-}
-interface ICreateResponse {
-    //
-}
-
-export const create = async (payload: t.ICreatePayload): Promise&lt;t.IUserModel&gt; => {
-  const { data } = await instance.post&lt;t.ICreateResponse&gt;(URL, payload);
-  return data.user;
-}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>update</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-interface IUpdateResponse {
-  //
-}
-
-export const update = async (
-  id: string,
-  payload: t.IUpdatePayload,
-): Promise&lt;t.IUserModel&gt; => {
-  const { data } = await instance.put&lt;t.IUpdateResponse&gt;(`${URL}/${id}`, payload)
-  return data.user;
-}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>remove</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-export const remove = async (id: string): Promise&lt;void&gt; => {
-  return await instance.delete(`${URL}/${id}`);
-}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>search</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-interface ISearchParams {
-  //
-}
-interface ISearchResponse {
-  //
-}
-
-export const search = async (params: t.ISearchParams = {}): Promise<t.ISearchResponse> => {
-  const { data } = await instance.post<t.ISearchResponse>(`${URL}/search`, params)
-  return data
-};
-</v-code>
-</div><div id="react-app/services/error-handling"><h2>Обработка ошибок</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Через Promise</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-export const getList = async () => {
-  const promise = instance.get("url")
-
-  promise
-    .then((response) => {
-      console.log(response.data)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-}
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Async Function. Try / Catch</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-export const getList = async () => {
-  try {
-    const { data } = await instance.get("url")
-    return data
-  } catch (error) {
-    // @ts-ignore
-    return error.message
-  }
-}
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Async Function. Функция-обертка</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-export const getList = async () => {
-  const { data } = await instance.get("url")
-  return data
-}
-
-export const catchApiErrors = async (responseFunction) => {
-  try {
-    return await responseFunction();
-  } catch (error) {
-    // @ts-ignore
-    return error;
-  }
-}
-
-const getData = async () => {
-  const data = await catchApiErrors(getList)
-  console.log(data)
-}
-</v-code>
+<a data-attr="internal" href="/pages/axios#axios/services/services">DevCommit: Axios</a>
 </div></div>
                 </div>
             </div>

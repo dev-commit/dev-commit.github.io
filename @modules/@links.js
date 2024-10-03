@@ -49,6 +49,7 @@ const ARR_LINKS = [
     { page: 'js-async',                theme: 'js',        title: 'Async' },
     { page: 'js-promise',              theme: 'js',        title: search+'Promise' },
     { page: 'js-ajax',                 theme: 'js',        title: 'Ajax' },
+    { page: 'axios',                   theme: 'react',     title: 'Axios' },
     { page: 'react-query',             theme: 'react',     title: 'React Query' },
     { page: 'swr',                     theme: 'react',     title: 'SWR' },
     { page: 'theory-network',          theme: 'primary',   title: search+'HTTP | Protocols' },
