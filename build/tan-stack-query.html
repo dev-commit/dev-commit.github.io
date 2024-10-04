@@ -2,14 +2,14 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>React Query</title>
+            <title>TanStack Query</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
 
             <script src="../src/js/utils.js"></script>
             <!-- Own JavaScript -->
-            <script src="../@themes/react-query/build-react-query.js"></script>
+            <script src="../@themes/tan-stack-query/build-tan-stack-query.js"></script>
         </head>
         <body>
             <div id="container">
@@ -22,7 +22,7 @@
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link">React Query</a>
+                        <a href="#links" class="top-link">TanStack Query</a>
                     </div>
 
                     <div class="search-wrapper">
@@ -34,30 +34,40 @@
     <li>
         <a
             class="menu-link"
-            id="id__react-query/main/info"
-            href="#react-query/main/info"
+            id="id__tan-stack-query/main/info"
+            href="#tan-stack-query/main/info"
         >
             📑 Информация
-        </a>
-    </li>
-</ul><h4>🏷️ Варианты</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__react-query/variants/basic"
-            href="#react-query/variants/basic"
-        >
-            🧲 Базовый пример
         </a>
     </li>
 
     <li>
         <a
             class="menu-link"
-            id="id__react-query/variants/react-query-devtools"
-            href="#react-query/variants/react-query-devtools"
+            id="id__tan-stack-query/main/install"
+            href="#tan-stack-query/main/install"
         >
-            🧲 ReactQuery Devtools
+            🧲 Установка и настройка
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__tan-stack-query/main/use"
+            href="#tan-stack-query/main/use"
+        >
+            🔥 Базовый пример
+        </a>
+    </li>
+</ul><h4>🏷️ Общее</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__tan-stack-query/common/react-query-devtools"
+            href="#tan-stack-query/common/react-query-devtools"
+        >
+            ReactQuery Devtools
         </a>
     </li>
 </ul>
@@ -81,20 +91,25 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="react-query/main/info"><!-- TODO:
+                    <div id="content"><div id="tan-stack-query/main/info"><!-- TODO:
 <f-search>react-query -> react-query</f-search>
 -->
 
 <h2>Информация</h2>
 
 <u-link-wrapper>
-    <a href="https://react-query.tanstack.com/overview" target="_blank">https://react-query.tanstack.com/overview</a>
+    <v-link url="https://react-query.tanstack.com/overview" />
 </u-link-wrapper>
 
+<ul class="list-point">
+    <li>Раньше библиотека называлась <em>react-query</em></li>
+</ul>
+</div><div id="tan-stack-query/main/install"><h2>Установка и настройка</h2>
+
 <v-pre-npm>
-npm i --save <u-code-accent>react-query</u-code-accent>
+npm i <u-code-accent>@tanstack/react-query</u-code-accent>
 </v-pre-npm>
-</div><div id="react-query/variants/basic"><!-- TODO:
+</div><div id="tan-stack-query/main/use"><!-- TODO:
 <f-search>react-query -> <u>QueryClient()</u></f-search>
 <f-search>react-query -> <u>&lt;QueryClientProvider&gt;</u></f-search>
 <f-search>react-query -> <u>useQuery()</u></f-search>
@@ -151,7 +166,7 @@ const getResource = async () =&gt; {
     return await res.json()
 }
 </v-code>
-</div><div id="react-query/variants/react-query-devtools"><!-- TODO:
+</div><div id="tan-stack-query/common/react-query-devtools"><!-- TODO:
 <f-search>react-query -> <u>&lt;ReactQueryDevtools&gt;</u></f-search>
 -->
 
