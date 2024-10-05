@@ -14,6 +14,7 @@ ARR_MODULE = [
         title: 'Компоненты',
         themes: [
             [root+'components/Stepper', setTheme(1, ['Stepper'])],
+            [root+'components/Table', setTheme(1, ['Table'])],
         ]
     },
     {
