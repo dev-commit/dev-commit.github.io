@@ -12,8 +12,6 @@ ARR_MODULE = [
     {
         title: 'События',
         themes: [
-
-        
             [root+'dom-events/propagation-model',     emoji.theory+'Модель распространения событий'],
             [root+'dom-events/propagation-capturing', emoji.star+'1. Фаза погружения'],
             [root+'dom-events/propagation-target',    emoji.star+'2. Фаза цели'],
@@ -34,6 +32,23 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'Элементы формы',
+        themes: [
+            [root+'form/input', setTheme(1, ['&lt;input&gt;', '&lt;select&gt;'])],
+        ]
+    },
+    {
+        title: 'Методы и свойства',
+        themes: [
+            [root+'dom-methods/attribute',       setTheme(1, ['attributes'])],
+            [root+'dom-methods/class-list',      setTheme(1, ['classList'])],
+            [root+'dom-methods/css',             setTheme(1, ['style', 'getComputedStyle'])],
+            [root+'dom-methods/contains',        setTheme(1, ['contains', 'compareDocumentPosition'])],
+            [root+'dom-methods/media-queries',   setTheme(1, ['matchMedia'])],
+            [root+'dom-methods/location',        setTheme(1, ['open', 'location'])],
+        ]
+    },
+    {
         title: 'Документ и объекты страницы',
         themes: [
             [root+'dom/info',            emoji.theory+'Информация'],
@@ -46,14 +61,6 @@ ARR_MODULE = [
             [root+'dom/multi-insert',    emoji.coin+'4. Мультивставка'],
             [root+'dom/metrics',         emoji.coin+'5. Размеры и прокрутка элементов'],
             [root+'dom/metrics-window',  emoji.coin+'6. Размеры и прокрутка страницы'],
-        
-            [root+'dom/input',           setTheme(1, ['&lt;input&gt;', '&lt;select&gt;'])],
-            [root+'dom/attribute',       setTheme(1, ['attributes'])],
-            [root+'dom/class-list',      setTheme(1, ['classList'])],
-            [root+'dom/css',             setTheme(1, ['style', 'getComputedStyle'])],
-            [root+'dom/contains',        setTheme(1, ['contains', 'compareDocumentPosition'])],
-            [root+'dom/media-queries',   setTheme(1, ['matchMedia'])],
-            [root+'dom/location',        setTheme(1, ['open', 'location'])],
         ]
     },
 ]

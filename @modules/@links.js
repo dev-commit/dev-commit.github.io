@@ -60,7 +60,7 @@ const ARR_LINKS = [
     { page: 'js-regexp',               theme: 'js',        title: 'RegExp' },
     { page: 'js-web-api',              theme: 'js',        title: search+'Web API' },
     { page: 'canvas',                  theme: 'secondary', title: 'Canvas' },
-    { page: 'web-components',          theme: 'secondary', title: search+'Web Components' },
+    { page: 'web-components',          theme: 'secondary', title: 'Web Components' },
     null,
     { page: 'react-app',               theme: 'accent',    title: accent+'React App' },
     { page: 'react-js',                theme: 'react',     title: search+accent+'React.js' },
