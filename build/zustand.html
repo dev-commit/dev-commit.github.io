@@ -237,36 +237,38 @@ export default useStore
 <h3>Файл для каждого элемента</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li>Все функции типа <u>createUsername()</u> хранятся в директории <u>store/elements</u></li>
+  <li>Основная директория: <em>./src/store</em></li>
+  <li>Все функции типа <u>createUser()</u> хранятся в директории <em>./store/elements</em></li>
 </ul>
 
-<v-details title="Types: TStoreGet, TStoreSet">
-<v-code lang="js red" title="">
-export type TStoreGet = () => IStore
-
-// Need Fix
-export type TStoreSet = {
-  (
-    partial:
-      | IStore
-      | Partial&lt;IStore&gt;
-      | ((state: IStore) => IStore | Partial&lt;IStore&gt;),
-    replace?: false,
-  ): void
-  (
-    state: IStore | ((state: IStore) => IStore),
-    replace: true,
-  ): void
-}
-</v-details>
-
+<v-tabs :tabs="['store.ts', 'elements/user.ts', 'types.ts']">
+<template v-slot:1>
 <v-code lang="js" title="">
-export interface IStoreUsername {
+import { create } from "zustand"
+
+import { IStoreUser, createUser } from "./elements/user"
+
+export interface IStore extends IStoreUser {}
+
+const useStore = create&lt;IStore&gt;((set, get) => {
+  return {
+    ...createUser(set, get),
+  }
+})
+
+export default useStore
+</v-code>
+</template>
+<template v-slot:2>
+<v-code lang="js" title="">
+import { TStoreGet, TStoreSet } from "../types"
+
+export interface IStoreUser {
   name: string
   setName: (name: string) => void
 }
 
-const createUsername = (set: TStoreSet, get: TStoreGet): IStoreUsername => {
+export const createUser = (set: TStoreSet, get: TStoreGet): IStoreUser => {
   return {
     name: "",
     setName: (name: string) => {
@@ -277,24 +279,28 @@ const createUsername = (set: TStoreSet, get: TStoreGet): IStoreUsername => {
   }
 }
 </v-code>
-
-
+</template>
+<template v-slot:3>
 <v-code lang="js" title="">
-import { create } from "zustand"
+import { IStore } from "./store"
 
-export interface IStore extends IStoreUsername {}
-
-const useStore = create&lt;IStore&gt;((set, get) => {
-  return {
-    ...createUsername(set, get),
-  }
-})
-
-export default useStore
+export type TStoreGet = () => IStore
+export type TStoreSet = {
+  (
+    partial:
+      | IStore
+      | Partial&lt;IStore&gt;
+      | ((state: IStore) => IStore | Partial&lt;IStore&gt;),
+    replace?: false,
+  ): void
+  (state: IStore | ((state: IStore) => IStore), replace: true): void
+}
 </v-code>
-
-
-</v-code>
+<ul class="list-point">
+    <li>Возможно, следует поправить <u>TStoreGet</u></li>
+</ul>
+</template>
+</v-tabs>
 </div></div>
                 </div>
             </div>

@@ -12,7 +12,7 @@ const age = 23
 
 const obj = {
 	name: 'Tony',
-	...(age && {age})
+	...(age && { age })
 }
 </v-code>
 
@@ -23,9 +23,7 @@ const obj = {
 const flag = true;
 const obj = {
 	name: 'Tony',
-	...(flag && {`
-		age: 23
-	})
+	...(flag && { age: 23 })
 }
 
 console.log(obj);
@@ -33,9 +31,7 @@ console.log(obj);
 
 <v-code lang="js" title="">
 const flag = true;
-const age = flag && {
-	age: 23
-}
+const age = flag && { age: 23 }
 
 const obj = {
 	name: 'Tony',
