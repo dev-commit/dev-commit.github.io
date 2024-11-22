@@ -5,6 +5,7 @@ ARR_MODULE = [
         title: 'Основное',
         themes: [
             getLink(root, 'info'),
+            [root+'main/spread-array', emoji.fire+'Spread Оператор (ES6)'],
         ]
     },
     {
