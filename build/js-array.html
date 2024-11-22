@@ -40,6 +40,26 @@
             📑 Информация
         </a>
     </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/main/spread-array"
+            href="#js-array/main/spread-array"
+        >
+            🔥 Spread-оператор Array (ES6)
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/main/destructive-array"
+            href="#js-array/main/destructive-array"
+        >
+            🔥 Деструктуризация Array (ES6)
+        </a>
+    </li>
 </ul><h4>🏷️ Циклы</h4><ul>
     <li>
         <a
@@ -321,6 +341,153 @@ console.log(a[1].age);  // 25
 
 
 
+</div><div id="js-array/main/spread-array"><!-- TODO:
+<f-search>JS -> Array -> Spread-оператор</f-search>
+-->
+
+<h2>Spread-оператор массивов (ES6)</h2>
+
+<ul class="list-point">
+    <li>Оператор разворота (spread оператор) - позволяет разворачить элементы массива для передачи в качестве аргументов функций или в элементы другого массива</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Массив</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const arr1 = ['Kate', 'Jack'];
+const arr2 = ['Tony', 'Natasha'];
+const result = [...arr1, 'Tom', ...arr2];
+console.log(result); // => 'Kate', 'Jack', 'Tom', 'Tony', 'Natasha'
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function add(x,y,z) {
+	console.log(x + y + z);
+}
+const numbers = [1, 2, 3];
+add(...numbers);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Переопределение свойства у объекта</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const obj1 = {
+    name: 'Jack',
+    age: 25,
+}
+const obj2 = {
+    ...obj1,
+    age: 27
+}
+console.log(obj2); // => { age: 27, name: "Jack" }
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Нахождение максмального значения</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const maxValue = Math.max(...arr1, ...arr2);
+console.log(maxValue); // => 6
+</v-code>
+</div><div id="js-array/main/destructive-array"><!-- TODO:
+<f-search>JS -> Array -> Деструктуризация массивов</f-search>
+-->
+
+<h2>Деструктивное присваивание массивов (ES6) - деструктуризация</h2>
+
+<v-code lang="js" title="">
+const languages = ['JavaScript', 'Python', 'Ruby'];
+</v-code>
+
+<v-two-code type="js;js" comment="ES6;ES5">
+<template v-slot:first>
+const [js, py, rb] = languages;
+</template>
+<template v-slot:last>
+const js = languages[0];
+const py = languages[1];
+const rb = languages[2];
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const scores = [3, 4, 5];
+const [low, , high] = scores;      // игнорирование значения
+const [low, ...rest] = scores;     // преобразование в массив оставшихся значений
+const [low, mid, high=5] = scores; // значение по умолчанию
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Значение из многомерного массива</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const scores = [3, 4, [5, 6]];
+const [low, mid, [high, higher]] = scores;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Как параметр функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function cumputeScore([low, mid]) {
+	console.log(low, mid);
+}
+cumputeScore([3, 4]);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Для возврата нескольких значений из функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function getScores() {
+	return [3, 4, 5];
+}
+
+const [low, mid, high] = getScores();
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Комбинация деструктуризации объектов и массивов</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const shape = {
+	type: 'element',
+	coordinates: {
+		start: [22, 77]
+	}
+}
+
+const { coordinates: { start: [startX, startY] } } = shape;
+console.log(startX, startY); // => 22, 77
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Быстрый обмен значений переменнных</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const yes = 'Yes';
+const no = 'No';
+
+[yes, no] = [no, yes];
+</v-code>
 </div><div id="js-array/cycles/info"><h2>Циклы для перебора массива</h2>
 
 <ul class="list-point">

@@ -44,9 +44,6 @@ ARR_MODULE = [
         themes: [
             [root+'main/context',           emoji.baseball+'Контекст'],
             [root+'main/bind',              emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
-            [root+'main/spread-obj',        emoji.fire+'Spread Obj (ES-2018)'],
-            [root+'main/destructive-array', emoji.fire+'Деструктуризация Arr (ES6)'],
-            [root+'main/destructive-obj',   emoji.fire+'Деструктуризация Obj (ES6)'],
             [root+'main/if-case',           setTheme(1, ['if', 'case'])],
             [root+'main/ternary-operator',  'Тернарные операторы'],
         ]

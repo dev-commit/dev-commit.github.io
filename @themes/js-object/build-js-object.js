@@ -4,6 +4,14 @@ commentProto = ' <u-code-comment>__proto__</u-code-comment>';
 
 ARR_MODULE = [
     {
+        title: 'Основное',
+        themes: [
+            getLink(root, 'info'),
+            [root+'main/spread-obj',        emoji.fire+'Spread-оператор Obj (ES-2018)'],
+            [root+'main/destructive-obj',   emoji.fire+'Деструктуризация Obj (ES6)'],
+        ]
+    },
+    {
         title: 'Use Cases',
         accent: true,
         themes: [
@@ -27,13 +35,18 @@ ARR_MODULE = [
             [],
             [root+'methods/is-prototype-of',     setTheme(3, ['isPrototypeOf'])+commentProto],
             [root+'methods/instanceof',          setTheme(3, ['instanceof'])],
-            [],
-            [root+'main/for',              'Перебор объекта'],
-            [root+'main/check-property',   'Проверка наличия свойства'],
-            [root+'main/descriptor',       'Дескрипторы свойств'],
-            [root+'main/extends',          'Расширяемость объектов'],
         ]
     },
+    {
+        title: 'Общее',
+        themes: [
+            [root+'common/for',              'Перебор объекта'],
+            [root+'common/check-property',   'Проверка наличия свойства'],
+            [root+'common/descriptor',       'Дескрипторы свойств'],
+            [root+'common/extends',          'Расширяемость объектов'],
+        ]
+    },
+
     {
         title: 'Преобразования объектов',
         accent: true,
@@ -45,13 +58,7 @@ ARR_MODULE = [
             [root+'conversion/toPrimitive',         setTheme(1, ['Symbol.toPrimitive'])],
         ]
     },
-    {
-        title: 'Основное',
-        themes: [
-            getLink(root, 'info'),
-            [root+'main/literal-notation', emoji.code+'Литеральная нотация'],
-        ]
-    },
+
     {
         title: 'Примеры',
         themes: [
@@ -66,6 +73,7 @@ ARR_MODULE = [
     {
         title: 'Прочее',
         themes: [
+            [root+'other/literal-notation', emoji.code+'Литеральная нотация'],
             [root+'other/compare',       emoji.lemon+'Сравнение объектов'],
             [root+'other/constructor',  'Конструктор создания объекта'],
             [root+'other/prototype',    'Прототип'],
