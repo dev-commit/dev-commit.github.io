@@ -1,13 +1,163 @@
 <h2>&lt;Handle /&gt;</h2>
 
 <v-code lang="js" title="">
-const handleStyle = { left: 50, background: "blue" };
-
 &lt;Handle
   type="target" // "source" | "target"
   position={Position.Top}
   isConnectable={isConnectable}
   id={id + "-top"}
-  style={handleStyle}
+  style=<span v-pre>{{ left: 50, background: "blue" }}</span>
 /&gt;;
 </v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<img src="/@img/react-flow/handle-sample.png" width="400px">
+
+<br>
+
+<v-tabs :tabs="['App', 'initialState', 'NodeAction']">
+<template v-slot:1>
+<v-code lang="js" title="">
+import { NodeAction } from "./NodeAction"
+import { initialNodes, initialEdges } from "./initialState.tsx"
+
+const customNodes = {
+  action: NodeAction,
+}
+
+const App = () => {
+  const [nodes] = useNodesState(initialNodes);
+  const [edges] = useEdgesState(initialEdges);
+
+  return (
+      &lt;ReactFlow
+        nodes={nodes}
+        edges={edges}
+        nodeTypes={customNodes}
+      /&gt;
+  )
+}
+</v-code>
+</template>
+
+<template v-slot:2>
+<v-code lang="js" title="">
+export const initialNodes = [
+  {
+    id: "node1",
+    type: "action",
+    position: { x: 250, y: 100 },
+    data: { label: "Action Top" },
+  },
+  {
+    id: "node2",
+    type: "action",
+    position: { x: 250, y: 200 },
+    data: { label: "Action Center" },
+  },
+  {
+    id: "node3",
+    type: "action",
+    position: { x: 250, y: 300 },
+    data: { label: "Action Bottom" },
+  },
+  {
+    id: "node4",
+    type: "action",
+    position: { x: 50, y: 200 },
+    data: { label: "Action Left" },
+  },
+  {
+    id: "node5",
+    type: "action",
+    position: { x: 450, y: 200 },
+    data: { label: "Action Right" },
+  },
+]
+
+export const initialEdges = [
+  {
+    id: "edge1",
+    source: "node1",
+    target: "node2",
+    sourceHandle: "node1-bottom",
+    targetHandle: "node2-top",
+  },
+  {
+    id: "edge2",
+    source: "node2",
+    target: "node3",
+    sourceHandle: "node2-bottom",
+    targetHandle: "node3-top",
+  },
+  {
+    id: "edge3",
+    source: "node4",
+    target: "node2",
+    sourceHandle: "node4-right",
+    targetHandle: "node2-left",
+  },
+  {
+    id: "edge4",
+    source: "node2",
+    target: "node5",
+    sourceHandle: "node2-right",
+    targetHandle: "node5-left",
+  },
+]
+</v-code>
+</template>
+
+<template v-slot:3>
+<v-code lang="js" title="">
+import { Handle, Position } from "reactflow";
+
+enum NodeHandlersPositionPrefix {
+  Top = "-top",
+  Bottom = "-bottom",
+  Left = "-left",
+  Right = "-right",
+}
+
+const NodeAction = (props) => {
+  const { data, isConnectable, id } = props;
+
+  return (
+    &lt;div style=<span v-pre>{{ border: &quot;1px solid black&quot;, padding: &quot;10px&quot; }}</span>&gt;
+      &lt;Handle
+        type=&quot;target&quot;
+        position={Position.Top}
+        isConnectable={isConnectable}
+        id={id + NodeHandlersPositionPrefix.Top}
+      /&gt;
+      &lt;Handle
+        type=&quot;source&quot;
+        position={Position.Bottom}
+        isConnectable={isConnectable}
+        id={id + NodeHandlersPositionPrefix.Bottom}
+      /&gt;
+      &lt;Handle
+        type=&quot;target&quot;
+        position={Position.Left}
+        isConnectable={isConnectable}
+        id={id + NodeHandlersPositionPrefix.Left}
+      /&gt;
+      &lt;Handle
+        type=&quot;source&quot;
+        position={Position.Right}
+        isConnectable={isConnectable}
+        id={id + NodeHandlersPositionPrefix.Right}
+      /&gt;
+
+      {data.label}
+    &lt;/div&gt;
+  );
+};
+
+export { NodeAction };
+</v-code>
+</template>
+</v-tabs>
