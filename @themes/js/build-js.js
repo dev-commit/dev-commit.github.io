@@ -25,7 +25,7 @@ ARR_MODULE = [
         title: 'Структуры данных',
         themes: [
             [root+'data-structures/number',     setTheme(1, ['Number'])],
-            [root+'data-structures/json',       setTheme(1, ['Json'])],
+            [root+'data-structures/json',       setTheme(1, ['JSON'])],
             [root+'data-structures/iterators',  setTheme(1, ['Iterators (ES6)'])],
             [root+'data-structures/map',        setTheme(1, ['Map', 'WeakMap'])],
             [root+'data-structures/set',        setTheme(1, ['Set', 'WeakSet'])],
