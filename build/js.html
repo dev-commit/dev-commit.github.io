@@ -1374,7 +1374,11 @@ const event = JSON.parse(str, function(key, value) {
 
 console.log(event.date.getDate())
 </v-code>
-</div><div id="js/data-structures/iterators"><h2>Итераторы</h2>
+</div><div id="js/data-structures/iterators"><!-- TODO:
+<f-search>JS -> Iterators -> Итераторы</f-search>
+-->
+
+<h2>Итераторы</h2>
 
 <ul class="list-point">
 	<li><u-text-define>Итерируемый, перебираемый объект (Iterable)</u-text-define> - объект содержание которого можно перебрать по одному элементу. Пример: массив, строка, коллекция dom-элементов</li>
@@ -1458,7 +1462,12 @@ let idGenerator = {
 let num = idGenerator[Symbol.iterator]();
 console.log(num.next().value);
 </v-code>
-</div><div id="js/data-structures/map"><h2>Коллекции Map и WeakMap (ES6)</h2>
+</div><div id="js/data-structures/map"><!-- TODO:
+<f-search>JS -> Map</f-search>
+<f-search>JS -> WeakMap</f-search>
+-->
+
+<h2>Коллекции Map и WeakMap (ES6)</h2>
 
 <ul class="list-point">
 	<li><u-text-define>Map и WeakMap</u-text-define> - позволяют хранить пары "ключ:значение"</li>
@@ -1473,7 +1482,7 @@ console.log(num.next().value);
 	<li>Используется для трансформации массива</li>
 	<li>Объект map, ассоциативный массив</li>
 	<li>Нет литеральной формы, поэтому используется конструктор new</li>
-	<li>Объект map в отличие от обычного объекта является перебираемым объектом, который можно пербирать в цикле for...of</li>
+	<li>Объект map в отличие от обычного объекта является перебираемым объектом, который можно перебирать в цикле for...of</li>
 	<li>Можно использовать деструктуризацию, spread-операторы, Array.from и т.д. присущие итерируемому объекту</li>
 	<li>Сохраняет первоначальный порядок элементов, в отличие от объекта</li>
 
@@ -1498,9 +1507,9 @@ console.log(num.next().value);
 
 	<hr>
 	<b>Варианты использования WeakMap</b>
-	<li>Кэширование вычисляемых значений. Если нужно значение на основе полей объекта, сохраняем его в WeekMap, а ключем делаем сам объект и когла оно повторно понадобится - берем из кэша. Если значение удаляется, память освободится автоматически</li>
-	<li>Управление обоработчиками событий. Обработчики событий для объекта сохраняются в WeekMap, а ключем является сам объект. Если объект удаляется, то и обработчики для него удаляются автоматически</li>
-	<li>Хранение приватных данных. Приватные данные для объекта сохраняются в WeekMap, а ключем является объект</li>
+	<li>Кэширование вычисляемых значений. Если нужно значение на основе полей объекта, сохраняем его в WeekMap, а ключом делаем сам объект и когла оно повторно понадобится - берем из кэша. Если значение удаляется, память освободится автоматически</li>
+	<li>Управление обработчиками событий. Обработчики событий для объекта сохраняются в WeekMap, а ключом является сам объект. Если объект удаляется, то и обработчики для него удаляются автоматически</li>
+	<li>Хранение приватных данных. Приватные данные для объекта сохраняются в WeekMap, а ключом является объект</li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -1522,7 +1531,7 @@ alert(nameLengths); // 4,3,10
 <v-code lang="js" title="">
 const map = new Map([
 	['Hi', 'Привет'],
-	[42, 'Ответ на главнй вопрос'],
+	[42, 'Ответ на главный вопрос'],
 	[true, false],
 	[{}, 'Объект'],
 	[function() {}, 'Функция'],
@@ -1537,21 +1546,38 @@ const map = new Map([
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 const map = new Map();
-
-map.<u-code>set</u-code>(42, 'Ответ на главный вопрос'); // установить значение
-const a = map.<u-code>get</u-code>(42);                    // получить значение по ключу
-const a = map.<u-code>size</u-code>;                       // получить кол-во элементов
-const a = map.<u-code>has</u-code>(42);                    // проверка наличия значения по ключу
-
-map.<u-code>delete</u-code>(42);                         // удалить значение по ключу
-map.<u-code>clear</u-code>();                            // очистка map
-
-const a = map.<u-code>keys</u-code>();                     // возвращает перебираемый объект с ключами
-const a = map.<u-code>values</u-code>();                   // возвращает перебираемый объект с значениями
-const a = map.<u-code>entries</u-code>();                  // возвращает массив массивов
 </v-code>
 
+<v-code lang="js" title="">
+// Установить значение
+map.<u-code>set</u-code>(42, 'Ответ на главный вопрос');
+// Получить значение по ключу
+const a = map.<u-code>get</u-code>(42);
+// Получить кол-во элементов
+const a = map.<u-code>size</u-code>;
+// Проверка наличия значения по ключу
+const a = map.<u-code>has</u-code>(42);
+</v-code>
+
+<v-code lang="js" title="">
+// Удалить значение по ключу
+map.<u-code>delete</u-code>(42);
+// Очистка map
+map.<u-code>clear</u-code>();
+</v-code>
+
+<v-code lang="js" title="">
+// Возвращает перебираемый объект с ключами
+const a = map.<u-code>keys</u-code>();
+// Возвращает перебираемый объект с значениями
+const a = map.<u-code>values</u-code>();
+// Возвращает массив массивов
+const a = map.<u-code>entries</u-code>();
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Перебор map</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 for(let [key, value] <u-code>of</u-code> map) {
 	console.log(key, value);
@@ -1613,7 +1639,12 @@ const [[key, value], second, third] = map;
 console.log(key);   // HTML 
 console.log(value); // HyperText Markup Language
 </v-code>
-</div><div id="js/data-structures/set"><h2>Коллекции Set и WeakSet (ES6)</h2>
+</div><div id="js/data-structures/set"><!-- TODO:
+<f-search>JS -> Set</f-search>
+<f-search>JS -> WeakSet</f-search>
+-->
+
+<h2>Коллекции Set и WeakSet (ES6)</h2>
 
 <ul class="list-point">
 	<li><u-text-define>Set</u-text-define> - множество, набор значений. Структура данных в которой хранятся уникальные значения</li>
@@ -1807,7 +1838,11 @@ const difference = new Set([...a].filter(
 ))
 </v-code>
 </template></v-two>
-</div><div id="js/data-structures/date-time"><h2>Дата и время</h2>
+</div><div id="js/data-structures/date-time"><!-- TODO:
+<f-search>JS -> Date -> Дата и время</f-search>
+-->
+
+<h2>Дата и время</h2>
 
 <u-link-wrapper>
 	<a href="http://momentjs.com/" target="_blank">Moment.js</a>
@@ -1960,10 +1995,14 @@ const timeInMs = <u-code>Date.now</u-code>();     // возвращает кол
 <!------------------------------------------------------------->
 <v-code lang="js" title="">
 const weekday = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-const month = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
+const month = [
+	'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня',
+	'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'
+];
+
 const nowDate = new Date();
-const nowDay   = weekday[nowDate.getDay()];
-const nowDate  = nowDate.getDate();
+const nowDay = weekday[nowDate.getDay()];
+const nowDate = nowDate.getDate();
 const nowMonth = month[nowDate.getMonth()];
 </v-code>
 

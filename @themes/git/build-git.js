@@ -6,6 +6,7 @@ ARR_MODULE = [
         themes: [
             [root+'usecase/squash-commit',   emoji.code+'Squash Commit'],
             [root+'usecase/reset-changes',   emoji.code+'Отмена изменений'],
+            [root+'usecase/repo-transfer',   emoji.code+'Перенос репозитория'],
             [root+'usecase/common',          'Общее'],
         ]
     },
