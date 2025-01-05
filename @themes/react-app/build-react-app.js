@@ -15,4 +15,11 @@ ARR_MODULE = [
             [root+'file-structure/services', '📂 src › 📂 services'],
         ]
     },
+
+    {
+        title: 'Libs',
+        themes: [
+            [root+'libs/markdown', 'Markdown'],
+        ]
+    },
 ]

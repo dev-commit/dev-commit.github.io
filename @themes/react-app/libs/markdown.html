@@ -1,0 +1,82 @@
+<h2>Markdown</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>react-markdown</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-link url="https://github.com/remarkjs/react-markdown" />
+
+<v-code lang="js" title="">
+import Markdown from "react-markdown"
+
+const markdown = "# Hi, *Pluto*!"
+
+const App = () => {
+  return (
+    &lt;div&gt;
+      &lt;Markdown&gt;{markdown}&lt;/Markdown&gt;
+    &lt;/div&gt;
+  )
+}
+</v-code>
+
+<hr>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>markdown-to-jsx</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-link url="https://github.com/quantizor/markdown-to-jsx" />
+
+<v-code lang="js" title="">
+import Markdown from "markdown-to-jsx"
+
+const markdown = "# Hi, *Pluto*!"
+
+const App = () => {
+  return (
+    &lt;div&gt;
+      &lt;Markdown&gt;{markdown}&lt;/Markdown&gt;
+    &lt;/div&gt;
+  )
+}
+</v-code>
+
+<hr>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Cases</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Импорт Markdown из файла</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Markdown в файле "text.md"</li>
+</ul>
+
+<v-code lang="js" title="">
+import { useState, useEffect } from "react"
+import Markdown from "react-markdown"
+
+const App = () => {
+  const [text, setText] = useState("")
+
+  useEffect(() => {
+    import(`./text.md`)
+      .then((res) => {
+        fetch(res.default)
+          .then((res) => res.text())
+          .then((res) => setText(res))
+          .catch((err) => console.log(err))
+      })
+      .catch((err) => console.log(err))
+  })
+
+  return (
+    &lt;div&gt;
+      &lt;Markdown&gt;{text}&lt;/Markdown&gt;
+    &lt;/div&gt;
+  )
+}
+</v-code>
