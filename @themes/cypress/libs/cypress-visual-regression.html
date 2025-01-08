@@ -5,5 +5,147 @@
 </u-message-info>
 
 <u-link-wrapper>
-    <a href="https://github.com/mjhea0/cypress-visual-regression" target="_blank">https://github.com/mjhea0/cypress-visual-regression</a>
+    <a href="https://github.com/cypress-visual-regression/cypress-visual-regression" target="_blank">https://github.com/cypress-visual-regression/cypress-visual-regression</a>
 </u-link-wrapper>
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>cypress-visual-regression</u-code-accent>
+</v-pre-npm>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Настройки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-tabs :tabs="['package.json', 'cypress.config.ts', 'cypress / tsconfig.json']">
+<template v-slot:1>
+<v-code lang="json" title="">
+{
+  "devDependencies": {
+    "cypress": "^13.16.0",
+    "cypress-visual-regression": "^5.2.2",
+  }
+}
+</v-code>
+</template>
+<template v-slot:2>
+<v-code lang="js" title="">
+import { defineConfig } from "cypress";
+import { configureVisualRegression } from "cypress-visual-regression";
+
+export default defineConfig({
+  e2e: {
+    baseUrl: "http://localhost:5173",
+    viewportWidth: 1280,
+    viewportHeight: 720,
+    video: false,
+    screenshotOnRunFailure: true,
+    supportFile: "cypress/support/e2e.ts",
+    defaultCommandTimeout: 10000,
+    pageLoadTimeout: 30000,
+    requestTimeout: 10000,
+    responseTimeout: 30000,
+    retries: {
+      runMode: 2,
+      openMode: 1,
+    },
+    env: {
+      visualRegressionType: "regression",
+      visualRegressionBaseDirectory: "cypress/snapshot/base",
+      visualRegressionDiffDirectory: "cypress/snapshot/diff",
+      visualRegressionGenerateDiff: "always",
+      visualRegressionFailSilently: false,
+    },
+    screenshotsFolder: "./cypress/snapshot/actual",
+    // Подключаем плагин для сравнения скриншотов
+    setupNodeEvents(on, config) {
+      configureVisualRegression(on);
+    },
+  },
+});
+</v-code>
+</template>
+<template v-slot:3>
+<v-code lang="js" title="">
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress", "node"],
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node"
+  },
+  "include": ["**/*.ts", "../cypress.config.ts"],
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "ES2015"
+    }
+  }
+}
+</v-code>
+</template>
+</v-tabs>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Директория cypress</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li>Внутри директорий <u>"actual"</u>, <u>"base"</u> и <u>"diff"</u> одинаковый путь к изображению: <i>\cypress\e2e\test.cy.ts\original.png</i></li>
+</ul>
+
+<v-tree>
+📂 <u-code-mod>cypress</u-code-mod>
+	📂 <b>e2e</b>
+		› <s>test.cy.ts</s>
+    📂 <b>snapshot</b>
+		📂 <b>actual</b> # Текущей скриншот экрана
+		📂 <b>base</b>   # Изображение для сверки
+		📂 <b>diff</b>   # Разница между текущим и базовым изображением
+	📂 <b>support</b>
+		› <s>e2e.ts</s>
+    › <s>tsconfig.json</s>
+</v-tree>
+
+<v-tabs :tabs="['support / e2e.ts', 'e2e / test.cy.ts']">
+<template v-slot:1>
+<v-code lang="js" title="">
+import { addCompareSnapshotCommand } from "cypress-visual-regression/dist/command";
+
+addCompareSnapshotCommand({
+  // Делать скриншот только видимой области элемента
+  capture: "viewport",
+
+  // Максимально допустимая разница между изображениями (от 0 до 1)
+  // 0.1 означает, что различаться может не более 10% пикселей
+  // errorThreshold: 0.1,
+  errorThreshold: 0,
+
+  // Настройки для сравнения отдельных пикселей
+  pixelmatchOptions: {
+    // Уровень чувствительности при сравнении пикселей (от 0 до 1)
+    // 0 - пиксели должны быть абсолютно идентичными
+    // Значения больше 0 позволяют небольшие различия в цвете
+    threshold: 0.01,
+  },
+});
+</v-code>
+</template>
+<template v-slot:2>
+
+<ul class="list-point">
+    <li><u>original</u> - название изображения для сверки из <i>cypress\snapshot\base\cypress\e2e\test.cy.ts\original.png</i></li>
+</ul>
+
+<v-code lang="js" title="">
+describe("Минимальный тест-кейс", () => {
+  it("Создание скриншота", () => {
+    // Делаем скриншот только для определенного блока 
+    cy.get(".className").compareSnapshot("original");
+  });
+});
+</v-code>
+</template>
+</v-tabs>
