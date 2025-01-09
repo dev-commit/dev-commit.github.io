@@ -17,6 +17,7 @@ ARR_MODULE = [
             [root+'other/specification-stage',  'Стадии спецификации'],
             [root+'other/dictionary',           'Словарь'],
             [root+'other/polyfill',             'Полифиллы'],
+            [root+'other/video-formats',        'Видео форматы'],
             [root+'other/trash',                'Свалка'],
         ]
     },
