@@ -47,7 +47,7 @@ ARR_MODULE = [
         title: 'Interface',
         selected: true,
         themes: [
-            [root+'interface/main',             emoji.unicorn+'Основы'],
+            [root+'interface/main',             emoji.items+'Основы'],
             [root+'interface/inherit',          'Наследование интерфейсов'],
             [root+'interface/with-class',       'Взаимодействие с классами'],
             [root+'interface/dynamic-key-obj',  'Динамические ключи объекта'],
@@ -95,7 +95,7 @@ ARR_MODULE = [
     {
         title: 'React',
         themes: [
-            [root+'react/types',        emoji.unicorn+'Типы в React'],
+            [root+'react/types',        emoji.items+'Типы в React'],
             [root+'react/component',    setTheme(3, ['Component'])],
             [root+'react/CSSProperties',    setTheme(3, ['CSSProperties'])],
             [root+'react/useState',     setTheme(3, ['useState'])],

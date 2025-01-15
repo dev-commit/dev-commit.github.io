@@ -20,8 +20,8 @@ ARR_MODULE = [
         title: 'Протоколы',
         themes: [
             [root+'protocols/osi',  emoji.theory+'Сетевая модель OSI'],
-            [root+'protocols/tcp',  emoji.chevron+'TCP'],
-            [root+'protocols/udp',  emoji.chevron+'UDP'],
+            [root+'protocols/tcp',  'TCP'],
+            [root+'protocols/udp',  'UDP'],
         ]
     },
 ]

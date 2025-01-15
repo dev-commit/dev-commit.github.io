@@ -55,12 +55,12 @@ ARR_MODULE = [
             [root+'dom/dom',             emoji.theory+'DOM'],
             [root+'dom/bom',             emoji.theory+'BOM'],
             [root+'dom/node',            setTheme(1, ['nodeType', 'nodeName', 'tagName'])],
-            [root+'dom/element-get',     emoji.coin+'1. Выборка элементов'],
-            [root+'dom/element-method',  emoji.coin+'2. Методы и свойства элементов'],
-            [root+'dom/element-create',  emoji.coin+'3. Добавление и удаление узлов'],
-            [root+'dom/multi-insert',    emoji.coin+'4. Мультивставка'],
-            [root+'dom/metrics',         emoji.coin+'5. Размеры и прокрутка элементов'],
-            [root+'dom/metrics-window',  emoji.coin+'6. Размеры и прокрутка страницы'],
+            [root+'dom/element-get',     emoji.items+'1. Выборка элементов'],
+            [root+'dom/element-method',  emoji.items+'2. Методы и свойства элементов'],
+            [root+'dom/element-create',  emoji.items+'3. Добавление и удаление узлов'],
+            [root+'dom/multi-insert',    emoji.items+'4. Мультивставка'],
+            [root+'dom/metrics',         emoji.items+'5. Размеры и прокрутка элементов'],
+            [root+'dom/metrics-window',  emoji.items+'6. Размеры и прокрутка страницы'],
         ]
     },
 ]

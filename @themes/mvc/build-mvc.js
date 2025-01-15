@@ -5,8 +5,8 @@ ARR_MODULE = [
         title: 'Основы',
         themes: [
             [root+'main/variants', emoji.theory+'Разновидности'],
-            [root+'main/mvc',      emoji.lemon+'MVC'],
-            [root+'main/mvvm',    emoji.lemon+'MVVM'],
+            [root+'main/mvc',      emoji.items+'MVC'],
+            [root+'main/mvvm',    emoji.items+'MVVM'],
         ]
     },
 ]

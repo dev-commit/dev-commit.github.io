@@ -9,7 +9,7 @@ ARR_MODULE = [
             [root+'typing/type-casting', emoji.code+'Сравнение типов'],
             [root+'typing/type-conversion', 'Преобразование типов'],
             [root+'typing/typeof',       setTheme(1, ['typeof'])],
-            [root+'typing/symbol',       emoji.chevron+'Symbol (ES6)'],
+            [root+'typing/symbol',       'Symbol (ES6)'],
 
         ]
     },
@@ -42,8 +42,8 @@ ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            [root+'main/context',           emoji.baseball+'Контекст'],
-            [root+'main/bind',              emoji.baseball+setTheme(1, ['bind', 'call', 'apply'])],
+            [root+'main/context',           emoji.fire+'Контекст'],
+            [root+'main/bind',              emoji.fire+setTheme(1, ['bind', 'call', 'apply'])],
             [root+'main/if-case',           setTheme(1, ['if', 'case'])],
             [root+'main/ternary-operator',  'Тернарные операторы'],
         ]

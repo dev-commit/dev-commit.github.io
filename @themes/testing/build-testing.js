@@ -20,15 +20,15 @@ ARR_MODULE = [
     {
         title: 'Концепции',
         themes: [
-            [root+'concepts/tdd',   emoji.penguin+'TDD'],
-            [root+'concepts/bdd',   emoji.penguin+'BDD'],
-            [root+'concepts/first', emoji.penguin+'FIRST'],
+            [root+'concepts/tdd',   emoji.items+'TDD'],
+            [root+'concepts/bdd',   emoji.items+'BDD'],
+            [root+'concepts/first', emoji.items+'FIRST'],
         ]
     },
     {
         title: 'Основное',
         themes: [
-            [root+'main/frameworks',       emoji.pizza+'Фреймворки'],
+            [root+'main/frameworks',       emoji.items+'Фреймворки'],
             [root+'main/chrome-dev-tools', 'Chrome DevTools'],
         ]
     },

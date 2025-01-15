@@ -11,7 +11,7 @@ ARR_MODULE = [
     {
         title: 'Элементы',
         themes: [
-            [root+'elements/figure',     emoji.chevron+'Фигуры'],
+            [root+'elements/figure',     emoji.star+'Фигуры'],
             [root+'elements/text',       setTheme(1, ['text'])],
             [root+'elements/image',      setTheme(1, ['image'])],
             [root+'elements/mask',       setTheme(1, ['mask'])],

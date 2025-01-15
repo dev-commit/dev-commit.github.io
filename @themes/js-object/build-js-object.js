@@ -63,18 +63,18 @@ ARR_MODULE = [
         title: 'Примеры',
         themes: [
             [root+'samples/key-remove',                emoji.fire+'Удаление ключа'],
-            [root+'samples/sort-elements-obj',         emoji.baseball+'Сортировка элементов массива'],
-            [root+'samples/flat-array-from-obj',       emoji.baseball+'Плоский массив из объекта'],
-            [root+'samples/setting-object-properties', emoji.baseball+'Задание свойств объекта'],
-            [root+'samples/methods-various-obj',       emoji.baseball+'Метод для разных объектов'],
-            [root+'samples/return-obj',                emoji.baseball+'Функция, возвращающая объект'],
+            [root+'samples/sort-elements-obj',         emoji.items+'Сортировка элементов массива'],
+            [root+'samples/flat-array-from-obj',       emoji.items+'Плоский массив из объекта'],
+            [root+'samples/setting-object-properties', emoji.items+'Задание свойств объекта'],
+            [root+'samples/methods-various-obj',       emoji.items+'Метод для разных объектов'],
+            [root+'samples/return-obj',                emoji.items+'Функция, возвращающая объект'],
         ]
     },
     {
         title: 'Прочее',
         themes: [
             [root+'other/literal-notation', emoji.code+'Литеральная нотация'],
-            [root+'other/compare',       emoji.lemon+'Сравнение объектов'],
+            [root+'other/compare',       emoji.items+'Сравнение объектов'],
             [root+'other/constructor',  'Конструктор создания объекта'],
             [root+'other/prototype',    'Прототип'],
         ]

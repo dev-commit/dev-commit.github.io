@@ -13,8 +13,8 @@ ARR_MODULE = [
         themes: [
             [root+'ubuntu/command', 'Команды'],
             [root+'ubuntu/package', 'Пакеты'],
-            [root+'ubuntu/nodejs',  emoji.cookie+'Node.js'],
-            [root+'ubuntu/npm',     emoji.cookie+'Npm'],
+            [root+'ubuntu/nodejs',  emoji.libs+'Node.js'],
+            [root+'ubuntu/npm',     emoji.libs+'Npm'],
             [root+'ubuntu/setting', 'Настройка'],
             [root+'ubuntu/other',   'Прочее'],
         ]

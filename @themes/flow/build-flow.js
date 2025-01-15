@@ -12,7 +12,7 @@ ARR_MODULE = [
     {
         title: 'Темы',
         themes: [
-            [root+'themes/type-data',   emoji.pizza+'Типы данных'],
+            [root+'themes/type-data',   emoji.items+'Типы данных'],
             [root+'themes/var',         emoji.fire+'Задание переменной'],
             [root+'themes/function',    emoji.fire+'Задание функции'],
             [root+'themes/type',        emoji.fire+'Задание типа'],

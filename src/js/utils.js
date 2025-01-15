@@ -1,24 +1,12 @@
 
 emoji = {
-    theory:    '📑 ',
-    code:      '🧲 ',
-    panda:     '🐼 ',
-    cookie:    '🍪 ',
-    donut:     '🍩 ',
-    pizza:     '🍕 ',
-    boom:      '💥 ',
-    fire:      '🔥 ',
-    baseball:  '⚾️ ',
-    lemon:     '🍋 ',
-    avocado:   '🥑 ',
-    coconut:   '🥥 ',
-    star:      '⭐️ ',
-    chevron:   '🔰 ',
-    unicorn:   '🦄 ',
-    penguin:   '🐧 ',
-    coin:      '🪙 ',
-    label:     '🏷️ ',
-    icecream:  '🍧 ',
+    fire:     '🔥 ',
+    star:     '⭐️ ',
+    theory:   '📑 ',
+    settings: '⚙️ ',
+    code:     '💎 ',
+    libs:     '🎲 ',
+    items:    '🪃 ',
 };
 
 // getLink(root, 'info'),      // => main/info

@@ -39,14 +39,14 @@ ARR_MODULE = [
         title: 'Nodes',
         child: true,
         themes: [
-            [root+'elements/nodes', emoji.chevron+'Nodes'],
+            [root+'elements/nodes', emoji.star+'Nodes'],
         ]
     },
     {
         title: 'Edges',
         child: true,
         themes: [
-            [root+'elements/edges', emoji.chevron+'Edges'],
+            [root+'elements/edges', emoji.star+'Edges'],
             [root+'elements/custom-edge', 'Custom Edge'],
             [root+'elements/edge-styles', 'Edge Styles'],
         ]

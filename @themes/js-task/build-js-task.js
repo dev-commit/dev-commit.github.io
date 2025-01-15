@@ -58,7 +58,7 @@ ARR_MODULE = [
         title: 'Объекты',
         selected: true,
         themes: [
-            [root+'objects/objects',            emoji.icecream+'Объекты'],
+            [root+'objects/objects',            emoji.star+'Объекты'],
             [root+'objects/shallow-equal',      'Shallow Equal', false, 'done'],
             [root+'objects/deep-equal',         'Deep Equal', false, 'check'],
             [root+'objects/object-from-string', 'Объект из строки: "a.b.c.d"'],
@@ -70,7 +70,7 @@ ARR_MODULE = [
         title: 'Массивы',
         selected: true,
         themes: [
-            [root+'arrays/arrays',               emoji.icecream+'Массивы'],
+            [root+'arrays/arrays',               emoji.star+'Массивы'],
             [root+'arrays/intersection-arrays',  'Пересечение массивов', false, 'done'],
             [root+'arrays/sort-odd',             'Сортировка нечетных значений', false, 'done'],
             [root+'arrays/max-array-element',    'Максимальный элемент массива'],
@@ -83,7 +83,7 @@ ARR_MODULE = [
         title: 'Асинхронность',
         selected: true,
         themes: [
-            [root+'async/event-loop',                   emoji.icecream+'Event Loop', false, 'check'],
+            [root+'async/event-loop',                   emoji.star+'Event Loop', false, 'check'],
             [root+'algoritms/retrier',                  'Retrier (запросы по URL)', false, 'check'],
             [root+'algoritms/promise-make-request',     'Promise Make Request'],
             [root+'algoritms/cancel-timeout',           'setTimeout: отмена всех', false, 'check'],
@@ -96,8 +96,8 @@ ARR_MODULE = [
     {
         title: 'JavaScript',
         themes: [
-            [root+'js/data-types',         emoji.icecream+'Типы данных'],
-            [root+'js/strangeness',        emoji.icecream+'Особенности'],
+            [root+'js/data-types',         emoji.star+'Типы данных'],
+            [root+'js/strangeness',        emoji.star+'Особенности'],
             [root+'js/map',                'map'],
             [root+'js/floating-point',     'Плавающая запятая'],
             [root+'js/undefined-check',    'Проверка на "undefined"'],
@@ -113,11 +113,11 @@ ARR_MODULE = [
     {
         title: 'Общие темы',
         themes: [
-            [root+'custom/hoisting',    emoji.icecream+'Всплытие', false, 'check'],
-            [root+'custom/closure',     emoji.icecream+'Замыкания', false, 'check'],
-            [root+'custom/prototype',   emoji.icecream+'Прототипы', false, 'check'],
-            [root+'custom/context',     emoji.icecream+'Контекст', false, 'check'],
-            [root+'custom/currying',    emoji.icecream+'Каррирование', false, 'check'],
+            [root+'custom/hoisting',    emoji.items+'Всплытие', false, 'check'],
+            [root+'custom/closure',     emoji.items+'Замыкания', false, 'check'],
+            [root+'custom/prototype',   emoji.items+'Прототипы', false, 'check'],
+            [root+'custom/context',     emoji.items+'Контекст', false, 'check'],
+            [root+'custom/currying',    emoji.items+'Каррирование', false, 'check'],
         ]
     },
     {

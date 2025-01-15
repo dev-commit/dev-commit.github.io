@@ -17,7 +17,7 @@ ARR_MODULE = [
             [root+'tech/long-polling',   'Long Polling'],
             [root+'tech/sse',            'SSE (Server Sent Events)'],
             ['', ''],
-            [root+'tech/cors',  emoji.boom+'CORS'],
+            [root+'tech/cors',  emoji.items+'CORS'],
             [root+'tech/comet', 'Comet'],
             [root+'tech/jsonp', 'JSONP'],
         ]

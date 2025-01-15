@@ -46,9 +46,9 @@ ARR_MODULE = [
     {
         title: 'Варианты',
         themes: [
-            [root+'v5/variants/url-parameters',    emoji.pizza+'URL Parameters'],
-            [root+'v5/variants/query-parameters',  emoji.pizza+'Query Parameters'],
-            [root+'v5/variants/page-404',          emoji.pizza+'Page 404'],
+            [root+'v5/variants/url-parameters',    emoji.items+'URL Parameters'],
+            [root+'v5/variants/query-parameters',  emoji.items+'Query Parameters'],
+            [root+'v5/variants/page-404',          emoji.items+'Page 404'],
         ]
     },
 ]

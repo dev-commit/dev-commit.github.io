@@ -45,8 +45,8 @@ ARR_MODULE = [
         accent: true,
         themes: [
             [root+'fiber/common',     emoji.star+'Общее'],
-            [root+'fiber/planning',   emoji.label+'1. Планирование'],
-            [root+'fiber/priorities', emoji.label+'2. Приоритизация'],
+            [root+'fiber/planning',   emoji.items+'1. Планирование'],
+            [root+'fiber/priorities', emoji.items+'2. Приоритизация'],
             [root+'fiber/sample',     'Пример'],
         ]
     },

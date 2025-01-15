@@ -28,10 +28,10 @@ ARR_MODULE = [
     {
         title: '< / >',
         themes: [
-            [root+'main/ddd',                       emoji.chevron+'DDD'],
-            [root+'main/SDLC',                      emoji.chevron+'SDLC'],
-            [root+'main/cqrs',                      emoji.chevron+'CQRS'],
-            [root+'main/event-sourcing',            emoji.chevron+'Event Sourcing'],
+            [root+'main/ddd',                       emoji.items+'DDD'],
+            [root+'main/SDLC',                      emoji.items+'SDLC'],
+            [root+'main/cqrs',                      emoji.items+'CQRS'],
+            [root+'main/event-sourcing',            emoji.items+'Event Sourcing'],
             [root+'main/reactive-programming',      'Reactive Programming'],
             [root+'main/architectural-methodology', 'Architectural Methodology'],
         ]
