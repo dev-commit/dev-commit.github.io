@@ -4,18 +4,24 @@ ARR_MODULE = [
     {
         title: 'Основное',
         themes: [
-            [root+'main/cmd',       'CMD'],
-            [root+'main/type',      'Типы данных'],
-            [root+'main/base',      'Базовые принципы'],
-            [root+'main/if',        'Условный оператор if'],
-            [root+'main/circle',    'Циклы'],
-            [root+'main/array',     'Списки (массивы)'],
-            [root+'main/function',  'Функции'],
-            [root+'main/module',    'Модули'],
-            [root+'main/pyowm',     'Модуль определения погоды (pyowm)'],
-            [root+'main/encode',    'Изменение кодировки на utf-8'],
-            [root+'main/format',    'Форматирование строк. Метод format'],
-            [root+'main/docstring', 'Строки документирования (docstring)'],
+            [root+'main/cmd',  'CMD'],
+            [root+'main/base', 'Базовые принципы'],
+        ]
+    },
+    {
+        title: 'Типы данных',
+        themes: [
+            [root+'data-types/data-types', 'Типы данных'],
+            [root+'data-types/string',     'Строки'],
+            [root+'data-types/array',      'Списки (массивы)'],
+        ]
+    },
+    {
+        title: 'Конструкции',
+        themes: [
+            [root+'constructions/if',        'Условный оператор if'],
+            [root+'constructions/circle',    'Циклы'],
+            [root+'constructions/function',  'Функции'],
         ]
     },
     {
@@ -26,21 +32,26 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Python и MySQL',
+        title: 'Прочее',
         themes: [
-            [root+'mysql/base', 'Базовые принципы'],
+            [root+'other/encode',    'Изменение кодировки на utf-8'],
+            [root+'other/docstring', 'Строки документирования (docstring)'],
         ]
     },
     {
-        title: 'SQLAlchemy',
+        title: 'Модули',
         themes: [
-            [root+'sqlalchemy/base', 'Базовые принципы'],
+            [root+'modules/module', 'Модули'],
+            [root+'modules/pyowm',  'Модуль определения погоды (pyowm)'],
         ]
     },
     {
-        title: 'Falcon',
+        title: 'Инструменты',
+        selected: true,
         themes: [
-            [root+'falcon/base', 'Базовые принципы'],
+            [root+'utils/MySQL', 'MySQL'],
+            [root+'utils/SQLAlchemy', 'SQLAlchemy'],
+            [root+'utils/Falcon', 'Falcon'],
         ]
     },
 ]

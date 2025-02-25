@@ -1,7 +1,28 @@
 <h2>CMD</h2>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Менеджеры пакетов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>pip</u-text-define> - используется для Python до 3 версии</li>
+    <li><u-text-define>pip3</u-text-define> - используется для Python выше 3 версии</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Общее</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="bash" title="">
-python                   # проверка python
-python test.py           # запустить программу test.py (cmd открыт из директории программы)
-pip install name_package # установить пакет из PyPi
+# Проверика версии Python
+python --version
+# Запустить программу test.py (CMD открыт из директории программы)
+python test.py
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Работа с пакетами</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+pip install numpy         # Установить пакет из PyPi
+pip install numpy==1.19.5 # Установить конкретную версию пакета
+pip uninstall numpy       # Удалить пакет
 </v-code>
