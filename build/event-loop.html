@@ -517,36 +517,53 @@ console.log('Bye');
 </template></v-two>
 </div><div id="event-loop/rendering/critical-rendering-path"><h2>Critical Rendering Path</h2>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Critical Rendering Path</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
 	<li><u-text-define>Critical Rendering Path</u-text-define> (Критический путь рендеринга) - последовательность шагов, необходимая для первого отображения страницы (прежде чем HTML-ответ от сервера будет преобразован в пиксели на экране)</li>
 	<li>Знания о CRP необходимы для улчшения производительности</li>
 </ul>
 
-<hr>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Данные</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <ul class="list-point">
     <li><u-menu-outline>Style Calculation</u-menu-outline> - вычисление стилей для каждого элемента</li>
     <li>Render <u-code-mod>16ms</u-code-mod></li>
 </ul>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Изображения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
 <img src="/@img/js/rendering/crp1.png" width="650px" />
 <hr>
 <img src="/@img/js/rendering/crp2.png" width="650px" />
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
 <!------------------------------------------------------------->
-<h4>1. Построение DOM-дерева ✔️</h4>
+<h4>1. Построение DOM-дерева ✅</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
 	<li>Из полученного от сервера HTML-документа формируется DOM</li>
 	<li><u-text-define>DOM</u-text-define> (объектная модель документа) дерево это объект, представляющий полностью разобранную HTML-страницу. Начиная с корневого элемента <u-code-text>html</u-code-text>, узлы создаются для каждого элемента/текста на странице. Элементы, вложенные в другие элементы, представлены в виде дочерних узлов, и каждый узел содержит полный набор атрибутов для этого элемента</li>
 	<li>HTML может быть исполнен по частям. <b>Документ не должен быть загружен полностью</b> для того, чтобы контент начал появляться на странице</li>
+	<li><b>DOM-дерево помещается в JavaScript-объект Document</b></li>
 </ul>
+
+<hr>
 
 <!------------------------------------------------------------->
 <h4>2. Построение CSSOM-дерева ❌</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
 	<li>Загружаются и распознаются стили, формируется CSSOM</li>
+	<li>Строится параллельно с построением DOM</li>
 	<li><u-text-define>CSSOM</u-text-define> (CSS Object Model) - объект, представляющий стили, связанные с DOM. Он выглядит так же как DOM, но с соответствующими стилями для каждого узла. Не имеет значения были ли стили объявлены явно или наследуются</li>
 	<li>CSS считается <b>«блокирующим обработку ресурсом»</b>. Это значит, что Render-дерево не может быть построено без полного первоначального разбора CSS</li>
 	<li>В отличии от HTML, CSS не может быть использован по частям в силу своей каскадной природы. Стили, описанные в документе ниже, могут переопределять и изменять стили, определённые ранее. Так что если мы начнём использовать CSS-стили до того, как будет разобрана таблица стилей, мы можем столкнуться с ситуацией, когда стили будут применяться неверно. Это означает, что для перехода к следующему шагу, необходимо полностью разобрать CSS</li>
@@ -554,14 +571,18 @@ console.log('Bye');
 
 <u-message-warn>CSSOM перестраивается полностью каждый раз</u-message-warn>
 
+<hr>
+
 <!------------------------------------------------------------->
-<h4>3. Запуск JavaScript ❌ при async ✔️</h4>
+<h4>3. Запуск JavaScript ❌ при async ✅</h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
 	<li>JavaScript является блокирующим ресурсом для парсера. Это означает, что JavaScript блокирует разбор самого HTML-документа</li>
 	<li>Когда парсер доходит до тега <u-code-text>script</u-code-text> (не важно внутренний он или внешний), он останавливается, забирает файл (если он внешний) и запускает его</li>
 	<li>JavaScript можно загружать асинхронно, указав атрибут <u-code-text>async</u-code-text>, для того, чтобы избежать блокировки парсера</li>
 </ul>
+
+<hr>
 
 <!------------------------------------------------------------->
 <h4>4. Создание Render Tree</h4>
@@ -571,6 +592,8 @@ console.log('Bye');
 	<li>Это дерево, которое даёт представление о том, что в конечном итоге будет отображено на странице. Это означает, что оно захватывает только видимый контент и не включает, например, элементы, которые были скрыты с помощью CSS-правила <u-code-text>display: none</u-code-text> или <u-code-text>&lt;head&gt;</u-code-text></li>
 </ul>
 
+<hr>
+
 <!------------------------------------------------------------->
 <h4>5. Layout (генерация раскладки)</h4>
 <!------------------------------------------------------------->
@@ -578,10 +601,12 @@ console.log('Bye');
 	<li><u-text-define>Раскладка</u-text-define> - для каждого элемента Render Tree определяютяс его размеры и рассчитывается его положение на странице</li>
 	<li>Вычисление взаимного расположения и размеров элементов на странице, плюс компоновка всего</li>
 	<li>Браузеры используют поточный метод (<u>flow</u>), при котором в большинстве случаев достаточно одного прохода для размещения всех элементов (для таблиц проходов требуется больше)</li>
-	<hr>
+	<hr class="small">
 	<li>Определяется размер видимой области документа (<u-code-text>viewport</u-code-text>), которая обеспечивает контекст для стилей CSS, зависимых от него, например, проценты или единицы viewport</li>
 	<li>Размер viewport определяется метатэгом, находящемся в <u-code-text>head</u-code-text> документа или, если тэг не представлен, будет использовано стандартное значение viewport 980px</li>
 </ul>
+
+<hr>
 
 <!------------------------------------------------------------->
 <h4>6. Paint (отрисовка в браузере)</h4>
@@ -595,8 +620,8 @@ console.log('Bye');
 <h3>Chrome Dev Tools</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-	<li><em>Chrome Dev Tools</em> -> <em>Performance</em> -> <em>Event Log</em></li>
-	<li><em>Chrome Dev Tools</em> -> <em>Network</em> -> <em>Record network activity</em></li>
+	<li><em>Chrome Dev Tools</em> ➝ <em>Performance</em> ➝ <em>Event Log</em></li>
+	<li><em>Chrome Dev Tools</em> ➝ <em>Network</em> ➝ <em>Record network activity</em></li>
 </ul>
 
 <ol class="list-num">
@@ -827,14 +852,7 @@ button.addEventListener('click', () => {
 <h4>5. Критический путь рендеринга</h4>
 <!------------------------------------------------------------->
  
-После получения ответа от сервера, браузер начинает выполнять критический путь рендеринга:
-
-<ul class="list-point">
-		<li>Строить DOM-дерево. Все это он складывает в JavaScript-объект Document</li>
-		<li>Параллельно с построением DOM он также стоит CSSOM</li>
-		<li>После этого все это складывается в единую структуру: рендеринг-дерево (rendering tree)</li>
-		<li>После этого происходит процесс Layout - расположение элементов на странице</li>
-</ul>
+После получения ответа от сервера, браузер начинает выполнять критический путь рендеринга
 </div><div id="event-loop/optimization/info"><h2>Оптимизация загрузки</h2>
 
 <!------------------------------------------------------------->
@@ -1031,7 +1049,6 @@ button.addEventListener('click', () => {
 
 <v-code lang="js" title="">
 // импорт, который импортируется, но не используется, впоследствии полностью исключается
-// реализация webpack
 import { add, <u-code>multiply</u-code> } from 'math';
 add(1, 2);
 </v-code>
@@ -1046,7 +1063,7 @@ module.exports = {
 </v-code>
 
 <v-code lang="js" title="// package.json">
-// пометить определенные файлы как исключения для Tree shaking
+// Пометить определенные файлы как исключения для Tree shaking
 {
 	"sideEffects": [
 		"./src/polyfill.js"
