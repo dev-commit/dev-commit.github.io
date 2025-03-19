@@ -3425,6 +3425,79 @@ console.log(sum(1)(2)(3)); // 6
 </v-code>
 </div><div id="js-task/algoritms/closing-brackets"><h2>Проверить закрывающиеся скобки</h2>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Валидация JSON скобок: только {}</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Постановка задачи</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Написать функцию, которая будет валидировать JSON</li>
+    <li>Необходимо только валидировать открывающиеся и закрывающиеся фигурные скобки в JSON формате</li>
+    <li>На вход функция будет принимать строку, содержащую только открывающиеся и закрывающиеся фигурные скобки</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Алгоритм решения</h4>
+<!------------------------------------------------------------->
+<u-message-info>Для решения задачи используется <b>стек</b></u-message-info>
+
+<ol class="list-num">
+    <li>Создать пустой стек</li>
+    <li>Перебрать каждый символ в строке</li>
+    <li>Если символ - открывающаяся скобка '{', добавить его в стек</li>
+    <li>Если символ - закрывающаяся скобка '}', проверить, есть ли в стеке открывающаяся скобка. Если есть, удалить её из стека. Если нет, вернуть false</li>
+    <li>После перебора всех символов, если стек пуст, вернуть true, иначе false</li>
+</ol>
+
+<v-details title="Код">
+<v-code lang="js" title="">
+const checkBrackets = (str) => {
+  // Создаем стек для отслеживания открывающихся скобок
+  const stack = [];
+
+  // Перебираем каждый символ в строке
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+
+    // Если символ - открывающаяся скобка, добавляем в стек
+    if (char === "{") {
+      stack.push(char);
+    }
+    // Если символ - закрывающаяся скобка
+    else if (char === "}") {
+      // Если стек пуст, значит нет соответствующей открывающейся скобки
+      if (stack.length === 0) {
+        return false;
+      }
+      // Удаляем последнюю открывающуюся скобку из стека
+      stack.pop();
+    }
+  }
+
+  // Если стек пуст, все скобки сбалансированы
+  return stack.length === 0;
+}
+</v-code>
+
+<v-code lang="js" title="">
+// Тестовые примеры
+console.log(checkBrackets("{ { } }")); // => true
+console.log(checkBrackets("{ { { { } } } }")); // => true
+console.log(checkBrackets("} {")); // => false
+console.log(checkBrackets("{ } } { { }")); // => false
+console.log(checkBrackets("{ { } { { } }")); // => false
+console.log(checkBrackets("{ { } { { } } }")); // => true
+</v-code>
+</v-details>
+
+<hr>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Валидация скобок</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
 <!------------------------------------------------------------->
 <h4>Постановка задачи</h4>
 <!------------------------------------------------------------->
@@ -3445,8 +3518,10 @@ test('[(&lt;&gt;])') // =&gt; false
 </v-code>
 
 <!------------------------------------------------------------->
-<h4>#1</h4>
+<h4>Варианты</h4>
 <!------------------------------------------------------------->
+
+<v-details title="Несколько разных скобок">
 <v-code lang="js" title="">
 function test (str) {
     const strArr = str.split('');
@@ -3471,10 +3546,9 @@ function test (str) {
   return !stack.length;
 }
 </v-code>
+</v-details>
 
-<!------------------------------------------------------------->
-<h4>Один вид скобок (простое решение)</h4>
-<!------------------------------------------------------------->
+<v-details title="Один вид скобок (простое решение, не покрывает все кейсы)">
 <v-code lang="js" title="">
 function checkBrackets(brackets) {
     let count = 0;
@@ -3493,10 +3567,9 @@ function checkBrackets(brackets) {
     return count === 0;
 }
 </v-code>
+</v-details>
 
-<!------------------------------------------------------------->
-<h4>Один вид скобок (мой вариант)</h4>
-<!------------------------------------------------------------->
+<v-details title="Один вид скобок (мой вариант)">
 <v-code lang="js" title="">
 const checkValidBrackets = expression => {
     const strArr = expression.split('');
@@ -3532,15 +3605,14 @@ const checkValidBrackets = expression => {
     '()()'
 ].map(checkValidBrackets);
 </v-code>
+</v-details>
 
-<!------------------------------------------------------------->
-<h4>#2 Недоделанный вариант</h4>
-<!------------------------------------------------------------->
+<v-details title="[Непроверено 1]: Недоделанный вариант">
 <v-code lang="js" title="">
 function test(string) {
     let array = [];
     
-	// некорректно указывать нулевой элемент
+	// Некорректно указывать нулевой элемент
     if (string[0] === ')') {
         return false;
     }
@@ -3561,12 +3633,9 @@ test('((()))');          // => true
 test('(()))))))))))))'); // => false
 test(')()))');           // => false
 </v-code>
+</v-details>
 
-<!------------------------------------------------------------->
-<h4>#3</h4>
-<!------------------------------------------------------------->
-<!-- Кара -->
-
+<v-details title="[Непроверено 2]">
 <v-code lang="js" title="">
 const checkValidBrackets = expression => {
     let stack = [];
@@ -3590,6 +3659,7 @@ const checkValidBrackets = expression => {
     return stack.length === 0;
 }
 </v-code>
+</v-details>
 </div><div id="js-task/algoritms/sum-pyramid"><h2>Сумма пирамиды</h2>
 
 <!------------------------------------------------------------->
