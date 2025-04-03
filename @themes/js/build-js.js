@@ -10,7 +10,6 @@ ARR_MODULE = [
             [root+'typing/type-conversion', 'Преобразование типов'],
             [root+'typing/typeof',       setTheme(1, ['typeof'])],
             [root+'typing/symbol',       'Symbol (ES6)'],
-
         ]
     },
     {

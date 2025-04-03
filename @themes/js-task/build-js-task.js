@@ -47,10 +47,10 @@ ARR_MODULE = [
         title: 'Algoritms',
         accent: true,
         themes: [
-            [root+'algoritms/anagram',            emoji.star+'Anagram', false, 'done'],
-            [root+'algoritms/palindrome',         emoji.star+'Palindrome', false, 'done'],
+            [root+'algoritms/anagram',            emoji.star+'Анаграмма', false, 'done'],
+            [root+'algoritms/palindrome',         emoji.star+'Палиндром', false, 'done'],
             [root+'algoritms/compose',            emoji.star+'Compose', false, 'done'],
-            [root+'algoritms/memoization',        emoji.star+'Memoization'],
+            [root+'algoritms/memoization',        emoji.star+'Мемоизация'],
             [root+'algoritms/duplicate',          emoji.star+'Duplicate Array'],
         ]
     },

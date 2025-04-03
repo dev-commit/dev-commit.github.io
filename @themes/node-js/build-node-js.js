@@ -64,8 +64,8 @@ ARR_MODULE = [
         title: 'ES6 Modules',
         child: true,
         themes: [
-            [root+'modules/module-es6-command',   setTheme(1, ['import', 'export'])],
-            [root+'modules/module-es6-use',       'Usage Node.js, Browser'],
+            [root+'modules/module-es6-command', setTheme(1, ['import', 'export'])],
+            [root+'modules/module-es6-use',     'Usage Node.js, Browser'],
         ]
     },
     {

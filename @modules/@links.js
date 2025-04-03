@@ -2,6 +2,7 @@
 THEME:
 - primary | secondary | accent | actual
 - react | node | js | vue | html
+- tech
 */
 
 // const theory = '<span style="filter: drop-shadow(0px 0px 0.2px #000);">📑 </span> ';
@@ -39,6 +40,8 @@ const ARR_LINKS = [
     { page: 'theory-paradigms',        theme: 'accent',    title: search+'Парадигмы' },
     { page: 'theory-refactoring',      theme: 'accent',    title: 'Refactoring' },
     null,
+    { page: 'event-loop',              theme: 'accent',   title: search+accent+'Event Loop | Optimize' },
+    null,
     { page: 'js',                      theme: 'js',        title: search+accent+'JavaScript' },
     { page: 'js-object',               theme: 'js',        title: search+'Object' },
     { page: 'js-array',                theme: 'js',        title: 'Array' },
@@ -52,10 +55,10 @@ const ARR_LINKS = [
     { page: 'axios',                   theme: 'react',     title: 'Axios' },
     { page: 'tan-stack-query',         theme: 'react',     title: 'TanStack Query' },
     { page: 'swr',                     theme: 'react',     title: 'SWR' },
-    { page: 'theory-network',          theme: 'primary',   title: search+'HTTP | Protocols' },
+    { page: 'theory-network',          theme: 'primary',   title: 'HTTP | Protocols' },
     { page: 'network',                 theme: 'primary',   title: 'Network' },
     { page: 'auth',                    theme: 'primary',   title: search+'Auth' },
-    { page: 'event-loop',              theme: 'primary',   title: search+'Event Loop | Optimize' },
+
     null,
     { page: 'js-regexp',               theme: 'js',        title: 'RegExp' },
     { page: 'js-web-api',              theme: 'js',        title: search+'Web API' },

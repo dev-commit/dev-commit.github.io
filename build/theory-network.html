@@ -2,20 +2,7 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-HTTP | Protocols</title>
+            <title>HTTP | Protocols</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
@@ -35,20 +22,7 @@ HTTP | Protocols</title>
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link">
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-HTTP | Protocols</a>
+                        <a href="#links" class="top-link">HTTP | Protocols</a>
                     </div>
 
                     <div class="search-wrapper">
@@ -187,7 +161,11 @@ HTTP | Protocols</a>
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="theory-network/http/http"><h2>HTTP</h2>
+                    <div id="content"><div id="theory-network/http/http"><!-- TODO:
+<f-search>HTTP -> HTTP</f-search>
+-->
+
+<h2>HTTP</h2>
 
 <ul class="list-point">
     <li><u-text-define>HTTP (HyperText Transfer Protocol)</u-text-define> («протокол передачи гипертекста») - протокол прикладного уровня передачи произвольных данных. Протокол описывает взаимодействие между двумя компьютерами (клиентом и сервером), построенное на базе сообщений, запрос (<u>Request</u>) и ответ (<u>Response</u>)</li>
@@ -202,7 +180,11 @@ HTTP | Protocols</a>
         <li><u-text-underline>Получим результат, даже если запрос не дойдет</u-text-underline>- поэтому используем для <u>HTTP</u></li>
     </ul>
 </u-message-warn>
-</div><div id="theory-network/http/http2"><h2>HTTP/2</h2>
+</div><div id="theory-network/http/http2"><!-- TODO:
+<f-search>HTTP -> HTTP/2 (HTTP 2)</f-search>
+-->
+
+<h2>HTTP/2</h2>
 
 <!------------------------------------------------------------->
 <h4>Цели</h4>
@@ -237,7 +219,11 @@ HTTP | Protocols</a>
     <li>HTTP/2 определён как для HTTP URI (то есть без шифрования), так и для HTTPS URI (поверх TLS 1.2 и выше).</li>
     <li>Хотя стандарт определяет шифрование как необязательное[15], для большинства клиентских реализаций (Firefox[16], Chrome, Safari, Opera, IE, Edge) возможно использование HTTP/2 только поверх TLS.</li>
 </ul>
-</div><div id="theory-network/http/https"><h2>HTTPS</h2>
+</div><div id="theory-network/http/https"><!-- TODO:
+<f-search>HTTP -> HTTPS</f-search>
+-->
+
+<h2>HTTPS</h2>
 
 <ul class="list-point">
     <li><u-text-define>HTTPS (HyperText Transfer Protocol Secure)</u-text-define> - расширение протокола HTTP для поддержки шифрования в целях повышения безопасности. Данные в протоколе HTTPS передаются поверх криптографических протоколов SSL или TLS</li>
@@ -275,7 +261,11 @@ HTTP | Protocols</a>
     <li>Каждый сертификат подписан сертификатом верхнего уровня. Когда отдают сертификат, браузер смотрит сертифкат верхнего уровня для которого смотрится также сертифкат верхнего уровня</li>
     <li>В браузера зашиты конревые сертифкаты. И когда мы дошли по цепочке сертификатов до него, значит корректно</li>
 </ol>
-</div><div id="theory-network/http/http-and-https"><h2>HTTP и HTTPS</h2>
+</div><div id="theory-network/http/http-and-https"><!-- TODO:
+<f-search>HTTP -> HTTP vs HTTPS</f-search>
+-->
+
+<h2>HTTP и HTTPS</h2>
 
 <!------------------------------------------------------------->
 <h4>Порт по умолчанию</h4>
@@ -284,7 +274,11 @@ HTTP | Protocols</a>
     <li><em>80</em> - HTTP</li>
     <li><em>443</em> - HTTPS</li>
 </ul>
-</div><div id="theory-network/http/1-http-structure"><h2>Структура протокола</h2>
+</div><div id="theory-network/http/1-http-structure"><!-- TODO:
+<f-search>HTTP -> Структура протокола</f-search>
+-->
+
+<h2>Структура протокола</h2>
 
 <p>Каждое HTTP-сообщение состоит из трёх частей, которые передаются в указанном порядке:</p>
 
@@ -319,7 +313,11 @@ Host: ru.wikipedia.org
 <v-code lang="bash none" title="">
 HTTP/1.0 200 OK
 </v-code>
-</div><div id="theory-network/http/2-http-methods"><h2>HTTP Methods</h2>
+</div><div id="theory-network/http/2-http-methods"><!-- TODO:
+<f-search>HTTP -> Методы</f-search>
+-->
+
+<h2>HTTP Methods</h2>
 
 <ul class="list-point">
     <li><u-text-define>HTTP-методы</u-text-define> - последовательность из любых символов, кроме управляющих и разделителей, указывающая на основную операцию над ресурсом</li>
@@ -504,7 +502,11 @@ HTTP/1.0 200 OK
     <li><u-text-define>CRUD</u-text-define> - акроним, обозначающий четыре базовые функции, используемые при работе с базами данных: <em>Create</em> (создание), <em>Read</em> (чтение), <em>Update</em> (модификация), <em>Delete</em> (удаление)</li>
     <li>В системах, реализующих доступ к базе данных через API в стиле REST, эти функции реализуются зачастую (но не обязательно) через HTTP-методы <em>PUT</em>, <em>POST</em>, <em>GET</em>, <em>PATCH</em>, <em>DELETE</em></li>
 </ul>
-</div><div id="theory-network/http/3-http-headers"><h2>HTTP Headers</h2>
+</div><div id="theory-network/http/3-http-headers"><!-- TODO:
+<f-search>HTTP -> Заголовки</f-search>
+-->
+
+<h2>HTTP Headers</h2>
 
 <ul class="list-point">
     <li><u-text-define>Заголовки HTTP</u-text-define> -  строки в HTTP-сообщении, содержащие разделённую двоеточием пару параметр-значение</li>
@@ -644,7 +646,11 @@ HTTP/1.0 200 OK
 </ul>
 
 
-</div><div id="theory-network/http/4-http-status-codes"><h2>HTTP Status Codes</h2>
+</div><div id="theory-network/http/4-http-status-codes"><!-- TODO:
+<f-search>HTTP -> Статус коды</f-search>
+-->
+
+<h2>HTTP Status Codes</h2>
 
 <ul class="list-point">
     <li><u-text-define>Коды состояния HTTP</u-text-define> - код состояния является частью первой строки ответа сервера. Он представляет собой целое число из трёх цифр. Первая цифра указывает на класс состояния. За кодом ответа обычно следует отделённая пробелом поясняющая фраза на английском языке, которая разъясняет причину ответа</li>
@@ -730,7 +736,11 @@ HTTP/1.0 200 OK
     <li><u-code-text>504</u-code-text> <em>Gateway Timeout</em> - Сервер в роли шлюза или прокси-сервера не дождался ответа от вышестоящего сервера для завершения текущего запроса</li>
     <li><u-code-text>522</u-code-text> <em>Connection Timed Out</em> - CDN не удалось подключиться к веб-серверу</li>
 </ul>
-</div><div id="theory-network/protocols/osi"><h2>Сетевая модель OSI</h2>
+</div><div id="theory-network/protocols/osi"><!-- TODO:
+<f-search>Протоколы -> Сетевая модель OSI</f-search>
+-->
+
+<h2>Сетевая модель OSI</h2>
 
 <ul class="list-point">
     <li><u-text-define>Сетевая модель OSI</u-text-define> (The Open Systems Interconnection model) - сетевая модель стека (магазина) сетевых протоколов OSI/ISO. Посредством данной модели различные сетевые устройства могут взаимодействовать друг с другом. Модель определяет различные уровни взаимодействия систем. Каждый уровень выполняет определённые функции при таком взаимодействии.
@@ -809,13 +819,21 @@ HTTP/1.0 200 OK
         <u-code-accent>WebSocket</u-code-accent>
     </li>
 </ol>
-</div><div id="theory-network/protocols/tcp"><h2>TCP</h2>
+</div><div id="theory-network/protocols/tcp"><!-- TODO:
+<f-search>Протоколы -> TCP</f-search>
+-->
+
+<h2>TCP</h2>
 
 <ul class="list-point">
     <li><u-text-define>TCP</u-text-define> (Transmission Control Protocol) - предназначен для управления передачей данных интернета</li>
     <li><u-text-underline>Получим результат, даже если запрос не дойдет</u-text-underline>- поэтому используем для <u>HTTP</u></li>
 </ul>
-</div><div id="theory-network/protocols/udp"><h2>UDP</h2>
+</div><div id="theory-network/protocols/udp"><!-- TODO:
+<f-search>Протоколы -> UDP</f-search>
+-->
+
+<h2>UDP</h2>
 
 <ul class="list-point">
     <li><u-text-define>UDP</u-text-define> (User Datagram Protocol) - протокол пользовательских датаграмм</li>
