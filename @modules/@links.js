@@ -88,7 +88,7 @@ const ARR_LINKS = [
     { page: 'react-hook-form',         theme: 'actual',    title: 'React Hook Form' },
     { page: 'react-final-form',        theme: 'secondary', title: 'React Final Form' },
     null,
-    { page: 'next-js',                 theme: 'react',     title: search+'Next.js' },
+    { page: 'next-js',                 theme: 'react',     title: 'Next.js' },
     { page: 'node-js',                 theme: 'node',      title: search+'Node.js' },
     { page: 'node-js-express',         theme: 'node',      title: search+'Express' },
     { page: 'nest-js',                 theme: 'node',      title: search+'Nest.js' },

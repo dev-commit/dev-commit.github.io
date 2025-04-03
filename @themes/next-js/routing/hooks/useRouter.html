@@ -1,3 +1,7 @@
+<!-- TODO:
+<f-search>Next.js -> Роутинг -> <u>useRouter()</u></f-search>
+-->
+
 <h2>useRouter</h2>
 
 <u-link-wrapper>
@@ -13,17 +17,17 @@
 <v-code lang="js" title="">
 "use client"
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation'
 
 const App = () => {
-    const router = <u-code-mod>useRouter</u-code-mod>();
+    const router = <u-code-mod>useRouter</u-code-mod>()
     
     // Получить query-параметр "id"
-    const id = <u-code>router.query.id</u-code>;
+    const id = <u-code>router.query.id</u-code>
 
     const handleClick = () => {
         // Редирект на указанный url
-        <u-code>router.push</u-code>('/dashboard');
+        <u-code>router.push</u-code>('/dashboard')
     }
 
     return (
@@ -33,5 +37,5 @@ const App = () => {
     )
 }
 
-export default App;
+export default App
 </v-code>
