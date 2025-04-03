@@ -37,7 +37,7 @@ const ARR_LINKS = [
     { page: 'theory-data-structures',  theme: 'primary',    title: search+'Структуры данных' },
     { page: 'theory-design-patterns',  theme: 'primary',    title: search+'Паттерны проектирования' },
     { page: 'theory-solid',            theme: 'primary',    title: 'SOLID' },
-    { page: 'theory-paradigms',        theme: 'primary',    title: 'Парадигмы | ООП | ФП' },
+    { page: 'theory-paradigms',        theme: 'primary',    title: 'Парадигмы' },
     { page: 'theory-refactoring',      theme: 'primary',    title: 'Рефакторинг' },
     null,
     { page: 'event-loop',              theme: 'accent',   title: search+accent+'Event Loop | Optimize' },

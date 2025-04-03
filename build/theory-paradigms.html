@@ -2,7 +2,7 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>Парадигмы | ООП | ФП</title>
+            <title>Парадигмы</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
@@ -22,7 +22,7 @@
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link">Парадигмы | ООП | ФП</a>
+                        <a href="#links" class="top-link">Парадигмы</a>
                     </div>
 
                     <div class="search-wrapper">
@@ -120,6 +120,26 @@
             Композиция
         </a>
     </li>
+</ul><h4>🏷️ Архитектурные методологии</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__theory-paradigms/architectural-methodology/fsd"
+            href="#theory-paradigms/architectural-methodology/fsd"
+        >
+            Feature-Sliced Design (FSD)
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__theory-paradigms/architectural-methodology/fdd"
+            href="#theory-paradigms/architectural-methodology/fdd"
+        >
+            Feature-Driven Development (FDD)
+        </a>
+    </li>
 </ul><h4>🏷️ < / ></h4><ul>
     <li>
         <a
@@ -168,16 +188,6 @@
             href="#theory-paradigms/main/reactive-programming"
         >
             Реактивное программирование
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__theory-paradigms/main/architectural-methodology"
-            href="#theory-paradigms/main/architectural-methodology"
-        >
-            Архитектурные методологии
         </a>
     </li>
 </ul>
@@ -749,6 +759,52 @@ barista(makeCoffee, produceCoffee);
 </v-code>
 
 
+</div><div id="theory-paradigms/architectural-methodology/fsd"><!-- TODO:
+<f-search>Архитектурные методологии -> Feature-Sliced Design (FSD)</f-search>
+-->
+
+<h2>Feature-Sliced Design (FSD)</h2>
+
+<u-link-wrapper>
+	<a href="https://feature-sliced.github.io/documentation/" target="_blank">Feature-Sliced Design</a>
+</u-link-wrapper>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример, реализующий FSD</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-tree>
+📂 <u-code-mod>app</u-code-mod>
+	📂 <b>routes</b>
+	📂 <b>analytics</b>
+📂 <u-code-mod>pages</u-code-mod>
+	📂 <b>home</b>
+	📂 <b>article-reader</b>
+		📂 <b>ui</b>
+		📂 <b>api</b>
+	📂 <b>settings</b>
+📂 <u-code-mod>shared</u-code-mod>
+	📂 <b>ui</b>
+	📂 <b>api</b>
+</v-tree>
+
+<!------------------------------------------------------------->
+<h4>Термины</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+		<li><b>layers</b> - директории верхнего уровня: <em>📂 app</em>, <em>📂 pages</em>, <em>📂 shared</em></li>
+		<li><b>slices</b> - директории внутри <em>📂 pages</em>. Они делят <u>layer</u> по domain (в данном случае по pages)</li>
+		<li><b>segments</b> - директории внутри <em>📂 app</em>, <em>📂 shared</em>, и <em>📂 pages/article-reader</em>. Они разделяют <u>slices</u> (или  <u>layers</u>) по техническому назначению, т.е. по тому, для чего предназначен код</li>
+</ol>
+
+
+</div><div id="theory-paradigms/architectural-methodology/fdd"><!-- TODO:
+<f-search>Архитектурные методологии -> Feature-Driven Development (FDD)</f-search>
+-->
+
+<h2>Feature-Driven Development (FDD)</h2>
+
 </div><div id="theory-paradigms/main/ddd"><!-- TODO:
 <f-search>Парадигмы -> DDD</f-search>
 -->
@@ -956,15 +1012,6 @@ a = b + c
     <li>В <u>императивном программировании</u> выражение означает:  взять текущие значения <em>b</em> и <em>c</em>, сложить их и присвоить <em>a</em> результат. Дальнейшие изменения параметров <em>b</em> и <em>c</em> не влияют на <em>a</em></li>
     <li>В <u>реактивном программировании</u> выражение означает: <em>a</em> есть сумма <em>b</em> и <em>с</em>. Если <em>b</em> или <em>c</em> изменятся в будущем, это отразится на величине <em>a</em></li>
 </ol>
-</div><div id="theory-paradigms/main/architectural-methodology"><!-- TODO:
-<f-search>Парадигмы -> Архитектурные методологии -> Feature-Sliced Design (FSD)</f-search>
--->
-
-<h2>Архитектурные методологии</h2>
-
-<u-link-wrapper>
-	<a href="https://feature-sliced.github.io/documentation/" target="_blank">Feature-Sliced Design</a>
-</u-link-wrapper>
 </div></div>
                 </div>
             </div>

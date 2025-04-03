@@ -26,6 +26,13 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'Архитектурные методологии',
+        themes: [
+            [root+'architectural-methodology/fsd', 'Feature-Sliced Design (FSD)'],
+            [root+'architectural-methodology/fdd', 'Feature-Driven Development (FDD)'],
+        ]
+    },
+    {
         title: '< / >',
         themes: [
             [root+'main/ddd',                       emoji.items+'DDD'],
@@ -33,7 +40,6 @@ ARR_MODULE = [
             [root+'main/cqrs',                      emoji.items+'CQRS'],
             [root+'main/event-sourcing',            emoji.items+'Event Sourcing'],
             [root+'main/reactive-programming',      'Реактивное программирование'],
-            [root+'main/architectural-methodology', 'Архитектурные методологии'],
         ]
     },
 ]
