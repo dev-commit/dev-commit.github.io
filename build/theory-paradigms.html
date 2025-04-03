@@ -2,20 +2,7 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-Парадигмы</title>
+            <title>Парадигмы | ООП | ФП</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
@@ -35,20 +22,7 @@
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link">
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-Парадигмы</a>
+                        <a href="#links" class="top-link">Парадигмы | ООП | ФП</a>
                     </div>
 
                     <div class="search-wrapper">
@@ -193,7 +167,7 @@
             id="id__theory-paradigms/main/reactive-programming"
             href="#theory-paradigms/main/reactive-programming"
         >
-            Reactive Programming
+            Реактивное программирование
         </a>
     </li>
 
@@ -203,7 +177,7 @@
             id="id__theory-paradigms/main/architectural-methodology"
             href="#theory-paradigms/main/architectural-methodology"
         >
-            Architectural Methodology
+            Архитектурные методологии
         </a>
     </li>
 </ul>
@@ -227,7 +201,11 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="theory-paradigms/oop/principles"><h2>Объектно-ориентированное программирование</h2>
+                    <div id="content"><div id="theory-paradigms/oop/principles"><!-- TODO:
+<f-search>Парадигмы -> ООП -> Принципы</f-search>
+-->
+
+<h2>Объектно-ориентированное программирование</h2>
 
 <ul class="list-point">
     <li><u-text-define>Объектно-ориентированное программирование</u-text-define> - методология программирования, основанная на представлении программы в виде совокупности объектов, каждый из которых является экземпляром определённого класса, а классы образуют иерархию наследования</li>
@@ -371,7 +349,11 @@ public class Shape {
     <li>Абстрагировать объект или явление - отбросить все маловажные элементы для того, чтобы увидеть его суть</li>
     <li>Когда моделируем объект, можем отказаться от некоторых его частей неважных в контексте программы</li>
 </ul>
-</div><div id="theory-paradigms/oop/access-modifiers"><h2>Модификаторы доступа (Методы классов)</h2>
+</div><div id="theory-paradigms/oop/access-modifiers"><!-- TODO:
+<f-search>Парадигмы -> ООП -> Модификаторы доступа</f-search>
+-->
+
+<h2>Модификаторы доступа (Методы классов)</h2>
 
 <ul class="list-point">
     <li><u-text-define>Модификаторы доступа (access modifiers)</u-text-define> - способ ограничения доступа к методам, классам, переменным</li>
@@ -402,7 +384,11 @@ public class Car {
     <u-code>private</u-code> void startEngine() {...}
 }
 </v-code>
-</div><div id="theory-paradigms/fp/functional"><h2>Функциональное программирование</h2>
+</div><div id="theory-paradigms/fp/functional"><!-- TODO:
+<f-search>Парадигмы -> ФП</f-search>
+-->
+
+<h2>Функциональное программирование</h2>
 
 <ul class="list-point">
     <li><u-text-define>Функциональное программирование</u-text-define> - последовательный вызов набора функций</li>
@@ -431,7 +417,11 @@ public class Car {
     <li>Не нужно описывать шаги, нужно определить функцию, выполнить функции последовательно и в результате выполнения набор функций будет получен результат</li>
     <li>Разделение функций и данных</li>
 </ol>
-</div><div id="theory-paradigms/fp/concept"><h2>Концепции</h2>
+</div><div id="theory-paradigms/fp/concept"><!-- TODO:
+<f-search>Парадигмы -> ФП -> Концепции</f-search>
+-->
+
+<h2>Концепции</h2>
 
 <!------------------------------------------------------------->
 <h4>Чистые функции (Pure Functions)</h4>
@@ -505,7 +495,11 @@ function higherOrderFunction(param, callback) {
 <ul class="list-point">
 	<li><u-text-define>Лямбда-исчисление</u-text-define> - механизм «анонимных функций» (Callback-функций), которые можно определить прямо в том месте, где они используются, и которые имеют доступ к локальным переменным текущей функции</li>
 </ul>
-</div><div id="theory-paradigms/fp/currying"><h2>Каррирование</h2>
+</div><div id="theory-paradigms/fp/currying"><!-- TODO:
+<f-search>Парадигмы -> ФП -> Каррирование</f-search>
+-->
+
+<h2>Каррирование</h2>
 
 <ul class="list-point">
     <li><u-text-define>Каррирование / Карринг (Currying)</u-text-define> - в функциональном программирование - это преобразование функции с множеством аргументов в набор вложенных функций с одним аргументом. При вызове каррированной функции с передачей ей одного аргумента, она возвращает новую функцию, которая ожидает поступления следующего аргумента. Новые функции, ожидающие следующего аргумента, возвращаются при каждом вызове каррированной функции — до тех пор, пока функция не получит все необходимые ей аргументы. Ранее полученные аргументы, благодаря механизму <u>замыканий</u>, ждут того момента, когда функция получит всё, что ей нужно для выполнения вычислений. После получения последнего аргумента функция выполняет вычисления и возвращает результат.
@@ -618,7 +612,11 @@ console.log( double(5) ); // = mul(2, 5) = 10
     <li>"double" является «частичной функцией» (partial function) от mul</li>
     <li>При помощи bind мы можем получить из функции её «частный вариант» как самостоятельную функцию</li>
 </ul>
-</div><div id="theory-paradigms/main/info"><h2>Парадигмы программирования</h2>
+</div><div id="theory-paradigms/main/info"><!-- TODO:
+<f-search>Парадигмы -> Парадигмы программирования</f-search>
+-->
+
+<h2>Парадигмы программирования</h2>
 
 <ol class="list-num">
     <li>Императивное (C, C++, Java)</li>
@@ -629,7 +627,11 @@ console.log( double(5) ); // = mul(2, 5) = 10
     <li>Объектно-ориентированное (С#, Java)</li>
     <li>Аспектно-ориентированное</li>
 </ol>
-</div><div id="theory-paradigms/main/imperative"><h2>Императивное программирование</h2>
+</div><div id="theory-paradigms/main/imperative"><!-- TODO:
+<f-search>Парадигмы -> Императивное программирование</f-search>
+-->
+
+<h2>Императивное программирование</h2>
 
 <ul class="list-point">
     <li><u-text-define>Императивное программирование</u-text-define> В исходном коде программы записываются инструкции (команды), которые выполняются последовательно</li>
@@ -663,7 +665,9 @@ function double (arr) {
     return results
 }
 </v-code>
-</div><div id="theory-paradigms/main/declarative"><h2>Декларативное программирование</h2>
+</div><div id="theory-paradigms/main/declarative"><!-- TODO:
+<f-search>Парадигмы -> Декларативное программирование</f-search>
+-->
 
 <ul class="list-point">
     <li><u-text-define>Декларативное программирование</u-text-define></li>
@@ -690,7 +694,11 @@ function double (arr) {
 function double (arr) {
     return arr.map((item) => item * 2)
 }
-</v-code></div><div id="theory-paradigms/main/composition"><h2>Композиция</h2>
+</v-code></div><div id="theory-paradigms/main/composition"><!-- TODO:
+<f-search>Парадигмы -> Композиция</f-search>
+-->
+
+<h2>Композиция</h2>
 
 <ul class="list-point">
     <li><u-text-define>Композиция и Агрегация</u-text-define> - расширение функционала класса за счет "внедрения" других классов</li>
@@ -741,7 +749,11 @@ barista(makeCoffee, produceCoffee);
 </v-code>
 
 
-</div><div id="theory-paradigms/main/ddd"><h2>DDD</h2>
+</div><div id="theory-paradigms/main/ddd"><!-- TODO:
+<f-search>Парадигмы -> DDD</f-search>
+-->
+
+<h2>DDD</h2>
 
 <ul class="list-point">
     <li><u-text-define>Domain-Driven Design, DDD (Предметно-ориентированное проектирование)</u-text-define> - набор принципов и схем, направленных на создание оптимальных систем объектов. Сводится к созданию программных абстракций, которые называются моделями предметных областей. В эти модели входит бизнес-логика, устанавливающая связь между реальными условиями области применения продукта и кодом</li>
@@ -846,7 +858,11 @@ barista(makeCoffee, produceCoffee);
 <!------------------------------------------------------------->
 <h4>5. Service</h4>
 <!------------------------------------------------------------->
-</div><div id="theory-paradigms/main/SDLC"><h2>SDLC</h2>
+</div><div id="theory-paradigms/main/SDLC"><!-- TODO:
+<f-search>Парадигмы -> SDLC</f-search>
+-->
+
+<h2>SDLC</h2>
 
 <u-link-wrapper>
     <a href="https://myalm.ru/news/SDLC-жизненный-цикл-разработки-системы" target="_blank">SDLC - жизненный цикл разработки системы</a>
@@ -868,7 +884,11 @@ barista(makeCoffee, produceCoffee);
     <li><em>Тестирование</em> (Testing) - регулирует обеспечение качественной работы продукта</li>
     <li><em>Развертывание</em> (Deployment) - регулирует использование финального продукта</li>
 </ol>
-</div><div id="theory-paradigms/main/cqrs"><h2>CQRS</h2>
+</div><div id="theory-paradigms/main/cqrs"><!-- TODO:
+<f-search>Парадигмы -> CQRS</f-search>
+-->
+
+<h2>CQRS</h2>
 
 <ul class="list-point">
     <li><u-text-define>Command-Query Separation (CQS) или Command-Query Responsibility Segregation (CQRS)</u-text-define> - <u>возвращать значение можно только чистым, не имеющим побочных эффектов методам</u></li>
@@ -876,7 +896,11 @@ barista(makeCoffee, produceCoffee);
 	<li>Принцип императивного программирования, который гласит, что метод должен быть либо командой, выполняющей какое-то действие, либо запросом, возвращающим данные, но не одновременно. Другими словами, задавание вопроса не должно менять ответ</li>
 	<li>Строгое соблюдение этого принципа делает невозможным отслеживание количества вызовов запросов</li>
 </ul>
-</div><div id="theory-paradigms/main/event-sourcing"><h2>Event Sourcing</h2>
+</div><div id="theory-paradigms/main/event-sourcing"><!-- TODO:
+<f-search>Парадигмы -> Event Sourcing</f-search>
+-->
+
+<h2>Event Sourcing</h2>
 
 <ul class="list-point">
     <li><u-text-define>Event Sourcing</u-text-define> - подход хранения данных, при котором вместо конечного результата (финальное состояние) храниться череда записей о событиях происшедших с некоторой сущностью</li>
@@ -896,7 +920,11 @@ barista(makeCoffee, produceCoffee);
     <li>Нет ограничений на кол-во событий для сущности. Соответственно новые события могут отражать, как и новые виды совершенных действий, так и расширять уже существующие, скажем, добавили новое свойство в его 2-ой версии</li>
     <li>Произошедшие события неизменны («immutable»)</li>
 </ul>
-</div><div id="theory-paradigms/main/reactive-programming"><h2>Реактивное программирование</h2>
+</div><div id="theory-paradigms/main/reactive-programming"><!-- TODO:
+<f-search>Парадигмы -> Реактивное программирование</f-search>
+-->
+
+<h2>Реактивное программирование</h2>
 
 <ul class="list-point">
     <li><u-text-define>Reactive Programming</u-text-define> - набор подходов пытающихся решить проблему <u>Side Effects</u></li>
@@ -928,12 +956,15 @@ a = b + c
     <li>В <u>императивном программировании</u> выражение означает:  взять текущие значения <em>b</em> и <em>c</em>, сложить их и присвоить <em>a</em> результат. Дальнейшие изменения параметров <em>b</em> и <em>c</em> не влияют на <em>a</em></li>
     <li>В <u>реактивном программировании</u> выражение означает: <em>a</em> есть сумма <em>b</em> и <em>с</em>. Если <em>b</em> или <em>c</em> изменятся в будущем, это отразится на величине <em>a</em></li>
 </ol>
-</div><div id="theory-paradigms/main/architectural-methodology"><h2>Architectural methodology for frontend projects</h2>
+</div><div id="theory-paradigms/main/architectural-methodology"><!-- TODO:
+<f-search>Парадигмы -> Архитектурные методологии -> Feature-Sliced Design (FSD)</f-search>
+-->
+
+<h2>Архитектурные методологии</h2>
 
 <u-link-wrapper>
-	<a href="https://feature-sliced.design/" target="_blank">Feature-Sliced Design</a>
+	<a href="https://feature-sliced.github.io/documentation/" target="_blank">Feature-Sliced Design</a>
 </u-link-wrapper>
-
 </div></div>
                 </div>
             </div>

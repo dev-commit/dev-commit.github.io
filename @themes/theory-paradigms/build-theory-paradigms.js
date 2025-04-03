@@ -32,8 +32,8 @@ ARR_MODULE = [
             [root+'main/SDLC',                      emoji.items+'SDLC'],
             [root+'main/cqrs',                      emoji.items+'CQRS'],
             [root+'main/event-sourcing',            emoji.items+'Event Sourcing'],
-            [root+'main/reactive-programming',      'Reactive Programming'],
-            [root+'main/architectural-methodology', 'Architectural Methodology'],
+            [root+'main/reactive-programming',      'Реактивное программирование'],
+            [root+'main/architectural-methodology', 'Архитектурные методологии'],
         ]
     },
 ]

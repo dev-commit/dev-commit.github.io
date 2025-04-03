@@ -19,7 +19,7 @@ ARR_MODULE = [
             [root+'agile/meetings',     'Meetings'],
             [root+'agile/story-points', 'Story Points'],
             [root+'agile/team',         'Команда'],
-            [root+'agile/backlog',      'Tasls, Backlog, Sprint'],
+            [root+'agile/backlog',      'Tasks, Backlog, Sprint'],
         ]
     },
 ]
