@@ -5,7 +5,7 @@ THEME:
 - tech
 */
 
-// const theory = '<span style="filter: drop-shadow(0px 0px 0.2px #000);">📑 </span> ';
+const theory = '<span style="filter: drop-shadow(0px 0px 0.2px #000);">📑 </span> ';
 const accent = '<span style="filter: drop-shadow(0px 0px 0.5px #000);">⭐️ </span>';
 const search = `
     <div
@@ -28,17 +28,17 @@ const ARR_LINKS = [
     { page: 'wiki',                    theme: 'primary',   title: 'Wiki' },
     { page: 'js-task',                 theme: 'primary ',  title: search+'Задачи' },
     { page: 'compilation',             theme: 'primary',   title: accent },
-    { page: 'agile',                   theme: 'secondary', title: 'Agile | Jira' },
-    { page: 'ci-cd',                   theme: 'secondary', title: 'CI / CD' },
-    { page: 'mvc',                     theme: 'secondary', title: 'MVC ...' },
-    { page: 'english',                 theme: 'secondary', title: 'English' },
+    { page: 'agile',                   theme: 'secondary', title: theory+'Agile | Jira' },
+    { page: 'ci-cd',                   theme: 'secondary', title: theory+'CI / CD' },
+    { page: 'mvc',                     theme: 'secondary', title: theory+'MVC ...' },
+    { page: 'english',                 theme: 'secondary', title: theory+'English' },
     null,
-    { page: 'theory-algoritms',        theme: 'primary',    title: search+'Алгоритмы' },
-    { page: 'theory-data-structures',  theme: 'primary',    title: search+'Структуры данных' },
-    { page: 'theory-design-patterns',  theme: 'primary',    title: search+'Паттерны проектирования' },
-    { page: 'theory-solid',            theme: 'primary',    title: 'SOLID' },
-    { page: 'theory-paradigms',        theme: 'primary',    title: 'Парадигмы' },
-    { page: 'theory-refactoring',      theme: 'primary',    title: 'Рефакторинг' },
+    { page: 'theory-algoritms',        theme: 'primary',    title: search+theory+'Алгоритмы' },
+    { page: 'theory-data-structures',  theme: 'primary',    title: search+theory+'Структуры данных' },
+    { page: 'theory-design-patterns',  theme: 'primary',    title: search+theory+'Паттерны проектирования' },
+    { page: 'theory-solid',            theme: 'primary',    title: theory+'SOLID' },
+    { page: 'theory-paradigms',        theme: 'primary',    title: theory+'Парадигмы' },
+    { page: 'theory-refactoring',      theme: 'primary',    title: theory+'Рефакторинг' },
     null,
     { page: 'event-loop',              theme: 'accent',   title: search+accent+'Event Loop | Optimize' },
     null,
@@ -58,7 +58,6 @@ const ARR_LINKS = [
     { page: 'theory-network',          theme: 'primary',   title: 'HTTP | Protocols' },
     { page: 'network',                 theme: 'primary',   title: 'Network' },
     { page: 'auth',                    theme: 'primary',   title: search+'Auth' },
-
     null,
     { page: 'js-regexp',               theme: 'js',        title: 'RegExp' },
     { page: 'js-web-api',              theme: 'js',        title: search+'Web API' },
@@ -102,7 +101,7 @@ const ARR_LINKS = [
     { page: 'vue-cli',                 theme: 'secondary', title: 'Vue CLI' },
     { page: 'vue-plugins',             theme: 'secondary', title: 'Vue Plugins' },
     null,
-    { page: 'testing',                 theme: 'primary',   title: search+'Testing' },
+    { page: 'testing',                 theme: 'primary',   title: theory+'Тестирование' },
     { page: 'jest',                    theme: 'primary',   title: search+'Jest' },
     { page: 'enzyme',                  theme: 'primary',   title: search+'Enzyme + Jest' },
     { page: 'react-testing',           theme: 'primary',   title: search+'React Testing' },

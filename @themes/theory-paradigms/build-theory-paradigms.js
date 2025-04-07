@@ -26,10 +26,10 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Архитектурные методологии',
+        title: 'Методологии разработки ПО',
         themes: [
-            [root+'architectural-methodology/fsd', 'Feature-Sliced Design (FSD)'],
-            [root+'architectural-methodology/fdd', 'Feature-Driven Development (FDD)'],
+            [root+'dev-methodology/fsd', 'Feature-Sliced Design (FSD)'],
+            [root+'dev-methodology/fdd', 'Feature-Driven Development (FDD)'],
         ]
     },
     {
