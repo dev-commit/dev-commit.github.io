@@ -33,6 +33,14 @@ ARR_MODULE = [
         ]
     },
     {
+        title: 'Архитектурные концепции',
+        themes: [
+            [root+'architectural-concepts/monolith', 'Монолит'],
+            [root+'architectural-concepts/microservices', 'Микросервисы'],
+            [root+'architectural-concepts/monorepository', 'Монорепозиторий'],
+        ]
+    },
+    {
         title: '< / >',
         themes: [
             [root+'main/ddd',                       emoji.items+'DDD'],

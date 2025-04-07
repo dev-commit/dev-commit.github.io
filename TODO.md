@@ -1,14 +1,22 @@
 # TODO
 
-## ⭐️ Search
-- Добавить `f-search`
+## @modules\@links.js
 
-<!-- TODO:
-<f-search>TS -> Merge</f-search>
-<f-search>CSS -> <u>block-size</u></f-search>
--->
+```js
+const ARR_LINKS = [
+  {
+    page: 'testing',
+    theme: 'primary',
+    title: theory+'Тестирование'
+  },
+]
+```
+
+- Добавить поле prefix и вынести "theory" и т.д.
+- Пока в title страницы попадает HTML код
 
 ## ⭐️ TODO
+- Добавить `f-search` ко всем блокам
 - `v-sandbox` чекнуть `needcheck`
 
 ## ⭐️ FEATURES
@@ -24,6 +32,6 @@ https://dev-commit.github.io/pages/wiki#wiki/main/symbols
 ----
 
 ## Internal Links
-```
+```html
 <a data-attr="internal" href="/pages/react-js#react-js/aliases/vite">DevCommit: Name</a>
 ```

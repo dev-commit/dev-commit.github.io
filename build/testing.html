@@ -30,7 +30,27 @@
                         <div id="search-result"></div>
                     </div>
 
-                    <h4>🏷️ Теория</h4><ul>
+                    <h4>🏷️ Инструменты</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__testing/utils/utils"
+            href="#testing/utils/utils"
+        >
+            ⭐️ Инструменты
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__testing/utils/chrome-dev-tools"
+            href="#testing/utils/chrome-dev-tools"
+        >
+            Chrome DevTools
+        </a>
+    </li>
+</ul><h4>🏷️ Теория</h4><ul>
     <li>
         <a
             class="menu-link"
@@ -130,26 +150,6 @@
             🪃 FIRST
         </a>
     </li>
-</ul><h4>🏷️ Основное</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__testing/main/frameworks"
-            href="#testing/main/frameworks"
-        >
-            🪃 Фреймворки
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__testing/main/chrome-dev-tools"
-            href="#testing/main/chrome-dev-tools"
-        >
-            Chrome DevTools
-        </a>
-    </li>
 </ul>
                 </div>
 
@@ -171,7 +171,83 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="testing/theory/info"><!-- TODO:
+                    <div id="content"><div id="testing/utils/utils"><!-- TODO:
+<f-search>Тестирование -> Инструменты -> Jest</f-search>
+<f-search>Тестирование -> Инструменты -> Mocha</f-search>
+<f-search>Тестирование -> Инструменты -> Karma</f-search>
+<f-search>Тестирование -> Инструменты -> Enzyme</f-search>
+<f-search>Тестирование -> Инструменты -> Jasmine</f-search>
+<f-search>Тестирование -> Инструменты -> Mock Service Worker (MSW)</f-search>
+-->
+
+<h2>Инструменты</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Unit Tests</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><em>Jest</em></li>
+    <li><em>Mocha</em></li>
+    <li><em>Karma</em></li>
+</ul>
+
+<hr>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>React</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><em>Jest</em> + <em>Enzyme</em></li>
+</ul>
+
+<hr>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>BDD</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><em>Jasmine</em> - BDD фреймворк (Behavior-Driven Development - Разработка на Основе Поведений) для тестирования JavaScript кода</li>
+</ul>
+
+<hr>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>MOCK</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Mock Service Worker (MSW)</h4>
+<!------------------------------------------------------------->
+
+<u-link-wrapper>
+    <a href="https://mswjs.io/" target="_blank">https://mswjs.io/</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><em>Mock Service Worker</em> - библиотека API-mocking для JavaScript, которая позволяет писать клиенто-независимые mocks и повторно использовать их в любых фреймворках, инструментах и ​​средах</li>
+</ul>
+</div><div id="testing/utils/chrome-dev-tools"><!-- TODO:
+<f-search>Тестирование -> Chrome DevTools</f-search>
+-->
+
+<h2>Chrome DevTools</h2>
+
+<ul class="list-point">
+	<li><u-code>F8</u-code> - продолжить выполнение. Продолжает выполнения скрипта с текущего момента в обычном режиме. Если скрипт не встретит новых точек останова, то в отладчик управление больше не вернется</li>
+	<li><u-code>F10</u-code> - сделать шаг, не заходя внутрь функции. Выполняет одну команду скрипта. Если в ней есть вызов функции – то отладчик обходит его стороной, т.е. не переходит на код внутри</li>
+	<li><u-code>F11</u-code> - сделать шаг. Выполняет одну команду скрипта и переходит к следующей. Если есть вложенный вызов, то заходит внутрь функции</li>
+	<li><u-code>Shift+F11</u-code> - выполнять до выхода из текущей функции. Выполняет команды до завершения текущей функции. Быстрый выход из вложенного вызова</li>
+</ul>
+
+Остановку можно инициировать и напрямую из кода скрипта, командой debugger
+<v-code lang="js" title="">
+function pow(x, n) {
+	...
+	debugger; // отладчик остановится тут
+	...
+}
+</v-code>
+</div><div id="testing/theory/info"><!-- TODO:
 <f-search>Тестирование -> Основные термины</f-search>
 -->
 
@@ -607,52 +683,6 @@
 
 
 
-</div><div id="testing/main/frameworks"><!-- TODO:
-<f-search>Тестирование -> Фреймворки</f-search>
--->
-
-<h2>Фреймворки</h2>
-
-<ul class="list-point">
-    <li><u-text-define>Jest</u-text-define></li>
-    <li>Связка для React: Jest + Enzyme</li>
-    <li><u>Unit Test</u></li>
-</ul>
-
-<ul class="list-point">
-    <li><u-text-define>Jasmine</u-text-define> - BDD фреймворк (Behavior-Driven Development - Разработка на Основе Поведений) для тестирования JavaScript кода</li>
-</ul>
-
-<ul class="list-point">
-	<li><u-text-define>Mocha</u-text-define></li>
-    <li><u>Unit Test</u></li>
-</ul>
-
-<ul class="list-point">
-	<li><u-text-define>Karma</u-text-define></li>
-    <li><u>Unit Test</u></li>
-</ul>
-</div><div id="testing/main/chrome-dev-tools"><!-- TODO:
-<f-search>Тестирование -> Chrome DevTools</f-search>
--->
-
-<h2>Chrome DevTools</h2>
-
-<ul class="list-point">
-	<li><u-code>F8</u-code> - продолжить выполнение. Продолжает выполнения скрипта с текущего момента в обычном режиме. Если скрипт не встретит новых точек останова, то в отладчик управление больше не вернется</li>
-	<li><u-code>F10</u-code> - сделать шаг, не заходя внутрь функции. Выполняет одну команду скрипта. Если в ней есть вызов функции – то отладчик обходит его стороной, т.е. не переходит на код внутри</li>
-	<li><u-code>F11</u-code> - сделать шаг. Выполняет одну команду скрипта и переходит к следующей. Если есть вложенный вызов, то заходит внутрь функции</li>
-	<li><u-code>Shift+F11</u-code> - выполнять до выхода из текущей функции. Выполняет команды до завершения текущей функции. Быстрый выход из вложенного вызова</li>
-</ul>
-
-Остановку можно инициировать и напрямую из кода скрипта, командой debugger
-<v-code lang="js" title="">
-function pow(x, n) {
-	...
-	debugger; // отладчик остановится тут
-	...
-}
-</v-code>
 </div></div>
                 </div>
             </div>

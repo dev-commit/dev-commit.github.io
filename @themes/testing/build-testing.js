@@ -2,6 +2,13 @@ root = 'testing/';
 
 ARR_MODULE = [
     {
+        title: 'Инструменты',
+        themes: [
+            [root+'utils/utils',       emoji.star+'Инструменты'],
+            [root+'utils/chrome-dev-tools', 'Chrome DevTools'],
+        ]
+    },
+    {
         title: 'Теория',
         themes: [
             [root+'theory/info',  emoji.theory+'Основные термины'],
@@ -24,13 +31,6 @@ ARR_MODULE = [
             [root+'concepts/tdd',   emoji.items+'TDD'],
             [root+'concepts/bdd',   emoji.items+'BDD'],
             [root+'concepts/first', emoji.items+'FIRST'],
-        ]
-    },
-    {
-        title: 'Основное',
-        themes: [
-            [root+'main/frameworks',       emoji.items+'Фреймворки'],
-            [root+'main/chrome-dev-tools', 'Chrome DevTools'],
         ]
     },
 ]
