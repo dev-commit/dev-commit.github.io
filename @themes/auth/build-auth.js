@@ -19,8 +19,9 @@ ARR_MODULE = [
     {
         title: 'Сервисы',
         themes: [
-            [root+'services/auth0', setTheme(1, ['auth0'])],
-            [root+'services/okta',  setTheme(1, ['okta'])],
+            [root+'services/NextAuth',  setTheme(1, ['NextAuth.js'])],
+            [root+'services/Auth0', setTheme(1, ['Auth0'])],
+            [root+'services/Okta',  setTheme(1, ['Okta'])],
         ]
     },
 ]

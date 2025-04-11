@@ -2,20 +2,7 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-Auth</title>
+            <title><span style="filter: drop-shadow(0px 0px 0.2px #000);">📑 </span> Авторизация</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
@@ -35,20 +22,7 @@ Auth</title>
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link">
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-Auth</a>
+                        <a href="#links" class="top-link"><span style="filter: drop-shadow(0px 0px 0.2px #000);">📑 </span> Авторизация</a>
                     </div>
 
                     <div class="search-wrapper">
@@ -110,20 +84,30 @@ Auth</a>
     <li>
         <a
             class="menu-link"
-            id="id__auth/services/auth0"
-            href="#auth/services/auth0"
+            id="id__auth/services/NextAuth"
+            href="#auth/services/NextAuth"
         >
-            <u-menu>auth0</u-menu>
+            <u-menu>NextAuth.js</u-menu>
         </a>
     </li>
 
     <li>
         <a
             class="menu-link"
-            id="id__auth/services/okta"
-            href="#auth/services/okta"
+            id="id__auth/services/Auth0"
+            href="#auth/services/Auth0"
         >
-            <u-menu>okta</u-menu>
+            <u-menu>Auth0</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__auth/services/Okta"
+            href="#auth/services/Okta"
+        >
+            <u-menu>Okta</u-menu>
         </a>
     </li>
 </ul>
@@ -147,7 +131,11 @@ Auth</a>
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="auth/session/session"><h2>Авторизация с помощью сессий</h2>
+                    <div id="content"><div id="auth/session/session"><!-- TODO:
+<f-search>Авторизация -> Session & Cookie</f-search>
+-->
+
+<h2>Авторизация с помощью сессий</h2>
 
 <ul class="list-point">
     <li>Используются Cookie и сама сессия хранится в БД на сервере</li>
@@ -165,7 +153,11 @@ Auth</a>
 </ol>
 
 <img src="/@img/auth/session-cookie.png" width="800px" class="xl test" />
-</div><div id="auth/jwt/info"><h2>Информация</h2>
+</div><div id="auth/jwt/info"><!-- TODO:
+<f-search>Авторизация -> JWT -> Информация</f-search>
+-->
+
+<h2>Информация</h2>
 
 <u-link-wrapper>
     <a href="https://jwt.io/" target="_blank">https://jwt.io/</a>
@@ -174,7 +166,11 @@ Auth</a>
 <ul class="list-point">
     <li><u-text-define>JWT</u-text-define> - JSON Web Tokens</li>
 </ul>
-</div><div id="auth/jwt/algoritm"><h2>Алгоритм работы</h2>
+</div><div id="auth/jwt/algoritm"><!-- TODO:
+<f-search>Авторизация -> JWT -> Алгоритм работы</f-search>
+-->
+
+<h2>Алгоритм работы</h2>
 
 <ol class="list-num">
     <li>Сервер выдает токен, по которому пользователь может проходить авторизацию</li>
@@ -183,7 +179,11 @@ Auth</a>
 </ol>
 
 <img src="/@img/auth/jwt-algoritm.png" width="600px" />
-</div><div id="auth/jwt/tokens"><h2>Токены</h2>
+</div><div id="auth/jwt/tokens"><!-- TODO:
+<f-search>Авторизация -> JWT -> Токены</f-search>
+-->
+
+<h2>Токены</h2>
 
 <ul class="list-point">
     <li>В каждом токене есть поле <u>"iat"</u> (issue at) - момент, когда токен был выпущен</li>
@@ -249,7 +249,11 @@ authRouter.get("/logout", (req, res) => {
 	res.sendStatus(200);
 });
 </v-code>
-</div><div id="auth/jwt/secret-key"><h2>Secret Key</h2>
+</div><div id="auth/jwt/secret-key"><!-- TODO:
+<f-search>Авторизация -> JWT -> Secret Key</f-search>
+-->
+
+<h2>Secret Key</h2>
 
 <h5>Проблематика</h5>
 <ul class="list-point">
@@ -271,7 +275,20 @@ authRouter.get("/logout", (req, res) => {
 </ul>
 
 <img src="/@img/auth/secret-key.jpg" width="400px" />
-</div><div id="auth/services/auth0"><h2>Auth0</h2>
+</div><div id="auth/services/NextAuth"><h2>NextAuth.js</h2>
+
+<u-link-wrapper>
+    <a href="https://next-auth.js.org/" target="_blank">https://next-auth.js.org/</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Аутентификация для Next.js</li>
+</ul>
+</div><div id="auth/services/Auth0"><!-- TODO:
+<f-search>Авторизация -> Сервисы -> Auth0</f-search>
+-->
+
+<h2>Auth0</h2>
 
 <u-link-wrapper>
     <a href="https://auth0.com/" target="_blank">https://auth0.com/</a>
@@ -280,7 +297,11 @@ authRouter.get("/logout", (req, res) => {
 <ul class="list-point">
     <li><u-text-define>Auth0</u-text-define> - инструмент аутентификации как сервиса, который упрощает реализацию функций, связанных с проверкой подлинности для вашего приложения или сайта</li>
 </ul>
-</div><div id="auth/services/okta"><h2>Okta</h2>
+</div><div id="auth/services/Okta"><!-- TODO:
+<f-search>Авторизация -> Сервисы -> Okta</f-search>
+-->
+
+<h2>Okta</h2>
 
 <u-link-wrapper>
     <div><a href="https://www.okta.com/" target="_blank">https://www.okta.com/</a> Okta</div>
