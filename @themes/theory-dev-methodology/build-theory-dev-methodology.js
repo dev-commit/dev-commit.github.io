@@ -4,8 +4,9 @@ ARR_MODULE = [
     {
         title: 'Методологии разработки ПО',
         themes: [
-            [root+'methodology/FSD', emoji.star+'Feature-Sliced Design (FSD)'],
-            [root+'methodology/FDD', emoji.star+'Feature-Driven Development (FDD)'],
+            [root+'methodology/info', emoji.theory+'Методологии разработки'],
+            [root+'methodology/FSD',  emoji.star+'Feature-Sliced Design (FSD)'],
+            [root+'methodology/FDD',  emoji.star+'Feature-Driven Development (FDD)'],
         ]
     },
     {
