@@ -18,23 +18,4 @@ ARR_MODULE = [
 		    [root+'samples/other',            'Прочее'],
         ]
     },
-    {
-        title: 'Рендеринг',
-        accent: true,
-        themes: [
-            [root+'rendering/critical-rendering-path', emoji.fire+'Critical Rendering Path'],
-            [root+'rendering/repaint-and-reflow',      emoji.fire+'Repaint & Reflow'],
-            [root+'rendering/requestAnimationFrame',   setTheme(1, ['requestAnimationFrame'])],
-        ]
-    },
-    {
-        title: 'Оптимизация',
-        accent: true,
-        themes: [
-            [root+'optimization/website-loading', emoji.theory+'Загрузка веб-страницы'],
-            [root+'optimization/info',            emoji.theory+'Оптимизация загрузки'],
-            [root+'optimization/caching',         'Кэширование'],
-            [root+'optimization/tree-shaking',    'Tree shaking'],
-        ]
-    },
 ]

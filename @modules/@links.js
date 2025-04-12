@@ -39,7 +39,8 @@ const ARR_LINKS = [
     { page: 'theory-programming',      theme: 'theory',    title: theory+'Программирование' },
     [],
 
-    { page: 'event-loop',              theme: 'accent',    title: search+accent+'Event Loop | Optimize' },
+    { page: 'event-loop',              theme: 'accent',    title: search+accent+'Event Loop' },
+    { page: 'v8',                      theme: 'accent',    title: search+accent+'V8 | Rendering | Optimize' },
     { page: 'js-task',                 theme: 'primary ',  title: search+'⚡️ Задачи' },
     null,
     { page: 'js',                      theme: 'js',        title: search+accent+'JavaScript' },
