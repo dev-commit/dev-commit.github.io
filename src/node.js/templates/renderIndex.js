@@ -32,14 +32,15 @@ export const renderIndex = (title) => (`
                 <div id="links">
                     <ul>
                         <slot v-for="itemLink in linksContent">
-                            <li v-if="itemLink">
+                            <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                            <li v-if="itemLink === null" class="splitter"></li>
+                            <li v-if="itemLink !== null && itemLink.length !== 0">
                                 <a
                                     :href="page+'/'+itemLink.page"
                                     :class="'theme-'+itemLink.theme"
                                     v-html="itemLink.title"
                                 ></a>
                             </li>
-                            <li v-else class="splitter"></li>
                         </slot>
                     </ul>
                 </div>

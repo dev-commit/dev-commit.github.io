@@ -32,7 +32,8 @@ const ARR_LINKS = [
     { page: 'compilation',             theme: 'primary',   title: accent },
     { page: 'js-task',                 theme: 'primary ',  title: search+'Задачи' },
     { page: 'ci-cd',                   theme: 'theory',    title: theory+'CI / CD' },
-    null,
+    [],
+
     { page: 'theory-algoritms',        theme: 'theory',    title: search+theory+'Алгоритмы' },
     { page: 'theory-data-structures',  theme: 'theory',    title: search+theory+'Структуры данных' },
     { page: 'theory-design-patterns',  theme: 'theory',    title: search+theory+'Паттерны проектирования' },
@@ -43,7 +44,8 @@ const ARR_LINKS = [
     { page: 'theory-dev-methodology',  theme: 'theory',    title: theory+'Методологии разработки' },
     { page: 'agile',                   theme: 'theory',    title: theory+'Agile | Jira' },
     { page: 'theory-programming',      theme: 'theory',    title: theory+'Программирование' },
-    null,
+    [],
+
     { page: 'event-loop',              theme: 'accent',    title: search+accent+'Event Loop | Optimize' },
     null,
     { page: 'js',                      theme: 'js',        title: search+accent+'JavaScript' },
@@ -67,7 +69,8 @@ const ARR_LINKS = [
     { page: 'js-web-api',              theme: 'js',        title: search+'Web API' },
     { page: 'canvas',                  theme: 'secondary', title: 'Canvas' },
     { page: 'web-components',          theme: 'secondary', title: 'Web Components' },
-    null,
+    [],
+
     { page: 'react-app',               theme: 'accent',    title: accent+'React App' },
     { page: 'react-js',                theme: 'react',     title: search+accent+'React.js' },
     { page: 'react-hooks',             theme: 'react',     title: 'React Hooks' },
@@ -90,14 +93,16 @@ const ARR_LINKS = [
     { page: 'yup',                     theme: 'react',     title: 'Yup' },
     { page: 'react-hook-form',         theme: 'actual',    title: 'React Hook Form' },
     { page: 'react-final-form',        theme: 'secondary', title: 'React Final Form' },
-    null,
+    [],
+
     { page: 'next-js',                 theme: 'react',     title: 'Next.js' },
     { page: 'node-js',                 theme: 'node',      title: search+'Node.js' },
     { page: 'node-js-express',         theme: 'node',      title: search+'Express' },
     { page: 'nest-js',                 theme: 'node',      title: search+'Nest.js' },
     { page: 'mongodb',                 theme: 'actual',    title: 'MongoDB' },
     { page: 'react-native',            theme: 'actual',    title: 'React Native' },
-    null,
+    [],
+
     { page: 'vue-js',                  theme: 'vue',       title: search+accent+'Vue.js' },
     { page: 'vuepress',                theme: 'vue',       title: search+'VuePress' },
     { page: 'vue-vuex',                theme: 'secondary', title: search+'Vuex' },
