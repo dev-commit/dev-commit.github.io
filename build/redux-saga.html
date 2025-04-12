@@ -2,20 +2,7 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-Redux Saga</title>
+            <title>Redux Saga</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
@@ -35,20 +22,7 @@ Redux Saga</title>
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link">
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-Redux Saga</a>
+                        <a href="#links" class="top-link">Redux Saga</a>
                     </div>
 
                     <div class="search-wrapper">
@@ -237,7 +211,11 @@ Redux Saga</a>
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="redux-saga/main/info"><h2>Информация</h2>
+                    <div id="content"><div id="redux-saga/main/info"><!-- TODO:
+<f-search>Redux Saga -> Информация</f-search>
+-->
+
+<h2>Информация</h2>
 
 <u-link-wrapper>
     <a href="https://redux-saga.js.org/" target="_blank">https://redux-saga.js.org/</a>
@@ -246,7 +224,11 @@ Redux Saga</a>
 <ul class="list-point">
 	<li>Работа с side-effects</li>
 </ul>
-</div><div id="redux-saga/main/install"><h2>Установка и настройка</h2>
+</div><div id="redux-saga/main/install"><!-- TODO:
+<f-search>Redux Saga -> Установка и настройка</f-search>
+-->
+
+<h2>Установка и настройка</h2>
 
 <v-pre-npm>
 # Redux Toolkit
@@ -254,7 +236,11 @@ npm i --save <u-code-accent>react-redux</u-code-accent> <u-code-accent>@reduxjs/
 # Redux Saga
 npm i --save <u-code-accent>redux-saga</u-code-accent>
 </v-pre-npm>
-</div><div id="redux-saga/methods/call"><h2>call</h2>
+</div><div id="redux-saga/methods/call"><!-- TODO:
+<f-search>Redux Saga -> Методы -> <u>call()</u></f-search>
+-->
+
+<h2>call</h2>
 
 <ul class="list-point">
     <li><u-text-define>call</u-text-define> - вернет только объект описывающий эту операцию и redux-saga сможет позаботиться о вызове и возвращении результатов в функцию-генератор</li>
@@ -294,7 +280,11 @@ export function* getData(a: string) {
 }
 </v-code>
 
-</div><div id="redux-saga/methods/put"><h2>put</h2>
+</div><div id="redux-saga/methods/put"><!-- TODO:
+<f-search>Redux Saga -> Методы -> <u>put()</u></f-search>
+-->
+
+<h2>put</h2>
 
 <ul class="list-point">
     <li><u-text-define>put</u-text-define> - вместо отправления действий (dispatch action) внутри функции-генератора, put возвращает объект с инструкциями для промежуточного слоя (middleware) - отправить действие</li>
@@ -308,7 +298,11 @@ import { put } from 'redux-saga/effects'
 <v-code lang="js" title="">
 yield put(setLoading(true))
 </v-code>
-</div><div id="redux-saga/methods/take"><h2>take</h2>
+</div><div id="redux-saga/methods/take"><!-- TODO:
+<f-search>Redux Saga -> Методы -> <u>take()</u></f-search>
+-->
+
+<h2>take</h2>
 
 <ul class="list-point">
     <li><u-text-define>take</u-text-define></li>
@@ -323,7 +317,11 @@ import { take } from 'redux-saga/effects'
 <v-code lang="js" title="">
 yield take(setAccount)
 </v-code>
-</div><div id="redux-saga/methods/all"><h2>all</h2>
+</div><div id="redux-saga/methods/all"><!-- TODO:
+<f-search>Redux Saga -> Методы -> <u>all()</u></f-search>
+-->
+
+<h2>all</h2>
 
 <ul class="list-point">
     <li><u-text-define>all</u-text-define></li>
@@ -337,7 +335,11 @@ import { all } from 'redux-saga/effects'
 <v-code lang="js" title="">
 yield all([put(setServerErrors(documentErrors)), put(setLoading(false))])
 </v-code>
-</div><div id="redux-saga/methods/delay"><h2>delay</h2>
+</div><div id="redux-saga/methods/delay"><!-- TODO:
+<f-search>Redux Saga -> Методы -> <u>delay()</u></f-search>
+-->
+
+<h2>delay</h2>
 
 <ul class="list-point">
     <li><u-text-define>delay</u-text-define> - добавление задержки</li>
@@ -350,7 +352,11 @@ import { delay } from 'redux-saga/effects'
 <v-code lang="js" title="">
 yield delay(1000)
 </v-code>
-</div><div id="redux-saga/methods/fork"><h2>fork</h2>
+</div><div id="redux-saga/methods/fork"><!-- TODO:
+<f-search>Redux Saga -> Методы -> <u>fork()</u></f-search>
+-->
+
+<h2>fork</h2>
 
 <ul class="list-point">
     <li><u-text-define>fork</u-text-define></li>
@@ -363,7 +369,11 @@ import { fork } from 'redux-saga/effects'
 <v-code lang="js" title="">
 yield fork(trackingSaga)
 </v-code>
-</div><div id="redux-saga/methods/select"><h2>select</h2>
+</div><div id="redux-saga/methods/select"><!-- TODO:
+<f-search>Redux Saga -> Методы -> <u>select()</u></f-search>
+-->
+
+<h2>select</h2>
 
 <ul class="list-point">
     <li><u-text-define>select</u-text-define></li>
@@ -376,7 +386,11 @@ import { select } from 'redux-saga/effects'
 <v-code lang="js" title="">
 const settingsHintIsShown = yield select(selectIsPrivateMessageSettingsHintShown)
 </v-code>
-</div><div id="redux-saga/methods/cancel"><h2>cancel</h2>
+</div><div id="redux-saga/methods/cancel"><!-- TODO:
+<f-search>Redux Saga -> Методы -> <u>cancel()</u></f-search>
+-->
+
+<h2>cancel</h2>
 
 <ul class="list-point">
     <li><u-text-define>cancel</u-text-define></li>
@@ -389,7 +403,11 @@ import { cancel } from 'redux-saga/effects'
 <v-code lang="js" title="">
 yield cancel()
 </v-code>
-</div><div id="redux-saga/methods/debounce"><h2>debounce</h2>
+</div><div id="redux-saga/methods/debounce"><!-- TODO:
+<f-search>Redux Saga -> Методы -> <u>debounce()</u></f-search>
+-->
+
+<h2>debounce</h2>
 
 <ul class="list-point">
     <li><u-text-define>debounce</u-text-define></li>
@@ -402,7 +420,11 @@ import { debounce } from 'redux-saga/effects'
 <v-code lang="js" title="">
 yield debounce(300, fetchStudiosList.type, fetchStudiosWithParamsGenerator)
 </v-code>
-</div><div id="redux-saga/methods/takeEvery"><h2>takeEvery</h2>
+</div><div id="redux-saga/methods/takeEvery"><!-- TODO:
+<f-search>Redux Saga -> Методы -> <u>takeEvery()</u></f-search>
+-->
+
+<h2>takeEvery</h2>
 
 <ul class="list-point">
     <li><u-text-define>takeEvery</u-text-define></li>
@@ -419,7 +441,11 @@ import { takeEvery } from 'redux-saga/effects'
 <v-code lang="js" title="">
 yield takeEvery(onAxiosResponse.type, checkAppCompatibilityBreakingFeatures)
 </v-code>
-</div><div id="redux-saga/methods/takeLatest"><h2>takeLatest</h2>
+</div><div id="redux-saga/methods/takeLatest"><!-- TODO:
+<f-search>Redux Saga -> Методы -> <u>takeLatest()</u></f-search>
+-->
+
+<h2>takeLatest</h2>
 
 <ul class="list-point">
     <li><u-text-define>takeLatest</u-text-define></li>
@@ -437,7 +463,11 @@ import { takeLatest } from 'redux-saga/effects'
 <v-code lang="js" title="">
 yield takeLatest(showReloadAppModalAttempt.type, reloadAppModalAttempt)
 </v-code>
-</div><div id="redux-saga/common/accessing-store-value"><h2>Доступ к значению Store из Saga</h2>
+</div><div id="redux-saga/common/accessing-store-value"><!-- TODO:
+<f-search>Redux Saga -> Доступ к значению Store из Saga</f-search>
+-->
+
+<h2>Доступ к значению Store из Saga</h2>
 
 <v-tabs :tabs="['sagas.js', 'selectors.js', 'store.js']">
 
@@ -493,13 +523,21 @@ export const store = configureStore({
 </template>
 
 </v-tabs>
-</div><div id="redux-saga/common/saga-vs-thunk"><h2>redux-saga vs redux-thunk</h2>
+</div><div id="redux-saga/common/saga-vs-thunk"><!-- TODO:
+<f-search>Redux Saga -> Redux Saga vs Redux Thunk</f-search>
+-->
+
+<h2>redux-saga vs redux-thunk</h2>
 
 <ul class="list-point">
     <li><em>redux-thunk</em> использует callback, поэтому возникает callback-hell</li>
     <li><em>redux-saga</em> использует генераторы, что избавляет от callback-hell</li>
 </ul>
-</div><div id="redux-saga/common/questions"><h2>Вопросы</h2>
+</div><div id="redux-saga/common/questions"><!-- TODO:
+<f-search>Redux Saga -> Вопросы (генераторы)</f-search>
+-->
+
+<h2>Вопросы</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Почему redux saga использует генераторы, а не async await</h3>
