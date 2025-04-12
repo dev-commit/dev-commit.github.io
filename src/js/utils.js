@@ -6,7 +6,7 @@ emoji = {
     settings: '⚙️ ',
     code:     '💎 ',
     libs:     '🎲 ',
-    items:    '🪃 ',
+    items:    '⚡️ ',
 };
 
 // getLink(root, 'info'),      // => main/info

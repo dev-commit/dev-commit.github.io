@@ -6,8 +6,9 @@ THEME:
 - tech
 */
 
-const theory = '<span style="filter: drop-shadow(0px 0px 0.2px #000);">📑 </span> ';
-const accent = '<span style="filter: drop-shadow(0px 0px 0.5px #000);">⭐️ </span>';
+const theory = '📑 ';
+const accent = '📌 ';
+const tech = '✈️ ';
 const search = `
     <div
         style="
@@ -27,22 +28,21 @@ const search = `
 
 const ARR_LINKS = [
     { page: 'wiki',                    theme: 'primary',   title: 'Wiki' },
-    { page: 'js-task',                 theme: 'primary ',  title: search+'Задачи' },
+    { page: 'english',                 theme: 'theory',    title: theory+'English' },
     { page: 'compilation',             theme: 'primary',   title: accent },
-
-    { page: 'ci-cd',                   theme: 'secondary', title: theory+'CI / CD' },
-    { page: 'english',                 theme: 'secondary', title: theory+'English' },
+    { page: 'js-task',                 theme: 'primary ',  title: search+'Задачи' },
+    { page: 'ci-cd',                   theme: 'theory',    title: theory+'CI / CD' },
     null,
-    { page: 'theory-algoritms',        theme: 'theory',   title: search+'Алгоритмы' },
-    { page: 'theory-data-structures',  theme: 'theory',   title: search+'Структуры данных' },
-    { page: 'theory-design-patterns',  theme: 'theory',   title: search+'Паттерны проектирования' },
-    { page: 'theory-solid',            theme: 'theory',   title: 'SOLID' },
-    { page: 'theory-refactoring',      theme: 'theory',   title: 'Рефакторинг' },
-    { page: 'agile',                   theme: 'theory',   title: 'Agile | Jira' },
+    { page: 'theory-algoritms',        theme: 'theory',    title: search+theory+'Алгоритмы' },
+    { page: 'theory-data-structures',  theme: 'theory',    title: search+theory+'Структуры данных' },
+    { page: 'theory-design-patterns',  theme: 'theory',    title: search+theory+'Паттерны проектирования' },
+    { page: 'theory-solid',            theme: 'theory',    title: theory+'SOLID' },
+    { page: 'theory-refactoring',      theme: 'theory',    title: theory+'Рефакторинг' },
     null,
-    { page: 'theory-architecture',     theme: 'theory',   title: 'Архитектура' },
-    { page: 'theory-dev-methodology',  theme: 'theory',   title: 'Методологии разработки' },
-    { page: 'theory-programming',      theme: 'theory',   title: 'Программирование' },
+    { page: 'theory-architecture',     theme: 'theory',    title: theory+'Архитектура' },
+    { page: 'theory-dev-methodology',  theme: 'theory',    title: theory+'Методологии разработки' },
+    { page: 'agile',                   theme: 'theory',    title: theory+'Agile | Jira' },
+    { page: 'theory-programming',      theme: 'theory',    title: theory+'Программирование' },
     null,
     { page: 'event-loop',              theme: 'accent',    title: search+accent+'Event Loop | Optimize' },
     null,
@@ -59,9 +59,9 @@ const ARR_LINKS = [
     { page: 'axios',                   theme: 'react',     title: 'Axios' },
     { page: 'tan-stack-query',         theme: 'react',     title: 'TanStack Query' },
     { page: 'swr',                     theme: 'react',     title: 'SWR' },
-    { page: 'theory-network',          theme: 'theory',    title: 'HTTP | Протоколы' },
-    { page: 'network',                 theme: 'tech',      title: 'Сеть' },
-    { page: 'auth',                    theme: 'tech',      title: 'Авторизация' },
+    { page: 'theory-network',          theme: 'theory',    title: theory+'HTTP | Протоколы' },
+    { page: 'network',                 theme: 'primary',   title: tech+'Сеть' },
+    { page: 'auth',                    theme: 'primary',   title: tech+'Авторизация' },
     null,
     { page: 'js-regexp',               theme: 'js',        title: 'RegExp' },
     { page: 'js-web-api',              theme: 'js',        title: search+'Web API' },
@@ -136,10 +136,10 @@ const ARR_LINKS = [
     { page: 'windows',                 theme: 'primary',   title: 'Windows' },
     { page: 'linux',                   theme: 'primary',   title: 'Linux' },
     { page: 'software',                theme: 'secondary', title: 'Software' },
-    { page: 'dayjs',                   theme: 'primary',   title: 'Day.js' },
-    { page: 'ramda',                   theme: 'primary',   title: 'Ramda' },
-    { page: 'lodash',                  theme: 'primary',   title: 'Lodash' },
     null,
+    { page: 'lodash',                  theme: 'primary',   title: 'Lodash' },
+    { page: 'ramda',                   theme: 'primary',   title: 'Ramda' },
+    { page: 'dayjs',                   theme: 'primary',   title: 'Day.js' },
     { page: 'blockchain',              theme: 'primary',   title: search+'Blockchain' },
     { page: 'python',                  theme: 'secondary', title: search+'Python' },
     { page: 'php',                     theme: 'secondary', title: search+'PHP' },
