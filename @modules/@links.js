@@ -1,5 +1,6 @@
 /*
 THEME:
+- theory
 - primary | secondary | accent | actual
 - react | node | js | vue | html
 - tech
@@ -28,20 +29,22 @@ const ARR_LINKS = [
     { page: 'wiki',                    theme: 'primary',   title: 'Wiki' },
     { page: 'js-task',                 theme: 'primary ',  title: search+'Задачи' },
     { page: 'compilation',             theme: 'primary',   title: accent },
-    { page: 'agile',                   theme: 'secondary', title: theory+'Agile | Jira' },
+
     { page: 'ci-cd',                   theme: 'secondary', title: theory+'CI / CD' },
     { page: 'english',                 theme: 'secondary', title: theory+'English' },
     null,
-    { page: 'theory-algoritms',        theme: 'primary',   title: search+theory+'Алгоритмы' },
-    { page: 'theory-data-structures',  theme: 'primary',   title: search+theory+'Структуры данных' },
-    { page: 'theory-design-patterns',  theme: 'primary',   title: search+theory+'Паттерны проектирования' },
-    { page: 'theory-solid',            theme: 'primary',   title: theory+'SOLID' },
-    { page: 'theory-refactoring',      theme: 'primary',   title: theory+'Рефакторинг' },
+    { page: 'theory-algoritms',        theme: 'theory',   title: search+'Алгоритмы' },
+    { page: 'theory-data-structures',  theme: 'theory',   title: search+'Структуры данных' },
+    { page: 'theory-design-patterns',  theme: 'theory',   title: search+'Паттерны проектирования' },
+    { page: 'theory-solid',            theme: 'theory',   title: 'SOLID' },
+    { page: 'theory-refactoring',      theme: 'theory',   title: 'Рефакторинг' },
+    { page: 'agile',                   theme: 'theory',   title: 'Agile | Jira' },
+    null,
+    { page: 'theory-architecture',     theme: 'theory',   title: 'Архитектура' },
+    { page: 'theory-dev-methodology',  theme: 'theory',   title: 'Методологии разработки' },
+    { page: 'theory-programming',      theme: 'theory',   title: 'Программирование' },
     null,
     { page: 'event-loop',              theme: 'accent',    title: search+accent+'Event Loop | Optimize' },
-    { page: 'theory-architecture',     theme: 'primary',   title: theory+'Архитектура' },
-    { page: 'theory-dev-methodology',  theme: 'primary',   title: theory+'Методологии разработки' },
-    { page: 'theory-programming',      theme: 'primary',   title: theory+'Программирование' },
     null,
     { page: 'js',                      theme: 'js',        title: search+accent+'JavaScript' },
     { page: 'js-object',               theme: 'js',        title: search+'Object' },
@@ -56,9 +59,9 @@ const ARR_LINKS = [
     { page: 'axios',                   theme: 'react',     title: 'Axios' },
     { page: 'tan-stack-query',         theme: 'react',     title: 'TanStack Query' },
     { page: 'swr',                     theme: 'react',     title: 'SWR' },
-    { page: 'theory-network',          theme: 'primary',   title: theory+'HTTP | Протоколы' },
-    { page: 'network',                 theme: 'primary',   title: theory+'Сеть' },
-    { page: 'auth',                    theme: 'primary',   title: theory+'Авторизация' },
+    { page: 'theory-network',          theme: 'theory',    title: 'HTTP | Протоколы' },
+    { page: 'network',                 theme: 'tech',      title: 'Сеть' },
+    { page: 'auth',                    theme: 'tech',      title: 'Авторизация' },
     null,
     { page: 'js-regexp',               theme: 'js',        title: 'RegExp' },
     { page: 'js-web-api',              theme: 'js',        title: search+'Web API' },
