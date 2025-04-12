@@ -50,4 +50,12 @@ ARR_MODULE = [
             [root+'main/reactive-programming',      'Реактивное программирование'],
         ]
     },
+    {
+        title: 'MVC',
+        themes: [
+            [root+'mvc/variants', emoji.theory+'Разновидности'],
+            [root+'mvc/mvc',      emoji.items+'MVC'],
+            [root+'mvc/mvvm',     emoji.items+'MVVM'],
+        ]
+    },
 ]

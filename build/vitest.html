@@ -2,14 +2,14 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title><span style="filter: drop-shadow(0px 0px 0.2px #000);">📑 </span> MVC ...</title>
+            <title>Vitest</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
 
             <script src="../src/js/utils.js"></script>
             <!-- Own JavaScript -->
-            <script src="../@themes/mvc/build-mvc.js"></script>
+            <script src="../@themes/vitest/build-vitest.js"></script>
         </head>
         <body>
             <div id="container">
@@ -22,7 +22,7 @@
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link"><span style="filter: drop-shadow(0px 0px 0.2px #000);">📑 </span> MVC ...</a>
+                        <a href="#links" class="top-link">Vitest</a>
                     </div>
 
                     <div class="search-wrapper">
@@ -30,45 +30,17 @@
                         <div id="search-result"></div>
                     </div>
 
-                    
-    <slot v-for="itemTitle in themesContent">
-        <h4
-            v-html="(!itemTitle.child ? themesEmoji : '')+' '+itemTitle.title"
-            :class="{
-                accent: itemTitle.accent,
-                selected: itemTitle.selected,
-                child: itemTitle.child
-            }"
-        ></h4>
-        <ul>
-            <slot v-for="(itemTheme, i) in itemTitle.themes">
-                <li
-                    v-if="itemTheme[0]"
-                    :class="{
-                        child: itemTheme[2],
-                        done: itemTheme[3] == 'done',
-                        check: itemTheme[3] == 'check',
-                    }"
-                >
-                    <a
-                        class="menu-link"
-                        :id="itemTheme[0]+'link'"
-                        :href="'#'+itemTheme[0]"
-                        @click="buildContent(itemTheme[0])"
-                        v-html="itemTheme[1]"
-                    ></a>
-                    <a
-                        v-if="isLocalhost"
-                        class="menu-link-vscode"
-                        :href="'vscode://file/'+'C:/Users/Anton/Desktop/Repo/dev-commit.github.io'+'/@themes/'+itemTheme[0]+'.html'">
-                    </a>
-                </li>
-                <hr v-else />
-            </slot>
-
-        </ul>
-    </slot>
-
+                    <h4>🏷️ Основное</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__vitest/main/info"
+            href="#vitest/main/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+</ul>
                 </div>
 
                 <div id="wrapper">
@@ -89,7 +61,20 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"></div>
+                    <div id="content"><div id="vitest/main/info"><!-- TODO:
+<f-search>Тестирование -> Vitest -> Информация</f-search>
+-->
+
+<h2>Информация</h2>
+
+<u-link-wrapper>
+	<a href="https://vitest.dev/" target="_blank">https://vitest.dev/</a>
+</u-link-wrapper>
+
+<u-message-info>
+Синтаксис практически такой же как в Jest
+</u-message-info>
+</div></div>
                 </div>
             </div>
 
