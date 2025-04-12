@@ -2,7 +2,12 @@ root = 'theory-paradigms/';
 
 ARR_MODULE = [
     {
+        title: 'Виды программирования',
+        accent: true,
+    },
+    {
         title: 'ООП',
+        child: true,
         themes: [
             [root+'oop/principles',       emoji.fire+'Принципы'],
             [root+'oop/access-modifiers', 'Модификаторы доступа'],
@@ -10,6 +15,7 @@ ARR_MODULE = [
     },
     {
         title: 'ФП',
+        child: true,
         themes: [
             [root+'fp/functional', emoji.theory+'Информация'],
             [root+'fp/concept',    emoji.fire+'Концепции'],
@@ -17,7 +23,8 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Основное',
+        title: 'Теория',
+        child: true,
         themes: [
             getLink(root, 'info'),
             [root+'main/imperative',  '1. Императивное'],
@@ -25,19 +32,39 @@ ARR_MODULE = [
             [root+'main/composition', 'Композиция'],
         ]
     },
+
+    //--------------------------------------------------------------
+
+    {
+        title: 'Архитектура',
+        accent: true,
+    },
+    {
+        title: 'Архитектурные концепции',
+        child: true,
+        themes: [
+            [root+'architectural-concepts/monolith', 'Монолит'],
+            [root+'architectural-concepts/microservices', 'Микросервисы'],
+            [root+'architectural-concepts/monorepository', 'Монорепозиторий'],
+        ]
+    },
+    {
+        title: 'MVC',
+        child: true,
+        themes: [
+            [root+'mvc/variants', emoji.theory+'Разновидности'],
+            [root+'mvc/mvc',      emoji.items+'MVC'],
+            [root+'mvc/mvvm',     emoji.items+'MVVM'],
+        ]
+    },
+
+    //--------------------------------------------------------------
+
     {
         title: 'Методологии разработки ПО',
         themes: [
             [root+'dev-methodology/fsd', 'Feature-Sliced Design (FSD)'],
             [root+'dev-methodology/fdd', 'Feature-Driven Development (FDD)'],
-        ]
-    },
-    {
-        title: 'Архитектурные концепции',
-        themes: [
-            [root+'architectural-concepts/monolith', 'Монолит'],
-            [root+'architectural-concepts/microservices', 'Микросервисы'],
-            [root+'architectural-concepts/monorepository', 'Монорепозиторий'],
         ]
     },
     {
@@ -50,12 +77,5 @@ ARR_MODULE = [
             [root+'main/reactive-programming',      'Реактивное программирование'],
         ]
     },
-    {
-        title: 'MVC',
-        themes: [
-            [root+'mvc/variants', emoji.theory+'Разновидности'],
-            [root+'mvc/mvc',      emoji.items+'MVC'],
-            [root+'mvc/mvvm',     emoji.items+'MVVM'],
-        ]
-    },
+
 ]
