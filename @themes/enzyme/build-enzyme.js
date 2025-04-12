@@ -11,8 +11,8 @@ ARR_MODULE = [
     {
         title: 'API',
         themes: [
-            [root+'api/methods-render', emoji.fire+'Методы рендеринга'],
-            [root+'api/methods',        emoji.fire+'Методы'],
+            [root+'api/methods-render', emoji.star+'Методы рендеринга'],
+            [root+'api/methods',        emoji.star+'Методы'],
         ]
     },
     {

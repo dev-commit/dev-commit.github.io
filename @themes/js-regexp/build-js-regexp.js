@@ -13,10 +13,10 @@ ARR_MODULE = [
         accent: true,
         themes: [
             [root+'samples/common',    'Общее'],
-            [root+'samples/symbols',   emoji.star+'Символы'],
-            [root+'samples/search',    emoji.star+'Поиск по словам'],
-            [root+'samples/operators', emoji.star+'Операторы'],
-            [root+'samples/register',  emoji.star+'Регистр'],
+            [root+'samples/symbols',   emoji.items+'Символы'],
+            [root+'samples/search',    emoji.items+'Поиск по словам'],
+            [root+'samples/operators', emoji.items+'Операторы'],
+            [root+'samples/register',  emoji.items+'Регистр'],
         ]
     },
     {

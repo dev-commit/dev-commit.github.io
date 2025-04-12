@@ -20,12 +20,12 @@ ARR_MODULE = [
     {
         title: 'Алгоритмы',
         themes: [
-            [root+'algoritms/sort',           emoji.code+'Сортировка'],
-            [root+'algoritms/search',         emoji.code+'Поиск'],
-            [root+'algoritms/string-reverse', emoji.code+'Переворот строки'],
-            [root+'algoritms/hashing',        emoji.code+'Хеширование'],
-            [root+'algoritms/fibonacci',      emoji.code+'Число Фибоначчи'],
-            [root+'algoritms/factorial',      emoji.code+'Факториал'],
+            [root+'algoritms/sort',           emoji.items+'Сортировка'],
+            [root+'algoritms/search',         emoji.items+'Поиск'],
+            [root+'algoritms/string-reverse', emoji.items+'Переворот строки'],
+            [root+'algoritms/hashing',        emoji.items+'Хеширование'],
+            [root+'algoritms/fibonacci',      emoji.items+'Число Фибоначчи'],
+            [root+'algoritms/factorial',      emoji.items+'Факториал'],
         ]
     },
 ]

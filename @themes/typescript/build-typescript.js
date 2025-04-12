@@ -37,10 +37,10 @@ ARR_MODULE = [
             [root+'generics/info',         emoji.theory+'Информация'],
             [root+'generics/main',         emoji.fire+'Основное'],
 
-            [root+'generics/function',     emoji.star+'Стрелочная функция'],
-            [root+'generics/object',       emoji.star+'Дженерик для объекта'],
-            [root+'generics/inheritance',  emoji.star+'Наследование'],
-            [root+'generics/interface',    emoji.star+'Дженерик в interface'],
+            [root+'generics/function',     'Стрелочная функция'],
+            [root+'generics/object',       'Дженерик для объекта'],
+            [root+'generics/inheritance',  'Наследование'],
+            [root+'generics/interface',    'Дженерик в interface'],
         ]
     },
     {
@@ -95,16 +95,16 @@ ARR_MODULE = [
     {
         title: 'React',
         themes: [
-            [root+'react/types',        emoji.items+'Типы в React'],
-            [root+'react/component',    setTheme(3, ['Component'])],
-            [root+'react/CSSProperties',    setTheme(3, ['CSSProperties'])],
-            [root+'react/useState',     setTheme(3, ['useState'])],
-            [root+'react/useRef',       setTheme(3, ['useRef'])],
-            [root+'react/children',     setTheme(3, ['Children'])],
-            [root+'react/react-router', setTheme(3, ['react-router'])],
-            [root+'react/setInterval',  'setInterval в useRef'],
-            [root+'react/services',     'Описание сервисов'],
-            [root+'react/samples',      emoji.code+'Примеры'],
+            [root+'react/types',         emoji.items+'Типы в React'],
+            [root+'react/component',     setTheme(3, ['Component'])],
+            [root+'react/CSSProperties', setTheme(3, ['CSSProperties'])],
+            [root+'react/useState',      setTheme(3, ['useState'])],
+            [root+'react/useRef',        setTheme(3, ['useRef'])],
+            [root+'react/children',      setTheme(3, ['Children'])],
+            [root+'react/react-router',  setTheme(3, ['react-router'])],
+            [root+'react/setInterval',   'setInterval в useRef'],
+            [root+'react/services',      'Описание сервисов'],
+            [root+'react/samples',       emoji.code+'Примеры'],
         ]
     },
     {

@@ -36,13 +36,14 @@ ARR_MODULE = [
     {
         title: 'Библиотеки',
         themes: [
-            [root+'libs/cypress-image-snapshot',  '<u-inline-circle>1</u-inline-circle> '+setTheme(2, ['cypress-image-snapshot'])],
-            [root+'libs/cypress-axe',  '<u-inline-circle>2</u-inline-circle> '+setTheme(2, ['cypress-axe', 'axe-core'])],
-            [root+'libs/mochawesome',  '<u-inline-circle>3</u-inline-circle> '+setTheme(2, ['mochawesome'])],
-            [root+'libs/mocha-allure-reporter',  '<u-inline-circle>4</u-inline-circle> '+setTheme(2, ['mocha-allure-reporter', 'allure-commandline'])],
-            [root+'libs/cypress-mochawesome-reporter',  setTheme(2, ['cypress-mochawesome-reporter'])],
-            [root+'libs/cypress-visual-regression',  setTheme(2, ['cypress-visual-regression'])],
-            [root+'libs/cypress-file-upload',  setTheme(2, ['cypress-file-upload'])],
+            [root+'libs/cypress-image-snapshot',  setTheme(1, ['cypress-image-snapshot'])],
+            [root+'libs/cypress-axe',  setTheme(1, ['cypress-axe', 'axe-core'])],
+            [root+'libs/mochawesome',  setTheme(1, ['mochawesome'])],
+            [root+'libs/mocha-allure-reporter',  setTheme(1, ['mocha-allure-reporter', 'allure-commandline'])],
+
+            [root+'libs/cypress-mochawesome-reporter',  setTheme(6, ['cypress-mochawesome-reporter'])],
+            [root+'libs/cypress-visual-regression',  setTheme(6, ['cypress-visual-regression'])],
+            [root+'libs/cypress-file-upload',  setTheme(6, ['cypress-file-upload'])],
         ]
     },
     {

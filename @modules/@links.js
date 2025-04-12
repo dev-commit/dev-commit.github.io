@@ -27,26 +27,20 @@ const search = `
 // #2bd8ff
 
 const ARR_LINKS = [
-    { page: 'wiki',                    theme: 'primary',   title: 'Wiki' },
-    { page: 'english',                 theme: 'theory',    title: theory+'English' },
-    { page: 'compilation',             theme: 'primary',   title: accent },
-    { page: 'js-task',                 theme: 'primary ',  title: search+'Задачи' },
-    { page: 'ci-cd',                   theme: 'theory',    title: theory+'CI / CD' },
-    [],
-
     { page: 'theory-algoritms',        theme: 'theory',    title: search+theory+'Алгоритмы' },
     { page: 'theory-data-structures',  theme: 'theory',    title: search+theory+'Структуры данных' },
     { page: 'theory-design-patterns',  theme: 'theory',    title: search+theory+'Паттерны проектирования' },
     { page: 'theory-solid',            theme: 'theory',    title: theory+'SOLID' },
     { page: 'theory-refactoring',      theme: 'theory',    title: theory+'Рефакторинг' },
     null,
-    { page: 'theory-architecture',     theme: 'theory',    title: theory+'Архитектура' },
     { page: 'theory-dev-methodology',  theme: 'theory',    title: theory+'Методологии разработки' },
+    { page: 'theory-architecture',     theme: 'theory',    title: theory+'Архитектура' },
     { page: 'agile',                   theme: 'theory',    title: theory+'Agile | Jira' },
     { page: 'theory-programming',      theme: 'theory',    title: theory+'Программирование' },
     [],
 
     { page: 'event-loop',              theme: 'accent',    title: search+accent+'Event Loop | Optimize' },
+    { page: 'js-task',                 theme: 'primary ',  title: search+'⚡️ Задачи' },
     null,
     { page: 'js',                      theme: 'js',        title: search+accent+'JavaScript' },
     { page: 'js-object',               theme: 'js',        title: search+'Object' },
@@ -143,6 +137,8 @@ const ARR_LINKS = [
     { page: 'webpack',                 theme: 'primary',   title: search+'Webpack' },
     { page: 'npm',                     theme: 'primary',   title: search+'NPM | Yarn' },
     { page: 'cmd',                     theme: 'primary',   title: 'CMD' },
+    null,
+    { page: 'ci-cd',                   theme: 'theory',    title: theory+'CI / CD' },
     [],
 
     { page: 'macos',                   theme: 'primary',   title: 'MacOS' },
@@ -150,6 +146,7 @@ const ARR_LINKS = [
     { page: 'linux',                   theme: 'primary',   title: 'Linux' },
     { page: 'software',                theme: 'secondary', title: 'Software' },
     null,
+    { page: 'compilation',             theme: 'primary',   title: accent },
     { page: 'blockchain',              theme: 'primary',   title: search+'Blockchain' },
     { page: 'python',                  theme: 'secondary', title: search+'Python' },
     { page: 'php',                     theme: 'secondary', title: search+'PHP' },
@@ -159,4 +156,7 @@ const ARR_LINKS = [
     { page: 'parcel',                  theme: 'secondary', title: 'Parcel' },
     { page: 'flow',                    theme: 'secondary', title: 'Flow' },
     { page: 'heroku',                  theme: 'secondary', title: 'Heroku' },
+    null,
+    { page: 'wiki',                    theme: 'primary',   title: 'Wiki' },
+    { page: 'english',                 theme: 'theory',    title: theory+'English' },
 ];

@@ -5,7 +5,7 @@ ARR_MODULE = [
         title: 'Основы',
         themes: [
             [root+'main/info',           emoji.theory+'Методологии разработки'],
-            [root+'main/tasks-workflow', emoji.items+'Tasks Workflow'],
+            [root+'main/tasks-workflow', emoji.star+'Tasks Workflow'],
             [root+'main/waterfall',      'Waterfall'],
             [root+'main/estimation',     'Эстимация'],
         ]

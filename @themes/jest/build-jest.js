@@ -13,9 +13,9 @@ ARR_MODULE = [
         title: 'Элементы',
         themes: [
             [root+'elements/pattern',     emoji.code+'Шаблон'],
-            [root+'elements/functions',   emoji.fire+'Глобальные функции'],
-            [root+'elements/matchers',    emoji.fire+'Matchers'],
-            [root+'elements/hooks',       emoji.fire+'Хуки'],
+            [root+'elements/functions',   emoji.star+'Глобальные функции'],
+            [root+'elements/matchers',    emoji.star+'Matchers'],
+            [root+'elements/hooks',       emoji.star+'Хуки'],
         ]
     },
     {

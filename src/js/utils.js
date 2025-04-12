@@ -25,7 +25,7 @@ function getLink(root, item, updated = false) {
     }
     switch(item) {
         case 'info':      return [root+'main/info',      emoji.theory+'Информация', false, checkUp()];
-        case 'install':   return [root+'main/install',   emoji.code+'Установка и настройка', false, checkUp()];
+        case 'install':   return [root+'main/install',   emoji.settings+'Установка и настройка', false, checkUp()];
         case 'use':       return [root+'main/use',       emoji.fire+'Базовый пример', false, checkUp()];
         case 'variants':  return [root+'main/variants',  emoji.code+'Варианты', false, checkUp()];
         case 'structure': return [root+'main/structure', emoji.code+'Структура', false, checkUp()];
