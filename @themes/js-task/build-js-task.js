@@ -6,7 +6,7 @@ ARR_MODULE = [
         accent: true,
     },
     {
-        title: 'Objects & Context',
+        title: 'Объекты и Контекст',
         child: true,
         themes: [
             ['js-class/main/new',             setTheme(1, ['new']), false, 'done'],
@@ -15,7 +15,7 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Arrays',
+        title: 'Массивы',
         child: true,
         themes: [
             [root+'polyphiles/map',    setTheme(1, ['map'])],
@@ -25,14 +25,14 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Async',
+        title: 'Асинхронность',
         child: true,
         themes: [
             [root+'polyphiles/promise-all', setTheme(1, ['Promise.all'])],
         ]
     },
     {
-        title: 'Decorators',
+        title: 'Декораторы',
         child: true,
         themes: [
             [root+'decorators/debounce',  setTheme(6, ['debounce()'])],
@@ -44,7 +44,7 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Algoritms',
+        title: 'Алгоритмы',
         accent: true,
         themes: [
             [root+'algoritms/anagram',            emoji.star+'Анаграмма', false, 'done'],
