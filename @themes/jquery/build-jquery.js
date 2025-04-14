@@ -7,7 +7,7 @@ ARR_MODULE = [
             getLink(root, 'info'),
             [root+'main/ajax',        'AJAX'],
             [root+'main/css',         'CSS'],
-            [root+'main/methods',     'Методы'],
+            [root+'main/methods',     'Основные методы'],
             [root+'main/attributes',  'Атрибуты. Object this'],
             [root+'main/input',       'Input'],
             [root+'main/include',     'Подключение файлов'],

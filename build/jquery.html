@@ -2,20 +2,7 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-jQuery</title>
+            <title>jQuery</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
@@ -35,20 +22,7 @@ jQuery</title>
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link">
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-jQuery</a>
+                        <a href="#links" class="top-link">jQuery</a>
                     </div>
 
                     <div class="search-wrapper">
@@ -93,7 +67,7 @@ jQuery</a>
             id="id__jquery/main/methods"
             href="#jquery/main/methods"
         >
-            Методы
+            Основные методы
         </a>
     </li>
 
@@ -218,7 +192,11 @@ jQuery</a>
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="jquery/main/info"><h2>Информация</h2>
+                    <div id="content"><div id="jquery/main/info"><!-- TODO:
+<f-search>jQuery -> Информация</f-search>
+-->
+
+<h2>Информация</h2>
 
 <v-code lang="js" title="">
 jquery();            // функция
@@ -228,7 +206,11 @@ $(function() {
 	// анонимная функция
 });
 </v-code>
-</div><div id="jquery/main/ajax"><h2>AJAX</h2>
+</div><div id="jquery/main/ajax"><!-- TODO:
+<f-search>jQuery -> AJAX</f-search>
+-->
+
+<h2>AJAX</h2>
 
 <!------------------------------------------------------------->
 <h4>Короткая запись</h4>
@@ -278,7 +260,11 @@ const data = eval(data);
 const name = data[0];
 const price = data[1];
 </v-code>
-</div><div id="jquery/main/css"><h2>CSS</h2>
+</div><div id="jquery/main/css"><!-- TODO:
+<f-search>jQuery -> CSS</f-search>
+-->
+
+<h2>CSS</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>css();</h3>
@@ -307,10 +293,20 @@ $('#box').removeClass('newClass'); // удаление класса
 <v-code lang="js" title="">
 $('#box').toggleClass('open');
 </v-code>
-</div><div id="jquery/main/methods"><h2>Методы</h2>
+</div><div id="jquery/main/methods"><!-- TODO:
+<f-search>jQuery -> <u>text()</u>, <u>html()</u></f-search>
+<f-search>jQuery -> <u>before()</u>, <u>after()</u>, <u>prepend()</u> <u>append()</u></f-search>
+<f-search>jQuery -> <u>each()</u></f-search>
+<f-search>jQuery -> <u>size()</u>, <u>get()</u></f-search>
+<f-search>jQuery -> <u>clone()</u>, <u>remove()</u></f-search>
+<f-search>jQuery -> <u>width()</u>, <u>height()</u></f-search>
+<f-search>jQuery -> <u>offset()</u></f-search>
+-->
+
+<h2>Основные методы</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>text(); html();</h3>
+<h3>text(), html()</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 const text = $('#box').text();        // получить текст
@@ -320,7 +316,7 @@ $('#box').html('Измененный html');  // изменить html
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>before(); after(); prepend(); append();</h3>
+<h3>before(), after(), prepend(), append()</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 $('#box').before('content');  // добавляет контент до выбранного элемента
@@ -330,7 +326,7 @@ $('#box').append('content');  // добавляет контент внутрь 
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>each();</h3>
+<h3>each()</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 $('img').each(function() {
@@ -349,7 +345,7 @@ $('#box').each(function() {
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>size(); get();</h3>
+<h3>size(), get()</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 const a = $('div').size(); // возвращает кол-во элементов в выборке
@@ -358,7 +354,7 @@ const a = $('div').get(0); // позволяет получить доступ �
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>clone(); remove();</h3>
+<h3>clone(), remove()</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 const a = $('#box').clone(); // клонирует выбранный элемент
@@ -366,7 +362,7 @@ const a = $('#box').remove(); // удаляет элемент из DOM дере
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>width(); height();</h3>
+<h3>width(), height()</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 const width = $('#box').width();   // получить ширину
@@ -376,12 +372,16 @@ $('#box').height(100);           // задать высоту
 </v-code>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>offset();</h3>
+<h3>offset()</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
 $('.item').offset().top; // координаты объекта
 </v-code>
-</div><div id="jquery/main/attributes"><h2>Атрибуты. Object this</h2>
+</div><div id="jquery/main/attributes"><!-- TODO:
+<f-search>jQuery -> Атрибуты</f-search>
+-->
+
+<h2>Атрибуты. Object this</h2>
 
 <v-code lang="js" title="">
 const name   = this.name;
@@ -403,7 +403,11 @@ $('#box').removeAttr('title');   // удалить атрибут
 // Для получения и выставления таких опций как checked, selected, или disabled
 // используйте метод .prop()
 </v-code>
-</div><div id="jquery/main/input"><h2>Input</h2>
+</div><div id="jquery/main/input"><!-- TODO:
+<f-search>jQuery -> Input</f-search>
+-->
+
+<h2>Input</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>&lt;input type="text"&gt; и &lt;textarea&gt;&lt;/textarea&gt; (текстовое поле)</h3>
@@ -449,7 +453,11 @@ const field = '1';
 const checkbox = Boolean(Number(field));
 $('.checkbox').prop('checked', checkbox);
 </v-code>
-</div><div id="jquery/main/include"><h2>Подключение файлов</h2>
+</div><div id="jquery/main/include"><!-- TODO:
+<f-search>jQuery -> <u>load</u>, <u>get</u> (подключение файлов)</f-search>
+-->
+
+<h2>Подключение файлов</h2>
 
 <v-code lang="js" title="">
 // подключаемые файлы
@@ -467,7 +475,11 @@ $.get("include/header.html", {}, function(data) {
 	$('header').html(data);
 });
 </v-code>
-</div><div id="jquery/main/is"><h2>Псевдо-селекторы :visible и :hidden</h2>
+</div><div id="jquery/main/is"><!-- TODO:
+<f-search>jQuery -> <u>:visible</u>, <u>:hidden</u> (псевдо-селекторы)</f-search>
+-->
+
+<h2>Псевдо-селекторы :visible и :hidden</h2>
 
 <v-code lang="js" title="">
 if ($('#element').is(':visible')) {
@@ -477,7 +489,11 @@ if ($('#element').is(':hidden')) {
     // $element не виден
 }
 </v-code>
-</div><div id="jquery/main/animation"><h2>Анимация</h2>
+</div><div id="jquery/main/animation"><!-- TODO:
+<f-search>jQuery -> Анимация</f-search>
+-->
+
+<h2>Анимация</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>hide(); show();</h3>
@@ -562,7 +578,11 @@ outlineColor      (outline-color)       // цвет обводки
 // для цвета нужен плагин Color animation
 // нужно задать начальное значение цвета
 </v-code>
-</div><div id="jquery/main/get-element"><h2>Выборка элементов страницы</h2>
+</div><div id="jquery/main/get-element"><!-- TODO:
+<f-search>jQuery -> Выборка элементов страницы</f-search>
+-->
+
+<h2>Выборка элементов страницы</h2>
 
 <v-code lang="js" title="">
 $('p');     // по названию тега
@@ -631,7 +651,11 @@ $(document).ready(function(){
     $('#box').mouseenter(function(){ formOut = false; });
     $('.bg').click( function() { if (formOut) { $('.bg').fadeOut(500); } });
 });
-</v-code></div><div id="jquery/actions/handling-events"><h2>Обработчики событий</h2>
+</v-code></div><div id="jquery/actions/handling-events"><!-- TODO:
+<f-search>jQuery -> События -> Обработчики событий</f-search>
+-->
+
+<h2>Обработчики событий</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Полная загрузка страницы</h3>
@@ -696,7 +720,11 @@ $('button').on('click',function(){
 $('.container').on('click', '.item', function(){
 	console.log(this.id);
 });
-</v-code></div><div id="jquery/actions/hover-toggle"><h2>События hover() и toggle()</h2>
+</v-code></div><div id="jquery/actions/hover-toggle"><!-- TODO:
+<f-search>jQuery -> События -> События <u>hover()</u> и <u>toggle()</u></f-search>
+-->
+
+<h2>События hover() и toggle()</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>hover()</h3>
@@ -723,7 +751,11 @@ $('#formHide').toggle(function() {
 	$(this).text('Свернуть форму');
 });
 </v-code>
-</div><div id="jquery/actions/event-object"><h2>Объект события eventObject()</h2>
+</div><div id="jquery/actions/event-object"><!-- TODO:
+<f-search>jQuery -> События -> Объект события <u>eventObject()</u></f-search>
+-->
+
+<h2>Объект события eventObject()</h2>
 
 <v-code lang="js" title="">
 eventObject(); передает параметр с информацией

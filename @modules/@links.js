@@ -151,7 +151,7 @@ const ARR_LINKS = [
     { page: 'blockchain',              theme: 'primary',   title: search+'Blockchain' },
     { page: 'python',                  theme: 'secondary', title: search+'Python' },
     { page: 'php',                     theme: 'secondary', title: search+'PHP' },
-    { page: 'jquery',                  theme: 'secondary', title: search+'jQuery' },
+    { page: 'jquery',                  theme: 'secondary', title: 'jQuery' },
     { page: 'mysql',                   theme: 'secondary', title: 'mySql' },
     { page: 'gulp',                    theme: 'secondary', title: 'Gulp' },
     { page: 'parcel',                  theme: 'secondary', title: 'Parcel' },
