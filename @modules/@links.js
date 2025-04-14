@@ -153,7 +153,7 @@ const ARR_LINKS = [
     { page: 'php',                     theme: 'secondary', title: search+'PHP' },
     { page: 'jquery',                  theme: 'secondary', title: search+'jQuery' },
     { page: 'mysql',                   theme: 'secondary', title: 'mySql' },
-    { page: 'gulp',                    theme: 'secondary', title: search+'Gulp' },
+    { page: 'gulp',                    theme: 'secondary', title: 'Gulp' },
     { page: 'parcel',                  theme: 'secondary', title: 'Parcel' },
     { page: 'flow',                    theme: 'secondary', title: 'Flow' },
     { page: 'heroku',                  theme: 'secondary', title: 'Heroku' },

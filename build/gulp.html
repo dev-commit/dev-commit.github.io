@@ -2,20 +2,7 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-Gulp</title>
+            <title>Gulp</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
@@ -35,20 +22,7 @@ Gulp</title>
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link">
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-Gulp</a>
+                        <a href="#links" class="top-link">Gulp</a>
                     </div>
 
                     <div class="search-wrapper">
@@ -96,14 +70,24 @@ Gulp</a>
             gulpfile.js
         </a>
     </li>
+</ul><h4>🏷️ Прочее</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__gulp/other/other"
+            href="#gulp/other/other"
+        >
+            Примечания
+        </a>
+    </li>
 
     <li>
         <a
             class="menu-link"
-            id="id__gulp/main/other"
-            href="#gulp/main/other"
+            id="id__gulp/other/sublime-text"
+            href="#gulp/other/sublime-text"
         >
-            Примечания
+            Sublime Text
         </a>
     </li>
 </ul>
@@ -128,7 +112,11 @@ Gulp</a>
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="gulp/main/packages"><h2>NPM</h2>
+                    <div id="content"><div id="gulp/main/packages"><!-- TODO:
+<f-search>Gulp -> NPM-пакеты</f-search>
+-->
+
+<h2>NPM</h2>
 
 <v-code lang="bash" title="">
 npm i <em>gulp</em> -g                       # установить gulp глобально
@@ -156,7 +144,11 @@ npm i --save-dev <em>gulp-rename</em>         # конкатинация CSS
 <v-code lang="bash" title="">
 npm i -g <em>bower</em>                       # установка package manager bower глобально
 bower i <em>jquery</em>                       # установка библиотек с помощью Bower
-</v-code></div><div id="gulp/main/structure"><h2>Структура проекта</h2>
+</v-code></div><div id="gulp/main/structure"><!-- TODO:
+<f-search>Gulp -> Структура проекта</f-search>
+-->
+
+<h2>Структура проекта</h2>
 
 <v-code lang="bash" title="">
 &#10006; dist             # собранный проект в production 
@@ -171,14 +163,16 @@ bower i <em>jquery</em>                       # установка библио�
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>.bowerrc</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="">
-1. Создать файл .bowerrc
-- c помощью FileZilla
-- создав файл .bowerrc. (последняя точка уберется)
-2. В файле указать куда устанавливать пакеты с помощью bower
-3. Перезапустить командную строку
-</v-code>
-</div><div id="gulp/main/gulp4"><h2>Gulp 4</h2>
+<ol class="list-num">
+		<li>Создать файл .bowerrc (варианты: c помощью FileZilla или создав файл .bowerrc. (последняя точка уберется))</li>
+		<li>В файле указать куда устанавливать пакеты с помощью bower</li>
+		<li>Перезапустить командную строку</li>
+</ol>
+</div><div id="gulp/main/gulp4"><!-- TODO:
+<f-search>Gulp -> Gulp 4</f-search>
+-->
+
+<h2>Gulp 4</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Live Reload (index.html)</h3>
@@ -206,7 +200,11 @@ const dev = gulp.series(serve, watch);
 
 module.exports.dev = dev;
 </v-code>
-</div><div id="gulp/main/gulpfile"><h2>Gulpfile.js</h2>
+</div><div id="gulp/main/gulpfile"><!-- TODO:
+<f-search>Gulp -> Gulpfile</f-search>
+-->
+
+<h2>Gulpfile.js</h2>
 
 <u-link-wrapper>
 	<a href="/files/gulp/gulpfile1.js" download="" target="_blank">Скачать gulpfile.js v.1.0 (small)</a>
@@ -268,36 +266,25 @@ return gulp.src();
 <v-code lang="js" title="">
 gulp.task('default', ['watch']);
 gulp - запуск из консоли
-</v-code></div><div id="gulp/main/other"><h2>Примечания</h2>
+</v-code></div><div id="gulp/other/other"><h2>Примечания</h2>
+
+<ul class="list-point">
+    <li>В пути проекта (терминала) не должно быть русскоязычных папок. Многие gulp пакеты не понимают русскоязычных путей</li>
+    <li>Запуск командной строки в директории проекта (shift+пкм)</li>
+    <li>После изменения gulpfile.js, нужно перезапускать сервер "gulp watch". В командной строке ctrl+c 2 раза - выйти из watch</li>
+    <li>Файлы из папки sass с нижним подчеркиванием "_part.scss" не участвуют в компиляции, их можно добавить только через import в другой sass файл <u-code>@import "part"</u-code>, при этом можно не указывать нижнее подчеркивание и расширение</li>
+</ul>
 
 <v-code lang="js" title="">
-1. В пути проекта (терминала) не должно быть русскоязычных папок
-   Многие gulp пакеты не понимают русскоязычных путей
-2. Запуск командной строки в директории проекта (shift+пкм)
-3. После изменения gulpfile.js, нужно перезапускать сервер 
-   gulp watch
-4. В командной строке ctrl+c 2 раза - выйти из watch
-</v-code>	
-
-<v-code lang="js" title="">
-Файлы из папки sass с нижним подчеркиванием
-_part.scss не участвуют в компиляции, их можно добавить только через import в другой sass файл
-@import "part"
-при этом можно не указывать нижнее подчеркивание и расширение.
-</v-code>	
-
-<v-code lang="js" title="">
-При импорте css файла в sass не нужно писать расширение у css
-@import "app/libs/magnific-popup/dist/magnific-popup";
+// При импорте css файла в sass не нужно писать расширение у css
+@import "app/libs/magnific-popup/dist/magnific-popup"
 </v-code>
 
 <v-code lang="js" title="">
-gulp vinyl-ftp загрузка на сервер
+gulp vinyl-ftp // загрузка на сервер
 </v-code>
+</div><div id="gulp/other/sublime-text"><h2>Sublime Text</h2>
 
-<!------------------------------------------------------------->
-<h4>Sublime Text</h4>
-<!------------------------------------------------------------->
 <v-code lang="js" title="">
 CTRL+SHIFT+P (Package Control) -> Install Package -> SCSS
 </v-code>
