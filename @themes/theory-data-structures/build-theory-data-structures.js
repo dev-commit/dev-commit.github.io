@@ -16,7 +16,7 @@ ARR_MODULE = [
         themes: [
             [root+'structures/stack',        emoji.items+'Стек'],
             [root+'structures/queue',        emoji.items+'Очередь'],
-            [root+'structures/list-linked',  emoji.items+'Связанный список'],
+            [root+'structures/linked-list',  emoji.items+'Связанный список'],
         ]
     },
     {

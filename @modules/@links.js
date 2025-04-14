@@ -28,7 +28,7 @@ const search = `
 
 const ARR_LINKS = [
     { page: 'theory-algoritms',        theme: 'theory',    title: search+theory+'Алгоритмы' },
-    { page: 'theory-data-structures',  theme: 'theory',    title: search+theory+'Структуры данных' },
+    { page: 'theory-data-structures',  theme: 'theory',    title: theory+'Структуры данных' },
     { page: 'theory-design-patterns',  theme: 'theory',    title: search+theory+'Паттерны проектирования' },
     { page: 'theory-solid',            theme: 'theory',    title: theory+'SOLID' },
     { page: 'theory-refactoring',      theme: 'theory',    title: theory+'Рефакторинг' },
