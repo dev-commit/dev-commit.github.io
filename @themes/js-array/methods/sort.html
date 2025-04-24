@@ -5,6 +5,11 @@
 
 <h2>sort(), toSorted()</h2>
 
+<u-link-wrapper>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank">MDN: sort()</a>
+	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted" target="_blank">MDN: toSorted</a>
+</u-link-wrapper>
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>sort vs toSorted</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -28,28 +33,57 @@ console.log(newArr); // => ['a', 'b', 'c'];
 </v-two-code>
 
 
+
+
+
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>sort</h3>
+<h3>Правила</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<u-link-wrapper>
-	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank">MDN</a>
-</u-link-wrapper>
+<ul class="list-point">
+	<li>Сортировка по алфавиту, преобразуя элементы к строке</li>
+	<li>Дефолтная сортировка - по возрастанию</li>
+	<li>Можно задать функцию сравнения</li>
+</ul>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функция сравнения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <v-code lang="js" title="">
-// сортировка по алфавиту, преобразуя элементы к строке
-arr.<u-code>sort</u-code>();
-</v-code>
+const numbers = [10, 5, 200]
 
-<v-code lang="js" title="">
-// свой порядок сортировки (сортировка чисел)
-const arr = [1, 12, 2];
+// Сортировка по возрастанию (по-умолчанию)
+// => [5, 10, 200]
+const a1 = numbers.toSorted((a, b) => {
+	return a - b
+})
 
-arr.sort((a, b) => {
+// Сортировка по убыванию
+// => [200, 10, 5]
+const a2 = numbers.toSorted((a, b) => {
+	return b - a
+})
+
+// Добавление логики (сортировка по возрастанию)
+// => [5, 10, 200]
+const a3 = numbers.toSorted((a, b) => {
 	if (a > b) return 1;
 	if (a < b) return -1;
-});
-
-&lt;!-- arr.sort((a, b) =&gt; a - b); --&gt;
-
-console.log(arr);  // 1, 2, 15
+})
 </v-code>
+
+<h5>Возвращаемые значения из функции сравнения</h5>
+
+<table>
+	<tr>
+		<td>Значение < 0</td>
+		<td>"a" первый</td>
+	</tr>
+	<tr>
+		<td>Значение === 0</td>
+		<td>Ничего не изменится</td>
+	</tr>
+	<tr>
+		<td>Значение > 0</td>
+		<td>"b" первый</td>
+	</tr>
+</table>
