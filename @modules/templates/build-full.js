@@ -57,4 +57,12 @@ ARR_MODULE = [
             getLink(root, 'info', true),
         ]
     },
+    {
+        title: 'Элемент в 2 строки',
+        themes: [
+            ['',  'Тема разобрана плохо', false, 'check'],
+            ['',  'Тема разобрана хорошо', false, 'done'],
+            ['', 'Элемент'+getItemComment('Комментарий')],
+        ]
+    },
 ]

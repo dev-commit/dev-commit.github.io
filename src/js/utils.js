@@ -16,6 +16,10 @@ emoji = {
 // getLink(root, 'structure'), // => main/structure
 // getLink(root, 'algoritm'),  // => main/algoritm
 
+function getItemComment(item) {
+    return `<br><u-code-comment>(${item})</u-code-comment>`
+}
+
 function getLink(root, item, updated = false) {
     function checkUp() {
         if (updated) {

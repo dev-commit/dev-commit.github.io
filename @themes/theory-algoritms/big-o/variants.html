@@ -1,39 +1,105 @@
+<!-- TODO:
+<f-search>Algorithms -> Big-O -> Варианты</f-search>
+-->
+
 <h2>Варианты</h2>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+ 
+<h5><u-code-text>O(0)</u-code-text></h5>
 <ul class="list-point">
-    <li><u-code-text>O(0)</u-code-text> - ничего не происходит</li>
-
-    <hr>
-    <li><u-code-text>O(1)</u-code-text> - постоянная величина (константное время)</li>
-    <li>Независимо от кол-ва входных данных, требуется 1 операция</li>
-    <li><u>Пример</u>: определить чётное или нечетное число</li>
-
-    <hr>
-    <li><u-code-text>O(log N)</u-code-text> - логарифмическая сложность (бинарный поиск)</li>
-    <li>Алгоритм "разделяй и властвуй": есть телефонный справочник, в котором нужно найти телефон. Открываем справочник посередине, отбрасываем половину и т.д.</li>
-    <li>Всегда будет меньше чем половина <u>N</u></li>
-
-    <hr>
-    <li><u-code-text>O(N)</u-code-text> - линейная (прямо пропорциональна) сложность</li>
-    <li>Зависит от количества передаваемых бит, н-р: 4 элемента - 4 операции</li>
-    <li><u>Пример</u>: перебор массива forEach</li>
-
-    <hr>
-    <li><u-code-text>O(N * log N)</u-code-text></li>
-    <li>Работают большинство алгоритмов сортировки: heap-sort, merge-sort, метод sort JavaScript</li>
-
-    <hr>
-    <li><u-code-text>O(N<sup>2</sup>)</u-code-text> - O(N * N) квадратичная сложность</li>
-    <li>Вложенные действия - умножение</li>
-    <li><u>Пример</u>: цикл в цикле</li>
-
-    <hr>
-    <li><u-code-text>O(2<sup>N</sup>)</u-code-text></li>
-
-    <hr>
-    <li><u-code-text>O(N!)</u-code-text></li>
+    <li>Ничего не происходит</li>
 </ul>
 
+<h5><u-code-text>O(1)</u-code-text></h5>
+<ul class="list-point">
+    <li>Постоянная величина (константное время)</li>
+    <li>Независимо от кол-ва входных данных, требуется 1 операция</li>
+    <li><u>Пример</u>: определить чётное или нечетное число</li>
+</ul>
+<v-details title="Сложение чисел">
+<v-code lang="js" title="">
+function sum(a, b) {
+    return a + b;
+}
+</v-code>
+</v-details>
+
+<h5><u-code-text>O(log N)</u-code-text></h5>
+<ul class="list-point">
+    <li>Логарифмическая сложность (бинарный поиск)</li>
+    <li>Алгоритм "разделяй и властвуй": есть телефонный справочник, в котором нужно найти телефон. Открываем справочник посередине, отбрасываем половину и т.д.</li>
+    <li>Всегда будет меньше чем половина <u>N</u></li>
+</ul>
+
+<h5><u-code-text>O(N)</u-code-text></h5>
+<ul class="list-point">
+    <li>Линейная (прямо пропорциональна) сложность</li>
+    <li>Зависит от количества передаваемых бит, н-р: 4 элемента - 4 операции</li>
+    <li><u>Пример</u>: перебор массива forEach</li>
+</ul>
+
+<v-details title="Рекурсия">
+<v-code lang="js" title="">
+function pow(x, n) {
+    if (n != 1) {
+        return x * pow(x, n - 1);
+    } else {
+        return x;
+    }
+}
+</v-code>
+</v-details>
+<v-details title="Цикл для поиска min/max">
+<v-two-code type="js;js" comment=";">
+<template v-slot:first>
+let min = 1;
+let max = 10;
+for(let i=0; i<=100; i++) {
+    if (i < min) min = i;
+    if (i > max) max = i;
+}
+</template>
+<template v-slot:last>
+let min = 1;
+let max = 10;
+for(let i=0; i<=100; i++) {
+    if (i < min) min = i;
+}
+for(let i=0; i<=100; i++) {
+    if (i > max) max = i;
+}
+</template>
+</v-two-code>
+</v-details>
+
+<h5><u-code-text>O(N * log N)</u-code-text></h5>
+<ul class="list-point">
+    <li>Работают большинство алгоритмов сортировки: heap-sort, merge-sort, метод sort JavaScript</li>
+</ul>
+
+<h5><u-code-text>O(N<sup>2</sup>) - O(N * N)</u-code-text></h5>
+<ul class="list-point">
+    <li>Квадратичная сложность</li>
+    <li>Вложенные действия - умножение</li>
+    <li><u>Пример</u>: цикл в цикле</li>
+</ul>
+
+<h5><u-code-text>O(2<sup>N</sup>)</u-code-text></h5>
+<ul class="list-point">
+    <li>-</li>
+</ul>
+
+<h5><u-code-text>O(N!)</u-code-text></h5>
+<ul class="list-point">
+    <li>-</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Схема</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <img src="/@img/algoritms/big-o-complexity-chart.png" width="550px">
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
