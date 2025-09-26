@@ -1,7 +1,6 @@
 # TODO
 
 ## @modules\@links.js
-
 ```js
 const ARR_LINKS = [
   {
@@ -11,11 +10,11 @@ const ARR_LINKS = [
   },
 ]
 ```
-
 - Добавить поле prefix и вынести "theory" и т.д.
 - Пока в title страницы попадает HTML код
 
 ## ⭐️ TODO
+- Изменить Bash-скрипты под MacOS
 - Добавить `f-search` ко всем блокам
 - `v-sandbox` чекнуть `needcheck`
 
@@ -25,7 +24,7 @@ const ARR_LINKS = [
 https://dev-commit.github.io/pages/wiki#wiki/main/symbols
 Нужно формировать не только базовые pages, но и воложенные страницы
 
-### ⭐️ FIXME (временно решено)
+### ⭐️ FIXME (временное решено)
 - Search. Если результат поиска выпадает на текущую страницу, то URL меняется, но контент не меняется. Временно решено перезагрузкой страницы
 - Мобильная версия. При вводе в поиск, скрывается левое меню. Скорее всего связано с "window.addEventListener('resize')" из "src\vue.js\build.js". При наборе текса в input, появлятся клавиатура, которая может вызвать resize. Временно решено закомментированным кодом с "window.addEventListener('resize')"
 
