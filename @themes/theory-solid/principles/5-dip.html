@@ -180,3 +180,74 @@ Decoupling
     &#9776; Dependency Invertion
         &#8226; Inderfaces
 </v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Применение в React</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<ul>
+    <li>Мы определили интерфейс функции логгера, создали несколько конкретных реализаций логгера, которые соответствуют определенному интерфейсу. Компонент <u>UserService</u> теперь принимает логгер через пропс, что позволяет легко менять реализацию логгера, не изменяю при этом код компонента. Благодаря чему, мы можем использовать <u>UserService</u> с любым логгером, который реализует интерфейс <u>ILogger</u></li>
+</ul>
+<v-code lang="js border" title="">
+const ConsoleLogger: ILogger = {
+  log: (message: string) =&gt; {
+    console.log(`Console: ${message}`);
+  },
+};
+const FileLogger: ILogger = {
+  log: (message: string) =&gt; {
+    // Логика записи в файл
+    console.log(`File: ${message}`);
+  },
+};
+
+type UserServiceProps = {
+  logger: ILogger;
+};
+const UserService: React.FC&lt;UserServiceProps&gt; = ({ logger }) =&gt; {
+  const createUser = (name: string) =&gt; {
+    // Логика создания пользователя
+    logger.log(`User ${name} created`);
+  };
+  return (
+    &lt;div&gt;
+      &lt;button onClick={() =&gt; createUser('John Doe')}&gt;Create User&lt;/button&gt;
+    &lt;/div&gt;
+  );
+};
+</v-code>
+
+<v-code lang="js border" title="">
+// Пример использования
+&lt;UserService logger={ConsoleLogger} /&gt;
+&lt;UserService logger={FileLogger} /&gt;
+</v-code>
+
+</template><template v-slot:last>
+<ul>
+    <li>Мы имеем простой компонент с кнопкой, по нажатию на которую происходит логирование. В данном примере высокоуровневым компонентом у нас является кнопка, а низкоуровневым — функция логгер <u>ConsoleLogger</u> ее нажатия. Как мы видим кнопка напрямую зависит от реализации данного логгера, а согласно принципу, она должна зависеть от абстракции. Проблема в том, что если придется использовать другой способ логирования, то придуется изменять код компонента</li>
+</ul>
+<v-code lang="js" title="">
+const ConsoleLogger = {
+  log: (message: string) =&gt; {
+    console.log(`Log: ${message}`);
+  }
+};
+
+const UserService = () =&gt; {
+  // Жесткая зависимость от конкретного логгера
+  const createUser = (name: string) =&gt; {
+    ConsoleLogger.log(`User ${name} created`);
+  };
+  return (
+    &lt;div&gt;
+      &lt;button onClick={() =&gt; createUser('John Doe')}&gt;Create User&lt;/button&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default UserService;
+</v-code>
+</template></v-two-border>

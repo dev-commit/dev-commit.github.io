@@ -140,5 +140,38 @@ areaCalculator.calc(); // => ["Draw Square", "Draw Circle"]
 
 </template></v-two-border>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Применение в React</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Пример с кнопками из "The Open Closed Principle": каждый вид кнопки, который расширил базовую, может использоваться вместо базовой без каких-либо изменений, соответственно выполняется прицип LSP.</li>
+</ul>
 
+<v-details title="Пример с кнопкой из 'The Open Closed Principle'">
+<v-code lang="js" title="">
+const Button = ({onClick, children, className = ''}) =&gt; {
+  return (
+    &lt;button className={`base-button ${className}`} onClick={onClick}&gt;
+      {children}
+    &lt;/button&gt;
+  );
+};
 
+const PrimaryButton = ({onClick, children}) =&gt; {
+  return (
+    &lt;Button onClick={onClick} className="primary-button"&gt;
+      {children}
+    &lt;/Button&gt;
+  );
+};
+
+const IconButton = ({onClick, icon, children}) =&gt; {
+  return (
+    &lt;Button onClick={onClick} className="icon-button"&gt;
+      &lt;span className="icon"&gt;{icon}&lt;/span&gt;
+      {children}
+    &lt;/Button&gt;
+  );
+};
+</v-code>
+</v-details>

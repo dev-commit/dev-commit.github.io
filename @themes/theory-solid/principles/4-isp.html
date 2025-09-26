@@ -159,3 +159,64 @@ class PizzaOnlyOrderService extends OrderService {
 }
 </v-code>
 </template></v-two-border>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Применение в React</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<ul>
+    <li>В компонент UserName необходимо передавать только поле имени, а не весь объект</li>
+</ul>
+<v-code lang="js border" title="">
+type UserNameProps = {
+  userName: string;
+}
+const UserName: React.FC&lt;UserNameProps&gt; = ({ userName }) =&gt; (
+  &lt;div&gt;
+    {userName}
+  &lt;/div&gt;
+)
+
+const UsersList: React.FC&lt;UsersListProps&gt; = ({ users }) =&gt; (
+  &lt;div&gt;
+    {users.map(user =&gt; &lt;UserName key={user.id} userName={user.name} /&gt;)}
+  &lt;/div&gt;
+)
+</v-code>
+
+</template><template v-slot:last>
+<ul>
+    <li><b>Нарушение</b>: передавать в компонент <u>UserName</u> огромный объект, а использовать только одно его поле</li>
+</ul>
+<v-code lang="js" title="">
+interface IUser {
+  id: string;
+  name: string;
+  age: number;
+  gender: 'male' | 'female';
+  city?: string;
+}
+
+type UserNameProps = {
+  user: IUser;
+};
+const UserName: React.FC&lt;UserNameProps&gt; = ({ user }) =&gt; {
+  return &lt;div&gt;{user.name}&lt;/div&gt;;
+};
+
+type UsersListProps = {
+  users: IUser[];
+};
+const UsersList: React.FC&lt;UsersListProps&gt; = ({ users }) =&gt; {
+  return (
+    &lt;div&gt;
+      {users.map((user) =&gt; (
+        &lt;UserName key={user.id} user={user} /&gt;
+      ))}
+    &lt;/div&gt;
+  );
+};
+</v-code>
+</template></v-two-border>

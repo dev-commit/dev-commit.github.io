@@ -117,4 +117,70 @@ class HybridVehicle extends Vehicle {
 </v-code>
 </template></v-two-border>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Применение в React</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
+<v-details title="Пример с кнопкой">
+<ul class="list-point">
+    <li>На примере выше мы имеем абстрактную базовую кнопку, которую мы не можем изменять, но можем расширять, за счет передачи таких значений как <u>className</u>, <u>onClick</u> и <u>children</u></li>
+</ul>
+
+<v-code lang="js" title="">
+const Button = ({onClick, children, className = ''}) =&gt; {
+  return (
+    &lt;button className={`base-button ${className}`} onClick={onClick}&gt;
+      {children}
+    &lt;/button&gt;
+  );
+};
+
+const PrimaryButton = ({onClick, children}) =&gt; {
+  return (
+    &lt;Button onClick={onClick} className="primary-button"&gt;
+      {children}
+    &lt;/Button&gt;
+  );
+};
+
+const IconButton = ({onClick, icon, children}) =&gt; {
+  return (
+    &lt;Button onClick={onClick} className="icon-button"&gt;
+      &lt;span className="icon"&gt;{icon}&lt;/span&gt;
+      {children}
+    &lt;/Button&gt;
+  );
+};
+</v-code>
+</v-details>
+
+<v-details title="Пример с HOC">
+<v-code lang="js" title="">
+// Базовый компонент Button
+const Button = ({ children, onClick, ...props }) =&gt; {
+  return (
+    &lt;button onClick={onClick} {...props}&gt;
+      {children}
+    &lt;/button&gt;
+  );
+};
+
+// Higher-Order Component для добавления логирования
+const withLogging = WrappedComponent =&gt; {
+  return function LoggingComponent(props) {
+    const handleClick = () =&gt; {
+      console.log(`Button clicked: ${props.children}`);
+      
+      if (props.onClick) {
+        props.onClick();
+      }
+    };
+
+    return &lt;WrappedComponent {...props} onClick={handleClick} /&gt;;
+  };
+};
+
+// Создание компонента с логированием
+const LoggingButton = withLogging(Button);
+</v-code>
+</v-details>
