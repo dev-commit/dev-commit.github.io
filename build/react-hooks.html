@@ -260,6 +260,16 @@
             <u-menu-outline>usePrevious</u-menu-outline>
         </a>
     </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-hooks/custom-hooks/useFirstMountState"
+            href="#react-hooks/custom-hooks/useFirstMountState"
+        >
+            <u-menu-outline>useFirstMountState</u-menu-outline>
+        </a>
+    </li>
 </ul><h4>🏷️ Прочее</h4><ul>
     <li>
         <a
@@ -2251,6 +2261,46 @@ const App = () => {
 </v-code>
 
 
+</div><div id="react-hooks/custom-hooks/useFirstMountState"><!-- TODO:
+<f-search>React -> Hooks Custom -> <u>useFirstMountState()</u></f-search>
+-->
+
+<h2>useFirstMountState()</h2>
+
+<!------------------------------------------------------------->
+<h4>Реализация</h4>
+<!------------------------------------------------------------->
+<v-code lang="js border" title="">
+import React, { useRef, useEffect } from 'react';
+
+const useFirstMountState = (): boolean => {
+  const isFirst = useRef<boolean>(true);
+
+  if (isFirst.current) {
+    isFirst.current = false;
+    return true;
+  }
+
+  return false;
+};
+
+const App = () => {
+  const isFirstMount = useFirstMountState();
+
+  useEffect(() => {
+    if (!isFirstMount) {
+      //
+    }
+  }, [isFirstMount]);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+//
+</v-code>
 </div><div id="react-hooks/other/questions"><h2>Вопросы</h2>
 
 <ul class="list-comment">

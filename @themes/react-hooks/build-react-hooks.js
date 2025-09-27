@@ -39,6 +39,7 @@ ARR_MODULE = [
             [root+'custom-hooks/useInput',           setTheme(5, ['useInput'])],
             [root+'custom-hooks/useLogger',          setTheme(5, ['useLogger'])],
             [root+'custom-hooks/usePrevious',        setTheme(5, ['usePrevious'])],
+            [root+'custom-hooks/useFirstMountState', setTheme(5, ['useFirstMountState'])],
         ]
     },
     {
