@@ -9,6 +9,7 @@ ARR_MODULE = [
             getLink(root, 'install'),
             [root+'main/ssr', setTheme(1, ['SSR'])],
             [root+'main/ssg', setTheme(1, ['SSG'])],
+            [root+'main/isr', setTheme(1, ['ISR'])],
             [root+'main/cdn', setTheme(1, ['CDN'])],
             [root+'main/lazy-loading', 'Lazy Loading'],
         ]

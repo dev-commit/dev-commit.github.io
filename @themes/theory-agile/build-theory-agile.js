@@ -14,6 +14,7 @@ ARR_MODULE = [
     {
         title: 'Agile',
         themes: [
+            [root+'agile/info',         emoji.theory+'Информация'],
             [root+'agile/tasks',        emoji.items+'Задачи и Backlog'],
             [root+'agile/sprint',       emoji.items+'Спринты'],
             [root+'agile/story-points', emoji.items+'Story Points'],

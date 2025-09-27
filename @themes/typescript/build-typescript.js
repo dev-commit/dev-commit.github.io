@@ -41,6 +41,8 @@ ARR_MODULE = [
             [root+'generics/object',       'Дженерик для объекта'],
             [root+'generics/inheritance',  'Наследование'],
             [root+'generics/interface',    'Дженерик в interface'],
+
+            [root+'generics/StringAndOptions', setTheme(1, ['StringAndOptions'])],
         ]
     },
     {

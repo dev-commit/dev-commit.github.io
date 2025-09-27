@@ -1,0 +1,90 @@
+<!-- TODO:
+<f-search>Next.js -> ISR</f-search>
+-->
+
+<h2>ISR</h2>
+
+<u-link-wrapper>
+    <v-link url="https://nextjs.org/docs/pages/guides/incremental-static-regeneration" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Incremental Static Regeneration (ISR)</u-text-define> - технология, позволяющая обновлять статически сгенерированные страницы после создания сайта без необходимости перестраивать всё приложение, что сочетает скорость статических сайтов с динамическим обновлением контента. Это достигается за счёт фонового обновления страниц с заданным интервалом или по требованию, что делает контент свежим, а сайт — производительным и масштабируемым, особенно для сайтов с частым изменением данных, например, новостных платформ или интернет-магазинов. </li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>ISR позволяет</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Обновление статического контента без перестройки всего сайта</li>
+    <li>Снижение нагрузки на сервер за счет обслуживания предварительно отрисованных статических страниц для большинства запросов.</li>
+    <li>Обеспечить cache-control автоматическое добавление на страницы соответствующих заголовков.</li>
+    <li>Обработка больших объемов контента на страницах без длительного next build времени</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-two><template v-slot:first>
+<v-code lang="js" title="">
+import type { GetStaticPaths, GetStaticProps } from 'next'
+ 
+interface Post {
+  id: string
+  title: string
+  content: string
+}
+ 
+interface Props {
+  post: Post
+}
+ 
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = await fetch('https://api.vercel.app/blog').then((res) =>
+    res.json()
+  )
+  const paths = posts.map((post: Post) => ({
+    params: { id: String(post.id) },
+  }))
+ 
+  return { paths, fallback: 'blocking' }
+}
+ 
+export const getStaticProps: GetStaticProps<Props> = async ({
+  params,
+}: {
+  params: { id: string }
+}) => {
+  const post = await fetch(`https://api.vercel.app/blog/${params.id}`).then(
+    (res) => res.json()
+  )
+ 
+  return {
+    props: { post },
+    // Next.js will invalidate the cache when a
+    // request comes in, at most once every 60 seconds.
+    revalidate: 60,
+  }
+}
+ 
+export default function Page({ post }: Props) {
+  return (
+    &lt;main&gt;
+      &lt;h1&gt;{post.title}&lt;/h1&gt;
+      &lt;p&gt;{post.content}&lt;/p&gt;
+    &lt;/main&gt;
+  )
+}
+</v-code>
+</template><template v-slot:last>
+<b>Как работает пример:</b>
+<ol class="list-num">
+    <li>В течение этого времени next build генерируются все известные записи в блоге.</li>
+    <li>Все запросы к этим страницам (например, /blog/1) кэшируются и выполняются мгновенно.</li>
+    <li>По истечении 60 секунд следующий запрос по-прежнему вернет кэшированную (теперь устаревшую) страницу.</li>
+    <li>Кэш становится недействительным, и в фоновом режиме начинается генерация новой версии страницы.</li>
+    <li>После успешной генерации следующий запрос вернет обновленную страницу и кэширует ее для последующих запросов.</li>
+    <li>Если /blog/26 запись запрошена и существует, страница будет сгенерирована по запросу. Это поведение можно изменить, используя другое резервное значение. Однако, если запись не существует, возвращается ошибка 404.</li>
+</ol>
+</template></v-two>

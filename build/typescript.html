@@ -276,6 +276,16 @@
             Дженерик в interface
         </a>
     </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/generics/StringAndOptions"
+            href="#typescript/generics/StringAndOptions"
+        >
+            <u-menu>StringAndOptions</u-menu>
+        </a>
+    </li>
 </ul><h4>🏷️ Interface</h4><ul>
     <li>
         <a
@@ -1492,6 +1502,20 @@ foo({
     // Так тоже корректно
     name: 32,
 });
+</v-code>
+</div><div id="typescript/generics/StringAndOptions"><!-- TODO:
+<f-search>TypeScript -> Generics -> <u>StringAndOptions</u></f-search>
+-->
+
+<h2>Дженерик StringAndOptions</h2>
+
+<v-code lang="js" title="">
+export type BadgeProps = {
+	// Некорректно (будет приводить к строке)
+	iconPosition?: 'left' | 'right' | string;
+	// Корректно
+	iconPosition?: StringAndOptions<'left' | 'right'>;
+}
 </v-code>
 </div><div id="typescript/interface/main"><h2>Основы</h2>
 

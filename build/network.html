@@ -645,6 +645,24 @@ navigator.mediaDevices.getUserMedia(constraints)
     <li><a href="https://learn.javascript.ru/server-sent-events" target="_blank" class="link">https://learn.javascript.ru/server-sent-events</a></li>
     <li>Подписаться и слушать сервер</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>WebSocket vs Server-Sent Events</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<table class="max-width-700">
+    <tr>
+        <th>WebSocket</th>
+        <th>SSE</th>
+    </tr>
+    <tr>
+        <td>WebSocket предоставляет полноценную двустороннюю связь между клиентом и сервером по одному постоянному TCP-соединению</td>
+        <td>SSE — однонаправленную связь, позволяющую серверу отправлять данные клиенту по одному HTTP-соединению</td>
+    </tr>
+    <tr>
+        <td>WebSocket лучше подходит для интерактивных приложений вроде чатов или игр, где необходим обмен данными в обе стороны</td>
+        <td>SSE идеален для получения уведомлений или обновлений с сервера, например, новостных лент или финансовых котировок</td>
+    </tr>
+</table>
 </div><div id="network/tech/cors"><!-- TODO:
 <f-search>Network -> CORS</f-search>
 -->
@@ -669,31 +687,44 @@ navigator.mediaDevices.getUserMedia(constraints)
 	<li>3. Чтобы JavaScript мог прочитать HTTP-заголовок ответа, сервер должен указать его имя в <u>Access-Control-Expose-Headers</u></li>
 </ol>
 
-<!------------------------------------------------------------->
-<h4>Простой метод GET, POST, HEAD</h4>
-<!------------------------------------------------------------->
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Основные заголовки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><em>Access-Control-Allow-Origin</em>, <em>Access-Control-Allow-Methods</em> и <em>Access-Control-Allow-Headers</em> на стороне сервера</li>
+	<li><em>Origin</em>, <em>Access-Control-Request-Method</em>, <em>Access-Control-Request-Headers</em> на стороне клиента во время предварительного запроса (OPTIONS)</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-details title="Простой метод GET, POST, HEAD">
 <v-code lang="js" title="Запрос с домена http://test1.ru">
 const xhr = new XMLHttpRequest();
 xhr.open('GET', 'http://test2.ru/script.php', true);
 xhr.onload = function() {
-    console.log(this.responseText);
+  console.log(this.responseText);
 }
 xhr.onerror = function() {
-    console.log(this.status);
+  console.log(this.status);
 }
 xhr.send();
 </v-code>
 
 <v-code lang="php" title="Сервер http://test2.ru">
 &lt;?php
-    header('<u-code>Access-Control-Allow-Origin</u-code>: http://test1.ru'); // разрешить доступ домену http://test1.ru
-    header('Access-Control-Allow-Origin: *');               // разрешить доступ любому домену
+	// // разрешить доступ домену http://test1.ru
+	header('<u-code>Access-Control-Allow-Origin</u-code>: http://test1.ru');
+	// разрешить доступ любому домену
+	header('Access-Control-Allow-Origin: *');
 ?&gt;
 </v-code>
+</v-details>
 
-<!------------------------------------------------------------->
-<h4>Чтение json файла</h4>
-<!------------------------------------------------------------->
+<v-details title="Чтение JSON файла">
 <v-code lang="html" title=".htaccess">
 &lt;IfModule mod_rewrite.c&gt;
 	Header add Access-Control-Allow-Origin "*"
@@ -701,10 +732,9 @@ xhr.send();
 	AddType application/json .json
 &lt;/IfModule&gt;
 </v-code>
+</v-details>
 
-<!------------------------------------------------------------->
-<h4>Передавать куки и HTTP-авторизацию</h4>
-<!------------------------------------------------------------->
+<v-details title="Передавать куки и HTTP-авторизацию">
 <v-code lang="js" title="">
 xhr.withCredentials = true;
 </v-code>
@@ -715,6 +745,7 @@ xhr.withCredentials = true;
 	header('<u-code>Access-Control-Allow-Credentials</u-code>: true');
 ?&gt;
 </v-code>
+</v-details>
 </div><div id="network/tech/comet"><!-- TODO:
 <f-search>Network -> Comet</f-search>
 -->
@@ -1100,6 +1131,49 @@ function clientFunction(arg) {
     <li><u-text-define>SQL инъекции</u-text-define> - один из самых доступных способов взлома сайта</li>
     <li>Суть таких инъекций - внедрение в данные (передаваемые через GET, POST запросы или значения Cookie) произвольного SQL кода. Если сайт уязвим и выполняет такие инъекции, то по сути есть возможность творить с БД (чаще всего это MySQL) что угодно</li>
 </ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Способы борьбы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Parametrised Queries (Параметризованные запросы)</u-text-define> - разделяют SQL-код и пользовательские данные, передавая их отдельно. Это не позволяет злоумышленнику внедрить вредоносные SQL-команды в запрос, так как данные всегда обрабатываются как значения, а не как исполняемый код.</li>
+    <li>Фильтрует SQL инъекции</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Принцип работы</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Разделение кода и данных: Вместо того, чтобы напрямую вставлять пользовательский ввод в SQL-строку, используются заполнители (плейсхолдеры). </li>
+    <li>Отдельная передача данных: Пользовательские данные передаются в базу данных отдельно от самого SQL-запроса, например, через объект PreparedStatement в Java. </li>
+    <li>Гарантия безопасности: База данных обрабатывает эти данные как значения, а не как часть SQL-кода. Даже если злоумышленник попытается ввести SQL-команды, они будут восприняты как обычные строки, а не как инструкции для базы данных. </li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Пример</h4>
+<!------------------------------------------------------------->
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<v-code lang="js" title="">
+// С параметризацией (безопасно)
+// ? — это заполнитель
+SELECT * FROM users WHERE login = ?
+</v-code>
+<ul>
+    <li>В этом случае, при попытке ввода ' OR '1'='1', база данных обработает это как строку для поиска пользователя с логином ' OR '1'='1', а не как SQL-код. </li>
+</ul>
+
+</v-code>
+</template><template v-slot:last>
+<v-code lang="js" title="">
+// Без параметризации (уязвимо)
+SELECT * FROM users WHERE login = ' + username + ';
+</v-code>
+<ul>
+    <li>Если username будет ' OR '1'='1, запрос превратится в SELECT * FROM users WHERE login = '' OR '1'='1', что позволит получить все записи из таблицы. </li>
+    <li>В этом случае, при попытке ввода ' OR '1'='1', база данных обработает это как строку для поиска пользователя с логином ' OR '1'='1', а не как SQL-код. </li>
+</ul>
+
+</template></v-two-border>
 </div></div>
                 </div>
             </div>
