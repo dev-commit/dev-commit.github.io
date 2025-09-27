@@ -19,6 +19,7 @@ ARR_MODULE = [
             [root+'methods/split', setTheme(1, ['split']) + ' + ReqExp'],
             [root+'methods/substring', setTheme(1, ['substring', 'substr', 'slice'])],
             [root+'methods/charAt', setTheme(1, ['charAt', 'charCodeAt'])],
+            [root+'methods/startsWith', setTheme(1, ['startsWith'])],
         ]
     },
     {

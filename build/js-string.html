@@ -120,6 +120,16 @@
             <u-menu>charAt</u-menu> <u-menu>charCodeAt</u-menu>
         </a>
     </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/methods/startsWith"
+            href="#js-string/methods/startsWith"
+        >
+            <u-menu>startsWith</u-menu>
+        </a>
+    </li>
 </ul><h4>🏷️ ReqExp</h4><ul>
     <li>
         <a
@@ -338,6 +348,38 @@ const root = <u-code>charCodeAt</u-code>(2);
 <v-code lang="js" title="">
 alert( "".charAt(0) ); // пустая строка
 alert( "" [0] );       // undefined
+</v-code>
+</div><div id="js-string/methods/startsWith"><!-- TODO:
+<f-search>JS -> String -> <u>startsWith()</u></f-search>
+-->
+
+<h2>startsWith()</h2>
+
+<u-link-wrapper>
+    <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith" target="_blank">MDN</a>
+</u-link-wrapper>
+
+
+<div class="v-method-wrapper">
+    <v-method before="str" method="startsWith" after="" arg="(searchString, position)">
+    Метод помогает определить, начинается ли строка с символов указанных в скобках, возвращая, соответственно, true или false
+    </v-method>
+
+	<v-method-arg arg="searchString*">символы, искомые в начале данной строки</v-method-arg>
+	<v-method-arg arg="position">позиция в строке, с которой начинать поиск searchString; по умолчанию 0</v-method-arg>
+
+	<v-method-return>true или false</v-method-return>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const str = "Быть или не быть, вот в чём вопрос.";
+
+console.log(str.startsWith("Быть")); // true
+console.log(str.startsWith("не быть")); // false
+console.log(str.startsWith("не быть", 9)); // true
 </v-code>
 </div><div id="js-string/reqexp/replace"><!-- TODO:
 <f-search>JS -> String -> ReqExp -> <u>replace()</u></f-search>
