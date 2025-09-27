@@ -37,6 +37,7 @@ const ARR_LINKS = [
     { page: 'theory-agile',            theme: 'theory',    title: theory+'Agile | Jira' },
     { page: 'theory-architecture',     theme: 'theory',    title: theory+'Архитектура' },
     { page: 'theory-programming',      theme: 'theory',    title: theory+'Программирование' },
+    { page: 'ai',                      theme: 'tech',      title: 'AI' },
     [],
 
     { page: 'event-loop',              theme: 'accent',    title: search+accent+'Event Loop' },

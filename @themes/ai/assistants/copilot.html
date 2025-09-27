@@ -1,0 +1,111 @@
+<!-- TODO:
+<f-search>AI -> Assistants -> GitHub Copilot</f-search>
+-->
+
+<h2>GitHub Copilot</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ссылки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h5>Продукты</h5>
+<u-link-wrapper>
+    <a href="https://github.com/features/copilot" target="_blank">https://github.com/features/copilot - Copilot</a>
+    <a href="https://githubnext.com/projects/copilot-workspace/" target="_blank">https://githubnext.com/projects/copilot-workspace/ - Copilot Workspace</a>
+</u-link-wrapper>
+
+<h5>Документация</h5>
+<u-link-wrapper>
+    <a href="https://docs.github.com/ru/copilot/quickstart" target="_blank">https://docs.github.com/ru/copilot/quickstart - Документация от GitHub</a>
+    <a href="https://code.visualstudio.com/docs/copilot/overview" target="_blank">https://code.visualstudio.com/docs/copilot/overview - Документация от VSCode</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функционал</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Текущий файл: автодополнение кода, объяснение, fix кода и т.д.</li>
+    <li>Генерация тестов</li>
+    <li>Создание файлов и разворачивание проекта</li>
+    <li>Указание контекста</li>
+    <li>Справка по API библиотек</li>
+    <li>Вопросы по VSCode</li>
+    <li>Работа с PR GitHub</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Элементы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<v-details title="Панель: 'Copilot Chat'">
+<h5>Информация</h5>
+<ul class="list-point">
+    <li>Может работать только с 1 файлом</li>
+</ul>
+
+<h5>Команды</h5>
+<ul class="list-point">
+    <li><u-code-text>@workspace <i>ТекстЗапроса</i></u-code-text> - можно задать вопрос по всему проекту</li>
+    <li><u-code-text>@workspace /new <i>ТекстЗапроса</i></u-code-text> - н-р: "Создай новый проект на React". Появляется кнопка "Create workspace...", после нажатия на кнопку создается директория и файлы</li>
+    <li><u-code-text>@vscode <i>ТекстЗапроса</i></u-code-text> - можно задать вопрос по VSCode. Н-р: “Как изменить тему?”</li>
+    <li><u-code-text>@vscode /search <i>ТекстЗапроса</i></u-code-text> - Умный поиск: Copilot добавляет Regex в поиск. Н-р: “js files without imports”</li>
+</ul>
+</v-details>
+
+<!------------------------------------------------------------->
+<v-details title="Панель 'Copilot Edits'">
+<h5>Информация</h5>
+<ul class="list-point">
+    <li>Может создавать файлы</li>
+    <li>Можно работать с несколькими файлами</li>
+    <li>Нужно явно указать файлы с которыми нужно работать (не нашел как добавить директорию). Copilot Edits не вносит изменений за пределами рабочего набора, за исключением случаев, когда предлагается создать новый файл</li>
+</ul>
+</v-details>
+
+<!------------------------------------------------------------->
+<v-details title="Editor">
+<h5>Автодополнения кода</h5>
+<ol class="list-num">
+    <li>Начать вводить код</li>
+    <li>Copilot предложит варианты продолжения</li>
+</ol>
+
+<h5>Комментарий и Ghost Text</h5>
+<ol class="list-num">
+    <li>Написать комментарий</li>
+    <li>Нажать `Enter`, предложит код функции (Ghost Text)</li>
+    <li>Нажать `Tab` - подставится код</li>
+    <li>Нажать `Enter` и повторить процесс</li>
+</ol>
+
+<h5>GitHub Copilot Suggestions</h5>
+<ol class="list-num">
+    <li>Написать комментарий</li>
+    <li>Нажать `Ctrl` + `Enter`</li>
+    <li>Откроется окно GitHub Copilot Suggestions, в котором будут разные предложения от Copilot</li>
+</ol>
+
+<h5>Inline Chat</h5>
+<ol class="list-num">
+    <li>Нажать `Ctrl` + `I`</li>
+    <li>Откроется окно "Ask Copilot"</li>
+    <li>Ввести запрос</li>
+    <li>Код будут написан в текущем документе под запрос</li>
+</ol>
+</v-details>
+
+<!------------------------------------------------------------->
+<v-details title="Terminal CLI">
+<h5>Функционал</h5>
+<ul class="list-point">
+    <li>Можно задавать вопросы по Терминалу</li>
+</ul>
+
+<h5>Алгоритм работы</h5>
+<ol class="list-num">
+    <li>Нажать Ctrl + I</li>
+    <li>Откроется окно для запроса. Ввести команду и нажать "Run"</li>
+    <li>Может создавать файлы</li>
+</ol>
+</v-details>
