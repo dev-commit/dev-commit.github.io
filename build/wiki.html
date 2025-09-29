@@ -1327,10 +1327,13 @@ Hidden Content
 <ul class="list-point">
     <li><u-code-accent>url</u-code-accent> (string) - Отображение URL</li>
     <li><u-code-accent>title</u-code-accent> (string) - Отображение title вместо URL</li>
-    <li><u-code-accent>block</u-code-accent> (boolean) - Ссылка становится блочным элементом</li>
     <li><u-code-accent>text</u-code-accent> (string) - Дополнительный текст рядом с URL</li>
+    <li><u-code-accent>list</u-code-accent> (boolean) - Используется для списка в u-link-wrapper</li>
 </ul>
 
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Отдельная ссылка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <table>
     <tr>
         <td class="code">&lt;v-link url="https://yandex.ru/" /&gt;</td>
@@ -1341,18 +1344,25 @@ Hidden Content
         <td><v-link url="https://yandex.ru/" title="Link Title" /></td>
     </tr>
     <tr>
-        <td class="code">&lt;v-link url="https://yandex.ru/" block="true" /&gt;</td>
-        <td><v-link url="https://yandex.ru/" block="true" /></td>
-    </tr>
-    <tr>
-        <td class="code">&lt;v-link url="https://yandex.ru/" text="Yandex" /&gt;</td>
-        <td><v-link url="https://yandex.ru/" text="Yandex" block="true" /></td>
-    </tr>
-    <tr>
         <td class="code">&lt;v-link url="https://yandex.ru/" title="Link Title" text="Yandex" /&gt;</td>
         <td><v-link url="https://yandex.ru/" title="Link Title" text="Yandex" /></td>
     </tr>
 </table>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Список ссылок</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <v-link url="https://yandex.ru/" text="Yandex" list="true" />
+    <v-link url="https://yandex.ru/" list="true" />
+</u-link-wrapper>
+
+<v-code lang="html" title="">
+&lt;u-link-wrapper&gt;
+    &lt;v-link url="https://yandex.ru/" text="Yandex" list="true" /&gt;
+    &lt;v-link url="https://yandex.ru/" list="true" /&gt;
+&lt;/u-link-wrapper&gt;
+</v-code>
 </div><div id="wiki/vue-components/v-tree"><!-- TODO:
 <f-search>Wiki -> Vue -> <u>&lt;v-tree&gt;</u></f-search>
 -->

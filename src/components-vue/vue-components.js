@@ -173,9 +173,10 @@ Vue.component('v-copy', {
 })
 
 Vue.component('v-link', {
-	props: ['url', "title", "block", "text"],
+	props: ['url', "title", "text", "list"],
     template: `
-		<span :style="!!block && 'display: block'">
+		<span :style="!!list && 'display: block'">
+			<span class="v-link-icon" v-if="list" v-text="'›'"></span>
 			<a
 				:href="url"
 				target="_blank"
