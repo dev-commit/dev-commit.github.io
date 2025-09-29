@@ -1,5 +1,8 @@
 # TODO
 
+## TODO
+- Заменить все ссылки на `v-link`
+
 ## @modules\@links.js
 ```js
 const ARR_LINKS = [

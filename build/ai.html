@@ -150,7 +150,7 @@
 <h3>Информация</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <u-link-wrapper>
-    <a href="https://cursor.com/ru/docs/" target="_blank">https://cursor.com/ru/docs/ (документация)</a>
+    <v-link url="https://cursor.com/ru/docs/" text="Документация" block="true" />
 </u-link-wrapper>
 
 <ul class="list-point">
@@ -158,17 +158,46 @@
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Операции</h3>
+<h3>Элементы</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <u-link-wrapper>
-    <a href="https://cursor.com/ru/docs/get-started/concepts" target="_blank">https://cursor.com/ru/docs/get-started/concepts</a>
+    <v-link url="https://cursor.com/ru/docs/get-started/concepts" text="" block="true" />
 </u-link-wrapper>
 
+<!------------------------------------------------------------->
+<h4>Tab</h4>
+<!------------------------------------------------------------->
 <ul class="list-point">
-    <li><em>Tab</em> - автодополнение кода, которое предлагает многострочные изменения. Нажмите Tab, чтобы принять предложения на основе текущего кода и недавних правок.</li>
-    <li><em>Agent</em> - ИИ, который читает и изменяет код в нескольких файлах. Опишите изменения простым языком — Agent выполнит их.</li>
-    <li><em>Inline Edit</em> - редактирование выделенного кода на естественном языке. Нажмите Cmd+K, чтобы описать изменения и применить их прямо на месте.</li>
-    <li><em>Чат</em> - интерфейс для взаимодействия с ИИ. Поддерживает несколько вкладок, историю чатов, контрольные точки и экспорт.</li>
+    <li>Автодополнение кода, которое предлагает многострочные изменения. Нажмите Tab, чтобы принять предложения на основе текущего кода и недавних правок.</li>
+    <li>Можно отключить</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Agent</h4>
+<!------------------------------------------------------------->
+<v-breadcrumbs keys :items="['Cmd', 'I']" />
+
+<ul class="list-point">
+    <li>ИИ, который читает и изменяет код в нескольких файлах. Опишите изменения простым языком — Agent выполнит их.</li>
+    <li>Agent — это ассистент Cursor, который может самостоятельно выполнять сложные задачи разработки, запускать команды в терминале и редактировать код. Откройте в боковой панели с помощью</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Inline Edit</h4>
+<!------------------------------------------------------------->
+<v-breadcrumbs keys :items="['Cmd', 'K']" />
+
+<ul class="list-point">
+    <li>Редактирование выделенного кода на естественном языке</li>
+    <li>Позволяет описать изменения и применить их прямо на месте</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Чат</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Интерфейс для взаимодействия с ИИ</li>
+    <li>Поддерживает несколько вкладок, историю чатов, контрольные точки и экспорт</li>
 </ul>
 </div><div id="ai/assistants/cline"><!-- TODO:
 <f-search>AI -> Assistants -> Cline</f-search>
@@ -180,9 +209,9 @@
 <h3>Ссылки</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <u-link-wrapper>
-    <a href="https://github.com/cline/cline" target="_blank">https://github.com/cline/cline - GitHub</a>
-    <a href="https://docs.cline.bot/" target="_blank">https://docs.cline.bot/ - Документация</a>
-    <a href="https://www.reddit.com/r/CLine/" target="_blank">https://www.reddit.com/r/CLine/ - Reddit</a>
+    <v-link url="https://github.com/cline/cline" text="GitHub" block="true" />
+    <v-link url="https://docs.cline.bot/" text="Документация" block="true" />
+    <v-link url="https://www.reddit.com/r/CLine/" text="Reddit" block="true" />
 </u-link-wrapper>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -190,7 +219,7 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
     <li>Плагин для VSCode</li>
-    <li>Взаимодействие с OpenRouter (interface for LLMs) <a href="https://openrouter.ai/" target="_blank">https://openrouter.ai/</a></li>
+    <li>Взаимодействие с OpenRouter (interface for LLMs) <v-link url="https://openrouter.ai/" /></li>
     <li>Можно добавить ключи для LLM (добавлял OpenAI и Anthropic)</li>
     <li>Почти нет документации, т.к понятный UI</li>
     <li>Анализ изображений и снимков экрана браузера</li>
@@ -260,14 +289,14 @@
 
 <h5>Продукты</h5>
 <u-link-wrapper>
-    <a href="https://github.com/features/copilot" target="_blank">https://github.com/features/copilot - Copilot</a>
-    <a href="https://githubnext.com/projects/copilot-workspace/" target="_blank">https://githubnext.com/projects/copilot-workspace/ - Copilot Workspace</a>
+    <v-link url="https://github.com/features/copilot" text="Copilot" block="true" />
+    <v-link url="https://githubnext.com/projects/copilot-workspace/" text="Copilot Workspace" block="true" />
 </u-link-wrapper>
 
 <h5>Документация</h5>
 <u-link-wrapper>
-    <a href="https://docs.github.com/ru/copilot/quickstart" target="_blank">https://docs.github.com/ru/copilot/quickstart - Документация от GitHub</a>
-    <a href="https://code.visualstudio.com/docs/copilot/overview" target="_blank">https://code.visualstudio.com/docs/copilot/overview - Документация от VSCode</a>
+    <v-link url="https://docs.github.com/ru/copilot/quickstart" text="Документация от GitHub" block="true" />
+    <v-link url="https://code.visualstudio.com/docs/copilot/overview" text="Документация от VSCode" block="true" />
 </u-link-wrapper>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -288,7 +317,7 @@
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
-<v-details title="Панель: 'Copilot Chat'">
+<v-details title="Панель <u>Copilot Chat</u>">
 <h5>Информация</h5>
 <ul class="list-point">
     <li>Может работать только с 1 файлом</li>
@@ -304,7 +333,7 @@
 </v-details>
 
 <!------------------------------------------------------------->
-<v-details title="Панель 'Copilot Edits'">
+<v-details title="Панель <u>Copilot Edits</u>">
 <h5>Информация</h5>
 <ul class="list-point">
     <li>Может создавать файлы</li>

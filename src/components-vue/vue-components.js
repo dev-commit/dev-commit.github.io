@@ -173,7 +173,7 @@ Vue.component('v-copy', {
 })
 
 Vue.component('v-link', {
-	props: ['url', "title", "block"],
+	props: ['url', "title", "block", "text"],
     template: `
 		<span :style="!!block && 'display: block'">
 			<a
@@ -181,6 +181,7 @@ Vue.component('v-link', {
 				target="_blank"
 				v-html="title ? title : url">
 			</a>
+			<span v-if="text" v-html="' - ' + text"></span>
 		</span>
 	`,
 })

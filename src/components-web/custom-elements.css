@@ -285,8 +285,8 @@ u-clipboard:hover {
 u-link-wrapper
 *******************************************/
 u-link-wrapper {
-	padding: 10px 0;
 	margin-top: 5px;
+	border-left: 2px solid rgba(var(--color-violet-blue), 0.4);
 }
 u-link-wrapper a {
 	color: rgb(var(--color-violet-medium)) !important;
@@ -294,15 +294,11 @@ u-link-wrapper a {
 	font-size: 14px;
 	text-decoration: none;
 	line-height: 1.7;
+	transition: 0.4s;
 }
-u-link-wrapper > a:after {
-	content: '';
-	display: block;
-}
-u-link-wrapper a:before {
-	content: '🪃 ';
+u-link-wrapper a::before {
+	content: '›';
 	width: 16px;
 	height: 16px;
-	margin: 0px 7px;
-	text-decoration: none;
+	padding: 0 8px;
 }
