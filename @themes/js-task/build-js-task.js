@@ -70,13 +70,14 @@ ARR_MODULE = [
         title: 'Массивы',
         selected: true,
         themes: [
-            [root+'arrays/arrays',               emoji.star+'Массивы'],
-            [root+'arrays/intersection-arrays',  'Пересечение массивов', false, 'done'],
-            [root+'arrays/sort-odd',             'Сортировка нечетных значений', false, 'done'],
-            [root+'arrays/max-array-element',    'Максимальный элемент массива'],
-            [root+'arrays/array-sums',           'Двумерный массив сумм'],
-            [root+'arrays/array-average-value',  'Получить среднюю оценку'],
-            [root+'arrays/merge-sort',           'MergeSort', false, 'check'],
+            [root+'arrays/arrays',                    emoji.star+'Массивы'],
+            [root+'arrays/intersection-arrays',       'Пересечение массивов', false, 'done'],
+            [root+'arrays/sort-odd',                  'Сортировка нечетных значений', false, 'done'],
+            [root+'arrays/max-count-repeat-elements', 'Количество повторяющихся элементов'],
+            [root+'arrays/max-array-element',         'Максимальный элемент массива'],
+            [root+'arrays/array-sums',                'Двумерный массив сумм'],
+            [root+'arrays/array-average-value',       'Получить среднюю оценку'],
+            [root+'arrays/merge-sort',                'MergeSort', false, 'check'],
         ]
     },
     {

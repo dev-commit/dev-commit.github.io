@@ -1,0 +1,53 @@
+<h2>Количество повторяющихся элементов</h2>
+
+<u-message-info>Ответ от ChatGPT</u-message-info>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Задание</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Есть массив с числами</li>
+    <li>Нужно найти число, которое повторяется максимальное количество раз</li>
+</ul>
+
+<v-code lang="js" title="">
+const arr = [1, 2, 4, 1, 2, 2, 4]
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Решение от ChatGPT</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const arr = [1, 2, 4, 1, 2, 2, 4];
+
+const mostFrequent = arr => {
+  const counts = {};
+
+  // Подсчитываем количество повторений
+  for (const num of arr) {
+    counts[num] = (counts[num] || 0) + 1;
+  }
+
+  // Находим число с максимальным количеством повторений
+  let maxNum = null;
+  let maxCount = 0;
+
+  for (const [num, count] of Object.entries(counts)) {
+    if (count > maxCount) {
+      maxCount = count;
+      maxNum = Number(num);
+    }
+  }
+
+  return maxNum;
+};
+
+console.log(mostFrequent(arr)); // 👉 2
+</v-code>
+
+<h5>Объяснение</h5>
+<ol class="list-num">
+    <li>Создаётся объект counts, где ключ — число, значение — сколько раз оно встретилось</li>
+    <li>После прохода по массиву ищем ключ с максимальным значением</li>
+    <li>Возвращаем это число</li>
+</ol>
