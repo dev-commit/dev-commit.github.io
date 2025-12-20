@@ -8,6 +8,7 @@ ARR_MODULE = [
 			getLink(root, 'info', true),
 			getLink(root, 'install', true),
 			getLink(root, 'use', true),
+			[root+'main/modes',  'Режимы работы'],
 		]
 	},
 	{
@@ -27,10 +28,10 @@ ARR_MODULE = [
 			[root+'api-declarative-mode/BrowserRouter',   setTheme(1, ['&lt;BrowserRouter /&gt;']), false, 'done'],
 		]
 	},
-	// {
-	// 	title: 'Data Mode',
-	// 	themes: [
-	// 		[root+'data-declarative/name', setTheme(1, ['name'])],
-	// 	]
-	// },
+	{
+		title: 'Data Mode',
+		themes: [
+			[root+'api-data-mode/RouterProvider', setTheme(1, ['RouterProvider', 'createBrowserRouter()'])],
+		]
+	},
 ]

@@ -60,6 +60,16 @@
             🔥 Базовый пример
         </a>
     </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-router/main/modes"
+            href="#react-router/main/modes"
+        >
+            Режимы работы
+        </a>
+    </li>
 </ul><h4>🏷️ Общее API</h4><ul>
     <li>
         <a
@@ -130,6 +140,16 @@
             <u-menu>&lt;BrowserRouter /&gt;</u-menu>
         </a>
     </li>
+</ul><h4>🏷️ Data Mode</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-router/api-data-mode/RouterProvider"
+            href="#react-router/api-data-mode/RouterProvider"
+        >
+            <u-menu>RouterProvider</u-menu> <u-menu>createBrowserRouter()</u-menu>
+        </a>
+    </li>
 </ul>
                 </div>
 
@@ -169,6 +189,46 @@ npm i <u-code-accent>react-router</u-code-accent>
 </div><div id="react-router/main/use"><h2>Базовый пример</h2>
 
 <v-sandbox url="https://codesandbox.io/p/sandbox/react-router-ctssfn" needcheck codesandbox title="React Router: Declarative Mode" />
+</div><div id="react-router/main/modes"><h2>Режимы работы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Режимы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Declarative Mode</h4>
+<!------------------------------------------------------------->
+<u-message-info>
+Первоначальный формат
+</u-message-info>
+
+<ul class="list-point">
+  <li>Декларативный режим обеспечивает базовые функции маршрутизации, такие как сопоставление URL-адресов с компонентами, навигация по приложению и предоставление активных состояний с помощью API</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Data Mode</h4>
+<!------------------------------------------------------------->
+<u-message-info>
+Новый формат
+</u-message-info>
+
+<ul class="list-point">
+  <li>Перенеся настройку маршрутов за пределы рендеринга React, Data Mode добавляет загрузку данных, действия, состояния ожидания и многое другое</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Framework Mode</h4>
+<!------------------------------------------------------------->
+<u-message-info>
+Больше подходит для SSR
+</u-message-info>
+
+<ul class="list-point">
+  <li>Framework Mode использует плагин Vite для расширения функциональности React Router включая следующие возможности: стратегии SPA, SSR и статического рендеринга, типобезопасный href и API модуля маршрутизации и т.д.</li>
+</ul>
+
+
 </div><div id="react-router/api/Routes"><!-- TODO:
 <f-search>React Router -> API -> <u>&lt;Routes /&gt;</u></f-search>
 <f-search>React Router -> API -> <u>&lt;Route /&gt;</u></f-search>
@@ -517,6 +577,29 @@ const App = () =&gt; (
 	&lt;/<u-code>BrowserRouter</u-code>&gt;
 )
 </v-code>
+</div><div id="react-router/api-data-mode/RouterProvider"><!-- TODO:
+<f-search>React Router -> API -> <u>&lt;RouterProvider /&gt;</u></f-search>
+-->
+
+<h2>RouterProvider</h2>
+
+<u-link-wrapper>
+		<v-link url="https://reactrouter.com/api/data-routers/RouterProvider" text="RouterProvider" list="true" />
+		<v-link url="https://reactrouter.com/api/data-routers/createBrowserRouter" text="createBrowserRouter()" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+	<v-method before="" method="&lt;RouterProvider /&gt;" after="" arg="">Отобразить пользовательский интерфейс для заданного компонента DataRouter
+  </v-method>
+
+	<v-method-arg arg="router">Массив роутов</v-method-arg>
+</div>
+
+<div class="v-method-wrapper">
+	<v-method before="" method="createBrowserRouter" after="" arg="[]">Создание нового маршрутизатора данных, который будет управлять путем приложения через <em>history.pushState</em> и <em>history.replaceState</em></v-method>
+
+	<v-method-arg arg="routes">Список роутов</v-method-arg>
+</div>
 </div></div>
                 </div>
             </div>
