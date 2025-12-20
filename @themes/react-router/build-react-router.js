@@ -1,32 +1,36 @@
 root = 'react-router/';
 
 ARR_MODULE = [
-    {
-        title: 'Основное',
-        accent: true,
-        themes: [
-            getLink(root, 'info', true),
-            getLink(root, 'install', true),
-        ]
-    },
-    {
-        title: 'Declarative Mode',
-        themes: [
-            [root+'mode-declarative/use', emoji.fire+'Базовый пример', false, 'done'],
-
-            [root+'mode-declarative/api/BrowserRouter',   setTheme(1, ['&lt;BrowserRouter /&gt;']), false, 'done'],
-            [root+'mode-declarative/api/Routes',          setTheme(1, ['&lt;Routes /&gt;', '&lt;Route /&gt;']), false, 'done'],
-            [root+'mode-declarative/api/Link',            setTheme(1, ['&lt;Link /&gt;', '&lt;NavLink /&gt;']), false, 'done'],
-            [root+'mode-declarative/api/useNavigate',     setTheme(3, ['useNavigate()']), false, 'done'],
-            [root+'mode-declarative/api/useParams',       setTheme(3, ['useParams()']), false, 'done'],
-            [root+'mode-declarative/api/useSearchParams', setTheme(3, ['useSearchParams()'])],
-            [root+'mode-declarative/api/useLocation',     setTheme(3, ['useLocation()'])],
-        ]
-    },
-    // {
-    //     title: 'Data Mode',
-    //     themes: [
-    //         [root+'data-declarative/name', setTheme(1, ['name'])],
-    //     ]
-    // },
+	{
+		title: 'Основное',
+		accent: true,
+		themes: [
+			getLink(root, 'info', true),
+			getLink(root, 'install', true),
+			getLink(root, 'use', true),
+		]
+	},
+	{
+		title: 'Общее API',
+		themes: [
+			[root+'api/Routes',          setTheme(1, ['&lt;Routes /&gt;', '&lt;Route /&gt;']), false, 'done'],
+			[root+'api/Link',            setTheme(1, ['&lt;Link /&gt;', '&lt;NavLink /&gt;']), false, 'done'],
+			[root+'api/useNavigate',     setTheme(3, ['useNavigate()']), false, 'done'],
+			[root+'api/useParams',       setTheme(3, ['useParams()']), false, 'done'],
+			[root+'api/useSearchParams', setTheme(5, ['useSearchParams()'])],
+			[root+'api/useLocation',     setTheme(5, ['useLocation()'])],
+		]
+	},
+	{
+		title: 'Declarative Mode',
+		themes: [
+			[root+'api-declarative-mode/BrowserRouter',   setTheme(1, ['&lt;BrowserRouter /&gt;']), false, 'done'],
+		]
+	},
+	// {
+	// 	title: 'Data Mode',
+	// 	themes: [
+	// 		[root+'data-declarative/name', setTheme(1, ['name'])],
+	// 	]
+	// },
 ]
