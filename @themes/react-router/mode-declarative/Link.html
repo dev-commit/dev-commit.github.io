@@ -1,0 +1,134 @@
+<!-- TODO:
+<f-search>React Router -> API -> <u>&lt;Link /&gt;</u></f-search>
+<f-search>React Router -> API -> <u>&lt;NavLink /&gt;</u></f-search>
+-->
+
+<h2><u-code-text>&lt;Link /&gt;</u-code-text> <u-code-text>&lt;NavLink /&gt;</u-code-text></h2>
+
+<u-link-wrapper>
+		<v-link url="https://reactrouter.com/api/components/Link" text="Link" list="true" />
+		<v-link url="https://reactrouter.com/api/components/NavLink" text="NavLink" list="true" />
+		<v-link url="https://reactrouter.com/start/declarative/navigating#navlink" text="NavLink Мануал" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="&lt;Link /&gt;" after="" arg="">
+    Видоизмененная ссылка под React для редиректа на нужную страницу. Предотвращает обновление страницы, в отличии от обычной ссылки
+    </v-method>
+	<v-method-arg arg="to">Местоположение ссылки</v-method-arg>
+	<v-method-arg arg="end">Гарантирует, что этот компонент не будет сопоставлен как «активный», когда совпадают пути его потомков. Например, чтобы отобразить ссылку, которая активна только в корне веб-сайта, а не в каких-либо других URL-адресах</v-method-arg>
+</div>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="&lt;NavLink /&gt;" after="" arg="">
+    Стилизация активной ссылки
+    </v-method>
+	<v-method-arg arg="to">Местоположение ссылки</v-method-arg>
+	<v-method-arg arg="end">Гарантирует, что этот компонент не будет сопоставлен как «активный», когда совпадают пути его потомков. Например, чтобы отобразить ссылку, которая активна только в корне веб-сайта, а не в каких-либо других URL-адресах</v-method-arg>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>&lt;Link /&gt;</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { Link } from "react-router"
+
+const App = () = (
+	&lt;&gt;
+		&lt;Link to="/"&gt;Home&lt;/Link&gt;
+		&lt;Link to="/about/"&gt;About&lt;/Link&gt;
+	&lt;/&gt;
+)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>&lt;NavLink /&gt;</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Использование <u-code-text>NavLink</u-code-text> вместо <u-code-text>Link</u-code-text> добавляет к активной ссылке класс <u-code-text>active</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+import { NavLink } from "react-router"
+
+const App = () => {
+  const setActiveClass = (statuses) => {
+    return statuses.isActive ? cn(styles.link, styles.linkActive) : styles.link;
+  }
+
+	return (
+		&lt;&gt;
+			&lt;NavLink to="/" className={setActiveClass}&gt;Home&lt;/NavLink&gt;
+			&lt;NavLink to="/about/" className={setActiveClass}&gt;About&lt;/NavLink&gt;
+		&lt;/&gt;
+	)
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>CSS-Modules</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-details title="Глобальная стилизация ссылки">
+<ul class="list-point">
+	<li>При использовании <u>css-modules</u>, стилизовать ссылку нужно глобально</li>
+</ul>
+
+<v-code lang="js" title="">
+:global {
+    a.active {
+        color: yellowgreen !important;
+    }
+}
+</v-code>
+</v-details>
+
+<v-details title="Сборка create-react-app">
+<v-code lang="js" title="">
+import './Header.css'
+
+const Header = () => (
+    &lt;ul className="header__links"&gt;
+        &lt;li&gt;&lt;NavLink to="/" exact&gt;Home&lt;/NavLink&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;NavLink to="/about/"&gt;About&lt;/NavLink&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+);
+</v-code>
+
+<v-code lang="css" title="">
+.header__links a {}
+.header__links a.active {}
+</v-code>
+</v-details>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Прочее</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-details title="Настройка сервера Webpack">
+<ul class="list-point">
+	<li>При переходе по <u-code-text>Link</u-code-text> изменяется url, но физически этой страницы нет. Поэтому нужно настроить сервер</li>
+</ul>
+
+<v-code lang="js" title="webpack.config.js">
+module.exports = {
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'build'),
+		<u-code-wrapper>
+		publicPath: '/'
+		</u-code-wrapper>
+	},
+	devServer: {
+		contentBase: './dist',
+		<u-code-wrapper>
+		historyApiFallback: {
+			disableDotRule: true
+		},
+		</u-code-wrapper>
+		stats: 'errors-only',
+		port: 3000
+	}
+}
+</v-code>
+</v-details>

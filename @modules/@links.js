@@ -75,7 +75,7 @@ const ARR_LINKS = [
     { page: 'react-js',                theme: 'react',     title: search+accent+'React.js' },
     { page: 'react-hooks',             theme: 'react',     title: 'React Hooks' },
     { page: 'react-api',               theme: 'react',     title: 'React API' },
-    { page: 'react-router',            theme: 'react',     title: search+'React Router' },
+    { page: 'react-router',            theme: 'react',     title: 'React Router' },
 
     { page: 'reactflow',               theme: 'secondary', title: search+'React Flow' },
 

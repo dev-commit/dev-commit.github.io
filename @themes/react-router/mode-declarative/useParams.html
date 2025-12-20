@@ -1,0 +1,36 @@
+<!-- TODO:
+<f-search>React Router -> API -> <u>useParams()</u></f-search>
+-->
+
+<h2><u-code-text>useParams()</u-code-text></h2>
+
+<u-link-wrapper>
+  <v-link url="https://reactrouter.com/api/hooks/useParams" text="useParams()" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+  <v-method before="" method="useParams" after="" arg="()">
+  Чтение параметров URL
+  </v-method>
+</div>
+
+<v-code lang="js" title="">
+import { BrowserRouter, Link, Routes, Route, <u-code>useParams</u-code> } from "react-router"
+
+const Params = () =&gt; {
+  const params = <u-code>useParams</u-code>();
+  console.log(<u-code>params.id</u-code>); // => 42
+
+  return &lt;h1&gt;Params&lt;/h1&gt;;
+}
+
+const App = () =&gt; (
+  &lt;BrowserRouter&gt;
+    &lt;Link to="/params/42"&gt;Params&lt;/Link&gt;
+
+    &lt;Routes&gt;
+      &lt;Route path="params/:id" element={&lt;Params /&gt;} /&gt;
+    &lt;/Routes&gt;
+  &lt;BrowserRouter/&gt;
+)
+</v-code>

@@ -2,53 +2,31 @@ root = 'react-router/';
 
 ARR_MODULE = [
     {
-        title: 'v6',
+        title: 'Основное',
         accent: true,
         themes: [
-            getLink(root+'v6/', 'info'),
-            [root+'v6/main/migration',     emoji.theory+'Миграция с v5'],
-            getLink(root+'v6/', 'install'),
-            getLink(root+'v6/', 'use'),
+            getLink(root, 'info', true),
+            getLink(root, 'install', true),
+            getLink(root, 'use', true),
         ]
     },
     {
-        title: 'API',
+        title: 'Declarative Mode',
         themes: [
-            [root+'v6/api/BrowserRouter',  setTheme(1, ['&lt;BrowserRouter /&gt;'])],
-            [root+'v6/api/Link',           setTheme(1, ['&lt;Link /&gt;'])],
-            [root+'v6/api/NavLink',        setTheme(1, ['&lt;NavLink /&gt;'])],
-            [root+'v6/api/Routes',         setTheme(1, ['&lt;Routes /&gt;'])],
-            [root+'v6/api/Route',          setTheme(1, ['&lt;Route /&gt;'])],
-            [root+'v6/api/useNavigate',    setTheme(3, ['useNavigate()'])],
-            [root+'v6/api/useParams',      setTheme(3, ['useParams()'])],
-        ]
-    },
+            [root+'mode-declarative/BrowserRouter', setTheme(1, ['&lt;BrowserRouter /&gt;']), false, 'done'],
+            [root+'mode-declarative/Routes',        setTheme(1, ['&lt;Routes /&gt;', '&lt;Route /&gt;']), false, 'done'],
+            [root+'mode-declarative/Link',          setTheme(1, ['&lt;Link /&gt;', '&lt;NavLink /&gt;']), false, 'done'],
+            [root+'mode-declarative/useNavigate',   setTheme(3, ['useNavigate()']), false, 'done'],
+            [root+'mode-declarative/useParams',     setTheme(3, ['useParams()']), false, 'done'],
 
-    //---------------------------------------------------------------------------------------------------------
-
-    {
-        title: 'v5',
-        accent: true,
-        themes: [
-            getLink(root+'v5/', 'info'),
-            getLink(root+'v5/', 'install'),
-            getLink(root+'v5/', 'use'),
+            [root+'mode-declarative/useSearchParams',     setTheme(3, ['useSearchParams()'])],
+            [root+'mode-declarative/useLocation',     setTheme(3, ['useLocation()'])],
         ]
     },
-    {
-        title: 'API',
-        themes: [
-            [root+'v5/api/Switch',     setTheme(1, ['&lt;Switch /&gt;'])],
-            [root+'v5/api/Route',      setTheme(1, ['&lt;Route /&gt;'])],
-            [root+'v5/api/useHistory', setTheme(3, ['useHistory()'])],
-        ]
-    },
-    {
-        title: 'Варианты',
-        themes: [
-            [root+'v5/variants/url-parameters',    emoji.items+'URL Parameters'],
-            [root+'v5/variants/query-parameters',  emoji.items+'Query Parameters'],
-            [root+'v5/variants/page-404',          emoji.items+'Page 404'],
-        ]
-    },
+    // {
+    //     title: 'Data Mode',
+    //     themes: [
+    //         [root+'data-declarative/name', setTheme(1, ['name'])],
+    //     ]
+    // },
 ]

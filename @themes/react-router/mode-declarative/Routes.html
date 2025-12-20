@@ -1,0 +1,46 @@
+<!-- TODO:
+<f-search>React Router -> API -> <u>&lt;Routes /&gt;</u></f-search>
+<f-search>React Router -> API -> <u>&lt;Route /&gt;</u></f-search>
+-->
+
+<h2><u-code-text>&lt;Routes /&gt; &lt;Route /&gt;</u-code-text></h2>
+
+<u-link-wrapper>
+  <v-link url="https://reactrouter.com/api/components/Routes" text="Routes" list="true" />
+  <v-link url="https://reactrouter.com/api/components/Route" text="Route" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+  <v-method before="" method="&lt;Routes /&gt;" after="" arg="">
+  Группировка роутов
+  </v-method>
+
+  <v-method-arg arg="children">Список &lt;Route&gt;</v-method-arg>
+</div>
+
+<div class="v-method-wrapper">
+  <v-method before="" method="&lt;Route /&gt;" after="" arg="">
+  Отображение UI, следит чтобы совпадали пути между компонентом и адресной строкой.<br>
+  Route технически является компонентом, но не создаёт DOM-элемента
+  </v-method>
+
+  <v-method-arg arg="path">Любой действительный URL-путь или массив путей</v-method-arg>
+  <v-method-arg arg="element">Компонент React для рендеринга только при совпадении местоположения</v-method-arg>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+import { Routes, Route } from "react-router"
+
+const App = () = (
+  &lt;Routes&gt;
+    &lt;Route path="/"          element={&lt;Home /&gt;} /&gt;
+    &lt;Route path="about"      element={&lt;About /&gt;} /&gt;
+    &lt;Route path="params/:id" element={&lt;Params /&gt;} /&gt;
+    &lt;Route path="*"          element={&lt;NotFound /&gt;} /&gt;
+  &lt;/Routes&gt;
+)
+</v-code>
