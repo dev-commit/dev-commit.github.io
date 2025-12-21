@@ -94,6 +94,16 @@
     <li>
         <a
             class="menu-link"
+            id="id__react-router/api/Outlet"
+            href="#react-router/api/Outlet"
+        >
+            <u-menu>&lt;Outlet /&gt;</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
             id="id__react-router/api/useNavigate"
             href="#react-router/api/useNavigate"
         >
@@ -147,7 +157,7 @@
             id="id__react-router/api-data-mode/RouterProvider"
             href="#react-router/api-data-mode/RouterProvider"
         >
-            <u-menu>RouterProvider</u-menu> <u-menu>createBrowserRouter()</u-menu>
+            <u-menu>&lt;RouterProvider /&gt;</u-menu> <u-menu>createBrowserRouter()</u-menu>
         </a>
     </li>
 </ul>
@@ -189,6 +199,7 @@ npm i <u-code-accent>react-router</u-code-accent>
 </div><div id="react-router/main/use"><h2>Базовый пример</h2>
 
 <v-sandbox url="https://codesandbox.io/p/sandbox/react-router-ctssfn" needcheck codesandbox title="React Router: Declarative Mode" />
+<v-sandbox url="https://codesandbox.io/p/sandbox/react-router-data-mode-4lywrn" needcheck codesandbox title="React Router: Data Mode" />
 </div><div id="react-router/main/modes"><h2>Режимы работы</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -234,7 +245,7 @@ npm i <u-code-accent>react-router</u-code-accent>
 <f-search>React Router -> API -> <u>&lt;Route /&gt;</u></f-search>
 -->
 
-<h2><u-code-text>&lt;Routes /&gt; &lt;Route /&gt;</u-code-text></h2>
+<h2><u-code-text>&lt;Routes /&gt;</u-code-text> <u-code-text>&lt;Route /&gt;</u-code-text></h2>
 
 <u-link-wrapper>
   <v-link url="https://reactrouter.com/api/components/Routes" text="Routes" list="true" />
@@ -283,9 +294,9 @@ const App = () = (
 <h2><u-code-text>&lt;Link /&gt;</u-code-text> <u-code-text>&lt;NavLink /&gt;</u-code-text></h2>
 
 <u-link-wrapper>
-		<v-link url="https://reactrouter.com/api/components/Link" text="Link" list="true" />
-		<v-link url="https://reactrouter.com/api/components/NavLink" text="NavLink" list="true" />
-		<v-link url="https://reactrouter.com/start/declarative/navigating#navlink" text="NavLink Мануал" list="true" />
+	<v-link url="https://reactrouter.com/api/components/Link" text="Link" list="true" />
+	<v-link url="https://reactrouter.com/api/components/NavLink" text="NavLink" list="true" />
+	<v-link url="https://reactrouter.com/start/declarative/navigating#navlink" text="NavLink Мануал" list="true" />
 </u-link-wrapper>
 
 <div class="v-method-wrapper">
@@ -409,6 +420,34 @@ module.exports = {
 }
 </v-code>
 </v-details>
+</div><div id="react-router/api/Outlet"><!-- TODO:
+<f-search>React Router -> API -> <u>&lt;Outlet /&gt;</u></f-search>
+-->
+
+<h2><u-code-text>&lt;Outlet /&gt;</u-code-text></h2>
+
+<u-link-wrapper>
+	<v-link url="https://reactrouter.com/api/components/Outlet" text="Outlet" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="&lt;Outlet /&gt;" after="" arg="">
+    Отображает соответствующий дочерний маршрут родительского маршрута или ничего, если ни один дочерний маршрут не соответствует
+    </v-method>
+</div>
+
+<v-code lang="js" title="">
+import { Outlet } from "react-router"
+
+const App = () => {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Parent Content&lt;/h1&gt;
+      &lt;Outlet /&gt;
+    &lt;/div&gt;
+  )
+}
+</v-code>
 </div><div id="react-router/api/useNavigate"><!-- TODO:
 <f-search>React Router -> API -> <u>useNavigate()</u></f-search>
 -->
@@ -581,7 +620,7 @@ const App = () =&gt; (
 <f-search>React Router -> API -> <u>&lt;RouterProvider /&gt;</u></f-search>
 -->
 
-<h2>RouterProvider</h2>
+<h2><u-code-text>&lt;RouterProvider /&gt;</u-code-text> <u-code-text>createBrowserRouter()</u-code-text></h2>
 
 <u-link-wrapper>
 		<v-link url="https://reactrouter.com/api/data-routers/RouterProvider" text="RouterProvider" list="true" />
@@ -600,6 +639,93 @@ const App = () =&gt; (
 
 	<v-method-arg arg="routes">Список роутов</v-method-arg>
 </div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>&lt;RouterProvider /&gt;</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import ReactDOM from "react-dom/client"
+import { RouterProvider, createBrowserRouter } from "react-router/dom"
+
+const root = document.getElementById("root")
+
+const router = <u-code>createBrowserRouter</u-code>([...])
+ReactDOM.createRoot(root).render(&lt;<u-code>RouterProvider</u-code> router={router} /&gt;)
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>createBrowserRouter</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Параметры "element" и "Component"</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>В параметрах может быть <u-code-text>element</u-code-text> или <u-code-text>Component</u-code-text></li>
+</ul>
+
+<v-code lang="ts" title="">
+import { createBrowserRouter } from "react-router/dom"
+
+const About = () => &lt;h1&gt;Hello world&lt;/h1&gt;
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: &lt;div&gt;Hello World&lt;/div&gt;,
+  },
+	{
+		path: "about",
+		Component: About
+	},
+])
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вложенные маршруты</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Маршруты могут быть вложены в родительские маршруты с помощью <u-code-text>children</u-code-text></li>
+	<li>Дочерние маршруты отображаются через <u-code-text>&lt;Outlet/&gt;</u-code-text> в родительском маршруте</li>
+</ul>
+
+<u-link-wrapper>
+	<v-link url="https://reactrouter.com/api/components/Outlet" text="Outlet" list="true" />
+</u-link-wrapper>
+
+
+<v-code lang="js" title="">
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: App,
+    children: [
+      {
+        index: true,
+        Component: Home,
+      },
+      {
+        path: "about",
+        Component: About,
+      },
+    ],
+  },
+])
+</v-code>
+
+<v-code lang="js" title="">
+import { Outlet } from "react-router"
+
+const App = () => {
+  return (
+    &lt;div&gt;
+      &lt;Outlet /&gt;
+    &lt;/div&gt;
+  )
+}
+</v-code>
 </div></div>
                 </div>
             </div>

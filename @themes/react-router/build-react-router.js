@@ -16,6 +16,7 @@ ARR_MODULE = [
 		themes: [
 			[root+'api/Routes',          setTheme(1, ['&lt;Routes /&gt;', '&lt;Route /&gt;']), false, 'done'],
 			[root+'api/Link',            setTheme(1, ['&lt;Link /&gt;', '&lt;NavLink /&gt;']), false, 'done'],
+			[root+'api/Outlet',          setTheme(1, ['&lt;Outlet /&gt;']), false, 'done'],
 			[root+'api/useNavigate',     setTheme(3, ['useNavigate()']), false, 'done'],
 			[root+'api/useParams',       setTheme(3, ['useParams()']), false, 'done'],
 			[root+'api/useSearchParams', setTheme(5, ['useSearchParams()'])],
@@ -31,7 +32,7 @@ ARR_MODULE = [
 	{
 		title: 'Data Mode',
 		themes: [
-			[root+'api-data-mode/RouterProvider', setTheme(1, ['RouterProvider', 'createBrowserRouter()'])],
+			[root+'api-data-mode/RouterProvider', setTheme(1, ['&lt;RouterProvider /&gt;', 'createBrowserRouter()']), false, 'done'],
 		]
 	},
 ]
