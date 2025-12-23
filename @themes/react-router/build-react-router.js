@@ -8,7 +8,7 @@ ARR_MODULE = [
 			getLink(root, 'info', true),
 			getLink(root, 'install', true),
 			getLink(root, 'use', true),
-			[root+'main/modes',  'Режимы работы'],
+			[root+'main/modes',  'Режимы работы', false, 'done'],
 		]
 	},
 	{
