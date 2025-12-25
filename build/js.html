@@ -2,20 +2,7 @@
     <!DOCTYPE html>
         <html>
         <head>
-            <title>
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-📌 JavaScript</title>
+            <title>📌 JavaScript</title>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="icon" type="image/png" href="../custom/favicon.svg">
@@ -35,20 +22,7 @@
                             class="img"
                             @click="toggleMenu()"
                         >
-                        <a href="#links" class="top-link">
-    <div
-        style="
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin-right: 5px;
-            background-color: #7256d1;
-            border-radius: 50%;
-            border: 2px solid #fff;
-        "   
-        >
-    </div>
-📌 JavaScript</a>
+                        <a href="#links" class="top-link">📌 JavaScript</a>
                     </div>
 
                     <div class="search-wrapper">
@@ -728,7 +702,7 @@ typeof bar()  // => "undefined"
 typeof addEventListener !== 'undefined'
 </v-code>
 </div><div id="js/typing/symbol"><!-- TODO:
-<f-search>JS -> ES6 -> <u>Symbol()</u></f-search>
+<f-search>JS -> <u>Symbol()</u></f-search>
 -->
 
 <h2>Symbol (ES6)</h2>
@@ -872,51 +846,51 @@ const obj = {
 <h2>Всплытие</h2>
 
 <u-link-wrapper>
-    <v-link url="https://dev.to/lydiahallie/javascript-visualized-hoisting-478h" text="JavaScript Visualized: Hoisting" list="true" />
+  <v-link url="https://dev.to/lydiahallie/javascript-visualized-hoisting-478h" text="JavaScript Visualized: Hoisting" list="true" />
 </u-link-wrapper>
 
 <ul class="list-point">
 	<b>Двухпроходной анализатор</b>
-    <li>1 проход - лексический анализ кода (декларирование всех переменных)</li>
-    <li>2 проход - исполнение кода</li>
+  <li>1 проход - лексический анализ кода (декларирование всех переменных)</li>
+  <li>2 проход - исполнение кода</li>
 </ul>
 
 <hr>
 
 <ul class="list-point">
-    <li><u-text-define>Hoisting</u-text-define> - поднятие (всплытие), которое совершает переменная</li>
-    <li><u-text-define>Temporal Dead Zone</u-text-define> (временная мертвая зона) - время между созданием переменной scope и инициализацией</li>
+  <li><u-text-define>Hoisting</u-text-define> - поднятие (всплытие), которое совершает переменная</li>
+  <li><u-text-define>Temporal Dead Zone</u-text-define> (временная мертвая зона) - время между созданием переменной scope и инициализацией</li>
 </ul>
 
 <!------------------------------------------------------------->
 <h4><u-code-text>var</u-code-text></h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-    <li><b><u>Всплытие</u></b>: инициализация значением <u-code-text>undefined</u-code-text></li>
-    <li><b><u>Выполнение</u></b>: инициализация присвоенным значением</li>
-    <li><b><u>При обращении до объявления</u></b>: <u-code-text>undefined</u-code-text></li>
-    <li>Функциональная область видимости</li>
+  <li><b><u>Всплытие</u></b>: инициализация значением <u-code-text>undefined</u-code-text></li>
+  <li><b><u>Выполнение</u></b>: инициализация присвоенным значением</li>
+  <li><b><u>При обращении до объявления</u></b>: <u-code-text>undefined</u-code-text></li>
+  <li>Функциональная область видимости</li>
 </ul>
 
 <!------------------------------------------------------------->
 <h4><u-code-text>let и const</u-code-text></h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-    <li><b><u>Всплытие</u></b>: остаются неинициализированными, попадают в <u-text-underline>Temporal Dead Zone</u-text-underline></li>
-    <li><b><u>Выполнение</u></b>: инициализация только в момент выполнения выражений <u-code-text>let/const/class</u-code-text></li>
-    <li><b><u>При обращении до объявления</u></b>: ошибка "Uncaught ReferenceError: Cannot access 'foo' before initialization"</li>
-    <li>Блочная область видимости</li>
+  <li><b><u>Всплытие</u></b>: остаются неинициализированными, попадают в <u-text-underline>Temporal Dead Zone</u-text-underline></li>
+  <li><b><u>Выполнение</u></b>: инициализация только в момент выполнения выражений <u-code-text>let/const/class</u-code-text></li>
+  <li><b><u>При обращении до объявления</u></b>: ошибка "Uncaught ReferenceError: Cannot access 'foo' before initialization"</li>
+  <li>Блочная область видимости</li>
 </ul>
 
 <!------------------------------------------------------------->
 <h4><u-code-text>function foo() {}</u-code-text></h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-    <li><b><u>Всплытие</u></b>:</li>
-    <li><b><u>Выполнение</u></b>: </li>
-    <li><b><u>При обращении до объявления</u></b>: вызывается функция</li>
-    <li>Функция имеет безусловный приоритет</li>
-    <li><u>LexicalEnvironment</u> создает запись о том, что <u>"foo"</u> переменная, если <u>"foo"</u> не равно функции. Если <u>"foo"</u> равно функции, остальные <u>"var/let/const foo"</u> игнорируются, при условии что они не инициализированы значением</li>
+  <li><b><u>Всплытие</u></b>:</li>
+  <li><b><u>Выполнение</u></b>: </li>
+  <li><b><u>При обращении до объявления</u></b>: вызывается функция</li>
+  <li>Функция имеет безусловный приоритет</li>
+  <li><u>LexicalEnvironment</u> создает запись о том, что <u>"foo"</u> переменная, если <u>"foo"</u> не равно функции. Если <u>"foo"</u> равно функции, остальные <u>"var/let/const foo"</u> игнорируются, при условии что они не инициализированы значением</li>
 </ul>
 
 <v-code lang="js" title="">
@@ -935,7 +909,7 @@ console.log(a); // => "Hello"
 <h4><u-code-text>Без объявления</u-code-text></h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-    <li>Записывается в глобальный объект <u-code-text>window</u-code-text> при нестрогом режиме</li>
+  <li>Записывается в глобальный объект <u-code-text>window</u-code-text> при нестрогом режиме</li>
 </ul>
 
 <v-code lang="js" title="">
@@ -957,9 +931,9 @@ a = true;
 <h4><u-code-text>import</u-code-text></h4>
 <!------------------------------------------------------------->
 <ul class="list-point">
-    <li>К началу выполнения модуля все его зависимости должны быть загружены и выполнены</li>
-    <li>Поэтому, неважно место где указан <u>import</u>. Важно, чтобы не было объявлено одноименных переменных на уровне <u>import</u></li>
-    <li>Ошибка будет выведена до исполнения модуля, следовательно не будет выполнен не только код текущего модуля, но так же не будут выполнены его зависимости</li>
+  <li>К началу выполнения модуля все его зависимости должны быть загружены и выполнены</li>
+  <li>Поэтому, неважно место где указан <u>import</u>. Важно, чтобы не было объявлено одноименных переменных на уровне <u>import</u></li>
+  <li>Ошибка будет выведена до исполнения модуля, следовательно не будет выполнен не только код текущего модуля, но так же не будут выполнены его зависимости</li>
 </ul>
 
 <v-code lang="js" title="">
@@ -994,7 +968,6 @@ var a = 10;        // var/let/const - одинаковое поведение
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ol class="list-num">
 	<li><b>Функциональная область видимости</b></li>
-
 	<li><b>Переменная видна до объявления</b></li>
 <v-code lang="js" title="">
 alert(a); // undefined
@@ -1098,7 +1071,11 @@ const a = new String('string');
 const a = new Number(77);
 const a = new Boolean(true);
 </v-code>
-</div><div id="js/data-structures/number"><h2>Числа</h2>
+</div><div id="js/data-structures/number"><!-- TODO:
+<f-search>JS -> Числа (Number)</f-search>
+-->
+
+<h2>Числа</h2>
 
 <v-code lang="js" title="">
 num.toFixed(2);             // фиксирование кол-ва знаков после запятой
@@ -1376,7 +1353,7 @@ const event = JSON.parse(str, function(key, value) {
 console.log(event.date.getDate())
 </v-code>
 </div><div id="js/data-structures/iterators"><!-- TODO:
-<f-search>JS -> ES6 -> Iterators -> Итераторы</f-search>
+<f-search>JS -> Итераторы (Iterators)</f-search>
 -->
 
 <h2>Итераторы</h2>
@@ -1464,8 +1441,8 @@ let num = idGenerator[Symbol.iterator]();
 console.log(num.next().value);
 </v-code>
 </div><div id="js/data-structures/map"><!-- TODO:
-<f-search>JS -> ES6 -> Map</f-search>
-<f-search>JS -> ES6 -> WeakMap</f-search>
+<f-search>JS -> <u>Map</u></f-search>
+<f-search>JS -> <u>WeakMap</u></f-search>
 -->
 
 <h2>Коллекции Map и WeakMap (ES6)</h2>
@@ -1641,8 +1618,8 @@ console.log(key);   // HTML
 console.log(value); // HyperText Markup Language
 </v-code>
 </div><div id="js/data-structures/set"><!-- TODO:
-<f-search>JS -> ES6 -> Set</f-search>
-<f-search>JS -> ES6 -> WeakSet</f-search>
+<f-search>JS -> <u>Set</u></f-search>
+<f-search>JS -> <u>WeakSet</u></f-search>
 -->
 
 <h2>Коллекции Set и WeakSet (ES6)</h2>
@@ -1840,7 +1817,7 @@ const difference = new Set([...a].filter(
 </v-code>
 </template></v-two>
 </div><div id="js/data-structures/date-time"><!-- TODO:
-<f-search>JS -> Date -> Дата и время</f-search>
+<f-search>JS -> Дата и время (DateTime)</f-search>
 -->
 
 <h2>Дата и время</h2>
@@ -2021,7 +1998,11 @@ for (let i = 0; i < 100000; i++) {
 const end = new Date; // конец измерения
 console.log( "Цикл занял " + (end - start) + " ms" );
 </v-code>
-</div><div id="js/es6+/nullish-coalescing-operator"><h2>Оператор объединения с null '??'</h2>
+</div><div id="js/es6+/nullish-coalescing-operator"><!-- TODO:
+<f-search>JS -> <u>??</u> <u>||</u></f-search>
+-->
+
+<h2>Оператор объединения с null '??'</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Теория</h3>
@@ -2154,21 +2135,25 @@ console.log(firstName ?? lastName ?? nickName ?? "Аноним"); // Супер�
 // через ||
 console.log(firstName || lastName || nickName || "Аноним"); // Суперкодер
 </v-code>
-</div><div id="js/es6+/optional-chaining"><h2>Оператор опциональной последовательности</h2>
+</div><div id="js/es6+/optional-chaining"><!-- TODO:
+<f-search>JS -> <u>?</u></f-search>
+-->
+
+<h2>Оператор опциональной последовательности</h2>
 
 <ul class="list-point">
-    <li><u-text-define>Оператор опциональной последовательности "?"</u-text-define> - позволяет получить значение свойства, находящегося на любом уровне вложенности в цепочке связанных между собой объектов, без необходимости проверять каждое из промежуточных свойств в ней на существование.  <u-code-text>?.</u-code-text> работает подобно оператору <u-code-text>.</u-code-text>, за исключением того, что не выбрасывает исключение, если объект, к свойству или методу которого идёт обращение, равен <u>null</u> или <u>undefined</u>. В этих случаях он возвращает <u>undefined</u></li>
-    <hr>
-    <li>Без оператора опциональной последовательности поиск глубоко расположенных подсвойств требует проверки всех промежуточных свойств на существование</li>
-    <li>Если обращаться к свойству объекта без проверки, то, если свойство равно <u>null</u> или <u>undefined</u>, выбросится исключение <u-code-text>TypeError</u-code-text></li>
+  <li><u-text-define>Оператор опциональной последовательности "?"</u-text-define> - позволяет получить значение свойства, находящегося на любом уровне вложенности в цепочке связанных между собой объектов, без необходимости проверять каждое из промежуточных свойств в ней на существование.  <u-code-text>?.</u-code-text> работает подобно оператору <u-code-text>.</u-code-text>, за исключением того, что не выбрасывает исключение, если объект, к свойству или методу которого идёт обращение, равен <u>null</u> или <u>undefined</u>. В этих случаях он возвращает <u>undefined</u></li>
+  <hr>
+  <li>Без оператора опциональной последовательности поиск глубоко расположенных подсвойств требует проверки всех промежуточных свойств на существование</li>
+  <li>Если обращаться к свойству объекта без проверки, то, если свойство равно <u>null</u> или <u>undefined</u>, выбросится исключение <u-code-text>TypeError</u-code-text></li>
 </ul>
 
 <v-code lang="js" title="">
 const book = {
-    name: 'The Old Man and the Sea',
-    info: {
-		 author: 'Ernest Hemingway'
-    }
+  name: 'The Old Man and the Sea',
+  info: {
+    author: 'Ernest Hemingway'
+  }
 };
 
 const a1 = book.info.author;  // => "Ernest Hemingway"
@@ -2180,15 +2165,15 @@ const a3 = book.foo?.();      // => undefined
 <h3>Использование с оператором <u-code-text>??</u-code-text></h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li>Оператор <u-code-text>??</u-code-text> может использоваться после опциональной последовательности для установления значения по умолчанию:</li>
+  <li>Оператор <u-code-text>??</u-code-text> может использоваться после опциональной последовательности для установления значения по умолчанию:</li>
 </ul>
 
 <v-code lang="js" title="">
 const user = {
-    name: 'Tony',
-    details: {
-        age: 23
-    }
+  name: 'Tony',
+  details: {
+    age: 23
+  }
 };
 
 const userCity = user?.city ?? "Unknown city";
@@ -2421,8 +2406,8 @@ function f() {
 f.call(null);
 </v-code>
 </div><div id="js/main/if-case"><!-- TODO:
-<f-search>JS -> Array -> <u>if()</u></f-search>
-<f-search>JS -> Array -> <u>switch() / case()</u></f-search>
+<f-search>JS -> Условные операторы -> <u>if()</u></f-search>
+<f-search>JS -> Условные операторы -> <u>switch() / case()</u></f-search>
 -->
 
 <h2>Условные операторы</h2>
@@ -2473,7 +2458,11 @@ if (year < 2011) {
 	alert('Да, точно в этом году!');
 }
 </v-code>
-</div><div id="js/main/ternary-operator"><h2>Тернарные операторы</h2>
+</div><div id="js/main/ternary-operator"><!-- TODO:
+<f-search>JS -> Тернарные операторы <u>:</u> <u>?</u></f-search>
+-->
+
+<h2>Тернарные операторы</h2>
 
 <ul class="list-point">
     <li><u-code-text>условие ? значение1 : значение2</u-code-text> - Если условие верно - значение1, иначе – значение2</li>
@@ -2535,7 +2524,31 @@ const result = foo();
 <ul class="list-point">
     <li><u-code-text>a ? return 'Yes' : return 'No'</u-code-text> - return это не «выражение» (<u>expression</u>), а «инструкция» (<u>statement</u>), а в тернарном операторе должны быть выражения</li>
 </ul>
-</div><div id="js/api/math"><h2>Math</h2>
+</div><div id="js/api/math"><!-- TODO:
+<f-search>JS -> API -> <u>Math.round()</u></f-search>
+<f-search>JS -> API -> <u>Math.ceil()</u></f-search>
+<f-search>JS -> API -> <u>Math.floor()</u></f-search>
+<f-search>JS -> API -> <u>Math.random()</u></f-search>
+
+<f-search>JS -> API -> <u>Math.pow()</u></f-search>
+<f-search>JS -> API -> <u>Math.sqrt()</u></f-search>
+<f-search>JS -> API -> <u>Math.abs()</u></f-search>
+<f-search>JS -> API -> <u>Math.max()</u></f-search>
+<f-search>JS -> API -> <u>Math.min()</u></f-search>
+<f-search>JS -> API -> <u>Math.exp()</u></f-search>
+<f-search>JS -> API -> <u>Math.log()</u></f-search>
+
+<f-search>JS -> API -> <u>Math.PI()</u></f-search>
+<f-search>JS -> API -> <u>Math.E()</u></f-search>
+<f-search>JS -> API -> <u>Math.sin()</u></f-search>
+<f-search>JS -> API -> <u>Math.cos()</u></f-search>
+<f-search>JS -> API -> <u>Math.tan()</u></f-search>
+<f-search>JS -> API -> <u>Math.atan()</u></f-search>
+<f-search>JS -> API -> <u>Math.asin()</u></f-search>
+<f-search>JS -> API -> <u>Math.acos()</u></f-search>
+-->
+
+<h2>Math</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Округление</h3>
@@ -2616,7 +2629,11 @@ const mtRand = (min, max) => {
 	//return Math.random() * (max - min) + min;
 }
 </v-code>
-</div><div id="js/api/notifications-api"><h2>Notifications API</h2>
+</div><div id="js/api/notifications-api"><!-- TODO:
+<f-search>JS -> API -> <u>Notification</u></f-search>
+-->
+
+<h2>Notifications API</h2>
 
 <ul class="list-point">
 	<li>Notifications API позволяют web-страницам контролировать отображение системных уведомлений для конечного пользователя — они находятся вне контекста окна браузера верхнего уровня, поэтому могут отображаться даже если пользователь сменил вкладку или перешел к другому приложению</li>
@@ -2625,7 +2642,11 @@ const mtRand = (min, max) => {
 <v-code lang="js" title="">
 const promise = Notification.requestPermission();
 </v-code>
-</div><div id="js/api/console"><h2>Console</h2>
+</div><div id="js/api/console"><!-- TODO:
+<f-search>JS -> API -> <u>console</u></f-search>
+-->
+
+<h2>Console</h2>
 
 <v-code lang="js" title="">
 console.log('Сообщение');
@@ -2669,7 +2690,11 @@ console.log(
   'Hello2',
 );
 </v-code>
-</div><div id="js/api/eval"><h2>eval</h2>
+</div><div id="js/api/eval"><!-- TODO:
+<f-search>JS -> API -> <u>eval()</u></f-search>
+-->
+
+<h2>eval</h2>
 
 <ul class="list-point">
 	<li><u-text-define>eval(code)</u-text-define> выполняет код, переданный ей в виде строки и возвращает последнее вычисленное выражение</li>
@@ -2726,7 +2751,11 @@ const a = 1;
 	<u-code>window.eval</u-code>(' alert(a) '); // 1, выполнено глобально везде
 })();
 </v-code>
-</div><div id="js/theory/garbage-collection"><h2>Сборщик мусора</h2>
+</div><div id="js/theory/garbage-collection"><!-- TODO:
+<f-search>JS -> Сборщик мусора</f-search>
+-->
+
+<h2>Сборщик мусора</h2>
 
 <ul class="list-point">
     <li><u-text-define>Сборщик мусора (Garbage collection, GC)</u-text-define> - очистка памяти от недостижимых значений в браузере. GC встроенн в интерпретатор, он наблюдает за объектами и время от времени удаляет недостижимые</li>
@@ -2790,7 +2819,11 @@ user = null;
 <ul class="list-point">
     <li>Согласно теории поколений, объекты “умирают молодыми” гораздо чаще, чем “старыми”. Недавно созданный объект станет мусором с гораздо большей вероятностью. Именно поэтому сборщику мусора рационально проверять такие объекты чаще.</li>
 </ul>
-</div><div id="js/theory/ecmascript"><h2 id="ecmascript">ECMAScript</h2>
+</div><div id="js/theory/ecmascript"><!-- TODO:
+<f-search>JS -> ECMAScript</f-search>
+-->
+
+<h2 id="ecmascript">ECMAScript</h2>
 
 ECMAScript является стандартом, а JavaScript — это самая популярная реализация этого стандарта
 <v-code lang="js" title="">
@@ -2803,7 +2836,11 @@ ES6 (ES2015)
 ES7 (ES2016)
 ES8 (ES2017)
 </v-code>
-</div><div id="js/other/jsdoc"><h2>Документирование. Синтаксис JSDoc</h2>
+</div><div id="js/other/jsdoc"><!-- TODO:
+<f-search>JS -> JSDoc</f-search>
+-->
+
+<h2>Документирование. Синтаксис JSDoc</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Варианты</h3>
@@ -2856,7 +2893,11 @@ const foo = (id) => {
 </v-code>
 
 
-</div><div id="js/other/exceptions"><h2>Исключения</h2>
+</div><div id="js/other/exceptions"><!-- TODO:
+<f-search>JS -> Исключения -> <u>try</u> <u>catch</u> <u>finally</u></f-search>
+-->
+
+<h2>Исключения</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Создание исключений</h3>
@@ -2903,7 +2944,11 @@ try {
 	console.log('Ошибка функции calculate() ' + e.message);
 }
 </v-code>
-</div><div id="js/other/object-wrappers"><h2>Object Wrappers (Autoboxing)</h2>
+</div><div id="js/other/object-wrappers"><!-- TODO:
+<f-search>JS -> Object Wrappers (Autoboxing)</f-search>
+-->
+
+<h2>Object Wrappers (Autoboxing)</h2>
 
 <v-code lang="js" title="">
 typeof 'string';             // "string"
@@ -2991,7 +3036,7 @@ template `&lt;div&gt;${text}&lt;/div&gt;`;
 </v-code>
 
 </div><div id="js/other/proxy"><!-- TODO:
-<f-search>JS -> ES6 -> <u>Proxy</u></f-search>
+<f-search>JS -> <u>Proxy</u></f-search>
 -->
 
 <h2>Proxy</h2>
@@ -3189,7 +3234,11 @@ alert( user.name ); // Tony
 	<li>Каждый перехватчик получает в аргументах <u-code>target</u-code> и дополнительные параметры в зависимости от типа</li>
 	<li>Если перехватчик в <u-code>handler</u-code> не указан, то операция совершается, как если бы была вызвана прямо на <u-code>target</u-code></li>
 </ul>
-</div><div id="js/other/web-workers"><h2>Web Workers</h2>
+</div><div id="js/other/web-workers"><!-- TODO:
+<f-search>JS -> Web Workers</f-search>
+-->
+
+<h2>Web Workers</h2>
 
 <ul class="list-point">
 	<li>Спецификация Web Workers позволяет запускать дополнительные JavaScript-процессы (workers). Они могут обмениваться сообщениями с главным процессом, но у них свои переменные, и работают они также сами по себе</li>
@@ -3242,7 +3291,11 @@ myWorker.onmessage = function(e) {
 	console.log('Message received from worker');
 }
 </v-code>
-</div><div id="js/other/asynchronous-scripts"><h2>Асинхронные скрипты: defer/async</h2>
+</div><div id="js/other/asynchronous-scripts"><!-- TODO:
+<f-search>JS -> Асинхронные скрипты: defer/async</f-search>
+-->
+
+<h2>Асинхронные скрипты: defer/async</h2>
 
 <ul class="list-point">
 	<li>Если браузер видит тег <u-code-text>script</u-code-text>, то он обязан сначала выполнить его, а потом показать оставшуюся часть страницы</li>
@@ -3286,17 +3339,25 @@ myWorker.onmessage = function(e) {
 &lt;script src="defer.js" defer&gt;&lt;/script&gt;
 text text text
 </v-code>
-</div><div id="js/other/method-chaining"><h2>Method Chaining (Цепные вызовы методов)</h2>
+</div><div id="js/other/method-chaining"><!-- TODO:
+<f-search>JS -> Method Chaining (Цепные вызовы методов)</f-search>
+-->
+
+<h2>Method Chaining (Цепные вызовы методов)</h2>
 
 <v-code lang="js" title="">
 const str1 = 'Hello';
 
 const str2 = str1
-    .replace('a', 'b')
-    .concat(' add')
-    .toUpperCase();
+  .replace('a', 'b')
+  .concat(' add')
+  .toUpperCase();
 </v-code>
-</div><div id="js/other/strict-mode"><h2>Strict Mode</h2>
+</div><div id="js/other/strict-mode"><!-- TODO:
+<f-search>JS -> Strict Mode</f-search>
+-->
+
+<h2>Strict Mode</h2>
 
 <p>Может быть прописано в начале файла или в начале функции</p>
 <v-code lang="js" title="">

@@ -44,7 +44,7 @@ const ARR_LINKS = [
     { page: 'v8',                      theme: 'accent',    title: search+accent+'V8 | Rendering | Optimize' },
     { page: 'js-task',                 theme: 'primary ',  title: search+'⚡️ Задачи' },
     null,
-    { page: 'js',                      theme: 'js',        title: search+accent+'JavaScript' },
+    { page: 'js',                      theme: 'js',        title: accent+'JavaScript' },
     { page: 'js-object',               theme: 'js',        title: search+'Object' },
     { page: 'js-array',                theme: 'js',        title: 'Array' },
     { page: 'js-string',               theme: 'js',        title: 'String' },
