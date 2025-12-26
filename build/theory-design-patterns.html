@@ -1722,49 +1722,107 @@ const a2 = myCar.getPrice(); // => 7800
 <ul class="list-point">
     <li><u-code>state</u-code> - свойство, от изменения которого зависит состояние других объектов</li>
     <li><u-code>subscribers</u-code> - список зависящих от <u>state</u> объектов</li>
-    <li><u-code-text>subscribe</u-code-text> - подписка на изменения <u>state</u></li>
-    <li><u-code-text>unsubscribe</u-code-text> - отписка от изменений <u>state</u></li>
-    <li><u-code-text>setState</u-code-text> - метод для измененеия <u>state</u></li>
-    <li><u-code-text>notify</u-code-text> - метод для оповещение подписчиков об изменении <u>state</u></li>
+
+    <li><u-code-text>subscribe()</u-code-text> - подписка на изменения <u>state</u></li>
+    <li><u-code-text>unsubscribe()</u-code-text> - отписка от изменений <u>state</u></li>
+    <li><u-code-text>getState()</u-code-text> - метод для получения <u>state</u></li>
+    <li><u-code-text>setState()</u-code-text> - метод для изменения <u>state</u></li>
+    <li><u-code-text>notify()</u-code-text> - метод для оповещения подписчиков об изменении <u>state</u></li>
+
 </ul>
 
 <!------------------------------------------------------------->
 <h4>Основная реализация</h4>
 <!------------------------------------------------------------->
-<v-code lang="js border" title="">
+<v-two-code type="js border;js border" comment="Класс;Функция">
+<template v-slot:first>
 class Observable {
   constructor() {
-    this.state = 'initial data';
-    this.subscribers = [];
+    this.state = 'Initial Data'
+    this.subscribers = []
   }
-  <u-code-accent>subscribe</u-code-accent>(subscriber) {
-    this.subscribers.push(subscriber);
+  subscribe(subscriber) {
+    this.subscribers.push(subscriber)
   }
-  <u-code-accent>unsubscribe</u-code-accent>(subscriber) {
-    this.subscribers = this.subscribers.filter(el => el !== subscriber);
+  unsubscribe(subscriber) {
+    this.subscribers = this.subscribers.filter(el => el !== subscriber)
   }
-  <u-code-accent>setState</u-code-accent>(data) {
-    this.state = data;
-    this.notify();
+  getState() {
+    return this.state
   }
-  <u-code-accent>notify</u-code-accent>() {
-    this.subscribers.forEach(el => el.update(this.state));
+  setState(data) {
+    this.state = data
+    this.notify()
+  }
+  notify() {
+    this.subscribers.forEach(subscriber => subscriber.update(this.state))
   }
 }
 
 class Subscriber {
   update(data) {
-    console.log(data);
+    console.log('Subscriber Udated Data', data)
   }
 }
 
-const observable = new Observable();
-const subscriber = new Subscriber();
+// Использование
+const observable = new Observable()
+const subscriber = new Subscriber()
 
-observable.subscribe(subscriber);
-// observable.unsubscribe(subscriber);
-observable.setState('new data');
-</v-code>
+observable.subscribe(subscriber)
+// observable.unsubscribe(subscriber)
+observable.setState('New Data')
+
+const state = observable.getState()
+console.log('Observable State', state)
+</template>
+<template v-slot:last>
+// Фабрика для Observable
+const createObservable = () => {
+  let state = 'Initial Data'
+  const subscribers = []
+
+  return {
+    subscribe(subscriber) {
+      subscribers.push(subscriber)
+    },
+    unsubscribe(subscriber) {
+      subscribers = subscribers.filter(el => el !== subscriber)
+    },
+    getState() {
+      return state
+    }
+    setState(data) {
+      state = data
+      this.notify()
+    },
+    notify() {
+	    subscribers.forEach(subscriber => subscriber.update(state))
+    },
+  }
+}
+
+// Фабрика для Subscriber
+const createSubscriber = () => {
+  return {
+    update(data) {
+      console.log('Subscriber Udated Data', data)
+    }
+  };
+}
+
+// Использование
+const observable = createObservable()
+const subscriber = createSubscriber()
+
+observable.subscribe(subscriber)
+// observable.unsubscribe(subscriber)
+observable.setState('New Data')
+
+const state = observable.getState()
+console.log('Observable State', state)
+</template>
+</v-two-code>
 
 <!------------------------------------------------------------->
 <h4>Релизация с action.type</h4>
