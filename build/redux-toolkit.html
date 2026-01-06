@@ -50,14 +50,14 @@
             ⚙️ Установка и настройка
         </a>
     </li>
-</ul><h4>🏷️ Примеры</h4><ul>
+</ul><h4>🏷️ API</h4><ul>
     <li>
         <a
             class="menu-link"
-            id="id__redux-toolkit/samples/state-change"
-            href="#redux-toolkit/samples/state-change"
+            id="id__redux-toolkit/api/createSlice"
+            href="#redux-toolkit/api/createSlice"
         >
-            Изменение state
+            <u-menu>createSlice</u-menu>
         </a>
     </li>
 </ul>
@@ -97,18 +97,45 @@
 <v-pre-npm>
 npm i --save <u-code-accent>react-redux</u-code-accent> <u-code-accent>@reduxjs/toolkit</u-code-accent>
 </v-pre-npm>
-</div><div id="redux-toolkit/samples/state-change"><!-- TODO:
+</div><div id="redux-toolkit/api/createSlice"><!-- TODO:
 <f-search>Redux Toolkit -> <u>createSlice()</u></f-search>
 -->
 
-<h2>Изменение state</h2>
+<h2><u-code-text>createSlice()</u-code-text></h2>
 
-<u-message-error>
-    <ul>
-        <li>Не работает обновление state через присвоение нового объекта (возможно, так и нужно)</li>
-        <li>Вероятно, нужно разобрать раздел из документации <a href="https://redux-toolkit.js.org/usage/immer-reducers" target="_blank" class="link">https://redux-toolkit.js.org/usage/immer-reducers</a></li>
-    </ul>
-</u-message-error>
+<u-link-wrapper>
+  <v-link url="https://redux-toolkit.js.org/api/createSlice" text="createSlice" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+  <v-method before="" method="createSlice({})" after="" arg="">
+  Автоматически генерирует <u>"Action Creators"</u> и <u>"Action Types"</u>, соответствующие <u>reducers</u> и <u>state</u>. Внутри он использует <u-code-text>createAction</u-code-text> и <u-code-text>createReducer</u-code-text>, и библиотеку <u>Immer</u> для написания «mutating» неизменяемых обновлений
+  </v-method>
+
+  <v-method-arg arg="name">Название slice</v-method-arg>
+  <v-method-arg arg="initialState">Начальное состояние</v-method-arg>
+  <v-method-arg arg="reducers">Объект функций-reducer</v-method-arg>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Изменение state</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-message-warn>
+  <ul>
+    <li>Для RTK не работает обновление <u>state</u> через присвоение нового объекта</li>
+    <li>TRK использует Immer в реализации createReducer и как следствие в createSlice, что позволяет писать более простую логику обновления неизменяемых данных с помощью синтаксиса «мутации»</li>
+    <li>createReducer входит в createSlice, поэтому логика аналогичная</li>
+  </ul>
+</u-message-warn>
+
+<u-link-wrapper>
+  <v-link url="https://redux-toolkit.js.org/usage/immer-reducers" text="Раздел в документации по RTK" list="true" />
+  <v-link url="https://immerjs.github.io/immer/" text="Документация по Immer" list="true" />
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <v-tabs :tabs="['Slice', 'Component']">
 
@@ -120,33 +147,33 @@ npm i --save <u-code-accent>react-redux</u-code-accent> <u-code-accent>@reduxjs/
 import { createSlice } from "@reduxjs/toolkit";
 
 export const counterSlice = createSlice({
-    name: "counter",
-    initialState: {
-        value: 0
+  name: "counter",
+  initialState: {
+    value: 0
+  },
+  reducers: {
+    // Работает: оптимальный вариант
+    changeValue1: (state) => {
+      state.value = 1
     },
-    reducers: {
-        // Работает
-        changeValue1: (state) => {
-            state.value = 1
-        },
 <u-code-wrapper>
-        // Не работает
-        changeValue2: (state) => {
-            state = {
-                ...state,
-                value: 2,
-            }
-        },
+    // Не работает: корректно только для Redux, а в RTK используется Immer
+    changeValue2: (state) => {
+      state = {
+        ...state,
+        value: 2,
+      }
+    },
 
 </u-code-wrapper>
-        // Работает
-        changeValue3: (state) => {
-            return {
-                ...state,
-                value: 3,
-            }
-        },
+    // Работает
+    changeValue3: (state) => {
+      return {
+        ...state,
+        value: 3,
+      }
     },
+  },
 })
 </v-code>
 </template>
@@ -161,17 +188,17 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import { changeValue1, changeValue2, changeValue3 } from "./store/slices"
 
 const App = () => {
-    const state = useAppSelector((state) => state.playground)
-    const dispatch = useAppDispatch()
+  const state = useAppSelector((state) => state.playground)
+  const dispatch = useAppDispatch()
 
-    return (
-        &lt;div&gt;
-            &lt;button onClick={() =&gt; dispatch(changeValue1())}&gt;changeValue1&lt;/button&gt;
-            &lt;button onClick={() =&gt; dispatch(changeValue2())}&gt;changeValue2&lt;/button&gt;
-            &lt;button onClick={() =&gt; dispatch(changeValue3())}&gt;changeValue3&lt;/button&gt;
-            {state.value}
-        &lt;/div&gt;
-    )
+  return (
+    &lt;div&gt;
+      &lt;button onClick={() =&gt; dispatch(changeValue1())}&gt;changeValue1&lt;/button&gt;
+      &lt;button onClick={() =&gt; dispatch(changeValue2())}&gt;changeValue2&lt;/button&gt;
+      &lt;button onClick={() =&gt; dispatch(changeValue3())}&gt;changeValue3&lt;/button&gt;
+      {state.value}
+    &lt;/div&gt;
+  )
 }
 </v-code>
 </template>

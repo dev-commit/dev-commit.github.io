@@ -9,9 +9,9 @@ ARR_MODULE = [
         ]
     },
     {
-        title: 'Примеры',
+        title: 'API',
         themes: [
-            [root+'samples/state-change', 'Изменение state'],
+            [root+'api/createSlice', setTheme(1, ['createSlice'])],
         ]
     },
 ]
