@@ -5,10 +5,25 @@
 </div>
 
 <v-code lang="bash" title="">
-# добавление к локальному репозиторию ссылки на удаленный репозиторий
-# нужен push, чтобы добавить данные из локального в удаленный
+# Добавление к локальному репозиторию ссылки на удаленный репозиторий
 git <u-code>remote add origin</u-code> <em>https://github.com/Account/Repo.git</em>
 
 # список репозиториев
 git <u-code>remote -v</u-code>
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм работы remote add origin</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+# 1. Локальный репозиторий
+git init
+git add .
+git commit -m 'Comment'
+
+# 2. Добавляем ссылку на удаленный репозиторий GitHub
+git remote add origin https://github.com/Account/Repo.git
+
+# 3. Пушим изменения из локального репозиторий в удаленный
+git push origin head
 </v-code>
