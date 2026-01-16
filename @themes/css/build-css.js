@@ -25,7 +25,6 @@ ARR_MODULE = [
             [root+'box-model/position',   setTheme(1, ['position'])],
             [root+'box-model/margin',     setTheme(1, ['margin'])],
             [root+'box-model/width',      setTheme(1, ['width'])],
-            [root+'box-model/block-size', setTheme(7, ['block-size'])],
         ]
     },
     {
