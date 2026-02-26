@@ -1,0 +1,29 @@
+{
+  "name": "workbook",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "typecheck": "tsc --noEmit",
+    "docs:build": "vuepress build docs",
+    "clean-dev": "vuepress dev docs --clean-cache",
+    "update-package": "npx vp-update",
+    "build-gh-pages": "gh-pages -d docs/.vuepress/dist",
+    "commit": "git add . && git commit -m \"Bash Script Commit\" && git push origin head",
+    "deploy": "npm run docs:build && npm run build-gh-pages && npm run commit"
+  },
+  "devDependencies": {
+    "@vuepress/bundler-vite": "^2.0.0-rc.7",
+    "@vuepress/plugin-docsearch": "^2.0.0-rc.38",
+    "@vuepress/plugin-medium-zoom": "^2.0.0-rc.38",
+    "@vuepress/plugin-register-components": "^2.0.0-rc.37",
+    "@vuepress/plugin-search": "^2.0.0-rc.40",
+    "@vuepress/plugin-shiki": "^2.0.0-rc.38",
+    "@vuepress/theme-default": "^2.0.0-rc.38",
+    "gh-pages": "^6.1.1",
+    "vue": "^3.4.0",
+    "vuepress": "^2.0.0-rc.7",
+    "typescript": "^5.7.2",
+    "@types/node": "^22.10.1"
+  }
+}

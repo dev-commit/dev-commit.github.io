@@ -1,0 +1,118 @@
+<h2>Async Function (ES2017)</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объявление</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="Стрелочная;Обычная">
+<template v-slot:first>
+const foo = async () => {
+    const a = await AsyncFunction();
+};
+</template>
+<template v-slot:last>
+async function foo() {
+    const a = await AsyncFunction();  
+}
+</template>
+</v-two-code>
+
+<v-two-code type="js;js" comment="Стрелочная;Обычная">
+<template v-slot:first>
+(async () => {
+    const a = await AsyncFunction();
+})();
+</template>
+<template v-slot:last>
+(async function() {
+    const a = await AsyncFunction();
+})();
+</template>
+</v-two-code>
+
+<ul class="list-point">
+	<li>Async Function - асинхронная функция (Promise + Generator)</li>
+	<li>Асинхронная функция возвращает <u>Promise</u>, для получения значения используется then</li>
+	<li>Если в асинхронной функции специально вернуть <u>Promise</u>, он не оборачивается в другой <u>Promise</u></li>
+</ul>
+
+<v-code lang="js" title="">
+async function getUser(id) {
+    return { id:1 };   
+}
+getUser(1).then(user => console.log(user));
+</v-code>
+
+<ul class="list-point">
+	<li>await дожидается выполнения <u>Promise</u>, вытаскивает значение и возвращает его</li>
+	<li>код после await выполнится только после выполнения функции</li>
+	<li>await можно использовать только внутри асинхронной функции</li>
+	<li>await необязательно ставить перед вызовом асинхронной фунцкии. это может быть любая функция, возвращающая <u>Promise</u></li>
+</ul>
+<v-code lang="js" title="">
+async function getUser(id) {
+    return { id:1 };   
+}
+async function main() {
+    let user = await getUser(1);
+    console.log(user);
+}
+main();
+</v-code>
+
+<v-code lang="js" title="">
+async function getUser(id) {
+    let response = await fetch('url');
+    let data = await response.json();
+    return data;
+}
+
+async function main() {
+    try {
+        let user = await getUser(1);
+        console.log(user);
+    } catch(error) {
+        console.log(error);
+    }
+}
+
+main();
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Варианты объявления</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="Обычная функция">
+const getUser = async function(id) {
+    //
+}
+</v-code>
+
+<v-code lang="js" title="Стрелочная функция">
+const getUser = async (id) => {
+    //
+}
+</v-code>
+
+<v-code lang="js" title="Свойство объекта">
+const obj = {
+    getUser: async function(id) {
+        //
+    }
+}
+</v-code>
+
+<v-code lang="js" title="Метод объекта">
+const obj = {
+    async getName() {
+        return fetch('https://www.example.com');
+    }
+}
+</v-code>
+
+<v-code lang="js" title="Класс">
+class Obj {
+    async getResource() {
+        return fetch('https://www.example.com');
+    }
+}
+</v-code>

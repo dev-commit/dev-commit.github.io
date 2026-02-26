@@ -1,0 +1,54 @@
+<h2>Network Requests</h2>
+
+<u-link-wrapper>
+	<a href="https://docs.cypress.io/guides/guides/network-requests.html" target="_blank">Network Requests</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Заглушка ответа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Cypress позволяет заглушить ответ и контролировать тело, статус, заголовки или даже задержку</li>
+    <li>Команды <u-code-text>cy.server</u-code-text> и <u-code-text>cy.route</u-code-text> работают вместе, чтобы контролировать поведение ответов в опциях команды</li>
+</ul>
+
+<v-code lang="js border" title="">
+cy.<u-code>server</u-code>()  // включает заглушки
+cy.<u-code>fixture</u-code>() // загрузка фиксированного набора данных, расположенного в файле
+cy.<u-code>route</u-code>()   // предоставляет таблицу маршрутизации, поэтому Cypress понимает, какой ответ должен идти с каким запросом
+</v-code>
+
+<ul class="list-point">
+    <li>Cypress автоматически указывает, когда в вашем приложении происходит запрос XHR</li>
+    <li>Они всегда регистрируются в журнале команд (независимо от того, является ли он заглушенным)</li>
+    <li>Cypress указывает, когда запрос начался и когда он закончен</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование <u-code-text>cy.server</u-code-text> и <u-code-text>cy.route</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+cy.<u-code>server</u-code>()
+cy.<u-code>route</u-code>({
+    method: 'GET',      // Route all GET requests
+    url: '/users/*',    // that have a URL that matches '/users/*'
+    response: []        // and force the response to be: []
+})
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование <u-code-text>cy.fixture</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Файл <u-code-text>./cypress/fixtures/activities.json</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+cy.<u-code>server</u-code>()
+cy.<u-code>fixture</u-code>('activities.json').as('activitiesJSON')
+cy.<u-code>route</u-code>('GET', 'activities/*', '@activitiesJSON')
+
+// GET             - метод
+// activities/*    - часть URL
+// @activitiesJSON - алиас fixture 
+</v-code>

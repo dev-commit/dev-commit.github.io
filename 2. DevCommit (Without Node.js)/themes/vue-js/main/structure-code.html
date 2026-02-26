@@ -1,0 +1,100 @@
+<h2>Пример кода vue-cli</h2>
+
+<!------------------------------------------------------------->
+<h4>main.js</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="js">
+import Vue from 'vue'
+import App from './App.vue'
+
+new Vue({
+    el: '#app',
+    render: function(h) { 
+        return h(App) 
+    }
+	// render: h => h (App)
+})
+</v-code>
+
+<hr>
+
+<!------------------------------------------------------------->
+<h4>App.vue</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="html">
+&lt;template&gt;
+    &lt;div id="app"&gt;
+        &lt;img src="./assets/logo.png"&gt;
+        &lt;h1&gt;Text App&lt;/h1&gt;
+        &lt;h2&gt;<span v-pre>{{text}}</span>&lt;/h2&gt;
+        &lt;app-header message="Text Header"&gt;&lt;/app-header&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</v-code>
+
+<v-code lang="js" title="js">
+&lt;script&gt;
+import Header from './components/Header.vue'
+
+export default {
+    components: {
+        'app-header': Header
+    },
+    data() {
+        return {
+            text: 'Text in Vue'
+        }
+    },
+    methods: {
+        testMethod() {
+            //
+        }
+    }
+}
+&lt;/script&gt;
+</v-code>
+
+<v-code lang="css" title="css">
+&lt;style scoped&gt;
+h1 {
+    color: blue;
+}
+&lt;/style&gt;
+</v-code>
+
+<hr>
+
+<!------------------------------------------------------------->
+<h4>Header.vue</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="html">
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;h1&gt;<span v-pre>{{message}}</span>&lt;/h1&gt;
+        &lt;h2&gt;<span v-pre>{{text}}</span>&lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</v-code>
+
+<v-code lang="js" title="js">
+&lt;script&gt;
+export default {
+    data() {
+        return {
+            text: 'Text in Header'
+        }
+    },
+    props: {
+        message: String
+    }
+}
+&lt;/script&gt;
+</v-code>
+
+<v-code lang="css" title="css">
+&lt;style scoped&gt;
+h1 {
+    color: orange;
+}
+&lt;/style&gt;
+</v-code>

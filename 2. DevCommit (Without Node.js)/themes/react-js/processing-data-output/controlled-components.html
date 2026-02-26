@@ -1,0 +1,151 @@
+<h2>Controlled Components</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Controlled Components</u-text-define> (Контролируемые / управляемые компоненты) - данные формы обрабатываются React-компонентом. <u-code-text>value</u-code-text> элемента устанавливается из <u-code-text>state</u-code-text> компонента</li>
+
+	<li>У элементов формы изначально есть внутреннее состояние</li>
+	<li>В HTML элементы формы, такие как <u-code-text>&lt;input&gt;</u-code-text>, <u-code-text>&lt;textarea&gt;</u-code-text>, <u-code-text>&lt;select&gt;</u-code-text>, обычно сами управляют своим состоянием и обновляют его когда пользователь вводит данные. В React мутабельное состояние обычно содержится в свойстве компонентов state и обновляется только через вызов <u-code-text>setState()</u-code-text>. Мы можем скомбинировать оба подхода и сделать состояние React-компонента <u>«единственным источником правды»</u>. Тогда React-компонент будет рендерить форму и контролировать её поведение в ответ на пользовательский ввод. Значение элемента формы <u-code-text>input</u-code-text> в этом случае будет контролировать React, а сам элемент будет называться управляемый компонент»</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>input, submit</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="Хуки">
+import React, { useState } from 'react'
+
+const App = () =&gt; {
+	const [value, setValue] = useState('')
+
+	const onChange = e =&gt; setValue(e.target.value)
+
+	return (
+		&lt;&gt;
+			&lt;input type="text" value={value} onChange={onChange} /&gt;
+			&lt;h1&gt;{value}&lt;/h1&gt;
+		&lt;/&gt;
+	)
+}
+</v-code>
+
+<v-code lang="js" title="Классовые">
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { value: '' };
+	}
+	handleChange = (event) =&gt; {
+		this.setState({value: <u-code>event.target.value</u-code>.toUpperCase()});
+	}
+	handleSubmit = (event) =&gt; {
+		alert(this.state.value);
+		<u-code>event.preventDefault();</u-code>
+	}
+	render() {
+		return (
+			&lt;form <u-code>onSubmit</u-code>={this.handleSubmit}&gt;
+				&lt;input type="text" <u-code>value={this.state.value}</u-code> <u-code>onChange</u-code>={this.handleChange} /&gt;
+				&lt;input type="submit" value="Отправить" /&gt;
+			&lt;/form&gt;
+		);
+	}
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>textarea</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;textarea value={this.state.value} onChange={this.handleChange}&gt;&lt;/textarea&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>select</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Пункт списка «Кокос» выбран по умолчанию из-за установленного атрибута <u-code-text>selected</u-code-text>. React вместо этого атрибута использует <u-code-text>value</u-code-text> в корневом теге <u-code-text>select</u-code-text>. В управляемом компоненте так удобнее, потому что обновлять значение нужно только в одном месте (<u-code-text>state</u-code-text>)</li>
+</ul>
+
+<v-code lang="js" title="">
+constructor(props) {
+	this.state = {value: 'coconut'};
+}
+</v-code>
+
+<v-code lang="html" title="">
+&lt;form onSubmit={this.handleSubmit}&gt;
+	&lt;select value={this.state.value} onChange={this.handleChange}&gt;
+		&lt;option value="lime"&gt;Лайм&lt;/option&gt;
+		&lt;option value="coconut"&gt;Кокос&lt;/option&gt;
+		&lt;option value="mango"&gt;Манго&lt;/option&gt;
+	&lt;/select&gt;
+	&lt;input type="submit" value="Отправить" /&gt;
+&lt;/form&gt;
+</v-code>
+
+<ul class="list-point">
+	<li>В атрибут <u-code-text>value</u-code-text> можно передать массив, что позволит выбрать несколько опций в теге <u-code-text>select</u-code-text></li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;select multiple={true} value={['Б', 'В']}&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обработка нескольких элементов input</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Если нужны несколько управляемых элементов <u-code-text>input</u-code-text>, можно назначить каждому из них атрибут name, что позволит функции-обработчику решать, что делать, основываясь на значении <u-code-text>event.target.name</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			isGoing: true,
+			numberOfGuests: 2
+		  };
+	}
+	handleInputChange = (event) =&gt; {
+		const target = event.target;
+		const value = target.type === 'checkbox' ? target.checked : target.value;
+		<u-code>const name = target.name;</u-code>
+		this.setState({
+			<u-code>[name]: value</u-code>
+		});
+	}
+	render() {
+		return (
+			&lt;div&gt;
+				&lt;input <u-code>name="isGoing"</u-code> type="checkbox" checked={this.state.isGoing} onChange={this.handleInputChange} /&gt;
+				&lt;input <u-code>name="numberOfGuests"</u-code> type="number" value={this.state.numberOfGuests} onChange={this.handleInputChange} /&gt;
+			&lt;/div&gt;
+		);
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вычисляемые имена свойств</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+this.setState({
+	[name]: value
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Значение null управляемого компонента</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Если установить управляемому компоненту проп <u-code-text>value</u-code-text>, то пользователь не сможет изменить его значение без вашего желания. Если вы установили <u-code-text>value</u-code-text>, а поле ввода по-прежнему можно редактировать, то, возможно, вы случайно задали <u-code-text>value</u-code-text>, равный <u-code-text>undefined</u-code-text> или <u-code-text>null</u-code-text></li>
+	<li>Пример: изначально заблокированный <u-code-text>input</u-code-text> становится редактируемым спустя 1с</li>
+</ul>
+
+<v-code lang="js" title="">
+ReactDOM.render(&lt;input value="Привет" /&gt;, mountNode);
+
+setTimeout(function() {
+	ReactDOM.render(&lt;input value={null} /&gt;, mountNode);
+}, 1000);
+</v-code>

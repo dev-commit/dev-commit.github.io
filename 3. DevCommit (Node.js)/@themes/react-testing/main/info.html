@@ -1,0 +1,52 @@
+<h2>Информация</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Структура тестов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+describe('Название блока тестов', () => {
+	it('Название теста', () => {
+		// given (дано)
+		// when (условие)
+		// then (результат)
+		expect(...)
+	})
+})
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Snapshots</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<b>Применять</b>
+    <li>Компонент максимально статичен и почи никогда не меняется (верстка, stateless компоненты)</li>
+    <li>Детерминированные компоненты (запуск одних и тех же тестов для компонента, который не меняется, должен возврещать одинаковые результаты)</li>
+    <li>При рефакторинге существующих компонентов (изменение только функционала без изменения вёрстки)</li>
+
+    <b>Не применять</b>
+    <li>Во всех остальных случаях</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Mocks: для чего использовать</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>imports</li>
+    <li>styles</li>
+    <li>axios</li>
+    <li>redux</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примет использования ReactDOM.render</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(&lt;App /&gt;, div);
+});
+</v-code>

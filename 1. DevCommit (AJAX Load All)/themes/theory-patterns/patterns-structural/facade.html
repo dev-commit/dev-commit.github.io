@@ -1,0 +1,20 @@
+<h2>Паттерн «Фасад»</h2>
+
+<ul class="list-point">
+    <li><u-text-define>«Фасад»</u-text-define> - структурный паттерн проектирования, который предоставляет простой интерфейс к сложной системе классов, библиотеке или фреймворку</li>
+</ul>
+
+<v-code lang="js" title="">
+const $ = function(target) {
+    return new MemeQuery(target);
+}
+function MemeQuery(target) {
+    this.target = document.querySelector(target);
+}
+MemeQuery.prototype.html = function(html) {
+    this.target.innerHTML = html;
+    return this;
+}
+
+$('#myParagraph').html('Meeemee').html('Some JS design patterns');
+</v-code>

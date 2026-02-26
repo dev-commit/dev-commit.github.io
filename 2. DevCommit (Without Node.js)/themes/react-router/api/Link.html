@@ -1,0 +1,112 @@
+<h2>&lt;Link /&gt; &lt;NavLink /&gt;</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Link</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="" method="&lt;Link /&gt;" after="" arg="">
+    Видоизмененная ссылка под React для редиректа на нужную страницу. Предотвращает обновление страницы, в отличии от обычной ссылки
+    </v-method>
+	<v-method-arg arg="to">Местоположение ссылки</v-method-arg>
+	<v-method-arg arg="component">Компонент для рендера</v-method-arg>
+	<v-method-arg arg="exact">Если true, активный класс / стиль будет применяться только в том случае, если местоположение точно совпадает</v-method-arg>
+	<v-method-arg arg="replace">Если true, нажатие на ссылку заменит текущую запись в стеке истории, а не добавит новую</v-method-arg>
+</div>
+
+<v-code lang="js" title="">
+import { BrowserRouter, Link } from 'react-router-dom';
+
+const App = () = (
+    &lt;BrowserRouter&gt;
+        &lt;&gt;
+            &lt;<u-code>Link</u-code> to="/" exact&gt;Home&lt;/<u-code>Link</u-code>&gt;
+            &lt;<u-code>Link</u-code> to="/about/"&gt;About&lt;/<u-code>Link</u-code>&gt;
+        &lt;/&gt;
+    &lt;/BrowserRouter&gt;
+);
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>NavLink (стилизация активной ссылки)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Использование <u-code-text>NavLink</u-code-text> вместо <u-code-text>Link</u-code-text> добавляет к активной ссылке класс <u-code-text>active</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+import { BrowserRouter, NavLink } from 'react-router-dom';
+
+const App = () = (
+    &lt;BrowserRouter&gt;
+        &lt;&gt;
+            &lt;<u-code>NavLink</u-code> to="/" exact&gt;Home&lt;/<u-code>Link</u-code>&gt;
+            &lt;<u-code>NavLink</u-code> to="/about/"&gt;About&lt;/<u-code>Link</u-code>&gt;
+        &lt;/&gt;
+    &lt;/BrowserRouter&gt;
+);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>CSS-Modules</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>При использовании <u>css-modules</u>, стилизовать ссылку нужно глобально</li>
+</ul>
+
+<v-code lang="js" title="">
+:global {
+    a.active {
+        color: yellowgreen !important;
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Сборка create-react-app</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import './Header.css';
+
+const Header = () => (
+    &lt;ul className="header__links"&gt;
+        &lt;li&gt;&lt;NavLink to="/" exact&gt;Home&lt;/NavLink&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;NavLink to="/about/"&gt;About&lt;/NavLink&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+);
+</v-code>
+
+<v-code lang="css" title="">
+.header__links a {}
+.header__links a.active {}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Настройка сервера Webpack</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>При переходе по <u-code-text>Link</u-code-text> изменяется url, но физически этой страницы нет. Поэтому нужно настроить сервер</li>
+</ul>
+
+<v-code lang="js" title="webpack.config.js">
+module.exports = {
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'build'),
+		<u-code-wrapper>
+		publicPath: '/'
+		</u-code-wrapper>
+	},
+	devServer: {
+		contentBase: './dist',
+		<u-code-wrapper>
+		historyApiFallback: {
+			disableDotRule: true
+		},
+		</u-code-wrapper>
+		stats: 'errors-only',
+		port: 3000
+	}
+}
+</v-code>

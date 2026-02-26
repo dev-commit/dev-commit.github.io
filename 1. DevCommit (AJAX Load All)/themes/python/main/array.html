@@ -1,0 +1,74 @@
+<h2>Списки (массивы)</h2>
+
+<v-code lang="python" title="">
+arr1 = ['a', 'b', 'c']           # список
+arr1[1]                          # обращение к элементу списка
+
+arr2 = ['a', 'b', ['d1', 'd2'] ] # список в списке
+arr2[2][1]                       # обращение к элементу многомерного списка
+
+arr1 * 2                         # умножение списка ['a', 'b', 'c', 'a', 'b', 'c']
+arr1 + ['d', 'i']                # сложение двух списков ['a', 'b', 'c', 'd', 'i']
+
+str1 = 'Привет'                  # строка
+str1[2]                          # обращение к элементу строки
+
+arr1.append('d')    # добавление элемента в конец списка
+arr1.insert(0, 'z') # добавление элемента 'z' в заданную позицию '0' списка
+arr1.remove('a')    # удаление элемента списка
+arr1.pop(1)         # удаление элемента списка по индексу
+
+len(arr1)           # длина списка
+max(arr1)           # максимальный элемент списка
+max(arr1)           # минимальный элемент списка
+arr1.count('a')     # кол-во вхождений определенных значений в список (если значения повторяются)
+arr1.reverse()      # перевернуть значения массива (ничего не возвращает, только изменяет список)
+
+# поверка наличия значения элемента в списке
+if 'a' in arr1:
+	print('A is in list')
+
+# поверка отсутствия значения элемента в списке
+if 'a' not in arr1:
+	print('A is not in list')
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Диапазон</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+# диапазон
+# возвращает не список, а итерируемые объекты диапазона
+a = range(100)        # (0, 100)
+b = range(50, 100)    # (50, 100)
+c = range(50, 100, 2) # (50, 100) шаг генерации 2 (только четные числа)
+
+numbers = list(range(100)) # преобразование в список. список из 100 цифр
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Перебор списка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+arr = ['a', 'b', 'c', 'd']
+
+i = 0
+length = len(arr) - 1
+
+while i<=length:
+	print(arr[i])
+	i+=1
+</v-code>
+
+<v-code lang="python" title="">
+arr = ['a', 'b', 'c', 'd']
+
+for element in arr:
+	print(element)
+</v-code>
+
+<v-code lang="python" title="">
+# Выполнение кода заданное кол-во раз
+for element in range(10):
+	print('Выполнится 10 раз')
+</v-code>

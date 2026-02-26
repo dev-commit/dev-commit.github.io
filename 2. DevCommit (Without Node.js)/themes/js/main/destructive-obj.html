@@ -1,0 +1,114 @@
+<h2>Деструтивное присваивание объектов (ES6) - деструктуризация</h2>
+
+<v-code lang="js" title="">
+const person = {
+	firstname: 'Tony',
+	lastname: 'Stark'
+};
+</v-code>
+
+<v-two-code type="js;js" comment="ES6;ES5">
+<template v-slot:first>
+const { firstname, lastname } = person;
+</template>
+<template v-slot:last>
+const firstname = person.firstname;
+const lastname = person.lastname;
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const {firstname, lastname} = person;              // имена переменных должны совпадать с именами свойст объекта
+const {firstname:first, lastname:last} = person;   // изменение имен переменных
+const {firstname, lastname, age=25} = person;      // значение по умолчанию (если age нет, присвоится 25)
+const {address: {flat=77} = {} } = person;         // значение по умолчанию (если address нет, присвоится {})
+const {['first'+'name']:first, lastname} = person; // динамическое определение имен свойст с помощью выражения в []
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Извлечение свойств вложенных объектов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const props = {
+	name: 'Tony',
+    userData: {
+        roles: 'admin',
+        id: 77
+    }
+}
+
+const <u-code>{ name, userData: { roles, id } } = props</u-code>;
+
+console.log(name);  // => 'Tony'
+console.log(roles); // => 'admin'
+console.log(id);    // => 77
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Использование в качестве параметра функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const user = {
+	firstname: 'Tony',
+	lastname: 'Stark'
+};
+function post(url, {data:{firstname, lastname}, cache}) {
+	console.log(firstname, lastname, cache);
+}
+const result = post('api/users', {data:user, cache:false});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Указание значения по умолчанию</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function connect({
+	host = 'localhost',
+	port = 1234,
+	user = 'guest'
+}) {
+	console.log(host, port, user);
+}
+
+connect({ host: 'port' });
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Возврат нескольких значений из функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function getUser() {
+	return {
+		firstname: 'Tony',
+		lastname: 'Stark'
+	};
+}
+const {firstname, lastname} = getUser();
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Rest-элемент</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Rest-элемент должени быть последним в списке</li>
+    <li>На одном уровне может быть только один rest-элемент</li>
+    <li>В rest-элемент попадут все значения, которые не были деструктурированы в выражении</li>
+</ul>
+
+<v-code lang="js" title="">
+const users = {
+	admin: 'all',
+	moderator: 'write',
+	guest: 'read'
+}
+
+const { admin, ...otherUsers } = users;
+console.log(otherUsers); // => {moderator: "write", guest: "read"}
+</v-code>

@@ -1,0 +1,1181 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>💥 React Hooks</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Хуки</div><a href="#hooks-use-state">🔥 <u-menu-unactive>useState</u-menu-unactive></a><a href="#hooks-use-effect">🔥 <u-menu-unactive>useEffect</u-menu-unactive></a><a href="#hooks-use-ref">🔥 <u-menu-unactive>useRef</u-menu-unactive></a><a href="#hooks-use-memo">🔥 <u-menu-unactive>useMemo</u-menu-unactive></a><a href="#hooks-use-callback">🔥 <u-menu-unactive>useCallback</u-menu-unactive></a><a href="#hooks-use-context">🔥 <u-menu-unactive>useContext</u-menu-unactive></a><a href="#hooks-use-reducer">🔥 <u-menu-unactive>useReducer</u-menu-unactive></a><a href="#hooks-use-imperative-handle">⚾️ <u-menu-unactive>useImperativeHandle</u-menu-unactive></a><a href="#hooks-use-layout-effect">⚾️ <u-menu-unactive>useLayoutEffect</u-menu-unactive></a><a href="#hooks-use-debug-value">⚾️ <u-menu-unactive>useDebugValue</u-menu-unactive></a><div class="theme">Информация</div><a href="#main-info">📑 Информация</a><a href="#main-own-hooks">📑 Создание собственных хуков</a><a href="#main-questions">📑 Ответы на вопросы</a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="hooks-use-state"><h2>Хук состояния useState</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useState" after="" arg="(startState)">
+    для использования внутреннего состояния в функциональном компоненте. React будет хранить это состояние между рендерами
+    </v-method>
+	<v-method-arg arg="startState">начальное состояние. Используется только при первом рендере</v-method-arg>
+	<v-method-return>[currentState, setStateFunction] - возвращает текущее значение состояния и функцию для его обновления</v-method-return>
+</div>
+
+<v-code lang="js border" title="useState">
+import React, { useState } from 'react';
+
+const [counter, setCounter] = useState(0);
+setCounter(1);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Базовый</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>counter</u-code-text> - текущее состоение</li>
+    <li><u-code-text>setCount(1)</u-code-text> - функция для изменения состояния</li>
+    <li><u-code-text>useState(0)</u-code-text> - начальное состоние "0"</li>
+</ul>
+
+<v-code lang="js" title="Счетчик">
+const App = () => {
+	<u-code>const [counter, setCounter] = useState(0);</u-code>
+
+	const increment = () => {
+		<u-code>setCounter</u-code>(counter + 1)
+	}
+
+	return (
+		&lt;div&gt;
+			{counter}
+			&lt;button onClick={increment}&gt;Increment&lt;/button&gt;
+		&lt;/div&gt;
+	);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Функция-коллбэк в setCounter()</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u-text-underline>Хук работает асинхронно</u-text-underline></li>
+	<li>Должен произойти цикл рендеринга, чтобы counter изменился</li>
+</ul>
+
+<v-code lang="js border" title="">
+const [counter, setCounter] = useState(0);
+
+setCounter(prevCounter => {
+	// Если нужно точно основываться на предыдущем состоянии
+	// Вернет текущее значение "counter"
+	return prevCounter + 1
+})
+
+// setCounter(prevCounter => prevCounter + 1)
+</v-code>
+
+<v-code lang="js" title="">
+const [counter, setCounter] = useState(0);
+
+const increment = () => {
+	setCounter(1);
+	setCounter(2);
+	setCounter(3); // Установится последнее значение
+}
+</v-code>
+
+<v-two-code type="js;js" comment="Неверно;Верно">
+<template v-slot:first>
+setCounter(counter + 1)
+setCounter(counter + 1) // counter остался прежним
+</template>
+<template v-slot:last>
+setCounter(prevCounter => {
+	return prevCounter + 1
+})
+setCounter(prevCounter => {
+	return prevCounter + 1
+})
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>3. State с объектами</h4>
+<!------------------------------------------------------------->
+<v-code lang="js border" title="">
+setCounter(prev => {
+	return {
+		...prev,
+		title: 'Новое значение'
+	}
+})
+</v-code>
+
+<v-code lang="js" title="">
+const [counter, setCounter] = useState({
+	title: 'Счетчик',
+	data: Date.now()
+})
+</v-code>
+
+<ul class="list-point">
+	<li>Если передаем новый объект, то он полностью перезатирает состояние</li>
+	<li>В отличие от классового компонента, он не совмещается с существующим</li>
+</ul>
+
+<v-two-code type="js;js" comment="Неверно;Верно">
+<template v-slot:first>
+// Перезатрет "date"
+setCounter({ title: 'Новое значение' })
+</template>
+<template v-slot:last>
+setCounter(prev => {
+	return {
+		...prev,
+		title: 'Новое значение'
+	}
+})
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>4. Функция-коллбэк в useState(). Вычисление начального состояния</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const calc = () => {
+	console.log('Some calculations');
+}
+</v-code>
+
+<v-two-code type="js;js" comment="Неверно;Верно">
+<template v-slot:first>
+const App = () => {
+	// calc() вызывается 2 раза при начальном рендеринге
+	// calc() вызывается 2 раза при каждом обновлении state
+	// т.к. при изменении state заново рендерится компонент
+	const [count, setCount] = useState(calc());
+}
+
+</template>
+<template v-slot:last>
+const App = () => {
+	// оптимизация
+	// 1 раз вычислит значение и больше не будет вызываться 
+	// calc() вызывается 2 раза при начальном рендеринге
+	// calc() не вызывается при каждом обновлении state
+<u-code-wrapper>
+	const [count, setCount] = useState(() => {
+		return calc()
+	});
+
+</u-code-wrapper>
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>5. Объявление нескольких переменных состояния</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Хук состояния можно использовать в компоненте более одного раза</li>
+	<li>Синтаксис деструктуризации массивов позволяет по разному называть переменные состояния, которые объявляем при вызове <u-code-text>useState</u-code-text>. Так как имён этих переменных нет в <u-code-text>API useState</u-code-text>, React предполагает, что если вы вызываете <u-code-text>useState</u-code-text> много раз, вы делаете это в одинаковой последовательности при каждом рендере</li>
+</ul>
+
+<v-code lang="js" title="">
+const App = () => {
+	const [age, setAge] = useState(42);
+	const [fruit, setFruit] = useState('Банан');
+}
+</v-code>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сравнение <u-code-text>useState()</u-code-text> и <u-code-text>this.setState</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <b>Отличия</b>
+    <li>Не сливает новое и старое состояние вместе</li>
+    <li>Состояние может быть объектом</li>
+</ul>
+
+<v-code lang="js" title="">
+// изменение состояния перерисовывает компонент
+1. this.setState({ a: 1 }) -> this.render()
+2. useState()
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Особенности</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// Не работает
+if (true) {
+	const [counter, setCounter] = useState(0);
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Переписывание на Хуки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="prevState;useState">
+<template v-slot:first>
+class App extends Component {
+	state = {
+		open: false,
+	}
+	handleOpenModal = () => {
+		this.setState(prevState => ({
+			open: !prevState.open,
+		}));
+	}
+}
+</template>
+<template v-slot:last>
+const App = () => {
+	const [open, setOpen] = useState(false);
+	const handleOpenModal = () => {
+		setOpen(!open);
+	}
+}
+</template>
+</v-two-code>
+
+<v-two-code type="js;js" comment="Callback;useState">
+<template v-slot:first>
+const App = isContract => {
+	this.setState(() => ({
+		signed: isContract,
+	}), () => this.props.handleChange());
+};
+</template>
+<template v-slot:last>
+const App = isContract => {
+	setSigned(isContract);
+	handleChange();
+}
+</template>
+</v-two-code>
+
+<v-two-code type="js;js" comment="Callback;useState, useEffect">
+<template v-slot:first>
+class App extends Component {
+	state = {
+		comment: null,
+	}
+	setCommentSubject = (fio) => {
+		this.state({ comment: fio }, () => {
+			this.setState({ comment: null });
+		})
+	}
+}
+</template>
+<template v-slot:last>
+const App = () => {
+	const [comment, setComment] = useState();
+	const setCommentSubject = (fio) => {
+		setComment(fio);
+	}
+	useEffect(() => {
+		comment && setComment(null);
+	}, [comment])
+}
+</template>
+</v-two-code>
+</div><div id="hooks-use-effect"><h2>Хук эффекта useEffect</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useEffect" after="" arg="(effect, deps)">
+    необходим для выполнения Side Effects (побочных эффектов)
+    </v-method>
+	<v-method-arg arg="effect">коллбэк</v-method-arg>
+	<v-method-arg arg="deps">dependencies - массив, с указанием от чего зависит useEffect</v-method-arg>
+</div>
+
+<v-code lang="js border" title="">
+import React, { useEffect } from 'react';
+</v-code>
+
+<v-code lang="js border" title="">
+// <b><u-code-text>componentDidMount</u-code-text> и <u-code-text>componentDidUpdate</u-code-text></b>
+// Отсделить каждый рендеринг компонента. Выполняется после каждого рендера и обновления
+useEffect(() => {
+	document.title = 'Заголовок';
+});
+</v-code>
+
+<v-code lang="js border" title="">
+// <b><u-code-text>componentDidMount</u-code-text></b>
+useEffect(() => {
+	document.title = 'Заголовок';
+}, []);
+</v-code>
+
+<v-code lang="js border" title="">
+// <b><u-code-text>componentDidUpdate</u-code-text></b>
+// Выполнит эффект, только если count изменился при отрисовке
+useEffect(() => {
+	document.title = `Вы нажали ${this.state.count} раз`;
+}, [count]); 
+</v-code>
+
+<v-code lang="js border" title="">
+// <b><u-code-text>componentWillUnmount</u-code-text></b>
+useEffect(() => () => {
+	window.removeEventListener('resize', onResize);
+}, []);
+</v-code>
+
+<v-code lang="js border" title="">
+// <b><u-code-text>componentDidMount</u-code-text> и <u-code-text>componentWillUnmount</u-code-text></b>
+useEffect(() => {
+    // componentDidMount
+    window.addEventListener('resize', onResize, false);
+    // componentWillUnmount
+    return () => {
+		window.removeEventListener('resize', onResize);
+	}
+}, []);
+</v-code>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Переписывание на Хуки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>async await</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="useEffect;componentDidMount">
+<template v-slot:first>
+useEffect(() => {
+    (async () => {
+        await myAsyncFunction();
+        myFunction();
+    })();
+}, []);
+</template>
+<template v-slot:last>
+async componentDidMount() {
+    await myAsyncFunction();
+    myFunction();
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>getDerivedStateFromProps</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="useEffect;getDerivedStateFromProps">
+<template v-slot:first>
+const CompanySelect = ({ company }: Props) => {
+    const [value, setValue] = useState(null);
+
+    useEffect(() => {
+        if (company && isNil(value)) {
+            setValue(company);
+        }
+    });
+};
+</template>
+<template v-slot:last>
+type State = { value: ?string }
+type Props = { company: string }
+
+class CompanySelect extends PureComponent&lt;Props, State&gt; {
+    state = { value: null };
+
+    static getDerivedStateFromProps(nextProps: Props, prevState: State) {
+        if (nextProps.company && isNil(prevState.value)) {
+            return {
+                value: nextProps.company,
+            };
+        }
+
+        return null;
+    }
+}
+</template>
+</v-two-code>
+
+<hr>
+
+<v-two-code type="js;js" comment="useEffect;getDerivedStateFromProps">
+<template v-slot:first>
+useEffect(() => {
+    if (!isEditRow) {
+        setTypesActivityState(typesActivity);
+    }
+});
+</template>
+<template v-slot:last>
+static getDerivedStateFromProps(nextProps, prevState) {
+    if (!prevState.isEditRow) {
+        return {
+            typesActivity: nextProps.typesActivity,
+        };
+    }
+    return null;
+}
+</template>
+</v-two-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Теория</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Побочные эффекты</u-text-define> - операции, которые могут влиять на работу других компонентов и их нельзя выполнить во время рендера. Н-р: запрашивать данные, делать подписки или вручную менять DOM из React-компонента</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Виды эффектов</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><b>1. Эффекты без сброса</b>. Иногда мы хотим выполнить дополнительный код после того, как React обновил DOM. Сетевые запросы, изменения DOM вручную, логирование — всё это примеры эффектов, которые не требуют сброса</li>
+    <li><b>2. Эффекты со сбросом</b>. Например, может потребоваться установить подписку на какой-нибудь внешний источник данных</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Теория</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Если эффект возвращает функцию, React выполнит её, когда придет время для очистки. Функция указывает эффекту, как выполнить «сброс». React производит очистку, когда компонент демонтируется</li>
+    <li>Каждый раз, когда компонент перерисовывается, мы планируем новый эффект, заменяя предыдущий</li>
+    <li>В отличие от componentDidMount или componentDidUpdate, эффекты, запланированные с помощью useEffect, не блокируют браузер, чтобы обновить экран</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li>При вызове <u>useEffect</u>, React получает указание запустить вашу функцию с «эффектом» после того, как он отправил изменения в DOM. Поскольку эффекты объявляются внутри компонента, у них есть доступ к его <u>пропсам</u> и <u>состоянию</u>. По умолчанию, React запускает эффекты после каждого рендера, включая первый рендер</li>
+    <li>Хуки позволяют разделить код на основе того, что он делает, а не на основании имён методов жизненного цикла</li>
+    <li>Если вы хотите запустить эффект и очистить его только один раз (при монтировании и демонтировании), вы можете передать пустой массив [] в качестве второго аргумента. Это укажет React, что ваш эффект не зависит от каких-либо значений из props или state, поэтому его не нужно повторно выполнять</li>
+    <li>React будет сбрасывать эффект перед тем, как компонент размонтируется. Однако, как мы уже знаем, эффекты выполняются не один раз, а при каждом рендере. Вот почему React также сбрасывает эффект из предыдущего рендера, перед тем, как запустить следующий</li>
+    <li>React будет выполнять каждый используемый эффект в компоненте, согласно порядку их объявления</li>
+</ul>
+</div><div id="hooks-use-ref"><h2>Хук useRef</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useRef" after="" arg="(initialValue)">Похож на useState и также создает состояние. Состояние, определенное через useRef сохраняется между ренедерами компонента, но при этом при изменении значения useRef не происхожит перерендера
+    </v-method>
+    <v-method-arg arg="initialValue">начальное состояние</v-method-arg>
+    <v-method-return>объект со свойством current</v-method-return>
+</div>
+
+<v-code lang="js border" title="">
+import React, { useRef } from 'react';
+
+const refContainer = useRef(initialValue);
+</v-code>
+
+<ul class="list-point">
+    <li>useRef возвращает изменяемый <u>ref-объект</u>, свойство <u-code-text>.current</u-code-text> которого инициализируется переданным аргументом (<u>initialValue</u>). Возвращённый объект будет сохраняться в течение всего времени жизни компонента</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Описание</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Назначение</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li>Получение ссылок на DOM - элементы (задание фокусов на элементы)</li>
+    <li>Сохранение мутируемого значения (props, state)</li>
+    <li>Получение значений предыдыдущего state</li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>Сравнение <u>useRef</u> и <u>useState</u></h4>
+<!------------------------------------------------------------->
+<v-two><template v-slot:first>
+<b><u-code-text>useRef</u-code-text></b>
+<ul class="list-point">
+    <li>После изменения не вызывается перерендер</li>
+    <li>Хранение состояния напрямую не связанному с JSX</li>
+</ul>
+</template><template v-slot:last>
+<b><u-code-text>useState</u-code-text></b>
+<ul class="list-point">
+    <li>После изменения вызывается перерендер</li>
+    <li>Хранение состояния связанного с JSX</li>
+</ul>
+</template></v-two>
+
+<!------------------------------------------------------------->
+<h4>Применение для сохранения мутируемого значения (н-р: props)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Хук удобен для сохранения любого мутируемого значения, по аналогии с тем, используются поля экземпляра в классах</li>
+    <li>Это возможно, поскольку <u>useRef()</u> создаёт обычный JavaScript-объект. Единственная разница между <u>useRef()</u> и просто созданием самого объекта <u>{current: ...}</u> - это то, что <u-text-underline>хук useRef даст один и тот же объект с рефом при каждом рендере</u-text-underline></li>
+    <li><u>useRef</u> не уведомляет, когда изменяется его содержимое. Мутирование свойства <u-code-text>.current</u-code-text> <u-text-underline>не вызывает повторный рендер</u-text-underline>. Если необходимо запустить некоторый код, когда React присоединяет или отсоединяет реф к узлу DOM, можно использовать <u>колбэк-реф</u> вместо этого</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>Получение ссылки на DOM-элемент</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { useRef } from 'react';
+
+const App = () =&gt; {
+    const inputRef = <u-code>useRef(null)</u-code>;
+
+    const handleClick = () =&gt; {
+        // получение элемента
+        alert(<u-code>inputRef.current.value</u-code>);
+        // установка фокуса
+        <u-code>inputRef.current.focus();</u-code>
+    }
+
+    return (
+        &lt;div&gt;
+            &lt;input type="text" <u-code>ref={inputRef}</u-code> /&gt;
+            &lt;button onClick={handleClick}&gt;Ok&lt;/button&gt;
+        &lt;/div&gt;
+    )
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Посчитать, сколько раз рендерили компонент</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { useState, useEffect, useRef } from 'react';
+
+const App = () =&gt; {
+    const [value, setValue] = useState('initial');
+    const renderCount = <u-code>useRef(1)</u-code>
+
+    useEffect(() =&gt; {
+        <u-code>renderCount.current++;</u-code>
+    });
+
+    return (
+        &lt;div&gt;
+            {<u-code>renderCount.current</u-code>}
+            &lt;input type="text" onChange={e =&gt; setValue(e.target.value)} value={value} /&gt;
+        &lt;/div&gt;
+    )
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Изменение props</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>props</u-code-text> мутировать нельзя, поэтому если нужно изменить, то помещаем в <u>useRef</u> / <u>useState</u></li>
+</ul>
+
+<v-two-code type="js;js" comment="useRef;useState">
+<template v-slot:first>
+const Component = ({ hint }) =&gt; {
+    const hintRef = <u-code>useRef</u-code>(hint);
+    hintRef.current = 'Новое значение';
+}
+</template>
+<template v-slot:last>
+const Component = ({ hint }) => {
+    const [hintData, setHintData] = <u-code>useState</u-code>(hint);
+    setHintData('Новое значение');
+    return &lt;Tooltip title={hintData} /&gt;
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Получение значений предыдыдущего state</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Получить значение предыдущего "value" (что было до рендера)</li>
+    <li>С помощью useState нельзя сделать</li>
+</ul>
+
+<v-code lang="js" title="">
+import { useEffect, useState, useRef } from 'react';
+
+const App = () =&gt; {
+    const [value, setValue] = useState('initial');
+    const prevValue = useRef('')
+
+    useEffect(() =&gt; {
+        prevValue.current = value;
+    }, [value]);
+
+    return (
+        &lt;div&gt;
+            &lt;div&gt;Прошлое состояние: {prevValue.current}&lt;/div&gt;
+            &lt;input type="text" onChange={e =&gt; setValue(e.target.value)} value={value} /&gt;
+        &lt;/div&gt;
+    )
+}
+</v-code>
+</div><div id="hooks-use-memo"><h2>Хук useMemo</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useMemo" after="" arg="(factory, deps)">
+	Мемоизация
+    </v-method>
+    <v-method-arg arg="factory">коллбэк</v-method-arg>
+    <v-method-arg arg="deps">dependencies - массив, с указанием от чего зависит useMemo</v-method-arg>
+    <v-method-return>Возвращает мемоизированное значение</v-method-return>
+</div>
+
+<v-code lang="js border" title="">
+import React, { useMemo } from 'react';
+
+const memoizedValue = useMemo(() => {
+    return computeExpensiveValue(a, b)
+}, [a, b])
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример #1. Базовое использование</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import React, { useMemo, useState } from 'react';
+
+const App = () => {
+	const [page, setPage] = useSate(1);
+
+	const handleChange = <u-code>useMemo</u-code>(() => {
+		setPage(2);
+	}, [page]);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример #2. Функция со сложными вычислениями</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const complexCompute = (number) => {
+    console.log('Очень ресурсоемкая функция');
+    return number;
+}
+</v-code>
+
+<v-code lang="js" title="">
+const App = () =&gt; {
+    const [number, setNumber] = useState(42);
+
+    // Будет вызываться при любом изменении state
+    // const computed = complexCompute(number)
+
+    // Будет вызываться только при изменении "number"
+    const computed = <u-code>useMemo</u-code>(() =&gt; {
+        return <u-code>complexCompute(number)</u-code>
+    }, [number])
+
+    return (
+        &lt;&gt;
+            &lt;h1&gt;Вычисляемое свойство: {computed}&lt;/h1&gt;
+            &lt;button onClick={() =&gt; setNumber(prev =&gt; prev + 1)}&gt;Добавить&lt;/button&gt;
+        &lt;/&gt;
+    )
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример #3. Использование объекта в state</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const App = () =&gt; {
+    const [colored, setColored] = useState(false);
+    
+    // При изменении state, вызывается render и создается новый объект "styles",
+    // а useEffect смотрит за старым объектов, видит что он изменился и поэтому вызывает коллбэк в useEffect
+    // const styles = {
+    //     color: colored ? 'dark' : 'light'
+    // }
+
+    // useMemo сохранит объект на следующий рендер
+    const styles = <u-code>useMemo</u-code>(() =&gt; ({
+        color: colored ? 'darkred' : 'black'
+    }), [colored])
+
+    useEffect(() =&gt; {
+        console.log('Styles changed')
+    }, [styles])
+
+    return (
+        &lt;&gt; 
+            &lt;h1 style={styles}&gt;Styles&lt;/h1&gt;
+            &lt;button onClick={() =&gt; setColored(prev =&gt; !prev)}&gt;Изменить&lt;/button&gt;
+        &lt;/&gt;
+    )
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример #4</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const Component = ({ classes, checked }) =&gt; {
+    const Foo = <u-code>useMemo</u-code>(
+        () =&gt; (
+			&lt;Element
+				className={classes.base}
+				checked={checked}
+			/&gt;
+		),
+        [classes, checked],
+    );
+
+    return {Foo};
+};
+</v-code>
+</div><div id="hooks-use-callback"><h2>Хук useCallback</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useCallback" after="" arg="(factory, deps)">
+	Оборачивает коллбэк и его полностью возвращает. Необходим, чтобы функция не изменялась при новом рендере - кешировалась, а также чтобы не было рекурсивных вызовов.
+    </v-method>
+	<v-method-arg arg="factory">коллбэк</v-method-arg>
+	<v-method-arg arg="deps">dependencies - массив, с указанием от чего зависит useCallback</v-method-arg>
+    <v-method-return>Возвращает мемоизированный колбэк</v-method-return>
+</div>
+
+<v-code lang="js border" title="">
+import React, { useCallback } from 'react';
+
+const memoizedCallback = useCallback(() => {
+	doSomething(a, b);
+}, [a, b]);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>useMemo vs useCallback</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="useCallback;useMemo">
+<template v-slot:first>
+// Возвращает саму функцию
+const memoizedCallback = useCallback(() => {
+	doSomething(a, b);
+}, [a, b]);
+</template>
+<template v-slot:last>
+// Возвращает результат выполнения функции
+const memoizedValue = useMemo(() => {
+    return computeExpensiveValue(a, b)
+}, [a, b])
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример #1</h4>
+<!------------------------------------------------------------->
+
+<v-code lang="js" title="">
+import { useState, useEffect, useCallback } from 'react';
+
+const App = () =&gt; {
+    const [count, setCount] = useState(1)
+    const [items, setItems] = useState([])
+
+    // Если не вызывать useCallback, то будет лишний раз вызываться useEffect
+    // при любом изменении state
+    const generateItemsFromAPI = useCallback((indexNumber) =&gt; {
+        return new Array(count).fill('').map((_, i) =&gt; `Элемент ${i + indexNumber}`)
+    }, [count])
+
+    useEffect(() =&gt; {
+        const newItems = generateItemsFromAPI(42)
+        setItems(newItems)
+        console.log('render')
+    }, [generateItemsFromAPI])
+
+    return (
+        &lt;&gt;
+            &lt;h1&gt;Количество элементов: {count}&lt;/h1&gt;
+            &lt;button onClick={() =&gt; setCount(prev =&gt; prev + 1)}&gt;Добавить&lt;/button&gt;
+            &lt;ul&gt;
+                {items.map(i =&gt; &lt;li key={i}&gt;{i}&lt;/li&gt;)}
+            &lt;/ul&gt;
+        &lt;/&gt;
+    )
+}
+</v-code>
+</div><div id="hooks-use-context"><h2>Хук контекста useContext</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useContext" after="" arg="()">
+	Можно подписаться на контекст React без использования каких-либо вложений
+    </v-method>
+    <v-method-arg arg="obj">объект контекста (значение, возвращённое из <u-code-text>React.createContext</u-code-text>)</v-method-arg>
+    <v-method-return>Возвращает текущее значение контекста для принятого контекста</v-method-return>
+</div>
+
+<ul class="list-point">
+    <li>Текущее значение контекста определяется пропом value ближайшего <u-code-text>&lt;MyContext.Provider&gt;</u-code-text> над вызывающим компонентом в дереве</li>
+</ul>
+
+<v-code lang="js border" title="">
+import React, { useContext } from 'react';
+
+const value = <u-code>useContext</u-code>(MyContext);
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример #1. Смена темы</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="index.jsx">
+import ThemeProvider from './ThemeProvider';
+import { useTheme } from './ThemeProvider';
+
+const App = () =&gt; (
+    &lt;ThemeProvider&gt;
+        &lt;View /&gt;
+        &lt;Change /&gt;
+    &lt;/ThemeProvider&gt;
+);
+
+const View = () =&gt; {
+    const isTheme = useTheme();
+    return (
+        &lt;&gt;
+            Выбрана тема: {isTheme.theme}
+        &lt;/&gt;
+    )
+};
+
+const Change = () =&gt; {
+    const isTheme = useTheme();
+
+    return (
+        &lt;&gt;
+            &lt;button onClick={() =&gt; isTheme.change('dark')}&gt;Dark&lt;/button&gt;
+            &lt;button onClick={() =&gt; isTheme.change('light')}&gt;Light&lt;/button&gt;
+        &lt;/&gt;
+    )
+};
+
+export default App;
+</v-code>
+
+<v-code lang="js" title="ThemeProvider.jsx">
+import React, { useState, useContext } from 'react'
+
+const ThemeContext = React.createContext()
+
+export const ThemeProvider = ({ children, ...props }) =&gt; {
+    const [theme, setTheme] = useState('light')
+
+    const change = (name) =&gt; setTheme(name)
+
+    return (
+		&lt;ThemeContext.Provider
+            value=<span v-pre>{{</span>
+                theme,
+                change
+            <span v-pre>}}</span>
+			{...props}
+		&gt;
+            { children}
+        &lt;/ThemeContext.Provider&gt;
+    )
+}
+
+export default ThemeProvider
+export const useTheme = () =&gt; useContext(ThemeContext)
+</v-code>
+</div><div id="hooks-use-reducer"><h2>Хук useReducer</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useReducer" after="" arg="()">
+    Даёт возможность управлять внутренним состоянием более сложного компонента с помощью редюсера. Альтернатива для <u>useState</u>
+    </v-method>
+    <v-method-arg arg="reducer">редюсер типа <u-code-text>(state, action) => newState</u-code-text>. reducer - pure function</v-method-arg>
+    <v-method-arg arg="initialArg">initialArg</v-method-arg>
+    <v-method-arg arg="init">init</v-method-arg>
+    <v-method-return>Возвращает [state, dispatch] текущее состояние в паре с методом <u-code-text>dispatch</u-code-text></v-method-return>
+</div>
+
+<ul class="list-point">
+    <li>Хук useReducer обычно предпочтительнее useState, когда есть сложная логика состояния, которая включает в себя несколько значений, или когда следующее состояние зависит от предыдущего</li>
+    <li>useReducer позволяет оптимизировать производительность компонентов, которые запускают глубокие обновления, поскольку можно передавать dispatch вместо колбэков</li>
+</ul>
+
+<v-code lang="js border" title="">
+import React, { useReducer } from 'react';
+
+const [state, dispatch] = useReducer(reducer, initialArg, init);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример #1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="Import">
+import React, {useReducer} from "react";
+</v-code>
+
+<v-code lang="js" title="Constants">
+const SHOW_ALERT = 'show'
+const HIDE_ALERT = 'hide'
+</v-code>
+
+<v-code lang="js" title="Reducer">
+const reducer = (state, action) => {
+    switch (action.type) {
+        case SHOW_ALERT: return {
+            ...state,
+            visible: true,
+            text: action.text
+        }
+        case HIDE_ALERT: return {
+            ...state,
+            visible: false
+        }
+        default: return state
+    }
+}
+</v-code>
+
+<v-code lang="js" title="Component">
+const App = () => {
+    const [state, dispatch] = <u-code>useReducer</u-code>(reducer, {
+        visible: false,
+        text: ''
+    })
+
+    const show = text => dispatch({ type: SHOW_ALERT, text })
+    const hide = () => dispatch({ type: HIDE_ALERT })
+
+    return (
+        &lt;&gt;
+            &lt;pre&gt;&lt;code&gt;{JSON.stringify(state, '', 4)}&lt;/code&gt;&lt;/pre&gt;
+            &lt;button onClick={() =&gt; show('Some Text')}&gt;Show&lt;/button&gt;
+            &lt;button onClick={hide}&gt;Hide&lt;/button&gt;
+        &lt;/&gt;
+    )
+}
+</v-code>
+
+<v-code lang="js" title="Result">
+{ "visible": false, "text": "" }           // Начальное состояние
+{ "visible": true, "text": "Some Text" }   // Нажали "Show"
+{ "visible": false, "text": "Some Text" }  // Нажали "Hide"
+</v-code>
+</div><div id="hooks-use-imperative-handle"><h2>Хук useImperativeHandle</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useImperativeHandle" after="" arg="()">
+	Настраивает значение экземпляра, которое предоставляется родительским компонентам при использовании ref. В большинстве случаев следует избегать императивного кода, использующего ссылки. useImperativeHandle должен использоваться с forwardRef
+    </v-method>
+    <v-method-arg arg="ref">ref</v-method-arg>
+    <v-method-arg arg="createHandle">createHandle</v-method-arg>
+    <v-method-arg arg="[deps]">[deps]</v-method-arg>
+</div>
+
+<v-code lang="js border" title="">
+eImperativeHandle(ref, createHandle, [deps])
+</v-code>
+
+</div><div id="hooks-use-layout-effect"><h2>Хук useLayoutEffect</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useLayoutEffect" after="" arg="()">
+	Сигнатура идентична useEffect, но этот хук запускается синхронно после всех изменений DOM. Используйте его для чтения макета из DOM и синхронного повторного рендеринга. Обновления, запланированные внутри useLayoutEffect, будут полностью применены синхронно перед тем, как браузер получит шанс осуществить отрисовку
+    </v-method>
+</div>
+</div><div id="hooks-use-debug-value"><h2>Хук useDebugValue</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useDebugValue" after="" arg="()">
+    Может использоваться для отображения метки для пользовательских хуков в React DevTools
+    </v-method>
+    <v-method-arg arg="value">value</v-method-arg>
+</div>
+
+<v-code lang="js border" title="">
+useDebugValue(value)
+</v-code>
+</div><div id="main-info"><h2>Информация</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Хуки (React 16.8)</u-text-define> - функции JavaScript, которые позволяют использовать состояние, методы жизненного цикла и другие возможности React из функциональных компонентов</li>
+    <li>Хуки позволяют вам повторно использовать логику состояния, не затрагивая дерево компонентов. Благодаря этому, хуки легко использовать в разных компонентах и делиться ими с сообществом</li>
+	<li>Хуки работают рядом с существующим кодом, поэтому вы можете внедрять их постепенно</li>
+	<li>Не работают внутри классов</li>
+	
+	<hr>
+    <b>Решаемые проблемы</b>
+    <li><u>Трудно повторно использовать логику состояний между компонентами</u>. В React нет способа «присоединить» повторно используемое поведение к компоненту (например, подключение к хранилищу)</li>
+    <li><u>Сложные компоненты становятся трудными для понимания</u>. Каждый метод жизненного цикла часто содержит смесь несвязанной логики. Хуки позволяют разбить один компонент на маленькие функции по их назначению (например, подписке или загрузке данных), а не на основе методов жизненного цикла. Вы также можете контролировать внутреннее состояние с помощью редюсера, чтобы поведение было более предсказуемым</li>
+    <li><u>Классы создают существенный барьер в изучении React</u>. Хуки позволяют использовать больше возможностей React без написания классов. Концептуально, React-компоненты всегда были ближе к функциям</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Правила хуков</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Хуки следует вызывать только на верхнем уровне. Не вызывайте хуки внутри циклов, условий или вложенных функций</li>
+    <li>Хуки следует вызывать только из функциональных компонентов React. Не вызывайте хуки из обычных JavaScript-функций. Есть только одно исключение, откуда можно вызывать хуки - это ваши пользовательские хуки</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Преимущества</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Хуки делают переиспользование удобнее</li>
+    <li>Хуки позволяют писать более интуитивно-понятный код</li>
+    <li>Хуки избавляют нас от жизненного цикла</li>
+</ul>
+</div><div id="main-own-hooks"><h2>Создание собственных хуков</h2>
+
+<ul class="list-point">
+	<li>Создание пользовательских хуков позволяет вам перенести логику компонентов в функции, которые можно повторно использовать</li>
+    <li>Когда необходимо повторно использовать одинаковую логику состояния в нескольких компонентах. С помощью пользовательских хуков эта задача решается без добавления ненужных компонентов в ваше дерево</li>
+    <li>Пользовательские хуки - это в большей степени соглашение, чем дополнение. Если имя функции начинается с ”use” и она вызывает другие хуки, мы расцениваем это как пользовательский хук</li>
+    <li><u>Использование:</u> работа с формами, анимация, декларативные подписки, таймеры и т.д.</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li>Хуки - это способ использовать повторно логику состояния, а не само состояние. Более того, каждое обращение к хуку обеспечивает совершенно изолированное состояние. Можно использовать один и тот же хук несколько раз в одном компоненте</li>
+</ul>
+
+<hr>
+
+<u-link-wrapper>
+    <a href="https://usehooks.com/" target="_blank">https://usehooks.com/</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>useInput</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import React, { useState } from 'react'
+
+const useInput = (initialValue) =&gt; {
+	const [value, setValue] = useState(initialValue)
+
+    const onChange = event => setValue(event.target.value)
+	const clear = () =&gt; setValue('')
+
+	return {
+		bind: { value, onChange },
+		value,
+		clear
+	}
+}
+
+const App = () =&gt; {
+	const input = <u-code>useInput</u-code>('')
+
+	return (
+		&lt;&gt;
+			&lt;input type="text" {...input.bind} /&gt;
+			&lt;button onClick={() =&gt; input.clear()}&gt;Очистить&lt;/button&gt;
+			&lt;span&gt;{input.value}&lt;/span&gt;
+		&lt;/&gt;
+	)
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>useLogger</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import React, { useState, useEffect } from 'react'
+
+const useLogger = (value) =&gt; {
+	useEffect(() =&gt; {
+		console.log('Value changed: ', value)
+	}, [value])
+}
+
+const App = () =&gt; {
+	const [value, setValue] = useState('')
+
+	<u-code>useLogger</u-code>(value)
+
+	const onChange = e =&gt; setValue(e.target.value)
+
+	return (
+		&lt;&gt;
+			&lt;input type="text" value={value} onChange={onChange} /&gt;
+			&lt;h1&gt;{value}&lt;/h1&gt;
+		&lt;/&gt;
+	)
+}
+</v-code>
+</div><div id="main-questions"><h2>Ответы на вопросы</h2>
+
+<ul class="list-point">
+    <li>Если используется PureComponent, мне нужно useMemo использовать?</li>
+    <li>Не обязательно. В функциональных компонентах по дефолту оптимизирован render и update</li>
+</ul>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

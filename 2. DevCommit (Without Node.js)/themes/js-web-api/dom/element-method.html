@@ -1,0 +1,146 @@
+<h2>Методы и свойства элементов страницы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>innerHTML</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="element." method="innerHTML" after="" arg="">
+    HTML-содержимое элемента в виде строки
+    </v-method>
+    <v-method-return>Валидный HTML-код</v-method-return>
+</div>
+
+<ul class="list-point">
+    <li><b>Доступ</b> на <u>чтение</u> и на <u>запись</u></li>
+    <li>Есть толбко у узлов-элементов</li>
+    <li>Добавление <u-code-text>innerHTML+=</u-code-text> осуществляет перезапись: 1. Удаляется старое содержание; 2. На его место становится новое значение innerHTML. Т.к. новое значение записывается с нуля, то все изображения и другие ресурсы будут перезагружены</li>
+    <li>Если в innerHTML есть тег <u-code-text>script</u-code-text> - он не будет выполнен</li>
+</ul>
+
+<v-code lang="js" title="">
+element.innerHTML = '&lt;h2&gt;new text&lt;/h2&gt;';
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>outerHTML</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="element." method="outerHTML" after="" arg="">
+    содержит HTML элемента целиком
+    </v-method>
+</div>
+
+<ul class="list-point">
+    <li><b>Доступ</b> на <u>чтение</u></li>
+    <li>Технически свойство outerHTML доступно на запись. Но при этом элемент не меняется, а заменяется на новый, который тут же создаётся из нового outerHTML. При этом переменная, в которой изначально был старый элемент, и в которой мы «перезаписали» outerHTML, остаётся со старым элементом</li>
+</ul>
+
+<v-code lang="html" title="html">
+&lt;div id="wrapper"&gt;
+	&lt;h1&gt;Header&lt;/h1&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+let element = document.getElementById('wrapper');
+console.log(element.innerHTML); // =&gt; &lt;h1&gt;Header&lt;/h1&gt;
+console.log(element.outerHTML); // =&gt; &lt;div id='wrapper'&gt;&lt;h1&gt;Header&lt;/h1&gt;&lt;/div&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4><u-code-list>data</u-code-list> <u-code-list>nodeValue</u-code-list></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-menu-code>element.data</u-menu-code> - не для узлов-элементов. Для текстовых узлов, комментариев и т.д.</li>
+	<li><b>Доступ</b> на <u>чтение</u> и на <u>запись</u></li>
+	<li><u-menu-code>element.nodeValue</u-menu-code> - работает так же, как <u>data</u>, но на некоторых узлах, где <u>data</u> нет, <u>nodeValue</u> есть и имеет значение <u-code-text>null</u-code-text>. Как-то использовать это отличие обычно нет причин</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4><u-code-list>textContent</u-code-list></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-menu-code>element.textContent</u-menu-code> - содержит только текст внутри элемента включая переводы строк и пробелы, за вычетом всех тегов. element.textContent возвращает конкатенацию всех текстовых узлов внутри element</li>
+	<li><b>Доступ</b> на <u>чтение</u> и на <u>запись</u></li>
+    <li><u-menu-code>element.innerText</u-menu-code> - нестандартное свойство. Не выводит невидимые элементы: возвращает текст не в том виде, в котором он в DOM, а в том, в котором он виден - как если бы мы выбрали содержимое элемента мышкой и скопировали его. Если элемент невидим, то его текст возвращён не будет</li>
+	<li>При записи значения innerText работает так же, как и textContent</li>
+</ul>
+
+<v-code lang="js" title="">
+element.textContent = 'New Text';
+element.innerText   = 'New Text';
+</v-code>
+
+<!------------------------------------------------------------->
+<h4><u-code-list>hidden</u-code-list></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-menu-code>Свойство hidden</u-menu-code></li>
+    <li>Как правило, видим или невидим узел, определяется через CSS, свойствами <u-code-text>display</u-code-text> или <u-code-text>visibility</u-code-text></li>
+    <li>В стандарте HTML5 предусмотрен специальный атрибут и свойство для этого: <u-code-text>hidden</u-code-text></li>
+    <li>Технически, атрибут <u-code-text>hidden</u-code-text> работает так же, как <u-code-text>style="display:none"</u-code-text>. Но его проще поставить через JavaScript (меньше букв), и могут быть преимущества для скринридеров и прочих нестандартных браузеров</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;!-- Второй и третий &lt;div&gt; скрыты --&gt;
+&lt;div&gt;Текст&lt;/div&gt;
+&lt;div <u-code>hidden</u-code>&gt;С атрибутом hidden&lt;/div&gt;
+&lt;div&gt;Со свойством hidden&lt;/div&gt;
+
+&lt;script&gt;
+	var lastDiv = document.body.children[2];
+	lastDiv.<u-code>hidden</u-code> = true;
+&lt;/script&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4><u-code-list>document.write</u-code-list></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-menu-code>document.write(str)</u-menu-code> - работает только пока HTML-страница находится в процессе загрузки. Он дописывает текст в текущее место HTML ещё до того, как браузер построит из него DOM</li>
+    <li>Во время загрузки браузер читает документ и тут же строит из него DOM, по мере получения информации достраивая новые и новые узлы, и тут же отображая их. Этот процесс идет непрерывным потоком</li>
+    <li><u-menu-code>document.writeln(str)</u-menu-code> - добавляет после str символ перевода строки "\n"</li>
+    <hr>
+    <li>Нет никаких ограничений на содержимое document.write. Строка просто пишется в HTML-документ без проверки структуры тегов, как будто она всегда там была</li>
+    <li><b>Методы document.write и document.writeln пишут напрямую в текст документа, до того как браузер построит из него DOM, поэтому они могут записать в документ все, что угодно, любые стили и незакрытые теги</b></li>
+    <li>Браузер учтёт их при построении DOM, точно так же, как учитывает очередную порцию HTML-текста</li>
+    <li>Технически, вызвать document.write можно в любое время, однако, когда HTML загрузился, и браузер полностью построил DOM, документ становится «закрытым». Попытка дописать что-то в закрытый документ открывает его заново. При этом все текущее содержимое удаляется. Из-за этой особенности document.write для загруженных документов не используют</li>
+    <li>Он не модифицирует существующий DOM, а пишет в текст страницы до его генерации</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;body&gt;
+    1
+    &lt;script&gt;
+        document.write(2);
+    &lt;/script&gt;
+    3
+&lt;/body&gt;
+&lt;!-- 1 2 3 --&gt;
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Свойства элементов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+	<a href="http://w3c.github.io/html-reference/elements.html" target="_blank">W3C HTML language reference</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+element.id          = 'name';
+element.className   = 'nameClass1 nameClass2';
+</v-code>
+
+<v-code lang="js" title="">
+element.type
+element.value      = 'New Value';
+element.href       = 'https://www.google.com/';
+element.src        = 'image.jpg';
+element.offsetTop;  // отступ от верха документа
+</v-code>
+
+<v-code lang="js" title="">
+// в консоли можно будет увидеть все свойства DOM-объекта document
+console.dir(document);
+</v-code>

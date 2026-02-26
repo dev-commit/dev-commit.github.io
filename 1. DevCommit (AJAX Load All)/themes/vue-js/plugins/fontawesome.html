@@ -1,0 +1,45 @@
+<h2>FontAwesome</h2>
+
+<u-link-wrapper>
+    <a href="https://github.com/FortAwesome/vue-fontawesome" target="_blank">Vue-FontAwesome</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>NPM</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+npm i --save @fortawesome/fontawesome-svg-core
+npm i --save @fortawesome/vue-fontawesome
+</v-code>
+
+<v-code lang="bash" title="">
+npm i --save @fortawesome/free-solid-svg-icons
+npm i --save @fortawesome/free-regular-svg-icons
+npm i --save @fortawesome/free-brands-svg-icons
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>main.js</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { library }                 from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon }         from '@fortawesome/vue-fontawesome'
+</v-code>
+
+<v-code lang="js" title="">
+import { faComment as fasComment } from '@fortawesome/free-solid-svg-icons'
+import { faComment as farComment } from '@fortawesome/free-regular-svg-icons'
+library.add(fasComment, farComment)
+</v-code>
+
+<v-code lang="js" title="">
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>component.vue</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;font-awesome-icon :icon="['fas', 'comment']" /&gt;
+&lt;font-awesome-icon :icon="['far', 'comment']" /&gt;
+</v-code>

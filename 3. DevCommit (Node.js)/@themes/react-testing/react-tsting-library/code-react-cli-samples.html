@@ -1,0 +1,98 @@
+<h2>Примеры</h2>
+
+<ul class="list-point">
+    <li>После запуска теста, создается файл <u-code-text>./__snapshots__/App.test.js.snap</u-code-text> в котором находится HTML-код компонента App</li>
+    <li>Если изменить HTML-код компонента App, то тест не пройдёт</li>
+    <li>Файл теста обычно помещается в директорию <u-code-text>__test__</u-code-text> и называется <u-code-text>App.test.js</u-code-text></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Глобальное подключение в <u>./src/setupTests.js</u></h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="./src/setupTests.js">
+import '@testing-library/jest-dom/extend-expect';
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Test</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="App.test.js">
+import React from 'react';
+import { render, cleanup } from '@testing-library/react';
+
+import App from './App';
+
+// для рендера одного компонента несколько раз
+afterEach(cleanup);
+
+it('Get Snapshot', () =&gt; {
+    const { asFragment } = render(&lt;App label="My Label" /&gt;);
+    expect(<u-code>asFragment</u-code>()).<u-code>toMatchSnapshot</u-code>();
+});
+
+it('Check Element', () =&gt; {
+    const { getByTestId, getByText } = render(&lt;App label="My Label" /&gt;);
+
+    // элемент содержит проп data-testid="headerId"
+    const a1 = expect(<u-code>getByTestId</u-code>('headerId'));
+    // элемент содержит проп data-testid="headerId", получаем атрибут "title"
+    const a2 = expect(<u-code>getByTestId</u-code>('headerId').getAttribute('title'));
+    // элемент содержит текстовый контент (полный, регистрозависимый)
+    const a3 = expect(<u-code>getByText</u-code>('My Label'));
+    // элемент содержит текстовый контент (допускается часть)
+    const a4 = expect(<u-code>getByText</u-code>(/label/i));
+
+    // элемент содержит часть текстового контента (регистрозависимый)
+    a1.<u-code>toHaveTextContent</u-code>('My');
+    // элемент содержит часть текстового контента (регистроНЕзависимый)
+    a1.<u-code>toHaveTextContent</u-code>(/my/i);
+    // элемент создержит className="headerClass"
+    a1.<u-code>toHaveClass</u-code>('headerClass');
+    // элемент toBeInTheDocument
+    a1.<u-code>toBeInTheDocument</u-code>();
+    // атрибут равен "Hello"
+    a2.<u-code>toBe('Hello')</u-code>;
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Component</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="App.js">
+import React from 'react';
+
+const App = ({ label }) =&gt; (
+    &lt;header&gt;
+        &lt;h1
+            data-testid="headerId"
+            className="headerClass"
+            title="Hello"
+        &gt;
+            {label}
+        &lt;/h1&gt;
+    &lt;/header&gt;
+);
+
+export default App;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Snapshot</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="./__snapshots__/App.test.js.snap">
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Get Snapshot 1`] = `
+&lt;DocumentFragment&gt;
+    &lt;header&gt;
+        &lt;h1
+            class="headerClass"
+            data-testid="headerId"
+            title="Hello"
+        &gt;
+            My Label
+        &lt;/h1&gt;
+    &lt;/header&gt;
+&lt;/DocumentFragment&gt;
+`;
+</v-code>

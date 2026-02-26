@@ -1,0 +1,81 @@
+<h2>React.PureComponent</h2>
+
+<ul class="list-point">
+    <li><u-text-define>React.PureComponent</u-text-define> похож на <u-code-text>React.Component</u-code-text>. Отличие заключается в том, что <u-code-text>React.Component</u-code-text> не реализует <u-code-text>shouldComponentUpdate()</u-code-text>, а <u-code-text>React.PureComponent</u-code-text> реализует его поверхностным сравнением пропсов и состояния</li>
+
+    <li>Если метод <u-code-text>render()</u-code-text> React-компонента всегда рендерит одинаковый результат при одних и тех же пропсах и состояниях, для <u>повышения производительности</u> в некоторых случаях вы можете использовать <u-code-text>React.PureComponent</u-code-text></li>
+
+    <li>Метод <u-text-underline>shouldComponentUpdate()</u-text-underline> базового класса <u-code-text>React.PureComponent</u-code-text> делает только поверхностное сравнение объектов (<u>сравниваются ссылки</u>). Если они содержат сложные структуры данных, это может привести к неправильной работе для более глубоких различий (то есть, различий, не выраженных на поверхности структуры). Наследуйте класс <u-code-text>PureComponent</u-code-text> только тогда, когда вы ожидаете использовать простые пропсы и состояние, или используйте <u-code-text>forceUpdate()</u-code-text>, когда знаете, что вложенные структуры данных изменились. Также подумайте об использовании иммутабельных объектов, чтобы упростить процесс сравнения вложенных данных</li>
+
+    <li>Метод <u-code-text>shouldComponentUpdate()</u-code-text> пропускает обновление пропсов для всего поддерева компонентов. Убедитесь, что все дочерние компоненты также являются «чистыми»</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Как сравнивает элементы PureComponent</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Простые типы данных - по значению</li>
+    <li>Объекты - по ссылкам. Если ссылка на объект поменялась - перерендер</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>PureComponent vs Component</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Метод shouldComponentUpdate</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="Component;PureComponent">
+<template v-slot:first>
+shouldComponentUpdate() {
+	return true;
+}
+</template>
+<template v-slot:last>
+shouldComponentUpdate(nextProps, nextState) {
+	return 
+		!shallowEqual(nextProps, this.props) || 
+		!shallowEqual(nextState, this.state);
+}
+</template>
+</v-two-code>
+
+<ul class="list-point">
+    <li><u>PureComponent</u> изначально определяет функцию, которая ответствена за принятие решения - нужно ли продолжать updating lifecycle или нет</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример Component vs PureComponent</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+class A extends React.<u-code>Component</u-code> {
+	render() {
+		return (/* some data */)  
+	}
+}
+
+class A extends React.<u-code>PureComponent</u-code> {
+	render() {
+		return (/* some data */)
+	}
+}
+</v-code>
+
+<v-code lang="js" title="">
+// 1 - пропы не меняются
+ReactDOM.render(&lt;A someProps={1} /&gt;, root);
+ReactDOM.render(&lt;A someProps={1} /&gt;, root);
+
+<u-code-comment>// 2 - пропы меняются (перерендер у Component и PureComponent)</u-code-comment>
+ReactDOM.render(&lt;A someProps={1} /&gt;, root);
+ReactDOM.render(&lt;A someProps={2} /&gt;, root);
+</v-code>
+
+<ol class="list-num">
+	<b>Пропы не меняются</b>
+    <li>Component будет обновлен. Так как он не является чистым компонентом, и его shouldComponentUpdate вернет true</li>
+    <li>PureComponent B получает задачу на ререндер, но его props не изменились</li>
+    <li>shouldComponentUpdate класса B вернет false, так как ссылки на все поля props остались прежними. (т.е. this.props.someProps === nextProps.someProps)</li>
+    <li>Дальнейшие методы Updating lifecycle не вызываются</li>
+</ol>
+

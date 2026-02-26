@@ -1,0 +1,127 @@
+<h2>CSS</h2>
+
+<ul class="list-point">
+	<b>Все DOM-элементы предоставляют свойства</b>
+    <li><u-code-list>style</u-code-list> - это объект, в котором записывают CSS-свойства. Чтение и изменение его свойств – это работа с компонентами атрибута style</li>
+    <li><u-code-list>style.cssText</u-code-list> - строка стилей для чтения или записи. Аналог полного атрибута style</li>
+    <li><u-code-list>getComputedStyle</u-code-list> метод позволяют получить реальное, применённое сейчас к элементу свойство стиля с учётом CSS-каскада и браузерных стилей по умолчанию. getComputedStyle возвращает окончательное, непосредственно применённое к элементу (как правило)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>element.style</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="element." method="style" after="" arg="">
+    доступ к css. Может прочитать только <u>инлайновый css</u> из атрибута style
+    </v-method>
+
+	<v-method-return>объект, который дает доступ к стилю элемента на чтение и запись</v-method-return>
+</div>
+
+<v-code lang="js" title="">
+element.style.width='100px';              // width
+element.style.fontSize = '20px';          // font-size
+element.style.backgroundColor = '#fff';   // background-color
+element.style.zIndex = '1';               // z-index
+element.style.borderLeftWidth = '5px';    // border-left-width
+
+element.style.cssFloat = 'left';          // float
+
+element.style.MozBorderRadius = '5px';    // -moz-border-radius
+element.style.WebkitBorderRadius = '5px'; // -webkit-border-radius
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Сброс стиля</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// сброс поставленного стиля - свойства style стиль будет взят из CSS
+element.style.width = '';
+
+element.style.display = "none"; // скрыть
+element.style.display = "";     // показать
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Стиль в формате браузера</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// стиль в style находится в формате браузера, а не в том, в котором его присвоили
+document.body.style.margin = '20px';
+let a = document.body.style.marginTop; // 20px!
+
+document.body.style.color = '#abc';
+let a = document.body.style.color; // rgb(170, 187, 204)
+</v-code>
+
+<div class="v-method-wrapper">
+    <v-method before="element." method="style.cssText" after="" arg="">
+    задание стиля в виде строки. Браузер разбирает строку style.cssText и применяет известные ему свойства. 
+    Неизвестные, большинство браузеров проигнорируют. 
+    При установке style.cssText все предыдущие свойства style удаляются
+    </v-method>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Вычисленное (computed) и окончательное (resolved) значения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+	<li><b>Вычисленное (computed) значение</b> – это то, которое получено после применения всех правил CSS и CSS-наследования. Например, <u-code-text>width: auto</u-code-text> или <u-code-text>font-size: 125%</u-code-text></li>
+	<li><b>Окончательное (resolved) значение</b> – непосредственно применяемое к элементу. При этом все размеры приводятся к пикселям, например <u-code-text>width: 212px</u-code-text> или <u-code-text>font-size: 16px</u-code-text>. В некоторых браузерах пиксели могут быть дробными. getComputedStyle возвращает окончальное значение</li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>getComputedStyle</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="window." method="getComputedStyle" after="" arg="(element[, pseudo])">
+    получить текущее (окончательное) используемое значение css свойства
+    </v-method>
+
+	<v-method-arg arg="element">
+	элемент, значения для которого нужно получить
+	</v-method-arg>
+
+	<v-method-arg arg="pseudo">
+	указывается, если нужен стиль псевдо-элемента, например "::before". Пустая строка или отсутствие аргумента означают сам элемент
+	</v-method-arg>
+</div>
+
+<v-code lang="html" title="">
+&lt;style&gt;
+	body {
+		margin: 10px,
+		color: #fff;
+	}
+&lt;/style&gt;
+&lt;body&gt;
+	&lt;script&gt;
+		var computedStyle = <u-code>getComputedStyle</u-code>(document.body);
+		let a = computedStyle.marginTop; // отступ в пикселях
+		let a = computedStyle.color;     // цвет
+	&lt;/script&gt;
+&lt;/body&gt;
+</v-code>
+
+<ul class="list-point">
+    <li><b>1. getComputedStyle требует полное свойство</b></li>
+    <li>Например: <u-code-text>paddingLeft, marginTop, borderLeftWidth</u-code-text>. При обращении к сокращенному: <u-code-text>padding, margin, border</u-code-text> - правильный результат не гарантируется</li>
+    <li>Допустим свойства <u-code-text>paddingLeft/paddingTop</u-code-text> взяты из разных классов CSS. Браузер не обязан объединять их в одно свойство <u-code-text>padding</u-code-text>. Иногда, в простейших случаях, когда свойство задано сразу целиком, getComputedStyle сработает для сокращённого свойства, но не во всех браузерах</li>
+
+    <hr>
+    <li><b>2. Нет доступа к стилю посещенных ссылок</b></li>
+    <li>getComputedStyle не дает доступ к этой информации, чтобы произвольная страница не могла определить, посещал ли пользователь ту или иную ссылку</li>
+    <li>Кроме того, большинство браузеров запрещают применять к :visited CSS-стили, которые могут изменить геометрию элемента, чтобы даже окольным путем нельзя было это понять. В целях безопасности</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+button.addEventListener('click', () => {
+    box.style.transform = 'translateX(1000px)';
+    box.style.transition = 'transform 1s ease-in-out';
+    getComputedStyle(box).transform; // +++
+    box.style.transform = 'translateX(500px)';
+})
+</v-code>

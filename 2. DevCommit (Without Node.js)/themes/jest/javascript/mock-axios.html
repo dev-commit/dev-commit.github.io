@@ -1,0 +1,45 @@
+<h2>Mock-данные в Axios</h2>
+
+<v-code lang="js" title="intro.js">
+const axios = require('axios');
+
+class Ajax {
+	static async get() {
+		try {
+			const response = await axios.get('https://jsonplaceholder.typicode.com/todos');
+			return response.data;
+		} catch(e) {
+			console.log(e);
+		}
+	}
+}
+
+module.exports = Ajax;
+</v-code>
+
+<v-code lang="js" title="intro.test.js">
+const axios = require('axios');
+const Ajax = require('./intro');
+
+jest.mock('axios'); // мокаем axios
+
+describe('Ajax: GET', () => {
+
+	// когда будем делать запрос на сервер через axios, jest отловит запрос
+	// и не будет делать запрос на сервер, а вернет response
+	test('should return data from backend', async () => {
+		const mockTodos = [
+			{ id: 1, title: 'Todo 1', completed: false }
+		];
+
+		const mockResponse = {
+			data: { todos: mockTodos}
+		};
+
+		axios.get.mockReturnValue(mockResponse);
+
+		const resp = await Ajax.get();
+		expect(resp.todos).toEqual(mockTodos);
+	});
+});
+</v-code>

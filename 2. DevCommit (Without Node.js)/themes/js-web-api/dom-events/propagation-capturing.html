@@ -1,0 +1,20 @@
+<h2>1. Фаза погружения</h2>
+
+<ul class="list-point">
+    <li>Навешиваемые обработчики через &lt;event&gt;-свойство или через HTML-атрибуты, или через addEventListener(event, handler) с двумя аргументами, ничего не знают о фазе погружения, а работают только на 2-ой и 3-ей фазах</li>
+    <li>Чтобы поймать событие на стадии погружения, нужно использовать третий аргумент <u>addEventListener: capture</u> или значение <u>true</u></li>
+    <li>Если аргумент <u>false</u> (по умолчанию), то событие будет поймано при всплытии</li>
+    <li>Если аргумент <u>true</u>, то событие будет перехвачено при погружении</li>
+</ul>
+
+<v-code lang="js" title="">
+elem.addEventListener('click', () => alert('Привет'), <u-code>{capture: true}</u-code>)
+elem.addEventListener('click', () => alert('Привет'), <u-code>true</u-code>)
+</v-code>
+
+<hr>
+
+<ul class="list-point">
+    <b>Чтобы убрать обработчик removeEventListener, нужна та же фаза</b>
+    <li>Если мы добавили обработчик <u-code-text>addEventListener(..., true)</u-code-text>, то мы должны передать то же значение аргумента capture в <u-code-text>removeEventListener(..., true)</u-code-text>, когда снимаем обработчик</li>
+</ul>

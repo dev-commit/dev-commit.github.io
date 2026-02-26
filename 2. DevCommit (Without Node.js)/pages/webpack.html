@@ -1,0 +1,925 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>🥥 Webpack</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Информация</div><a href="#main-info">📑 Информация</a><a href="#main-structure">⚡️ Структура</a><a href="#main-scripts">Скрипты</a><div class="theme">plugins</div><a href="#plugins-webpack"><u-menu-border>webpack</u-menu-border> <u-menu-border>webpack-cli</u-menu-border></a><a href="#plugins-webpack-dev-server"><u-menu-border>webpack-dev-server</u-menu-border></a><a href="#plugins-babel"><u-menu-border>babel-loader</u-menu-border></a><a href="#plugins-html-webpack-plugin"><u-menu-border>html-webpack-plugin</u-menu-border></a><a href="#plugins-clean-webpack-plugin"><u-menu>clean-webpack-plugin</u-menu></a><a href="#plugins-react"><u-menu>react</u-menu></a><div class="theme">loaders</div><a href="#loaders-css-loader"><u-menu-border>css-loader</u-menu-border></a><a href="#loaders-mini-css-extract-plugin"><u-menu-border>mini-css-extract-plugin</u-menu-border></a><a href="#loaders-style-loader"><u-menu>style-loader</u-menu></a><a href="#loaders-sass-loader"><u-menu>sass-loader</u-menu></a><a href="#loaders-file-loader"><u-menu-border>file-loader</u-menu-border></a><a href="#loaders-image-webpack-loader"><u-menu>image-webpack-loader</u-menu></a><a href="#loaders-html-loader"><u-menu>html-loader</u-menu></a><div class="theme">postcss</div><a href="#postcss-postcss-loader"><u-menu>postcss-loader</u-menu></a><a href="#postcss-autoprefixer"><u-menu>autoprefixer</u-menu></a><a href="#postcss-cssnano"><u-menu>cssnano</u-menu></a><a href="#postcss-css-mqpacker"><u-menu>css-mqpacker</u-menu></a><div class="theme">options</div><a href="#options-mode"><u-menu-unactive>mode</u-menu-unactive></a><a href="#options-devtool"><u-menu-unactive>devtool</u-menu-unactive></a><a href="#options-entry-output"><u-menu-unactive>entry</u-menu-unactive> <u-menu-unactive>output</u-menu-unactive></a><a href="#options-library"><u-menu-unactive>library</u-menu-unactive></a><a href="#options-watch"><u-menu-unactive>watch</u-menu-unactive> <u-menu-unactive>watchOptions</u-menu-unactive></a><a href="#options-resolve"><u-menu-unactive>resolve</u-menu-unactive></a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="main-info"><h2>Информация</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Webpack</u-text-define> - модульный сборщик, который позволяет объединять ресурсы и библиотеки, необходимые для проекта, в один файл. В частности, он анализирует JS-код (а также CSS или другой, через лоадеры), это даёт ему superpowers</li>
+	<li><u-text-define>Gulp/Grunt</u-text-define> - общая система для организации задач, которая сама по себе сборку не поддерживает, но её можно на ней написать, с помощью плагинов. При этом анализа кода, скорее всего, не будет, а значит ряд продвинутых фич отпадут</li>
+
+	<li><u-text-define>Сборка («бандлинг»)</u-text-define> - это процесс выявления импортированных файлов и объединения их в один «собранный» файл (часто называемый «bundle» или «бандл»). Этот бандл после подключения на веб-страницу загружает всё приложение за один раз</li>
+</ul>
+
+<u-link-wrapper>
+	<a href="https://www.youtube.com/watch?v=QyfzMzo9QGs" target="_blank">YouTube: Webpack - сборщик web приложений</a>
+</u-link-wrapper>
+</div><div id="main-structure"><h2>Структура проекта</h2>
+
+<v-code lang="bash none" title="">
+&#10006; dist
+	&#8226; main.js        # итоговый бандл
+&#10006; src
+	&#8226; index.js       # точка входа
+&#8226; index.html         # страница
+&#8226; package.json       # описание зависимостей и информации о проекте
+&#8226; package-lock.json  # описание зависимостей со строго зафиксированной версией, чтобы окружение у разных разработчиков было одинаковое
+&#8226; webpack.config.js  # конфигурация
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Минимальная сборка от Владилена Минина</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+	<a href="https://github.com/vladilenm/redux-course-2020" target="_blank">Минимальная сборка от Владилена Минина</a>
+</u-link-wrapper>
+
+<v-code lang="js border" title="package.json">
+{
+	"name": "webpack",
+	"main": "src/index.js",
+	"scripts": {
+		"start": "webpack-dev-server --open",
+		"build": "webpack --mode production"
+	},
+	"devDependencies": {
+		"css-loader": "^3.4.2",
+		"html-webpack-plugin": "^3.2.0",
+		"style-loader": "^1.1.3",
+		"webpack": "^4.42.0",
+		"webpack-cli": "^3.3.11",
+		"webpack-dev-server": "^3.10.3"
+	}
+}
+</v-code>
+
+<v-code lang="js border" title="webpack.config.js">
+const path = require('path')
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+
+module.exports = {
+	mode: 'development',
+	context: path.resolve(__dirname, 'src'),
+	entry: './index.js',
+	output: {
+		filename: 'bundle.js',
+		path: path.resolve(__dirname, 'dist')
+	},
+	plugins: [
+		new HTMLWebpackPlugin({
+			template: 'index.html'
+		})
+	],
+	module: {
+		rules: [
+			{
+				test: /\.css$/i,
+				use: ['style-loader', 'css-loader'],
+			}
+		]
+	},
+	devServer: {
+		port: 3000
+	}
+}
+</v-code>
+</div><div id="main-scripts"><h2>Скрипты</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>package.json</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-pre-npm>
+npm run <u-code-npm>start</u-code-npm>
+npm run <u-code-npm>build</u-code-npm>
+</v-pre-npm>
+
+<ul class="list-point">
+	<li>В Webpack 4 есть два режима: режим <u>production</u>, который создает оптимизированные файлы, готовые к использованию в режиме <u>production</u> и режим <u>development</u>, который создает легко читаемый код. Флаг <u-code-text>--mode</u-code-text> позволяет выбрать, какой режим использовать</li>
+	<li>Флаги <u-code-text>--open</u-code-text> и <u-code-text>--hot</u-code-text> ответственны за обновление веб-страницы всякий раз, когда происходят какие-либо изменения в компонентах</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Основное</h4>
+<!------------------------------------------------------------->
+<v-code lang="json" title="">
+{
+	"scripts": {
+		"start": "webpack-dev-server",         <u-code-comment># server</u-code-comment>
+		"build": "webpack"                     <u-code-comment># watcher</u-code-comment>
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Дополнительно</h4>
+<!------------------------------------------------------------->
+<v-code lang="json" title="">
+{
+	"scripts": {
+		"watch":  "webpack -w",                         <u-code-comment># watcher</u-code-comment>
+		"watch":  "webpack --watch",                    <u-code-comment># watcher</u-code-comment>
+		"dev":    "webpack -d",                         <u-code-comment># development</u-code-comment>
+		"prod":   "webpack -p",                         <u-code-comment># production</u-code-comment>
+		"dev":    "webpack --mode development --watch", <u-code-comment># development</u-code-comment>
+		"prod":   "webpack --mode production"           <u-code-comment># production</u-code-comment>
+		"start":  "webpack-dev-server --mode development --open --hot"
+	}
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>webpack.config.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+module.exports = {
+	mode: 'development',
+	devtool: 'source-map',
+	module: {
+		rules: [
+			...
+		]
+	},
+	devServer: {
+		...
+	},
+	plugins: [
+		...
+	]
+}
+</v-code>
+</div><div id="plugins-webpack"><h2>webpack</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>webpack webpack-cli</u-code-npm>
+</v-pre-npm>
+
+<ul class="list-point">
+	<li><u>webpack</u> - module bundler</li>
+	<li><u>webpack-cli</u> - использование webpack в командной строке (передача параметров)</li>
+</ul>
+
+</div><div id="plugins-webpack-dev-server"><h2>webpack-dev-server</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>webpack-dev-server</u-code-npm>
+</v-pre-npm>
+
+<u-link-wrapper>
+	<a href="https://webpack.js.org/guides/development/#using-webpack-dev-server" target="_blank">webpack.js.org (webpack-dev-server)</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+module.exports = {
+	<u-code-wrapper>
+	devServer: {
+		contentBase: './dist',
+		historyApiFallback: {
+			disableDotRule: true
+		},
+		stats: 'errors-only',
+		port: 3000
+	}
+	</u-code-wrapper>
+}
+</v-code>
+</div><div id="plugins-babel"><h2>babel</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>babel-loader</u-code-npm> <u-code-npm>@babel/core</u-code-npm> <u-code-npm>@babel/preset-env</u-code-npm> <u-code>@babel/preset-react</u-code> <u-code>@babel/plugin-proposal-class-properties</u-code>
+</v-pre-npm>
+
+<ul class="list-point">
+	<li><u-text-define>babel</u-text-define> - transpiler. может транспилировать ES6 в ES5 и JSX в ES5</li><hr>
+
+	<li><u-code-text>babel-loader</u-code-text> - используется для загрузки JavaScript/JSX файлов. Помощник Webpack для транспайлинга кода, задает пресеты</li>	
+	<li><u-code-text>@babel/core</u-code-text> - преобразует код ES6 в ES5</li>
+	<li><u-code-text>@babel/preset-env</u-code-text> - пресет для транспайлинга кода ES6/ES7/ES8 в ES5</li>
+	<li><u-code-text>@babel/preset-react</u-code-text> - пресет для транспайлинга кода JSX в ES5</li>
+	<li><u-code-text>@babel/plugin-proposal-class-properties</u-code-text> - пресет для использования в react эспериментального синтаксиса общедоступных полей классов для задания обработчиков событий</li>
+</ul>
+
+<u-link-wrapper>
+	<a href="https://webpack.js.org/loaders/babel-loader/" target="_blank">webpack.js.org (babel-loader)</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+module.exports = {
+	module: {
+		rules: [
+			{
+				<u-code-wrapper>
+				test: /\.m?js|jsx$/,
+				exclude: /(node_modules|bower_components)/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['@babel/preset-env',  <u-code>'@babel/preset-react'</u-code>],
+					    plugins: [
+							 <u-code>'@babel/plugin-proposal-class-properties'</u-code>
+						]
+					}
+				}
+				</u-code-wrapper>
+			}
+		]
+	}
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файл .babelrc</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Сообщит babel, какие из пресетов использовать для транспайлинга</li>
+	<li>Или это можно прописать в опции <u-code-text>presets</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+{
+	"presets": ["@babel/preset-env", "@babel/preset-react"]
+}
+</v-code>
+</div><div id="plugins-html-webpack-plugin"><h2>html-webpack-plugin</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>html-webpack-plugin</u-code-npm>
+</v-pre-npm>
+
+<u-link-wrapper>
+	<a href="https://webpack.js.org/concepts/#plugins" target="_blank">webpack.js.org (html-webpack-plugin)</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+	<li>Указание шаблона файла .html в который подключается основной скрипт .js</li>
+	<li>Плагин генерирует HTML файл, затем вставляет в него скрипт и записывает файл на dist/index.html</li>
+</ul>
+
+<v-code lang="js" title="">
+	<u-code-wrapper>
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+	</u-code-wrapper>
+module.exports = {
+	plugins: [
+		<u-code-wrapper>
+		new HtmlWebpackPlugin({template: './index.html'})
+		</u-code-wrapper>
+	]
+}
+</v-code>
+</div><div id="plugins-clean-webpack-plugin"><h2>clean-webpack-plugin</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>clean-webpack-plugin</u-code-npm>
+</v-pre-npm>
+
+<v-code lang="js" title="">
+	<u-code-wrapper>
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+	</u-code-wrapper>
+
+module.exports = {
+    plugins: [
+    	<u-code-wrapper>
+		new CleanWebpackPlugin()
+		</u-code-wrapper>
+    ]
+};
+</v-code>
+
+<u-message-info>Если webpack запущен в режиме watch, то при пересохранении удаляет все изображения из dist. Изображения создаются только при запуске webpack</u-message-info>
+</div><div id="plugins-react"><h2>react</h2>
+
+<v-pre-npm>
+npm i --save <u-code-npm>react react-dom</u-code-npm>
+</v-pre-npm>
+</div><div id="loaders-css-loader"><h2>css-loader</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>css-loader</u-code-npm>
+</v-pre-npm>
+
+<ul class="list-point">
+	<li><u-text-define>css-loader</u-text-define> - загрузка и объединение всех CSS файлов в один (translates CSS into CommonJS)</li>
+	<li>Если лоадера нет, то Webpack считает это js файлом, пытается его разобрать и видит ошибку</li>
+	<li>Webpack выполняет loaders в обратном порядке: с последнего до первого, то есть справа налево</li>
+</ul>
+
+<v-code lang="js" title="webpack.config.js">
+module.exports = {
+	module: {
+		rules: [
+			{
+				test: /\.css$/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					<u-code-wrapper>
+					{
+						loader: 'css-loader',
+						options: {
+							sourceMap: true
+						}
+					}
+					</u-code-wrapper>
+				],
+			},
+		],
+	},
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>CSS модули</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="webpack.config.js">
+{
+	test: /\.css$/,
+	use: [
+		MiniCssExtractPlugin.loader,
+		<u-code-wrapper>
+		{
+			loader: 'css-loader',
+			options: {
+				importLoaders: 1,
+				modules: true,
+				localIdentName: '[name]__[local]__[hash:base64:5]',
+				sourceMap: true
+			}
+		}
+		</u-code-wrapper>
+	]
+},
+</v-code>
+
+<v-code lang="bash" title="">
+localIdentName: '[name]__[local]__[hash:base64:5]'
+	[name]           # название компонента
+	[local]          # название класса
+	[hash:base64:5]  # 5 символов hash
+</v-code>
+
+<v-code lang="js" title="Component.js (react.js)">
+import classes from './Component.css';
+
+render() {
+	return (&lt;div className={classes.headerItem}&gt;&lt;/div&gt;);
+}
+</v-code>
+
+<v-code lang="css" title="Component.css">
+.headerItem { background: orange; }
+</v-code>
+
+<v-pre-npm>
+# дополнительные плагины
+<u-code-npm>react-css-modules</u-code-npm>              # возможно его заменил babel-plugin-react-css-modules
+<u-code-npm>babel-plugin-react-css-modules</u-code-npm>
+</v-pre-npm>
+</div><div id="loaders-mini-css-extract-plugin"><h2>mini-css-extract-plugin</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>mini-css-extract-plugin</u-code-npm>
+</v-pre-npm>
+
+<ul class="list-point">
+	<li><u-text-define>mini-css-extract-plugin</u-text-define> - создает отдельный файл css</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>css-loader + mini-css-extract-plugin</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="webpack.config.js">
+    <u-code-wrapper>
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+    </u-code-wrapper>
+module.exports = {
+	module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                	<u-code-wrapper>
+                    MiniCssExtractPlugin.loader,
+                    </u-code-wrapper>
+                	'css-loader'
+                ]
+            }
+        ]
+    },
+    plugins: [
+    	<u-code-wrapper>
+        new MiniCssExtractPlugin({
+        	filename: '[name].css'
+        	//filename: 'styles.css'
+    	})
+    	</u-code-wrapper>
+    ]
+};
+</v-code>
+</div><div id="loaders-style-loader"><h2>style-loader</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>style-loader</u-code-npm>
+</v-pre-npm>
+
+<ul class="list-point">
+	<li><u-text-define>style-loader</u-text-define> - компилирует css в js файл (creates style nodes from JS strings)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>css-loader + style-loader</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="Component.js">
+import './style.css';
+</v-code>
+
+<v-code lang="js" title="webpack.config.js">
+module.exports = {
+	module: {
+		rules: [
+			{
+				test: /\.css$/,
+				use: [
+					<u-code-wrapper>
+					'style-loader',
+					</u-code-wrapper>
+					'css-loader'
+				],
+			},
+		],
+	},
+};
+</v-code>
+</div><div id="loaders-sass-loader"><h2>sass-loader</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>sass-loader</u-code-npm>
+npm i --save-dev <u-code-npm>node-sass</u-code-npm>
+</v-pre-npm>
+
+<ul class="list-point">
+    <li><u-text-define>sass-loader</u-text-define> - compiles Sass to CSS, using Node Sass by default</li>
+</ul>
+
+<v-code lang="js" title="webpack.config.js">
+module: {
+    rules: [
+        {
+            test: /\.scss/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                'css-loader',
+                <u-code-wrapper>
+                {
+                    loader: 'sass-loader',
+                    options: {
+                        sourceMap: true
+                    }
+                },
+                </u-code-wrapper>
+            ]
+        },
+    ]
+}
+</v-code>
+
+<v-code lang="js" title="Component.js">
+import './style.scss';
+</v-code></div><div id="loaders-file-loader"><h2>file-loader</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>file-loader</u-code-npm>
+</v-pre-npm>
+
+<v-code lang="js" title="">
+module.exports = {
+	module: {
+		rules: [
+			{
+				<u-code-wrapper>
+				test: /\.(jpe?g|png|svg|gif|ico)$/i,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[path][name].[ext]',
+							//name:'[name].[ext]'
+							//outputPath: './'
+						}
+					},
+				],
+				</u-code-wrapper>
+			},
+		],
+	},
+};
+</v-code>
+
+<v-code lang="bash" title="">
+name: '[path][name].[ext]'
+name: '[name].[ext]'
+</v-code></div><div id="loaders-image-webpack-loader"><h2>image-webpack-loader</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>image-webpack-loader</u-code-npm> # оптимизация изображений
+</v-pre-npm>
+
+<u-link-wrapper>
+    <a href="https://github.com/tcoopman/image-webpack-loader" target="_blank">image-webpack-loader</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+module.exports = {
+    module: {
+        rules: [
+            {   
+                <u-code-wrapper>
+                test: /\.(jpe?g|png|svg|gif)$/i,
+                use: [
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            mozjpeg: {
+                                progressive: true,
+                                quality: 70
+                            },
+                            optipng: {
+                                enabled: false,
+                            },
+                            pngquant: {
+                                quality: '65-90',
+                                speed: 4
+                            },
+                            gifsicle: {
+                                interlaced: false,
+                            },
+                            webp: {
+                                quality: 75
+                            }
+                        }
+                    }
+                ],
+                </u-code-wrapper>
+            }
+        ]
+    }
+}
+</v-code>
+
+<u-message-info>Оптимизированные изображения в build подгружаются на страницу, но не открываются в просмотре изображений Windows. Если не указывать "options", то изображения открываются в просмотре изображений Windows</u-message-info>
+
+</div><div id="loaders-html-loader"><h2>html-loader</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>html-loader</u-code-npm>
+</v-pre-npm>
+
+<v-code lang="js" title="">
+module.exports = {
+	module: {
+		rules: [
+			{
+				test: /\.html$/,
+				use: [ {
+					loader: 'html-loader'
+				}],
+			}
+		]
+	},
+}
+</v-code>
+
+<v-code lang="js" title="">
+import page from './page.html';
+</v-code>
+</div><div id="postcss-postcss-loader"><h2>postcss-loader</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>postcss-loader</u-code-npm>
+</v-pre-npm>
+
+<u-link-wrapper>
+    <a href="https://github.com/postcss/postcss/blob/master/docs/plugins.md" target="_blank">PostCSS Plugins</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Подключение через webpack.config.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="webpack.config.js">
+module: {
+    rules: [
+        {
+            test: /\.scss/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                'css-loader',
+                <u-code-wrapper>
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        plugins: [
+                            //
+                        ],
+                        sourceMap: true
+                    }
+                },
+                </u-code-wrapper>
+                'sass-loader'
+            ]
+        },
+    ]
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Подключение через postcss.config.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="webpack.config.js">
+module: {
+    rules: [
+        {
+            test: /\.scss/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                'css-loader',
+                <u-code-wrapper>
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        config: { path: './postcss.config.js' },
+                        sourceMap: true
+                    }
+                },
+                </u-code-wrapper>
+                'sass-loader'
+            ]
+        },
+    ]
+}
+</v-code>
+
+<v-code lang="js" title="webpack.config.js">
+module.exports = {
+    plugins: [
+        require('autoprefixer'),
+        require('css-mqpacker'),
+        require('cssnano')
+    ]
+}
+</v-code>
+</div><div id="postcss-autoprefixer"><h2>autoprefixer</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>autoprefixer</u-code-npm>
+</v-pre-npm>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Подключение через webpack.config.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="webpack.config.js">
+    <u-code-wrapper>
+const autoprefixer = require('autoprefixer');
+    </u-code-wrapper>
+module: {
+    rules: [
+        {
+            test: /\.scss/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                'css-loader',
+                <u-code-wrapper>
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        plugins: [
+                            autoprefixer({
+                                browsers: ['ie &gt;= 8', 'last 4 version']
+                            })
+                        ],
+                        sourceMap: true
+                    }
+                },
+                </u-code-wrapper>
+                'sass-loader'
+            ]
+        },
+    ]
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Подключение через postcss.config.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="postcss.config.js">
+module.exports = {
+    plugins: [
+        require('autoprefixer')
+    ]
+}
+</v-code>
+
+<v-code lang="js" title="package.json">
+{
+    "browserslist": [
+        "> 1%",
+        "last 3 version"
+    ]
+}
+</v-code>
+</div><div id="postcss-cssnano"><h2>cssnano</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>cssnano</u-code-npm>
+</v-pre-npm>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Подключение через postcss.config.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="postcss.config.js">
+module.exports = {
+    plugins: [
+        <u-code-wrapper>
+        require('cssnano')({
+            present: [
+                'default', {
+                    discardComments: {
+                        removeAll: true
+                    }
+                }
+            ]
+        })
+        </u-code-wrapper>
+    ]
+}
+</v-code>
+</div><div id="postcss-css-mqpacker"><h2>css-mqpacker</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>css-mqpacker</u-code-npm>
+</v-pre-npm>
+
+<ul class="list-point">
+    <li><u-text-define>css-mqpacker</u-text-define> - сжатие media queries</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Подключение через postcss.config.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="postcss.config.js">
+module.exports = {
+    plugins: [
+        require('css-mqpacker')
+    ]
+}
+</v-code>
+</div><div id="options-mode"><h2>Config: Mode</h2>
+
+<v-code lang="js" title="">
+module.exports = {
+    mode: 'development',  // отключает уведомления в консоли, не минифицирует код
+    mode: 'production',   // уведомления по умолчанию, минификация и т.д.
+}
+</v-code>
+</div><div id="options-devtool"><h2>Config: SourceMap</h2>
+
+<ul class="list-point">
+	<li>Позволяет показыать исходные файлы при отладке через браузер, а не скомпилированный код</li>
+	<li>В сборке дополнительно создается файл <u-code>main.js.map</u-code>, если файл сборки назывался <u-code>main.js</u-code> </li>
+</ul>
+
+<u-link-wrapper>
+	<a href="https://webpack.js.org/guides/development/#using-source-maps" target="_blank">webpack.js.org (source-maps)</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+module.exports = {
+    devtool: 'source-map',                    // для production. дополнительно создается файл "main.js.map"
+    devtool: 'cheap-inline-module-source-map' // файл "main.js.map" не создается, данные для отладки в файле "main.js"
+</v-code>
+</div><div id="options-entry-output"><h2>Config: EntryPoint & OutputPoint</h2>
+
+<!------------------------------------------------------------->
+<h4>Одна точка входа и выходная директория</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// для построения пути
+const path = require('path');
+module.exports = {
+    // точка входа: по умолчанию './src/index.js'
+    entry: './src/index.js',
+    // выходная директория: по умолчанию './dist/main.js'
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+        // path: path.join(__dirname, '/dist'),
+        publicPath: '/'
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Несколько точек входа и выходных файлов</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const path = require('path');
+module.exports = {
+    <u-code>entry</u-code>: {
+        main: './js/main.js',
+        about: './js/about.js'
+    }, 
+    <u-code>output</u-code>: {
+        filename: '[name].js',
+        path: path.join(__dirname, 'out')
+    }
+}
+</v-code>
+
+
+
+</div><div id="options-library"><h2>Config: library</h2>
+
+<v-code lang="js" title="">
+module.exports = {
+	output: {
+		library: 'home'
+	}
+}
+</v-code>
+
+<v-code lang="js" title="">
+export const name = 'Tony'; // экспорт из js файла
+</v-code>
+
+<v-code lang="js" title="">
+home.name; // обращение из приложения
+</v-code>
+</div><div id="options-watch"><h2>Config: watch watchOptions</h2>
+
+<v-code lang="js" title="">
+module.exports = {
+	// наблюдение за файлами
+	watch: true, 
+	// задание времени срабатывания
+	watchOptions: {
+		aggregateTimeout: 100
+	}
+}
+</v-code></div><div id="options-resolve"><h2>Config: resolve</h2>
+
+<v-code lang="js" title="js">
+// при import без указания расширения загружаются файлы js или jsx
+resolve: {
+	extensions: ['.js', <u-code>'.jsx'</u-code>]
+}
+</v-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

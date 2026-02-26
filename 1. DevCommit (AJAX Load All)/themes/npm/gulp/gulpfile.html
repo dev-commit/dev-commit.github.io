@@ -1,0 +1,60 @@
+<h2>Gulpfile.js</h2>
+
+<u-link-wrapper>
+	<a href="/files/gulp/gulpfile1.js" download="" target="_blank">Скачать gulpfile.js v.1.0 (small)</a>
+	<a href="/files/gulp/gulpfile2.js" download="" target="_blank">Скачать gulpfile.js v.2.0 (full)</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Простой пример task</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var gulp = require('gulp');
+gulp.task('mytask', function() {
+	console.log('Привет, я таск!');
+});
+gulp mytask - запуск из консоли
+</v-code>	
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Структура task</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var gulp = require('gulp');         // подключение пакета 
+gulp.task('mytask', function() {    // инструкция
+	gulp.src('source-files') // взяли файлы
+	.pipe(plugin())                 // выполнили действие над ними (вызов команды, плагина)
+	.pipe(gulp.dest('folder'))      // выгрузили результат работы плагина (только папка)
+});
+</v-code>	
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Аргументы task</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+task
+	'' - название таска
+	[] - таски, которые необходимо выполнить до запуска таска
+	function - функция
+</v-code>	
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Выбор файлов по шаблону</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+return gulp.src();
+	'app/sass/main.scss'                           - выбрать конкретный файл
+	'app/sass/*.scss'                              - выбрать все файлы из директории
+	'app/sass/**/*.scss'                           - выбрать все файлы включая поддиректории
+	'!app/sass/main.scss'                          - файл исключится из выборки
+	['!app/sass/main.scss', 'app/sass/**/*.scss']) - указание нескольких условий
+	'app/sass/*.+(scss|sass)'                      - выбрать все файлы scss и sass из директории
+</v-code>	
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Дефолтный таск</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+gulp.task('default', ['watch']);
+gulp - запуск из консоли
+</v-code>

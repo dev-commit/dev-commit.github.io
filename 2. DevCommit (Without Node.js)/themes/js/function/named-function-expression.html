@@ -1,0 +1,44 @@
+<h2>Named Function Expression</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Named Function Expression (NFE)</u-text-define> - именованные функциональные выражения</li>
+	<li>Имя NFE используется для единственной цели – позволить изнутри функции вызвать саму себя</li>
+	<li>Если функция задана как Function Expression, ей можно дать имя</li>
+	<li>Оно будет доступно только внутри функции</li>
+	<li>Это имя предназначено для надёжного рекурсивного вызова функции, даже если она записана в другую переменную</li>
+	<li>С Function Declaration так поступить нельзя</li>
+	<li>NFE нельзя перезаписать</li>
+</ul>
+
+<v-code lang="js" title="">
+var f = function sayHi(name) {
+  alert( sayHi ); // изнутри функции - видно (выведет код функции)
+};
+
+alert( sayHi ); // снаружи - не видно (ошибка: undefined variable 'sayHi')
+</v-code>
+
+<v-two-code type="js;js" comment="js;js">
+<template v-slot:first>
+function f(n) {
+  return n ? n * f(n - 1) : 1;
+};
+
+var g = f;
+f = null;
+
+alert( g(5) ); // запуск функции с новым именем - ошибка при выполнении!
+// функция из своего кода обращается к своему старому имени f
+// этой функции уже нет, f = null
+</template>
+<template v-slot:last>
+var f = function factorial(n) {
+	return n ? n*factorial(n-1) : 1;
+};
+
+var g = f;  // скопировали ссылку на функцию-факториал в g
+f = null;
+
+alert( g(5) ); // 120, работает!
+</template>
+</v-two-code>

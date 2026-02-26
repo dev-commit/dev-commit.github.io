@@ -1,0 +1,103 @@
+<h2>Объектная модель браузера (BOM)</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Navigator - информация о браузере и ОС</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var a = navigator.userAgent;     // название браузера
+var a = navigator.platform;      // ОС
+var a = navigator.language;      // язык браузера
+var a = navigator.oscpu;         // название операционной системы
+var a = navigator.cookieEnabled; // включены ли куки
+var a = navigator.onLine;        // подключен ли пользователь к Интернету
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Screen - данные о экране пользователя</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var a = screen.width;       // ширина экрана
+var a = screen.height;      // высота экрана
+var a = screen.availWidth;  // доступная ширина (на сколько можно раскрыть браузер не в полноэкранном режиме)
+var a = screen.availHeight; // доступная высота
+var a = screen.colorDepth;  // глубина цвета
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Location - информация о URL, возможность перезагрузить страницу</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+location.reload();           // перезагрузка страницы
+var a = location.href;       // адрес загруженной страницы
+var a = location.toString(); // URL
+location.href = 'page.html'; // переходим на страницу (на этой же странице)
+</v-code>
+
+<v-code lang="js" title="">
+var a = window.location.pathname.split('/')[2];
+var a = location.hash.slice(1);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Ковертация URL</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var encoded = encodeURI('http://google.com/на-русском');
+var decoded = decodeURI(encoded);
+
+console.log(encoded); // http://google.com/%D0%BD%D0%B0-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%BE%D0%BC
+console.log(decoded); // http://google.com/на-русском
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Текущий адрес страницы без .html и символа "/" в начале</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var currentUrl;        
+// определяем строку пути относительно хоста страницы в формате "/page.html"       
+currentUrl = location.pathname; 
+// обрезаем символ "/" в начале и символы ".html" в конце
+currentUrl = currentUrl.slice(1,currentUrl.length-5); 
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Поиск совпадений</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// -1 - нет совпадений
+var page = location.href.indexOf('/page/');
+var page = location.pathname.indexOf('/page/');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>4. History - вперед/назад по истории, позвляет без перезагрузки изменить страницу браузера</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+window.history.back();         // эквивалент клика по кнопке назад
+window.history.forward();      // эквивалент клика по кнопке вперед
+window.history.go(-1);         // эквивалент history.back();
+window.history.go(1);          // эквивалент history.forward();
+var a = window.history.length; // количество страниц в стеке истории
+</v-code>
+
+<v-code lang="js" title="">
+if (history && history.pushState) {
+    // проверка поддержки history
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>5. Frames - содержит коллекцию всех дочерних объектов фреймов на странице</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var a = frames;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>6. Вывод сообщения пользователю</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+alert("Привет Мир");                      // модальное окно
+var age = prompt('Сколько Вам лет?', ''); // модальное окно с вопросом и полем ввода
+var answer = confirm('Вы согласны?');     // модальное окно да/нет (вернет bool значение)
+</v-code>

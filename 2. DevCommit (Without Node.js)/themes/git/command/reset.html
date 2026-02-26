@@ -1,0 +1,12 @@
+<div class="v-method-wrapper">
+    <v-method before="fetch " method="reset" after="" arg="">
+    Отмена изменений. Изменяет указатель HEAD и, опционально, состояние индекса
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>reset</u-code>
+git <u-code>reset --hard HEAD^1</u-code>      # откатиться на заданное кол-во коммитов
+git <u-code>reset --hard</u-code> <i>HashCommit</i>  # откатиться к конкретному коммиту и удалить последующие (хэш смотрим в «git log»)
+git <u-code>reset HEAD</u-code> <i>ИмяФайла</i>      # если изменения были индексированны и нужно откатиться перед самим коммитом
+</v-code>

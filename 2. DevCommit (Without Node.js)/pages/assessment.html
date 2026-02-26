@@ -1,0 +1,3946 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Ассессмент</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Типизация</div><a href="#typing-typing">📑 Типизация</a><a href="#typing-type-data">📑 Типы данных</a><a href="#typing-type-casting">⚡️ Сравнение типов</a><a href="#main-conversion"><u-menu>toString</u-menu> <u-menu>valueOf</u-menu></a><a href="#typing-typeof"><u-menu>typeof</u-menu></a><a href="#typing-symbol">🔰 Symbol (ES6)</a><a href="#typing-hoisting">🔥 Всплытие</a><div class="theme">Классы</div><a href="#main-inheritance">🔥 Наследование</a><a href="#main-prototype">🔥 <u-menu>__proto__</u-menu> <u-menu>prototype</u-menu></a><a href="#main-new">🔥 <u-menu>new</u-menu></a><a href="#methods-object-create">🔰 <u-menu-unactive>Object.create</u-menu-unactive></a><a href="#methods-object-assign">🔰 <u-menu-unactive>Object.assign</u-menu-unactive></a><a href="#main-constructor">🔰 <u-menu-unactive>constructor</u-menu-unactive></a><a href="#main-return">🔰 <u-menu-unactive>return</u-menu-unactive></a><div class="theme">Основы</div><a href="#main-bind">⚾️ <u-menu>bind</u-menu> <u-menu>call</u-menu> <u-menu>apply</u-menu></a><a href="#main-context">⚾️ Контекст</a><a href="#function-arrow">⭐️ Стрелочные функции</a><a href="#theory-event-loop">🍋 Event Loop</a><a href="#theory-event-loop-tasks">🍋 Event Loop: Tasks</a><div class="theme">Замыкания</div><a href="#closures-closures">📑 Замыкания</a><a href="#closures-environment">📑 Области видимости</a><a href="#closures-funarg">📑 Фунарг-проблема</a><div class="theme">Практика</div><a href="#main-array-cycle">💥 <u-menu>map</u-menu> <u-menu>forEach</u-menu> <u-menu>...</u-menu></a><a href="#main-spread-array">⚡️ Spread Arr (ES6)</a><a href="#main-spread-obj">⚡️ Spread Obj (ES-2018)</a><a href="#main-destructive-array">🍕 Деструктуризация Arr (ES6)</a><a href="#main-destructive-obj">🍕 Деструктуризация Obj (ES6)</a><a href="#async-async-func">💥 Async Function (ES2017)</a><div class="theme">Оптимизация</div><a href="#optimization-info">📑 Оптимизация загрузки</a><a href="#optimization-critical-rendering-path">🥑 Critical Rendering Path</a><a href="#optimization-repaint-and-reflow">🥑 Repaint & Reflow</a><a href="#optimization-caching">⭐️ Кэширование</a><a href="#optimization-tree-shaking">⭐️ Tree shaking</a><div class="theme">Теория</div><a href="#oop-principles">🍋 ООП</a><a href="#fp-concept">🍋 ФП</a><a href="#programming-principles-solid">⚾️ SOLID</a><a href="#main-info">📑 Паттерны</a><a href="#application-architecture-mvc">📑 MVC</a><a href="#theory-pyramid">📑 Пирамида тестирования</a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="typing-typing"><h2>Типизация</h2>
+
+<!------------------------------------------------------------->
+<h4>Языки программирования:</h4>
+<!------------------------------------------------------------->
+<ul class="list-none">
+    <li><b>I.</b> Типизированные</li>
+    <li><b>II.</b> Нетипизированные (бестиповые) [Ассемблер, Forth и Brainfuck]</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Виды типизации</h4>
+<!------------------------------------------------------------->
+<ul class="list-none">
+    <li><u-text-define>Статическая типизация</u-text-define> - тип задается при определении переменной, нельзя положить переменную другого типа. Конечные типы переменных и функций устанавливаются на этапе компиляции (компилятор точно знает, какой тип где находится) [C, Java, C#]</li>
+    <li><u-text-define>Динамическая типизация</u-text-define> - тип не задается. Все типы выясняются уже во время выполнения программы. Возможна запись в переменную значения другого типа [Python, JavaScript, Ruby]</li>
+
+    <hr>
+    <li><u-text-define>Сильная типизация (строгая)</u-text-define> - язык не позволяет смешивать в выражениях различные типы и не выполняет автоматические неявные преобразования, например нельзя вычесть из строки множество [Java, Python, Haskell, Lisp]</li>
+    <li><u-text-define>Слабая типизация (нестрогая)</u-text-define> - неявное приведение типов. Н-р: операции сложения с разными типами данных. Автоматически выполняется множество неявных преобразований, даже если может произойти потеря точности или преобразование неоднозначно [C, JavaScript, Visual Basic, PHP] </li>
+
+    <hr>
+    <li><u-text-define>Явная типизация</u-text-define> - тип новых переменных / функций / их аргументов нужно задавать явно [C++, D, C#]</li>
+    <li><u-text-define>Неявная типизация</u-text-define> - перекладывают эту задачу на компилятор / интерпретатор [PHP, Lua, JavaScript]</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Примеры типизации</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li>Статическая [C, Java,C#]</li>
+    <li>Динамическая [JavaScript, PHP, Python, Ruby]</li>
+    <li>Строгая (сильная) [Java, Python, Haskell, Lisp]</li>
+    <li>Нестрогая (слабая) [PHP, JavaScript, Visual Basic]</li>
+    <li>Явная [C++, D, C#]</li>
+    <li>Неявная [JavaScript, PHP, Lua]</li>
+</ol>
+
+
+
+</div><div id="typing-type-data"><h2>Типы данных</h2>
+
+<v-code lang="bash" title="">
+# <u>Примитивы</u>
+1. <em>Number</em>    # Число 64-битный float
+2. <em>String</em>    # Строка
+3. <em>Boolean</em>   # Булевый, логический
+4. <em>null</em>      # Специальное пустое или неизвестное значение (присваивается самостоятельно)
+5. <em>undefined</em> # Специальное неприсвоеное значение (возвращается из JS)
+6. <em>Symbol</em>    # Символ (ES6)
+7. <em>BigInt</em>    # Целые числа больше 2<sup>53</sup> BigInt(значение)
+
+# <u>Объекты</u>
+8. <em>Object</em>    # Array, Function, Object 
+</v-code>
+
+<ul class="list-point">
+	<li><u>Назначение типов данных</u>: хранить разного рода информацию</li>
+    <li><u>Примитивам</u> нельзя назначать методы (при считывании будет <u>undefined</u>), но считывать их можно</li>
+    <li>Специальные числовые значения <u-code-text>Infinity</u-code-text> и <u-code-text>NaN</u-code-text></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>null и undefined</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<u>undefined («неопределенный»)</u> представляет собой значение по умолчанию:
+    <li>переменной, которой не было присвоено значения, т.е. объявленной, но не инициализированной переменной</li>
+    <li>функции, которая ничего не возвращает явно, например, console.log(1)</li>
+    <li>несуществующего свойства объекта</li>
+
+    <u>null («значение отсутствия значения»)</u> - значение, которое присваивается переменной явно
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Преобразование типов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+String(77);
+Number('77');
+Boolean(77);
+</v-code>
+
+<v-code lang="js" title="">
+77 + ''; // string
++'77';   // number
+!!'77';  // boolean
+</v-code>
+
+<v-code lang="js" title="">
+77.toString();
+parseInt('77px');
+parseFloat('77.2px')
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const a = 'Hello';
+const b1 = Boolean(a); // => true
+const b2 = !!a; // => true
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Способы создания переменных</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Литеральная форма</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const a = 'string';
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Конструктор</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const a = new String('string');
+const a = new Number(77);
+const a = new Boolean(true);
+</v-code>
+</div><div id="typing-type-casting"><h2>Сравнение типов</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сравнение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// && - первое значение
+// || - последнее значение
+
+false && ''         // false
+false || ''         // ''
+'' || 'Yes'         // 'Yes'
+{} && 'Some'        // 'Some'
+{} || 'Some'        // Object {}
+{a: 10} && 'Some'   // 'Some'
+{a: 10} || 'Some'   // Object { a: 10}
+{} && []            // []
+0 || true           // true
+null || 0           // 0
+undefined && 0      // undefined
+'' || 0 && true     // 0
+{} || 0 && true     // Object {}
+false || {} && true // true
+</v-code>
+
+<v-code lang="js" title="Приведение к булевому значению">
+0 / '' / null / undefined                               // => false
+77 / -1 / 'Hello' / {} / [] / function() {} / Symbol()  // => true
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Числа и строки</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>При сравнении значений разных типов, используется числовое преобразование. Оно применяется к обоим значениям</li>
+</ul>
+
+<v-code lang="js" title="">
+'2' > 1           // true   - сравнивается как 2 > 1
+'01' == 1         // true   - сравнивается как 1 == 1
+9 + "1"           // "91"   - строка сильнее
+91 - "1"          // 90     - вычитать только числа
+'1' + 1           // "11"
+'b' + 'a' + +'a'  // 'baNaN'
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Массивы и объекты</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+[1] + 1      // "11"
+[1, 2] + 5   // "1,25"
+[] + []      // ""                 - складывать можно строки и цифры, приводим к строкам, т.к. сильнее
+[] + {}      // "[object Object]"  - [] к строке, {} - объект [obj Obj]
+{} + []      // 0                  - false + false = 0
+[] == 0      // true               - false == false
+[4] === ![4] // false
+[4] === [4]  // false
+</v-code>
+
+<v-code lang="js" title="JSFuck">
+(!+[]+[]+![]).length // 9
+	!+[] == true
+	[]   == ""
+	![]  == false
+	"truefalse".length == 9
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Булево значение</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+false == 0          // true  - false становится числом 0
+true == 1           // true  - true становится числом 1
+true + true + true  // 3     - true == 1
+true - true         // 0     - true == 1
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>null и undefined</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Значения null и undefined равны == друг другу и не равны чему бы то ни было ещё</li>
+	<li>При преобразовании в число null становится 0, а undefined становится NaN</li>
+</ul>
+
+<v-code lang="js" title="">
+undefined == undefined  // true
+null == null            // true
+undefined == null       // true
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Функции</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Функция - «объект первого класса». Функция - это значение такое же, как число, строка или объект. Мы можем записать функцию в переменную, можем положить её в массив или в свойство объекта. Мы даже можем сложить две функции</li>
+</ul>
+
+<v-code lang="js" title="">
+function hello() {};
+function world() {};
+console.log(hello + world); // => "function hello() {}function world() {}"
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Дробные числа</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+0.5 + 0.1 == 0.6     // true
+0.1 + 0.2 == 0.3     // false   - неточность перевода в двоичную систему
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Строки</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Cравниваются численные коды символов Unicode</li>
+</ul>
+
+<v-code lang="js" title="">
+'Б' > 'А'          // true
+'а' > 'Я'          // true, строчные буквы больше прописных
+'Банан' > 'Анна'   // true, если первая буква первой строки больше – значит первая строка больше, независимо от остальных символов
+'Привет' > 'Прив'  // true, любая буква больше отсутствия буквы
+</v-code>
+</div><div id="main-conversion"><h2>Преобразование объектов: toString и valueOf</h2>
+
+<ul class="list-point">
+	<li>В <u-text-define>логическом</u-text-define> контексте объект - всегда <u>true</u></li>
+	<li>При <u-text-define>строковом</u-text-define> преобразовании объекта используется его метод <u>toString</u>. Он должен возвращать примитивное значение, причём не обязательно именно строку</li>
+	<li>Для <u-text-define>численного</u-text-define> преобразования используется метод <u>valueOf</u>, который также может возвратить любое примитивное значение. У большинства объектов valueOf не работает (возвращает сам объект и потому игнорируется), при этом для численного преобразования используется toString</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Логическое преобразование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// любой объект в логическом контексте – true, даже если это пустой массив [] или объект {}.
+if ({} && []) {
+	alert( "Все объекты - true!" ); // alert сработает
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Строковое преобразование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const user = {
+	name: 'Tony'
+};
+
+alert( user ); // [object Object]
+</v-code>
+
+<v-code lang="js" title="">
+// eсли в объекте присутствует метод toString, который возвращает примитив, то он используется для преобразования
+const obj = {
+	name: 'Tony',
+	<u-code>toString</u-code>() {
+		return this.name;
+	}
+};
+
+alert( obj ); // Tony
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Численное преобразование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const room = {
+	number: 777,
+};
+
+alert( +room ); // NaN
+</v-code>
+
+<ul class="list-point">
+    <li>Для численного преобразования объекта используется метод <u>valueOf</u>, а если его нет – то <u>toString</u></li>
+</ul>
+
+<v-code lang="js" title="">
+const room = {
+	number: 777,
+	<u-code>valueOf</u-code>() { return this.number; },
+	<u-code>toString</u-code>() { return this.number; }
+};
+
+alert( +room );      // 777, вызвался valueOf
+delete room.valueOf; // valueOf удалён
+alert( +room );      // 777, вызвался toString
+</v-code>
+</div><div id="typing-typeof"><h2>typeof</h2>
+
+<!------------------------------------------------------------->
+<h4>typeof - возвращает тип аргумента</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+typeof 0            // "number"
+typeof 'foo'        // "string"
+typeof true         // "boolean"
+typeof undefined    // "undefined"
+typeof null         // "object" (*)
+typeof {}           // "object"
+typeof []           // "object"
+typeof new Date     // "object"
+typeof function(){} // "function" (*)
+typeof NaN          // "number"
+</v-code>
+
+<v-code lang="js" title="">
+var bar = function foo() {};
+typeof foo(); // Uncaught ReferenceError: foo is not defined
+typeof bar;   // => "function"
+typeof bar()  // => "undefined"
+</v-code>
+
+<v-code lang="js" title="">
+// проверка поддержки свойств
+typeof addEventListener !== 'undefined'
+</v-code>
+</div><div id="typing-symbol"><h2>Symbol (ES6)</h2>
+
+<!------------------------------------------------------------->
+<h4>Основное</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>Символ</u-text-define> - неизменяемый тип данных, позволяющий задать уникальное значение. Позволяет добавлять новые идентификаторы или свойства объектов, не резервируя строковые названия для этих свойств</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Использование</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <b>Создание уникальных ключей для объекта</b>
+    <li>Ключи нельзя переопределить при добавлении нового свойства (рассчитано на безопасность)</li>
+    <li>Ключи не итерируются (не будут доступны при переборе свойств объекта)</li>
+    <li><u>Назначение</u>: Защитить свойство объекта от прямого доступа</li>
+</ul>
+
+<hr>
+
+<ol class="list-num">
+    <li>Есть сторонняя библиотека, в которой есть объект</li>
+    <li>В объект необходимо добавить новое свойство, но при этом не затронуть свойства, которые там уже есть</li>
+    <li>Symbol защищает объект от непредвиденных изменений</li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>Особенности</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Символы доступны в любой области видимости. Можно объявить символ и общаться через него</li>
+	<li>Нельзя использовать ключевое слово <u-code-text>new</u-code-text></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Методы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="Symbol." method="for" after="" arg="(key)">
+    Ищет существующие символы по заданному ключу и возвращает его, если он найден. В противном случае создается новый символ для данного ключа в глобальном реестре символов
+    </v-method>
+
+    <v-method-arg arg="key">заданный ключ</v-method-arg>
+</div>
+
+<div class="v-method-wrapper">
+    <v-method before="Symbol." method="keyFor" after="" arg="(sym)">
+    Получает по разделямому символу его ключ из глобального реестра символов
+    </v-method>
+
+    <v-method-arg arg="sym">разделямый символ</v-method-arg>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// создание символа
+const symbol1 = Symbol();
+</v-code>
+
+<v-code lang="js" title="">
+// создание символа
+const symbol2 = Symbol.for('name');
+</v-code>
+
+<v-code lang="js" title="">
+// получить имя символа
+const name = Symbol.keyFor(symbol2);
+</v-code>
+
+<v-code lang="js" title="">
+// задание необязательного аргумента, в котором указывается имя для символа
+// имя можно использовать описания символа (полезно для отладки)
+const symbol3 = Symbol('name');
+</v-code>
+
+<v-code lang="js" title="">
+// задание свойства объекта
+const user = {
+	username: 'r2d2',
+	[Symbol.for('password')]: 'c3po'
+};
+
+const password = user[Symbol.for('password')];
+console.log(password);
+// просмотреть символы у объекта
+console.log(Object.getOwnPropertySymbols(user));
+</v-code>
+
+<v-code lang="js" title="">
+// встроенные символы
+// хорошо известные символы
+const obj = {
+	iterator: 0,
+	[Symbol.iterator]() {}
+}
+// Symbol.iterator используется конструкцией for...of
+// благодаря которой можно перебирать (итерировать) объект
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Встроенные символы в JavaScript</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Итерационные символы</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>Symbol.iterator</u-code-text> - Метод, возвращающий итератор по умолчанию для объекта. Используется конструкцией for...of</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. Символы регулярных выражений</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>Symbol.match</u-code-text> - Метод для сопоставления объекта со строкой, также используемый для определения возможности объекта выступать в качестве регулярного выражения. Используется функцией String.prototype.match()</li>
+    <li><u-code-text>Symbol.replace</u-code-text> - Метод, заменяющий совпавшие подстроки в строке. Используется функцией String.prototype.replace()</li>
+    <li><u-code-text>Symbol.search</u-code-text> - Метод, возвращающий индекс вхождения подстроки, соответствующей регулярному выражению. Используется функцией String.prototype.search()</li>
+    <li><u-code-text>Symbol.split</u-code-text> - Метод, разбивающий строку на части в местах, соответствующих регулярному выражению. Используется функцией String.prototype.split()</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Другие символы</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>Symbol.hasInstance</u-code-text> - Метод, определяющий, распознает ли конструктор некоторый объект как свой экземпляр. Используется оператором instanceof</li>
+    <li><u-code-text>Symbol.isConcatSpreadable</u-code-text> - Булево значение, показывающее, должен ли объект быть сведен к плоскому представлению (англ. flatten) в виде массива его элементов функцией Array.prototype.concat()</li>
+    <li><u-code-text>Symbol.unscopables</u-code-text> - Массив строковых имен свойств. Позволяет скрыть свойства от инструкции with (прежде всего для обратной совместимости)</li>
+    <li><u-code-text>Symbol.species</u-code-text> - Метод, определяющий конструктор для порождённых объектов</li>
+    <li><u-code-text>Symbol.toPrimitive</u-code-text> - Метод, преобразующий объект в примитив (примитивное значение)</li>
+    <li><u-code-text>Symbol.toStringTag</u-code-text> - Строковое значение, используемое в качестве описания объекта по умолчанию. Используется функцией Object.prototype.toString()</li>
+</ul>
+</div><div id="typing-hoisting"><h2>Всплытие</h2>
+
+<ul class="list-point">
+	<b>Двухпроходной анализатор</b>
+    <li>1 проход - лексический анализ кода (декларирование всех переменных)</li>
+    <li>2 проход - исполнение кода</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li><u-text-define>Hoisting</u-text-define> - поднятие (всплытие), которое совершает переменная</li>
+    <li><u-text-define>Temporal Dead Zone</u-text-define> (временная мертвая зона) - время между созданием переменной scope и инициализацией</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4><u-code-text>var</u-code-text></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><b><u>Всплытие</u></b>: инициализация значением <u-code-text>undefined</u-code-text></li>
+    <li><b><u>Выполнение</u></b>: инициализация присвоенным значением</li>
+    <li><b><u>При обращении до объявления</u></b>: <u-code-text>undefined</u-code-text></li>
+    <li>Функциональная область видимости</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4><u-code-text>let и const</u-code-text></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><b><u>Всплытие</u></b>: остаются неинициализированными, попадают в <u-text-underline>Temporal Dead Zone</u-text-underline></li>
+    <li><b><u>Выполнение</u></b>: инициализация только в момент выполнения выражений <u-code-text>let/const/class</u-code-text></li>
+    <li><b><u>При обращении до объявления</u></b>: ошибка "Uncaught ReferenceError: Cannot access 'foo' before initialization"</li>
+    <li>Блочная область видимости</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4><u-code-text>function foo() {}</u-code-text></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><b><u>Всплытие</u></b>:</li>
+    <li><b><u>Выполнение</u></b>: </li>
+    <li><b><u>При обращении до объявления</u></b>: вызывается функция</li>
+    <li>Функция имеет безусловный приоритет</li>
+    <li><u>LexicalEnvironment</u> создает запись о том, что <u>"foo"</u> переменная, если <u>"foo"</u> не равно функции. Если <u>"foo"</u> равно функции, остальные <u>"var/let/const foo"</u> игнорируются, при условии что они не инициализированы значением</li>
+</ul>
+
+<v-code lang="js" title="">
+// Переменная "var a" непроинициализирована
+function a() { return true }
+var a;
+console.log(a); //=> ƒ a() { return true }
+
+// Переменная "var a" проинициализирована
+function a() { return true }
+var a = 'Hello';
+console.log(a); // => "Hello"
+</v-code>
+
+<!------------------------------------------------------------->
+<h4><u-code-text>Без объявления</u-code-text></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Записывается в глобальный объект <u-code-text>window</u-code-text> при нестрогом режиме</li>
+</ul>
+
+<v-code lang="js" title="">
+// true
+a = true;
+console.log(a);
+
+// Uncaught ReferenceError: "a" is not defined
+'use strict'
+a = true;
+console.log(a);
+
+// Uncaught ReferenceError: "a" is not define
+console.log(a);
+a = true;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4><u-code-text>import</u-code-text></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>К началу выполнения модуля все его зависимости должны быть загружены и выполнены</li>
+    <li>Поэтому, неважно место где указан <u>import</u>. Важно, чтобы не было объявлено одноименных переменных на уровне <u>import</u></li>
+    <li>Ошибка будет выведена до исполнения модуля, следовательно не будет выполнен не только код текущего модуля, но так же не будут выполнены его зависимости</li>
+</ul>
+
+<v-code lang="js" title="">
+console.log(a);    // неважно как объявлена "a" в модуле var/let/const
+import a from 'a'; // OK
+</v-code>
+
+<v-code lang="js" title="">
+var a = 10;        // var/let/const - одинаковое поведение
+import a from 'a'; // Uncaught SyntaxError: Identifier 'a' has already been declared
+</v-code>
+
+<v-code lang="js" title="">
+import a from 'a'; // Uncaught SyntaxError: Identifier 'a' has already been declared
+var a = 10;        // var/let/const - одинаковое поведение
+</v-code>
+</div><div id="main-inheritance"><h2>Наследование</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>ES5</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-text-define>Класс</u-text-define> - <u>функция-конструктор</u> вместе с её <u>prototype</u></li>
+	<li><u>Класс</u> - конструктор объектов</li>
+</ul>
+
+<v-code lang="js" title="Родитель">
+function User(name) {
+	this.name = name;
+}
+User.<u-code>prototype</u-code>.getName = function() {
+	console.log(this.name);
+}
+</v-code>
+
+<v-code lang="js" title="Наследник">
+function Admin() {
+	// Для наследования собственных свойств User()
+	<u-code>User.apply</u-code>(this, arguments);
+}
+
+// В прототип Admin добавили всё из прототипа User
+Admin.prototype = <u-code>Object.create</u-code>(User.prototype);
+</v-code>
+
+<v-code lang="js" title="Результат">
+const admin = new Admin('Tony');
+
+admin.getName();    // => "Tony"
+console.log(admin); // => Object { getName() {}, name: "Tony" }
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка прототипа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Object.create (верно)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+User.prototype = Object.create(Person.prototype);
+</v-code>
+
+<ul class="list-point">
+    <li><u>Object.create</u> создает новый пустой объект, прототипом которого устанавливает ссылку на <u>Person.prototype</u></li>
+    <li>При вызове <u>User</u> через <u>new</u>, создастся новый объект и в свойство <u>__proto__</u> установится ссылка на свой <u>prototype</u></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. Простое присваивание прототипов (неверно)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+User.prototype = Person.prototype;
+</v-code>
+
+<ul class="list-point">
+    <li>Если добавлять методы в <u>User.prototype</u>, они попадут в <u>Person.prototype</u></li>
+    <li>Перезатрется текущий прототип у <u>User</u>: в <u>User.prototype</u> будет пустой объект со свойством <u>constructor</u>, который ссылается на <u>User</u>. Если в коде могут быть добавлены методы, они перезатрутся</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Через new (неверно)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+User.prototype = new Person; 
+</v-code>
+
+<ul class="list-point">
+    <li>При вызове <u>new</u> получаем объект, наполненный свойствами с прототипом, но нужно получить пустой объект, чтобы не было свойств</li>
+    <li>При <u>new Person</u> прилетит мусор в виде собственных свойств класса <u>Person</u></li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>ES6-классы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Класс</u-text-define> - функция/шаблон, предназначенный для создания объектов и методов</li>
+    <li><u-text-define>Конструктор</u-text-define> - метод, который вызывается в момент создания объекта т.е. когда используется ключевое слово new он создает свойства и инициализирует, т.е. подготавливает объект к использованию</li>
+</ul>
+
+<ul class="list-point">
+    <li>Если у подкласса нет конструктора, он будет использовать конструктор родителя</li>
+    <li>Если подклассу указать конструктор, то он должен вызывать в начале конструктор родительского класса <u-code-text>super()</u-code-text></li>
+    <li>Метод <u-code-text>super()</u-code-text> позволяет наследовать свойства и методы из прототипа</li>
+</ul>
+
+<v-code lang="js" title="">
+class User {
+	constructor(name) {
+		this.name = name;
+	}
+	getName() {
+		console.log(this.name);
+	}
+}
+
+class Admin <u-code>extends</u-code> User {
+	constructor(name) {
+		<u-code>super</u-code>(name);
+	}
+}
+
+const admin = new Admin('Tony');
+admin.getName();    // => "Tony"
+console.log(admin); // => Object { name: "Tony" }
+</v-code>
+</div><div id="main-prototype"><h2>__proto__ и prototype</h2>
+
+<v-two-fix><template v-slot:first>
+
+<ul class="list-point">
+    <li><u-text-define>__proto__</u-text-define> - свойство <u-text-underline>объекта</u-text-underline> <u-code-text>Object.prototype</u-code-text>, хранящее ссылку на свойство <u-code-text>prototype</u-code-text> конструктора</li>
+    <hr>
+
+    <li><u-text-define>prototype</u-text-define> - свойство <u-text-underline>функции</u-text-underline> с единственным свойством <u-code-text>constructor</u-code-text>, которое ссылается на саму функцию</li>
+ 	<li><b>Используется:</b> как прототип при создании новых объектов оператором <u-code-text>new</u-code-text></li>
+	<li><b>Цель:</b> указывать <u-code-text>__proto__</u-code-text> для новых объектов. При создании объекта через <u-code-text>new</u-code-text>, в его прототип <u-code-text>__proto__</u-code-text> записывается ссылка из <u-code-text>prototype</u-code-text> функции-конструктора</li>
+	<hr>
+
+    <li><u-text-define>constructor</u-text-define> - свойство, ссылающеется на саму функцию</li>
+</ul>
+
+</template><template v-slot:last>
+<img src="/img/js/prototype/prototype.png" width="650">
+</template></v-two-fix>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>__proto__</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При обращении к любому свойству объекта, оно в первую очередь ищется в самом объекте. Но если его там нет, поиск происходит в свойстве <u-code-text>__proto__</u-code-text>. Если его нет и там, оно ищется дальше по цепочке (<u>prototype chain</u>)</li>
+	<li>__proto__ - наследование на уровне объектов</li>
+</ul>
+
+<img src="/img/js/prototype/prototype-chain.png">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>prototype</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>
+		<img src="/img/js/prototype/prototype-prop.png">
+	</li>
+	<li><u>Прототип</u> - ссылка на другой объект, предоставляющий методы и свойства</li>
+	<li>Есть у каждой функции, кроме стрелочной</li>
+	<li>Имеет смысл только у <u>конструктора</u>, когда есть вызов <u-code-text>new</u-code-text></li>
+	<li>Значением prototype может быть только объект</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Схемы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<img src="/img/js/prototype/prototype-scheme.png" width="650px">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Перетирание прототипа</h4>
+<!------------------------------------------------------------->
+
+<ul class="list-point">
+    <li>При создании объекта его <u-code-text>__proto__</u-code-text> 1 раз получает ссылку на <u-code-text>prototype</u-code-text> функции конструктора</li>
+    <li>Эта ссылка остаётся при <u-code-text>Fn.prototype = {};</u-code-text> и по-прежнему указывает на старое значение, но к функции конструктору уже не имеет отношения</li>
+    <li>При <u-code-text>Fn.prototype = {}</u-code-text> не просто добавили объект, а поменяли ссылку и новые отнаследованные объекты получат уже ее</li>
+</ul>
+
+<img src="/img/js/prototype/prototype-clear-link.jpg" width="400px">
+
+<v-two-code type="js;js" comment="Всё стандартно;Перетирание протоипа">
+<template v-slot:first>
+function Fn() {}
+
+Fn.prototype = {
+	isConnected: true
+};
+
+let connect = new Fn();
+
+console.log(connect.isConnected); // => true
+
+Fn.prototype.isConnected = false;
+
+console.log(connect.isConnected); // => false
+</template>
+<template v-slot:last>
+function Fn() {}
+
+Fn.prototype = {
+    isConnected: true
+};
+
+let connect = new Fn();
+
+console.log(connect.isConnected); // true
+
+Fn.prototype = {};
+
+console.log(connect.isConnected); // true
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function User() {
+    this.name = 'Tony';
+}
+function Admin() {
+    this.id = 77;
+}
+Admin.<u-code>prototype</u-code> = new User();
+// Admin.__proto__ = new User();
+var admin = new Admin(); // => Admin {id: 77, __proto__: User name: "Tony"}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3</h4>
+<!------------------------------------------------------------->
+<img src="/img/js/prototype/proto-tree.jpg" class="center" height="250px">
+
+<v-code lang="js" title="">
+function User() {
+    this.name = 'Tony';
+}
+User.prototype.myFunc = function() {}
+Object.prototype.myFuncObject = function() {}
+let obj = new User();
+</v-code>
+</div><div id="main-new"><h2>Конструктор new</h2>
+
+<ul class="list-point">
+    <li><u-code-text>new</u-code-text> недоступно у стрелочной функции</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Полифил</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function Person(name) {
+	this.name = name;
+}
+
+function Foo(Constructor, ...props) {
+	// 1. Создаётся новый пустой объект через Object.create
+	// Устанавливает __proto__ этому объекту в которое записывается ссылка из <u>prototype</u>
+	const instance = Object.create(Constructor.prototype);
+
+	// 2. Модифицируется <u>this</u> (т.е. этот новый объект) и инициализируются методы и свойства
+	// Применяет функцию-класс к нашему новосозданному объекту
+	// instance.name = 'Tony';
+	Constructor.apply(instance, props);
+
+	// 3. Неявно возвращается <u>this</u> без вызова <u>return</u>
+	// Если в return объект, то вернется он
+	// return (typeof instance === 'object' && instance !== null) ? instance : {};
+	return instance instanceof Object ? instance : {};
+}
+
+const foo = Foo(Person, 'Tony');
+console.log(foo); // => Object { name: "Tony" }
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование new</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function Foo(name) {
+	this.name = name;
+}
+
+const foo = new Foo('Tony');
+console.log(foo); // => Object { name: "Tony" }
+</v-code>
+</div><div id="methods-object-create"><h2>Object.create</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="Object." method="create" after="" arg="(proto, propertiesObject)">
+    добавление прототипа при создании объекта (создаёт пустой объект с __proto__, равным первому аргументу, второй содержит дескрипторы свойств)
+    </v-method>
+
+	<v-method-arg arg="proto">объект, который станет прототипом вновь созданного объекта (__proto__)</v-method-arg>
+	<v-method-arg arg="descriptors">дескрипторы свойств. Необязательный параметр. Если указан и не равен undefined, должен быть объектом, чьи собственные перечисляемые свойства (то есть такие, которые определены на самом объекте, а не унаследованы по цепочке прототипов) указывают дескрипторы свойств, добавляемых в новый объект. Имена добавляемых свойств совпадают с именами свойств в этом объекте. Эти свойства соответствуют второму аргументу метода Object.defineProperties()</v-method-arg>
+
+	<v-method-return>Новый объект с заданным прототипом и свойствами</v-method-return>
+</div>
+
+<v-code lang="js" title="">
+var obj = Object.create(
+	{ name: 'Tony' }
+);
+// => {} => __proto__: name: "Tony"
+</v-code>
+</div><div id="methods-object-assign"><h2>Object.assign</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="Object." method="assign" after="" arg="(target, ...sources)">
+    копирование значений всех собственных перечисляемых свойств (при обходе в цикле for..in его можно будет получить) из одного или более исходных объектов в целевой объект. Происходит создание поверхностной копии
+    </v-method>
+
+	<v-method-arg arg="target">целевой объект</v-method-arg>
+	<v-method-arg arg="sources">исходные объекты</v-method-arg>
+
+	<v-method-return>Получившийся целевой объект</v-method-return>
+</div>
+
+<v-code lang="js" title="">
+let obj = Object.assign(
+	{ name: 'Tony' }, 
+	{ age: 25 }
+);
+// obj {name: "Tony", age: 25}
+</v-code>
+</div><div id="main-constructor"><h2>Свойство constructor</h2>
+
+<!------------------------------------------------------------->
+<h4>Свойство constructor по умолчанию</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// у каждой функции по умолчанию есть свойство prototype, содержащее объект
+function MyFunc() {}
+MyFunc.prototype = { 
+	<u-code>constructor</u-code>: MyFunc 
+};
+var a = new MyFunc(); // => MyFunc {} __proto__: constructor: ƒ MyFunc()
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Перезапись свойства constructor</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function MyFunc() {}
+MyFunc.prototype = { 
+	jumps: true 
+};
+var a = new MyFunc(); // => MyFunc {} __proto__: jumps: true 
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Создание объекта с тем же конструктором, что и данный</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function User(name) {
+    this.name = name;
+    console.log(name);
+}
+var user1 = new User('Tony');
+var user2 = new user1.<u-code>constructor</u-code>('Jack');
+</v-code></div><div id="main-return"><h2>Правила обработки return</h2>
+
+<ul class="list-point">
+	<li>При вызове <u>return</u> с объектом, будет возвращён объект, а не <u>this</u></li>
+	<li>При вызове <u>return</u> с примитивным значением, оно будет отброшено и возвращен <u>this</u></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1. Возвращает объект</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function BigAnimal() {
+	this.name = "Мышь";
+	return { name: "Годзилла" };  // <-- возвратим объект
+}
+alert( new BigAnimal().name );  // Годзилла, получили объект вместо this
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Возвращает примитивное значение</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function BigAnimal() {
+	this.name = "Мышь";
+	return "Годзилла"; // <-- возвратим примитив
+}
+alert( new BigAnimal().name ); // Мышь, получили this (а Годзилла пропала)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Возвращает пустое значение</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function SmallAnimal() {
+	this.name = "Мышь";
+	return; // <-- возвращает this
+}
+
+alert( new SmallAnimal().name );  // Мышь
+</v-code>
+</div><div id="main-bind"><h2>bind(), call(), apply() - явное указание контекст вызова</h2>
+
+<v-code lang="js border" title="">
+function func(a, b) {
+	console.log(this.name, a, b);
+}
+const person = { name: 'Tony' };
+
+func.<u-code>call</u-code>(person, 'Hello', 'World');     // call
+func.<u-code>apply</u-code>(person, ['Hello', 'World']);  // apply
+func.<u-code>bind</u-code>(person)('Hello2', 'World2');   // bind без аргументов
+func.<u-code>bind</u-code>(person, 'HelloZ', 'WorldZ')(); // bind с аргументами
+
+// this указывает на person
+// => "Tony" "Hello" "World"
+</v-code>
+
+<div class="v-method-wrapper">
+    <v-method before="fun." method="call" after="" arg="(thisArg, arg1, arg2, ...)">
+    Вызывает функцию с указанным значением this и аргументами
+    </v-method>
+	<v-method-arg arg="thisArg">значение this, предоставляемое для вызова функции fun</v-method-arg>
+	<v-method-arg arg="arg1, arg2, ...">аргументы, с которыми функция fun должна быть вызвана</v-method-arg>
+</div>
+
+<div class="v-method-wrapper">
+    <v-method before="fun." method="apply" after="" arg="(thisArg, [argsArray])">
+    Вызывает функцию с указанным значением this и аргументами, предоставленными в виде массива
+    </v-method>
+	<v-method-arg arg="thisArg">значение this, предоставляемое для вызова функции fun</v-method-arg>
+	<v-method-arg arg="[argsArray]">массивоподобный объект, определяющий аргументы, с которыми функция fun должна быть вызвана</v-method-arg>
+</div>
+
+<div class="v-method-wrapper">
+    <v-method before="fun." method="bind" after="" arg="(thisArg, arg1, arg2, ...)">
+    Создаёт новую функцию, которая при вызове устанавливает предоставленное значение в качестве контекста выполнения <u>this</u>. Возвращает «обёртку», которая передаст вызов в исходную функцию, с привязанным контекстом. На функции, возвращенной методом <u>bind</u>, нельзя использовать <u>bind</u> еще раз
+    </v-method>
+	<v-method-arg arg="thisArg">значение, передаваемое в качестве this в целевую функцию при вызове привязанной функции. Значение игнорируется, если привязанная функция конструируется с помощью оператора new</v-method-arg>
+	<v-method-arg arg="arg1, arg2, ...">аргументы целевой функции, передаваемые <u>перед</u> аргументами привязанной функции при вызове целевой функции</v-method-arg>
+	<v-method-return>Новая функция, которая передаст вызов в исходную функцию, с привязанным контекстом</v-method-return>
+</div>
+
+<ul class="list-point">
+    <li>Вы можете присваивать различные объекты <u>this</u> при вызове существующей функции. <u>this</u> ссылается на текущий объект, вызвавший объект. С помощью <u>call</u> вы можете написать метод один раз, а затем наследовать его в других объектах, без необходимости переписывать метод для каждого нового объекта</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Потеря контекста</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="Потеря контекста">
+var user = {
+	userName: 'Tony',
+	userGreet() {
+		console.log('Hi ' + this.userName);
+	}
+};
+var newUser = user.userGreet; 
+newUser(); // => "Hi undefined"
+</v-code>
+<v-code lang="js" title="Привязка call">
+newUser.call(user); // => "Hi Tony"
+</v-code>
+<v-code lang="js" title="Привязка bind">
+var func = newUser.bind(user);
+func(); // => "Hi Tony" 
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Привязать всё</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+for (var prop in user) {
+	if (typeof user[prop] == 'function') {
+		user[prop] = user[prop].bind(user);
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вызов функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function showFullName() {
+	alert( this.firstName + " " + this.lastName );
+}
+var user = {
+	firstName: "Василий",
+	lastName: "Петров"
+};
+showFullName.call(user) // => "Василий Петров" (функция вызовется с this=user)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Максимальный элемент массива</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var arr = [1, 2, 3, 77, 4];
+var max = Math.max.apply(null, arr); // 77 (контекстом будет объект Math)
+var max = Math.max.apply(Math, arr); // 77 (контекстом будет объект Math) - аналогично
+// в данном случае в качестве контекста можно передавать что угодно, 
+// поскольку в своей внутренней реализации метод Math.max не использует this
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>call/apply передают this «как есть»</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function f() {
+	alert( this ); // null
+}
+f.call(null);
+</v-code>
+</div><div id="main-context"><h2>Контекст: this, call, apply, bind</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Контекст</u-text-define> - объект, который получит функция на момент выполнения своего кода</li>
+</ul>
+
+<v-code lang="js" title="">
+function foo() { console.log(this); }
+
+// Глобальный контекст
+foo();
+// => window || undefined
+
+// Контекст объекта
+const obj = { name: 'Tony' }
+foo.call(obj);
+// => { name: 'Tony' }
+</v-code>
+
+
+<hr>
+
+
+<ul class="list-point">
+	<li><u-text-define>Контекст выполнения (Execution Context)</u-text-define> - служебная информация, которая соответствует текущему запуску функции. Она включает в себя локальные переменные функции и конкретное место в коде, на котором находится интерпретатор. У каждого вызова функции свой «контекст выполнения» и он всегда разный в зависимости от того как функция была вызвана</li>
+	<li>Контекст бывает либо глобальным, с которого начинается исполнения скрипта, либо контекстом выполнения вызова, который начинается с момента входа в тело функции</li>
+	<li>В каждый момент времени активен только один контекст выполнения. Именно поэтому Javascript называют “однопоточным”, имея ввиду, что только одна инструкция исполняется в один момент времени. Типичный браузер отслеживает контексты выполнения с помощью стека</li>
+	<li><u-text-define>Контекст вызова функции</u-text-define> - тот объект который ее вызывает</li>
+</ul>
+
+<p><img src="/img/js/context/execution-context.png" width="400px"></p>
+
+<ul class="list-point">
+	<li><u-text-define>this</u-text-define> - ссылка на текущий контекст вызова (на текущий объект с которым произошло событие). Определяется в момент вызова функции</li>
+	<li><u>this</u> - обращение к контексту функции. Функция вызывается в контексте объекта, this ссылка на этот объекта</li>
+	<li><u>this</u> зависит от того как вызвана функция</li>
+	<li>Любая функция может иметь в себе <u>this</u>. Если функция использует <u>this</u> - это подразумевает работу с объектом</li>
+	<li><u>this</u> - это текущий объект при вызове «через точку» и новый объект при конструировании через <u>new</u></li>
+	<li><u>Функции</u> не привязаны к своему контексту <u>this</u></li>
+</ul>
+
+<ul class="list-point">
+    <b>На что указывает <u>this</u></b>
+    <li>В глобальном контексте - на глобальный объект</li>
+    <li>В функциональном контексте - на контекст, откуда функция вызвана</li>
+    <li>В функции, обрабатывающей событие DOM - на DOM элемент, который вызвал событие</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Значение this устанавливается в зависимости от того, как вызвана функция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two><template v-slot:first>
+
+<!------------------------------------------------------------->
+<h4>1. При вызове функции как метода</h4>
+<!------------------------------------------------------------->
+<u-code-text>this = obj</u-code-text>
+<v-code lang="js" title="">
+obj.func(...)
+obj["func"](...)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. При обычном вызове</h4>
+<!------------------------------------------------------------->
+<u-code-text>this = window (ES3) /undefined (ES5)</u-code-text>
+<v-code lang="js" title="">
+func(...)
+</v-code>
+
+</template><template v-slot:last>
+
+<!------------------------------------------------------------->
+<h4>3. В new</h4>
+<!------------------------------------------------------------->
+<u-code-text>this = {} (новый объект)</u-code-text>
+<v-code lang="js" title="">
+new func()
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>4. Явное указание</h4>
+<!------------------------------------------------------------->
+<u-code-text>this = context (явная передача)</u-code-text>
+<v-code lang="js" title="">
+func.apply(context, args)
+func.call(context, arg1, arg2, ...)
+</v-code>
+
+</template></v-two>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>4 способа вызова this</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li>bind call apply</li>
+    <li>new конструктор</li>
+    <li>функция</li>
+    <li>объект</li>
+</ol>
+</div><div id="function-arrow"><h2>Стрелочные функции (ES6)</h2>
+
+<u-link-wrapper>
+	<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank">MDN</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Особенности</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Контекст</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Стрелочная функция не имеет своего контекста, а принимает контекст окружения в котором она была создана</li>
+    <li>Стрелочная функция имеет статический (лексический) `this`, это значит что она запоминает `this` по месту своего создания</li>
+</ul>
+
+<ul class="list-point">
+	<li>Стрелочные функции лексически привязаны к значению this. Стрелочные функции не содержат собственный контекст this, а используют значение this окружающего контекста</li>
+    <li>this берется из контекста (окружения) в котором функция объявлена в независимости от того где эта функция будет выполнена</li>
+	<li>Нельзя использовать <u-code-text>.bind()</u-code-text> <u-code-text>.call()</u-code-text> <u-code-text>.apply()</u-code-text>, т.к. нельзя изменить <u-code-text>this</u-code-text>, который берется из контекста</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. Prototype</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Нет свойства <u-code-text>prototype</u-code-text></li>
+	<li>Нельзя использовать как конструкторы объектов (c <u-code-text>new</u-code-text>) и вызовут ошибку при использовании с new</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Arguments</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Псевдомассив <u-code-text>arguments</u-code-text> недоступен. Берется родительский arguments</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>4. Генераторы</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Ключевое слово <u-code-text>yield</u-code-text> не может быть использовано в теле стрелочной функции</li>
+	<li>Как следствие стрелочные функции не могут быть использованы как генераторы</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры на контекст</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Объект</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+var person = {
+	name: 'Tony',
+	greet: () => {
+		// this - объект из контекста window
+		console.log('Hello' + this.name);
+	}
+}
+person.greet();
+</template>
+<template v-slot:last>
+var person = {
+	name: 'Tony',
+	greet: function() {
+		// this - это person
+		console.log('Hello' + this.name);
+	}
+}
+person.greet();
+</template>
+</v-two-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>2 агрумента</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+var add = (x, y) => x + y;
+</template>
+<template v-slot:last>
+function add(x, y) {
+	return x + y;
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>1 агрумент</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Если функция принимает 1 параметр, не нужно заключать его в скобки</li>
+</ul>
+
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+var square = x => x*x;
+</template>
+<template v-slot:last>
+var square = function(x) {
+	return x*x;
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Без аргументов</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+var giveMeAnswer = () => 42;
+</template>
+<template v-slot:last>
+var giveMeAnswer = function() {
+	return 42;
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Не возвращает значение</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+var log = () => console.log('hi');
+</template>
+<template v-slot:last>
+var log = function() {
+	console.log('hi');
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Состоит из двух строк</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Если в стрелочной функции несколько строк, то используются фигурные скобки и <u-code-text>return</u-code-text></li>
+</ul>
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+var multiply = (x, y) => {
+	var result = x*y;
+	return result;
+}
+</template>
+<template v-slot:last>
+var multiply = function(x, y) {
+	var result = x*y;
+	return result;
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Возвращает объект</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Возвращаемый объект оборачивается в круглые скобки</li>
+</ul>
+
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+var getPerson = () => ({ name:'Jack' });
+</template>
+<template v-slot:last>
+var getPerson = function() {
+	return { name:'Jack' }
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Самовызывающаяся функция (IIFE)</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+(() => console.log('IIFE'))();
+</template>
+<template v-slot:last>
+(function(){
+	console.log('IIFE');
+})();
+</template>
+</v-two-code>
+</div><div id="theory-event-loop"><h2>Архитектура среды выполнения JS</h2>
+
+<u-link-wrapper>
+    <a href="https://www.youtube.com/watch?v=8cV4ZvHXQL4" target="_blank">YouTube. Филип Робертс</a>
+    <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/EventLoop" target="_blank">MDN</a>
+    <a href="https://habr.com/ru/post/461401/" target="_blank">Habr</a>
+    <a href="https://medium.com/@stasonmars/полное-понимание-синхронного-и-асинхронного-javascript-с-async-await-ba5f47f4436" target="_blank">Medium</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>JS - однопоточная среда выполнения (<u>runtime</u>). <u>Call Stack</u> один и он может делать одну вещь в единицу времени. Одна инструкция за раз</li>
+    <li>Используется очередь функций обратного вызова</li>
+    <li>Суть блокирования - когда какие то функции занимают <u>Call Stack</u></li>
+    <li>Каждая веб-страница представляет из себя основной поток (<u>Main Thread</u>)</li>
+    <li>Движок браузера выполняет JavaScript в одном потоке. Он не может поставить обработку события на паузу, переключиться на другое событие, а после возобновить выполнение первого. Все события обрабатываются последовательно и каждое до конца</li>
+    <li>В каждом окне выполняется только один главный поток, который занимается выполнением JavaScript, отрисовкой и работой с DOM. Он выполняет команды последовательно, может делать только одно дело одновременно и блокируется при выводе модальных окон, таких как alert
+    <li>В браузерах события добавляются в очередь в любое время, если событие произошло, а так же если у него есть обработчик. В случае, если обработчика нет – событие потеряно. Так, клик по элементу, имеющему обработчик события по событию click , добавит событие в очередь, а если обработчика нет – то и событие в очередь не попадет</li>
+</li>
+</ul>
+
+<img src="/img/js/event-loop/event-loop1.png" height="500px" class="center">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Архитектура среды выполнения JS на примере движка <u>V8</u> (Chrome, Node.js)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>1. Heap (куча)</u-text-define> - структура данных, с помощью которой реализована динамически распределяемая память приложения</li>
+    <ul class="list-point">
+        <li>Куча - ссылка на определённую неструктурированную область памяти</li>
+        <li>Содержит объекты, на которые ссылаются переменные программы</li>
+        <li>memory allocation</li>
+    </ul>
+
+    <li><u-text-define>2. Call Stack</u-text-define> - <u>стек вызовов</u> LIFO структура (последний вошедший выходит первым)</li> 
+    <ul class="list-point">
+        <li>В стек помещаются и удаляются аргументы, локальные переменные функций по мере выполнения программы. Синхронные функции помещаются в стек вызова сразу. Асинхронные откладываются в специальную таблицу - <u>Event Table</u>, где ожидают дальнейшей обработки, чтобы не блокировать процесс выполнения программы. Видно какая функция какую вызвала (<u>execution context</u>)</li>
+        <li>Стек вызовов - это структура данных, которая, записывает сведения о месте в программе, где мы находимся. Если мы переходим в функцию, мы помещаем запись о ней в верхнюю часть стека. Когда мы из функции возвращаемся, мы вытаскиваем из стека самый верхний элемент и оказываемся там, откуда вызывали эту функцию. Каждая запись в стеке вызовов называется стековым кадром</li>
+        <li>Если будет достигнут максимальный размер стека (16 000), возникнет переполнение стека</li>
+    </ul>
+
+    <li><u-text-define>3. Web API</u-text-define> - <u>расширения браузера</u></li>
+    <ul class="list-point">
+        <li>Event Table и Event Queue являются частью Web API, который реализуют браузеры для того, чтобы использовать такие возможности, как асинхронные запросы, таймеры, обрабатывать DOM события и другое асинхронное поведение. Это не является стандартным функционалом JavaScript и в различных средах данное API может быть реализовано по разному</li>
+        <li>Web API - это потоки, к которым у нас нет прямого доступа, мы можем лишь выполнять обращения к ним. Они встроены в браузер, где и выполняются асинхронные действия</li>
+    </ul>
+
+    <li><u-text-define>3.1 Event Table</u-text-define> - <u>таблица</u> в которой находится информация о том, по какому событию необходимо поместить функцию в <u>Event Queue</u> (очередь событий)</li>
+
+    <li><u-text-define>3.2 Callback/Event/Task Queue</u-text-define> - <u>очередь задач/событий</u> - FIFO структура (раньше выходят элементы, которые раньше были помещены). В ней находятся асинхронные функции, для которых наступило время запуска</li>
+    
+    <li><u-text-define>3.3 Job Queue (ES6)</u-text-define> - <u>очередь заданий (микротаски)</u> Эта конструкцию можно считать слоем, расположенном поверх очереди цикла событий. Очередь заданий — это очередь, которая присоединена к концу каждого тика в очереди цикла событий</li>
+
+    <li><u-text-define>4. Event Loop</u-text-define> - <u>цикл/петля событий</u> - наблюдает за стеком вызовов и очередью коллбэков (callback queue). Если стек вызовов пуст, цикл берёт первое событие из очереди и помещает его в стек, что приводит к запуску этого события на выполнение. Подобная итерация называется тиком (tick) цикла событий. Каждое событие — это просто коллбэк</li>
+    <ul class="list-point">
+        <li>Позволяет запланировать выполнение асинхронного кода сразу после выполнения синхронного кода</li>
+    </ul>
+
+</ul>
+
+<img src="/img/js/event-loop/event-loop3.png" height="550px" class="center">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// queue.waitForMessage ожидает события если очередь пуста
+while(queue.waitForMessage()){ 
+    queue.processNextMessage(); 
+}
+</v-code>
+
+<v-code lang="js" title="">
+// Рекурсивный вызов микротаска повесит программу
+function startMicrotask() {
+    return Promise.resolve().then(startMicrotask);
+}
+</v-code>
+
+<v-two><template v-slot:first>
+    <v-code lang="js" title="">
+console.log('Hi');
+setTimeout(function cb1() { 
+    console.log('cb1');
+}, 5000);
+console.log('Bye');
+</v-code>
+</template><template v-slot:last>
+<img src="/img/js/event-loop/event-loop2.gif" height="300px" class="center">
+</template></v-two>
+</div><div id="theory-event-loop-tasks"><h2>Event Loop: Tasks</h2>
+
+<img src="/img/js/event-loop/event-loop4.png" height="450px" class="center">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Приоритетность</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li>Микро-таски (выполняются все)</li>
+    <li>Рендер-таски</li>
+    <li>Макро-таски (выполняются по одной)</li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Tasks (Macrotask) - очередь задач</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Задачи исполняются по порядку и браузер может рендерить в промежутках между ними</li>
+</ul>
+
+<ul class="list-point">
+    <b>Примеры:</b>
+    <li><u-code-list>setTimeout</u-code-list></li>
+    <li><u-code-list>setInterval</u-code-list></li>
+    <li><u-code-list>setImmediate</u-code-list></li>
+    <li><u-code-list>AJAX</u-code-list></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Microtasks - очередь микрозадач / задания "jobs"</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    Микрозадачи исполняются по порядку:
+    <li>Каждый раз после таски</li>
+    <li>Каждый раз когда пустеет стек</li>
+    <li>Могут выполняться посередине таска, если очистился стек</li>
+    <li>Рекурсивный вызов блокирует Event Loop</li>
+    <li><u-code>Promise.then</u-code> - микротаск <u-code>then</u-code>. <u-code>Promise.then.then</u-code> - 2 микротаска</li>
+    <li>Сначала выполняется <u>microtasks</u>, затем <u>tasks</u></li>
+</ul>
+
+<ul class="list-point">
+    <b>Примеры:</b>
+    <li><u-code-list>Promises</u-code-list></li>
+    <li><u-code-list>process.nextTick</u-code-list></li>
+    <li><u-code-list>Object.observe</u-code-list></li>
+    <li><u-code-list>Mutation Observer</u-code-list></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Render Tasks</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Задачи от Render оптимизируются браузером и, если он посчитает, что в этом цикле не нужно ничего перерисовывать, то Event Loop просто пойдет дальше</li>
+    <li><b>Примеры:</b> </li>
+</ul>
+
+<ul class="list-point">
+    <b>Примеры:</b>
+    <li><u-code-list>requestAnimationFrame</u-code-list></li>
+    <li><u-code-list>Style Recalculate</u-code-list></li>
+    <li><u-code-list>Layout</u-code-list></li>
+    <li><u-code-list>Paint</u-code-list></li>
+    <li><u-code-list>I/O</u-code-list></li>
+    <li><u-code-list>Рендеринг пользовательского интерфейса</u-code-list></li>
+</ul>
+
+
+</div><div id="closures-closures"><h2>Замыкания</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Теория</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-text-define>Замыкание</u-text-define> - функция и ее лексическая область видимости в которой она была создана. При этом функция замыкает в себе некоторую информацию из области видимости</li>
+	<li><u>Замыкание</u> - возможность функции запонимать своё лексическое окрущение</li>
+	<li><u>Замыкание</u> - функция вместе со всеми внешними переменными, которые ей доступны</li>
+
+	<li><u-text-define>Лексическое окружение</u-text-define> - переменные внешней области видимости, к которым функция имеет доступ</li>
+	<li><u-text-define>Scope Chain (Цепочка областей видимости)</u-text-define> - связанная с контекстом исполнения цепь объектов переменных, в которой происходит поиск переменных. Объединённое множество идентификаторов, доступ к которым имеет текущее окружение, носит имя <u>"область видимости" (scope)</u>. В процессе движения от родительского окружения к дочернему число доступных идентификаторов возрастает, и сами области видимости складываются в <u>"цепочку областей видимости"</u></li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм работы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Создание LexicalEnvironment</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>В момент создания функции определяется ее лексическое окружение</li>
+    <li>Создается специальный внутренний объект (словарь / лексическое окружение / объект переменных) LexicalEnvironment, привязанный к этому вызову</li>
+	<li>LexicalEnvironment - это хранилище для данных в памяти и механизм для извлечения этих данных при обращении</li>
+	<li>LexicalEnvironment существует когда есть хотя бы одна функция у которой свойство <u>[[Environment]]</u> ссылается на него</li>
+	<li>LexicalEnvironment является внутренним, он скрыт от прямого доступ</li>
+	<li>На верхнем уровне им является <u>«глобальный объект»</u>, в браузере – <u>window</u></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. Свойства LexicalEnvironment</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Все аргументы, функции переменные и константы внутри функции автоматически записываются в LexicalEnvironment и становятся <u>свойствами</u> LexicalEnvironment: имена становятся <u>ключами</u>, а значения <u>значениями</u> в LexicalEnvironment</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Ссылка на [[Environment]]</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u>LexicalEnvironment</u> получает ссылку на скрытое свойство <u>[[Environment]]</u>, которое ссылается на <u>LexicalEnvironment</u> в котором функция была создана, а также на все его <u>свойства</u>. Н-р если функция создана в глобальном объекте <u>window</u>, то <u>[[Environment]]</u> будет ссылаться на <u>window</u></li>
+	<li>Благодаря [[Environment]], функция имеет доступ к <u>внешним переменным</u></li>
+	<li>[[Environment]] появляется и исчезает вместе с функцией</li>
+	<li>К [[Environment]] нет прямого доступа</li>
+	<li>При создании функции с использованием <u>new Function</u>, её свойство [[Environment]] ссылается не на текущий LexicalEnvironment, а на window. Следствие - такие функции не могут использовать замыкание</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>4. Доступ к переменным</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Интерпретатор, при доступе к переменной, сначала пытается найти переменную в текущем <u>LexicalEnvironment</u>, а затем, если её нет - ищет во внешнем объекте переменных, н-р <u>window</u></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>5. Доступ к внешним переменным</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Для доступа к внешней переменной функция по ссылке <u>[[Environment]]</u> обращается во <u>внешний объект переменных</u> и берёт то значение, которое там есть на момент обращения</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Свойства замыкания</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Сохранение промежуточных данных (переменных). Мы получаем доступ к переменным, созданным в процессе вызова окружающей функции, даже если вызов этой функции уже завершился возвратом</li>
+	<li>Инкапсуляция</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Практика</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример 1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function sum(a) {
+	return function(b) {
+		return a + b;
+	}
+}
+var s = sum(10);
+console.log(s(15));
+
+// в функции "s" можно производить вычисления с переменными, объявленными в функции sum, 
+// выполнение которых уже завершено, которые уже возвратили некие значения 
+// и обработаны сборщиком мусора
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример 2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var func = function() {
+	var i = 10;
+	return function() {
+		return i;
+	}
+}
+var anotherFunc = function() {
+	var i = 20;
+	console.log(func()());
+}
+anotherFunc();
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример 3</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="js;js">
+<template v-slot:first>
+function counter() {
+	var count = 0;
+	return function() {
+		count++;
+		console.log(count);
+	}
+}
+var plus = counter();
+plus(); // 1
+plus(); // 2
+plus(); // 3
+</template>
+<template v-slot:last>
+function counter() {
+	var count = 0;
+	return function() {
+		return count++;
+	}
+}
+var plus = counter();
+console.log(plus()); // 0
+console.log(plus()); // 1
+console.log(plus()); // 2
+</template>
+</v-two-code>
+
+<v-code lang="js" title="">
+var counter = (function() {
+	var count = 0;
+	return function() {
+		return count++;
+	}
+})();
+console.log(counter()); // 0
+console.log(counter()); // 1 
+console.log(counter()); // 2 
+</v-code>
+
+</div><div id="closures-environment"><h2>Лексическая и динамическая область видимости</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Лексическая (статическая) область видимости</u-text-define> - при создании функции, она запоминает Lexical Environment в котором была <u>СОЗДАНА</u></li>
+    <li>Функция запоминает внешний Scope по месту создания, а не по месту вызова</li>
+    <li>Используется в JavaScript</li>
+
+    <li><u-text-define>Динамическая область видимости</u-text-define> - при создании функции, она запоминает Lexical Environment в котором была <u>ВЫЗВАНА</u></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>20 берется по месту создания, а не по месту вызова функции</li>
+    <li>Внутрення переменая <u-code-text>bar</u-code-text> - <u>[[Evironment]]</u> хранит ссылку на <u>Lexical Environment</u> <u-code-text>foo</u-code-text>, где существует локальная переменная <u-code-text>a</u-code-text></li>
+    <li>Функция создалась и ссылка закреплена за функцией</li>
+    <li>Когда вызывается функция <u-code-text>bar</u-code-text>, создаеся <u>Контекст исполнения (Execution Cintext)</u>, вместе с ним создается <u>Lexical Environment</u> и <u>Environment Record</u></li>
+    <li>У <u>Environment Record</u> есть свойство <u>outer</u> куда помещается ссылка <u>bar.[[Evironment]]</u></li>
+</ul>
+
+<v-code lang="js" title="">
+function foo() { // a
+	const a = 20
+	return function bar() { // bar.[[Evironment]] = LE foo
+		console.log(a); // a 
+	}
+}
+
+const a = 10
+const bar = foo()
+bar(); // EC - LE ER.outer - bar.[[Evironment]]
+
+// => 20
+</v-code>
+</div><div id="closures-funarg"><h2>Фунарг-проблема</h2>
+
+<u-link-wrapper>
+	<a href="http://dmitrysoshnikov.com/ecmascript/ru-chapter-6-closures/#funarg-problema" target="_blank">Тонкости ECMA-262-3</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Фунарг</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li><u-text-define>Фунарг</u-text-define> - сокращение от «функциональный аргумент»</li>
+	<li>В <u>стековых</u> языках программирования, локальные переменные функции хранятся в стеке, который наполняется новыми элементами при выполнении функции. При выходе из функции, эти переменные удаляются из стека</li>
+	<li><u>Ограничения</u> для использования функций при "возврате из функции" и при "передаче в виде аргумента"</li>
+	
+    <hr>
+    <li><u>Решение:</u> Использование замыканий</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Виды</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Проблема восходящего фунарга</u-text-define> (upward funarg) - возникает при возврате функции из некоторой функции</li>
+    <li><u-text-define>Проблема нисходящего фунарга</u-text-define> (downward funarg) - возникает при передаче функции в качестве параметра некоторой функции</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Проблема #1: Свободные переменные</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Наиболее характерно Фунарг-проблема проявляется при использовании в функции свободных переменных</li>
+    <li><u-text-define>Свободная переменная</u-text-define> (Free variable) - переменная, используемая функцией, но не являющаяся ни параметром, ни локальной переменной этой функции</li>
+</ul>
+
+<v-code lang="js" title="">
+function testFn() {
+	var <u-code>localVar</u-code> = 10;
+
+	function innerFn(innerParam) {
+		alert(innerParam + <u-code>localVar</u-code>);
+	}
+
+	return innerFn;
+}
+ 
+var someFn = testFn();
+someFn(20); // 30
+</v-code>
+
+<ul class="list-point">
+    <li>В данном случае, для функции <u>innerFn</u> свободной переменной является <u>localVar</u></li>
+    <li>Если бы в данной системе использовалась стековая реализация для хранения локальных переменных, это означало бы, что по завершении функции <u>testFn</u>, все её локальные переменные должны были бы удалиться из стека, что привело бы к ошибке при вызове функции <u>innerFn</u> снаружи посредством <u>someFn</u></li>
+    <li>В данном случае, при стековой организации, и сам возврат функции <u>innerFn</u> был бы невозможен, т.к. <u>innerFn</u> так же является локальной функцией для функции <u>testFn</u> и будет удалена по завершению <u>testFn</u></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Проблема #2: Передача функции в качестве аргумента</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Проблема возникает при организации системы с <u>динамической областью видимости</u></li>
+</ul>
+
+<v-code lang="js" title="">
+var x = 10;
+function someFn() {
+	alert(x);
+}
+someFn(); // 10 - и при статической и при динамической Scope
+ 
+(function () {
+	var x = 20;
+	someFn(); // 10 - при статической, 20 - при динамической Scope
+})();
+ 
+// аналогично, при передаче someFn
+// в качестве параметра
+ 
+(function (funArg) {
+	var x = 30;
+	funArg(); // 10 - при статической, 30 - при динамической Scope
+})(someFn);
+</v-code>
+
+<ul class="list-point">
+    <li>При организации системы с динамической областью видимости, разрешение имени переменной осуществляется в пределах динамического (активного) стека переменных (свободная переменная ищется в динамической цепи вызова, а не в статической цепи создания функции), что может привести к неоднозначности</li>
+    <li>При этом, даже, если <u>x</u> будет определена (в отличии от предыдущего примера, где локальные переменные удалились бы из стека и были бы не определены), возникнет вопрос, какое из значений <u>x</u> (точнее, <u>x</u> из какого контекста, какой области видимости) должно использоваться в различных вызовах функции <u>someFn</u>?</li>
+</ul>
+</div><div id="main-array-cycle"><h2>Перебор массива</h2>
+
+<ul class="list-point">
+	<li><u-code-list>map</u-code-list> - для трансформации массива в массив</li>
+	<li><u-code-list>forEach</u-code-list> - для перебора массива</li>
+	<li><u-code-list>reduce/reduceRight</u-code-list> - для прохода по массиву с вычислением значения</li>
+	<li><u-code-list>filter</u-code-list> - для фильтрации массива</li>
+	<li><u-code-list>every/some</u-code-list> - для проверки массива</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>map</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="arr." method="map" after="" arg="(callback, thisArg)">
+    создаёт новый массив с результатом вызова указанной функции для каждого элемента массива
+    </v-method>
+
+	<v-method-arg arg="callback">
+	Функция, создающая элемент в новом массиве, принимает три аргумента:<br>
+	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
+	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
+	<u>array</u> - массив, по которому осуществляется проход<br>
+	</v-method-arg>
+
+	<v-method-arg arg="thisArg">
+	Необязательный параметр. Значение, используемое в качестве this при вызове функции callback
+	</v-method-arg>
+
+	<v-method-return>Новый массив, где каждый элемент является результатом callback функции</v-method-return>
+</div>
+
+<v-code lang="js border" title="">
+const newArray = arr.map((currentValue, index, array) => { 
+	// Возвращает элемент для newArray 
+}[, thisArg]);
+</v-code>
+
+<v-code lang="js" title="">
+const numbers = [1, 2, 3];
+const doubles = numbers.map((num) => {
+	return num * 2;
+});
+
+console.log(numbers); // => [1, 2, 3]
+console.log(doubles); // => [2, 4, 6]
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>forEach</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="arr." method="forEach" after="" arg="(callback, thisArg)">
+    Выполняет указанную функцию один раз для каждого элемента в массиве
+    </v-method>
+
+	<v-method-arg arg="callback">
+	Функция, которая будет вызвана для каждого элемента массива; в нее будет передано три аргумента:<br>
+	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
+	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
+	<u>array</u> - массив, по которому осуществляется проход<br>
+	</v-method-arg>
+
+	<v-method-arg arg="thisArg">
+	Необязательный параметр. Значение, используемое в качестве this при вызове функции callback
+	</v-method-arg>
+</div>
+
+<v-code lang="js border" title="">
+arr.forEach((currentValue, index, array) => {
+	// Your iterator
+}[, thisArg]);
+</v-code>
+
+<ul class="list-point">
+	<li>Ничего не возвращает, используется только для перебора</li>
+</ul>
+<v-code lang="js" title="">
+const arr = ['Яблоко', 'Апельсин', 'Груша'];
+arr.forEach((element, index, arr) => {
+	console.log(element, index, arr);
+});
+
+// => 'Яблоко'   0  Array(3)
+// => 'Апельсин' 1  Array(3)
+// => 'Груша'    2  Array(3)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>reduce/reduceRight</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="arr." method="reduce/reduceRight" after="" arg="(callback, initialValue)">
+    применяет функцию reducer к каждому элементу массива <i><u>(слева-направо)/(справа-налево)</u></i>, возвращая одно результирующее значение
+    </v-method>
+
+	<v-method-arg arg="callback">
+	Функция, выполняющаяся для каждого элемента массива, принимает четыре аргумента:<br>
+	<u>accumulator/previousValue</u> - значение, возвращённое предыдущим выполнением функции callback, либо значение initialValue, если оно предоставлено<br>
+	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
+	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
+	<u>array</u> - массив, по которому осуществляется проход<br>
+	</v-method-arg>
+
+	<v-method-arg arg="initialValue">
+	Необязательный параметр. Объект, используемый в качестве первого аргумента при первом вызове функции callback
+	</v-method-arg>
+</div>
+
+<v-code lang="js border" title="">
+array.reduceRight(function(previousValue, currentValue, index, array) {
+	// ...
+});
+</v-code>
+
+<ul class="list-point">
+	<li>Используется для последовательной обработки каждого элемента массива с сохранением промежуточного результата</li>
+	<li><b>arr.reduce</b> идёт по массиву слева-направо</li>
+	<li><b>arr.reduceRight</b> идёт по массиву справа-налево</li>
+</ul>
+
+<v-code lang="js" title="">
+arr.reduce(callback[, initialValue])
+</v-code>
+
+<ul class="list-point">
+	<b>callback(previousValue, currentItem, index, arr)</b>
+	<li><u-code>previousValue</u-code> - последний результат вызова функции, «промежуточный результат»</li>
+	<li><u-code>currentItem</u-code> - текущий элемент массива, элементы перебираются по очереди слева-направо</li>
+	<li><u-code>index</u-code> - номер текущего элемента</li>
+	<li><u-code>arr</u-code> - обрабатываемый массив</li>
+</ul>
+
+<ul class="list-point">
+	<b>initialValue - начальное значение</b>
+	<li>Если есть <u-code>initialValue</u-code>, то на первом вызове значение <u-code>previousValue</u-code> будет равно <u-code>initialValue</u-code></li>
+	<li>Если нет <u-code>initialValue</u-code>, то оно равно первому элементу массива, а перебор начинается со второго</li>
+</ul>
+
+<v-code lang="js" title="">
+// сумма элементов массива
+const arr = [1, 2, 3, 4, 5];
+
+// для каждого элемента массива запустить функцию,
+// промежуточный результат передавать первым аргументом далее
+const result = arr.reduce((sum, current) => {
+  return sum + current;
+});
+
+console.log(result); // 15
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>filter</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="arr." method="filter" after="" arg="(callback, thisArg)">
+    создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции
+    </v-method>
+
+	<v-method-arg arg="callback">
+	Функция, которая будет вызвана для каждого элемента массива. Если функция возвращает true, то элемент остаётся в массиве, если false, то удаляется. Три аргумента:<br>
+	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
+	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
+	<u>array</u> - массив, по которому осуществляется проход<br>
+	</v-method-arg>
+
+	<v-method-arg arg="thisArg">
+	Необязательный параметр. Значение, используемое в качестве this при вызове функции callback
+	</v-method-arg>
+
+	<v-method-return>Новый массив с элементами для которых callback вернёт true. Если ни один элемент не пройдет тест, то будет возвращен пустой массив</v-method-return>
+</div>
+
+<ul class="list-point">
+	<li>Используется для фильтрации массива через функцию</li>
+	<li>Создаёт новый массив, в который войдут только те элементы arr, для которых вызов callback(item, i, arr) возвратит true</li>
+</ul>
+
+<v-code lang="js" title="">
+// Выбор положительных элементов массива
+const arr = [1, -1, 2, -2, 3];
+const result = arr.filter(number => {
+	return number > 0;
+});
+
+console.log(result); // => [1, 2, 3]
+</v-code>
+
+<v-code lang="js" title="">
+// Поиск вхождения подстроки в массив
+let arr = ['Tony', 'Jack', 'Nick', 'Tony and Jane'];
+let result = arr.filter(item => item.<u-code>includes</u-code>('Tony')); // => ["Tony", "Tony and Jane"]
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>every/some</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="arr." method="every/some" after="" arg="(callback, thisArg)">
+    проверяет, удовлетворяют ли <i><u>все/какие-нибудь</u></i> элементы массива условию, заданному в передаваемой функции
+    </v-method>
+
+	<v-method-arg arg="callback">
+	Функция проверки каждого элемента, принимает три аргумента:<br>
+	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
+	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
+	<u>array</u> - массив, по которому осуществляется проход<br>
+	</v-method-arg>
+
+	<v-method-arg arg="thisArg">
+	Необязательный параметр. Значение, используемое в качестве this при вызове функции callback
+	</v-method-arg>
+
+	<v-method-return>true если функция проверки возвращает truthy значение для <i><u>каждого/хотя бы одного</u></i> элемента массива. Иначе, false</v-method-return>
+</div>
+
+<ul class="list-point">
+	<li>Используется для проверки массива</li>
+	<li>Метод «arr.every(callback[, thisArg])» возвращает true, если вызов callback вернёт true для каждого элемента arr</li>
+	<li>Метод «arr.some(callback[, thisArg])» возвращает true, если вызов callback вернёт true для какого-нибудь элемента arr</li>
+</ul>
+
+<v-code lang="js" title="">
+const arr = [1, -1, 2, -2, 3];
+
+function isPositive(number) {
+  return number > 0;
+}
+
+console.log( arr.every(isPositive) ); // false, не все положительные
+console.log( arr.some(isPositive) );  // true, есть хоть одно положительное
+</v-code>
+</div><div id="main-spread-array"><h2>Spread-оператор массивов (ES6)</h2>
+
+<ul class="list-point">
+    <li>Оператор разворота (spread оператор) - позволяет разворачить элементы массива для передачи в качестве аргументов функций или в элементы другого массива</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Массив</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const arr1 = ['Kate', 'Jack'];
+const arr2 = ['Tony', 'Natasha'];
+const result = [...arr1, 'Tom', ...arr2];
+console.log(result); // => 'Kate', 'Jack', 'Tom', 'Tony', 'Natasha'
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function add(x,y,z) {
+	console.log(x + y + z);
+}
+const numbers = [1, 2, 3];
+add(...numbers);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Переопределение свойства у объекта</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const obj1 = {
+    name: 'Jack',
+    age: 25,
+}
+const obj2 = {
+    ...obj1,
+    age: 27
+}
+console.log(obj2); // => { age: 27, name: "Jack" }
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Нахождение максмального значения</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const maxValue = Math.max(...arr1, ...arr2);
+console.log(maxValue); // => 6
+</v-code>
+</div><div id="main-spread-obj"><h2>Spread-оператор объектов</h2>
+
+<ul class="list-point">
+    <li>Работает как <u-code-text>Object.assign()</u-code-text></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const defaults = {
+	host: 'localhost',
+	user: 'admin'
+};
+
+// более высокий приоритет
+const options = {
+	user: 'Tony',
+	password: 'qwerty'
+}
+</v-code>
+
+<v-two-code type="js;js" comment="Spread;Object.assign">
+<template v-slot:first>
+const result = <u-code>{ ...defaults, ...options }</u-code>;
+</template>
+<template v-slot:last>
+const result = Object.assign({}, defaults, options);
+</template>
+</v-two-code>
+
+<v-code lang="js" title="Result">
+// user из options перезапишет user из defaults
+// =>
+{
+	host: 'localhost',
+	user: 'Tony',
+	password: 'qwerty'
+}
+</v-code>
+
+<v-code lang="js" title="js">
+// комбинация свойств
+const port = 8080;
+const result = {
+	...defaults,
+	...options,
+	port, 
+	connect() {
+		//
+	}
+};
+</v-code>
+</div><div id="main-destructive-array"><h2>Деструктивное присваивание массивов (ES6) - деструктуризация</h2>
+
+<v-code lang="js" title="">
+const languages = ['JavaScript', 'Python', 'Ruby'];
+</v-code>
+
+<v-two-code type="js;js" comment="ES6;ES5">
+<template v-slot:first>
+const [js, py, rb] = languages;
+</template>
+<template v-slot:last>
+const js = languages[0];
+const py = languages[1];
+const rb = languages[2];
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const scores = [3, 4, 5];
+const [low, , high] = scores;      // игнорирование значения
+const [low, ...rest] = scores;     // преобразование в массив оставшихся значений
+const [low, mid, high=5] = scores; // значение по умолчанию
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Значение из многомерного массива</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const scores = [3, 4, [5, 6]];
+const [low, mid, [high, higher]] = scores;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Как параметр функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function cumputeScore([low, mid]) {
+	console.log(low, mid);
+}
+cumputeScore([3, 4]);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Для возврата нескольких значений из функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function getScores() {
+	return [3, 4, 5];
+}
+var [low, mid, high] = getScores();
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Комбинация деструктуризации объектов и массивов</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const shape = {
+	type: 'element',
+	coordinates: {
+		start: [22, 77]
+	}
+}
+
+const { coordinates: { start: [startX, startY] } } = shape;
+console.log(startX, startY); // => 22, 77
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Быстрый обмен значений переменнных</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var yes = 'Yes';
+var no = 'No';
+[yes, no] = [no, yes];
+</v-code>
+</div><div id="main-destructive-obj"><h2>Деструтивное присваивание объектов (ES6) - деструктуризация</h2>
+
+<v-code lang="js" title="">
+const person = {
+	firstname: 'Tony',
+	lastname: 'Stark'
+};
+</v-code>
+
+<v-two-code type="js;js" comment="ES6;ES5">
+<template v-slot:first>
+const { firstname, lastname } = person;
+</template>
+<template v-slot:last>
+const firstname = person.firstname;
+const lastname = person.lastname;
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const {firstname, lastname} = person;              // имена переменных должны совпадать с именами свойст объекта
+const {firstname:first, lastname:last} = person;   // изменение имен переменных
+const {firstname, lastname, age=25} = person;      // значение по умолчанию (если age нет, присвоится 25)
+const {address: {flat=77} = {} } = person;         // значение по умолчанию (если address нет, присвоится {})
+const {['first'+'name']:first, lastname} = person; // динамическое определение имен свойст с помощью выражения в []
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Извлечение свойств вложенных объектов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const props = {
+	name: 'Tony',
+    userData: {
+        roles: 'admin',
+        id: 77
+    }
+}
+
+const <u-code>{ name, userData: { roles, id } } = props</u-code>;
+
+console.log(name);  // => 'Tony'
+console.log(roles); // => 'admin'
+console.log(id);    // => 77
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Использование в качестве параметра функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const user = {
+	firstname: 'Tony',
+	lastname: 'Stark'
+};
+function post(url, {data:{firstname, lastname}, cache}) {
+	console.log(firstname, lastname, cache);
+}
+const result = post('api/users', {data:user, cache:false});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Указание значения по умолчанию</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function connect({
+	host = 'localhost',
+	port = 1234,
+	user = 'guest'
+}) {
+	console.log(host, port, user);
+}
+
+connect({ host: 'port' });
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Возврат нескольких значений из функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function getUser() {
+	return {
+		firstname: 'Tony',
+		lastname: 'Stark'
+	};
+}
+const {firstname, lastname} = getUser();
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Rest-элемент</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Rest-элемент должени быть последним в списке</li>
+    <li>На одном уровне может быть только один rest-элемент</li>
+    <li>В rest-элемент попадут все значения, которые не были деструктурированы в выражении</li>
+</ul>
+
+<v-code lang="js" title="">
+const users = {
+	admin: 'all',
+	moderator: 'write',
+	guest: 'read'
+}
+
+const { admin, ...otherUsers } = users;
+console.log(otherUsers); // => {moderator: "write", guest: "read"}
+</v-code>
+</div><div id="async-async-func"><h2>Async Function (ES2017)</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объявление</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="Стрелочная;Обычная">
+<template v-slot:first>
+const foo = async () => {
+    const a = await AsyncFunction();
+};
+</template>
+<template v-slot:last>
+async function foo() {
+    const a = await AsyncFunction();  
+}
+</template>
+</v-two-code>
+
+<v-two-code type="js;js" comment="Стрелочная;Обычная">
+<template v-slot:first>
+(async () => {
+    const a = await AsyncFunction();
+})();
+</template>
+<template v-slot:last>
+(async function() {
+    const a = await AsyncFunction();
+})();
+</template>
+</v-two-code>
+
+<ul class="list-point">
+	<li>Async Function - асинхронная функция (Promise + Generator)</li>
+	<li>Асинхронная функция возвращает <u>Promise</u>, для получения значения используется then</li>
+	<li>Если в асинхронной функции специально вернуть <u>Promise</u>, он не оборачивается в другой <u>Promise</u></li>
+</ul>
+
+<v-code lang="js" title="">
+async function getUser(id) {
+    return { id:1 };   
+}
+getUser(1).then(user => console.log(user));
+</v-code>
+
+<ul class="list-point">
+	<li>await дожидается выполнения <u>Promise</u>, вытаскивает значение и возвращает его</li>
+	<li>код после await выполнится только после выполнения функции</li>
+	<li>await можно использовать только внутри асинхронной функции</li>
+	<li>await необязательно ставить перед вызовом асинхронной фунцкии. это может быть любая функция, возвращающая <u>Promise</u></li>
+</ul>
+<v-code lang="js" title="">
+async function getUser(id) {
+    return { id:1 };   
+}
+async function main() {
+    let user = await getUser(1);
+    console.log(user);
+}
+main();
+</v-code>
+
+<v-code lang="js" title="">
+async function getUser(id) {
+    let response = await fetch('url');
+    let data = await response.json();
+    return data;
+}
+
+async function main() {
+    try {
+        let user = await getUser(1);
+        console.log(user);
+    } catch(error) {
+        console.log(error);
+    }
+}
+
+main();
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Варианты объявления</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="Обычная функция">
+const getUser = async function(id) {
+    //
+}
+</v-code>
+
+<v-code lang="js" title="Стрелочная функция">
+const getUser = async (id) => {
+    //
+}
+</v-code>
+
+<v-code lang="js" title="Свойство объекта">
+const obj = {
+    getUser: async function(id) {
+        //
+    }
+}
+</v-code>
+
+<v-code lang="js" title="Метод объекта">
+const obj = {
+    async getName() {
+        return fetch('https://www.example.com');
+    }
+}
+</v-code>
+
+<v-code lang="js" title="Класс">
+class Obj {
+    async getResource() {
+        return fetch('https://www.example.com');
+    }
+}
+</v-code>
+</div><div id="optimization-info"><h2>Оптимизация загрузки</h2>
+
+<ul class="list-point">
+	<li>Разбитие на чанки JavaScript</li>
+	<li>Микросервисы</li>
+    <li>Сборщик мусора</li>
+    <li>Кеширование</li>
+    <li>Сервис-воркеры</li>
+    <li>React.Lazy</li>
+    <li>Декоратор debounce</li>
+    <li>Мемоизация</li>
+    <li>Виртуализация</li>
+    <li>Tree shaking</li>
+</ul>
+</div><div id="optimization-critical-rendering-path"><h2>Critical Rendering Path</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Critical Rendering Path</u-text-define> (Критический путь рендеринга) - последовательность шагов, необходимая для первого отображения страницы (прежде чем HTML-ответ от сервера будет преобразован в пиксели на экране)</li>
+	<li>Знания о CRP необходимы для улчшения производительности</li>
+</ul>
+
+<img src="/img/js/critical-rendering-path.png" class="center">
+
+<!------------------------------------------------------------->
+<h4>1. Построение DOM-дерева ✔️</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Из полученного от сервера HTML-документа формируется DOM</li>
+	<li><u-text-define>DOM</u-text-define> (объектная модель документа) дерево это объект, представляющий полностью разобранную HTML-страницу. Начиная с корневого элемента <u-code-text>html</u-code-text>, узлы создаются для каждого элемента/текста на странице. Элементы, вложенные в другие элементы, представлены в виде дочерних узлов, и каждый узел содержит полный набор атрибутов для этого элемента</li>
+	<li>HTML может быть исполнен по частям. <b>Документ не должен быть загружен полностью</b> для того, чтобы контент начал появляться на странице</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. Построение CSSOM-дерева ❌</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Загружаются и распознаются стили, формируется CSSOM</li>
+	<li><u-text-define>CSSOM</u-text-define> (CSS Object Model) - объект, представляющий стили, связанные с DOM. Он выглядит так же как DOM, но с соответствующими стилями для каждого узла. Не имеет значения были ли стили объявлены явно или наследуются</li>
+	<li>CSS считается <b>«блокирующим обработку ресурсом»</b>. Это значит, что Render-дерево не может быть построено без полного первоначального разбора CSS</li>
+	<li>В отличии от HTML, CSS не может быть использован по частям в силу своей каскадной природы. Стили, описанные в документе ниже, могут переопределять и изменять стили, определённые ранее. Так что если мы начнём использовать CSS-стили до того, как будет разобрана таблица стилей, мы можем столкнуться с ситуацией, когда стили будут применяться неверно. Это означает, что для перехода к следующему шагу, необходимо полностью разобрать CSS</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Запуск JavaScript ❌ при async ✔️</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>JavaScript является блокирующим ресурсом для парсера. Это означает, что JavaScript блокирует разбор самого HTML-документа</li>
+	<li>Когда парсер доходит до тега <u-code-text>script</u-code-text> (не важно внутренний он или внешний), он останавливается, забирает файл (если он внешний) и запускает его</li>
+	<li>JavaScript можно загружать асинхронно, указав атрибут <u-code-text>async</u-code-text>, для того, чтобы избежать блокировки парсера</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>4. Создание Render Tree</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u-text-define>Render-дерево</u-text-define> - совокупность DOM и CSSOM</li>
+	<li>Это дерево, которое даёт представление о том, что в конечном итоге будет отображено на странице. Это означает, что оно захватывает только видимый контент и не включает, например, элементы, которые были скрыты с помощью CSS-правила <u-code-text>display: none</u-code-text> или <u-code-text>&lt;head&gt;</u-code-text></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>5. Layout (генерация раскладки)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u-text-define>Раскладка</u-text-define> - для каждого элемента Render Tree рассчитывается его положение на странице</li>
+	<li>Браузеры используют поточный метод (<u>flow</u>), при котором в большинстве случаев достаточно одного прохода для размещения всех элементов (для таблиц проходов требуется больше)</li>
+	<hr>
+	<li>Определяется размер видимой области документа (<u-code-text>viewport</u-code-text>), которая обеспечивает контекст для стилей CSS, зависимых от него, например, проценты или единицы viewport</li>
+	<li>Размер viewport определяется метатэгом, находящемся в <u-code-text>head</u-code-text> документа или, если тэг не представлен, будет использовано стандартное значение viewport 980px</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>6. Painting (отрисовка в браузере)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u-text-define>Отрисовка</u-text-define> - видимый контент страницы может быть преобразован в пиксели, чтобы появиться на экране</li>
+	<li>Время, которое займет этот этап, зависит как от величины DOM, так и от того, какие стили применяются. Некоторые стили требуют больше усилий, чтобы быть применёнными, чем другие. Например, сложное градиентное фоновое изображение потребует больше времени, чем простой сплошной цвет на фоне</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Chrome Dev Tools</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="bash" title="">
+Chrome Dev Tools -> Performance -> Event Log
+Chrome Dev Tools -> Сеть -> Запись активности
+</v-code>
+
+<ol class="list-num">
+	<li><b>Send Request</b> - GET-запрос, отправленный для index.html</li>
+	<li><b>Parse HTML and Send Request</b> - начать разбор HTML и построение DOM. Отправить GET запрос для style.css и main.js</li>
+	<li><b>Parse Stylesheet</b> - CSSOM, созданный для style.css</li>
+	<li><b>Evaluate Script</b> - вычислить (выполнить) main.js</li>
+	<li><b>Layout</b> - генерация раскладки, основанной на значении метатега viewport</li>
+	<li><b>Paint</b> - отрисовка пикселей в документе</li>
+</ol>
+
+</div><div id="optimization-repaint-and-reflow"><h2>Repaint & Reflow</h2>
+
+<ul class="list-point">
+    <li><u>Repaint</u> и <u>Reflow</u> блокируют браузер и не пользователь, и не ваше веб-приложение не смогут ничего сделать во время reflow и repaint. В крайних случаях CSS эффекты могут затормозить выполнение JavaScript'а. Это одна из причин, почему вы сталкиваетесь с дергающейся прокруткой страницы и неотзывчивым интерфейсом</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Repaint (Restyle)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Repaint</u-text-define> (Перерисовка) - в случае изменения стилей элемента, не влияющих на его размеры и положение на странице: <u>background-color</u>, <u>border-color</u>, <u>visibility</u>, <u>opacity</u>, <u>outline</u> и т.д.</li>
+    <li>Браузер просто отрисовывает его заново, с учётом нового стиля</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Reflow (Relayout)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Reflow</u-text-define> (Перекомпановка) - если изменения затрагивают содержимое, структуру документа, положение элементов, происходит перерасчет позиций и размеров всех элементов, что приводит к полной или частичной повторной отрисовке страницы</li>
+	<li>Изменения в одном элементе могут повлиять на все дочерние, родительские или смежные элементы</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Когда запускается reflow</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Манипуляции с DOM (добавление, удаление, изменение, перестановка ВИДИМЫХ элементов)</li>
+    <li>Расчёт или изменение CSS-свойств (н-р: изменив ширину элемента, вы можете повлиять на все элементы того же уровня в DOM и окружающие его элементы)</li>
+    <li>Добавление, удаление таблиц стилей</li>
+    <li>Манипуляции с атрибутом «class»</li>
+    <li>CSS3 анимация и свойство transition (каждый кадр анимации вызывает reflow)</li>
+    <li>Использование offsetWidth и OffsetHeight (при попытке считать значения offsetWidth и offsetHeight элемента для их вычисления может быть запущен reflow)</li>
+	
+	<hr>
+	<b>Действия пользователя</b>
+    <li>Изменение содержимого, в т.ч. текста в полях форм</li>
+	<li>Манипуляции с окном браузера - изменения размеров, прокрутка</li>
+	<li>Активация псевдо-классов (например, :hover)</li>
+    <li>Изменении размера шрифта</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Оптимизация со стороны браузера</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li>Браузеры по возможности локализуют repaint и reflow в пределах элементов, подвергнувшимися изменению. Например, изменение размеров <u>абсолютно</u> или <u>фиксировано</u> спозиционированного элемента затронет только сам элемент и его потомков, в то время как изменение <u>статично</u> спозиционированного - повлечет <u>reflow</u> всех элементов, следующих за ним</li>
+    <li>Во время выполнения JavaScript браузеры кэшируют вносимые изменения, и применяют их в один проход по завершению работы блока кода</li>
+</ol>
+
+<v-two><template v-slot:first>
+<ul class="list-point">
+    <li>В ходе выполнения данного кода произойдет только один reflow и repaint:</li>
+</ul>
+<v-code lang="js" title="">
+var $body = $('body');
+$body.css('padding', '1px'); // reflow, repaint
+$body.css('color', 'red');   // repaint
+$body.css('margin', '2px');  // reflow, repaint
+// На самом деле произойдет только 1 reflow и repaint
+</v-code>
+</template><template v-slot:last>
+<ul class="list-point">
+    <li>Однако, как описано выше, обращение к свойствам элементов вызовет принудительный reflow. То есть, если мы в приведённый блок кода добавим обращение к свойству элемента, это вызовет лишний reflow:</li>
+</ul>
+<v-code lang="js" title="">
+var $body = $('body');
+$body.css('padding', '1px');
+// обращение к свойству, принудительный reflow
+$body.css('padding');
+$body.css('color', 'red');
+$body.css('margin', '2px');
+</v-code>
+</template></v-two>
+</div><div id="optimization-caching"><h2>Кэширование</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Кэширование (кэш)</u-text-define> - это некий промежуточный буфер, в котором хранятся данные. Благодаря кэшированию страница сайта не воссоздается заново для каждого пользователя. Кэширование позволяет осуществлять работу с большим количеством данных в максимально сжатые сроки и при ограниченных ресурсах (серверных и пользовательских).</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Браузерное кэширование (клиентское кэширование)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li>Представляет собой составление для браузера команды использовать имеющуюся кэшированную копию. Работа такого кэширования основана на том, что при повторном посещении, браузеру отдаётся заголовок 304 Not Modified, а сама страница или картинка загружаются из локального пользовательского кэша. Получается, что вы экономите на трафике между браузером посетителя и хостингом сайта. Соответственно, страница вашего сайта начинает загружаться быстрее.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1.1 Кэширование файлов и картинок</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Картинка не скачивается каждый раз при открытии сайта, а просто загружается через кэш браузера.</li>
+    <li>Это первый уровень кэширования, который состоит в отдаче заголовка «expired» и заголовка «304 Not Modified». Наиболее эффективным считается кэширование на 2 недели.</li>
+    <li>Но если изображение на сайте меняется, то браузер узнает об этом не сразу, а только если выждать expiry или сбросить кэш в самом браузере. Это не очень эффективно, если файл постоянно изменяется и необходимо постоянно отдавать его актуальную версию.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1.2 Кэширование HTTPS</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Специальные заголовки вида <u>strict-security</u>.</li>
+    <li>Позволяет браузеру всегда обращаться по https к выбранному домену. Сохраняет это состояние довольно жёстко и, в случае отмены этого вида кэша, браузер ещё довольно долго будет пытаться загрузить страницу по https, при этом игнорируя текущие заголовки.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1.3 Кэширование центра сертификации (stamp центра сертификации)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Данный вид кэширования считается обязательным для применения, если вы не хотите, чтобы пользователи вашего сайта ждали, когда центр сертификации (а это некий сервер, который отвечает за достоверность вашего сертификата) обработает запрос от браузера пользователя и подтвердит, что ваш сайт действительно подтверждён им.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1.4 Кэширование страниц</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Когда страница уже сгенерирована, нужно постоянно отслеживать ее актуальность. Для этого вы должны использовать серверный кэш с отслеживанием времени изменения отдельных частей страницы (если страница строится из множества динамически генерируемых блоков). При таком подходе в каждом ответе от сервера установлены специальные заголовки, обозначающие время изменения страницы, которые затем отправляются браузером пользователя при повторном обращении к странице сайта. Сервер при получении таких заголовков может проанализировать текущее состояние страницы (возможно, даже отрисовать её), но вместо содержимого страницы отдать заголовок «304 Not Modified», что для пользовательского браузера будет означать, что можно показать страницу из своего (браузера пользователя) кэша.</li>
+    <li>Конечно, можно отправлять соответствующие заголовки без использования серверного отслеживания кэша, но в таком случае большинство пользователей получат обновление контента страницы довольно поздно. При таком подходе браузер иногда опрашивает сервер для получения обновлений, но периодичность и правила для каждого браузера настраиваются его разработчиком, поэтому надеяться на то, что ваши пользователи получат обновления вовремя, не приходится.</li>
+    <li></li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <b>Как правило, кэш подразделяется по типу пользователей:</b>
+    <li>Для авторизованных;</li>
+    <li>Для неавторизованных</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li>Данное разделение обусловлено уникальностью контента, для каждого авторизованного пользователя и общностью контента для гостевых пользователей. В большинстве сайтов не авторизованный пользователь не может изменять содержимое сайта, а значит и влиять на его содержимое.</li>
+    <li>Браузерный кэш позволяет экономить трафик и время, затрачиваемое на загрузку страниц. Но для достижения эффекта экономии, пользователь должен хотя бы один раз посетить нашу страницу, а это означает, что нагрузка на серверные ресурсы уменьшится, но не значительно.</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Серверное кэширование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Под серверным кэшированием понимаются все виды кэширования, при котором данные хранятся на серверной стороне. Эти данные не доступны клиентским браузерам.</li>
+    <li>Кэш создаётся и хранится по принципу «один ко многим» (многие, в данном случае, — это клиентские устройства).</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2.1 Кэширование страницы целиком</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Наиболее эффективный кэш.</li>
+    <li>Отдача страницы происходит практически в момент обращения, как следствие – это возможность обработки миллионов запросов даже на самом слабом сервере со скоростью работы памяти и с незначительным задействованием процессора.</li>
+    <li><u>Минусы:</u> невозможность кэшировать страницы для авторизованного пользователя, либо пользователя, содержимое страницы которого зависит от текущих переменных пользователя.</li>
+    <li>Используйте этот кэш, если серверу известны все статичные состояния внешних данных, такие как: uri, get (без дополнительных параметров), пользователь не авторизован — т.е., фактически, это идеальное состояние страницы для гостевых пользователей. Учитывайте тот факт, что при таком кэшировании архитектура сайта или приложения всегда должна однотипно обрабатывать входящие запросы и отдавать однотипные ответы. Такое состояние есть в любом приложении или сайте, его нужно лишь отследить и применить к нему кэш.</li>
+    <li>Кэширование страниц целиком, чаще всего, применяют в каких-то экстренных случаях, при этом кэш страниц сохраняется на заранее указанное время (от 2 минут), в течение которого ответы от сервера однотипны (не позволяйте браузеру кэшировать это).</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2.2 Кэширование результатов компиляции PHP-файлов</h4>
+<!------------------------------------------------------------->
+<i>Различают как чистую компиляцию кода, так и его оптимизацию во время компилирования (подмена скриптов):</i>
+
+<ul class="list-point">
+    <li>APC</li>
+    <li>XCache</li>
+    <li>Компиляция с подменой скриптов HipHopVirtualMachine</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2.3 Кэширование отдельных блоков страницы</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Сложный вид кэширования</li>
+    <li><u>Необходимо отслеживать</u>: состояние таблиц, состояние сессии пользователя, выключать ли кэширование при POST или GET запросах (http query), зависимость от текущего адреса, постоянство кэширования (при изменении предыдущих условий) или его динамическую подстройку.</li>
+    <li><u>Применение</u>: если нужно, уменьшить количество запросов к базе данных от реальных (авторизованных) пользователей</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2.4 Кэширование php на основе неразделяемых ресурсов</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Лучше всего подходит при стандартизации запросов, получении данных из общих ресурсов, наличии внутренних переменных, к которым php-ресурсы обращаются несколько раз при генерации страницы.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2.5 Кэширование php на основе общих ресурсов</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Применяется для хранения сериализированных данных: конфигурационного файла, состояния таблиц, списков файловой системы.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2.6 Кэширование mysql на основе query cache</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Кэшировать эти запросы имеет смысл, если чтений из таблицы немного больше чем записи.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2.7 Кэширование mysql результатов работы, агрегирующие таблицы</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Существует правило: обновлений данных должно быть значительно меньше, чем чтения для их отдачи. Т.е. не имеет смысл агрегировать то, что изменится в тот же момент, при этом важна актуальность агрегированных данных.</li>
+</ul>
+
+</div><div id="optimization-tree-shaking"><h2>Tree shaking</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Tree shaking</u-text-define>(Встряхивание дерева) - метод оптимизации библиотек путем удаления любого кода из окончательного файла, который фактически не используется.</li>
+    <li>Когда приложение на Javascript достигает определенного размера, его обычно разделяют на модули. Однако, через какое то время, становиться сложно отслеживать все что импортируется и как это используется. В итоге при сборке пакетов, мы можем получить большое количество импортированный кода, который фактически не используется.</li>
+    <li>Если воспользоватьчя tree shaking, тогда только то, что мы импортировали и фактически использовали попадет в окончательную сборку.</li>
+    <li>Tree shaking может работать только в том случае, если модули являются статическими («static»)</li>
+</ul>
+
+<v-code lang="js" title="">
+// импорт, который импортируется, но не используется, впоследствии полностью исключается
+// реализация webpack
+import { add, <u-code>multiply</u-code> } from 'math';
+add(1, 2);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Настройка Tree shaking в Webpack</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="webpack.config.js">
+module.exports = {
+	mode: "production",
+}
+</v-code>
+
+<v-code lang="js" title="// package.json">
+// пометить определенные файлы как исключения для Tree shaking
+{
+	"sideEffects": [
+		"./src/polyfill.js"
+	]
+}
+</v-code>
+</div><div id="oop-principles"><h2>Объектно-ориентированное программирование</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Объектно-ориентированное программирование</u-text-define> - методология программирования, основанная на представлении программы в виде совокупности объектов, каждый из которых является экземпляром определённого класса, а классы образуют иерархию наследования</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Инкапсуляция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Инкапсуляция</u-text-define> – отделение и защита внутреннего интерфейса от внешнего</li>
+    <li><u-text-underline>Внутренний интерфейс</u-text-underline> – приватные свойства и методы, доступ к которым может быть осуществлен только из других методов класса</li>
+    <li><u-text-underline>Внешний интерфейс</u-text-underline> – публичные свойства и методы класса, предоставляющие доступ к внутренней реализации</li>
+    <li>Мы обращаемся с объектами как с единой сущностью, а не как с набором отдельных полей и методов, тем самым скрываем и защищаем реализацию класса. Если клиентский код не знает ничего, кроме публичного интерфейса, он не может зависеть от деталей реализации</li>
+    <li>Обычно прячут все поля класса и предоставляют набор методов для работы с ними. У разработчиков есть универсальный интерфейс для доступа к свойствам, им не важна какая реализация метода</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Задача</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Обеспечить согласованность и целостность данных класса</li>
+    <li>Защитить данные от некорректного использования или повреждения</li>
+    <li>Нет зависимости от деталей внутренней реализации</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Сокрытие и Инкапсуляция</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u>Сокрытие</u> - разграничение доступа частей программы к компонентам друг друга</li>
+    <li><u>Инкапсуляция</u> - свойство системы объединять данные и методы работы с ними в класс</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Геттеры и Сеттеры</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>Геттеры и Сеттеры (Аксессоры)</u-text-define> - доступ к свойствам класса</li>
+</ul>
+
+<v-two-code type="js;js" comment="js;java">
+<template v-slot:first>
+class User {
+    constructor() {
+        this._name = 'Tony';
+    }
+    get name() {
+        return this._name;
+    }
+    set name(value) {
+        this._name = value;
+    }
+}
+let user = new User();
+user.name = 'Jack';
+let name = user.name; // => Jack
+</template>
+<template v-slot:last>
+public class User {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+    public String setName(String name) {
+        this.name = name;
+    }
+}
+</template>
+</v-two-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Наследование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Наследование</u-text-define> - описание нового класса на основе уже существующего с частично или полностью заимствующейся функциональностью</li>
+    <li>Наследование транзитивно: класс может наследоваться от другого класса, который наследуется от третьего, и так далее вплоть до базового класса (Object). Наследник может переопределить какие-то методы и поля чтобы изменить поведение по умолчанию</li>
+    <li><i><u>SuperClass:</u> базовый, родительский, предок, надкласс, супер класс</i></li>
+    <li><i><u>SubClass:</u> наследник, дочерний, потомок, подкласс, суб класс, производный</i></li>
+    <li>Подкласс должен являться более специализированной версией супер-класса</li>
+    <li><u-text-define>Множественное наследование</u-text-define> - у одного подкласса существует сразу несколько супер-классов</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Полиморфизм</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Полиморфизм</u-text-define> ("множество форм") - возможность единообразно обрабатывать объекты с различной реализацией при условии наличия общего интерфейса. <u>«Один интерфейс, множество реализаций»</u></li>
+    <li>Позволяет одно и то же имя (например имя метода) использовать для решения внешне схожих, но технически разных задач</li>
+    <li>Изменение поведения одного и того же метода в рамках разных классов</li>
+    <li><b>Задачи:</b> позволяет расширить библиотеки не требуя доступа к их исходному коду</li>
+    <hr>
+
+    <li><u-text-define>Абстрактный метод</u-text-define> - метод без реализации</li>
+    <li><u-text-define>Абстрактный класс</u-text-define> - если в классе есть хотя бы 1 абстрактный метод, класс является абстрактным, следовательно мы не можем создать экземпляр класса и воспользоваться им, пока не переопределим этот метод, добавляя различную реализацию в подклассах</li>
+
+    <li><u-text-define>Перегрузка</u-text-define> - одна из форм полиморфизма (ad hoc / специальный полиморфизм)</li>
+    <li><u-text-define>Механизм "Позднего связывания" / "Динамического связывания"</u-text-define> - откладывает принятие решения о том, какой из вариантов кода выполнить до момента выполнения программы. В результате вызова метода draw(), будут выполнены именно те инструкции, которые определены в фактическом классе данного объекта. Без механизма позднего связывания полиморфизм не будет работать</li>
+</ul>
+
+<i>«Один интерфейс, множество реализаций». Интерфейс - метод draw(). У него есть несколько вариантов реализаций</i>
+
+<img src="/img/js/oop/polymorphism.png" width="550px">
+
+<v-two-code type="js;js" comment="comment;comment">
+<template v-slot:first>
+// Динамический полиморфизм
+// Один и тот же метод (draw) в зависимости от реализации
+// выводит различные значения
+let circle = new Circle();
+let square = new Square();
+let triangle = new Triangle();
+
+circle.<u-code>draw()</u-code>;
+square.<u-code>draw()</u-code>;
+triangle.<u-code>draw()</u-code>;
+</template>
+<template v-slot:last>
+// Статический полиморфизм
+// Метод с одинаковым названием, но различными параметрами
+public class Shape {
+    public void draw() {...}
+    public void draw(String s) {...}
+    public void draw(int a) {...}
+}
+</template>
+</v-two-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>4. Абстракция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Абстракция</u-text-define> способ представления объекта в программе, позволяющий работать с объектами не вдаваясь в особенности их реализации</li>
+    <li>Инкапсуляция помогает реализовать абстракцию. Можно абстрагировать внутренне устройство класса</li>
+    <hr>
+
+    <li>Абстракция - объекты из окружающего мира которые мы хотим описать. Выделяем только черты, необходимые для решения задачи. Н-р: есть животное, но для конкретной задачи нужны не все характеристики, а только "вес" и "возраст"</li>
+    <li>Абстрагировать объект или явление - отбросить все маловажные элементы для того, чтобы увидеть его суть</li>
+    <li>Когда моделируем объект, можем отказаться от некоторых его частей неважных в контексте программы</li>
+</ul>
+</div><div id="fp-concept"><h2>Концепции</h2>
+
+<!------------------------------------------------------------->
+<h4>Чистые функции</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>Чистые функции</u-text-define> (pure functions)</li>
+    <li>Возвращает один и тот же результат для одинаковых входных данных</li>
+    <li>Не изменяет входные данные (иммутабельность)</li>
+    <li>Не зависит от внешнего состояния (базы данных, DOM или глобальной переменной)</li>
+    <li>Не имеет побочных эффектов (side effects): не влияют на состояние программы</li>
+    <li>Чистые функции могут вызывать только чистые функции</li>
+</ul>
+
+<ul class="list-point">
+    <b>Условия</b>
+    <li><u>Детерменированная</u> - для одного и того же набора входных значений возвращает одинаковый результат</li>
+    <li><u>Без побочных эффектов</u> В императивных языках некоторые функции в процессе выполнения своих вычислений могут модифицировать значения глобальных переменных, осуществлять операции ввода-вывода, реагировать на исключительные ситуации, вызывая их обработчики. Они называются функциями с побочными эффектами</li>
+    <li>Для замены циклов в JS можно использовать map и reduce</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Функции высшего порядка (Higher Order Functions)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>Функции высшего порядка</u-text-define> - функция принимающая в качестве аргументов другие функции или возвращающая другую функцию в качестве результата</li>
+</ul>
+
+<v-code lang="js" title="">
+function higherOrderFunction(param, callback) {
+    return callback(param)
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Иммутабельность</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u-text-define>Иммутабельность</u-text-define> - свойство объектов не изменяться (н-р строка. строку нельзя поменять на месте, для изменения нужно создать новую строку). Применяется для списков, словарей и т.д. Иммутабельный список - список в который нельзя добавить / удалить элемент, можно только итерироваться по ним. Можно создать новый список который содежит все элементы +1, при этом старый остается валадным</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Каррирование функций</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u-text-define>Каррирование функций</u-text-define> - все функции могут быть от одного аргумента. Преобразование функции от пары аргументов в функцию, берущую свои аргументы по одному</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Функции первого класса</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u-text-define>Функции первого класса</u-text-define> - функция трактуются как объект, то есть может быть передана другим функциям и ее можно вернуть из функций. Так же ее можно присваивать переменным let func = function(){}</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Рекурсия</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u-text-define>Рекурсия</u-text-define> В функциональных языках цикл обычно реализуется в виде рекурсии. Рекурсивные функции вызывают сами себя, позволяя операции выполняться снова и снова</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Лямбда-исчисление</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u-text-define>Лямбда-исчисление</u-text-define> - механизм «анонимных функций» - callback-функций, которые можно определить прямо в том месте, где они используются, и которые имеют доступ к локальным переменным текущей функции</li>
+</ul>
+</div><div id="programming-principles-solid"><h2>SOLID</h2>
+
+<u-link-wrapper>
+    <a href="https://www.youtube.com/watch?v=xq13wiqvcTc" target="_blank">YouTube. Практика (Владилен Минин)</a>
+    <a href="https://www.youtube.com/playlist?list=PLmqFxxywkatQNWLG1IZYUhKoQrnuZHqaK" target="_blank">YouTube. Playlist (Сергей Немчинский)</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>SOLID</u-text-define> (Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency inversion) - пять основных принципов ООП</li>
+    <li>При создании программных систем использование принципов SOLID способствует созданию такой системы, которую будет легко поддерживать и расширять в течение долгого времени</li>
+    <li><b>Цель принципов</b>: способствуют изменениям; легко понимаемы; повторно используемы</li>
+</ul>
+
+
+
+<!------------------------------------------------------------->
+<h4><u-text-header>[S] SRP</u-text-header></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>The Single Responsibility Principle</u-text-define> - Принцип единственной ответственности</li>
+    <li>Каждый класс выполняет лишь одну задачу/ответственность</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li><u>Цель</u>: в случаем возникновения изменений - задействовать наименьшее количество модулей</li>
+</ul>
+
+<v-details title="<u-text-underline>Пример</u-text-underline>">
+<v-two><template v-slot:first>
+<b>Да</b>
+
+<v-code lang="js border" title="Класс для обоработки новости">
+class News {
+    constructor(title, text) {
+        this.title = title;
+        this.text = text;
+        this.modified = false;
+    }
+    update(text) {
+        this.text = text;
+        this.modified = true;
+    }
+    // Разные форматы новости должно быть в отдельном класса
+    // html() {}
+    // json() {}
+}
+</v-code>
+<v-code lang="js border" title="Класс для формирования новости в разных форматах">
+class NewsPrinter {
+    constructor(news) {
+        this.news = news;
+    }
+    html() {
+        return `
+            &lt;div&gt;
+                &lt;h1&gt;${this.news.title}&lt;/h1&gt;
+                &lt;h1&gt;${this.news.text}&lt;/h1&gt;
+            &lt;/div&gt;
+        `
+    }
+    json() {
+        return JSON.stringify({
+            title: this.news.title,
+            text: this.news.text,
+            modified: this.news.modified
+        })
+    }
+}
+</v-code>
+<v-code lang="js border" title="">
+const printer = new NewsPrinter(
+    new News('Название новости', 'Описание новости')
+)
+
+console.log(printer.html());
+console.log(printer.json());
+</v-code>
+
+</template><template v-slot:last>
+<b>Нет</b>
+
+<v-code lang="js" title="">
+// Класс для обоработки новости
+class News {
+    constructor(title, text) {
+        this.title = title;
+        this.text = text;
+        this.modified = false;
+    }
+    update(text) {
+        this.text = text;
+        this.modified = true;
+    }
+
+    // Разные форматы новости
+    html() {
+        return `
+            &lt;div&gt;
+                &lt;h1&gt;${this.title}&lt;/h1&gt;
+                &lt;h1&gt;${this.text}&lt;/h1&gt;
+            &lt;/div&gt;
+        `
+    }
+    json() {
+        return JSON.stringify({
+            title: this.title,
+            text: this.text,
+            modified: this.modified
+        })
+    }
+}
+</v-code>
+<v-code lang="js" title="">
+const news = new News(
+    'Название новости',
+    'Описание новости'
+);
+
+console.log(news.html());
+console.log(news.json());
+</v-code>
+
+</template></v-two>
+</v-details>
+
+
+
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+
+<!------------------------------------------------------------->
+<h4><u-text-header>[O] OCP</u-text-header></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>The Open Closed Principle</u-text-define> - Принцип открытости/закрытости</li>
+    <li>Программные сущности (классы, модули, функции и т.д.) должны быть открыты для расширения, но закрыты для модификации</li>
+    <hr>
+
+    <li>Небольшое изменение класса не должно затрагивать связанные с ним модули</li>
+    <li>От класса можно наследоваться и расширить его функциональность, но нет прямой возможности менять функциональность базового класса</li>
+    <li>Неважно сколько добавили свойств объекту, код будет работать</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li><u>Цель</u>: разработка устойчивого к изменениям приложения</li>
+</ul>
+
+<ul class="list-point">
+    <li><b>Принцип помогает:</b></li>
+    <li>Проектировать модули, выполняющие только одну задачу</li>
+    <li>Вводит абстракцию, через которую связываются сущности</li>
+    <li>Позволяет расширять имплементацию и расширяет ее от изменений</li>
+    <li>Выносит место взаимодействия модулей в отдельную прозрачную сущность</li>
+</ul>
+
+<v-details title="<u-text-underline>Пример</u-text-underline>">
+
+<v-two><template v-slot:first>
+
+<b>Да</b>
+
+<p><i>Абстрактный класс</i></p>
+<v-code lang="js border" title="Базовый класс">
+class Shape {
+    <u-code>area</u-code>() {
+        // abstract class
+    }
+}
+</v-code>
+
+<p><i>Полиморфизм (различная реализация для <u>area</u>)</i></p>
+<v-code lang="js border" title="Наследники">
+class Square extends Shape {
+    <u-code>area</u-code>() {
+        return 'Draw Square'
+    }
+}
+class Circle extends Shape {
+    <u-code>area</u-code>() {
+        return 'Draw Circle'
+    }
+}
+</v-code>
+
+<ul class="list-point">
+    <li>Класс AreaCalculator открыли для расширений и закрыли для модификаций - метод sum сделан 1 раз и больше к нему не возвращаемся</li>
+</ul>
+
+<v-code lang="js border" title="Класс для калькуляции">
+class AreaCalculator {
+    constructor(shapes = []) {
+        this.shapes = shapes;
+    }
+    calc() {
+        const res = this.shapes.map(item => item.<u-code>area</u-code>());
+        console.log(res);
+    }
+}
+</v-code>
+
+<v-code lang="js border" title="Вызов">
+const areaCalculator = new AreaCalculator([
+    new Square(),
+    new Circle()
+]);
+
+areaCalculator.calc();
+</v-code>
+
+</template><template v-slot:last>
+<b>Нет</b>
+
+<v-code lang="js" title="Наследники">
+class Square {
+    constructor() {
+        this.type = 'square';
+    }
+}
+class Circle {
+    constructor() {
+        this.type = 'circle';
+    }
+}
+</v-code>
+<v-code lang="js" title="Класс для калькуляции">
+class AreaCalculator {
+    constructor(shapes = []) {
+        this.shapes = shapes;
+    }
+
+    calc() {
+		const res = this.shapes.map(item => {
+			switch(item.type) {
+				case 'square': return 'Draw Square'; break;
+				case 'circle': return 'Draw Circle'; break;
+				default: return 'Draw Default';
+			}
+		});
+		console.log(res);
+    }
+}
+</v-code>
+
+<v-code lang="js" title="Вызов">
+const areaCalculator = new AreaCalculator([
+    new Square(),
+    new Circle()
+]);
+
+areaCalculator.calc();
+</v-code>
+
+</template></v-two>
+</v-details>
+
+
+
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+
+<!------------------------------------------------------------->
+<h4><u-text-header>[L] LSP</u-text-header></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>The Liskov Substitution Principle</u-text-define> - Принцип подстановки Барбары Лиско́в</li>
+    <hr>
+
+    <li>Наследующий класс должен дополнять, а не изменять базовый и не должен противоречить поведению, заданному базовым классом</li>
+    <li>Необходимо чтобы подклассы могли служить заменой для своих суперклассов</li>
+    <li>Если гарантируется функциональность для базового класса, то гарантируется функциональность для всех его потомков (поведение программы не изменится)</li>
+    <li>Функции, которые используют базовый тип, должны уметь взаимодействовать с ним и его подтипами, при этом не зная ничего про это</li>
+    <hr>
+
+    <li>Поведение в методах-наследниках менять нельзя</li>
+
+    <li><b>Реализация:</b></li>
+    <li>Общий интерфейс для обоих классов</li>
+    <li>Вместо наследования одного класса от другого использовать интерфейс</li>
+
+    <li><b>Помогает:</b></li>
+    <li>Выявлять проблемные абстракции и скрытые связи между сущностями</li>
+    <li>Делать поведение модулей предсказуемым</li>
+    <li>Вводить ограничение на наследование, чтобы потомки не противоречили базовому поведению</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <u>Цель</u>: проектировать логику таким образом, чтобы классы-наследники могли использоваться вместо классов-родителей
+</ul>
+
+<v-details title="<u-text-underline>Пример 1</u-text-underline>">
+<v-two><template v-slot:first>
+<b>Да</b>
+
+<ul class="list-point">
+    <li>Нужно правильно выбирать слои абстракции</li>
+    <li>Просто наследоваться от человека некорректно</li>
+    <li>Добавляем еще один уровень абстракции в виде базовых классов</li>
+</ul>
+
+<v-code lang="js border" title="">
+class Person {
+    //
+}
+class Member extends Person {
+    access() {
+        console.log('Есть доступ');
+    }
+}
+class Guest extends Person {
+    isGuest = true;
+}
+</v-code>
+<v-code lang="js border" title="">
+class Frontend extends Member {}
+class Backend extends Member {}
+
+class PersonFromDifferentCompany extends Guest {
+    access() {
+        throw new Error('Нет доступа');
+    }
+}
+</v-code>
+<v-code lang="js border" title="">
+// функция должна работать со всеми классами-наследниками
+// от Person
+function openSecretDoor(member) {
+    member.access();
+}
+
+openSecretDoor(new Frontend());
+openSecretDoor(new Backend());
+// должен быть member
+// openSecretDoor(new PersonFromDifferentCompany());
+</v-code>
+
+</template><template v-slot:last>
+<b>Нет</b>
+
+<v-code lang="js" title="">
+class Person {
+    access() {
+        console.log('Есть доступ');
+    }
+}
+</v-code>
+<v-code lang="js" title="">
+class Frontend extends Person {}
+class Backend extends Person {}
+
+class PersonFromDifferentCompany extends Person {
+    access() {
+        throw new Error('Нет доступа');
+    }
+}
+</v-code>
+<v-code lang="js" title="">
+// функция должна работать со всеми классами-наследниками
+// от Person
+function openSecretDoor(person) {
+    person.access();
+}
+
+openSecretDoor(new Frontend());
+openSecretDoor(new Backend());
+// получаем ошибку. нарушение принципа [L] LSP
+openSecretDoor(new PersonFromDifferentCompany());
+</v-code>
+
+</template></v-two>
+</v-details>
+
+
+<v-details title="<u-text-underline>Пример 2</u-text-underline>">
+<v-two><template v-slot:first>
+<b>Да</b>
+
+<v-code lang="js border" title="Базовые классы">
+class Component {}
+class ComponentWithTemplate extends Component {
+    render() {
+        return `&lt;div&gt;Component&lt;/div&gt;`
+    }
+}
+class HigherOrderComponent extends Component {}
+</v-code>
+<v-code lang="js border" title="Наследники">
+class HeaderComponent extends ComponentWithTemplate {
+    onInit() {}
+}
+class FooterComponent extends ComponentWithTemplate {
+    afterInit() {}
+}
+class HOC extends HigherOrderComponent {
+    render() {
+        throw new Error('Рендер невозможен');
+    }
+}
+</v-code>
+<v-code lang="js border" title="Функция">
+function renderComponent(component) {
+    console.log(component.render());
+}
+
+renderComponent(new HeaderComponent());
+renderComponent(new FooterComponent());
+// вызов невозможен
+// renderComponent(new HOC());
+</v-code>
+
+</template><template v-slot:last>
+<b>Нет</b>
+
+<v-code lang="js" title="Базовый класс">
+class Component {
+    render() {
+        return `&lt;div&gt;Component&lt;/div&gt;`
+    }
+}
+</v-code>
+<v-code lang="js" title="Наследники">
+class HeaderComponent extends Component {
+    onInit() {}
+}
+class FooterComponent extends Component {
+    afterInit() {}
+}
+class HOC extends Component {
+    // не должно быть реализации метода render
+    render() {
+        throw new Error('Рендер невозможен');
+    }
+}
+</v-code>
+<v-code lang="js" title="Функция">
+function renderComponent(component) {
+    console.log(component.render());
+}
+
+renderComponent(new HeaderComponent());
+renderComponent(new FooterComponent());
+// ошибка
+renderComponent(new HOC());
+</v-code>
+
+</template></v-two>
+</v-details>
+
+
+
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+
+<!------------------------------------------------------------->
+<h4><u-text-header>[I] ISP</u-text-header></h4>
+<!------------------------------------------------------------->
+
+<ul class="list-point">
+    <li><u-text-define>The Interface Segregation Principle</u-text-define> - Принцип разделения интерфейса</li>
+    <li>Классы-наследники НЕ должны зависеть от методов базового класса, если они их НЕ используют</li>
+    <li>Разделение интерфейса на более мелкие части</li>
+    <li>Абстракция (API или класс) должна быть сгруппирована в мелкие единицы и содержать только необходимые методы, давая возможность использовать только то, что необходимо. При необходимости разделить функциональность на несколько классов. При изменении методов интерфейса не должны меняться программные сущности, которые этот метод не используют</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li><u>Цель</u>: </li>
+    <li>Снижение зависимостей между модулями</li>
+    <li>При наследовании нет ненужной функциональности</li>
+    <li>Декомпозиция</li>
+</ul>
+
+<v-details title="<u-text-underline>Пример</u-text-underline>">
+<v-two><template v-slot:first>
+<b>Да</b>
+
+<v-code lang="js border" title="Базовый класс">
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+}
+</v-code>
+<v-code lang="js border" title="Объекты">
+const swimmer = {
+    swim() {
+        console.log(this.name+'умеет плавать')
+    }
+}
+const flier = {
+    fly() {
+        console.log(this.name+'умеет летать')
+    }
+}
+</v-code>
+<v-code lang="js border" title="Наследники">
+class Dog extends Animal {}
+class Eagle extends Animal {}
+
+Object.assign(Dog.prototype, swimmer);
+Object.assign(Eagle.prototype, flier);
+</v-code>
+<v-code lang="js border" title="Вызов методов">
+const dog = new Dog('Jack');
+dog.swim();
+// dog.fly();  // нет метода
+
+const eagle = new Eagle('Bobby');
+// eagle.swim(); // нет метода
+eagle.fly();
+</v-code>
+
+</template><template v-slot:last>
+<b>Нет</b>
+
+<v-code lang="js" title="Базовый класс">
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+
+    swim() {
+        console.log(this.name+'умеет плавать')
+    }
+    fly() {
+        console.log(this.name+'умеет летать')
+    }
+}
+
+</v-code>
+<v-code lang="js" title="Наследники">
+class Dog extends Animal {
+    fly() { return null }
+}
+class Eagle extends Animal {
+    swim() { return null }
+}
+</v-code>
+<v-code lang="js" title="Вызов методов">
+const dog = new Dog('Jack');
+dog.swim(); // +
+dog.fly();  // -
+
+const eagle = new Eagle('Bobby');
+eagle.swim(); // -
+eagle.fly();  // +
+</v-code>
+
+</template></v-two>
+</v-details>
+
+
+
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+
+<!------------------------------------------------------------->
+<h4><u-text-header>[D] DIP</u-text-header></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>The Dependency Inversion Principle</u-text-define> - Принцип инверсии зависимостей</li>
+    <li>Модули верхних уровней не должны зависеть от модулей нижних уровней. Оба типа модулей должны зависеть от абстракций. (Инверсируем зависимости)</li>
+    <li>Абстракции не должны зависеть от деталей. Детали должны зависеть от абстракций</li>
+    <hr>
+
+    <li>Зависимость на Абстракциях. Нет зависимости на что-то конкретное</li>
+    <li>Любвые зависимости лучше всего выностить в абстракции, т.е. инкапсулировать в отдельных сущностях</li>
+    <li>Использует Angular в своём ядре</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li><u>Цель</u>: уменьшение межмодульных зависимостей. Когда появляются связи между двумя объектами, их нужно разделить</li>
+</ul>
+
+<v-details title="<u-text-underline>Пример</u-text-underline>">
+<v-two><template v-slot:first>
+<b>Да</b>
+
+<ul class="list-point">
+    <li>Создать новый класс, который будет являться интерфейсом для взаимодействия между сущностями</li>
+    <li><u>class Database</u> не зависит от абстракций низшего уровня, она зависит только от тех абстракций, который передали в класс</li>
+    <li>Изменили порядок зависимостей и сделали код масштабируемым</li>
+</ul>
+
+<v-code lang="js border" title="Базовые классы">
+class Fetch {
+    request(url) {
+        return Promise.resolve('data from fetch');
+    }
+}
+class LocalStorage {
+    get() {
+        const data = 'data from local storage';
+        return data;
+    }
+}
+</v-code>
+<v-code lang="js border" title="Оболочки">
+// Оболочка для Fetch
+class FetchClient {
+    constructor() {
+        this.fetch = new Fetch();
+    }
+
+    clientGet(key) {
+        return this.fetch.request(key);
+    }
+}
+
+// Оболочка для LocalStorage
+class LocalStorageClient {
+    constructor() {
+        this.localStorage = new LocalStorage();
+    }
+
+    clientGet(key) {
+        return this.localStorage.get(key);
+    }
+}
+</v-code>
+<v-code lang="js border" title="">
+class Database {
+    constructor(client) {
+        this.client = client;
+    }
+
+    getData(key) {
+        return this.client.clientGet(key);
+    }
+}
+
+// работает с FetchClient() если нужно
+const db = new Database(new FetchClient());
+// или работаем с LocalStorageClient() если нужно
+const db = new Database(new LocalStorageClient());
+
+console.log(db.getData('rand'));
+</v-code>
+
+</template><template v-slot:last>
+<b>Нет</b>
+
+<ul class="list-point">
+    <li>Изначально данные получались через <u>class Fetch</u></li>
+    <li>Потом данные необходимо брать из <u>class LocalStorage</u></li>
+    <li>При изменении места откуда берутся данные, необходимо менять <u>class Database</u></li>
+</ul>
+
+<v-code lang="js" title="Базовые классы">
+class Fetch {
+    request(url) {
+        return Promise.resolve('data from fetch');
+    }
+}
+class LocalStorage {
+    get() {
+        const data = 'data from local storage';
+        return data;
+    }
+}
+</v-code>
+<v-code lang="js" title="">
+class Database {
+    constructor() {
+        // this.fetch = new Fetch();
+        this.localStorage = new LocalStorage();
+    }
+
+    getDate() {
+        // return this.fetch.request('vk.com');
+        return this.localStorage.get('ls key');
+    }
+}
+
+const db = new Database();
+console.log(db.getData());
+</v-code>
+
+</template></v-two>
+</v-details>
+
+<v-code lang="bash" title="">
+Decoupling
+    &#9776; Inversion of Control
+        &#8226; Dependency Injection
+    &#9776; Dependency Invertion
+        &#8226; Inderfaces
+</v-code>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Когда следует применять</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u>Жесткость</u> - трудно вносить изменнея в код. Одно изменение вносит изменение в другие модули</li>
+    <li><u>Хрупкость</u> - свойство программы повреждаться во многих местах при внесении одного изменения</li>
+    <li><u>Ненужная сложность</u> - содержание элементов не используемых в данный момент</li>
+    <li><u>Ненужные повторения</u> - проблема дублирования кода</li>
+    <li><u>Непрозрачность</u> - трудность кода для понимания</li>
+</ul>
+</div><div id="main-info"><h2>Паттерны проектирования</h2>
+
+<u-link-wrapper>
+    <a href="https://refactoring.guru/ru/design-patterns/catalog" target="_blank">Каталог паттернов проектирования</a>
+    <a href="https://habr.com/ru/company/ruvds/blog/427293/" target="_blank">Паттерны проектирования в JavaScript</a>
+    <a href="https://medium.com/@marina.kovalyova/java-script-design-patterns-569c627d25f9" target="_blank">Шаблоны проектирования в JavaScript</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Паттерн проектирования (design pattern)</u-text-define> - это часто встречающееся решение определённой проблемы при проектировании архитектуры программ</li>
+    <li>В отличие от готовых функций или библиотек, паттерн нельзя просто взять и скопировать в программу. Паттерн представляет собой не какой-то конкретный код, а общую концепцию решения той или иной проблемы, которую нужно будет ещё подстроить под нужды программы</li>
+    <li>Паттерны часто путают с <u>алгоритмами</u>, ведь оба понятия описывают типовые решения каких-то известных проблем. Но если алгоритм — это чёткий набор действий, то паттерн — это высокоуровневое описание решения, реализация которого может отличаться в двух разных программах</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Классификация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li><u-text-define>Порождающие</u-text-define> отвечают за удобное и безопасное создание новых объектов или даже целых семейств объектов без внесения в программу лишних зависимостей</li>
+    <ul class="list-point">
+        <li><u-text-underline>Фабричный метод (Factory Method)</u-text-underline> Определяет общий интерфейс для создания объектов в суперклассе, позволяя подклассам изменять тип создаваемых объектов</li>
+        <li><u-text-underline>Абстрактная фабрика (Abstract Factory)</u-text-underline> Позволяет создавать семейства связанных объектов, не привязываясь к конкретным классам создаваемых объектов. Интерфейс, который группирует другие фабрики, логически связанные друг с другом</li>
+        <li><u-text-underline>Строитель (Builder)</u-text-underline> Позволяет создавать сложные объекты пошагово. Строитель даёт возможность использовать один и тот же код строительства для получения разных представлений объектов</li>
+        <li><u-text-underline>Прототип (Prototype)</u-text-underline> Позволяет копировать объекты, не вдаваясь в подробности их реализации</li>
+        <li><u-text-underline>Одиночка (Singleton)</u-text-underline> Гарантирует, что у класса есть только один экземпляр, и предоставляет к нему глобальную точку доступа</li>
+    </ul>
+
+    <li><u-text-define>Структурные</u-text-define> отвечают за построение удобных в поддержке иерархий классов. Показывают различные способы построения связей между объектами</li>
+    <ul class="list-point">
+        <li><u-text-underline>Адаптер (Adapter)</u-text-underline> Позволяет объектам с несовместимыми интерфейсами работать вместе</li>
+        <li><u-text-underline>Мост (Bridge)</u-text-underline> Разделяет один или несколько классов на две отдельные иерархии - абстракцию и реализацию, позволяя изменять их независимо друг от друга</li>
+        <li><u-text-underline>Компоновщик (Composite)</u-text-underline> Позволяет сгруппировать объекты в древовидную структуру, а затем работать с ними так, как будто это единичный объект</li>
+        <li><u-text-underline>Декоратор (Decorator)</u-text-underline> Позволяет динамически добавлять объектам новую функциональность, оборачивая их в полезные «обёртки»</li>
+        <li><u-text-underline>Фасад (Facade)</u-text-underline> Предоставляет простой интерфейс к сложной системе классов, библиотеке или фреймворку</li>
+        <li><u-text-underline>Легковес (Flyweight)</u-text-underline> Позволяет вместить бóльшее количество объектов в отведённую оперативную память. Легковес экономит память, разделяя общее состояние объектов между собой, вместо хранения одинаковых данных в каждом объекте</li>
+        <li><u-text-underline>Заместитель (Proxy)</u-text-underline> Позволяет подставлять вместо реальных объектов специальные объекты-заменители. Эти объекты перехватывают вызовы к оригинальному объекту, позволяя сделать что-то до или после передачи вызова оригиналу</li>
+    </ul>
+
+    <li><u-text-define>Поведенческие</u-text-define> решают задачи эффективного и безопасного взаимодействия между объектами программы</li>
+    <ul class="list-point">
+        <li><u-text-underline>Цепочка обязанностей (Chain of Responsibility)</u-text-underline> Позволяет передавать запросы последовательно по цепочке обработчиков. Каждый последующий обработчик решает, может ли он обработать запрос сам и стоит ли передавать запрос дальше по цепи</li>
+        <li><u-text-underline>Команда (Command)</u-text-underline> Превращает запросы в объекты, позволяя передавать их как аргументы при вызове методов, ставить запросы в очередь, логировать их, а также поддерживать отмену операций</li>
+        <li><u-text-underline>Итератор (Iterator)</u-text-underline> Даёт возможность последовательно обходить элементы составных объектов, не раскрывая их внутреннего представления</li>
+        <li><u-text-underline>Посредник (Mediator)</u-text-underline> Позволяет уменьшить связанность множества классов между собой, благодаря перемещению этих связей в один класс-посредник</li>
+        <li><u-text-underline>Снимок (Memento)</u-text-underline> Позволяет делать снимки состояния объектов, не раскрывая подробностей их реализации. Затем снимки можно использовать, чтобы восстановить прошлое состояние объектов</li>
+        <li><u-text-underline>Наблюдатель (Observer)</u-text-underline> Создаёт механизм подписки, позволяющий одним объектам следить и реагировать на события, происходящие в других объектах</li>
+        <li><u-text-underline>Состояние (State)</u-text-underline> Позволяет объектам менять поведение в зависимости от своего состояния. Извне создаётся впечатление, что изменился класс объекта</li>
+        <li><u-text-underline>Стратегия (Strategy)</u-text-underline> Определяет семейство схожих алгоритмов и помещает каждый из них в собственный класс, после чего алгоритмы можно взаимозаменять прямо во время исполнения программы</li>
+        <li><u-text-underline>Шаблонный метод (Template method)</u-text-underline> Определяет скелет алгоритма, перекладывая ответственность за некоторые его шаги на подклассы. Паттерн позволяет подклассам переопределять шаги алгоритма, не меняя его общей структуры</li>
+        <li><u-text-underline>Посетитель (Visitor)</u-text-underline> Позволяет создавать новые операции, не меняя классы объектов, над которыми эти операции могут выполняться</li>
+    </ul>
+
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Зачем?</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li><b>Проверенные решения</b> Вы тратите меньше времени, используя готовые решения, вместо повторного изобретения велосипеда</li>
+    <li><b>Стандартизация кода</b> Вы делаете меньше просчётов при проектировании, используя типовые унифицированные решения, так как все скрытые проблемы в них уже давно найдены</li>
+    <li><b>Общий программистский словарь</b> Вы произносите название паттерна, вместо того, чтобы час объяснять другим программистам, какой крутой дизайн вы придумали и какие классы для этого нужны</li>
+</ol>
+</div><div id="application-architecture-mvc"><h2>MVC</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Model-View-Controller (MVC)</u-text-define> («Модель-Представление/Вид-Контроллер») - схема разделения данных приложения, пользовательского интерфейса и управляющей логики на три отдельных компонента: модель, представление и контроллер - таким образом, что модификация каждого компонента может осуществляться независимо</li>
+    <li>MVC позволяет следовать принципу разделения ответственностей и способствует написанию чистого кода</li>
+    <li>MVC - это модель черного ящика. Есть входы (действия пользователя), есть выходы (это реакция интерфейса), есть внутренняя логика (модель)</li>
+    <li>Controller полностью отделен от View</li>
+</ul>
+
+<img src="/img/other/mvc.png" width="600px">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Структура</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Модель (Model)</u-text-define> - данные, методы для работы с данными, изменения и обновления данных</li>
+	<li>Реагирует на команды контроллера, изменяя своё состояние (бизнес-логика: просчитывание данных, операций, работа с БД)</li>
+    <li>Модель - работа с данными (выполнение ajax-операций, взаимодействие с сервером). Модель занята работой с JSON или объектами, которые поступают с сервера</li>
+    <li><i></i>Модель - это не слой взаимодействия с бекендом, это, скорее, аналог view model из mvvm</li>
+	
+	<hr>
+    <li><u-text-define>Представление (View)</u-text-define> - отображение данных модели пользователю</li>
+    <li>Реагирует на изменения модели</li>
+    <li>Взаимодействие с DOM. Представление может выполнять подключение обработчиков событий пользовательского интерфейса, но обработку событий - выполняет контроллер</li>
+
+	<hr>
+    <li><u-text-define>Контроллер (Controller)</u-text-define> - обработка событий. Интерпретирует действия пользователя (например, щелчек по кнопке или нажатие клавиши на клавиатуре), оповещая модель о необходимости изменений (берет данные из view и передает в model - запускает model. Бизнес-логика, обработка данных из БД)</li>
+    <li>Логика клиентских приложений может быть реализована в контроллере</li>
+</ul>
+
+
+</div><div id="theory-pyramid"><h2>Пирамида тестирования</h2>
+
+<v-two><template v-slot:first>
+<img src="/img/js/testing-pyramid1.png" class="center" height="200px">
+</template><template v-slot:last>
+<img src="/img/js/testing-pyramid2.png" class="center" height="200px">
+</template></v-two>
+
+<v-code lang="bash" title="">
+1. Unit Testing
+2. Integration Testing
+3. System Testing
+4. E2E Testing
+</v-code>
+
+<ul class="list-point">
+    <li>Нижняя часть — это самые быстрые, простые и самые изолированные тесты, а верхние — самые дорогие, самые медленные и охватывают всё приложение в целом</li>
+</ul>
+
+<ul class="list-point">
+    <b>Google часто предлагает разделение <u-code>70/20/10</u-code>:</b>
+    <li>70% unit тестов</li>
+    <li>20% интеграционных тестов</li>
+    <li>10% E2E тестов</li>
+</ul>
+
+<ol class="list-num">
+    <li>Модульные тесты реализовывать быстрее, чем GUI тесты (время на разработку меньше). Модульные тесты отрабатывают быстрее, чем GUI</li>
+    <li>Модульные тесты дешевле, чем GUI тесты (однако, стремясь к вершине пирамиды, мы получаем большую уверенность в том, что все работает как ожидалось)</li>
+    <li>Тестирование должно быть разносторонним, но соотношение тестов должно быть таково, что модульных количественно больше, чем GUI. Системные тесты занимают середину</li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>Виды тестирования по степени изолированности кода</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li><u-text-define>Блочное (Unit testing)</u-text-define> - тестирование одного модуля в изоляции</li>
+    <li><u-text-define>Интеграционное (Integration Testing)</u-text-define> - тестирование группы взаимодействующих модулей</li>
+    <li><u-text-define>Системное (System Testing)</u-text-define> - тестирование системы в целом. Для небольших проектов это, как правило, ручное тестирование - запустил, пощелкал, убедился, что (не) работает. Можно автоматизировать. К автоматизации есть два подхода</li>
+    <ul class="list-point">
+        <li>Использовать вариацию MVC паттерна - Passive View и формализовать взаимодействие пользователя с GUI в коде. Тогда системное тестирование сводится к тестированию Presenter классов, а также логики переходов между View</li>
+        <li>Использовать специальные инструменты для записи действий пользователя. То есть в итоге запускается сама программа, но щелканье по кнопкам осуществляется автоматически</li>
+    </ul>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>Принципы</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li>Писать тесты разной детализации</li>
+    <li>Чем выше уровень, тем меньше тестов</li>
+</ol>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

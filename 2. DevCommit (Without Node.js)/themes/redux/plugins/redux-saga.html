@@ -1,0 +1,18 @@
+<h2>redux-saga</h2>
+
+<ul class="list-point">
+	<li>Работа с side-effects</li>
+</ul>
+
+<v-pre-npm>
+npm i --save <u-code-npm>redux-saga</u-code-npm>
+</v-pre-npm>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Почему используются генераторы, а не async await</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<a href="https://github.com/redux-saga/redux-saga/issues/987#issuecomment-301039792" target="_blank">Ссылка на issue</a>
+	<li>redux-saga нельзя переписать на async / await - в нем используются обещания и сложнее координировать с ними «параллельные» задачи. Это также означало бы большие изменения в семантике, в том, как все работает на самом деле. В примере эффект выбора синхронный - этого нельзя добиться с помощью обещаний.</li>
+	<li>Сага, являясь интерпретатором эффектов, дает нам полный контроль над тем, как и когда эти эффекты разрешаются + эффекты - это просто простой объект, который легко сопоставить и можно отслеживать, что также намного сложнее с Promises.</li>
+</ul>

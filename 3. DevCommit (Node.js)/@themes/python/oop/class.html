@@ -1,0 +1,106 @@
+<h2>Классы, ООП</h2>
+
+<ul class="list-point">
+    <li><u>Переменные</u> - поля</li>
+    <li><u>Функции</u> - методы</li>
+    <li><u>self</u> обязательный аргумент в методе, содержащий в себе экземпляр класса, передающийся при вызове метода</li>
+</ul>
+
+<v-code lang="python" title="">
+# объявление класса
+class Person:
+	name = 'Tony'
+	age = 25
+	def set(self, name, age):
+		self.name = name
+		self.age = age
+
+superPerson = Person()       # создание объекта (экземпляра класса)
+print(superPerson.name)      # обращение к свойству объекта
+
+superPerson.set('Steve', 27) # изменение свойства объекта (свойство класса не изменяется)
+print(superPerson.name)      # обращение к свойству объекта
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Наследование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+# объявление нового класса, наследованого от Person
+class Student(Person):
+	course = 1
+
+superStudent = Student()
+superStudent.set('Jack', 19)
+print(superStudent.name)
+print(superStudent.course)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Инкапсуляция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+# одно нижнее подчеркивание - рекомендация не использовать свойсво/метод
+# при использовании ошибка выдаваться не будет
+class Person:
+	_name = 'Tony'
+	_age = 25
+	def _set(self, name, age):
+		self._name = name
+		self._age = age
+
+superPerson = Person()
+print(superPerson._name)
+superPerson._set('Steve', 14)
+</v-code>
+
+<v-code lang="python" title="">
+# два нижних подчеркивания - более жесткая рекомендация не использовать свойсво/метод
+# при использовании ошибка выдаваться будет
+class Person:
+	__name = 'Tony'
+	__age = 25
+	def __set(self, name, age):
+		self.__name = name
+		self.__age = age
+
+# обход ошибки, обращение по классу
+superPerson = Person()
+print(superPerson._Person__name)
+superPerson._Person__set('Steve', 14)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Полиморфизм</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+# Полиморфизм - использование одного метода по разному в разных классах
+print(2+2)     # для чисел сложение
+print('2'+'2') # для строк конкатенация
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Инициализация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+class Person:
+	def __init__(self, name, age):
+		self.name = name
+		self.age = age
+
+superPerson = Person('Tony', 25)
+print(superPerson.name, superPerson.age)
+</v-code>
+
+<v-code lang="python" title="">
+# age=None выставление значения по умолчанию
+class Person:
+	def __init__(self, name, age=None):
+		self.name = name
+		self.age = age
+
+superPerson = Person('Tony')
+print(superPerson.name, superPerson.age)
+</v-code>
+
+

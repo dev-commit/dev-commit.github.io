@@ -1,0 +1,874 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>🥑 Объекты</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Методы</div><a href="#methods-object-create">🔰 <u-menu-unactive>Object.create</u-menu-unactive> <u-code-comment>__proto__</u-code-comment></a><a href="#methods-object-assign">🔰 <u-menu-unactive>Object.assign</u-menu-unactive></a><a href="#methods-object-entries">🔰 <u-menu-unactive>Object.entries()</u-menu-unactive></a><a href="#methods-object-from-entries">🔰 <u-menu-unactive>Object.fromEntries()</u-menu-unactive></a><a href="#methods-object-values">🔰 <u-menu-unactive>Object.values()</u-menu-unactive></a><a href="#methods-object-keys">🔰 <u-menu-unactive>Object.keys</u-menu-unactive></a><a href="#methods-set-prototype-of">🔰 <u-menu-unactive>Object.setPrototypeOf</u-menu-unactive> <u-code-comment>__proto__</u-code-comment></a><a href="#methods-get-prototype-of">🔰 <u-menu-unactive>Object.getPrototypeOf</u-menu-unactive> <u-code-comment>__proto__</u-code-comment></a><a href="#methods-is-prototype-of">🔰 <u-menu-unactive>isPrototypeOf</u-menu-unactive> <u-code-comment>__proto__</u-code-comment></a><a href="#methods-instanceof">🔰 <u-menu-unactive>instanceof</u-menu-unactive></a><a href="#main-for">Перебор объекта</a><a href="#main-check-property">Проверка наличия свойства</a><a href="#main-descriptor">Дескрипторы свойств</a><a href="#main-extends">Расширяемость объектов</a><div class="theme">Основное</div><a href="#main-info">📑 Теория</a><a href="#main-literal-notation">⚡️ Литеральная нотация</a><a href="#main-conversion"><u-menu>toString</u-menu> <u-menu>valueOf</u-menu></a><div class="theme">Примеры</div><a href="#samples-sort-elements-obj">⚾️ Сортировка элементов массива</a><a href="#samples-flat-array-from-obj">⚾️ Плоский массив из объекта</a><a href="#samples-setting-object-properties">⚾️ Задание свойств объекта</a><a href="#samples-methods-various-obj">⚾️ Метод для разных объектов</a><a href="#samples-return-obj">⚾️ Функция, возвращающая объект</a><div class="theme">Прочее</div><a href="#other-compare">🍋 Сравнение объектов</a><a href="#other-constructor">Конструктор создания объекта</a><a href="#other-prototype">Прототип</a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="methods-object-create"><h2>Object.create</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="Object." method="create" after="" arg="(proto, propertiesObject)">
+    добавление прототипа при создании объекта (создаёт пустой объект с __proto__, равным первому аргументу, второй содержит дескрипторы свойств)
+    </v-method>
+
+	<v-method-arg arg="proto">объект, который станет прототипом вновь созданного объекта (__proto__)</v-method-arg>
+	<v-method-arg arg="descriptors">дескрипторы свойств. Необязательный параметр. Если указан и не равен undefined, должен быть объектом, чьи собственные перечисляемые свойства (то есть такие, которые определены на самом объекте, а не унаследованы по цепочке прототипов) указывают дескрипторы свойств, добавляемых в новый объект. Имена добавляемых свойств совпадают с именами свойств в этом объекте. Эти свойства соответствуют второму аргументу метода Object.defineProperties()</v-method-arg>
+
+	<v-method-return>Новый объект с заданным прототипом и свойствами</v-method-return>
+</div>
+
+<v-code lang="js" title="">
+var obj = Object.create(
+	{ name: 'Tony' }
+);
+// => {} => __proto__: name: "Tony"
+</v-code>
+</div><div id="methods-object-assign"><h2>Object.assign</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="Object." method="assign" after="" arg="(target, ...sources)">
+    копирование значений всех собственных перечисляемых свойств (при обходе в цикле for..in его можно будет получить) из одного или более исходных объектов в целевой объект. Происходит создание поверхностной копии
+    </v-method>
+
+	<v-method-arg arg="target">целевой объект</v-method-arg>
+	<v-method-arg arg="sources">исходные объекты</v-method-arg>
+
+	<v-method-return>Получившийся целевой объект</v-method-return>
+</div>
+
+<v-code lang="js" title="">
+let obj = Object.assign(
+	{ name: 'Tony' }, 
+	{ age: 25 }
+);
+// obj {name: "Tony", age: 25}
+</v-code>
+</div><div id="methods-object-entries"><h2>Object.entries()</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Object.entries()</u-text-define> - метод возвращает массив собственных перечисляемых свойств указанного объекта в формате <u-code-text>[key, value]</u-code-text>, в том же порядке, что и в цикле <u-code-text>for...in</u-code-text> (разница в том, что for-in перечисляет свойства из цепочки прототипов). Порядок элементов в массиве который возвращается <u-code-text>Object.entries()</u-code-text> не зависит от того как объект обьявлен. Если существует необходимость в определенном порядке, то массив должен быть отсортирован до вызова метода, например <u-code-text>Object.entries(obj).sort((a, b) => a[0] - b[0])</u-code-text></li>
+    <li>this</li>
+</ul>
+
+<v-code lang="js" title="">
+const obj = {
+    foo: "bar",
+    baz: 42
+};
+
+console.log(Object.entries(obj)); // [ ['foo', 'bar'], ['baz', 42] ]
+</v-code>
+</div><div id="methods-object-from-entries"><h2>Object.fromEntries()</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Object.fromEntries()</u-text-define> - преобразует список пар ключ-значение в объект</li>
+    <li>this</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Преобразование Map в Object</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const map = new Map([
+	['foo', 'bar'],
+	['baz', 42]
+]);
+const obj = Object.fromEntries(map);
+console.log(obj); // { foo: "bar", baz: 42 }
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Преобразование Array в Object</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const arr = [
+    ['0', 'a'],
+    ['1', 'b'],
+    ['2', 'c']
+];
+const obj = Object.fromEntries(arr);
+console.log(obj); // { 0: "a", 1: "b", 2: "c" }
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Трансформации объектов</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>С <u-text-text>Object.fromEntries()</u-text-text>, обратным ему методом <u-text-text>Object.entries()</u-text-text> и методами манипулирования массивами вы можете преобразовывать объекты следующим образом:</li>
+</ul>
+
+<v-code lang="js" title="">
+const object1 = { a: 1, b: 2, c: 3 };
+
+const object2 = Object.fromEntries(
+    Object.entries(object1)
+        .map(([ key, val ]) => [ key, val * 2 ])
+);
+
+console.log(object2);
+// { a: 2, b: 4, c: 6 }
+</v-code>
+</div><div id="methods-object-values"><h2>Object.values()</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Object.values()</u-text-define> - возвращает массив значений перечисляемых свойств объекта в том же порядке что и цикл <u-code-text>for...in</u-code-text>. Разница между циклом и методом в том, что цикл перечисляет свойства и из цепочки прототипов</li>
+</ul>
+
+<v-code lang="js" title="">
+const object1 = {
+    a: 'somestring',
+    b: 42,
+    c: false
+};
+
+console.log(Object.values(object1));
+// expected output: Array ["somestring", 42, false]
+</v-code>
+</div><div id="methods-object-keys"><h2>Object.keys</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Object.keys()</u-text-define> - возвращает массив из собственных перечисляемых свойств переданного объекта, в том же порядке, в котором они бы обходились циклом <u-code-text>for...in</u-code-text> (разница между циклом и методом в том, что цикл перечисляет свойства и из цепочки прототипов)</li>
+</ul>
+
+<v-code lang="js" title="">
+// возвращает массив со всеми собственными именами перечисляемых свойств объекта
+// (те, что в цепочке прототипов, не войдут в массив)
+const a = Object.keys(obj);
+
+// количество свойств
+const a = Object.keys(obj).length;
+</v-code>
+
+</div><div id="methods-set-prototype-of"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Object.setPrototypeOf</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="Object." method="setPrototypeOf" after="" arg="(obj, prototype)">
+	Устанавливает прототип (то есть, внутреннее свойство [[Prototype]]) указанного объекта в другой объект после создания объекта или null.
+	Устанавливает obj.__proto__ = prototype
+    </v-method>
+
+	<v-method-arg arg="obj">Объект, которому устанавливается прототип</v-method-arg>
+	<v-method-arg arg="prototype">Новый прототип объекта (объект или null)</v-method-arg>
+</div>
+
+<v-code lang="js" title="">
+var dict = Object.setPrototypeOf({}, null);
+</v-code>
+
+<ul class="list-point">
+    <li>Плохо сказывается на производительности</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Примеры</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const animal = {
+	say() {
+		console.log(this.name);
+	}
+}
+const cat = {
+	name: 'cat'
+}
+Object.setPrototypeOf(cat, animal);
+cat.say(); // => "cat"
+</v-code>
+</div><div id="methods-get-prototype-of"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Object.getPrototypeOf</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<div class="v-method-wrapper">
+    <v-method before="Object." method="getPrototypeOf" after="" arg="(obj)">
+    Возвращает прототип (то есть, внутреннее свойство [[Prototype]]) указанного объекта.
+	Возвращает obj.__proto__
+    </v-method>
+
+	<v-method-arg arg="obj">Объект, чей прототип будет возвращён</v-method-arg>
+</div>
+
+<v-code lang="js" title="">
+var proto = {};
+var obj = Object.create(proto);
+Object.getPrototypeOf(obj) === proto; // true
+</v-code>
+</div><div id="methods-is-prototype-of"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>isPrototypeOf</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<div class="v-method-wrapper">
+    <v-method before="prototypeObj." method="isPrototypeOf" after="" arg="()">
+	проверяет, входит ли объект в цепочку прототипов другого объекта
+    </v-method>
+
+	<v-method-arg arg="prototypeObj">объект, проверяемый на каждую ссылку в цепочке прототипов аргумента object</v-method-arg>
+	<v-method-arg arg="object">объект, в чьей цепочке прототипов производится поиск</v-method-arg>
+
+	<v-method-return></v-method-return>
+</div>
+
+<ul class="list-point">
+    <li>Отличие от <u-code-text>instanceof</u-code-text>: выражение <u-code-text>object instanceof AFunction</u-code-text> проверяет, присутствует ли в цепочке прототипов объекта <u-code-text>object</u-code-text> объект <u-code-text>AFunction.prototype</u-code-text>, а не сам объект <u-code-text>AFunction</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+// является ли объект ObjParent прототипом для объекта ObjChild
+ObjChild.<u-code>isPrototypeOf</u-code>(ObjParent);
+</v-code>
+</div><div id="methods-instanceof"><h2>instanceof</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="instanceof" after="" arg="">
+    проверка, какому классу принадлежит объект, с учетом прототипного наследования
+    </v-method>
+</div>
+
+<v-code lang="js" title="">
+function Car(make, model) {
+	this.make = make;
+	this.model = model;
+}
+const auto = new Car('Honda', 'Accord');
+
+const a = auto instanceof Car; // => true
+const a = auto instanceof Object; // => true
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Информация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Оператор obj instanceof Func проверяет что obj является результатом вызова new Func. Он учитывает цепочку <u>__proto__</u>, поэтому наследование поддерживается</li>
+	<li>Оператор <u>instanceof</u> не сможет проверить тип значения, если объект создан в одном окне/фрейме, а проверяется в другом, т.к. в каждом окне своя иерархия объектов. Для точной проверки типов встроенных объектов можно использовать свойство <u>[[Class]]</u></li>
+	<li>Оператор <u>instanceof</u> особенно востребован в случаях, когда мы работаем с иерархиями классов. Это наилучший способ проверить принадлежность тому или иному классу с учётом наследования</li>
+
+	<hr>
+	<b>Алгоритм проверки obj instanceof Constructor</b>
+	<li>1. Получить obj.__proto__</li>
+	<li>2. Сравнить obj.__proto__ с Constructor.prototype</li>
+	<li>3. Если не совпадает, тогда заменить obj на obj.__proto__ и повторить проверку на шаге 2 до тех пор, пока либо не найдется совпадение (результат true), либо цепочка прототипов не закончится (результат false)</li>
+</ul>
+
+<v-code lang="js" title="">
+function ClassParent() {}
+var parent = new ClassParent();
+var a = parent instanceof ClassParent; // true
+// parent.__proto__ == ClassParent.prototype;
+</v-code>
+
+<v-code lang="js" title="">
+// массив arr принадлежит классу Array
+// но также и является объектом Object
+var arr = [];
+var a = arr instanceof Array; // true
+var a = arr instanceof Object; // true
+// arr.__proto__.__proto__ == Object.prototype
+</v-code>
+
+<v-code lang="js" title="">
+// сама функция-конструктор не участвует в процессе проверки, важна только цепочка прототипов для проверяемого объекта
+// это может приводить к ошибкам в проверке при изменении prototype
+function Rabbit() {}
+var rabbit = new Rabbit();
+Rabbit.prototype = {}; // изменили prototype...
+var a = rabbit instanceof Rabbit; // false
+</v-code>
+</div><div id="main-for"><h2>Перебор объекта</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="for (variable" method=" in" after="object) {...}" arg="">
+    Проходит через перечисляемые свойства объекта и его цепочку прототипов. Он пройдёт по каждому отдельному элементу.
+    Порядок перебора соответствует порядку объявления для нечисловых ключей, а числовые или числовые строки сортируются
+    </v-method>
+
+	<v-method-arg arg="variable">Другое (очередное) имя свойства назначается переменной на каждой итерации</v-method-arg>
+	<v-method-arg arg="object">Объект, по чьим свойствам мы проходим</v-method-arg>
+</div>
+
+<v-code lang="js" title="">
+for(let key <u-code>in</u-code> obj) {
+	console.log(key);      // ключи 
+	console.log(obj[key]); // значения
+} 
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Перечисление всех свойств объекта</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// возвращает массив со всеми собственными именами перечисляемых свойств объекта
+// (те, что в цепочке прототипов, не войдут в массив)
+const a = Object.<u-code>keys</u-code>(obj);
+
+// количество свойств
+const a = Object.<u-code>keys</u-code>(obj).<u-code>length</u-code>;
+
+// возвращает массив содержащий все имена своих свойств (перечисляемых и неперечисляемых) объекта
+const a = Object.<u-code>getOwnPropertyNames</u-code>(obj);
+</v-code>
+</div><div id="main-check-property"><h2>Проверка наличия свойства</h2>
+
+<ul class="list-point">
+	<li>Можно обратиться к любому свойству объекта, даже если его нет. Если свойство не существует, вернется <u>undefined</u></li>
+</ul>
+
+<i>Проверка наличия свойства 'name' в объекте</i>
+<v-code lang="js" title="">
+// не различает отсутствующие свойства и те что были установлен в undefined
+const a = obj.name;
+
+// различает отсутствующие свойства и те что были установлен в undefined
+const a = 'name' <u-code>in</u-code> obj;
+
+// не берет наследованные свойства
+const a = obj.<u-code>hasOwnProperty</u-code>('name');
+</v-code>
+</div><div id="main-descriptor"><h2>Дескрипторы свойств</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Свойства объекта</u-text-define> имеют: <u>имя</u>, <u>значение</u> (атрибут value), <u>атрибуты</u> (writable, enumerable, configurable)</li>
+</ul>
+
+<v-code lang="js" title="">
+Object.<u-code>getOwnPropertyDescriptor</u-code>(obj, 'name');  // получение дескриптора свойств
+Object.<u-code>defineProperty</u-code>(obj, prop, descriptor);  // переопределение дескриптора свойств
+Object.<u-code>defineProperties</u-code>(obj, descriptors);     // позволяет объявить сразу несколько свойств
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Получение дескриптора свойств</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const person = {
+	name: 'Tony',
+	age: 20
+}
+const a = Object.<u-code>getOwnPropertyDescriptor</u-code>(person, 'name');
+// {value: "Tony", writable: true, enumerable: true, configurable: true } 
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Переопределение дескриптора свойств</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Object.<u-code>defineProperty</u-code>(obj, prop, descriptor)
+	obj        // объект, в котором объявляется свойство
+	prop       // имя свойства, которое нужно объявить или модифицировать
+	descriptor // дескриптор - объект, который описывает поведение свойства
+</v-code>
+
+<v-code lang="js" title="">
+// 1-объект, 2-свойство, 3-дескриптор
+Object.<u-code>defineProperty</u-code>(person, 'name', {
+	<em>value</em>: 'Jack',       // значение свойства (по умолчанию undefined)
+	<em>writable</em>: false,     // значение свойства можно менять (по умолчанию false)
+	<em>configurable</em>: false, // возможность удаление свойства и изменения атрибутов свойства при помощи новых вызовов defineProperty (по умолчанию false)
+	<em>enumerable</em>: false,   // свойство просматривается в цикле for..in и методе Object.keys() (по умолчанию false)
+	<em>get()</em> {}             // функция, которая возвращает значение свойства (по умолчанию undefined)
+	<em>set()</em> {}             // функция, которая записывает значение свойства (по умолчанию undefined)
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Объект с парами свойсво:дескриптор</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// 1-объект, 2-объект с парами свойсво:дескриптор
+Object.<u-code>defineProperties</u-code>(person, {
+	name: {
+		value: 'Jack',
+		writable: false
+	}, 
+	age: {
+		value: 25,
+		writable: false
+	}
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Обычное свойство</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// оба вызова добавляют в объект user обычное (удаляемое, изменяемое, перечисляемое) свойство
+const user = {};
+user.name = 'Tony';
+Object.defineProperty(user, 'name', { value:'Tony', configurable:true, writable:true, enumerable:true });
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Геттеры и сеттеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const user = {
+	firstName: "Вася",
+	surname: "Петров"
+}
+
+Object.defineProperty(user, "fullName", {
+	get() {
+		return this.firstName + ' ' + this.surname;
+	},
+	set(value) {
+		const split = value.split(' ');
+		this.firstName = split[0];
+		this.surname = split[1];
+	}
+});
+
+user.fullName = "Петя Иванов";
+alert(user.fullName);   // Вася Петров
+alert(user.firstName ); // Петя
+alert(user.surname );   // Иванов
+</v-code>
+</div><div id="main-extends"><h2>Расширяемость объектов</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Расширяемость объектов</u-text-define> - возможность добавления новых свойств</li>
+</ul>
+
+<v-code lang="js" title="">
+const person = {
+	name: 'Tony',
+	age: 20
+}
+</v-code>
+
+<v-code lang="js" title="">
+// запрещает добавление свойств в объект (применяется только к самому объекту)
+Object.<u-code>preventExtensions</u-code>(person);
+// проверяет применение preventExtensions
+const a = Object.<u-code>isExtensible</u-code>(person);
+</v-code>
+
+<v-code lang="js" title="">
+// аналогичен preventExtensions, дополнительно задает атрибут configurable:false для всех свойств
+Object.<u-code>seal</u-code>(person);
+// проверяет применение seal
+const a = Object.<u-code>isSealed</u-code>(person);
+</v-code>
+
+<v-code lang="js" title="">
+// аналогичен seal, дополнительно делает все свойства доступные только для чтения (configurable:false, writable:false)
+Object.<u-code>freeze</u-code>(person);
+// проверяет применение freeze
+const a = Object.<u-code>isFrozen</u-code>(person);
+</v-code>
+</div><div id="main-info"><h2>Теория</h2>
+
+<img src="/img/js/proto.png" height="450px" class="center">
+
+<ul class="list-point">
+	<b>ХРАНЕНИЕ И КОПИРОВАНИЕ</b>
+
+	<li><u>Примитивные типы данных</u> - хранение и копирование <u>«по значению»</u>. Передаются копированием значения. В результате копирования получатся две полностью независимые переменные</li>
+	<li>Если в функцию отправить число, то будем работать с копией числа: оригинальное число не изменится</li>
+	
+	<li><u>Объекты</u> - хранение и копирование <u>«по ссылке»</u>. Передаются копированием ссылки. В переменной, которой присвоен объект, хранится не сам объект, а «адрес его места в памяти», иными словами – «ссылка» на него. При копировании переменной с объектом – копируется эта ссылка, а объект по-прежнему остается в единственном экземпляре. Получили две переменные, в которых находятся ссылки на один и тот же объект</li>
+	<li>Если в функцию отправить объект, функция получит ссылку на него, а не копию при измененении объекта внутрни функции: изменяется оригинальный объект</li>
+</ul>
+</div><div id="main-literal-notation"><h2>Литеральная нотация</h2>
+
+<!------------------------------------------------------------->
+<h4>Литеральная нотация</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const property = 'lastName'; // в константе находится название свойства
+const nickname = 'Sawyer';   // константа совпадает с названием свойства
+
+const person = {
+	firstName: 'Brad',
+	[property]: 'Stark',
+	nickname,
+	age: 25,
+	children: ['Liza', 'Petro'],
+	address: {
+		street: '555 Some st',
+		city: 'Boston',
+		state: 'MA'
+	},
+	getName() {
+		return this.firstName;
+	}, 
+	<u-code>get</u-code> fullName() {
+		return this.firstName + ' ' + this.lastName;
+	}, 
+	<u-code>set</u-code> fullName(value) {
+		this.firstName = value;
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Обращение к свойствам и методам</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const a = person.firstName;      // точечная нотация (Dot notation)
+const a = person['firstName'];   // скобочная нотация (Bracket notation)
+const a = person.children[0];    // обращение к свойству (массив)
+const a = person.address.street; // обращение к свойству (объект)
+const a = person.getName();      // обращение к методу
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Обновление и удаление свойства</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Через <u>delete</u> можно удалить только ненаследованные свойства объекта, наследованные свойства удаляются у прототипа</li>
+</ul>
+
+<v-code lang="js" title="">
+person.firstName = 'Tony';  // обновление свойства
+person.height = 190;        // задание нового свойства
+delete person.firstName;    // удаление свойства
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Добавление метода</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+person.greet = function() {
+	console.log('hi');
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Геттеры и сеттеры</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+person.fullName = 'Steve';  // сеттер
+const a = person.fullName;  // геттер (result = Steve Stark)
+</v-code>
+</div><div id="main-conversion"><h2>Преобразование объектов: toString и valueOf</h2>
+
+<ul class="list-point">
+	<li>В <u-text-define>логическом</u-text-define> контексте объект - всегда <u>true</u></li>
+	<li>При <u-text-define>строковом</u-text-define> преобразовании объекта используется его метод <u>toString</u>. Он должен возвращать примитивное значение, причём не обязательно именно строку</li>
+	<li>Для <u-text-define>численного</u-text-define> преобразования используется метод <u>valueOf</u>, который также может возвратить любое примитивное значение. У большинства объектов valueOf не работает (возвращает сам объект и потому игнорируется), при этом для численного преобразования используется toString</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Логическое преобразование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// любой объект в логическом контексте – true, даже если это пустой массив [] или объект {}.
+if ({} && []) {
+	alert( "Все объекты - true!" ); // alert сработает
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Строковое преобразование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const user = {
+	name: 'Tony'
+};
+
+alert( user ); // [object Object]
+</v-code>
+
+<v-code lang="js" title="">
+// eсли в объекте присутствует метод toString, который возвращает примитив, то он используется для преобразования
+const obj = {
+	name: 'Tony',
+	<u-code>toString</u-code>() {
+		return this.name;
+	}
+};
+
+alert( obj ); // Tony
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Численное преобразование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const room = {
+	number: 777,
+};
+
+alert( +room ); // NaN
+</v-code>
+
+<ul class="list-point">
+    <li>Для численного преобразования объекта используется метод <u>valueOf</u>, а если его нет – то <u>toString</u></li>
+</ul>
+
+<v-code lang="js" title="">
+const room = {
+	number: 777,
+	<u-code>valueOf</u-code>() { return this.number; },
+	<u-code>toString</u-code>() { return this.number; }
+};
+
+alert( +room );      // 777, вызвался valueOf
+delete room.valueOf; // valueOf удалён
+alert( +room );      // 777, вызвался toString
+</v-code>
+</div><div id="samples-sort-elements-obj"><h2>Сортировка элементов массива</h2>
+
+<ul class="list-point">
+	<li>Есть массив объектов. У объектов есть key. Нужно отсортировать элементы массива по key объектов по возрастанию</li>
+</ul>
+
+<v-code lang="js" title="">
+const arr = [
+    { key: 7, name: '' },
+    { key: 1, name: '' },
+    { key: 2, name: '' },
+];
+
+arr.sort((a,z) => a.key - z.key);
+
+console.log(arr);
+// [
+//     { key: 1, name: '' },
+//     { key: 2, name: '' },
+//     { key: 7, name: '' },
+// ];
+</v-code>
+</div><div id="samples-flat-array-from-obj"><h2>Плоский массив из объекта</h2>
+
+<v-code lang="js" title="">
+const checkedRows = {
+	'0': [1,2,3],
+	'1': [4,5,6],
+}
+
+const b = Object.values(checkedRows).flatMap(value => value);
+// => [1, 2, 3, 4, 5, 6]
+</v-code>
+</div><div id="samples-setting-object-properties"><h2>Задание свойств объекта</h2>
+
+<v-code lang="js" title="">
+const text = 'Some text';
+function getId() {
+	return 7;
+}
+let obj = {
+	text,
+	['prop_' + getId()]: 'some prop'
+}
+console.log(obj); // Object {text: 'Some text', prop_7: 'Some prop'}
+</v-code>
+</div><div id="samples-methods-various-obj"><h2>Метод для разных объектов</h2>
+
+<v-code lang="js" title="">
+var speak = function() {
+	console.log(this.sound, this.name);
+}
+</v-code>
+
+<v-code lang="js" title="">
+var animal = {
+	sound: 'Mrr',
+	name: 'Cat',
+	speak: speak
+}
+
+animal.speak(); // Mrr, Cat
+</v-code>
+</div><div id="samples-return-obj"><h2>Функция, возвращающая объект</h2>
+
+<v-code lang="js" title="">
+function createCar(property, value) {
+	return {
+		[property]: value,
+		['_' + property]: value,
+		[property.toUpperCase()]: value,
+		['get' + property]() {
+			return this[property];
+		}
+	};
+}
+var a = createCar('vin', 1);
+</v-code>
+</div><div id="other-compare"><h2>Сравнение объектов</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Глубокое сравнение объектов (deep-compare)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>deep-compare - единственный способ узнать равны ли два объекта в JavaScript</li>
+    <li><a href="https://stackoverflow.com/questions/1068834/object-comparison-in-javascript" target="_blank">Object comparison in JavaScript (stackoverflow)</a></li>
+    <li><u>Минусы</u>: из-за больших объектов, затратаная операция для больших приложений</li>
+</ul>
+
+</div><div id="other-constructor"><h2>Конструктор создания объекта</h2>
+
+<v-code lang="js" title="">
+var apple = new Object();
+apple.color = 'green';
+apple.shape = 'round';
+apple.describe = function() {
+	return 'An apple is ' + this.color;
+}
+
+var a = apple.color;
+var a = apple.describe();
+</v-code>
+</div><div id="other-prototype"><h2>Создание прототипа</h2>
+
+<ul class="list-point">
+	<b>ПРОТОТИП</b>
+	<li>У каждого <u>объекта</u> есть <u>прототип</u>, от которого он наследует <u>свойства</u> и <u>методы</u>. Если объект не включает в себя запрошенное свойство, JavaScript выполнит поиск этого свойства в прототипе объекта. При этом поиск будет выполняться по <u>цепочке прототипов</u> до тех пор, пока не будет найдено то, что нужно. Если же поиск успехом не увенчается, будет возвращена ошибка</li>
+	<br>
+</ul>
+
+<v-code lang="js" title="">
+// объект
+var Human = {
+	type: "Human",
+	head: 1,
+	legs: 2
+};
+// прототип
+var Megahuman = <u-code>Object.create</u-code>(Human);
+</v-code>
+
+<v-two-code type="js;js" comment=";">
+<template v-slot:first>
+Megahuman.type; // Human
+Megahuman.head; // 1
+</template>
+<template v-slot:last>
+Megahuman.head = 2; // 2
+Human.head;         // 1
+</template>
+</v-two-code>
+
+<v-two-code type="js;js" comment=";">
+<template v-slot:first>
+Megahuman.hands = 10; // 10
+Human.hands;          // undefined
+</template>
+<template v-slot:last>
+Human.face;     // undefined
+Megahuman.face; // undefined
+</template>
+</v-two-code>
+
+<v-two-code type="js;js" comment=";">
+<template v-slot:first>
+Human.face = "okay"; // okay
+Megahuman.face;      // okay
+</template>
+<template v-slot:last>
+Megahuman.face = "awesome"; // awesome
+Human.face;                 // okay
+</template>
+</v-two-code>
+
+<v-code lang="js" title="">
+Human.<u-code>isPrototypeOf</u-code>(Megahuman); // является ли объект Human прототипом для объекта Megahuman
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Удаление свойств</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// объект
+var Human = {
+	type: "Human",
+	head: 1,
+	legs: 2
+};
+
+// прототип
+var Megahuman = Object.create(Human);
+Megahuman.head = 2; // 2
+delete Megahuman.head;
+Megahuman.head;     // 1
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Конструктор прототипа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js red" title="">
+var Person = {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+        return this;
+    },
+    greet() {
+        console.log('Hi ' + this.name);
+    }
+}
+
+var person = Object.create(Person).constructor("Jack", 25);
+
+var a = person.name;
+person.greet();
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Изменение конструктора</h4>
+<!------------------------------------------------------------->
+<v-code lang="js red" title="">
+var WebDeveloper = Object.create(Person);
+
+WebDeveloper.constructor = function(name, age, skills) {
+    Person.constructor.apply(this, arguments);
+    this.skills = skills || [];
+    return this;
+}
+WebDeveloper.develop = function() {
+    console.log('In Work');
+}
+var developer = Object.create(WebDeveloper).constructor('Jack', 25, ['html', 'css', 'js']);
+
+console.log(developer.skills);
+developer.develop();
+console.log(developer.name);
+</v-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

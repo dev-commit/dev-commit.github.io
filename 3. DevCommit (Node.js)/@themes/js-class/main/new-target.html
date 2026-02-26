@@ -1,0 +1,35 @@
+<h2>Проверка на вызов в режиме конструктора: new.target</h2>
+
+<ul class="list-point">
+    <li>Используя специальное свойство <u-code-text>new.target</u-code-text> внутри функции, можно проверить, вызвана ли функция при помощи оператора <u-code-text>new</u-code-text> или без него</li>
+    <li>В случае, если функция вызвана при помощи <u-code-text>new</u-code-text>, то в <u-code-text>new.target</u-code-text> будет сама функция, в противном случае <u>undefined</u></li>
+</ul>
+
+<v-code lang="js" title="">
+function User() {
+	alert(new.target);
+}
+
+// без "new":
+<u-code>User(); // undefined</u-code>
+
+// с "new":
+<u-code>new User(); // function User { ... }</u-code>
+</v-code>
+
+<ul class="list-point">
+    <li>Это можно использовать, чтобы отличить обычный вызов от вызова «в режиме конструктора». В частности, вот так можно сделать, чтобы функцию можно было вызывать как с, так и без new</li>
+    <li>Такой подход иногда используется в библиотеках для создания более гибкого синтаксиса, который позволяет разработчикам вызывать функции при помощи оператора new или без него</li>
+</ul>
+
+<v-code lang="js" title="">
+function User(name) {
+	if (!new.target) { // в случае, если вы вызвали без оператора new
+		return new User(name); // ...добавим оператор new за вас
+	}
+	this.name = name;
+}
+
+let vasya = User("Вася"); // переадресовывает вызовы на new User
+alert(vasya.name); // Вася
+</v-code>

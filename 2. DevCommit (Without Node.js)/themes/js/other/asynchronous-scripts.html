@@ -1,0 +1,44 @@
+<h2>Асинхронные скрипты: defer/async</h2>
+
+<ul class="list-point">
+	<li>Если браузер видит тег <u-code-text>script</u-code-text>, то он обязан сначала выполнить его, а потом показать оставшуюся часть страницы</li>
+	<li>Специальные атрибуты <u-code-text>async</u-code-text> и <u-code-text>defer</u-code-text> используются для того, чтобы пока грузится внешний скрипт - браузер показал остальную (следующую за ним) часть страницы</li>
+	<li>При одновременном указании async и defer в современных браузерах будет использован только async</li>
+	<li>Атрибуты async/defer работают только в том случае, если назначены на внешние скрипты, т.е. имеющие src</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Атрибут async</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Не сохраняет относительную последовательность скриптов</li>
+	<li>Не ждет пока весь HTML-документ будет обработан браузером</li>
+	<li>Браузер не останавливает обработку страницы, а работает дальше. Когда скрипт будет загружен – он выполнится</li>
+</ul>
+<v-code lang="js" title="">
+// первым сработает тот скрипт, который раньше загрузится
+&lt;script src="1.js" async&gt;&lt;/script&gt;
+&lt;script src="2.js" async&gt;&lt;/script&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Атрибут defer</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Сохраняет относительную последовательность скриптов</li>
+	<li>Ждет пока весь HTML-документ будет обработан браузером</li>
+</ul>
+
+<v-code lang="js" title="">
+// первым сработает всегда 1.js, а скрипт 2.js, даже если загрузился раньше, будет его ждать
+&lt;script src="1.js" defer&gt;&lt;/script&gt;
+&lt;script src="2.js" defer&gt;&lt;/script&gt;
+</v-code>
+
+<v-code lang="js" title="">
+// скрипт async.js выполнится, как только загрузится – возможно, до того, как весь документ готов
+// defer.js подождёт готовности всего документа
+&lt;script src="async.js" async&gt;&lt;/script&gt;
+&lt;script src="defer.js" defer&gt;&lt;/script&gt;
+text text text
+</v-code>

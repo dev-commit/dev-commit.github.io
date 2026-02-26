@@ -1,0 +1,35 @@
+<h2>Лексическая и динамическая область видимости</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Лексическая (статическая) область видимости</u-text-define> - при создании функции, она запоминает Lexical Environment в котором была <u>СОЗДАНА</u></li>
+    <li>Функция запоминает внешний Scope по месту создания, а не по месту вызова</li>
+    <li>Используется в JavaScript</li>
+
+    <li><u-text-define>Динамическая область видимости</u-text-define> - при создании функции, она запоминает Lexical Environment в котором была <u>ВЫЗВАНА</u></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>20 берется по месту создания, а не по месту вызова функции</li>
+    <li>Внутрення переменая <u-code-text>bar</u-code-text> - <u>[[Evironment]]</u> хранит ссылку на <u>Lexical Environment</u> <u-code-text>foo</u-code-text>, где существует локальная переменная <u-code-text>a</u-code-text></li>
+    <li>Функция создалась и ссылка закреплена за функцией</li>
+    <li>Когда вызывается функция <u-code-text>bar</u-code-text>, создаеся <u>Контекст исполнения (Execution Cintext)</u>, вместе с ним создается <u>Lexical Environment</u> и <u>Environment Record</u></li>
+    <li>У <u>Environment Record</u> есть свойство <u>outer</u> куда помещается ссылка <u>bar.[[Evironment]]</u></li>
+</ul>
+
+<v-code lang="js" title="">
+function foo() { // a
+	const a = 20
+	return function bar() { // bar.[[Evironment]] = LE foo
+		console.log(a); // a 
+	}
+}
+
+const a = 10
+const bar = foo()
+bar(); // EC - LE ER.outer - bar.[[Evironment]]
+
+// => 20
+</v-code>

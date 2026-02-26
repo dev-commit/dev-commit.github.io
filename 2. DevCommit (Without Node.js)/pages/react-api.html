@@ -1,0 +1,486 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>💥 React API</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">React</div><a href="#react-component">🔰 <u-menu-unactive>React.Component</u-menu-unactive></a><a href="#react-create-element">🔰 <u-menu-unactive>React.createElement()</u-menu-unactive></a><a href="#react-clone-element">🔰 <u-menu-unactive>React.cloneElement()</u-menu-unactive></a><a href="#react-create-factory">🔰 <u-menu-unactive>React.createFactory</u-menu-unactive></a><a href="#react-is-valid-element">🔰 <u-menu-unactive>React.isValidElement()</u-menu-unactive></a><div class="theme">Оптимизация</div><a href="#optimization-info">📑 Информация</a><a href="#optimization-react-pure-component">🔰 <u-menu-unactive>React.PureComponent</u-menu-unactive></a><a href="#optimization-react-memo">🔰 <u-menu-unactive>React.memo</u-menu-unactive></a><a href="#optimization-react-lazy">🔰 <u-menu-unactive>React.lazy</u-menu-unactive> <u-menu-unactive>React.Suspense</u-menu-unactive></a><div class="theme">Компоненты</div><a href="#components-set-state">🔰 <u-menu-unactive>setState()</u-menu-unactive></a><a href="#components-force-update">🔰 <u-menu-unactive>forceUpdate()</u-menu-unactive></a><div class="theme">DOM-атрибуты</div><a href="#dom-dangerously-set-inner-html">🔰 <u-menu-unactive>dangerouslySetInnerHTML</u-menu-unactive></a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="react-component"><h2>React.Component</h2>
+
+<v-code lang="js" title="">
+// точка входа в библиотеку React
+import React from 'react';
+</v-code>
+
+<v-two-code type="js;js" comment="React.Component;Component">
+<template v-slot:first>
+import React from 'react';
+export default class Logo extends <u-code>React.Component</u-code> {
+	//
+}
+</template>
+<template v-slot:last>
+import React, {Component} from 'react';
+export default class App extends <u-code>Component</u-code> {
+	//
+}
+</template>
+</v-two-code>
+</div><div id="react-create-element"><h2>React.createElement</h2>
+
+<ul class="list-point">
+    <li>Код, написанный с использованием <u-code-text>JSX</u-code-text>, будет преобразован в <u-code-text>React.createElement()</u-code-text></li>
+</ul>
+
+<div class="v-method-wrapper">
+    <v-method before="React." method="createElement" after="" arg="(type, [props], [...children])">
+    Создаёт и возвращает новый React-элемент определённого типа
+    </v-method>
+
+	<v-method-arg arg="type">
+		строка, содержащая:
+		<ul class="list-point">
+		    <li>Имя тега (например, 'div' или 'span')</li>
+		    <li>React-компонент (класс или функция)</li>
+		    <li>React-фрагмент</li>
+		</ul>
+	</v-method-arg>
+
+	<v-method-arg arg="[props]">props</v-method-arg>
+	<v-method-arg arg="[...children]">children</v-method-arg>
+
+	<v-method-return>Новый React-элемент определённого типа</v-method-return>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты createElement</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="Отдельные createElement;Родительский createElement">
+<template v-slot:first>
+var image     = React.createElement('img', { src: '...' });
+var title     = React.createElement('h1', null, 'React');
+var subtitle  = React.createElement('p', null, '...');
+var container = React.createElement(
+	'div', 
+	{ className: 'container' }, 
+	image, title, subtitle
+);
+
+ReactDOM.render(
+	container, 
+	document.getElementById('root')
+);
+</template>
+<template v-slot:last>
+var container = React.createElement('div', { className: 'container' },
+	React.createElement('img', { src: '...' }),
+	React.createElement('h1', null, 'React'),
+	React.createElement('p', null, '...'),
+);
+
+ReactDOM.render(
+	container, 
+	document.getElementById('root')
+);
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сокращенный синтаксис</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="Полный синтаксис;Сокращенный синтаксис">
+<template v-slot:first>
+var title = React.createElement('div', null, 'Привет, мир!'),
+</template>
+<template v-slot:last>
+var title = e('div', null, 'Привет, мир!'),
+</template>
+</v-two-code>
+</div><div id="react-clone-element"><h2>React.cloneElement</h2>
+
+<ul class="list-point">
+    <li>Реакт элементы нельзя изменять после того как они были созданы, но можно создавать модифицированные копии при помощи React.cloneElement()</li>
+</ul>
+
+<div class="v-method-wrapper">
+    <v-method before="React." method="cloneElement" after="" arg="(element, [props], [...children])">
+    Клонирует и возвращает новый React элемент, используя элемент в качестве отправной точки. Полученный элемент будет иметь пропсы исходного элемента, а новые пропсы будут поверхностно слиты воедино. Новые дочерние элементы заменят существующие. <u>key</u> и <u>ref</u> из исходного элемента будут сохранены
+    </v-method>
+
+	<v-method-arg arg="element">элемент для клонирование</v-method-arg>
+	<v-method-arg arg="[props]">props</v-method-arg>
+	<v-method-arg arg="[...children]">children</v-method-arg>
+
+	<v-method-return>Новый React-элемент</v-method-return>
+</div>
+</div><div id="react-create-factory"><h2>React.createFactory()</h2>
+
+<ul class="list-point">
+    <li>Этот вспомогательный метод считается устаревшим, и мы рекомендуем использовать либо <u>JSX</u>, либо напрямую <u>React.createElement()</u></li>
+    <li>Обычно вы не будете вызывать <u>React.createFactory()</u> напрямую, если вы используете <u>JSX</u></li>
+</ul>
+
+<div class="v-method-wrapper">
+    <v-method before="React." method="createFactory" after="" arg="(type)">
+	Возвращает функцию, которая создаёт элементы React заданного типа
+    </v-method>
+
+	<v-method-arg arg="type">аргументом type может быть строка содержащая имя тега (например, 'div' или 'span'), React-компонент (класс или функция) или React-фрагмент</v-method-arg>
+
+	<v-method-return>Функция, которая создаёт элементы React заданного типа</v-method-return>
+</div>
+
+</div><div id="react-is-valid-element"><h2>isValidElement()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="React." method="isValidElement" after="" arg="(object)">
+	Проверяет, что объект является элементом React
+    </v-method>
+
+	<v-method-arg arg="object">объект для проверки</v-method-arg>
+
+	<v-method-return>Возвращает true или false</v-method-return>
+</div>
+</div><div id="optimization-info"><h2>Информация</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Мемоизация</u-text-define> - сохранение результатов выполнения функций для предотвращения повторных вычислений. Это один из способов оптимизации, применяемый для увеличения скорости выполнения компьютерных программ</li>
+    <li>Мемоизация - это запоминание, сохранение чего-либо в памяти. Функции, в которых используется мемоизация, обычно работают быстрее, так как при их повторных вызовах с одними и теми же параметрами, они, вместо выполнения неких вычислений, просто считывают результаты из кэша и возвращают их</li>
+    <li>Функция с мемоизацией — это чистая функция</li>
+</ul>
+
+<ul class="list-point">
+    <li><u-text-define>Виртуализация</u-text-define></li>
+    <li><u-code-text>shouldComponentUpdate</u-code-text></li>
+    <li><u-code-text>PureComponent</u-code-text></li>
+    <li>Список элементов и при скролле отображаются только те элементы, которые видит пользователь</li>
+</ul>
+
+</div><div id="optimization-react-pure-component"><h2>React.PureComponent</h2>
+
+<ul class="list-point">
+    <li><u-text-define>React.PureComponent</u-text-define> похож на <u-code-text>React.Component</u-code-text>. Отличие заключается в том, что <u-code-text>React.Component</u-code-text> не реализует <u-code-text>shouldComponentUpdate()</u-code-text>, а <u-code-text>React.PureComponent</u-code-text> реализует его поверхностным сравнением пропсов и состояния</li>
+
+    <li>Если метод <u-code-text>render()</u-code-text> React-компонента всегда рендерит одинаковый результат при одних и тех же пропсах и состояниях, для <u>повышения производительности</u> в некоторых случаях вы можете использовать <u-code-text>React.PureComponent</u-code-text></li>
+
+    <li>Метод <u-text-underline>shouldComponentUpdate()</u-text-underline> базового класса <u-code-text>React.PureComponent</u-code-text> делает только поверхностное сравнение объектов (<u>сравниваются ссылки</u>). Если они содержат сложные структуры данных, это может привести к неправильной работе для более глубоких различий (то есть, различий, не выраженных на поверхности структуры). Наследуйте класс <u-code-text>PureComponent</u-code-text> только тогда, когда вы ожидаете использовать простые пропсы и состояние, или используйте <u-code-text>forceUpdate()</u-code-text>, когда знаете, что вложенные структуры данных изменились. Также подумайте об использовании иммутабельных объектов, чтобы упростить процесс сравнения вложенных данных</li>
+
+    <li>Метод <u-code-text>shouldComponentUpdate()</u-code-text> пропускает обновление пропсов для всего поддерева компонентов. Убедитесь, что все дочерние компоненты также являются «чистыми»</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Как сравнивает элементы PureComponent</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Простые типы данных - по значению</li>
+    <li>Объекты - по ссылкам. Если ссылка на объект поменялась - перерендер</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>PureComponent vs Component</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Метод shouldComponentUpdate</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="Component;PureComponent">
+<template v-slot:first>
+shouldComponentUpdate() {
+	return true;
+}
+</template>
+<template v-slot:last>
+shouldComponentUpdate(nextProps, nextState) {
+	return 
+		!shallowEqual(nextProps, this.props) || 
+		!shallowEqual(nextState, this.state);
+}
+</template>
+</v-two-code>
+
+<ul class="list-point">
+    <li><u>PureComponent</u> изначально определяет функцию, которая ответствена за принятие решения - нужно ли продолжать updating lifecycle или нет</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример Component vs PureComponent</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+class A extends React.<u-code>Component</u-code> {
+	render() {
+		return (/* some data */)  
+	}
+}
+
+class A extends React.<u-code>PureComponent</u-code> {
+	render() {
+		return (/* some data */)
+	}
+}
+</v-code>
+
+<v-code lang="js" title="">
+// 1 - пропы не меняются
+ReactDOM.render(&lt;A someProps={1} /&gt;, root);
+ReactDOM.render(&lt;A someProps={1} /&gt;, root);
+
+<u-code-comment>// 2 - пропы меняются (перерендер у Component и PureComponent)</u-code-comment>
+ReactDOM.render(&lt;A someProps={1} /&gt;, root);
+ReactDOM.render(&lt;A someProps={2} /&gt;, root);
+</v-code>
+
+<ol class="list-num">
+	<b>Пропы не меняются</b>
+    <li>Component будет обновлен. Так как он не является чистым компонентом, и его shouldComponentUpdate вернет true</li>
+    <li>PureComponent B получает задачу на ререндер, но его props не изменились</li>
+    <li>shouldComponentUpdate класса B вернет false, так как ссылки на все поля props остались прежними. (т.е. this.props.someProps === nextProps.someProps)</li>
+    <li>Дальнейшие методы Updating lifecycle не вызываются</li>
+</ol>
+
+</div><div id="optimization-react-memo"><h2>React.memo</h2>
+
+<v-code lang="js" title="">
+import React, { memo } from 'react';
+
+const MyComponent = React.memo(function MyComponent(props) {
+	// рендер с использованием пропсов
+});
+
+// export default memo(MyComponent);
+</v-code>
+
+<ul class="list-point">
+    <li><u-text-define>React.memo</u-text-define> - компонент высшего порядка. Он похож на <u-code-text>React.PureComponent</u-code-text>, но предназначен для функциональных компонентов</li>
+    <li>Если функциональный компонент всегда рендерит одинаковый результат для одних и тех же пропсов, вы можете обернуть его в вызов <u-code-text>React.memo</u-code-text> для повышения производительности в некоторых случаях, <u>мемоизируя</u> результат. Это значит, что React будет использовать результат последнего рендера, избегая повторного рендеринга</li>
+    <li>По умолчанию он поверхностно сравнивает вложенные объекты в объекте <u-code-text>props</u-code-text>. Если вы хотите контролировать сравнение, вы можете передать свою функцию сравнения в качестве второго аргумента</li>
+    <li>Этот метод предназначен только для <u>оптимизации производительности</u>. Не полагайтесь на него, чтобы «предотвратить» рендер, так как это может привести к ошибкам</li>
+</ul>
+
+<v-code lang="js" title="">
+function MyComponent(props) {
+	// рендер с использованием пропсов
+}
+function areEqual(prevProps, nextProps) {
+	// возвращает true, если nextProps рендерит
+	// тот же результат что и prevProps, иначе возвращает false
+}
+export default React.memo(MyComponent, areEqual);
+</v-code>
+
+<ul class="list-point">
+    <li>В отличие от метода <u-text-underline>shouldComponentUpdate()</u-text-underline> для классовых компонентов, функция <u-code-text>areEqual</u-code-text> возвращает <u-code-text>true</u-code-text>, если пропсы равны, и значение <u-code-text>false</u-code-text>, если пропсы не равны</li>
+</ul>
+</div><div id="optimization-react-lazy"><h2>Задержка (Suspense)</h2>
+
+<ul class="list-point">
+    <li><u-code-text>React.lazy()</u-code-text> - позволяет вам определять компонент, который загружается динамически. Это помогает уменьшить размер сборки, откладывая загрузку компонентов, которые не используются во время первоначального рендера</li>
+    <li><u-code-text>React.Suspense</u-code-text> - позволяет показать индикатор загрузки в случае, если некоторые компоненты в дереве под ним ещё не готовы к рендеру</li>
+</ul>
+
+<v-code lang="js" title="">
+import React, { Suspense } from "react";
+
+const Target = <u-code>React.lazy</u-code>(() =&gt; import("./Target"));
+
+const App = () =&gt; (
+    &lt;&gt;
+        &lt;<u-code>Suspense</u-code> fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
+            &lt;Target /&gt;
+        &lt;/<u-code>Suspense</u-code>&gt;
+    &lt;/&gt;
+);
+</v-code>
+</div><div id="components-set-state"><h2>setState()</h2>
+
+<v-two-code type="js;js" comment="Состояние не зависит от предыдущего состояния;Состояние зависит от предыдущего состояния">
+<template v-slot:first>
+this.setState({
+	counter: 77
+});
+</template>
+<template v-slot:last>
+this.setState((state, props) => ({
+	counter: state.counter + props.increment
+}));
+</template>
+</v-two-code>
+
+<ul class="list-point">
+	<li><u-text-define>Состояние (state)</u-text-define> - содержит данные, специфичные для этого компонента. Они могут измениться со временем. Состояние определяется пользователем и должно быть простым объектом JavaScript</li>
+	<li>Контролируется и доступно только конкретному компоненту. Этот процесс называется <u>«нисходящим» («top-down»)</u> или <u>«однонаправленным» («unidirectional»)</u> потоком данных. Состояние всегда принадлежит определённому компоненту, а любые производные этого состояния могут влиять только на компоненты, находящиеся «ниже» в дереве компонентов</li>
+	<li>Нельзя менять состояние напрямую, иначе не происходит повторного рендер (так как более поздний вызов setState() может перезаписать эту мутацию). Конструктор - это единственное место, где можно присвоить значение <u-code-text>this.state</u-code-text> напрямую</li>
+	<li>Не нужно вставлять в состояние значение, если оно не используется для рендера или потока данных (например, идентификатор таймера). Такие значения можно определить как поля экземпляра компонента</li>
+</ul>
+
+<div class="v-method-wrapper">
+    <v-method before="this." method="setState" after="" arg="(updater, callback)">
+    добавляет в очередь изменения в состоянии компонента. Также он указывает React, что компонент и его дочерние элементы должны быть повторно отрендерены с обновлённым состоянием. Этот метод используется для обновления интерфейса в ответ на обработчики событий и ответы сервера
+    </v-method>
+
+	<v-method-arg arg="updater"> значения state для обновления (объект или функция)</v-method-arg>
+	<v-method-arg arg="callback"> гарантированно вызывается после того как было применено обновление</v-method-arg>
+</div>
+
+<v-two-code type="js;js" comment="правильно;неправильно">
+<template v-slot:first>
+this.<u-code>setState</u-code>({comment: 'Привет'});
+</template>
+<template v-slot:last>
+this.state.comment = 'Привет';
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Асинхронное обновления состояния</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Обновления состояния могут быть асинхронными</li>
+	<li>React может сгруппировать несколько вызовов <u-code-text>setState()</u-code-text> в одно обновление для улучшения производительности</li>
+	<li>Поскольку <u-code-text>this.props</u-code-text> и <u-code-text>this.state</u-code-text> могут обновляться асинхронно, вы не должны полагаться на их текущее значение для вычисления следующего состояния</li>
+</ul>
+
+<v-code lang="js" title="">
+// Неправильно: код может не обновить счётчик
+this.setState({
+	counter: this.state.counter + this.props.increment,
+});
+</v-code>
+
+<ul class="list-point">
+	<li>Второй вариант вызова <u-code-text>setState()</u-code-text>, принимает функцию, а не объект. Эта функция получит предыдущее состояние в качестве первого аргумента и значения пропсов непосредственно во время обновления в качестве второго аргумента</li>
+</ul>
+
+<v-two-code type="js;js" comment="стрелочная функция;обычная функция">
+<template v-slot:first>
+this.setState((state, props) => ({
+	counter: state.counter + props.increment
+}));
+</template>
+<template v-slot:last>
+this.setState(function(state, props) {
+	return {
+		counter: state.counter + props.increment
+	};
+});
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм работы setState</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li>React объединяет уже имеющийся state с объектом, передаваемым в setState()</li>
+    <li>React запускает процесс синхронизации с DOM. Он создает новое дерево элементов виртуального ReactDOM, сравнивает его с предыдущем деревом элементов, окончательно выясняет что же случилось и как это сделать наиболее безболезненно </li>
+    <li>Финальное обновление DOM в браузере</li>
+    <li></li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Множественный setState()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Каждый раз когда React сталкивается с множественными setState(), то из каждого вызова он извлекает передаваемый объект и соединяет их между собой. В результате получается один единственный объект, с которым в итоге и произойдет вызов setState()</li>
+    <li>Если вызывать <u>setState() с объектом</u> несколько раз - React запустит процедуру слияния объектов в один в целях оптимизации своей работы. И тогда, если в объектах наличествуют свойства с одинаковыми ключами — в итоговый объект запишется лишь значение последнего из них</li>
+    <li>Если вызывать <u>setState() с функцией</u> несколько раз, React начинает обновлять состояние приложения с каждым вызовом функционального setState(), и каждому следующему в очереди вызову он передает уже вычисленное от предыдущего</li>
+</ul>
+
+<v-two-code type="js;js" comment="Добавится +1;Добавится +2">
+<template v-slot:first>
+// объединение вызовов setState в один
+incrementCount(){
+	this.setState({count : this.state.count + 1}) 
+	this.setState({count : this.state.count + 1})
+}
+</template>
+<template v-slot:last>
+// исполнение setState в том порядке в котором были вызваны
+incrementCount(){
+	this.setState((prevState, props) => ({
+		count: prevState.count + 1
+	}));
+	this.setState((prevState, props) => ({
+		count: prevState.count + 1
+	}));
+}
+</template>
+</v-two-code></div><div id="components-force-update"><h2>forceUpdate()</h2>
+
+<ul class="list-point">
+    <li>По умолчанию при изменении состояния компонента или пропсов, происходит повторный рендер. Если ваш метод <u>render()</u> зависит от некоторых других данных, вы можете указать React необходимость в повторном рендере, вызвав <u>forceUpdate()</u></li>
+    <li>Вызов <u>forceUpdate()</u> приведёт к выполнению метода <u>render()</u> в компоненте, пропуская <u>shouldComponentUpdate()</u>. Это вызовет обычные методы жизненного цикла для дочерних компонентов, включая <u>shouldComponentUpdate()</u> каждого дочернего компонента. React по-прежнему будет обновлять DOM только в случае изменения разметки</li>
+    <li>Чаще всего, <u>forceUpdate()</u> не используется. Вместо этого используются в <u>render()</u> данные из <u>this.props</u> и <u>this.state</u></li>
+</ul>
+
+<div class="v-method-wrapper">
+    <v-method before="component." method="forceUpdate" after="" arg="(callback)">
+    Необходимость в повторном рендере
+    </v-method>
+
+	<v-method-arg arg="callback">callback</v-method-arg>
+</div>
+</div><div id="dom-dangerously-set-inner-html"><h2>dangerouslySetInnerHTML</h2>
+
+<ul class="list-point">
+    <li>Свойству <u-code-text>innerHTML</u-code-text> в DOM браузера соответствует <u-code-text>dangerouslySetInnerHTML</u-code-text> в React. Как правило, вставка HTML из кода рискованна, так как можно случайно подвергнуть ваших пользователей атаке межсайтового скриптинга.</li>
+</ul>
+
+<v-code lang="js" title="">
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+export default function App() {
+	let someHtml = '&lt;h1&gt;Привет&lt;/h1&gt;';
+	return (
+		&lt;div <u-code>dangerouslySetInnerHTML</u-code>=<span v-pre>{{__html: someHtml}}</span>&gt;&lt;/div&gt;
+	);
+}
+
+ReactDOM.render(&lt;App /&gt;, document.getElementById('root')); // =&gt; Привет
+</v-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

@@ -1,0 +1,162 @@
+<h2>Проверить закрывающиеся скобки</h2>
+
+<ul class="list-point">
+    <li>Напишите функцию тестирующую правильность вложенных скобок трех типов(кроме нижеперчисленных символов других в строке нет) - '(' и ')', '[' и ']', '<' и '>':</li>
+</ul>
+
+<v-code lang="js" title="">
+test('[]()&lt;&gt;') // =&gt; true
+test('[]()&lt;)') // =&gt; false
+test('[(&lt;&gt;)]') // =&gt; true
+test('[(&lt;&gt;])') // =&gt; false
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#1</h4>
+<!------------------------------------------------------------->
+
+<v-code lang="js" title="">
+function test (str) {
+    var strArr = str.split('');
+    var stack = [];
+    var check = {
+        ']': '[',
+        ')': '(',
+        '>': '<'
+    };
+
+    strArr.forEach(function (bracket) {
+        if ((stack.length === 0) || !check[bracket] ) {
+            stack.push(bracket);
+        } else {
+            var lastElmInStack = stack[stack.length - 1];
+            if (lastElmInStack === check[bracket]) {
+                stack.pop();
+            }
+        }
+    });
+
+  return !stack.length;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Один вид скобок (простое решение)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function checkBrackets(brackets) {
+    let count = 0;
+
+    for(let i = 0; i < brackets.length; i++) {
+        if(brackets[i] === '(') {
+            count++;
+        } 
+        if (brackets[i] === ')') {
+            count--;
+        }
+        if (count < 0) {
+            return false;
+        }
+    }
+    return count === 0;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Один вид скобок (мой вариант)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const checkValidBrackets = expression => {
+    const strArr = expression.split('');
+    const stack = [];
+    const check = {
+        '(': ')'
+    }
+
+    strArr.forEach(bracket => {
+        if (bracket === ')' || bracket === '(') {
+            if (stack.length === 0 && bracket === ')') {
+                return false;
+            }
+
+            if (check[bracket]) {
+                stack.push(bracket);
+            } else {
+                stack.pop();
+            }
+        }
+    });
+
+    return !stack.length;
+}
+
+[
+    '()',
+    ') ()',
+    '( )(',
+    '(( )',
+    '(2 9))',
+    '(())',
+    '()()'
+].map(checkValidBrackets);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#2 Недоделанный вариант</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function test(string) {
+    let array = [];
+    
+	// некорректно указывать нулевой элемент
+    if (string[0] === ')') {
+        return false;
+    }
+    
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] === '(' || array.length === 0) {
+            array.push(string[i])
+        } else {
+            array.pop();
+        }
+    }
+    
+    return !array.length
+}
+
+test('()()()');          // => true
+test('((()))');          // => true
+test('(()))))))))))))'); // => false
+test(')()))');           // => false
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#3</h4>
+<!------------------------------------------------------------->
+<!-- Кара -->
+
+<v-code lang="js" title="">
+const checkValidBrackets = expression => {
+    let stack = [];
+    let map = {
+        '(': ')'
+    }
+
+    for (let i = 0; i < expression.length; i++) {
+        if (Object.keys(map).some(key => key === expression[i])) {
+            stack.push(expression[i]);
+        } else {
+            if (!Object.keys(map).some(key => key === expression[i] || map[key] === expression[i])) {
+                continue;
+            }
+            if (map[stack.pop()] !== expression[i]) {
+                return false;
+            }
+        }
+    }
+
+    return stack.length === 0;
+}
+</v-code>
+
+

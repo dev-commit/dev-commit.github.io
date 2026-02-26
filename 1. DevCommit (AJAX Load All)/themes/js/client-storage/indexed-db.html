@@ -1,0 +1,80 @@
+<h2>IndexedDB</h2>
+
+<u-link-wrapper>
+    <a href="https://developer.mozilla.org/ru/docs/IndexedDB/Using_IndexedDB" target="_blank">[MDN] Использование IndexedDB</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+	<li><u-text-define>IndexedDB</u-text-define> - это способ постоянного хранения данных внутри клиентского браузера. NOSQL хранилище на стороне клиента. Что позволяет создавать веб-приложения обращения к данным независимо от доступности сети, приложения могут работать как онлайн, так и офлайн</li>
+</ul>
+
+<u-message-info>
+1. Сначал вызывается dbCreate() для открытия/создания БД<br>
+2. После dbInsert()
+</u-message-info>
+
+<!------------------------------------------------------------->
+<h4>Глобальная переменная</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var db = null;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Создание / открытие БД и обработчки событий</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function dbCreate() {
+	// Создание базы данных
+	const request = <u-code>window.indexedDB.open</u-code>('dbName', 77); //create DB: name,version 
+
+    // Обработчик create
+	request.<u-code-accent>onupgradeneeded</u-code-accent> = function(event) {
+	    db = event.target.result;     // => IDBDatabase {name: "dbTest", version: 1 ...}
+	    //const name = db.name;         // => 'dbTest'
+	    //const version = db.version;   // => '1'
+	    const objectStore = <u-code>db.createObjectStore</u-code>('notes', { keyPath: 'title' });
+	};
+	request.<u-code-accent>onsuccess</u-code-accent> = function(event) {
+	    db = event.target.result; 
+	};
+	request.<u-code-accent>onerror</u-code-accent> = function(event) {
+	    console.error(event.target.error);
+	    console.error(event.target.errorCode);
+	};
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Добавление записи</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function dbInsert() {
+    const note = {
+        title: 'My note',
+        text: 'This is my note'
+    }
+    const tx = db.<u-code>transaction</u-code>('notes', 'readwrite');
+    const notes = tx.<u-code>objectStore</u-code>('notes');
+    notes.add(note);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Выборка всех записей</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function dbSelect() {
+    const tx = db.<u-code>transaction</u-code>('notes', 'readonly');
+    const notes = tx.<u-code>objectStore</u-code>('notes');
+    const request = notes.<u-code>openCursor</u-code>();
+    request.<u-code-accent>onsuccess</u-code-accent> = function(event) {
+        const cursor = event.target.result;
+        if (cursor) {
+            console.log(cursor.key);        // => 'My note'
+            console.log(cursor.value.text); // => 'This is my note'
+            cursor.<u-code>continue</u-code>();
+        }
+    };
+}
+</v-code>

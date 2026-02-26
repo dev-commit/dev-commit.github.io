@@ -1,0 +1,69 @@
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Подключение через NPM</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="bash" title="">
+npm i --save-dev vue-router 
+</v-code>
+
+<v-code lang="bash" title="">
+&#10006; public
+	&#8226; index.html
+&#10006; src
+	&#8226; App.vue
+	&#8226; main.js
+&#8226; package.json
+&#8226; vue.config.js
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>vue.config.js</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+module.exports = {
+    runtimeCompiler: true
+};
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>main.js</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import App from './App.vue'
+
+Vue.use(VueRouter)
+
+const Foo = { template: '&lt;div&gt;foo1&lt;/div&gt;' }
+const Bar = { template: '&lt;div&gt;bar2&lt;/div&gt;' }
+
+const routes = [
+    { path: '/foo', component: Foo },
+    { path: '/bar', component: Bar }
+]
+
+const router = new VueRouter({
+    mode: 'history',
+    routes 
+})
+
+new Vue({
+    el: '#app',
+    render: h => h(App),
+    router
+})
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>App.vue</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;template&gt;
+    &lt;div id="app"&gt;
+        &lt;router-link to="/foo"&gt;Перейти к Foo&lt;/router-link&gt;
+        &lt;router-link to="/bar"&gt;Перейти к Bar&lt;/router-link&gt;
+        &lt;router-view&gt;&lt;/router-view&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</v-code>

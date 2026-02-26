@@ -1,0 +1,162 @@
+<h2>Custom Properties</h2>
+
+<u-link-wrapper>
+    <a href="https://github.com/jhildenbiddle/css-vars-ponyfill" target="_blank">css-vars-ponyfill</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Определение переменных</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+:root {
+    --color: green;
+}
+body {
+    background-color: var(--color);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Привязка переменных</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+:root {
+    --a: var(--b);
+    --b: var(--c);
+    --c: red;
+}
+body {
+    background-color: var(--a);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Локальный fallback</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+:root {
+    --color: blue;
+}
+body {
+    background-color: var(--color, green);
+    font-size: var(--a, 1rem);
+    color: var(--b, var(--c, var(--d, red)));
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>4. Переменные в calc()</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+:root {
+    --a: 1em;
+    --b: 2;
+}
+body {
+    font-size: calc(var(--a) * var(--b));
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>5. Переопределение переменной в @media</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+:root {
+    --color: blue;
+}
+body {
+    background-color: var(--color);
+}
+@media (max-width: 700px) {
+    :root { --color: yellowgreen; }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>6. Переменные в SVG</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="html">
+&lt;svg height="100" width="100"&gt;
+    &lt;circle cx="50" cy="50" r="50" fill="var(--color)" /&gt;
+&lt;/svg&gt;
+</v-code>
+
+<v-code lang="css" title="css">
+:root {
+    --color: yellowgreen;
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>API CSS Style Declaration</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="css">
+:root {
+    --color: #ffeead;
+    --anotherColor: orange;
+}
+</v-code>
+
+<v-code lang="js" title="js">
+const root = document.querySelector(':root');
+
+const rootStyles = <u-code>getComputedStyle</u-code>(root);
+const color = rootStyles.<u-code>getPropertyValue</u-code>('--color'); // => '#ffeead'
+
+root.style.<u-code>setProperty</u-code>('--color', '#88d8b0');
+root.style.<u-code>setProperty</u-code>('--color', 'var(--anotherColor, blue)');
+root.style.<u-code>removeProperty</u-code>('--color');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Проверка поддержки переменных</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. CSS</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="css">
+@supports ( (--a: 0) ) {
+    /* стили с поддержкой переменных */
+}
+@supports ( not (--a: 0) ) {
+    /* стили без поддержки переменных */
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. JavaScript</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="js">
+if (window.CSS && window.CSS.supports && window.CSS.supports('--a', 0)) {
+    // сценарии с поддержкой переменных
+} else {
+    // сценарии без поддержки переменных
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ограничения переменных</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><b>Нельзя использовать:</b></li>
+    <ul class="list-point">
+        <li>В именах обычных свойств CSS: <u>var(--side): 10px</u></li>
+        <li>В значениях медиа-запросов: <u>@media screen and (min-width: var(--desktop)) {}</u></li>
+        <li>В подстановке URL: <u>url(var(--image))</u></li>
+    </ul>
+    <hr>
+    <li><b>Быть осторожным с вычислениями <u>calc()</u></b></li>
+    <ul class="list-point">
+        <li>Со сложными вычислениями</li>
+        <li>В Chrome с уможением/делением дробных значений</li>
+        <li>В Firefox с вычислениями внутри функции rgba()</li>
+    </ul>
+    <hr>
+    <li>Нельзя одномоментно сбрасывать значения всех переменных <u>--: initial</u></li>
+</ul>

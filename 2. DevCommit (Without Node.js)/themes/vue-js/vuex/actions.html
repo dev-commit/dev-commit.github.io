@@ -1,0 +1,109 @@
+<h2>Действия (actions)</h2>
+
+<ul class="list-point">
+	<li>Вместо того, чтобы напрямую менять состояние, действия инициируют мутации</li>
+	<li>Действия могут использоваться для асинхронных операций</li>
+	<li>mapActions создает локальные псевдонимы для действий в виде методов компонента</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Диспетчеризация действий</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+export const store = new Vuex.Store({
+    state: {
+        count: 0
+    },
+    mutations: {
+        changeCount(state, payload) {
+            state.count = payload.count;
+        }
+    },
+    <u-code>actions</u-code>: {
+        changeCount(context, payload) {
+            context.commit('changeCount', {count:payload.count});
+        }
+    }
+});
+</v-code>
+
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+	&lt;button @click="changeCount"&gt;ChangeState&lt;/button&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+import {store} from './vuex.js'
+
+export default {
+    methods: {
+        changeCount() {
+            store.dispatch('changeCount', {count: 77});
+        }
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>mapActions</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { mapActions } from 'vuex'
+
+export default {
+    methods: {
+        ...mapActions([
+            'changeCount'
+        ])
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>mapActions с нагрузкой</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+    &lt;button @click="changeCount(77)"&gt;ChangeState&lt;/button&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+store = new Vuex.Store({
+    actions: {
+        changeCount({ commit }, count) {
+            commit('changeCount', {count:count});
+        }
+    }
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вернуть значение из actions</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+store = new Vuex.Store({
+    actions: {
+    	addProductId({ commit }, id) {
+	        commit('addProductId', {count:id});
+	        return true;
+	    }
+    }
+});
+</v-code>
+
+<v-code lang="js" title="">
+export default {
+    methods: {
+		...mapActions([
+			'addProductId'
+		]),
+        chooseProduct(id) {
+            this.addProductId(id).then(response => {
+            	console.log(response);
+            });
+        }
+    }
+}
+</v-code>

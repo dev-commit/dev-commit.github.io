@@ -1,0 +1,37 @@
+<h2>Варианты CSS-in-JS</h2>
+
+<v-code lang="js" title="">
+import { grey } from '@material-ui/core/colors/';
+
+const MaterialStyles = ({
+    spacing,
+    typography: { fontSize }
+}) => ({
+    container: {
+        border: '2px solid blue',
+        minWidth: '100vw',
+        transform: 'translate(8px, 14px) scale(1)',
+        '& div': {
+            padding: spacing(),
+            backgroundColor: grey[500],
+        },
+        '&:hover': {
+            //
+        },
+        '& div.MuiBackdrop-root': {
+            //
+        },
+        '& .MuiPaper-root': {
+            //
+        },
+    },
+    '@media (max-width: 1130px) and (min-width: 600px)': {
+        //
+    },
+    '@supports (backdrop-filter: blur(5px))': {
+        //
+    }
+});
+
+export default MaterialStyles;
+</v-code>

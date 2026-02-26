@@ -1,0 +1,139 @@
+<h2>Хук состояния useState</h2>
+
+<v-code lang="js border" title="useState">
+import React, { useState } from 'react';
+
+const [show, setShow] = useState(false);
+setShow(true);
+</v-code>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useState" after="" arg="(startState)">
+    для использования внутреннего состояния в функциональном компоненте. React будет хранить это состояние между рендерами
+    </v-method>
+
+	<v-method-arg arg="startState">начальное состояние. Используется только при первом рендере</v-method-arg>
+
+	<v-method-return>[currentState, setStateFunction] - возвращает текущее значение состояния и функцию для его обновления</v-method-return>
+</div>
+
+<ul class="list-point">
+    <b>Отличия</b> <u-code-text>useState()</u-code-text> от  <u-code-text>this.setState</u-code-text>
+    <li>Не сливает новое и старое состояние вместе</li>
+    <li>Состояние может быть объектом</li>
+</ul>
+
+<v-code lang="js" title="Счетчик">
+import React, { <u-code>useState</u-code> } from 'react';
+
+function Example() {
+
+	// Объявляем новую переменную состояния "count"
+	// useState(0) - начальное состоние "0", так как счётчик начинается с нуля
+	<u-code>const [count, setCount] = useState(0);</u-code>
+
+	return (
+		&lt;div&gt;
+			&lt;p&gt;Вы нажали {count} раз&lt;/p&gt;
+			&lt;button onClick={() =&gt; <u-code>setCount</u-code>(count + 1)}&gt;
+				Нажми на меня
+			&lt;/button&gt;
+		&lt;/div&gt;
+	);
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объявление нескольких переменных состояния</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// Хук состояния можно использовать в компоненте более одного раза
+function ExampleWithManyStates() {
+	const [age, setAge] = <u-code>useState</u-code>(42);
+	const [fruit, setFruit] = <u-code>useState</u-code>('банан');
+	const [todos, setTodos] = <u-code>useState</u-code>([{ text: 'Изучить хуки' }]);
+}
+</v-code>
+
+<ul class="list-point">
+    <li>Синтаксис деструктуризации массивов позволяет нам по разному называть переменные состояния, которые мы объявляем при вызове <u-code-text>useState</u-code-text>. Так как имён этих переменных нет в <u-code-text>API useState</u-code-text>, React предполагает, что если вы вызываете <u-code-text>useState</u-code-text> много раз, вы делаете это в одинаковой последовательности при каждом рендере</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Передача функции в второй аргумент</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const [comments, setComments] = useState([]);
+setComments(a => {
+	// вернет текущее значение 'comments'
+	console.log(a);
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Переписывание на Хуки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="prevState;useState">
+<template v-slot:first>
+class MyComponent extends Component {
+	state = {
+		open: false,
+	}
+	handleOpenModal = () => {
+		this.setState(prevState => ({
+			open: !prevState.open,
+		}));
+	}
+}
+</template>
+<template v-slot:last>
+const MyComponent = () => {
+	const [open, setOpen] = useState(false);
+	const handleOpenModal = () => {
+		setOpen(!open);
+	}
+}
+</template>
+</v-two-code>
+
+<v-two-code type="js;js" comment="Callback;useState">
+<template v-slot:first>
+const foo = isContract => {
+	this.setState(() => ({
+		signed: isContract,
+	}), () => this.props.handleChange());
+};
+</template>
+<template v-slot:last>
+const foo = isContract => {
+	setSigned(isContract);
+	handleChange();
+}
+</template>
+</v-two-code>
+
+<v-two-code type="js;js" comment="Callback;useState, useEffect">
+<template v-slot:first>
+class MyComponent extends Component {
+	state = {
+		comment: null,
+	}
+	setCommentSubject = (fio) => {
+		this.state({ comment: fio }, () => {
+			this.setState({ comment: null });
+		})
+	}
+}
+</template>
+<template v-slot:last>
+const MyComponent = () => {
+	const [comment, setComment] = useState();
+	const setCommentSubject = (fio) => {
+		setComment(fio);
+	}
+	useEffect(() => {
+		comment && setComment(null);
+	}, [comment])
+}
+</template>
+</v-two-code>

@@ -1,0 +1,2873 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>🍕 Задачи</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Полифилы</div><a href="#main-new">🍪 <u-menu-unactive>new</u-menu-unactive></a><a href="#polyphyls-object-create">🍪 <u-menu-unactive>Object.create</u-menu-unactive></a><a href="#polyphyls-bind">🍪 <u-menu-unactive>bind()</u-menu-unactive></a><a href="#polyphyls-promise-all">🍪 <u-menu-unactive>Promise.all</u-menu-unactive></a><a href="#polyphyls-map">🍪 <u-menu-unactive>Array.prototype.map</u-menu-unactive></a><a href="#polyphyls-filter">🍪 <u-menu-unactive>Array.prototype.filter</u-menu-unactive></a><a href="#polyphyls-reduce">🍪 <u-menu-unactive>Array.prototype.reduce</u-menu-unactive></a><div class="theme">Алгоритмы</div><a href="#algoritms-compose">⚡️ <u-menu-unactive>Compose</u-menu-unactive></a><a href="#algoritms-memoization">⚡️ <u-menu-unactive>Memoization</u-menu-unactive></a><a href="#algoritms-duplicate">⚡️ <u-menu-unactive>Duplicate</u-menu-unactive></a><a href="#algoritms-shallow-equal">⚡️ <u-menu-unactive>Shallow Equal</u-menu-unactive></a><a href="#algoritms-event-emitter">⚡️ <u-menu-unactive>EventEmitter</u-menu-unactive></a><a href="#algoritms-anagram">⚡️ <u-menu-unactive>Анаграмма</u-menu-unactive></a><a href="#algoritms-palindrome">⚡️ <u-menu-unactive>Палиндром</u-menu-unactive></a><a href="#algoritms-closing-brackets">⚡️ <u-menu-unactive>Проверить закрывающиеся скобки</u-menu-unactive></a><a href="#algoritms-sum-sequence">⚡️ <u-menu-unactive>Сумма последовательности</u-menu-unactive></a><a href="#algoritms-sum-brackets">⚡️ <u-menu-unactive>Сумма скобок sum(1)(2)(3)</u-menu-unactive></a><a href="#algoritms-function-count">⚡️ <u-menu-unactive>Функция считает свои вызовы</u-menu-unactive></a><a href="#algoritms-promisification-function">⚡️ <u-menu-unactive>Промисификация функции</u-menu-unactive></a><a href="#algoritms-series">⚡️ <u-menu-unactive>Series</u-menu-unactive></a><a href="#algoritms-shop-queue">⚡️ <u-menu-unactive>Магазин с кассами</u-menu-unactive></a><div class="theme">Декораторы</div><a href="#decorators-debounce"><u-menu>debounce()</u-menu></a><a href="#decorators-once"><u-menu>once()</u-menu></a><a href="#decorators-after"><u-menu>after()</u-menu></a><a href="#decorators-throttle"><u-menu>throttle()</u-menu></a><a href="#decorators-partial"><u-menu>partial()</u-menu></a><a href="#decorators-pipe"><u-menu>pipe()</u-menu></a><div class="theme">Асинхронность</div><a href="#algoritms-retrier">⚡️ <u-menu-unactive>Retrier (запросы по URL)</u-menu-unactive></a><a href="#algoritms-promise-make-request">⚡️ <u-menu-unactive>Promise Make Concurrent Request</u-menu-unactive></a><a href="#algoritms-cancel-timeout">⚡️ <u-menu-unactive>setTimeout: отмена всех</u-menu-unactive></a><a href="#algoritms-settimeout-for-var">⚡️ <u-menu-unactive>setTimeout: в for без let</u-menu-unactive></a><div class="theme">Массивы</div><a href="#arrays-intersection-arrays">⚡️ <u-menu-unactive>Пересечение массивов</u-menu-unactive></a><a href="#arrays-flat-array">⚡️ <u-menu-unactive>Плоский массив</u-menu-unactive></a><a href="#arrays-max-array-element">⚡️ <u-menu-unactive>Максимальный элемент массива</u-menu-unactive></a><a href="#arrays-doit">⚡️ <u-menu-unactive>Двумерный массив сумм</u-menu-unactive></a><a href="#arrays-merge-sort">⚡️ <u-menu-unactive>MergeSort</u-menu-unactive></a><a href="#arrays-array-average-value">⚡️ <u-menu-unactive>Получить среднюю оценку</u-menu-unactive></a><div class="theme">Общие темы</div><a href="#custom-hoisting">🍕 <u-menu-unactive>Всплытие</u-menu-unactive></a><a href="#custom-closure">🍕 <u-menu-unactive>Замыкания</u-menu-unactive></a><a href="#custom-prototype">🍕 <u-menu-unactive>Прототипы</u-menu-unactive></a><a href="#custom-context">🍕 <u-menu-unactive>Контекст</u-menu-unactive></a><a href="#custom-event-loop">🍕 <u-menu-unactive>Event Loop</u-menu-unactive></a><a href="#custom-async">🍕 <u-menu-unactive>Асинхронность</u-menu-unactive></a><a href="#custom-promise">🍕 <u-menu-unactive>Promise</u-menu-unactive></a><a href="#custom-async-await">🍕 <u-menu-unactive>Async Await</u-menu-unactive></a><a href="#custom-currying">🍕 <u-menu-unactive>Каррирование</u-menu-unactive></a><a href="#custom-objects">🍕 <u-menu-unactive>Объекты</u-menu-unactive></a><a href="#custom-arrays">🍕 <u-menu-unactive>Массивы</u-menu-unactive></a><div class="theme">Прочее</div><a href="#other-undefined-check">⚡️ <u-menu-unactive>Проверка на "undefined"</u-menu-unactive></a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="main-new"><h2>Конструктор new</h2>
+
+<ul class="list-point">
+    <li><u-code-text>new</u-code-text> недоступно у стрелочной функции</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Полифил</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function Person(name) {
+	this.name = name;
+}
+
+function Foo(Constructor, ...props) {
+	// 1. Создаётся новый пустой объект через Object.create
+	// Устанавливает __proto__ этому объекту в которое записывается ссылка из <u>prototype</u>
+	const instance = Object.create(Constructor.prototype);
+
+	// 2. Модифицируется <u>this</u> (т.е. этот новый объект) и инициализируются методы и свойства
+	// Применяет функцию-класс к нашему новосозданному объекту
+	// instance.name = 'Tony';
+	Constructor.apply(instance, props);
+
+	// 3. Неявно возвращается <u>this</u> без вызова <u>return</u>
+	// Если в return объект, то вернется он
+	// return (typeof instance === 'object' && instance !== null) ? instance : {};
+	return instance instanceof Object ? instance : {};
+}
+
+const foo = Foo(Person, 'Tony');
+console.log(foo); // => Object { name: "Tony" }
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование new</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function Foo(name) {
+	this.name = name;
+}
+
+const foo = new Foo('Tony');
+console.log(foo); // => Object { name: "Tony" }
+</v-code>
+</div><div id="polyphyls-object-create"><h2>🔥 Полифил Object.create</h2>
+
+<ul class="list-point">
+    <li><u>Object.create</u> создаёт пустой объект с __proto__, равным первому аргументу</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Исходный Object.create()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const objFirst = {
+    name: 'Tony'
+};
+
+const objSecond = Object.create(objFirst); // => {} __proto__: name: "Tony"
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Запись в виде полифила</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="Через prototype">
+if (!Object.create) {
+    Object.create = function(proto) {
+        function F() {};
+        F.prototype = proto;
+        return new F;
+    }
+}
+</v-code>
+
+<v-code lang="js" title="Через setPrototypeOf">
+if (!Object.create) {
+    Object.create = function(proto) {
+        const newObject = {};
+        Object.setPrototypeOf(proto, newObject);
+        return newObject;
+    }
+}
+</v-code>
+
+<v-code lang="js" title="Через __proto__">
+if (!Object.create) {
+    Object.create = function(proto) {
+		const newObject = {};
+		newObject.__proto__ = proto;
+		return newObject;
+    }
+}
+</v-code>
+
+<v-code lang="js" title="">
+const o = Object.create(object);
+
+// Получить доступ к prototype
+o.__proto__
+Object.getPrototypeOf(o);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Запись в виде функции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const objFirst = {
+    name: 'Tony'
+};
+
+//if (!Object.create) Object.create = create; // проверка поддержки Object.create
+const objSecond = create(objFirst); // => {} __proto__: name: "Tony"
+
+function create(proto) {
+    // 1. Создана новая функция F. Она ничего не делает с this,
+    // так что если вызвать new F, то получим пустой объект
+    function F() {}
+
+    // 2. Свойство F.prototype устанавливается в будущий прототип proto
+    F.prototype = proto;
+
+    // 3. Результатом вызова new F будет пустой объект с __proto__ 
+    // равным значению F.prototype. Возвращаем объект
+    return new F(); 
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Множественное наследование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const objFirst= {
+    a: 1
+};
+const objSecond= {
+    p: {value: 20},
+    k: {value: 30}
+};
+
+function create(objFirst, objSecond) {
+    function F() {}
+    F.prototype = objFirst;
+
+    let myProto = new F();
+
+    for (key in objSecond) {
+        myProto[key] = objSecond[key].value;
+    }
+    return myProto;
+}
+
+const obj = create(objFirst, objSecond);
+</v-code>
+</div><div id="polyphyls-bind"><h2>🔥 Полифил bind()</h2>
+
+<ul class="list-point">
+    <li><u>bind()</u> - создаёт новую функцию, которая при вызове устанавливает предоставленное значение в качестве контекста выполнения this. Возвращает «обёртку», которая передаст вызов в исходную функцию, с привязанным контекстом</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Исходный bind()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function foo(a, b) {
+	console.log(a, b, this.name);
+}
+
+const bar = foo.bind({ name: 'Tony' }, 2, 3);
+const result = bar(2, 3); // => 2 3 "Tony" 
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Полифил</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="Реализация">
+function bind(callback, context) {
+    return function() {
+        return callback.apply(context, arguments);
+    }
+}
+</v-code>
+
+<v-code lang="js" title="Исходный код">
+function foo(a, b) {
+	console.log(a, b, this.name);
+}
+
+const bar = bind(foo, { name: 'Tony' });
+const result = bar(2, 3); // => 2 3 "Tony"
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>👿 Усложненный вариант</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Function.prototype.bind = function (context) {
+	var fun = this;
+	var arg1 = Array.prototype.slice.call(arguments, 1);
+	return function () {
+		var arg2 = Array.prototype.slice.call(arguments);
+		return fun.call(context, arg1.concat(arg2))
+	}
+}
+</v-code>
+
+<v-code lang="js" title="">
+Function.prototype.bind = function (context) {
+	var arg1 = Array.prototype.slice.call(arguments, 1);
+	var fun = this;
+
+	return function () {
+		var arg2 = Array.prototype.slice.call(arguments);
+		return fun.apply(context, arg1.concat(arg2))
+	}
+}
+</v-code>
+</div><div id="polyphyls-promise-all"><h2>👿 Полифил Promise.all</h2>
+
+<v-code lang="js" title="">
+Promise.all = function (promises) {
+	var res = [];
+	var count = 1;
+
+	return new Promise (function (resolve, reject) {
+		for (var i = 0; i < promises.length; i++) {
+			promises[i].then(function (index, response) {
+				res[index] = response;
+				if (count === promises.length) {
+					resolve(res)
+				}
+				count++;
+			}.bind(null, i), function (error) {
+				resolve(error)
+			})   
+		}
+	})
+}
+</v-code>
+</div><div id="polyphyls-map"><h2>Array.prototype.map</h2>
+
+<ul class="list-point">
+    <li>Метод map создает новый массив с результатом вызова указанной функции для каждого элемента массива</li>
+</ul>
+
+<v-code lang="js" title="">
+function map(arr, mapCallback) {
+    // проверяем переданные параметры
+    if (!Array.isArray(arr) || !arr.length || typeof mapCallback !== 'function') {
+        return []
+    } else {
+        let result = []
+        // мы создаем массив с результатами при каждом вызове функции
+        // поскольку мы не хотим менять оригинальный массив
+        for (let i = 0, len = arr.length; i < len; i++) {
+            result.push(mapCallback(arr[i], i, arr))
+            // помещаем результаты mapCallback в result
+        }
+        return result
+    }
+}
+</v-code>
+</div><div id="polyphyls-filter"><h2>Array.prototype.filter</h2>
+
+<ul class="list-point">
+    <li>Метод filter создает новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции</li>
+</ul>
+
+<v-code lang="js" title="">
+function filter(arr, filterCallback) {
+    // проверяем передаваемые параметры
+    if (!Array.isArray(arr) || !arr.length || typeof filterCallback !== 'function') {
+        return []
+    } else {
+        let result = []
+        // ...
+        for (let i = 0, len = arr.length; i < len; i++) {
+            // определяем соответствие возвращаемого результата заданному условию
+            if (filterCallback(arr[i], i, arr)) {
+                // помещаем значение, прошедшее фильтр, в result
+                result.push(arr[i])
+            }
+        }
+        return result
+    }
+}
+</v-code>
+</div><div id="polyphyls-reduce"><h2>Array.prototype.reduce</h2>
+
+<ul class="list-point">
+    <li>Метод reduce применяет функцию reducer к каждому элементу массива (слева-направо), возвращая одно результирующее значение</li>
+</ul>
+
+<v-code lang="js" title="">
+function reduce(arr, reduceCallbak, initialValue) {
+    // ..
+    if (!Array.isArray(arr) || !arr.length || typeof filterCallback !== 'function') {
+        return []
+    } else {
+        // если в функцию не было передано значения initialValue, то
+        let hasInitialValue = initialValue !== undefined
+        let value = hasInitialValue ? initialValue : arr[0]
+        // мы будем использовать первый элемент initialValue
+
+        // затем мы перебираем массив, начиная с 1, если в функцию не передавалось значения initialValue, либо с 0, если значение было передано
+        for (let i = hasInitialValue ? 0 : 1, len = arr.length; i < len; i++) {
+            // затем на каждой итерации мы присваиваем результат вызова reduceCallback переменной
+            value = reduceCallback(value, arr[i], i, arr)
+        }
+        return value
+    }
+}
+</v-code>
+</div><div id="algoritms-compose"><h2>compose</h2>
+
+<ul class="list-point">
+	<b>Задание:</b>
+    <li>Написать функцию compose, add, mul</li>
+    <li>add и mul - каррированные функции (только на 2 вызова)</li>
+    <li>Функция compose принимает неограниченное кол-во функций и применяет эти функции в обратном порядке</li>
+</ul>
+
+<v-code lang="js" title="Дано">
+const composed = compose(mul(2), add(5), add(2));
+console.log(composed(3)); // 20 
+console.log([1, 2, 6].map(composed)); // [16, 18, 26]
+</v-code>
+
+<v-code lang="js" title="Решение">
+function compose(...rest) {  
+	return function(count) {
+		return rest.reduceRight((prevValue, currentValue) => {
+			return currentValue(prevValue);
+		}, count);
+	}
+}
+function add(count1) {
+	return function(count2) {
+		return count1 + count2;
+	}
+}
+function mul(count1) {
+	return function(count2) {
+		return count1 * count2;
+	}
+}
+</v-code>
+</div><div id="algoritms-memoization"><h2>Мемоизация</h2>
+
+<v-code lang="js" title="">
+var add = (a, b) => a + b;
+
+var memoAdd = memo(add);
+console.log(memoAdd(2, 3)); // 5
+console.log(memoAdd(2, 2)); // 4
+console.log(memoAdd(2, 2)); // 4, console.log('returned cached value');
+
+function memo(add) {
+	var data = {};
+
+	return function(...arg) {
+		const key = JSON.stringify(arg);
+
+		if (data[key]) {
+			console.log('returned cached value');
+		} else {
+			data[key] = add.apply(null, arg);
+		}
+
+		return data[key];
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Мемоизация с 1 аргументом</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function memoize(fn){
+    const cache = {}
+    return function(param){
+        if(cache[param]){
+            console.log('cached')
+            return cache[param]
+        } else{
+            let result = fn(param)
+            cache[param] = result
+            console.log('not cached')
+            return result
+        }
+    }
+}
+
+const toUpper = (str = '') => str.toUpperCase()
+
+const toUpperMemoized = memoize(toUpper)
+
+toUpperMemoized('abcdef')
+toUpperMemoized('abcdef') // не выполнится
+</v-code>
+</div><div id="algoritms-duplicate"><h2>Duplicate</h2>
+
+<v-code lang="js" title="">
+console.log([1, 2, 3, 4].duplicate()) // [1, 2, 3, 4, 1, 2, 3, 4]
+Array.prototype.duplicate = function() {
+    return this.concat(this);
+}
+
+console.log([1, 2, 3, 4].duplicate()) // [1, 2, 3, 4, 1, 2, 3, 4]
+Array.prototype.duplicate = function() {
+    return [...this, ...this];
+}
+</v-code>
+
+<h2>reduceRight и создание объекта</h2>
+
+<ul class="list-point">
+    <li>Реализовать функцию, принимающую строку “a.b.c.d” и возвращающая объект со свойством объектом - a, со свойством объектом - b, со свойством объектом - с, со свойством d, равным null. Можно передать любую строку в указанном формате х.х.х.х.х.х…, и получить объект с вложенными объектами и завершающим null</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>reduceRight</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function parse(str) {
+    let arr = str.split('.');
+    let obj = arr.reduceRight(function(result, current){
+        return {
+            [current]: result
+        }
+    }, null);
+    return obj;
+}
+parse('a.b.c.d');
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>reduce</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function parse(str) {
+    let arr = str.split('.').reverse();
+    let obj = arr.reduce(function(result, current){
+        return {
+            [current]: result
+        }
+    }, null);
+    return obj;
+}
+parse('a.b.c.d');
+</v-code>
+</div><div id="algoritms-shallow-equal"><h2>Shallow Equal</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Поверхностное сравнение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const obj1 = {
+	name: 'MyName'
+}
+const obj2 = {
+	name: 'MyName',
+	'asas': 'asass'
+}
+
+function shallowEqual (obj1, obj2) {
+	if (obj1 === obj2){
+		return true;
+	}
+
+	var keys1 = Object.keys(obja);
+	var keys2 = Object.keys(obj2);
+
+	if (keys1.length !== keys2.length) {
+		return false
+	}
+
+	for (let key in obj1) {
+		if (obj1[key] !== obj2[key]) {
+			return false;
+		}
+  	}
+
+	return true;
+}
+
+shallowEqual(obj1, obj2);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Глубокое сравнение (недоделано)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const obj1 = {
+	a: 23,
+	b: { g: 34, c: 235 }
+}
+const obj2 = {
+	a: 23,
+	b: { g: 34, c: 235 }
+}
+
+function shallowEqual (obj1, obj2) {
+	let res = true;
+	function check(obj1, obj2) {
+		console.log(obj1, obj2);
+		for (let key in obj1) {
+			if (obj1[key] !== obj2[key]) {
+				if(typeof obj1[key] === 'object' && typeof obj2[key] === 'object') {
+					check(obj1[key], obj2[key]);
+				} else {
+					res = false;
+				}
+			}
+		}
+	}
+
+	check(obj1, obj2);
+	return res;
+}
+
+console.log(shallowEqual(obj1, obj2));
+</v-code>
+</div><div id="algoritms-event-emitter"><h2>👿 EventEmitter</h2>
+
+<!------------------------------------------------------------->
+<h4>Мой вариант</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const ee = {
+    listeners = Object.create({});
+    on(event, hundler) {
+        if (event in this.listeners) {
+            this.listeners[event] = [...this.listeners[event], hundler]; 
+        } else {
+            this.listeners[event] = [hundler]; 
+        }
+
+    }
+    emit(event) {
+        if (this.listeners[event] && this.listeners.hasOwnProperties(event)) { //
+            this.listeners[event].forEach(hundler => {
+                hundler();
+            })
+        }
+    }
+}
+
+ee.on('myEvent', () => console.log("hello"))
+ee.on('myEvent', () => console.log("hello 2"))
+ee.emit('myEvent',) // hello hello 2
+ee.emit('myEvent') // hello hello 2
+
+ee.emit('blabla')
+ee.emit('toString')
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вариант из системы</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const EventEmitter {
+    events: {},
+
+    on(event, listener) {
+        if (!this.events[event]) {
+            this.events[event] = { listeners: [] };
+        }
+        this.events[event].listeners.push(listener);
+    },
+
+    off(event) {
+        delete this.events[event];
+    },
+
+    emit(name, ...payload) {
+        const listeners = this.events[name].listeners ? this.events[name].listeners : [];
+
+        for (const listener of listeners) {
+            listener.apply(this, payload);
+        }
+    },
+};
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function EventEmitter() {
+	this.listeners = Object.create(null);
+}
+
+EventEmitter.prototype.emit = function(event) {
+	if (this.listeners[event]) {
+		for (let i=0; i < this.listeners[event].length; i++) {
+			this.listeners[event][i]();	
+		}
+	}
+}
+
+EventEmitter.prototype.addEventListener = function(event, hundler) {
+	this.listeners[event] = this.listeners[event] ? [...this.listeners[event], hundler] : [hundler];
+}
+
+EventEmitter.prototype.removeEventListener = function(event, hundler) {
+	if (this.listeners[event]) {
+		delete this.listeners[event];
+	}
+}
+
+const emitter = new EventEmitter();
+emitter.emit('zzz');
+emitter.addEventListener('click', () => {});
+
+// .emit('zzz');
+// .addEventListener('zzz', listener);
+// .removeEventListener('zzz', listener);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#2</h4>
+<!------------------------------------------------------------->
+<!-- Гришанович -->
+
+<v-code lang="js" title="">
+class EventEmitter {
+    on(type: string, listener: Function)
+    off(type: string, listener: Function)
+    emit(type: string)
+    constuctor() {
+        this.events = Object.create(null)
+    }
+    
+     on(type, listener) {
+        if(!this.event[type]]) {
+            this.events[type] = [];
+        }
+        this[events].push(listener);
+    }
+     off(type, listener) {
+        this.events[type] = this.events[type].filter(item => item !== listener); 
+    }
+    
+    emit(type) {
+        if(!this.events[type]) return;
+        for(let func of this.events[type]) {
+            func();
+        }
+    }
+}
+
+e.emit('toString');
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#3</h4>
+<!------------------------------------------------------------->
+<!-- Кара -->
+
+<v-code lang="js" title="">
+class EventEmitter {
+    constructor() {
+        this.map = Object.create(null);
+    }
+
+    on(event, fn) {
+        if (typeof tn === 'function') {
+            this.map[event] ? this.map[event].push(fn) : this.map[event] = [fn];
+        } else {
+            console.log('Нужно больше функций');
+        }
+    }
+
+    emit(event) {
+        if (this.map[event]) {
+            this.map[event].forEach(fn => fn())
+        }
+    }
+}
+
+const eventEmitter = new EventEmitter();
+
+eventEmitter.on('someEvent', () => console.log('abc'));
+eventEmitter.on('someEvent', () => console.log('def'));
+eventEmitter.on('someEvent', 'Hello');
+
+eventEmitter.emit('toString');
+eventEmitter.emit('someEvent'); // abc, def
+eventEmitter.emit('no-event');
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#4</h4>
+<!------------------------------------------------------------->
+<!-- Матвеев -->
+
+<v-code lang="js" title="">
+function Emitter() {
+    this.listeners = Object.create(null);
+}
+
+Emitter.prototype.on = function(event, cb) {
+    if (typeof cb !== 'function') {
+        return;
+    }
+    if (!this.listeners[event]) {
+        this.listeners[event] = [];
+    }
+    this.listeners[event].push(cb);
+}
+Emitter.prototype.emit = function(event, ...rest) {
+    if (!this.listeners[event]) {
+        return;
+    }
+    for(let func of this.listeners[event]) {
+        func(...rest);
+    }
+}
+
+const a = new Emitter();
+</v-code>
+
+</div><div id="algoritms-anagram"><h2>Анаграмма</h2>
+
+<ul class="list-point">
+    <li><u>Анаграмма</u> - перестановка букв или звуков определённого слова, что в результате даёт другое слово или словосочетание</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Постановка задачи</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var input = [
+   "вертикаль", "кильватер", "апельсин", "спаниель", "австралопитек",
+   "ватерполистка", "кластер", "сталкер", "стрелка"
+];
+
+// Результат:
+[
+   ["вертикаль", "кильватер"],
+   ["апельсин", "спаниель"],
+   ["австралопитек", "ватерполистка"],
+   ["кластер", "сталкер", "стрелка"]
+]
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Решение 1</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Хэшом может выступать объект, его ключи</li>
+    <li>Есть цикл, в котором формируется hash (сплит в массив, сортировка, собрать) - отсортированная строка</li>
+    <li>Если отсортированная строка есть в объекте, то создаем новый массив</li>
+    <li>Если она не существует, тогда пушим под готовый ключ</li>
+    <li>Таким образом формируется приведенная в задании структура</li>
+    <li>Вывод объекта в массиве</li>
+</ul>
+
+<v-code lang="js" title="">
+(function findAnagram(arr) {
+    var output = {},
+        i = 0,
+        length = arr.length,
+        hash;
+
+    for (i = 0; i < length; i++) {
+        hash = arr[i].split('').sort().join('');
+
+        if (!output[hash]) {
+            output[hash] = [];
+        }
+        output[hash].push(arr[i]);
+    }
+
+    arr = [];
+
+    for (key in output) {
+        if (obj[key].length > 1) {
+            arr.push(output[key]);
+        }
+    }
+
+    return arr;
+})(input);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Решение 2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const findAnagramms = (arr) => Object.values(
+	arr.reduce((a, b) => {
+		let key = b.split('').sort().join('');
+		a[key] = [...a[key] || '', b];
+		return a
+	}, {})
+)
+</v-code>
+</div><div id="algoritms-palindrome"><h2>Палиндром</h2>
+
+<ul class="list-point">
+    <li><u>Палиндром</u> - число, буквосочетание, слово или текст, одинаково читающееся в обоих направлениях</li>
+</ul>
+
+<v-code lang="js" title="">
+function isPalindrom(str) {
+	const length = Math.round(str.length / 2);
+	
+	for(let i = 0; i < length; i++) {
+		if (str[i] !== str[str.length - i - 1]) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+console.log(isPalindrom('ротор'));  // true
+console.log(isPalindrom('ротор1')); // false
+</v-code>
+</div><div id="algoritms-closing-brackets"><h2>Проверить закрывающиеся скобки</h2>
+
+<ul class="list-point">
+    <li>Напишите функцию тестирующую правильность вложенных скобок трех типов(кроме нижеперчисленных символов других в строке нет) - '(' и ')', '[' и ']', '<' и '>':</li>
+</ul>
+
+<v-code lang="js" title="">
+test('[]()&lt;&gt;') // =&gt; true
+test('[]()&lt;)') // =&gt; false
+test('[(&lt;&gt;)]') // =&gt; true
+test('[(&lt;&gt;])') // =&gt; false
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#1</h4>
+<!------------------------------------------------------------->
+
+<v-code lang="js" title="">
+function test (str) {
+    var strArr = str.split('');
+    var stack = [];
+    var check = {
+        ']': '[',
+        ')': '(',
+        '>': '<'
+    };
+
+    strArr.forEach(function (bracket) {
+        if ((stack.length === 0) || !check[bracket] ) {
+            stack.push(bracket);
+        } else {
+            var lastElmInStack = stack[stack.length - 1];
+            if (lastElmInStack === check[bracket]) {
+                stack.pop();
+            }
+        }
+    });
+
+  return !stack.length;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Один вид скобок (простое решение)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function checkBrackets(brackets) {
+    let count = 0;
+
+    for(let i = 0; i < brackets.length; i++) {
+        if(brackets[i] === '(') {
+            count++;
+        } 
+        if (brackets[i] === ')') {
+            count--;
+        }
+        if (count < 0) {
+            return false;
+        }
+    }
+    return count === 0;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Один вид скобок (мой вариант)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const checkValidBrackets = expression => {
+    const strArr = expression.split('');
+    const stack = [];
+    const check = {
+        '(': ')'
+    }
+
+    strArr.forEach(bracket => {
+        if (bracket === ')' || bracket === '(') {
+            if (stack.length === 0 && bracket === ')') {
+                return false;
+            }
+
+            if (check[bracket]) {
+                stack.push(bracket);
+            } else {
+                stack.pop();
+            }
+        }
+    });
+
+    return !stack.length;
+}
+
+[
+    '()',
+    ') ()',
+    '( )(',
+    '(( )',
+    '(2 9))',
+    '(())',
+    '()()'
+].map(checkValidBrackets);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#2 Недоделанный вариант</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function test(string) {
+    let array = [];
+    
+	// некорректно указывать нулевой элемент
+    if (string[0] === ')') {
+        return false;
+    }
+    
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] === '(' || array.length === 0) {
+            array.push(string[i])
+        } else {
+            array.pop();
+        }
+    }
+    
+    return !array.length
+}
+
+test('()()()');          // => true
+test('((()))');          // => true
+test('(()))))))))))))'); // => false
+test(')()))');           // => false
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#3</h4>
+<!------------------------------------------------------------->
+<!-- Кара -->
+
+<v-code lang="js" title="">
+const checkValidBrackets = expression => {
+    let stack = [];
+    let map = {
+        '(': ')'
+    }
+
+    for (let i = 0; i < expression.length; i++) {
+        if (Object.keys(map).some(key => key === expression[i])) {
+            stack.push(expression[i]);
+        } else {
+            if (!Object.keys(map).some(key => key === expression[i] || map[key] === expression[i])) {
+                continue;
+            }
+            if (map[stack.pop()] !== expression[i]) {
+                return false;
+            }
+        }
+    }
+
+    return stack.length === 0;
+}
+</v-code>
+
+
+</div><div id="algoritms-sum-sequence"><h2>Сумма последовательности</h2>
+
+<v-code lang="js" title="">
+console.log(sumSequence(1, 3)); // 1 + 2 + 3 = 6
+console.log(sumSequence(2, 3)); // 2 + 3 = 5
+console.log(sumSequence(2, 2)); // 2 = 2
+console.log(sumSequence(1, 2)); // 1 + 2 = 3
+
+function sumSequence(start, end) {
+	if (start === end) {
+		return end;
+	} else {
+		return end + sumSequence(start, end - 1);
+	}
+}
+</v-code></div><div id="algoritms-sum-brackets"><h2>Сумма произвольного количества скобок</h2>
+
+<!------------------------------------------------------------->
+<h4>#1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function sum() {
+    let total = 0;
+    let f = function (val) {
+        if (typeof val === "undefined") {
+            return total;
+        }
+        total += val;
+        return f
+    }
+    return f.apply(null, arguments)
+}
+
+console.log(sum() === 0);
+console.log(sum(1)(2)(3)() === 6);
+console.log(sum(10)(5)(5)(80)() === 100);
+console.log(typeof sum(100) === "function");
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#2 Learn.Javascript.Ru</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function sum(a) {
+	var currentSum = a;
+	function f(b) {
+		currentSum += b;
+		return f;
+	}
+	f.toString = function() {
+		return currentSum;
+	};
+	return f;
+}
+
+console.log(sum(1)(2));             // 3
+console.log(sum(5)(-1)(2));         // 6
+console.log(sum(6)(-1)(-2)(-3));    // 0
+console.log(sum(0)(1)(2)(3)(4)(5)); // 15
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#3 Фиксированное окончание пустым значением</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+console.log(sum(1)(2)(3)()); // 6
+function sum(arg) {
+    let result = arg;
+    let f = function(value) {
+        if(value === indefined) {
+            return result;
+        }
+        result += value;
+        return f;
+    }
+    return f;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#4 Добавление числа</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+console.log(sum(1)(2)(3) + 5); // 11
+
+function sum(arg) {
+    let result = arg;
+    let f = function(value) {
+
+        if(value === indefined) {
+            return result;
+        }
+        result += value;
+        return f;
+    }
+
+    f.toString = function() {
+        return result;
+    }
+    return f;
+}
+</v-code>
+
+<v-code lang="js" title="">
+// разбор
+// let a = sum(1);
+// let a1 = a(2);
+// let a2 = a1(3);
+// let result = 6;
+// a2 = function(value) {
+//         if(value === indefined) {
+//             return result;
+//         }
+//         result += value;
+//         return f;
+//     }
+// a2.valueOf() + 5
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#5</h4>
+<!------------------------------------------------------------->
+<!-- Матвеев -->
+
+<v-code lang="js" title="">
+function sum(num) {
+    let result = num || 0;
+
+    function sum2(n) {
+        if (typeof n === 'undefined') {
+            return result;
+        }
+        result += n;
+        return sum2;
+    }
+
+    sum2.toString = () => result;
+}
+
+console.log(sum(1)(2)(3)); // 6
+</v-code>
+</div><div id="algoritms-function-count"><h2>Функция, считающая кол-во своих вызовов</h2>
+
+<v-code lang="js" title="">
+const func = function() {
+	func.counter = func.counter || 0;
+	return ++func.counter;
+};
+
+console.log(func()); // 1
+console.log(func()); // 2
+console.log(func()); // 3
+</v-code>
+</div><div id="algoritms-promisification-function"><h2>Промисификация функции</h2>
+
+<v-code lang="js" title="">
+const loadFile = (src, callback) => {
+	try {
+		callback(null, 'result')
+	} catch (e) {
+		callback(new Error(e))
+	}
+}
+
+const loadFilePromise = (src) => {
+	return new Promise((res, rej) => {
+		loadFile(src, (err, result) => {
+			if (err) rej(err)
+			res(result)
+		})
+	})
+}
+</v-code>
+</div><div id="algoritms-series"><h2>👿 Series</h2>
+
+<ul class="list-point">
+	<b>Реализовать функию Series, которая принимает:</b>
+    <li>1 - массив функций (в функции определенный интерфейс: аргумент и колбэк)</li>
+    <li>2 - начальное значение</li>
+    <li>3 - финальный колбэк</li>
+    <li>Должен вызваться foo - асинхронная функция, которая дергает слой колбэков, переданных вторым аргументом и после манипялции с аргументами возвращает новый результат</li>
+</ul>
+
+<v-code lang="js" title="">
+function foo(x, cb) {
+	setTimeout(() => cb(x+1), 10);
+}
+function bar(x, cb) {
+	setTimeout(() => cb(x*3), 10);
+}
+series([foo, bar], 4, (result) => {
+	console.log(result);
+	// (4 + 1) * 3
+})
+</v-code>
+
+<v-code lang="js" title="">
+async function series(funcs, x, cb) {
+	for (let fun of funcs) {
+		let promise = new Promise(resolve => fun(x, resolve));
+		x = await promise;
+	}
+	cb(x);
+};
+</v-code>
+
+</div><div id="algoritms-shop-queue"><h2>👿 Магазин с кассами</h2>
+
+<!------------------------------------------------------------->
+<h4>Постановка задачи</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Магазин в котором N касс</li>
+    <li>Одна очередь, люди расходятся по нескольким разным кассам (базовый случай)</li>
+    <li>Написать функцию, которая принимает на вход массив времен и возвращет число через которое все люди будут обслужены</li>
+</ul>
+
+<v-code lang="js" title="">
+function calculateTime(times) {}
+calculateTime([10, 4, 5], 2);
+
+// Первый человек проводит у кассы 10 минут
+// Второй 4 минуты
+// Третий 5 минут
+// Кол-во касс: 2
+</v-code>
+
+
+<!------------------------------------------------------------->
+<h4>Решение 1 (не доделано)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+console.log(getTime([1, 2, 3, 4, 5]));
+
+function getTime(times) {
+    let queue = [times[0], times[1], times[2]];
+
+    for (let i = 3; i <= times.length; i++) {
+        const min = Math.min.apply(null, queue);
+        const pos = queue.indexOf(min);
+        queue[pos] += times[i];
+    }
+  
+    console.log(queue);
+
+    const max = Math.max.apply(null, queue);
+
+    return max;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Решение 2 (не сделано)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function calculateTime(times, N) {
+    let firstQueue = 0;
+	let secondQueue = 0;
+
+    for (let i = 0; i < times.length; i++) {
+        if (firstQueue > secondQueue) {
+            secondQueue += times[i];
+        } else {
+            firstQueue += times[i];
+        }
+    }
+    
+    for(...) {}
+    
+    return firstQueue > secondQueue ? firstQueue : secondQueue;
+}
+
+calculateTime([10, 3, 5, 7, 11, 6, 1], 2)
+</v-code>
+</div><div id="decorators-debounce"><h2>debounce()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="debounce" after="" arg="(fn, wait)">
+    создает вариант функции, которая выполняет оригинальную функцию спустя wait миллисекунд после предыдующего вызова декорированной функции
+    </v-method>
+
+	<v-method-arg arg="fn">функция, которую необходимо выполнить</v-method-arg>
+	<v-method-arg arg="wait">время, через которое необходимо выполнить функцию</v-method-arg>
+</div>
+
+<ul class="list-point">
+    <li>Паттерн также применяется в работе с повторяющимися событиями. Он полезен, если функциональность должна быть выполнена по завершению очереди событий</li>
+    <li>Функция <u>debounce()</u> часто используется вместе с событиями <u>scroll</u>, <u>resize</u>, <u>mousemove</u> и <u>keypress</u></li>
+</ul>
+
+<v-code lang="js" title="">
+function debounce(fn, interval) {
+    let timer;
+    return function debounced() {
+        clearTimeout(timer);
+        let args = arguments;
+        let that = this;
+        timer = setTimeout(function callOriginalFn() {
+             fn.apply(that, args);
+        }, interval);
+    };
+}
+
+let delayProcess = debounce(process, 400);
+$(window).resize(delayProcess);
+</v-code>
+</div><div id="decorators-once"><h2>once()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="once" after="" arg="(fn)">
+	Создает экземпляр функции, которая должна быть выполнена только один раз
+    </v-method>
+
+	<v-method-arg arg="fn">функция, которую необходимо выполнить</v-method-arg>
+</div>
+
+<ul class="list-point">
+    <li>Паттерн может быть использован, например, для инициализации, когда нужно быть уверенным в единичном запуске функциональности, даже если сама функция вызвана в нескольких местах</li>
+    <li>this</li>
+</ul>
+
+<v-code lang="js" title="">
+function once(fn){
+	let returnValue;
+	let canRun = true;
+	return function runOnce(){
+		if(canRun) {
+			returnValue = fn.apply(this, arguments);
+			canRun = false;
+		}
+		return returnValue;
+	}
+}
+
+let processonce = once(process);
+processonce(); // process
+processonce(); //
+</v-code>
+
+<ul class="list-point">
+    <li>Функция <u>once()</u> возвращает другую функцию - <u>runOnce()</u>, использующую замыкание</li>
+    <li>Вызов оригинальной функции осуществляется через передачу <u>this</u> и <u>arguments</u> в метод <u>apply:</u> <u-code-text>fn.apply(this, arguments)</u-code-text></li>
+</ul>
+
+
+
+</div><div id="decorators-after"><h2>after()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="after" after="" arg="(count, fn)">
+	создает вариант функции, которая будет выполнена только после определенного количества вызовов
+    </v-method>
+
+	<v-method-arg arg="count">кол-во вызовов, после которых будет выполнена функиция</v-method-arg>
+	<v-method-arg arg="fn">функция, которую необходимо выполнить</v-method-arg>
+</div>
+
+<ul class="list-point">
+    <li>Функция полезна, например, если должна быть выполнена только по завершению асинхронных операций</li>
+</ul>
+
+<v-code lang="js" title="">
+function after(count, fn) {
+   let runCount = 0;
+   return function runAfter() {
+      runCount = runCount + 1;
+      if (runCount >= count) {
+         return fn.apply(this, arguments);        
+      }
+   }
+}
+
+function logResult() { console.log("calls have finished"); }
+
+<u-code>let logResultAfter2Calls = after(2, logResult);</u-code>
+
+setTimeout(function logFirstCall() { 
+      console.log("1st call has finished"); 
+      <u-code>logResultAfter2Calls();</u-code>
+}, 3000);
+
+setTimeout(function logSecondCall() { 
+      console.log("2nd call has finished"); 
+      <u-code>logResultAfter2Calls();</u-code>
+}, 4000);
+</v-code>
+
+<ul class="list-point">
+    <li>При помощи <u-code-text>after()</u-code-text> создается функция <u-code-text>logResultAfter2Calls()</u-code-text>. Она в свою очередь выполняет <u-code-text>logResult()</u-code-text> только после второго вызова</li>
+</ul>
+</div><div id="decorators-throttle"><h2>throttle()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="throttle" after="" arg="(fn, wait)">
+	Создает вариант функции, которая при повторяющихся вызовах выполняется через указанный временной интервал (аргумент wait)
+    </v-method>
+
+	<v-method-arg arg="fn">функция, которую необходимо выполнить</v-method-arg>
+	<v-method-arg arg="wait">интервал времени</v-method-arg>
+</div>
+
+<ul class="list-point">
+    <li>Декоратор эффективен для обработки быстро повторяющихся событий</li>
+</ul>
+
+<v-code lang="js" title="">
+function throttle(fn, interval) {
+    let lastTime;
+    return function throttled() {
+        let timeSinceLastExecution = Date.now() - lastTime;
+        if(!lastTime || (timeSinceLastExecution >= interval)) {
+            fn.apply(this, arguments);
+            lastTime = Date.now();
+        }
+    };
+}
+
+let throttledProcess = throttle(process, 1000);
+$(window).mousemove(throttledProcess);
+</v-code>
+
+<ul class="list-point">
+    <li>Здесь движение мыши генерирует множество событий <u>mousemove</u>, тогда как оригинальная функция <u-code-text>process()</u-code-text> вызывается лишь раз в секунду</li>
+</ul>
+</div><div id="decorators-partial"><h2>partial</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Частичное применение</u-text-define> - преобразует функцию за счет изменения количества параметров. Это один из примеров движения от общего к частному</li>
+</ul>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="partial" after="" arg="()">
+    Метод, доступный для всех функций
+    </v-method>
+</div>
+
+<v-code lang="js" title="">
+Function.prototype.partial = function(...leftArguments){
+    let fn = this;
+    return function partialFn(...rightArguments){
+       let args = leftArguments.concat(rightArguments);
+       return fn.apply(this, args);
+    }
+}
+
+function log(level, message){
+    console.log(level  + " : " + message);
+}
+<u-code-wrapper>
+let logInfo = log.partial("Info");
+logInfo("here is a message");
+</u-code-wrapper>
+</v-code>
+
+<ul class="list-point">
+    <li>Созданная таким образом <u-code-text>logInfo()</u-code-text> использует лишь один аргумент <u>message</u></li>
+</ul>
+</div><div id="decorators-pipe"><h2>pipe</h2>
+
+<!------------------------------------------------------------->
+<h4>Реализация из статьи</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function pipe(){
+	var args = Array.from(arguments);
+	var result = args.shift();
+
+	while(args.length) {
+		var f = args.shift();
+		result = f(result);
+	}
+	return result;
+}
+
+pipe(
+	textFromFile,
+	trim,
+	sanitize,
+	parse,
+	extractData,
+	send
+);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Реализовать pipe (не доделано)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+reverse(get6Characters(uppercase(getName({ name: 'Buckethead' }))));
+
+pipe(
+	getName,
+	uppercase,
+	get6Characters,
+	reverse
+)({ name: 'Buckethead' });
+
+function pipe(...func) {
+	return function(obj) {
+		return func.reduce((previousValue, currentValue) => currentValue(previousValue), obj)
+	}
+}
+</v-code>
+</div><div id="algoritms-retrier"><h2>👿 Retrier</h2>
+
+<ul class="list-point">
+    <li>Есть Retrier, который должен делать запрос по URL</li>
+    <li>В случает неудачи, должен выполнить запрос указанное кол-во раз</li>
+    <li>Если не было результата после попыток, выбросить исключение</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>#1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function retrier(url, n) {
+	if (n > 0) {
+		return fetch(url)
+			.then(data => {
+				if (data.statusCode >= 200 && data.statusCode < 300) {
+					return data;
+				} else {
+					return retrier(url, n-1);
+				}
+			})
+			.catch(err => {
+				return retrier(url, n-1);
+			})
+	} else {
+		throw Error('Error');
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function retrier(url: string, times: number) {
+    let count = 0;
+
+    if (count === number) {
+        return;
+    }
+
+    return new Promise(function(resolve, reject) {
+        function request(url) {
+            fetch(url).then(data, error => {
+                if (data) {
+                    resolve(data);
+                }
+                if (error) {
+                    count++;
+                    request(url);
+                    reject(error);
+                }
+            })
+        }
+    })
+
+    for (let i = 0; i < times; i++) {
+        request(url);
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#3</h4>
+<!------------------------------------------------------------->
+<!-- Гришанович -->
+
+<v-code lang="js" title="">
+retrier(url, retryCount): Promise
+
+function retrier(url, retryCount) {
+    let count = 1;
+    return new Promise((resolve, reject) => {
+        send(url);
+        function send(url) {
+        fetch(url)
+       .then(response = > resolve(response))
+       .catch(err => {
+           if(count <= retryCount){
+            count++
+            send(url);
+           } else {
+               reject(err)
+           }
+       })
+    }
+    });
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#4</h4>
+<!------------------------------------------------------------->
+<!-- Кара -->
+
+<v-code lang="js" title="">
+const retrier = (url, retryCount) => fetch(url)
+    .then(
+        res => {
+            if (res.ok) {
+                return res;
+            }
+            if (retryCount) {
+                return retrier(url, retryCount - 1);
+            }
+            throw res.error;
+        },
+        res => {
+            if (retryCount) {
+                return retrier(url, retryCount - 1);
+            }
+            throw res.error;
+        }
+    );
+
+retrier('https://some.api', 5) // url
+    .then(res) => console.log('Успешно');
+    .catch(err) => console.log('Ошибка');
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#5</h4>
+<!------------------------------------------------------------->
+<!-- Матвеев -->
+
+<v-code lang="js" title="">
+function retrier(url, retryCount): Promise {
+    if (typeof retryCount === 'number' && retryCount > 0) {
+        return fetch(url)
+            .catch(err => {
+                if (retryCount === 1) {
+                    return Promise.reject(err);
+                }
+                return retrier(url, retryCount - 1);
+            })
+    } else {
+        return Promise.reject('Failed');
+    }
+}
+
+retrier('https://ya.ru', 123).then(data => ...);
+</v-code>
+</div><div id="algoritms-promise-make-request"><h2>Promise Make Request</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Простое условие</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Написать функцию makeRequest, получающую на вход массив ссылок</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4><u-text-underline>Решение 1</u-text-underline></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>В функцию приходит массив url, по каждому из которых нужно сделать запрос и получить данные.</li>
+    <li>Из функции нужно вернуть массив объектов с даными со всех url</li>
+	<hr>
+    <li>Делаем параллельно запросы и в итоге мы учитываем последовательность, которая будет у нас в итоге.</li>
+    <li>Т.е. не путаем местами приходящие элементы.</li>
+	<hr>
+    <li>В итоге, в <u>result</u> находится массив объектов, каждый объект - результат запроса на соответствующий url</li>
+</ul>
+
+<v-code lang="js" title="Рабочий вариант">
+const makeConcurrentRequest = urls => {
+    return new Promise(resolve => {
+        let result = [];
+        let counter = 0;
+
+        const makeRequest = index => {
+            fetch(urls[index])
+                .then(res => res.json())
+                .then(body => {
+                    result[index] = body;
+
+                    if (urls.length-1 === counter) {
+                        resolve(result);
+                    } else {
+                        counter++;
+                        makeRequest(counter);
+                    }
+                })
+        }
+
+        makeRequest(0);
+    });
+};
+
+const urls = [
+    'https://jsonplaceholder.typicode.com/todos/1',
+    'https://jsonplaceholder.typicode.com/todos/2',
+    'https://jsonplaceholder.typicode.com/todos/3'
+]
+
+makeConcurrentRequest(urls)
+    .then((result) => console.log(result));
+</v-code>
+
+
+<v-details title="<u-text-underline>Решение 2 (реализация на React)</u-text-underline>">
+<ul class="list-point">
+	<li>С каждым изменением setFilmsName будет происходить дополнительный перерендер</li>
+</ul>
+
+<v-code lang="js" title="">
+const PersonItemFilms = ({ films }) =&gt; {
+    const [filmsName, setFilmsName] = useState([]);
+
+    useEffect(() =&gt; {
+        (async () =&gt; {
+            await films.forEach(async item =&gt; {
+                const response = await fetch(item);
+                const body = await response.json();
+
+                setFilmsName(prev =&gt; {
+                    return [
+                        ...prev,
+                        {
+                            title: body.title,
+                            episode: body.episode_id
+                        }
+                    ]
+                })
+            });
+        })();
+
+        return () =&gt; {
+            setFilmsName([]);
+        }
+    }, []);
+
+    return (
+        &lt;&gt;
+            {filmsName
+                .map(({ title, episode }) =&gt;
+                    &lt;p key={episode}&gt;{title} {episode}&lt;/p&gt;
+                )
+            }
+        &lt;/&gt;
+    )
+}
+</v-code>
+</v-details>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Расширенное условие</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li>Написать функцию makeRequest, получающую на вход массив ссылок и число, указывающее максимальное количество одновременных запросов.</li>
+    <li>Oдновременно должно выполняться не более указанного числа запросов должен возвращаться массив результатов в той же последовательности, что и адреса запросов.</li>
+    <li>Нельзя делать повторные запросы на дублирующиеся адреса (при этом результат всё равно должен присутствовать в результирующем массиве).</li>
+</ul>
+
+<v-code lang="js" title="">
+const urls = [
+	'https://jsonplaceholder.typicode.com/todos/1',
+	'https://jsonplaceholder.typicode.com/todos/2',
+	'https://jsonplaceholder.typicode.com/todos/3',
+	'https://jsonplaceholder.typicode.com/todos/3',
+	'https://jsonplaceholder.typicode.com/todos/5',
+	'https://jsonplaceholder.typicode.com/todos/6',
+	'https://jsonplaceholder.typicode.com/todos/7'
+];
+ 
+makeConcurrentCall(urls, 2).then(console.log);
+</v-code>
+
+<v-details title="<u-text-underline>Решение 1 (urls, total)</u-text-underline>">
+<v-code lang="js" title="">
+const makeConcurrentCall = (urls, total) => {
+	let indexCount = total;
+	const buff = [...new Set(urls)].map(url => ({
+		url
+	}));
+
+	return new Promise((resolve) => {
+		const makeRequest = (index) => {a
+			const {
+				url
+			} = buff[index];
+			return fetch(url).then(response => response.json()).then((data) => {
+				buff.find(e => e.url === url).data = data;
+				if (buff.every(response => response.data)) {
+					resolve(urls.map(url => buff.find(e => e.url === url).data));
+				};
+				if (!buff[indexCount]) return;
+				makeRequest(indexCount);
+				indexCount++;
+			})
+		};
+		for (let i = 0; i < total; i++) {
+			makeRequest(i)
+		}
+	})
+}
+</v-code>
+</v-details>
+
+<v-details title="<u-text-underline>Решение 2 (urls, total)</u-text-underline>">
+<v-code lang="js" title="">
+function makeConcurrentCall(urls, total) {
+	let res = [];
+	let countIndex = total;
+
+	return new Promise((resolve) => {
+		function request(index) {
+			fetch(urls[index]).then(response => response.json()).then(response => {
+				res[index] = response;
+				if (res.length === urls.length) {
+					resolve(res);
+				}
+				request(countIndex++);
+			})
+		}
+		for (let i = 0; i < total; i++) {
+			request(i);
+		}
+	})
+}
+</v-code>
+</v-details>
+
+<v-details title="<u-text-underline>Решение 3 (urls, maxCount)</u-text-underline>">
+<ul class="list-point">
+    <li>Дублирование не реализовано</li>
+</ul>
+
+<v-code lang="js" title="">
+function makeConcurrentCall(urls, maxCount) {
+	let res = [];
+	let count = 0;
+
+	return new Promise((resolve, reject) => {
+		function request(index) {
+			fetch(urls[index])
+				.then(response => response.json())
+				.then(response => {
+					res[index] = response;
+					count++;
+					if (count === urls.length) {
+						resolve(res);
+					}
+					request(index + maxCount);
+				})
+		}
+		for (let i = 0; i < maxCount; i++) {
+			request(i);
+		}
+	})
+}
+</v-code>
+</v-details>
+</div><div id="algoritms-cancel-timeout"><h2>👿 Написать функцию, которая отменяет все таймауты которые есть</h2>
+
+<v-code lang="js" title="">
+var mySetTimeout = setTimeout;
+var timeoutIds = [];
+
+setTimeout = function(cb, ms, ...arg) {
+	var timerId = mySetTimeout(cb, ms, ...arg);
+	timeoutIds.push(timerId);
+	return timerId;
+}
+
+function clearAllTimeouts() {
+	timeoutIds.forEach(id => {
+		clearTimeout(id);
+	})
+}
+clearAllTimeouts();
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вариант с callback</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var mySetTimeout = setTimeout;
+var timeoutIds = new Set();
+
+setTimeout = function(cb, ms, ...arg) {
+	var timerId;
+	var callback = function() {
+		cb(...arg);
+		timeoutIds.delete(timerId);
+	}
+	
+	timerId = mySetTimeout(callback, ms);
+	timeoutIds.add(timeoutIds);
+
+	return timerId;
+}
+</v-code>
+</div><div id="algoritms-settimeout-for-var"><h2>for и setTimeout без let</h2>
+
+<v-code lang="js" title="">
+// простое решение 1
+for (var i=0; i&lt;10; i++) {
+    setTimeout((function(i) {
+        return function() {
+            console.log(i);
+        }
+    })(i), i*1000);
+}
+</v-code>
+
+<v-code lang="js" title="">
+// простое решение 2
+for (var i=0; i&lt;10; i++) {
+    (function(i) {
+        setTimeout(function() {
+            console.log(i);
+        }, i*1000);
+    })(i)
+}
+</v-code>
+
+<v-code lang="js" title="">
+// умное решение
+for (var i=0; i&lt;10; i++) {
+    setTimeout((function(i) {
+        console.log(i);
+    }).bind(null, i), i*1000);
+}
+</v-code>
+</div><div id="arrays-intersection-arrays"><h2>Пересечение массивов</h2>
+
+<v-code lang="js" title="">
+const arr1 = [1, 2, 3, 4, 5];
+const arr2 = [4, 5, 6, 7, 8];
+const arr3 = [];
+const obj = {}
+
+arr2.forEach(el => {
+    obj[el] = true;
+})
+
+arr1.forEach(element => {
+    if (obj[element]) {
+        arr3.push(element);
+    }
+})
+
+console.log(arr3); // => [4, 5]
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Используя Set()</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const a = new Set([1, 2, 3]);
+const b = new Set([3, 4, 5]);
+
+const interseption = new Set([...a].filter(
+    x => b.has(x)
+));
+</v-code>
+
+</div><div id="arrays-flat-array"><h2>Превращение массива неогранчиенной вложенности в плоский</h2>
+
+<v-code lang="js" title="">
+const deepArray = [1, 2, [3, 4, [5, 6, 7]]];
+
+const flatten = deepArray => {
+	const ans = [];
+	
+	const innerFn = el => {
+		if (!Array.isArray(el)) {
+			ans.push(el);
+		} else {
+			innerFn(el);
+		}
+	}
+	
+	deepArray.forEach(innerFn);
+	
+	return ans;
+}
+
+flatten(deepArray); // => [1, 2, 3, 4, 5, 6, 7]
+</v-code>
+</div><div id="arrays-max-array-element"><h2>Максимальный элемент массива</h2>
+
+<v-code lang="js" title="">
+var arr = [1, 2, 3, 77, 4];
+var max = Math.max.apply(null, arr); // 77 (контекстом будет объект Math)
+var max = Math.max.apply(Math, arr); // 77 (контекстом будет объект Math) - аналогично
+// в данном случае в качестве контекста можно передавать что угодно, 
+// поскольку в своей внутренней реализации метод Math.max не использует this
+</v-code>
+
+<v-code lang="js" title="">
+const numbers = [1,2,3,4];
+Math.max(...numbers);
+</v-code>
+
+</div><div id="arrays-doit"><h2>Do It</h2>
+
+<v-code lang="js" title="">
+var arr = [1,2,3,5,6,7,0,-1]
+var sum = 6
+
+function doit(arr, sum) {
+	const obj = {};
+	let res = [];
+	arr.forEach(item => {
+		if(obj[item]) {
+			obj[item]++;
+		} else {
+			obj[item] = 1;
+		}
+	});
+
+	arr.forEach(item => {
+		obj[item]--;
+		if (obj[sum-item]) {
+			res.push([item, sum-item]);
+		}
+	});
+
+	return res;
+}
+
+console.log(doit(arr, sum)) // [[1,5], [6,0], [7, -1]]
+</v-code>
+
+</div><div id="arrays-merge-sort"><h2>MergeSort</h2>
+
+<!-- Гришанович -->
+
+<v-code lang="js" title="">
+mergeSort([1,3,5], [2,4,6])
+
+// [1,2,3], [4, 5, 6]
+// => [1, 2, 3, 4, 5, 6]
+
+function mergeSort(arr1, arr2) {
+    const result= [];
+    let l1 = arr1.legth;
+    let l2 = arr2.length;
+    while(result.length !==  l1+l2){
+            if(arr1[0] < arr2[0]) {
+                result.push(arr1.shift());
+            } else {
+                result.push(arr2.shift());
+            }
+        }
+    
+    }
+    return result;
+}
+</v-code>
+</div><div id="arrays-array-average-value"><h2>Получить среднюю оценку по всем обзорам</h2>
+
+<v-code lang="js" title="">
+const arr = [
+	{title: '', score: 5, comment: 'Comment1'},
+	{title: '', score: 4, comment: 'Comment2'},
+	{title: '', score: 2, comment: 'Comment3'},
+];
+
+const sumScore = arr
+	.map(({score}) => score)
+	.reduce((sum, current) => sum + current);
+
+const averageScore = Math.ceil(sumScore / arr.length);
+</v-code>
+</div><div id="custom-hoisting"><h2>Всплытие</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>#1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var a = 1;
+
+(function() {
+    console.log(a); // => undefined
+    var a = 2;      // всплывает и инициализируется значением "undefined"
+})();
+
+// "function а" имеет максимальный приоритет, но "var a" проинициализирована
+// поэтому "a == 1"
+function a() {
+    console.log(this);
+}
+
+a.call(null); // => Uncaught TypeError: a.call is not a function
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+(function () {
+    f(); // 2
+    f = function () {
+    	console.log(1);
+    };
+})();
+
+f(); // 1
+var f = 10;
+f(); // f is not a function
+
+function f () {
+	console.log(2);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#3</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const a = 1;
+
+function b() {
+    // перезаписывается не глобальная переменная, а локальная функция
+    a = 10;
+    return 20;
+    // функция всплывает
+    function a() {}
+}
+
+b();
+
+console.log(a); // 1
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#4</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var x = function a(arg) {
+    console.log(x === arg);
+}
+
+x(a); // => Uncaught ReferenceError: a is not defined
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Массив</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Значение массива</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var a = [];
+function clear(arr) {
+    arr.push(2);
+    arr = null;
+}
+clear(a);
+console.log(a); // [2]
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Временная Dead Zone</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function foo(a) {  
+    if (a > 0) {
+        // a во временной dead zone
+        let a = a + 10;
+        return a;
+    }
+    return a;
+}
+
+console.log(foo(20));
+
+// => ReferenceError: Cannot access 'a' before initialization
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>this</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="comment;comment">
+<template v-slot:first>
+var a = 1; 
+function b() { 
+    a = 10; 
+    return; 
+    function a() {} 
+} 
+b(); 
+console.log(a); // => 1
+</template>
+<template v-slot:last>
+var a = 1; 
+function b() { 
+    a = 10;     
+    return; 
+    let a;
+} 
+b(); 
+console.log(a); // => Uncaught ReferenceError: Cannot access 'a' before initialization
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Переменная</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var a = 5;
+function someFunction() {
+    // "3" запишется не в глобальную, а в локальную, потому что она всплыла
+    a = 3;
+
+    // условие не выполнится но "a" всплывет
+    if (false) {
+        var a = 10;
+    }
+}
+
+someFunction();
+console.log(a); // => 5
+</v-code></div><div id="custom-closure"><h2>Замыкания</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Исправить ошибку. Проверка должна возвращать истину</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+function closure() {
+	return (function() {
+		const arr = [];
+		
+		for (var i=0; i<10; i++) {
+			arr.push(function() {
+				return i
+			});
+		}
+		
+		return arr;
+	})();
+}
+
+console.log(closure()[3]() === 3); // => должно быть "true"
+</v-code>
+
+<ul class="list-point">
+    <li><u>Решение 1</u>: поменять "var" на "let"</li>
+    <li><u>Решение 2</u>: добавить "bind"</li>
+<v-code lang="js" title="">
+arr.push(function() {...}.bind(this, i))
+</v-code>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>const a = 20 в замыкании</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function foo() {
+	const a = 20
+	return function() {
+		console.log(a);
+	}
+}
+
+const a = 10
+const bar = foo()
+bar(); // 20
+</v-code>
+</div><div id="custom-prototype"><h2>Прототипы</h2>
+
+<v-code lang="js" title="">
+function F () {
+    this.a = 10;
+}
+
+F.prototype.foo = function () {
+    return this.a;
+}
+
+const a = myNew(F);
+console.log(a); // { a: 10, __proto__: { foo, constructor } }
+console.log(a.foo()); // 10
+
+function myNew(F) {
+	let obj = Object.create(F.prototype);
+	F.call(obj);
+	return obj;
+}
+</v-code>
+</div><div id="custom-context"><h2>Контекст</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>#1</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+function foo() {
+	return function bar() {
+		// когда bar вызывается, this указывает на объект { x: 10 }
+		// стрелочная функция порождается когда bar был вызван в контексте объекта { x: 10 }
+		// стрелка запоминает объект { x: 10 }
+		return () => console.log(this);
+	}
+}
+
+// если foo вызвана обычным способом, this ссылается на window или undefined в строгом режиме
+function foo() {
+	// если bar стрелка
+	// стрелка создавалась в тот момент, когда у foo this == window, поэтому у стрелки тоже window
+	return () => {
+		// при создании стрелки у нее по замыканию this == window
+		return () => console.log(this);
+	}
+}
+
+const bar = foo().call();
+bar.call({ y: 20 }); // call вызывает bar 
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>#2</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+'use strict';
+
+const todo = {
+	finished: true,
+	tasks: [
+		{ task: 'Read book', done: true },
+		{ task: 'Walk', done: false },
+	],
+	getFinishedTasks() {
+		return this.tasks.filter(function (item) {
+			return item.done === this.finished;
+		});
+		// return this.tasks.filter(item => item.done === this.finished);
+	}
+};
+
+const result = todo.getFinishedTasks();
+console.log(result);
+
+// 1. без 'use strict' => []
+// 2. 'use strict' => Uncaught TypeError: Cannot read property 'finished' of undefined
+// 3. стрелочная функция => 0: {task: "Read book", done: true}
+</v-code>
+</div><div id="custom-event-loop"><h2>Event Loop</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>#1</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;button id="root"&gt;start test&lt;/button&gt;
+</v-code>
+
+<v-code lang="js" title="">
+document.getElementById('root').addEventListener('click', onClick);
+
+function onClick() {
+	console.log('START');
+	setTimeout(() => console.log('TIMEOUT'), 0);
+	doHardWork();
+	Promise.resolve().then(() => console.log('RESOLVE'))
+	console.log('END');
+}
+
+// Имитируем тяжелые вычисления длительностью несколько секунд
+function doHardWork() {
+	for (var i = 0; i < 50000000; i++) {
+		var number = Math.pow(number, i);
+	}
+}
+</v-code>
+
+<v-code lang="js" title="">
+// 1. Нажали 3 раза на кнопку
+// => START, END, RESOLVE
+// => START, END, RESOLVE
+// => START, END, RESOLVE
+// => TIMEOUT, TIMEOUT, TIMEOUT
+</v-code>
+
+<ul class="list-point">
+    <li>onclick - асинхронная макротаска</li>
+    <li>3 раза кликнул, в очередь добавилось 3 onclick и они начинают по очереди входить в Call Stack</li>
+    <li>setTimeout попадают в конец очереди</li>
+</ul>
+
+<v-code lang="js" title="">
+// 2. В коде прописали 3 раза onClick()
+onClick();
+onClick();
+onClick();
+
+// => START, END
+// => START, END
+// => START, END
+// => RESOLVE, RESOLVE, RESOLVE
+// => TIMEOUT, TIMEOUT, TIMEOUT
+</v-code>
+
+<ul class="list-point">
+    <li>onClick() вызывается синхронно</li>
+</ul>
+</div><div id="custom-async"><h2>Асинхронность</h2>
+
+<!------------------------------------------------------------->
+<h4>Promise и setTimeout</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// 1 - синхронный код
+console.log(1);
+
+Promise.resolve().then(() => {
+	// 3 - микротаска
+	console.log(3);
+	
+	// 5 - макротаска, поставится в очеред после setTimeout(() => { console.log(2); })
+	setTimeout(() => {
+		console.log(4);
+	})
+})
+
+// 4 - макротаска
+setTimeout(() => {
+	console.log(2);
+})
+
+// 2 - синхронный код
+console.log(5);
+
+// => 1, 5, 3, 2, 4
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Бесконечный Promise и setTimeout</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function a() {
+	console.log('a');
+	Promise.resolve().then(a);
+}
+
+function b() {
+	console.log('b');
+	setTimeout(b, 0);
+}
+
+a();
+b();
+
+// => a, b, a (бесконечно)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Async Await + Promise + setTimeout</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var a = 1;
+
+var fn = async function() {
+    setTimeout(() => {
+        console.log('Пятый', a); // => 6
+        a = 2;
+    }, 0);
+
+    var promise = new Promise(function(resolve, reject) {
+        console.log('Первый', a); // => 1
+        a = 3;
+        resolve();
+    });
+
+    promise
+        .then(() => {
+            console.log('Второй', a); // => 3
+            a = 4;
+        })
+        .catch(() => {
+            console.log('Не выведет', a);
+            a = 5;  
+        })
+        .then(() => {
+            console.log('Четвертый', a); // => 4
+            a = 6;
+        });
+
+    await promise;
+
+    console.log('Третий', a); // => 4 
+}
+
+fn();
+</v-code>
+</div><div id="custom-promise"><h2>Promise</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Повесить браузер микротасками</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const badFunc = () =>  {
+    Promise.resolve(1)
+        .then(a => {
+            return badFunc();
+        })
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Promise и аргументы then</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+doSomething().then(function () {
+    return doSomethingElse();
+}).then(value =&gt; console.log(value)); // result doSomethingElse
+
+doSomething().then(function () {
+    doSomethingElse();
+}).then(value =&gt; console.log(value)) // undefined
+
+doSomething()
+    .then(doSomethingElse()) // пропускается
+    .then(value =&gt; console.log(value)); // result DoSomething
+
+doSomething()
+    .then(doSomethingElse)
+    .then(value =&gt; console.log(value)); // result doSomethingElse
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Promise и setTimeout</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function delay(value) {
+    return new Promise(function(resolve, reject){
+       setTimeout(function(){
+            resolve(100);
+        }, value);
+    });
+}
+delay(1000).then(value =&gt; console.log('Done with ' + value)); // Done with 100
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Promise Reject</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Promise.reject(1)
+    .then(() => console.log(1))
+    .then(() => console.log(2), () => console.log(3))
+    .catch(() => console.log(4))
+    .then(
+        () => {
+            console.log(5);
+            return reject(6);
+        },
+        () => console.log(7)
+    )
+    .then(() => console.log(8), () => console.log(9));
+// => 3, 5, 9
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Promise Resolve / Reject</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+console.log(1);
+
+const promise = new Promise((res, rej) => {
+  console.log(2);
+  res(77);
+})
+console.log(3);
+
+promise
+	.then(value => console.log(value))
+	.then(value => console.log(value))
+
+// => 1, 2, 3, 77, undefined
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Promise Resolve</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Promise.resolve(55)
+    .then((val) => {
+        console.log(val);
+        throw new Error();
+    })
+    .then((val) => console.log('then', val))
+    .catch((val) => {
+        console.log('catch', val);
+        return Promise.reject();
+    })
+    .then(finalHandler, finalHandler1)
+    .then(finalHandler, finalHandler1)
+    .then(finalHandler, finalHandler1);
+
+function finalHandler() {
+    console.log('finalHandler')
+}
+function finalHandler1() {
+    console.log('finalHandler1')
+}
+// => 55, catch Error, finalHandler1, finalHandler, finalHandler
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Finally</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var p = Promise.resolve(4);
+
+p
+    .then(data => {
+        console.log(data); // 4
+        throw new Error('');
+    })
+    .catch(err => {
+        console.log('err'); // err
+    })
+    .finally((data) => {
+        console.log(data); // undefined
+        return 1;
+    })
+    .then((data) => {
+        console.log(data); // undefined
+    })
+</v-code>
+</div><div id="custom-async-await"><h2>Async Await</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование async await вместо Promise.all()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Использовать async await, но 2 запроса "foo1()" и "foo2()" должны работать асинхронно</li>
+</ul>
+
+<v-code lang="js" title="">
+async function foo1() {
+	return 1;
+}
+
+async function foo2() {
+	return 2;
+}
+
+async function all() {
+  const value1 = foo1(); // Promise
+  const value2 = foo2(); // Promise
+  
+  // 1 request and 2 request
+  const result1 = await value1;
+  const result2 = await value2;
+  
+  return [result1, result2];
+}
+
+async function result() {
+	const res = await all();
+	console.log(res);  // => (2) [1, 2]
+}
+
+result();
+</v-code></div><div id="custom-currying"><h2>Каррирование</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>#1</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function sum(a, b) {
+	return a + b;
+}
+
+function mul(a, b) {
+    return a * b;
+}
+
+function myFunc(func) {
+    return function(a) {
+    	return function(b) {
+      		return func(a, b);
+      	}
+    }
+}
+
+// const myFunc = func => (a) => (b) => func(a, b);
+
+console.info(myFunc(sum)(2)(3)); // => 5
+console.info(myFunc(mul)(2)(3)); // => 6
+</v-code>
+</div><div id="custom-objects"><h2>Объекты</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обращение к функции как к объекту</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+let test = function() {
+	console.log('hi from object!');
+}
+test.method = function () {
+	console.log('hi from method!');
+}
+test.method();
+test();
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объекты: копирование и null</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var a = {};
+
+function clear (a) {
+	a.a=10;
+	a = null;
+}
+
+clear(a);
+console.log(a); // => Object { a: 10 }
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Присвоение null</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const a = [];
+
+function clear(arr) {
+	// присвоение в локальную переменную
+	arr.push(2);
+	arr = null;
+}
+clear(a);
+
+console.log(a); // [2]
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функция withName</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const obj1 = {};
+
+function withName(obj, name) {
+	obj.name = name;
+	return obj;
+}
+
+const obj2 = withName(obj1, 'Max');
+console.log(obj2.name);     // 'Max'
+console.log(obj1.name);     // 'Max'
+console.log(obj1 === obj2); // true
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обращение к объектам</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var a = { key: 'foo' };
+var b = { key: 'bar' };
+var c = {};
+c[a] === c[b]	// => true
+</v-code>
+
+</div><div id="custom-arrays"><h2>Массивы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>map</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const tweeps = [
+    { name: 'Peter', age: 20 },
+    { name: 'Mary', age: 32 }
+];
+
+// написать функцию prop
+const str = 'Mentioned by ' + tweeps.map(prop('name')).join(', '); // 'Mentioned by Peter, Mary'
+const agesStr = `They are ${tweeps.map(prop('age')).join(',')}`    // 'They are 20, 32'
+
+function prop(propName) {
+    return function(obj) {
+         return obj[propName];
+    }
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Передача по ссылки и по значению</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+let a = [1,2,3];
+let b = a;
+
+a[0] = 99;
+console.log(b); // [99, 2, 3]
+
+a = 4;
+console.log(b); // [99, 2, 3]
+</v-code></div><div id="other-undefined-check"><h2>Проверка на "undefined"</h2>
+
+<v-code lang="js" title="">
+var a;
+
+if (a === undefined) {
+	console.log('Undefined');
+} else {
+	console.log('Not undefined');
+}
+
+if (typeof a == "undefined") {
+	console.log('Undefined');
+} else {
+	console.log('Not undefined');
+}
+
+if (!!a) {
+	console.log('Not undefined');
+} else {
+	console.log('Undefined');
+}
+</v-code>
+
+<ul class="list-point">
+    <li><u-code-text>!!</u-code-text> - является проверкой как определена ли переменная и является истиной</li>
+    <li><u-code-text>!!!</u-code-text> - как определена переменная и является ложью</li>
+    <li>При этом если переменная является <u>undefined</u>, то всегда вернется <u>false</u></li>
+</ul>
+
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

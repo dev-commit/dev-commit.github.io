@@ -1,0 +1,43 @@
+<h2>Подъём состояния</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Подъём состояния</u-text-define> - совместное использование состояния, которое достигается перемещением его до ближайшего предка компонентов, которым оно требуется</li>
+	<li>Рекомендуется поднимать общее состояние до ближайшего общего предка</li>
+
+	<hr>
+	<li>Создания «управляемого» компонента. Точно так же, как DOM-элемент <u-code-text>&lt;input&gt;</u-code-text> принимает атрибуты <u-code-text>value</u-code-text> и <u-code-text>onChange</u-code-text>, так и пользовательский <u-code-text>ComponentChild</u-code-text> принимает <u-code-text>emitHandleParent</u-code-text> от своего родителя <u-code-text>ComponentParent</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="child js">
+class ComponentChild extends React.Component {
+	handleChild = () =&gt; {
+		<u-code>this.props.emitHandleParent('Jack');</u-code>
+	}
+	render() {
+		return (
+			&lt;button onClick={<u-code>this.handleChild</u-code>}&gt;Ok&lt;/button&gt;
+		);
+	}
+}
+</v-code>
+
+<v-code lang="js" title="parent js">
+class ComponentParent extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { name: 'Tony' };
+	}
+	handleParent = (name) =&gt; {
+		<u-code>this.setState({ name: name });</u-code>
+	}
+	render() {
+		return (
+			&lt;div&gt;
+				<u-code>&lt;ComponentChild emitHandleParent={this.handleParent} /&gt;</u-code>
+				{this.state.name}
+			&lt;/div&gt;
+		);
+	}
+}
+</v-code>
+

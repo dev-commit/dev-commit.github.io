@@ -1,0 +1,15 @@
+<h2>Потоки</h2>
+
+<v-code lang="js" title="">
+var fs = require('fs');
+// поток на чтение
+var myReadShort = fs.createReadStream(__dirname + '/article.txt', 'utf8');
+// поток на запись
+var myWriteShort = fs.createWriteStream(__dirname + '/news.txt');
+// обработчик чтения данных
+myReadShort.on('data', function(chunk) {
+	console.log('Данные получены: \n' + chunk);
+	// записываем в новый файл
+	myWriteShort.write(chunk);
+});
+</v-code>

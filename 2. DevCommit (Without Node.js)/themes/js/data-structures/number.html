@@ -1,0 +1,128 @@
+<h2>Числа</h2>
+
+<v-code lang="js" title="">
+num.toFixed(2);             // фиксирование кол-ва знаков после запятой
+123456789.toLocaleString(); // вывод чисел в стандарте ECMA (result = 402 123 456 789)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Преобразование в число</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+Number(num);     // преобразование любого объекта в число
+parseInt(num);   // преобразование в целое число
+parseFloat(num); // преобразование в целое/дробное число ('50.5px', вернет значение "50.5"
++'50.5';         // преобразование в целое/дробное число
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>NaN и Infinity</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>isNaN</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>isNaN преобразует к числу пустую строку, строку из пробельных символов, значения false, true, null</li>
+</ul>
+
+<v-code lang="js" title="">
+isNaN(num); // если в переменной не число, вернет истину
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>isFinite</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>isFinite(n) преобразует аргумент к числу и возвращает true, если это не NaN/Infinity/-Infinity</li>
+</ul>
+
+<v-code lang="js" title="">
+alert( isFinite(1) );        // true
+alert( isFinite(Infinity) ); // false
+alert( isFinite(NaN) );      // false
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Infinity</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Infinity больше любого числа</li>
+	<li>Добавление к бесконечности не меняет её</li>
+</ul>
+
+<v-code lang="js" title="">
+alert( 1 / 0 );     // Infinity
+alert( 12345 / 0 ); // Infinity
+alert( -1 / 0 );    // -Infinity
+var x = Infinity;   // Infinity можно присвоить и в явном виде
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>NaN</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>NaN (Not-A-Number)</li>
+	<li>Значение NaN используется для обозначения математической ошибки</li>
+	<li>Значение NaN – единственное в своем роде, которое не равно ничему, включая себя</li>
+</ul>
+
+<v-code lang="js" title="">
+alert( 0 / 0 );   // NaN
+alert( NaN + 1 ); // NaN
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Манипуляции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Перебор в двоичную систему отсчета</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+parseInt("11000", 2);              // переводит строку с двоичной записью числа в число
+n.toString(2);                     // получает для числа n запись в 2-ной системе в виде строки
+
+var access = parseInt("11000", 2); // получаем число из строки
+alert(access);                     // 24, число с таким 2-ным представлением
+
+var access2 = access.toString(2); // обратно двоичную строку из числа
+alert(access2);                   // 11000
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Остаток от деления</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+alert(5 % 2); // 1, остаток от деления 5 на 2
+alert(8 % 3); // 2, остаток от деления 8 на 3
+alert(6 % 3); // 0, остаток от деления 6 на 3
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Возвеление в степень</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const a = 2;
+console.log(a ** 2); // 4 (возведение в квадрат)
+console.log(a ** 3); // 8 (возведение в степень 3)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Инкремент/декремент</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u-code>i++</u-code> постфиксная форм</li>
+	<li><u-code>++i</u-code> префиксная форма</li>
+</ul>
+
+<v-code lang="js" title="">
+var i = 1;
+var a = ++i;
+alert(a); // 2
+</v-code>
+
+<v-code lang="js" title="">
+var i = 1;
+var a = i++;
+alert(a); // 1
+</v-code>

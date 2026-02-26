@@ -1,0 +1,67 @@
+<h2>Экземпляр Vue</h2>
+
+<v-code lang="js" title="">
+var app = new Vue({
+	<u-code>el</u-code>: '#app',             // элемент DOM дерева
+	<u-code>data</u-code>: {                 // состояние
+		name: 'Tony'
+	},
+	<u-code>template</u-code>:               // представление
+		`&lt;div&gt;<span v-pre>{{ count }}</span>&lt;/div&gt;`, 
+	<u-code>methods</u-code>: {              // действия
+		nameMethod() {
+			this.view = true;
+		}
+	},
+	<u-code>computed</u-code>: {             // вычисляемые свойства
+		doubleValue() {
+			return this.value * 2
+		}
+	},
+	<u-code>created()</u-code> {             // хук
+		console.log(this.name);
+	},
+	<u-code>watch</u-code>: {                // наблюдатель
+		name() {
+			console.log('name changed');
+		}
+	},
+	<u-code>mixins</u-code>: [mixin]         // миксин
+})
+</v-code>
+
+<ul class="list-point">
+	<li><u-text-define>Состояние</u-text-define> - «источник истины», управляющий приложением</li>
+	<li><u-text-define>Представление</u-text-define> - отображение <u>состояния</u> заданное декларативно</li>
+	<li><u-text-define>Действия</u-text-define> - возможные пути изменения <u>состояния</u> приложения в ответ на взаимодействие пользователя с <u>представлением</u></li>
+	<li>Состояние -> Представление -> Действия -></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Свойства</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Переопределение свойства</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+app.messText = 'New Text';
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Неопределенные свойства</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+catalog: null  // для объектов
+products: []   // для массивов
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Разделение файлов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;!-- my-component.vue --&gt;
+&lt;template src="./my-component.html"&gt;&lt;/template&gt;
+&lt;script src="./my-component.js"&gt;&lt;/script&gt;
+&lt;style src="./my-component.css"&gt;&lt;/style&gt;
+</v-code>

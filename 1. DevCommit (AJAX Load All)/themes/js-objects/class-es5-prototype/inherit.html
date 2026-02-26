@@ -1,0 +1,90 @@
+<h2>Наследование классов</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример наследования</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Задание классов и прототипов</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function User() {
+	this.userName = 'userName';
+}
+User.prototype.userFunc = function() {
+	alert('userFunc');
+}
+User.prototype.userProp = 'userProp';
+</v-code>
+
+<v-code lang="js" title="">
+function Admin() {
+	this.adminName = 'adminName';
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Наследование. В прототип Admin добавлили всё из прототипа User</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+<u-code>Admin.prototype = Object.create(User.prototype);</u-code>
+var admin = new Admin();
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Наследование. Без добавления в прототип Admin (результат аналогичен)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js red" title="">
+var admin = Object.setPrototypeOf(new Admin(), User.prototype);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Добавление методов к Admin.prototype (при необходимости)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// добавлять после <u-code>Admin.prototype = Object.create(User.prototype)</u-code> чтобы не перетерло
+Admin.prototype.adminFunc = function() {
+	alert('adminFunc');
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>4. Переопределение метода родителя (при необходимости)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+Admin.prototype.userFunc = function() {
+	alert('not userFunc');
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>5. Вызов метода родителя внутри своего (при необходимости)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+Admin.prototype.adminUserFunc = function() {
+	// вызвать метод родителя передав ему текущие аргументы
+	// если вызвать просто Animal.prototype.run(), то в качестве this функция run получит Animal.prototype, а это неверно, нужен текущий объект
+	User.prototype.userFunc.apply(this, arguments);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>6. Обращение к методам и свойствам</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+admin.userFunc(); // => alert('userFunc')
+admin.userProp;   // => 'userProp'
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Вызов конструктора родителя</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function Animal(name) {
+    this.name = name;
+    this.speed = 0;
+}
+function Rabbit(name) {
+    Animal.apply(this, arguments);
+}
+</v-code>

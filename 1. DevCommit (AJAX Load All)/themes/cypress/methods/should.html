@@ -1,0 +1,12 @@
+<h2>should</h2>
+
+<v-code lang="js" title="">
+cy.<u-code>get</u-code>('input') .<u-code>should</u-code>('<u-code-text>have.value</u-code-text>', 'Hello');               // есть атрибут value="Hello"
+cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>have.attr</u-code-text>', 'title', 'Hello');       // есть атрибут title="Hello"
+cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>have.length</u-code-text>', 3);                    // должно быть 3 элемента
+cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>not.exist</u-code-text>');                         // элемент не существует
+cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>have.css</u-code-text>', 'color', 'rgb(0, 0, 0)'); // должен иметь CSS property style="color: rgb(0, 0, 0)"
+cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>contain</u-code-text>', 'Hello');                  // содержит фразу (частичное соврадение)
+cy.<u-code>get</u-code>('div')   .<u-code>should</u-code>('<u-code-text>not.contain</u-code-text>', 'Map');                // не содержит фразу (частичное соврадение)
+cy.<u-code>url</u-code>()        .<u-code>should</u-code>('<u-code-text>include</u-code-text>', 'index');                  // проверка url на вхождение 'index' (объект не должен быть строкой)
+</v-code>

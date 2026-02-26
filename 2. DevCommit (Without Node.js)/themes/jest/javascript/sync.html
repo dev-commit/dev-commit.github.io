@@ -1,0 +1,48 @@
+<h2>Синхронные тесты</h2>
+
+<v-code lang="js" title="intro.js">
+class Lodash {
+	// принимаем массив и возвращает массив без "false" значений
+	compact(array) {
+		return array.filter(val => !!val)
+	}
+}
+
+module.exports = Lodash;
+</v-code>
+
+<v-code lang="js" title="intro.test.js">
+const Lodash = require('./intro');
+
+const _ = new Lodash();
+
+describe('Lodash: compact', () => {
+	let array;
+
+	beforeEach(() => {
+		array = [false, 42, 0, '', true, null, 'hello'];
+	});
+
+	afterAll(() => {
+		_ = new Lodash();
+	});
+
+	test('should be defined', () => {
+		expect(_.compact).toBeDefined();
+		// или
+		expect(_.compact).not.toBeUndefined();
+	});
+
+	test('should NOT contain false values', () => {
+		expect(_.compact(array)).not.toContain(false);
+		expect(_.compact(array)).not.toContain(0);
+		expect(_.compact(array)).not.toContain('');
+		expect(_.compact(array)).not.toContain(null);
+	});
+
+	test('should remove falsy values from array', () => {
+		const result = [42, true, 'hello'];
+		expect(_.compact(array)).toEqual(result);
+	});
+});
+</v-code>

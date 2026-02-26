@@ -1,0 +1,36 @@
+<h2>Установка</h2>
+
+<u-link-wrapper>
+	<a href="https://docs.cypress.io/guides/getting-started/installing-cypress.html" target="_blank">Cypress Geting Started</a>
+</u-link-wrapper>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>cypress</u-code-npm>
+</v-pre-npm>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>package.json</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="package.json">
+{
+	"scripts": {
+		"cypress:open": "cypress open", // запуск тестов
+		"cypress:run": "cypress run"    // record screenshots, videos and failures
+	},
+	"devDependencies": {
+		"cypress": "^"
+	}
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Запуск</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="Запуск из скриптов package.json">
+npm run <em>cypress:open</em>
+</v-code>
+
+<v-code lang="js" title="Запуск напрямую">
+npx cypress <em>open</em>  // запуск тестов
+npx cypress <em>run</em>   // record screenshots, videos and failures
+</v-code>

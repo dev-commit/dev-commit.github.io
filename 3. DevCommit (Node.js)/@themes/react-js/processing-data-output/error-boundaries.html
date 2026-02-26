@@ -1,0 +1,112 @@
+<h2>Предохранители</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Предохранители</u-text-define> - компоненты React, которые отлавливают ошибки JavaScript в любом месте деревьев их дочерних компонентов, сохраняют их в журнале ошибок и выводят запасной UI вместо рухнувшего дерева компонентов. Предохранители отлавливают ошибки при рендеринге, в методах жизненного цикла и конструкторах деревьев компонентов, расположенных под ними</li>
+
+    <li>Предохранители работают как JavaScript-блоки <u-code-text>catch {}</u-code-text>, но только для компонентов. На практике чаще всего целесообразным будет один раз описать предохранитель и дальше использовать его по всему приложению</li>
+    <li>Если предохранителю не удаётся отрендерить сообщение об ошибке, то ошибка всплывает до ближайшего предохранителя, расположенного над ним в дереве компонентов. Этот аспект их поведения тоже напоминает работу блоков <u-code-text>catch {}</u-code-text> в JavaScript</li>
+	
+    <hr><li><b>Идея: </b> Ошибка JavaScript где-то в коде UI не должна прерывать работу всего приложения</li>
+
+	<hr><li><b>Где размещать:</b></li>
+	<ul class="list-point">
+		<li>защитить навигационные (route) компоненты верхнего уровня</li>
+		<li>охватить индивидуальными предохранителями отдельные виджеты</li>
+	</ul>
+
+	<hr><li><b>Предохранители не поймают ошибки в:</b></li>
+    <ul class="list-point">
+        <li>обработчиках событий</li>
+        <li>асинхронном коде</li>
+        <li>серверном рендеринге</li>
+        <li>самом предохранителе (а не в его дочерних компонентах)</li>
+    </ul>
+</ul>
+
+<hr>
+<ul class="list-point">
+    <li><u-text-underline>Только классовые компоненты</u-text-underline> могут выступать в роли предохранителей, если они включают хотя бы один из следующих методов жизненного цикла: <u>static getDerivedStateFromError()</u> или <u>componentDidCatch()</u></li>
+    <ul class="list-point">
+    	<li><u-code-text>static getDerivedStateFromError()</u-code-text> при рендеринге запасного UI в случае отлова ошибки</li>
+	    <li><u-code-text>componentDidCatch()</u-code-text> при написании кода для журналирования информации об отловленной ошибке</li>
+    </ul>
+</ul>
+
+<hr>
+<ul class="list-point">
+    <li>Начиная с React 16, ошибки, не отловленные ни одним из предохранителей, будут приводить к размонтированию всего дерева компонентов React</li>
+    <li>Бо́льшим злом будет вывести некорректный UI, чем удалить его целиком</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import React, { Component } from 'react';
+
+export default class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = { hasError: false };
+	}
+	<u-code>static getDerivedStateFromError</u-code>(error) {
+		// Обновить состояние с тем, чтобы следующий рендер показал запасной UI
+		return { hasError: true };
+	}
+	<u-code>componentDidCatch</u-code>(error, info) {
+		// Можно также сохранить информацию об ошибке в соответствующую службу журнала ошибок
+		logErrorToMyService(error, info);
+	}
+	render() {
+		if (this.state.hasError) {
+			return &lt;h1&gt;Запасной UI&lt;/h1&gt;;
+		}
+		return &lt;div&gt;Основной UI&lt;/div&gt;; 
+	}
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>try/catch</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>try / catch</u-code-text> работает исключительно в <u>императивном коде</u>, в то время, как компоненты React являются <u>декларативными</u>, указывая что должно быть отрендерено</li>
+    <li>Предохранители сохраняют декларативную природу React. Например, если ошибка, произошедшая в методе <u-code-text>componentDidUpdate</u-code-text>, будет вызвана <u-code-text>setState</u-code-text> где-то в глубине дерева компонентов, она всё равно корректно всплывёт к ближайшему предохранителю</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обработчики событий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>React не нуждается в предохранителях, чтобы корректно обработать ошибки в обработчиках событий. В отличие от метода render и методов жизненного цикла, обработчики событий не выполняются во время рендеринга. Таким образом, даже если они сгенерируют ошибку, React всё равно знает, что нужно выводить на экран</li>
+    <li>Чтобы отловить ошибку в обработчике событий, пользуйтесь обычной JavaScript-конструкцией try / catch. Приведённый выше пример демонстрирует стандартное поведение JavaScript и не использует предохранителей</li>
+</ul>
+
+<v-code lang="js" title="">
+import React, { Component } from 'react';
+
+export default class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = { error: null };
+	}
+	handleClick = () =&gt; {
+		<u-code-wrapper>
+		try {
+			// Делаем что-то, что сгенерирует ошибку
+		} catch (error) {
+			this.setState({ error });
+		}
+		</u-code-wrapper>
+	}
+	
+	render() {
+		<u-code-wrapper>
+		if (this.state.error) {
+			return &lt;h1&gt;Отловил ошибку&lt;/h1&gt;
+		}
+		return &lt;button onClick={this.handleClick}&gt;Нажми на меня&lt;/button&gt;
+		</u-code-wrapper>
+	}
+}
+</v-code>

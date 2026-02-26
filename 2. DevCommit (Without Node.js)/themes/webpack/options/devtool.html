@@ -1,0 +1,16 @@
+<h2>Config: SourceMap</h2>
+
+<ul class="list-point">
+	<li>Позволяет показыать исходные файлы при отладке через браузер, а не скомпилированный код</li>
+	<li>В сборке дополнительно создается файл <u-code>main.js.map</u-code>, если файл сборки назывался <u-code>main.js</u-code> </li>
+</ul>
+
+<u-link-wrapper>
+	<a href="https://webpack.js.org/guides/development/#using-source-maps" target="_blank">webpack.js.org (source-maps)</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+module.exports = {
+    devtool: 'source-map',                    // для production. дополнительно создается файл "main.js.map"
+    devtool: 'cheap-inline-module-source-map' // файл "main.js.map" не создается, данные для отладки в файле "main.js"
+</v-code>

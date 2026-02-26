@@ -1,0 +1,822 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>🥥 Git</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Use Case</div><a href="#usecase-common">Общее</a><a href="#usecase-squash-commit">Squash Commit</a><a href="#usecase-resolve-conflists">Разрешение конфликтов merge</a><a href="#usecase-reset-changes">Отмена изменений</a><a href="#usecase-other">Прочее</a><div class="theme">Команды Основные</div><a href="#command-init"><u-menu>init</u-menu></a><a href="#command-clone"><u-menu>clone</u-menu></a><a href="#command-add"><u-menu>add</u-menu></a><a href="#command-commit"><u-menu>commit</u-menu></a><a href="#command-push"><u-menu>push</u-menu></a><a href="#command-fetch"><u-menu>fetch</u-menu></a><a href="#command-pull"><u-menu>pull</u-menu></a><a href="#command-branch"><u-menu>branch</u-menu></a><a href="#command-checkout"><u-menu>checkout</u-menu></a><a href="#command-merge"><u-menu>merge</u-menu></a><a href="#command-rebase"><u-menu>rebase</u-menu></a><a href="#command-cherry-pick"><u-menu>cherry-pick</u-menu></a><a href="#command-revert"><u-menu>revert</u-menu></a><a href="#command-stash"><u-menu>stash</u-menu></a><a href="#command-reset"><u-menu>reset</u-menu></a><div class="theme">Команды Дополнительно</div><a href="#command-diff"><u-menu>diff</u-menu></a><a href="#command-config"><u-menu>config</u-menu></a><a href="#command-help"><u-menu>help</u-menu></a><a href="#command-status"><u-menu>status</u-menu></a><a href="#command-log"><u-menu>log</u-menu></a><a href="#command-clean"><u-menu>clean</u-menu></a><a href="#main-command"><u-menu>...</u-menu></a><div class="theme">GitHub</div><a href="#github-terminal-connect">Подключение по SSH</a><a href="#github-info">Теория</a><a href="#github-github-desktop">GitHub Desktop</a><a href="#github-smart-git">SmartGit</a><div class="theme">Теория</div><a href="#theory-info">Информация</a><a href="#theory-vcs">Системы управления версиями</a><a href="#theory-gitflow">Gitflow</a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="usecase-common"><h2>Общее</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Клонирование ветки PR</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+git <u-code>clone</u-code> https://github.com/Andersen-soft/front.CRM.git
+git <u-code>fetch origin</u-code>
+git <u-code>checkout</u-code> название_ветки
+git <u-code>pull</u-code>
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Создание ветки на локальном репозитории и загрузка на удаленный репозиторий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+git <u-code>clone</u-code> https://github.com/Andersen-soft/front.CRM.git
+git <u-code>checkout -b</u-code> features
+git <u-code>add .</u-code>
+git <u-code>commit -m</u-code> 'text'
+git <u-code>push origin HEAD</u-code>
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Добавление на удаленный репозиторий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+git <u-code>add .</u-code>
+git <u-code>commit -m</u-code> 'text'
+git <u-code>push origin HEAD</u-code>
+</v-code>
+</div><div id="usecase-squash-commit"><h2>Squash Commit</h2>
+
+<ul class="list-point">
+    <li>Хорошая практика сквошить коммиты в один, чтобы на задачку был один коммит</li>
+    <li>Вообще засквошить можно когда угодно, потом форс-пушем долить, но после того как проверен PR этого уже делать не нужно будет, все правки после ревью доливаются отдельными коммитами</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Локальный репозиторий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+git <u-code>checkout</u-code> develop                        # перейти в develop, если в ней есть обновления
+git <u-code>pull</u-code>                                    # обновить ветку develop
+git <u-code>checkout</u-code> <i>ветка</i>                          # перейти в рабочую ветку
+git <u-code>merge-base</u-code> dev HEAD                     # номер коммита к которому нужно откатиться
+git <u-code>reset</u-code> <i>номер_коммита</i>                     # откатывает всё что он сделал до того момента как откололся с develop
+git <u-code>add</u-code> .                                   # индексация изменений
+git <u-code>commit</u-code> -m <i>'Номер_таски: название таски'</i> # commit
+git <u-code>push</u-code> origin HEAD                        # push
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Удаленный репозиторий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+git <u-code>push --force origin HEAD</u-code>
+</v-code>
+</div><div id="usecase-resolve-conflists"><h2>Разрешение конфликтов разницы "develop" и "feature"</h2>
+
+<v-code lang="bash" title="">
+git <u-code>checkout</u-code> develop # перейти в develop, если в ней есть обновления
+git <u-code>pull</u-code>             # обновить ветку develop
+git <u-code>checkout</u-code> feature # перейти в feature
+git <u-code>merge</u-code> develop    # merge из develop в свою ветку. ветка feature станет актуальной
+
+# появятся конфликты в файлах, поправить конфликты
+</v-code>
+
+</div><div id="usecase-reset-changes"><h2>Отмена изменений</h2>
+
+<v-code lang="bash" title="">
+# отменить все изменения
+# убрать из индексации все файлы и директории, 
+# которые возможно уже были проиндексировалы с помощью git add
+git <u-code>reset</u-code> --hard HEAD
+</v-code>
+
+<v-code lang="bash" title="">
+git <u-code>checkout</u-code> -- file.txt # Отмена изменений файла
+git <u-code>reset</u-code> HEAD file.txt  # Отмена индексации файла
+git <u-code>commit</u-code> --amend       # Изменение последнего коммита
+</v-code>
+
+<v-code lang="bash" title="">
+# Все три команды вместе дают один коммит - второй коммит заменяет результат первого
+git <u-code>commit</u-code> -m 'initial commit'
+git <u-code>add</u-code> forgotten_file
+git <u-code>commit</u-code> --amend
+</v-code>
+
+<v-code lang="bash" title="">
+git <u-code>checkout</u-code> .             # восстановить все
+git <u-code>checkout</u-code> "код коммита" # вернуть до состояния этого коммита
+</v-code>
+
+<v-code lang="bash" title="">
+# Просмотреть, а затем удалить непроиндексированные файлы и папки:
+git <u-code>clean</u-code> -nd
+git <u-code>clean</u-code> -fd
+
+# Просмотреть, а затем удалить ВСЕ непроиндексированные файлы и папки, включая игнорируемые Git-ом
+git <u-code>clean</u-code> -ndx
+git <u-code>clean</u-code> -fdx
+</v-code></div><div id="usecase-other"><h2>Прочее</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Изменение регистра</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>На Windows при изменении регистра файла, Git не видит изменения (в отличие от Linux)</li>
+</ul>
+
+<v-code lang="js" title="">
+# Изменить название файла для того, чтобы Git видел изменения
+git <u-code>mv -f</u-code> OldFileNameCase newfilenamecase
+</v-code> 
+</div><div id="command-init"><div class="v-method-wrapper">
+    <v-method before="git " method="init" after="" arg="">
+    Инициализация пустого локального git-репозитория. Создаёт в текущем каталоге новый подкаталог с именем .git
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>init</u-code>
+</v-code>
+</div><div id="command-clone"><div class="v-method-wrapper">
+    <v-method before="git " method="clone" after="" arg="">
+	Создание локальной копии удаленного git-репозитория (выполняется 1 раз)
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>clone</u-code> git@github.com:anton-sergeenkov/repo.git
+</v-code>
+</div><div id="command-add"><div class="v-method-wrapper">
+    <v-method before="git " method="add" after="" arg="">
+    Добавление новых файлов из Working Directory в систему контроля версий (в индекс Staging Area для последующего коммита). Индексирование файлов. Сборка слепка коммита
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>add</u-code> .                                                      # индексирование всех файлов
+git <u-code>add</u-code> index.html                                             # индексирование одного файла
+git <u-code>remote add</u-code> origin git@github.com:anton-sergeenkov/repo.git # добавление к локальному репозиторию ссылки на удаленный репозиторий
+</v-code>
+</div><div id="command-commit"><div class="v-method-wrapper">
+    <v-method before="git " method="commit" after="" arg="">
+    Создание слепка (snapshot) директории и зафиксировать изменения файлов. Сохранение изменений в локальном репозитории. Берёт все данные, добавленные в индекс с помощью git add, и сохраняет их слепок во внутренней базе данных, а затем сдвигает указатель текущей ветки на этот слепок
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+it <u-code>commit</u-code>                   # 
+it <u-code>commit -a</u-code>                # добавление всех изменений в индекс без использования git add
+it <u-code>commit -m</u-code> 'text'         # передача сообщения коммита без запуска полноценного редактора
+it <u-code>commit -a -m</u-code> 'text'      #
+it <u-code>commit --amend</u-code>           # откроется редактор для правки последнего коммита
+it <u-code>commit --amend -m</u-code> 'text' # перезапишется последний коммит
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Опции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>-m &lt;msg&gt;</u-code-text> <u-code-text>--message=&lt;msg&gt;</u-code-text> - Use the given &lt;msg&gt; as the commit message. If multiple -m options are given, their values are concatenated as separate paragraphs. The -m option is mutually exclusive with -c, -C, and -F</li>
+</ul>
+</div><div id="command-push"><div class="v-method-wrapper">
+    <v-method before="git " method="push" after="" arg="">
+    Отправка изменений на удаленный git-репозиторий
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>push origin HEAD</u-code>                                  # запушить текущую ветку, не вводя целиком ее название
+git <u-code>push --force origin HEAD</u-code>                          # запушить текущую ветку и переписать историю на сервере
+
+git <u-code>push origin</u-code>                                       # замерджить все ветки локального репозитория на удаленный репозиторий 
+git <u-code>push origin</u-code> master                                # аналогично предыдущему, но делается пуш только ветки master
+
+git <u-code>push --set-upstream origin</u-code> master                 # отправка изменений на удаленный git-репозиторий
+git <u-code>push -u origin</u-code> master                             # 
+git <u-code>push -f</u-code>                                           # залить на сервер измененные коммиты
+git <u-code>push</u-code> https://github.com/Eclerrr/readme.git master # 
+
+git <u-code>push origin --delete</u-code> НазваниеВетки                # удаление ветки из удаленного репозитория 
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Опции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>-f</u-code-text> <u-code-text>--force</u-code-text> Usually, the command refuses to update a remote ref that is not an ancestor of the local ref used to overwrite it</li>
+</ul></div><div id="command-fetch"><div class="v-method-wrapper">
+    <v-method before="fetch " method="fetch" after="" arg="">
+    Скачать все ветки с удаленного репозитория
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>fetch --all</u-code>         # 
+git <u-code>fetch origin</u-code>        # скачать все ветки с origin, но не мерджить их в локальный репозиторий
+git <u-code>fetch origin</u-code> master # аналогично предыдущему, но только для одной заданной ветки
+</v-code>
+</div><div id="command-pull"><div class="v-method-wrapper">
+    <v-method before="git " method="pull" after="" arg="">
+    Добавление новых файлов из Working Directory в систему контроля версий (в индекс Staging Area для последующего коммита). Индексирование файлов. Сборка слепка коммита. Получить изменения из удаленного git-репозитория в локальный репозиторий
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>pull origin</u-code>        # Замерджить все ветки с удаленного репозитория
+git <u-code>pull origin</u-code> master # Аналогично предыдущему, но накатывается только ветка master
+git <u-code>pull origin HEAD</u-code>   # Накатить текущую ветку, не вводя ее длинное имя
+</v-code>
+</div><div id="command-branch"><div class="v-method-wrapper">
+    <v-method before="git " method="branch" after="" arg="">
+    Список веток с указанием текущей
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>branch</u-code>                   # список веток с указанием текущей
+git <u-code>branch -a</u-code>                # список веток с указанием remotes/origin
+git <u-code>branch</u-code> features          # создание новой ветки "features" (ответвиться от текущей)
+git <u-code>branch --delete</u-code> features # удаление ветки "features"
+git <u-code>branch -d</u-code> features       # удаление ветки "features" (после мерджа)
+git <u-code>branch -D</u-code> features       # удаление ветки "features" (тупиковая ветвь)
+</v-code>
+
+<v-code lang="bash" title="">
+git <u-code>checkout -b</u-code> features          # создание новой ветки "features" и переключение на нее
+</v-code>
+
+<v-code lang="bash" title="">
+git <u-code>push origin --delete</u-code> features # удаление ветки в удаленном репозитории
+git <u-code>push origin</u-code> :features         # удаление ветки в удаленном репозитории
+</v-code>
+</div><div id="command-checkout"><div class="v-method-wrapper">
+    <v-method before="git " method="checkout" after="" arg="">
+    Переключение на ветку
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>checkout</u-code> features             # переключение на ветку "features"
+git <u-code>checkout -b</u-code> features          # создание новой ветки "features" и переключение на нее
+git <u-code>checkout -b</u-code> bug/3-a origin/bug/3-a
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Опции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>-b &lt;new_branch&gt;</u-code-text> - Create a new branch named &lt;new_branch&gt; and start it at &lt;start_point&gt;; see git-branch[1] for details</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Опция <u-code-text>--orphan</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+git <u-code>checkout --orphan</u-code> NEW_BRANCH   # Создание новой ветики без родительского коммита. При этом все файлы из рабочей директории будут на месте
+git <u-code>checkout --orphan</u-code> NEW_BRANCH && git <u-code>reset --hard</u-code>  # Создание новой пустой ветки
+git <u-code>checkout --orphan</u-code> NEW_BRANCH TARGET_REFERENCE  # Создание новой ветики с определенного коммита. При этом будет создана новая ветка без родительского коммита и в индексе Git будут находится все файлы из выбраного целевого коммита
+</v-code>
+</div><div id="command-merge"><div class="v-method-wrapper">
+    <v-method before="git " method="merge" after="" arg="">
+    Слияние веток
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>merge</u-code> features # слияние "features" в текущую ветку
+git <u-code>merge --abort</u-code>  # 
+</v-code>
+</div><div id="command-rebase"><div class="v-method-wrapper">
+    <v-method before="git " method="rebase" after="" arg="">
+	Можно взять все изменения, которые попали в коммиты на одной из веток, и повторить их на другой (применить поверх другой).
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>rebase</u-code> master         # rebase
+git <u-code>rebase -i</u-code> master      # интерактивный rebase
+git <u-code>rebase --abort</u-code>        # отказаться от rebase (возвращает обратно HEAD)
+git <u-code>rebase --quit</u-code>         # отказаться от rebase (НЕ возвращает обратно HEAD)
+git <u-code>rebase --skip</u-code>         # пропустить коммит
+git <u-code>rebase --continue</u-code>     # продолжить rebase
+git <u-code>reflog</u-code> <i>НазваниеВетки</i>  # откатить rebase
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Описание</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>"Автоматизированный" cherry-pick. Он выполняет ту же работу, но для цепочки коммитов, тем самым как бы перенося ветку на новое место</li>
+    <li>Коммит, который не даёт изменений называется пустым. rebase автоматически пропускает этот коммит</li>
+    <li>Не сохраняет историю коммитов, в отличие от merge</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм работы ("master" to "feature")</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two><template v-slot:first>
+<!------------------------------------------------------------->
+<h4>Подготовка: feature откалывается от master</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>В обе ветки добавляются коммиты</li>
+    <li>Задача: загрузить изменения в feature из master</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Этап 1. Копирование всех коммитов feature поверх текущей вершины master (аналогично тому как это делает cherry-pick)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Берутся изменения первого коммита feature и применяются к вершине master (Для каждого из коммитов в текущей ветке берётся его дельта и сохраняется во временный файл)</li>
+    <li>Из них создается новый коммит с тем же автором и описанием</li>
+    <li>Затем точно так же копируются остальные коммиты</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Этап 2. Создание новой ветки</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>После копирования коммитов, ссылка feature переносится на вершину новосозданной ветки</li>
+    <li>Теперь ветка feature (ее копия основана на последнем состоянии master)</li>
+</ul>
+</template><template v-slot:last>
+<img src="/img/git/rebase.jpg" width="300px">
+</template></v-two>
+
+<img src="/img/git/rebase-merge.jpg" width="550px">
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Интерактивный rebase (squash commits)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При интерактивном rebase для каждого коммита можно выполнить определенную команду</li>
+</ul>
+
+<v-code lang="bash" title="">
+git <u-code>rebase -i</u-code> master  # интерактивный rebase
+</v-code>
+
+<v-code lang="bash" title="">
+# Запустится редактор со списком коммитов
+pick cb923a7 MessageCommit1
+pick 0a101a7 MessageCommit2
+pick 67e7538 MessageCommit3
+pick 3895aa6 MessageCommit4
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Команды</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>p, pick</u-code-text> - спользуем коммит без изменений (по умолчанию)</li>
+    <li><u-code-text>r, reword</u-code-text> - изменение сообщения коммита</li>
+    <li><u-code-text>e, edit</u-code-text> - отредактироват коммит (когда git дойдёт до коммита, выполнится отстановка и git предложит выполнить действия)</li>
+    <li><u-code-text>s, squash</u-code-text> - будет объединен с предыдущем коммитом в списке</li>
+    <li><u-code-text>f, fixup</u-code-text> - аналогичен squash, но не будет предлагаться изменить название коммита</li>
+    <li><u-code-text>x, exec</u-code-text> - выполнить скрипт для указанного коммита</li>
+    <li><u-code-text>b, break</u-code-text> - stop here (continue rebase later with 'git rebase --continue')</li>
+    <li><u-code-text>d, drop</u-code-text> - удаление коммита (вместо этого можно удклить строку с коммитом)</li>
+    <li><u-code-text>l, label</u-code-text> - label current HEAD with a name</li>
+    <li><u-code-text>t, reset</u-code-text> - reset HEAD to a label</li>
+    <li><u-code-text>m, merge</u-code-text> - create a merge commit using the original merge commit's message (or the oneline, if no original merge commit was specified)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>git pull</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+git <u-code>pull</u-code> origin master           # работает по merge
+git <u-code>pull --rebase</u-code> origin master  # работает по rebase
+</v-code>
+</div><div id="command-cherry-pick"><div class="v-method-wrapper">
+    <v-method before="git " method="cherry-pick" after="" arg="">
+	Команда git cherry-pick используется для того чтобы взять изменения, внесённые каким-либо коммитом, и попытаться применить их заново в виде нового коммита наверху текущей ветки. Это может оказаться полезным чтобы забрать парочку коммитов из другой ветки без полного слияния с той веткой
+    </v-method>
+</div>
+
+<ul class="list-point">
+    <li>Вызывается из ветки, в которую нужно добавить коммиты</li>
+</ul>
+
+<v-code lang="bash" title="">
+git <u-code>cherry-pick</u-code> <i>HashCommit1</i> <i>HashCommit2</i>
+</v-code>
+</div><div id="command-revert"><div class="v-method-wrapper">
+    <v-method before="git " method="revert" after="" arg="">
+	Полная противоположность git cherry-pick. Она создаёт "антикоммит" для указанного коммита, таким образом отменяя изменения, внесённые в нём
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>revert</u-code>
+</v-code>
+</div><div id="command-stash"><div class="v-method-wrapper">
+    <v-method before="git " method="stash" after="" arg="">
+    Сменить ветку, не теряя текущих незакоммиченных правок
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>stash</u-code>
+# сменить ветку
+# ...
+# вернуть ветку
+git <u-code>stash pop</u-code>
+</v-code>
+</div><div id="command-reset"><div class="v-method-wrapper">
+    <v-method before="fetch " method="reset" after="" arg="">
+    Отмена изменений. Изменяет указатель HEAD и, опционально, состояние индекса
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>reset</u-code>
+git <u-code>reset --hard HEAD^1</u-code>      # откатиться на заданное кол-во коммитов
+git <u-code>reset --hard</u-code> <i>HashCommit</i>  # откатиться к конкретному коммиту и удалить последующие (хэш смотрим в «git log»)
+git <u-code>reset HEAD</u-code> <i>ИмяФайла</i>      # если изменения были индексированны и нужно откатиться перед самим коммитом
+</v-code>
+</div><div id="command-diff"><div class="v-method-wrapper">
+    <v-method before="git " method="diff" after="" arg="">
+    Разница между рабочей директорией и индексом. Вычисление разницы между любыми двумя Git деревьями
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>diff</u-code>                 # 
+git <u-code>diff --staged</u-code>        # разница между индексом и последним коммитом
+git <u-code>diff --cached</u-code>        # посмотреть, что добавлено в stage
+git <u-code>diff</u-code> master features # разница между любыми двумя коммитами "master" и "features"
+git <u-code>difftool</u-code>             # запускает внешнюю утилиту сравнения для показа различий в двух деревьях
+</v-code>
+</div><div id="command-config"><div class="v-method-wrapper">
+    <v-method before="git " method="config" after="" arg="">
+	Конфигурация
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>config --global</u-code> user.name "user_name"   # задание user.name
+git <u-code>config --global</u-code> user.email "user_email" # задание user.email 
+git <u-code>config --list</u-code>                           # вывод настроек
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Переключение CRLF / LF</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+# C:\Users\serge\.gitconfig
+git config --global core.autocrlf input
+git config --global core.safecrlf warn
+</v-code>
+</div><div id="command-help"><div class="v-method-wrapper">
+    <v-method before="git " method="help" after="" arg="">
+    Вызов справки
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git commit <u-code>-h</u-code>
+git <u-code>help</u-code> commit
+</v-code>
+</div><div id="command-status"><div class="v-method-wrapper">
+    <v-method before="git " method="status" after="" arg="">
+    Текущее состояния файлов в рабочей директории и индексе: какие файлы изменены, но не добавлены в индекс; какие ожидают коммита в индексе
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>status</u-code>
+</v-code>
+</div><div id="command-log"><div class="v-method-wrapper">
+    <v-method before="git " method="log" after="" arg="">
+    Показывает выполненные операции
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>log</u-code>           # 
+git <u-code>log --oneline</u-code> # посмотреть все коммиты
+</v-code>
+
+</div><div id="command-clean"><div class="v-method-wrapper">
+    <v-method before="git " method="clean" after="" arg="">
+	Удалить файлы не относящиеся к репозиторию. Это могут быть результаты сборки проекта или файлы конфликтов слияний
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>clean</u-code>     # 
+git <u-code>clean -f</u-code>  # удаление untracked files
+git <u-code>clean -df</u-code> # 
+</v-code>
+
+<ul class="list-point">
+    <li><u-code-text>-d</u-code-text> - удаляет еще и директории</li>
+    <li><u-code-text>-f</u-code-text> - обязательная опция, без нее гит откажется что-либо удалять</li>
+</ul>
+
+</div><div id="main-command"><h2>Прочее</h2>
+
+<v-code lang="bash" title="">
+git <u-code>show</u-code> d8578edf8458ce06fbc5bb76a58c5ca4a58c5ca4  # изменения, сделанные в заданном коммите
+git <u-code>rm</u-code>                                             # удаление файлов из индекса и рабочей директории
+git <u-code>mv</u-code>                                             # способ переместить файл, а затем выполнить git add для нового файла и git rm для старого
+git <u-code>shortlog</u-code> -s -n                                 # количество сделанных коммитов у данного пользователя
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Terminal</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+<u-code>ls</u-code> # получить список файлов
+</v-code>
+</div><div id="github-terminal-connect"><h2>Подключение по SSH</h2>
+
+<u-link-wrapper>
+	<a href="https://www.gitignore.io/" target="_blank">Generate GitIgnore</a>
+	<a href="https://www.youtube.com/playlist?list=PL3LQJkGQtzc5rDeb7FjACNb6sOW300yA0" target="_blank">[playlist] GitHub</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Два вида соединения</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+git@github.com:anton-sergeenkov/repo.git      # соединение по SSH
+https://github.com/anton-sergeenkov/repo.git  # соединение по HTTPS
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>SSH</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Git Bash</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://git-scm.com/" target="_blank">Git</a>
+</u-link-wrapper>
+
+<v-code lang="bash" title="">
+# 1. Install Git
+
+# 2. Open Git Bash
+	<u-code-wrapper>
+	$ cd путь_до_папки ($ cd и перетащить папку)
+	</u-code-wrapper>
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Generating a new SSH key</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank">Generating a new SSH key</a>
+</u-link-wrapper>
+
+<v-code lang="bash" title="">
+# 1. Generating a new SSH key
+	<u-code-wrapper>
+	$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+	</u-code-wrapper>
+# 2. Adding your SSH key to the ssh-agent
+	<u-code-wrapper>
+	$ eval $(ssh-agent -s)
+	</u-code-wrapper>
+# 3. Add your SSH private key to the ssh-agent
+	<u-code-wrapper>
+	$ ssh-add ~/.ssh/id_rsa
+	</u-code-wrapper>
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Add the SSH key to your GitHub account</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account" target="_blank">Adding a new SSH key to your GitHub account</a>
+</u-link-wrapper>
+
+<v-code lang="bash" title="">
+# 1. Copy the SSH key to your clipboard
+	<u-code-wrapper>
+	$ clip < ~/.ssh/id_rsa.pub
+	</u-code-wrapper>
+# 2. https://github.com/ -> Settings -> SSH and GPG keys -> New SSH key
+	- ввести название ключа
+	- вставить ключ скопированный в буфер обмена на 1 этапе
+
+# 3. https://github.com/ -> Репозиторий -> Clone or download -> Use SSH -> Скопировать строку
+
+# 4. Git Bash
+	<u-code-wrapper>
+	$ git clone git@github.com:name_account/name_repo.git
+	</u-code-wrapper>
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>HTTPS / HTTP</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При подключении по HTTPS / HTTP требуется единоразовый ввода логина и пароля от учетной записи</li>
+    <li>После этого логин и пароль сохранятся на компьютере</li>
+
+    <hr>
+    <li>Если изенился логин/пароль, необходимо обновить данные учетной записи</li>
+    <li>Панель управления -> Учетные записи пользователей -> Диспетчер учетных данных</li>
+    <li><u-code-text>git:https://github.com</u-code-text> так выглядит учетка для Git</li>
+    <li>Можно изменить данные учетки или ее удалить</li>
+    <li>Если учетка была удалена, при следующем взаимодействии в консоле, git попросит ввести логин и пароль в отдельном окне авторизации</li>
+</ul>
+</div><div id="github-info"><h2>Теория</h2>
+
+<u-link-wrapper>
+	<a href="https://git-scm.com/book/ru/v2" target="_blank">Git Book</a>
+	<a href="https://geekbrains.ru/courses/66" target="_blank">GeekBrains: Основы Git</a>
+	<a href="https://www.youtube.com/playlist?list=PL3LQJkGQtzc5rDeb7FjACNb6sOW300yA0" target="_blank">YouTube PlayList: Glo Academy</a>
+	<a href="https://help.github.com/en/github/working-with-github-pages" target="_blank">GitHub Pages Docs</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+	<li>origin указывает на удаленный репозиторий, локально origin нет</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Local Operation</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<img src="/img/git/git1.jpg" width="450px">
+
+<ul class="list-point">
+	<li><u-text-define>I. Working Directory</u-text-define> - рабочий каталог</li>
+	<ul class="list-point">
+		<li>1. Внесение изменений в файлы рабочего каталога</li>
+		<li>2. Подготовка файлов, добавляя из слепки в область Staging Area</li>
+	</ul>
+
+	<li><u-text-define>II. Staging Area</u-text-define> - область подготовленных файлов</li>
+	<ul class="list-point">
+		<li>3 commit. Берет подготовленные файлы из индекса Staging Area и помещает их в Git Directory на постоянное хранение</li>
+	</ul>
+
+	<li><u-text-define>III. Git Directory (Repository)</u-text-define> - каталог git</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>File Status Lifecycle</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<img src="/img/git/git2.jpg" width="450px">
+
+<ul class="list-point">
+	<li>Файл в Working Directory может находиться под версионным контролем (<u>unmodified, modified, staged</u>) и неотслеживаемые файлы (<u>untracked</u>)</li>
+</ul>
+
+</div><div id="github-github-desktop"><h2>GitHub Desktop</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Pull request</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+GitHub Desktop -> Branch -> Create pull request -> 
+github.com -> (Open a pull request) Create pull request
+github.com -> Merge pull request -> Confirm merge -> "Pull request successfully merged and closed"
+GitHub Desktop -> Fetch origin
+</v-code>
+</div><div id="github-smart-git"><h2>SmartGit</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Откат изменений кода</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+delete  - удаляет файл из локального репозитория, если не было commit
+discard - отказаться от последнего изменения файла, если не было commit
+
+log -> ветка commit -> пкм -> revert -> Revert & Commit - откатить существующий commit
+log -> ветка commit -> пкм -> reset (у последнего запушенного файла) -> set the index... - откат всех последних изменений и загрузка из удаленного git-репозиторя
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Работа с ветками</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+Branches -> Local Branches -> пкм -> Add Branch -> Feature -> Add Branch
+Branches -> Feature -> двойной клик переход на ветку
+
+Branches -> Local Branches -> Feature (Выделить ветку в которую делаем слияние) -> двойной клик
+Branches -> Local Branches -> Master -> пкм -> Merge -> Create Merge-Commit - слияние веток Feature и Master
+
+Branches -> Local Branches -> пкм по ветке -> Delete - удалить ветку
+</v-code>
+</div><div id="theory-info"><h2>Информация</h2>
+
+<ul class="list-point">
+	<li><u-text-define>GitLens</u-text-define> - расширение для VSCode</li>
+	<li>Ветка <u>gh-pages</u> предосталяет доступ к ветке в GitHub Pages <u-code>https://USER_NAME.github.io/NAME_BRANCH</u-code></li>
+</ul>
+</div><div id="theory-vcs"><h2>Системы управления версиями</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Централизованная система управления версиями</u-text-define> (Version Control System, VCS или Revision Control System) - позволяет хранить несколько версий одного и того же документа, при необходимости возвращаться к более ранним версиям, определять, кто и когда сделал то или иное изменение, и многое другое</li>
+	<li>Такие системы наиболее широко используются при разработке программного обеспечения для хранения исходных кодов разрабатываемой программы</li>
+	<li>Традиционные системы управления версиями используют централизованную модель, когда имеется единое хранилище документов, управляемое специальным сервером, который и выполняет бо́льшую часть функций по управлению версиями</li>
+	<li>Контроль версий означает что вы храните все версии редактируемых документов и можете вернуться к любой сохраненной версии в любой момент времени</li>
+	<li>Примеры: <u-code>SVN, Team Foundation Server</u-code></li>
+
+	<li><u-text-define>Распределённые системы управления версиями</u-text-define> (Distributed Version Control System, DVCS) - используют распределённую модель вместо традиционной клиент-серверной. Они, в общем случае, не нуждаются в централизованном хранилище: вся история изменения документов хранится на каждом компьютере, в локальном хранилище, и при необходимости отдельные фрагменты истории локального хранилища синхронизируются с аналогичным хранилищем на другом компьютере. В некоторых таких системах локальное хранилище располагается непосредственно в каталогах рабочей копии</li>
+	<li>Когда пользователь такой системы выполняет обычные действия, такие как извлечение определённой версии документа, создание новой версии и тому подобное, он работает со своей локальной копией хранилища. По мере внесения изменений, хранилища, принадлежащие разным разработчикам, начинают различаться, и возникает необходимость в их синхронизации. Такая синхронизация может осуществляться с помощью обмена патчами или так называемыми наборами изменений (англ. change sets) между пользователями.</li>
+	<li>С точки зрения пользователя распределённая система отличается необходимостью создавать локальный репозиторий и наличием в командном языке двух дополнительных команд: команды получения репозитория от удалённого компьютера (pull) и передачи своего репозитория на удалённый компьютер (push). Первая команда выполняет слияние изменений удалённого и локального репозиториев с помещением результата в локальный репозиторий; вторая — наоборот, выполняет слияние изменений двух репозиториев с помещением результата в удалённый репозиторий</li>
+	<li>Примеры: <u-code>Git, Mercurial</u-code></li>
+	
+	<li><u-text-define>Git</u-text-define> - распределенная система контроля версий (version control system - VCS)</li>
+</ul>
+</div><div id="theory-gitflow"><h2>Gitflow</h2>
+
+<div id="ct-gitflow">
+<ul class="list-point">
+	<li><u-text-define>Gitflow</u-text-define> - модуль управления ветками. Есть две основные ветки: <u-code-text>master</u-code-text> и <u-code-text>develop</u-code-text></li>
+	<li><u-text-define>gitflow-avh</u-text-define> - инструмент для работы с Gitflow</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ветки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-code-list>master</u-code-list> - содержится тот же код, что и в рабочей (продакт) версии проекта</li>
+	<li><u-code-list>release</u-code-list> - подготовка к новому релизу проекта</li>
+	<li><u-code-list>beta</u-code-list> - beta</li>
+	<li><u-code-list>develop</u-code-list> - происходит вся работа</li>
+</ul>
+
+<ul class="list-point">
+	<li><u-code-list>feature</u-code-list> - создаются в процессе работы над develop, их может быть неограниченное количество</li>
+	<li><u-code-list>improvement</u-code-list> - улучшение</li>
+	<li><u-code-list>bug</u-code-list> - исправление багов</li>
+	<li><u-code-list>bugfix</u-code-list> - исправление багов</li>
+	<li><u-code-list>hotfix</u-code-list> - срочное исправление багов, найденных, например, на продакте</li>
+	<li><u-code-list>fix</u-code-list> - fix</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Рабочий процесс в Gitflow</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+	<li>Создается репозиторий</li>
+	<li>Репозиторий инициализируется</li>
+	<li>Начинается работа на ветке <u-code-text>develop</u-code-text></li>
+	<li>Возникает необходимость опробовать новую штуку – создается <u-code-text>feature-ветка</u-code-text> и делаются коммиты</li>
+	<li>Закончив работу на <u-code-text>feature-ветке</u-code-text>, вы сливаете ее с <u-code-text>develop</u-code-text></li>
+	<li>Если вы довольны текущей версией, но хотите продолжить работу, создается ветка <u-code-text>release</u-code-text>, куда перемещается текущая версия. Правка багов будет происходить на этой же ветке</li>
+	<li>Когда с веткой <u-code-text>release</u-code-text> покончено, время слить ее в master и продолжить работу с <u-code-text>develop</u-code-text></li>
+	<li>Кроме того, этот момент можно отметить на <u-code-text>master-ветке</u-code-text></li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Codereview GitHub</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+	<li>Создать репозиторий</li>
+	<li>Основная ветка разработки "dev"</li>
+	<li>Под каждую задачу создается ветка от "dev"</li>
+	<li>Создание PR (Pool Request) для слития ветки задачи с веткой "dev"</li>
+	<li>Ссылка на PR руководителю</li>
+	<li>Если всё ок, слитие веток, если нет, то исправление замечания</li>
+	<li>Если несколько задач и несколько веток, то вливать нужно не ветки полностью а только отдельные коммиты</li>
+</ol>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

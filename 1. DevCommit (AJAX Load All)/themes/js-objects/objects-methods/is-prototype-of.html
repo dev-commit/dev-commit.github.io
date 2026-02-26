@@ -1,0 +1,23 @@
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>isPrototypeOf</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<div class="v-method-wrapper">
+    <v-method before="prototypeObj." method="isPrototypeOf" after="" arg="()">
+	проверяет, входит ли объект в цепочку прототипов другого объекта
+    </v-method>
+
+	<v-method-arg arg="prototypeObj">объект, проверяемый на каждую ссылку в цепочке прототипов аргумента object</v-method-arg>
+	<v-method-arg arg="object">объект, в чьей цепочке прототипов производится поиск</v-method-arg>
+
+	<v-method-return></v-method-return>
+</div>
+
+<ul class="list-point">
+    <li>Отличие от <u-code-text>instanceof</u-code-text>: выражение <u-code-text>object instanceof AFunction</u-code-text> проверяет, присутствует ли в цепочке прототипов объекта <u-code-text>object</u-code-text> объект <u-code-text>AFunction.prototype</u-code-text>, а не сам объект <u-code-text>AFunction</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+// является ли объект ObjParent прототипом для объекта ObjChild
+ObjChild.<u-code>isPrototypeOf</u-code>(ObjParent);
+</v-code>

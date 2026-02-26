@@ -1,0 +1,59 @@
+<h2>autoprefixer</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>autoprefixer</u-code-npm>
+</v-pre-npm>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Подключение через webpack.config.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="webpack.config.js">
+    <u-code-wrapper>
+const autoprefixer = require('autoprefixer');
+    </u-code-wrapper>
+module: {
+    rules: [
+        {
+            test: /\.scss/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                'css-loader',
+                <u-code-wrapper>
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        plugins: [
+                            autoprefixer({
+                                browsers: ['ie &gt;= 8', 'last 4 version']
+                            })
+                        ],
+                        sourceMap: true
+                    }
+                },
+                </u-code-wrapper>
+                'sass-loader'
+            ]
+        },
+    ]
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Подключение через postcss.config.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="postcss.config.js">
+module.exports = {
+    plugins: [
+        require('autoprefixer')
+    ]
+}
+</v-code>
+
+<v-code lang="js" title="package.json">
+{
+    "browserslist": [
+        "> 1%",
+        "last 3 version"
+    ]
+}
+</v-code>

@@ -1,0 +1,20 @@
+<h2>Событие setFieldTouched</h2>
+
+<ul class="list-point">
+    <li>Валидация происходит при <u>onBlur</u></li>
+    <li>В стандартном состоянии валидация происходит при нажании на кнопку <u>submit</u></li>
+</ul>
+
+<v-code lang="js" title="">
+const SocialAnswerForm = ({ setFieldTouched }) =&gt; {
+
+    const handleBlur = name =&gt; () =&gt; setFieldTouched(name, true);
+
+    return (
+        &lt;CRMInput
+            onBlur={handleBlur('emailPersonal')}
+            name='emailPersonal'
+        /&gt;
+    );
+};
+</v-code>

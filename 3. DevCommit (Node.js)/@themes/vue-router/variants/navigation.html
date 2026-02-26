@@ -1,0 +1,59 @@
+<h2>Программная навигация</h2>
+
+<ul class="list-point">
+	<li><u-code-text>router.<u-code>push</u-code>(location, onComplete?, onAbort?)</u-code-text> (аналог: <u-code-text>window.history.pushState</u-code-text>) - для перехода к новому URL. Метод добавляет новую запись в историю навигации, что позволяет клику пользователя по кнопке "назад" в браузере сработать привычным образом. В качестве аргумента можно передать строку или объект, описывающий маршрут</li>
+	<li><u-code-text>router.<u-code>replace</u-code>(location, onComplete?, onAbort?)</u-code-text> (аналог: <u-code-text>window.history.replaceState</u-code-text>) - действует как router.push, с той лишь разницей, что переход осуществляется без добавления новой записи в историю навигации, а заменяет текущую запись в нём</li>
+	<li><u-code-text>router.<u-code>go</u-code>(n)</u-code-text> (аналог: <u-code-text>window.history.go</u-code-text>) - метод принимает параметром целое число, которое указывает на сколько шагов необходимо перейти по истории навигации</li>
+</ul>
+
+<ul class="list-point">
+	<li>Внутри экземпляра Vue у вас есть доступ к экземпляру маршрутизатора через <u-code-text>$router</u-code-text>. Поэтому можно вызвать <u-code-text>this.$router.push</u-code-text></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>push</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+&lt;router-link :to="..."&gt;	# декларативная запись
+router.push(...)        # программная запись
+</v-code>
+
+<v-code lang="js" title="">
+// строка
+router.push('home')
+
+// объект
+router.push({ path: 'home' })
+
+// именованный маршрут
+router.push({ name: 'user', params: { userId: '123' } })
+
+// со строкой запроса, получится /register?plan=private
+router.push({ path: 'register', query: { plan: 'private' } })
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>replace</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+&lt;router-link :to="..." replace&gt; # декларативная запись
+router.replace(...)             # программная запись
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>go</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// перейти на одну запись вперёд, эквивалентно history.forward()
+router.go(1)
+
+// перейти на одну запись назад, эквивалентно history.back()
+router.go(-1)
+
+// перейти на 3 записи вперёд
+router.go(3)
+
+// если записей в истории недостаточно много, переход просто не произойдёт
+router.go(-100)
+router.go(100)
+</v-code>

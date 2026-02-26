@@ -1,0 +1,18 @@
+<h2>Передача classes</h2>
+
+<ul class="list-point">
+    <li>Из родительного компонента пропом можно передать <u>clasess</u> в дочерний компонент. При этому у дочернего не должно быть стилей <u>withStyles</u></li>
+    <li>Если у дочернего компонента будут свои стили, то будет предупреждение: <i>Material-UI: the key wrapper provided to the classes prop is not implemented in Component. You can only override one of the following</i></li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;Component classes={classes} /&gt;
+</v-code>
+
+<ul class="list-point">
+    <li>Если у дочернего компонента есть класс <u>root</u>, его можно переопределить из родительского, передав в пропе класс родительского компонента <u>classes.paperRoot</u></li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;Component classes=<span v-pre>{{</span> root: classes.paperRoot <span v-pre>}}</span> /&gt;
+</v-code>

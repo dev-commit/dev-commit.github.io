@@ -1,0 +1,46 @@
+<h2>Request JS</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обработка формы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;form class="form"&gt;
+	&lt;input type="text" name="name" required=""&gt;
+	&lt;input type="text" name="message" required=""&gt;
+	&lt;input type="submit" value="Отправить"&gt;
+&lt;/form&gt;
+</v-code>
+
+<v-code lang="js" title="">
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', function(e) {
+	e.preventDefault();
+	const name = this['name'];
+	const message = this['message'];
+	console.log(name.value, message.value);
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Отправка формы из HTML</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;form action="script.php" method="get"&gt;
+    &lt;input type="text" name="name" required=""&gt;
+    &lt;textarea name="message"&gt;&lt;/textarea&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</v-code>
+
+<v-code lang="html" title="">
+http://test1.ru/script.php?name=myname&message=my+message
+</v-code>
+
+<v-code lang="php" title="">
+&lt;?php
+	$name    = $_GET[name]; 
+	$message = $_GET[message]; 
+?&gt;
+</v-code>
+

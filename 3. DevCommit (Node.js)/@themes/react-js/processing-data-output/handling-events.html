@@ -1,0 +1,145 @@
+<h2>Обработка событий</h2>
+
+<ul class="list-point">
+	<li>События в React именуются в стиле camelCase вместо нижнего регистра</li>
+	<li>С JSX передается функция как обработчик события вместо строки</li>
+</ul>
+
+<v-two-code type="html;html" comment="react jsx;html">
+<template v-slot:first>
+&lt;button onClick={methodName}&gt;&lt;/button&gt;
+</template>
+<template v-slot:last>
+&lt;button onclick="methodName()"&gt;&lt;/button&gt;
+</template>
+</v-two-code>
+
+<ul class="list-point">
+	<li>В React нельзя предотвратить обработчик события по умолчанию, вернув <u-code-text>false</u-code-text>. Нужно явно вызвать <u-code-text>preventDefault</u-code-text></li>
+	<li>В приведённом выше коде <u-code-text>e</u-code-text> - это синтетическое событие</li>
+</ul>
+
+<v-two-code type="js;html" comment="react jsx;html">
+<template v-slot:first>
+function ActionLink() {
+	function handleClick(e) {
+		e.preventDefault();
+		console.log('ok');
+	}
+	return (
+		&lt;a href="#" onClick={handleClick}&gt;&lt;/a&gt;
+	);
+}
+</template>
+<template v-slot:last>
+&lt;a href="#" onclick="console.log('ok'); return false"&gt;&lt;/a&gt;
+</template>
+</v-two-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Потеря контекста</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-underline>Функция получает свой контекст от того, где он вызывается</u-text-underline></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1. Привязка с помощью bind</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>При обращении к <u-code-text>this</u-code-text> в JSX-колбэках необходимо учитывать, что методы класса в JavaScript по умолчанию не привязаны к контексту. Если вы забудете привязать метод <u-code-text>this.handleClick</u-code-text> и передать его в <u-code-text>onClick</u-code-text>, значение <u-code-text>this</u-code-text> будет undefined в момент вызова функции. Это часть того, как работают функции в JavaScript. Обычно, если ссылаться на метод без <u-code-text>()</u-code-text> после него, например, <u-code-text>onClick={this.handleClick}</u-code-text>, этот метод нужно привязать</li>
+</ul>
+
+<v-code lang="js" title="">
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			name: 'Tony'
+		};
+		// привязка обязательна для работы `this` в колбэке
+		<u-code>this.handleClick = this.handleClick.bind(this);</u-code>
+	}
+	handleClick() {
+		// без привязки в constructor не будет работать
+		<u-code>alert(this.state.name);</u-code>
+	}
+	render() {
+		return (
+			&lt;button <u-code>onClick={this.handleClick}</u-code>&gt;Ok&lt;/button&gt;
+		);
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Эспериментальный синтаксис общедоступных полей классов</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Такой синтаксис доступен в Create React App по умолчанию</li>
+	<li>Такой синтаксис гарантирует, что <u-code-text>this</u-code-text> привязан к <u-code-text>handleClick</u-code-text></li>
+	<li><b>Предупреждение</b>: это экспериментальный синтаксис</li>
+	<li><u>Не воссоздает функцию каждый раз</u>, но связывает контекст с компонентом один раз при создании экземпляра класса. Передает ссылку на уже существующий экземпляр</li>
+</ul>
+
+<v-code lang="js" title="">
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			name: 'Tony'
+		};
+	}
+	<u-code>handleClick = () =&gt;</u-code> {
+		alert(this.state.name);
+	}
+	render() {
+		return (
+			&lt;button <u-code>onClick={this.handleClick}</u-code>&gt;Ok&lt;/button&gt;
+		);
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Стрелочные функции в колбэке</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Такой синтаксис гарантирует, что <u-code-text>this</u-code-text> привязан к <u-code-text>handleClick</u-code-text></li>
+	<li><b>Проблема:</b> <u>при каждом рендере компонента создаётся новый колбэк (новый экземпляр)</u>, вызывается <u-code-text>this.onClick</u-code-text>. Чаще всего это не страшно. Однако, если этот колбэк попадает как проп в дочерние компоненты, эти компоненты могут быть отрендерены снова</li>
+	<li>Рекомендуется делать привязку в конструкторе или использовать синтаксис полей классов, чтобы избежать <u>проблем с производительностью</u></li>
+</ul>
+
+<v-code lang="js" title="">
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			name: 'Tony'
+		};
+	}
+	handleClick() {
+		alert(this.state.name);
+	}
+	render() {
+		return (
+			&lt;button <u-code>onClick={(e) =&gt; this.handleClick(e)}</u-code>&gt;Ok&lt;/button&gt;
+		);
+	}
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Передача аргументов в обработчики событий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>В обоих случаях аргумент <u-code-text>e</u-code-text>, представляющий событие React, будет передан как второй аргумент после идентификатора. Используя стрелочную функцию, необходимо передавать аргумент явно, но с <u-code-text>bind</u-code-text> любые последующие аргументы передаются автоматически</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;!-- стрелочные функции --&gt;
+&lt;button onClick={(e) =&gt; this.deleteRow(id, e)}&gt;Удалить строку&lt;/button&gt;
+&lt;!-- Function.prototype.bind --&gt;
+&lt;button onClick={this.deleteRow.bind(this, id)}&gt;Удалить строку&lt;/button&gt;
+</v-code>

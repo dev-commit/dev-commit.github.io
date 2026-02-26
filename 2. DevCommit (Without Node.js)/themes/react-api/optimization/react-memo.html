@@ -1,0 +1,33 @@
+<h2>React.memo</h2>
+
+<v-code lang="js" title="">
+import React, { memo } from 'react';
+
+const MyComponent = React.memo(function MyComponent(props) {
+	// рендер с использованием пропсов
+});
+
+// export default memo(MyComponent);
+</v-code>
+
+<ul class="list-point">
+    <li><u-text-define>React.memo</u-text-define> - компонент высшего порядка. Он похож на <u-code-text>React.PureComponent</u-code-text>, но предназначен для функциональных компонентов</li>
+    <li>Если функциональный компонент всегда рендерит одинаковый результат для одних и тех же пропсов, вы можете обернуть его в вызов <u-code-text>React.memo</u-code-text> для повышения производительности в некоторых случаях, <u>мемоизируя</u> результат. Это значит, что React будет использовать результат последнего рендера, избегая повторного рендеринга</li>
+    <li>По умолчанию он поверхностно сравнивает вложенные объекты в объекте <u-code-text>props</u-code-text>. Если вы хотите контролировать сравнение, вы можете передать свою функцию сравнения в качестве второго аргумента</li>
+    <li>Этот метод предназначен только для <u>оптимизации производительности</u>. Не полагайтесь на него, чтобы «предотвратить» рендер, так как это может привести к ошибкам</li>
+</ul>
+
+<v-code lang="js" title="">
+function MyComponent(props) {
+	// рендер с использованием пропсов
+}
+function areEqual(prevProps, nextProps) {
+	// возвращает true, если nextProps рендерит
+	// тот же результат что и prevProps, иначе возвращает false
+}
+export default React.memo(MyComponent, areEqual);
+</v-code>
+
+<ul class="list-point">
+    <li>В отличие от метода <u-text-underline>shouldComponentUpdate()</u-text-underline> для классовых компонентов, функция <u-code-text>areEqual</u-code-text> возвращает <u-code-text>true</u-code-text>, если пропсы равны, и значение <u-code-text>false</u-code-text>, если пропсы не равны</li>
+</ul>

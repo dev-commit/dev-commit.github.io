@@ -1,0 +1,97 @@
+<h2>Условный рендеринг</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Переменные-элементы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { status: true };
+	}
+	render() {
+		<u-code-wrapper>
+		const status = this.state.status;
+		let text;
+		if (status) {
+			text = &lt;h2&gt;Yes&lt;/h2&gt;;
+		} else {
+			text = &lt;h2&gt;No&lt;/h2&gt;;
+		}
+		return (text);
+		</u-code-wrapper>
+	}
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Встроенные условия if с логическим оператором &&</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Можно внедрить любое выражение в JSX, заключив его в фигурные скобки. Это правило распространяется и на логический оператор <u-code-text>&&</u-code-text> языка JavaScript, которым можно удобно вставить элемент в зависимости от условия</li>
+	<li>В JavaScript выражение <u-code-text>true && expression</u-code-text> всегда вычисляется как <u-code-text>expression</u-code-text>, а выражение <u-code-text>false && expression</u-code-text> - как <u-code-text>false</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+render() {
+	return (
+		&lt;div&gt;
+			{this.state.status &amp;&amp; &lt;h2&gt;Yes&lt;/h2&gt;}
+		&lt;/div&gt;
+	);
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Встроенные условия if-else с тернарным оператором</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Можно использовать тернарный оператор <u-code-text>condition ? true : false</u-code-text></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Вариант 1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+render() {
+	return (
+		&lt;div&gt;
+			{this.state.status ? &lt;h2&gt;Yes&lt;/h2&gt; : &lt;h2&gt;No&lt;/h2&gt;}
+		&lt;/div&gt;
+	);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вариант 2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+render() {
+	return (
+		&lt;div&gt;
+			{this.state.status ? (
+				&lt;h2&gt;Yes&lt;/h2&gt;
+			) : ( 
+				&lt;h2&gt;No&lt;/h2&gt;
+			)}
+		&lt;/div&gt;
+	);
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Предотвращение рендеринга компонента</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>В редких случаях может потребоваться позволить компоненту спрятать себя, хотя он уже и отрендерен другим компонентом. Чтобы этого добиться, верните <u-code-text>null</u-code-text> вместо того, что обычно возвращается на рендеринг</li>
+	<li>Сам факт возврата <u-code-text>null</u-code-text> из метода <u-code-text>render</u-code-text> компонента никак не влияет на срабатывание методов жизненного цикла компонента. Например, <u-code-text>componentDidUpdate</u-code-text> будет всё равно вызван</li>
+</ul>
+
+<v-code lang="js" title="">
+render() {
+	if (!this.state.status) {
+		return null;
+	}
+	return (&lt;h2&gt;Yes&lt;/h2&gt;);
+}
+</v-code>

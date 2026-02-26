@@ -1,0 +1,20 @@
+<h2>Object.assign</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="Object." method="assign" after="" arg="(target, ...sources)">
+    копирование значений всех собственных перечисляемых свойств (при обходе в цикле for..in его можно будет получить) из одного или более исходных объектов в целевой объект. Происходит создание поверхностной копии
+    </v-method>
+
+	<v-method-arg arg="target">целевой объект</v-method-arg>
+	<v-method-arg arg="sources">исходные объекты</v-method-arg>
+
+	<v-method-return>Получившийся целевой объект</v-method-return>
+</div>
+
+<v-code lang="js" title="">
+let obj = Object.assign(
+	{ name: 'Tony' }, 
+	{ age: 25 }
+);
+// obj {name: "Tony", age: 25}
+</v-code>

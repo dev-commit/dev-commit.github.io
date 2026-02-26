@@ -1,0 +1,36 @@
+<h2>Свойство constructor</h2>
+
+<!------------------------------------------------------------->
+<h4>Свойство constructor по умолчанию</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// у каждой функции по умолчанию есть свойство prototype, содержащее объект
+function MyFunc() {}
+MyFunc.prototype = { 
+	<u-code>constructor</u-code>: MyFunc 
+};
+var a = new MyFunc(); // => MyFunc {} __proto__: constructor: ƒ MyFunc()
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Перезапись свойства constructor</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function MyFunc() {}
+MyFunc.prototype = { 
+	jumps: true 
+};
+var a = new MyFunc(); // => MyFunc {} __proto__: jumps: true 
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Создание объекта с тем же конструктором, что и данный</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function User(name) {
+    this.name = name;
+    console.log(name);
+}
+var user1 = new User('Tony');
+var user2 = new user1.<u-code>constructor</u-code>('Jack');
+</v-code>

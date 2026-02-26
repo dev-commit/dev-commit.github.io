@@ -1,0 +1,170 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>NPM & Yarn</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">NPM</div><a href="#npm-info">Информация</a><a href="#npm-command">Команды</a><a href="#npm-shortcut">Сокращения</a><a href="#npm-package-json">package.json</a><div class="theme">NPM Packages</div><a href="#npm-package-http-server"><u-menu-border>http-server</u-menu-border></a><div class="theme">Yarn</div><a href="#yarn-main">Основное</a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="npm-info"><h2>Информация</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Инструменты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+node.js    # программная платформа для JavaScript
+npm        # Node.js Package Manager. менеджер пакетов, входящий в состав Node.js
+npx        # инструмент запуска NPM пакетов, доступный в версиях npm 5.2 и выше
+webpack    # сборщик проектов
+git        # репозиторий (установка для Package manager Bower)
+</v-code>
+</div><div id="npm-command"><h2>Команды</h2>
+
+<v-code lang="bash" title="">
+npm <u-code>init</u-code>                   # инициализация проекта (создание package.json)
+npm <u-code>init</u-code> -y                # инициализация проекта с параметрами по умолчанию
+npm <u-code>i</u-code>                      # установить все пакеты из package.json
+npm <u-code>up</u-code>                     # обновить все пакеты из package.json
+npm <u-code>i</u-code> package              # установить package (не должен добавляться в package.json)
+npm <u-code>i --save</u-code> package       # установить package и добавить запись в секцию dependencies package.json 
+npm <u-code>i --save-dev</u-code> package   # установить package и добавить запись в секцию devDependencies package.json
+npm <u-code>i --g</u-code> package          # установить package глобально
+npm <u-code>r</u-code> package              # удалить package
+npm <u-code>up</u-code> package             # обновить package
+npm <u-code>run</u-code> package            # запустить package
+</v-code>
+
+<v-code lang="bash" title="">
+npm i -g <em>npm-check-updates</em> # проверка обновлений всех пакетов в package.json
+<em>ncu</em>                        # проверить какие пакеты устарели
+<em>ncu -u</em>                     # обновить версию в package.json
+npm i <em>npm</em>                  # обновление npm
+npm <em>up</em>                     # обновить все модули
+npm <em>-v</em>                     # проверить версию npm
+</v-code>
+
+<ul class="list-point">
+	<li><em>devDependencies</em> - пакеты, которые нужны для разработки</li>
+	<li><em>dependencies</em> - пакеты, от которых проект зависит непосредственно (библиотеки)</li>
+	<li><em>devDependencies</em> и <em>dependencies</em> - устанавливаются в node_modules</li>
+	<li>При вызове <em>npm install</em>, npm установит пакеты указанные в dependencies, но не в devDependencies</li>
+	<li>Если сделать <em>npm install</em> внутри папки, в которой есть package.json, то установятся и те, и другие</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Linux</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+sudo npm i <u-code>--unsafe-perm</u-code>                      # установка всех пакетов из package.json
+sudo npm i --save-dev <u-code>--unsafe-perm node-sass</u-code> # установка пакета node-sass
+</v-code>
+</div><div id="npm-shortcut"><h2>Сокращения</h2>
+
+<v-two-code type="bash;bash" comment=";">
+<template v-slot:first>
+npm install package
+npm uninstall package
+npm update package
+npm install package --save
+npm install package --save-dev
+</template>
+<template v-slot:last>
+npm i package
+npm r package
+npm up package
+npm i package S
+npm i package D
+</template>
+</v-two-code>
+
+<v-code lang="bash" title="">
+c   # config
+ls  # list
+</v-code>
+</div><div id="npm-package-json"><h2>package.json</h2>
+
+<v-code lang="json" title="">
+{
+	"scripts": {
+		"hello": "echo \"hi\"",                                      # вывод в консоль
+		"start": "node index.js",                                    # вызов js
+		"server": "node ./node_modules/http-server/bin/http-server", # вызов npm-модуля http-server
+		"server": "http-server",                                     # аналогично
+		"webpack": "webpack <u-code>-w</u-code>"                                      # watcher
+	}
+}
+</v-code>
+
+<v-code lang="bash" title="">
+<u-code>node</u-code>           # выполнение кода в консоли
+<u-code>node index.js</u-code>  # выполнение файла index.js
+<u-code>npm start</u-code>      # выполнение скрипта из package.json
+<u-code>npm server</u-code>     # выполнение скрипта из package.json (аналогично)
+<u-code>npm run server</u-code> # выполнение скрипта из package.json (аналогично)
+</v-code></div><div id="npm-package-http-server"><h2>http-server</h2>
+
+<v-code lang="bash npm" title="">
+npm i <u-code>http-server</u-code> -g
+</v-code>
+
+<v-code lang="bash" title="terminal">
+ http-server './'
+</v-code>
+</div><div id="yarn-main"><h2>Основное</h2>
+
+<v-code lang="bash" title="">
+npm i yarn -g                 # установка yarn
+yarn                          # установка всех зависимостей из package.json
+yarn add name_package         # установка в "dependencies" (npm i --save)
+yarn add --dev name_package   # установка в "devDependencies" (npm i --save-dev)
+</v-code>
+
+<v-code lang="bash" title="">
+yarn add @material-ui/icons -W
+</v-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

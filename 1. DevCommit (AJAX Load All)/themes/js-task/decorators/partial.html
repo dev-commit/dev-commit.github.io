@@ -1,0 +1,33 @@
+<h2>partial</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Частичное применение</u-text-define> - преобразует функцию за счет изменения количества параметров. Это один из примеров движения от общего к частному</li>
+</ul>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="partial" after="" arg="()">
+    Метод, доступный для всех функций
+    </v-method>
+</div>
+
+<v-code lang="js" title="">
+Function.prototype.partial = function(...leftArguments){
+    let fn = this;
+    return function partialFn(...rightArguments){
+       let args = leftArguments.concat(rightArguments);
+       return fn.apply(this, args);
+    }
+}
+
+function log(level, message){
+    console.log(level  + " : " + message);
+}
+<u-code-wrapper>
+let logInfo = log.partial("Info");
+logInfo("here is a message");
+</u-code-wrapper>
+</v-code>
+
+<ul class="list-point">
+    <li>Созданная таким образом <u-code-text>logInfo()</u-code-text> использует лишь один аргумент <u>message</u></li>
+</ul>

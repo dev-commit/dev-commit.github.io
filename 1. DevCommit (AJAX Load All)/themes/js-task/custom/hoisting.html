@@ -1,0 +1,155 @@
+<h2>Всплытие</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>#1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var a = 1;
+
+(function() {
+    console.log(a); // => undefined
+    var a = 2;      // всплывает и инициализируется значением "undefined"
+})();
+
+// "function а" имеет максимальный приоритет, но "var a" проинициализирована
+// поэтому "a == 1"
+function a() {
+    console.log(this);
+}
+
+a.call(null); // => Uncaught TypeError: a.call is not a function
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+(function () {
+    f(); // 2
+    f = function () {
+    	console.log(1);
+    };
+})();
+
+f(); // 1
+var f = 10;
+f(); // f is not a function
+
+function f () {
+	console.log(2);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#3</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const a = 1;
+
+function b() {
+    // перезаписывается не глобальная переменная, а локальная функция
+    a = 10;
+    return 20;
+    // функция всплывает
+    function a() {}
+}
+
+b();
+
+console.log(a); // 1
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#4</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var x = function a(arg) {
+    console.log(x === arg);
+}
+
+x(a); // => Uncaught ReferenceError: a is not defined
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Массив</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Значение массива</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var a = [];
+function clear(arr) {
+    arr.push(2);
+    arr = null;
+}
+clear(a);
+console.log(a); // [2]
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Временная Dead Zone</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function foo(a) {  
+    if (a > 0) {
+        // a во временной dead zone
+        let a = a + 10;
+        return a;
+    }
+    return a;
+}
+
+console.log(foo(20));
+
+// => ReferenceError: Cannot access 'a' before initialization
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>this</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="comment;comment">
+<template v-slot:first>
+var a = 1; 
+function b() { 
+    a = 10; 
+    return; 
+    function a() {} 
+} 
+b(); 
+console.log(a); // => 1
+</template>
+<template v-slot:last>
+var a = 1; 
+function b() { 
+    a = 10;     
+    return; 
+    let a;
+} 
+b(); 
+console.log(a); // => Uncaught ReferenceError: Cannot access 'a' before initialization
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Переменная</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var a = 5;
+function someFunction() {
+    // "3" запишется не в глобальную, а в локальную, потому что она всплыла
+    a = 3;
+
+    // условие не выполнится но "a" всплывет
+    if (false) {
+        var a = 10;
+    }
+}
+
+someFunction();
+console.log(a); // => 5
+</v-code>

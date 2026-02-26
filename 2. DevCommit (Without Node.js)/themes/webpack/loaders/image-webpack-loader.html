@@ -1,0 +1,50 @@
+<h2>image-webpack-loader</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>image-webpack-loader</u-code-npm> # оптимизация изображений
+</v-pre-npm>
+
+<u-link-wrapper>
+    <a href="https://github.com/tcoopman/image-webpack-loader" target="_blank">image-webpack-loader</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+module.exports = {
+    module: {
+        rules: [
+            {   
+                <u-code-wrapper>
+                test: /\.(jpe?g|png|svg|gif)$/i,
+                use: [
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            mozjpeg: {
+                                progressive: true,
+                                quality: 70
+                            },
+                            optipng: {
+                                enabled: false,
+                            },
+                            pngquant: {
+                                quality: '65-90',
+                                speed: 4
+                            },
+                            gifsicle: {
+                                interlaced: false,
+                            },
+                            webp: {
+                                quality: 75
+                            }
+                        }
+                    }
+                ],
+                </u-code-wrapper>
+            }
+        ]
+    }
+}
+</v-code>
+
+<u-message-info>Оптимизированные изображения в build подгружаются на страницу, но не открываются в просмотре изображений Windows. Если не указывать "options", то изображения открываются в просмотре изображений Windows</u-message-info>
+

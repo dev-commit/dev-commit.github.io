@@ -1,0 +1,22 @@
+<h2>validate</h2>
+
+<v-code lang="js" title="">
+const validate = values => {
+    const errors = {};
+
+    if (!values.companyName.name) {
+        errors.companyName = 'Error';
+    }
+
+    return errors;
+};
+
+export default withFormik({
+    mapPropsToValues: () => ({
+        companyName: '',
+    }),
+    handleSubmit: async (values) => {},
+    validate,
+    validationSchema,
+})(Component);
+</v-code>

@@ -1,0 +1,18 @@
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Object.getPrototypeOf</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<div class="v-method-wrapper">
+    <v-method before="Object." method="getPrototypeOf" after="" arg="(obj)">
+    Возвращает прототип (то есть, внутреннее свойство [[Prototype]]) указанного объекта.
+	Возвращает obj.__proto__
+    </v-method>
+
+	<v-method-arg arg="obj">Объект, чей прототип будет возвращён</v-method-arg>
+</div>
+
+<v-code lang="js" title="">
+var proto = {};
+var obj = Object.create(proto);
+Object.getPrototypeOf(obj) === proto; // true
+</v-code>

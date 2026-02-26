@@ -1,0 +1,31 @@
+<h2>Переменные (SassScript)</h2>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+$width: 1000px;
+$bg-color: green;
+#main {
+	width: $width;
+	background-color: $bg-color;
+}
+</template>
+<template v-slot:last>
+#main {
+	width: 1000px;
+	background-color: green;
+}
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Вложенность переменных</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Переменная доступна только на текущем уровне вложенности, чтобы была видна везде, дописать <u-code-text>!global</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+$bg-color: green !global;
+</v-code>
+
+

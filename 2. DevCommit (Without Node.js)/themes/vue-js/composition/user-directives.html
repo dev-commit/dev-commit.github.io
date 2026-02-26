@@ -1,0 +1,58 @@
+<h2>Пользовательские директивы</h2>
+
+<ul class="link-page-wrapper">
+	<li><a href="#composition-user-directives-focus">Пример реализации фокуса</a></li>
+	<li><a href="#composition-user-directives-hooks">Хуки жизненного цикла директивы</a></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="composition-user-directives-focus">Пример реализации фокуса</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>В качестве примера реализуем фокус на элементе <u-code-text>input</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+// Регистрируем глобальную пользовательскую директиву `v-focus`
+Vue.directive('focus', {
+	// Когда привязанный элемент вставлен в DOM...
+	inserted: function (el) {
+		// Переключаем фокус на элемент
+		el.focus()
+	}
+})
+</v-code>
+
+<ul class="list-point">
+	<li>Чтобы зарегистрировать директиву локально, можно передать опцию <u-code-text>directives</u-code-text> при определении компонента</li>
+</ul>
+
+<v-code lang="js" title="">
+directives: {
+	focus: {
+		// определение директивы
+		inserted: function (el) {
+			el.focus()
+		}
+	}
+}
+</v-code>
+
+<ul class="list-point">
+	<li>Теперь в шаблонах можно использовать новый атрибут <u-code-text>v-focus</u-code-text></li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;input v-focus&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="composition-user-directives-hooks">Хуки жизненного цикла директивы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-code-list>bind</u-code-list> вызывается однократно, при первичном связывании директивы с элементом. Здесь можно поместить код инициализации</li>
+	<li><u-code-list>inserted</u-code-list> вызывается после вставки связанного элемента внутрь элемента родителя (сам родитель может на этот момент и не принадлежать ещё основному дереву элементов)</li>
+	<li><u-code-list>update</u-code-list> вызывается после обновления VNode компонента-контейнера, но, возможно, до обновления дочерних элементов. Значение директивы к этому моменту может измениться, а может и нет. Сравнивая текущее и прошлое значения, вы можете избежать избыточных операций</li>
+	<li><u-code-list>componentUpdated</u-code-list> вызывается после обновления как VNode компонента-контейнера, так и VNode его потомков</li>
+	<li><u-code-list>unbind</u-code-list> вызывается однократно, при отвязывании директивы от элемента</li>
+</ul>

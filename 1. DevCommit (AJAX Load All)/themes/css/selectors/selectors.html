@@ -1,0 +1,33 @@
+<h2>Селекторы</h2>
+
+<v-code lang="css" title="">
+div                 <u-code-comment># тег</u-code-comment>
+.class              <u-code-comment># класс</u-code-comment>
+#id                 <u-code-comment># идентификатор</u-code-comment>
+header, p           <u-code-comment># несколько элементов</u-code-comment>
+*                   <u-code-comment># все элементы</u-code-comment>
+div p               <u-code-comment># вложенные селекторы (каскад)</u-code-comment>
+</v-code>
+
+<v-code lang="css" title="">
+ul li > span        <u-code-comment># не все span, а только дочерние span</u-code-comment>
+ul li + li          <u-code-comment># все последующие элементы li</u-code-comment>
+.class1 ~ div       <u-code-comment># все div элементы после class1</u-code-comment>
+.class1 ~ *         <u-code-comment># все элементы после class1</u-code-comment>
+</v-code>
+
+<v-code lang="css" title="">
+input[type="text"]  <u-code-comment># все input у которых type="text"</u-code-comment>
+input[name="text"]  <u-code-comment># все input у которых name="text"</u-code-comment>
+input[class="text"] <u-code-comment># все input у которых class="text"</u-code-comment>
+</v-code>
+
+<v-code lang="css" title="">
+a[title]            <u-code-comment># все a у которых есть атрибут title</u-code-comment>
+[checked]           <u-code-comment># выбранный элемент для checkbox и radio</u-code-comment>
+[class|="yes"]      <u-code-comment># все div у которых class начинается со слова yes, может содержать "-", н-р "yes-class"</u-code-comment>
+[class^="yes"]      <u-code-comment># выбирает подстроку с начала названия класса, н-р "yesclass"</u-code-comment>
+[class$="yes"]      <u-code-comment># выбирает подстроку с конца названия класса, н-р "classyes"</u-code-comment>
+[class*="yes"]      <u-code-comment># выбирает подстроку в любом месте названия класса, н-р "classyesmy"</u-code-comment>
+[class~="yes"]      <u-code-comment># когда задано несколько классов, н-р "yes tagname"</u-code-comment>
+</v-code>

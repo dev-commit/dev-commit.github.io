@@ -1,0 +1,46 @@
+<h2>Основные действия</h2>
+
+<v-code lang="js" title="">
+import React from 'react';
+import { shallow } from 'enzyme';
+</v-code>
+
+<v-code lang="js" title="">
+const App = ({ propApp }) => (
+    &lt;div&gt;
+        &lt;h1 className="header"&gt;Hello&lt;/h1&gt;
+    &lt;/div&gt;
+)
+</v-code>
+
+<v-code lang="js" title="">
+it('', () =&gt; {
+    const wrapper = shallow(&lt;App /&gt;);
+
+    <em>expect</em>(!!wrapper)                                            .<u-code>toBeTruthy</u-code>();
+
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>first</u-code>().<u-code>text</u-code>())                  <span class="fix-u-code"></span>.<u-code>toBe</u-code>(<em>'Hello'</em>);
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>last</u-code>().<u-code>text</u-code>())                   <span class="fix-u-code"></span>.<u-code>toBe</u-code>(<em>'Hello'</em>);
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>at</u-code>(<em>0</em>).<u-code>text</u-code>())                    <span class="fix-u-code"></span>.<u-code>toBe</u-code>(<em>'Hello'</em>);
+    
+	<em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>text</u-code>())                           .<u-code>toBe</u-code>(<em>'Hello'</em>);
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>text</u-code>())                           .<u-code>toContain</u-code>(<em>'ello'</em>);
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>html</u-code>())                           .<u-code>toBe</u-code>(<em>'&lt;h1 class="header"&gt;Hello&lt;/h1&gt;'</em>);
+    <em>expect</em>(wrapper.<u-code>contains</u-code>(<em>&lt;h1 className="header"&gt;Hello&lt;/h1&gt;</em>)) <span class="fix-u-code"></span>.<u-code>toBeTruthy</u-code>();
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>length</u-code>)                           .<u-code>toBe</u-code>(<em>1</em>);
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h2'</em>).<u-code>length</u-code>)                           .<u-code>toBe</u-code>(<em>0</em>);
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>exists</u-code>())                         .<u-code>toBeTruthy</u-code>();
+    
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>hasClass</u-code>(<em>'header'</em>))               .<u-code>toBeTruthy</u-code>();
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>hasClass</u-code>(<em>'nothing'</em>))              .<u-code>toBeFalsy</u-code>();
+});
+</v-code>
+
+<v-code lang="js" title="">
+// expect(Component.displayName).toBe('TestComponent')
+</v-code>
+
+<v-code lang="js border" title="">
+expect(wrapper.find('h1').length).toBe(1);  // есть элемент
+expect(wrapper.find('h2').length).toBe(0);  // нет элемента
+</v-code>

@@ -1,0 +1,198 @@
+<h2>CSS Shapes</h2>
+
+<u-link-wrapper>
+	<a href="https://webformyself.com/vvedenie-v-css-shapes/" target="_blank">Введение в CSS Shapes</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>CSS Shapes</u-text-define> - позволяют определять геометрические фигуры, вокруг которых может обтекать текст</li>
+    <li>Shape работают только для <u-text-underline>float</u-text-underline> элементов у которых определена ширина и высота</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Спецификации</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><b>CSS Shapes Level 1</b> - поддерживается</li>
+    <li><u-code-text>shape-outside</u-code-text> - определяет фигуру, вокруг которой может обтекать текст</li>
+    <li><b>CSS Shapes Level 2</b> - не поддерживается</li>
+    <li><u-code-text>shape-inside</u-code-text> - связано с текстом, содержащимся внутри фигуры</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>CSS Shapes Level 1: Свойства</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-code-text>shape-outside</u-code-text> - задание фигуры</li>
+    <li><u-code-text>shape-margin</u-code-text> - margin от shape до контента</li>
+    <li><u-code-text>shape-image-threshold</u-code-text> - определяется пороговое значение альфа - канала фигуры, или какой процент изображения может быть прозрачным. Альфа канал для обрезки по изображению</li>
+</ul>
+
+<v-code lang="css bash" title="">
+div {
+	shape-outside: circle();
+	shape-outside: ellipse();
+	shape-outside: inset();
+	shape-outside: polygon();
+	shape-outside: url();
+	shape-outside: linear-gradient();
+
+	shape-margin: 10px;
+	shape-image-threshold: 0.7;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Фигуры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Окружность</h4>
+<!------------------------------------------------------------->
+<div class="v-method-wrapper">
+    <v-method before="shape-outside:" method="circle" after="" arg="(r at x y)">Окружность</v-method>
+	<v-method-arg arg="r">радиус (по умолчанию 50%)</v-method-arg>
+	<v-method-arg arg="at">задание позиции</v-method-arg>
+	<v-method-arg arg="x">позиция по горизонтали (по умолчанию 50%)</v-method-arg>
+	<v-method-arg arg="y">позиция по вертикали (по умолчанию 50%)</v-method-arg>
+</div>
+
+<v-code lang="bash border" title="По умолчанию">
+shape-outside: circle() == circle(50%)
+shape-outside: circle(50% at 50% 50%)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Эллипс</h4>
+<!------------------------------------------------------------->
+<div class="v-method-wrapper">
+    <v-method before="shape-outside:" method="ellipse" after="" arg="(rx ry at x y)">Эллипс</v-method>
+	<v-method-arg arg="rx">радиус по оси "x" (по умолчанию 50%)</v-method-arg>
+	<v-method-arg arg="ry">радиус по оси "y" (по умолчанию 50%)</v-method-arg>
+	<v-method-arg arg="at">задание позиции</v-method-arg>
+	<v-method-arg arg="x">позиция по горизонтали (по умолчанию 50%)</v-method-arg>
+	<v-method-arg arg="y">позиция по вертикали (по умолчанию 50%)</v-method-arg>
+</div>
+
+<v-code lang="bash border" title="По умолчанию">
+shape-outside: ellipse()
+shape-outside: ellipse(50% 50% at 50% 50%)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Прямоугольник</h4>
+<!------------------------------------------------------------->
+<div class="v-method-wrapper">
+    <v-method before="shape-outside:" method="inset" after="" arg="(top right bottom left round 10px)">Прямоугольник внутри Shape</v-method>
+	<v-method-arg arg="top">отступ сверху</v-method-arg>
+	<v-method-arg arg="right">отступ справа</v-method-arg>
+	<v-method-arg arg="bottom">отступ снизу</v-method-arg>
+	<v-method-arg arg="left">отступ слева</v-method-arg>
+	<v-method-arg arg="round">border-radius</v-method-arg>
+	<v-method-arg arg="10px">закругление</v-method-arg>
+</div>
+
+<ul class="list-point">
+    <li><u-code-text>inset(10px)</u-code-text> - задает одинаковые отступы по 10px со всех сторон</li>
+</ul>
+
+<v-code lang="bash border" title="">
+shape-outside: inset(10px 10px 10px 10px) == inset(10px)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>4. Полигон</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Может принимать массив точек x и y для создания любой сложной фигуры. Каждый элемент в массиве представляет xi yi и будет записан как polygon(x1 y1, x2 y2, x3 y3) и т.д.</li>
+    <li>Наименьшее количество наборов точек, которые мы можем применить к многоугольнику, составляет три, что дает треугольник</li>
+</ul>
+
+<div class="v-method-wrapper">
+    <v-method before="shape-outside:" method="polygon" after="" arg="(p1, p2, p3 ...)">Полигон</v-method>
+	<v-method-arg arg="p1">xi yi-координаты</v-method-arg>
+</div>
+
+<v-code lang="bash border" title="">
+shape-outside: polygon(0 0, 100px 200px, 0 200px);
+</v-code>
+
+<ul class="list-point">
+    <li><b>Расширения браузеров для корректировки фигур</b></li>
+    <li>Firefox имеет встроенный редактор для фигур</li>
+    <li><a href="https://chrome.google.com/webstore/detail/css-shapes-editor/nenndldnbcncjmeacmnondmkkfedmgmp?hl=en-US" target="_blank">CSS Shapes Editor для Chrome</a></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>5. Изображение</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Текст формируется по границе SVG/PNG изображения. Текст учитывает, какие области являются прозрачными, а какие непрозрачными, и соответствующим образом выравнивается</li>
+    <li>Используемое изображение должно быть CORS совместимым</li>
+</ul>
+
+<v-code lang="bash border" title="">
+shape-outside: url(image.png)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>6. Градиент</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Градиенты - это также изображения, и точно так же, как с изображением, текст будет обтекать прозрачную часть</li>
+</ul>
+
+<v-code lang="bash border" title="">
+shape-outside: linear-gradient(45deg, rgba(255, 255, 255, 0) 150px, red 150px)
+</v-code>
+
+<ul class="list-point">
+    <li>В примере задан градиент, в котором цвет и прозрачность соотносятся, как 50% / 50%, и установить для shape-image-threshold - .5</li>
+    <li>Т.е. все пиксели, которые более чем на 50% непрозрачны следует рассматривать как часть изображения</li>
+</ul>
+
+<v-code lang="css" title="">
+div {
+	shape-image-threshold: 0.5;
+	shape-outside: linear-gradient(to bottom right, #2bf0a5, transparent);
+	background-image: linear-gradient(to bottom right, #2bf0a5, transparent);
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Прочее</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Keyword values (reference-box)</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+.item {
+	shape-outside:<u-code>none</u-code>;
+	shape-outside:<u-code>margin-box</u-code>;
+	shape-outside:<u-code>content-box</u-code>;
+	shape-outside:<u-code>border-box</u-code>;
+	shape-outside:<u-code>padding-box</u-code>;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Global values</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+.item {
+	shape-outside: initial;
+	shape-outside: inherit;
+	shape-outside: unset;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>closest-side и fartest-side</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>closest-side</u-code-text> - расстояние до ближайшей строны (circle, ellipse)</li>
+    <li><u-code-text>fartest-side</u-code-text> - расстояние до дальней стороны (circle, ellipse)</li>
+</ul>
+
+<v-iframe height="450" src="https://codepen.io/Sergeenkov/embed/bGEbXxM?height=245&theme-id=dark&default-tab=html,result" />

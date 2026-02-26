@@ -1,0 +1,105 @@
+<h2>Shadow DOM</h2>
+
+<v-code lang="html border" title="">
+&lt;div id="root"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="js border" title="">
+const element = document.getElementById('root');
+
+const shadowRoot = element.attachShadow({
+    mode: 'open'
+});
+
+shadowRoot.innerHTML = '<strong>Hello All</strong> People';
+element.shadowRoot.querySelector('strong').textContent = 'Hello!';
+// => Hello! People
+</v-code>
+
+
+<u-message-error>Element.createShadowRoot => Element.attachShadowe (устаревшая конструкция)</u-message-error>
+
+<ul class="list-point">
+	<li><u-text-define>Shadow DOM</u-text-define> - это средство для создания отдельного DOM-дерева внутри элемента, которое не видно снаружи без применения специальных методов. Shadow DOM - это внутренний DOM элемента, который существует отдельно от внешнего документа. В нём могут быть свои ID, свои стили и так далее. Причём снаружи его, без применения специальных техник, не видно, поэтому не возникает конфликтов</li>
+	<li>Shadow DOM - спецификация, описывающая метод объединения нескольких DOM-деревьев в одну иерархию и как эти деревья взаимодействуют друг с другом в пределах документа, что позволяет лучше скомпоновать DOM</li>
+	<li>Shadow DOM можно создать внутри любого элемента</li>
+	<li>С момента создания Shadow DOM обычное содержимое (дети) элемента не отображается, а показывается только Shadow DOM</li>
+	
+	<hr>
+	<b>&lt;content&gt;</b>
+	<li>Тег <u>&lt;content&gt;</u> влияет только на отображение, он не перемещает узлы физически. Внутри <u>&lt;content&gt;</u> показывается не элемент целиком, а только его содержимое</li>
+	<li>Внутри Shadow DOM можно использовать &lt;content&gt; много раз с разными значениями select, указывая таким образом, где конкретно какие части исходного содержимого разместить. Но при этом дублирование узлов невозможно. Если узел показан в одном &lt;content&gt;, то в следующем он будет пропущен</li>
+	<li>Например, если сначала идёт &lt;content select="h3.title"&gt;, а затем &lt;content select="h3"&gt;, то в первом &lt;content&gt; будут показаны заголовки &lt;h3&gt; с классом title, а во втором – все остальные, кроме уже показанных</li>
+	<li>Если в теге &lt;content&gt;&lt;/content&gt; есть содержимое, оно будет показано только в том случае, если узлов для вставки нет</li>
+</ul>
+
+<v-code lang="js" title="JavaScript">
+createShadowRoot();  // создание Shadow DOM
+shadowRoot();        // корень
+</v-code>
+
+<v-code lang="js" title="HTML">
+&lt;content&gt;&lt;/content&gt; <u-code-comment>// замена содержимого</u-code-comment>
+</v-code>
+
+<v-code lang="js" title="CSS">
+::shadow  // выбирает корень Shadow DOM
+>>>       // полностью игнорирует границы между DOM'ами
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Создание createShadowRoot</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var root = document.querySelector('#element').<u-code>createShadowRoot()</u-code>;
+</v-code>
+
+<v-code lang="html" title="">
+&lt;div id="element"&gt;Hi&lt;/div&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Замена содержимого &lt;content&gt;&lt;/content&gt;</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// =&gt; Shadow - заменяет содержимое в "element"
+root.innerHTML = '&lt;p&gt;Shadow&lt;/p&gt;'; 
+
+// =&gt; Hi All Shadow - выводит всё содержимое из "element"
+root.innerHTML = '&lt;h1&gt;<u-code>&lt;content&gt;&lt;/content&gt;</u-code>&lt;/h1&gt; &lt;p&gt;Shadow&lt;/p&gt;';
+
+// =&gt; Hi Shadow - вывести только &lt;h3&gt; из "element"
+root.innerHTML = '&lt;h1&gt;<u-code>&lt;content select="h3"&gt;&lt;/content&gt;</u-code>&lt;/h1&gt; &lt;p&gt;Shadow1&lt;/p&gt;';
+</v-code>
+
+<v-code lang="html" title="">
+&lt;div id="element"&gt;
+	&lt;h3&gt;Hi&lt;/h3&gt;
+	&lt;p&gt;All&lt;/p&gt;
+&lt;/div&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Корень shadowRoot</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var rootElement = document.querySelector('#element').<u-code>shadowRoot</u-code>;
+rootElement.querySelector('p').innerHTML = 'New Shadow';
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Стилизация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>По умолчанию стили внутри Shadow DOM относятся только к его содержимому</li>
+</ul>
+
+<ul class="list-point">
+	<li><u-code-text>::shadow</u-code-text> - выбирает корень Shadow DOM</li>
+	<li>Выбранный элемент сам по себе не создаёт CSS box, но служит отправной точкой для дальнейшей выборки уже внутри дерева
+	Shadow DOM. Например, <u-code-text>#elem::shadow > div</u-code-text> найдёт внутри Shadow DOM #elem элементы div первого уровня</li>
+	<li><u-code-text>>>></u-code-text> - особого вида CSS-селектор для всех элементов Shadow DOM, который полностью игнорирует границы между DOM'ами, включая
+	вложенные подэлементы, у которых тоже может быть свой Shadow DOM</li>
+	<li>Например, <u-code-text>#elem >>> span</u-code-text> найдёт все span внутри Shadow DOM #elem, но кроме того, если в #elem есть
+	подэлементы, у которых свой Shadow DOM, то оно продолжит поиск в них</li>
+</ul>

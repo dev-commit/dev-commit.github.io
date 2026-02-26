@@ -1,0 +1,82 @@
+<h2>css-loader</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>css-loader</u-code-npm>
+</v-pre-npm>
+
+<ul class="list-point">
+	<li><u-text-define>css-loader</u-text-define> - загрузка и объединение всех CSS файлов в один (translates CSS into CommonJS)</li>
+	<li>Если лоадера нет, то Webpack считает это js файлом, пытается его разобрать и видит ошибку</li>
+	<li>Webpack выполняет loaders в обратном порядке: с последнего до первого, то есть справа налево</li>
+</ul>
+
+<v-code lang="js" title="webpack.config.js">
+module.exports = {
+	module: {
+		rules: [
+			{
+				test: /\.css$/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					<u-code-wrapper>
+					{
+						loader: 'css-loader',
+						options: {
+							sourceMap: true
+						}
+					}
+					</u-code-wrapper>
+				],
+			},
+		],
+	},
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>CSS модули</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="webpack.config.js">
+{
+	test: /\.css$/,
+	use: [
+		MiniCssExtractPlugin.loader,
+		<u-code-wrapper>
+		{
+			loader: 'css-loader',
+			options: {
+				importLoaders: 1,
+				modules: true,
+				localIdentName: '[name]__[local]__[hash:base64:5]',
+				sourceMap: true
+			}
+		}
+		</u-code-wrapper>
+	]
+},
+</v-code>
+
+<v-code lang="bash" title="">
+localIdentName: '[name]__[local]__[hash:base64:5]'
+	[name]           # название компонента
+	[local]          # название класса
+	[hash:base64:5]  # 5 символов hash
+</v-code>
+
+<v-code lang="js" title="Component.js (react.js)">
+import classes from './Component.css';
+
+render() {
+	return (&lt;div className={classes.headerItem}&gt;&lt;/div&gt;);
+}
+</v-code>
+
+<v-code lang="css" title="Component.css">
+.headerItem { background: orange; }
+</v-code>
+
+<v-pre-npm>
+# дополнительные плагины
+<u-code-npm>react-css-modules</u-code-npm>              # возможно его заменил babel-plugin-react-css-modules
+<u-code-npm>babel-plugin-react-css-modules</u-code-npm>
+</v-pre-npm>

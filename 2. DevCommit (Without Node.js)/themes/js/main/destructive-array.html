@@ -1,0 +1,82 @@
+<h2>Деструктивное присваивание массивов (ES6) - деструктуризация</h2>
+
+<v-code lang="js" title="">
+const languages = ['JavaScript', 'Python', 'Ruby'];
+</v-code>
+
+<v-two-code type="js;js" comment="ES6;ES5">
+<template v-slot:first>
+const [js, py, rb] = languages;
+</template>
+<template v-slot:last>
+const js = languages[0];
+const py = languages[1];
+const rb = languages[2];
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const scores = [3, 4, 5];
+const [low, , high] = scores;      // игнорирование значения
+const [low, ...rest] = scores;     // преобразование в массив оставшихся значений
+const [low, mid, high=5] = scores; // значение по умолчанию
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Значение из многомерного массива</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const scores = [3, 4, [5, 6]];
+const [low, mid, [high, higher]] = scores;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Как параметр функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function cumputeScore([low, mid]) {
+	console.log(low, mid);
+}
+cumputeScore([3, 4]);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Для возврата нескольких значений из функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function getScores() {
+	return [3, 4, 5];
+}
+var [low, mid, high] = getScores();
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Комбинация деструктуризации объектов и массивов</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const shape = {
+	type: 'element',
+	coordinates: {
+		start: [22, 77]
+	}
+}
+
+const { coordinates: { start: [startX, startY] } } = shape;
+console.log(startX, startY); // => 22, 77
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Быстрый обмен значений переменнных</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var yes = 'Yes';
+var no = 'No';
+[yes, no] = [no, yes];
+</v-code>

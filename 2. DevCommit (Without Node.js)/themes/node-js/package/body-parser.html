@@ -1,0 +1,38 @@
+<h2>body-parser</h2>
+
+<v-code lang="html" title="">
+npm i body-parser
+https://www.npmjs.com/package/body-parser
+</v-code>
+
+<h3>view/about.ejs</h3>
+<v-code lang="html" title="">
+&lt;form method="post" action="/about"&gt;
+    &lt;input type="email" name="email" placeholder="Email"&gt;
+    &lt;input type="password" name="password" placeholder="Password"&gt;
+    &lt;input type="checkbox" name="checkbox"&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>index.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');                           // подключение пакета
+var urlencodedParser = bodyParser.urlencoded({ extended: false }); // принимаем данные из post-запроса
+app.set('view engine', 'ejs');
+app.get('/about', function(req, res) {
+    res.render('about');
+});
+app.post('/about', urlencodedParser, function(req, res) {  // обработка данных из формы
+    if (!req.body) return res.sendStatus(400);             // если не переданы данные из формы
+    console.log(req.body);                                 // все данные
+    console.log(req.body.email);                           // только email
+    console.log(req.body.password);                        // только password
+    res.render('about');
+});
+app.listen(3000);
+</v-code>

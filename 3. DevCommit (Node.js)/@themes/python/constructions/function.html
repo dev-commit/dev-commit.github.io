@@ -1,0 +1,23 @@
+<h2>Функции</h2>
+
+<v-code lang="python" title="">
+def sum(a, b):
+	return a+b
+
+# функция изначально должна быть определена
+a = sum(5,10) # вызов функции
+a = sum       # запись функции в переменную, которую можно вызвать a(5,10)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Передача функции аргументов в другую функцию</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+def greet(name):
+	print('Hi' + name())
+
+def get_name():
+	return input('Input name ')
+
+greet(get_name)
+</v-code>

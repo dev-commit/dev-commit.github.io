@@ -1,0 +1,69 @@
+<h2>Мутации (mutations)</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Мутации</u-text-define> являются единственным способом изменения состояния хранилища во Vuex</li>
+	<li>Обработчики мутаций обязаны быть синхронными. Во Vuex мутации — это синхронные транзакции</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Простые мутации</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const store = new Vuex.Store({
+	state: {
+		count: 1
+	},
+	<u-code>mutations</u-code>: {
+		changeStore(state) {
+			state.count++;
+		}
+	}
+});
+</v-code>
+
+<v-code lang="js" title="">
+var app = new Vue({
+	el: '#app',
+	methods: {
+		change() {
+			<u-code>store.commit</u-code>('changeStore');
+		}
+	}
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Мутации с нагрузкой</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+<u-code>mutations</u-code>: {
+    changeStore(state, <u-code>payload</u-code>) {
+        state.count = payload.count;
+        state.name = payload.name;
+    }
+}
+
+methods: {
+	change() {
+		<u-code>store.commit</u-code>('changeStore', {count:77, name:'Tony'}); // изменение состояния
+	}
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объектный синтаксис</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+<u-code>store.commit</u-code>({
+	type: 'changeStore',
+	count: 77
+});
+</v-code>
+
+<v-code lang="js" title="">
+<u-code>mutations</u-code>: {
+	changeStore(state, payload) {
+		state.count = payload.count;
+	}
+}
+</v-code>

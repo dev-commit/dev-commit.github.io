@@ -1,0 +1,26 @@
+<h2>cssnano</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>cssnano</u-code-npm>
+</v-pre-npm>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Подключение через postcss.config.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="postcss.config.js">
+module.exports = {
+    plugins: [
+        <u-code-wrapper>
+        require('cssnano')({
+            present: [
+                'default', {
+                    discardComments: {
+                        removeAll: true
+                    }
+                }
+            ]
+        })
+        </u-code-wrapper>
+    ]
+}
+</v-code>

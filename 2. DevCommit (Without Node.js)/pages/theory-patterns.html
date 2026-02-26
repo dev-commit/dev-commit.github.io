@@ -1,0 +1,422 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>⚡️ Паттерны</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Основное</div><a href="#main-info">📑 Информация</a><div class="theme">1. Порождающие</div><a href="#patterns-generating-singleton">🍕 <u-menu-unactive>«Синглтон»</u-menu-unactive></a><a href="#patterns-generating-builder">🍕 <u-menu-unactive>«Строитель»</u-menu-unactive></a><a href="#patterns-generating-simple-factory">🍕 <u-menu-unactive>«Простая фабрика»</u-menu-unactive></a><div class="theme">2. Структурные</div><a href="#patterns-structural-decorator">🍕 <u-menu-unactive>«Декоратор»</u-menu-unactive></a><a href="#patterns-structural-facade">🍕 <u-menu-unactive>«Фасад»</u-menu-unactive></a><div class="theme">3. Поведенческие</div><a href="#patterns-behavioral-observer">🍕 <u-menu-unactive>«Наблюдатель»</u-menu-unactive></a><div class="theme">4. Неизвестно</div><a href="#patterns-other-module">🍕 <u-menu-unactive>«Модуль»</u-menu-unactive></a><a href="#patterns-other-module-revealing">🍕 <u-menu-unactive>«Открытый модуль»</u-menu-unactive></a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="main-info"><h2>Паттерны проектирования</h2>
+
+<u-link-wrapper>
+    <a href="https://refactoring.guru/ru/design-patterns/catalog" target="_blank">Каталог паттернов проектирования</a>
+    <a href="https://habr.com/ru/company/ruvds/blog/427293/" target="_blank">Паттерны проектирования в JavaScript</a>
+    <a href="https://medium.com/@marina.kovalyova/java-script-design-patterns-569c627d25f9" target="_blank">Шаблоны проектирования в JavaScript</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Паттерн проектирования (design pattern)</u-text-define> - это часто встречающееся решение определённой проблемы при проектировании архитектуры программ</li>
+    <li>В отличие от готовых функций или библиотек, паттерн нельзя просто взять и скопировать в программу. Паттерн представляет собой не какой-то конкретный код, а общую концепцию решения той или иной проблемы, которую нужно будет ещё подстроить под нужды программы</li>
+    <li>Паттерны часто путают с <u>алгоритмами</u>, ведь оба понятия описывают типовые решения каких-то известных проблем. Но если алгоритм — это чёткий набор действий, то паттерн — это высокоуровневое описание решения, реализация которого может отличаться в двух разных программах</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Классификация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li><u-text-define>Порождающие</u-text-define> отвечают за удобное и безопасное создание новых объектов или даже целых семейств объектов без внесения в программу лишних зависимостей</li>
+    <ul class="list-point">
+        <li><u-text-underline>Фабричный метод (Factory Method)</u-text-underline> Определяет общий интерфейс для создания объектов в суперклассе, позволяя подклассам изменять тип создаваемых объектов</li>
+        <li><u-text-underline>Абстрактная фабрика (Abstract Factory)</u-text-underline> Позволяет создавать семейства связанных объектов, не привязываясь к конкретным классам создаваемых объектов. Интерфейс, который группирует другие фабрики, логически связанные друг с другом</li>
+        <li><u-text-underline>Строитель (Builder)</u-text-underline> Позволяет создавать сложные объекты пошагово. Строитель даёт возможность использовать один и тот же код строительства для получения разных представлений объектов</li>
+        <li><u-text-underline>Прототип (Prototype)</u-text-underline> Позволяет копировать объекты, не вдаваясь в подробности их реализации</li>
+        <li><u-text-underline>Одиночка (Singleton)</u-text-underline> Гарантирует, что у класса есть только один экземпляр, и предоставляет к нему глобальную точку доступа</li>
+    </ul>
+
+    <li><u-text-define>Структурные</u-text-define> отвечают за построение удобных в поддержке иерархий классов. Показывают различные способы построения связей между объектами</li>
+    <ul class="list-point">
+        <li><u-text-underline>Адаптер (Adapter)</u-text-underline> Позволяет объектам с несовместимыми интерфейсами работать вместе</li>
+        <li><u-text-underline>Мост (Bridge)</u-text-underline> Разделяет один или несколько классов на две отдельные иерархии - абстракцию и реализацию, позволяя изменять их независимо друг от друга</li>
+        <li><u-text-underline>Компоновщик (Composite)</u-text-underline> Позволяет сгруппировать объекты в древовидную структуру, а затем работать с ними так, как будто это единичный объект</li>
+        <li><u-text-underline>Декоратор (Decorator)</u-text-underline> Позволяет динамически добавлять объектам новую функциональность, оборачивая их в полезные «обёртки»</li>
+        <li><u-text-underline>Фасад (Facade)</u-text-underline> Предоставляет простой интерфейс к сложной системе классов, библиотеке или фреймворку</li>
+        <li><u-text-underline>Легковес (Flyweight)</u-text-underline> Позволяет вместить бóльшее количество объектов в отведённую оперативную память. Легковес экономит память, разделяя общее состояние объектов между собой, вместо хранения одинаковых данных в каждом объекте</li>
+        <li><u-text-underline>Заместитель (Proxy)</u-text-underline> Позволяет подставлять вместо реальных объектов специальные объекты-заменители. Эти объекты перехватывают вызовы к оригинальному объекту, позволяя сделать что-то до или после передачи вызова оригиналу</li>
+    </ul>
+
+    <li><u-text-define>Поведенческие</u-text-define> решают задачи эффективного и безопасного взаимодействия между объектами программы</li>
+    <ul class="list-point">
+        <li><u-text-underline>Цепочка обязанностей (Chain of Responsibility)</u-text-underline> Позволяет передавать запросы последовательно по цепочке обработчиков. Каждый последующий обработчик решает, может ли он обработать запрос сам и стоит ли передавать запрос дальше по цепи</li>
+        <li><u-text-underline>Команда (Command)</u-text-underline> Превращает запросы в объекты, позволяя передавать их как аргументы при вызове методов, ставить запросы в очередь, логировать их, а также поддерживать отмену операций</li>
+        <li><u-text-underline>Итератор (Iterator)</u-text-underline> Даёт возможность последовательно обходить элементы составных объектов, не раскрывая их внутреннего представления</li>
+        <li><u-text-underline>Посредник (Mediator)</u-text-underline> Позволяет уменьшить связанность множества классов между собой, благодаря перемещению этих связей в один класс-посредник</li>
+        <li><u-text-underline>Снимок (Memento)</u-text-underline> Позволяет делать снимки состояния объектов, не раскрывая подробностей их реализации. Затем снимки можно использовать, чтобы восстановить прошлое состояние объектов</li>
+        <li><u-text-underline>Наблюдатель (Observer)</u-text-underline> Создаёт механизм подписки, позволяющий одним объектам следить и реагировать на события, происходящие в других объектах</li>
+        <li><u-text-underline>Состояние (State)</u-text-underline> Позволяет объектам менять поведение в зависимости от своего состояния. Извне создаётся впечатление, что изменился класс объекта</li>
+        <li><u-text-underline>Стратегия (Strategy)</u-text-underline> Определяет семейство схожих алгоритмов и помещает каждый из них в собственный класс, после чего алгоритмы можно взаимозаменять прямо во время исполнения программы</li>
+        <li><u-text-underline>Шаблонный метод (Template method)</u-text-underline> Определяет скелет алгоритма, перекладывая ответственность за некоторые его шаги на подклассы. Паттерн позволяет подклассам переопределять шаги алгоритма, не меняя его общей структуры</li>
+        <li><u-text-underline>Посетитель (Visitor)</u-text-underline> Позволяет создавать новые операции, не меняя классы объектов, над которыми эти операции могут выполняться</li>
+    </ul>
+
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Зачем?</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li><b>Проверенные решения</b> Вы тратите меньше времени, используя готовые решения, вместо повторного изобретения велосипеда</li>
+    <li><b>Стандартизация кода</b> Вы делаете меньше просчётов при проектировании, используя типовые унифицированные решения, так как все скрытые проблемы в них уже давно найдены</li>
+    <li><b>Общий программистский словарь</b> Вы произносите название паттерна, вместо того, чтобы час объяснять другим программистам, какой крутой дизайн вы придумали и какие классы для этого нужны</li>
+</ol>
+</div><div id="patterns-generating-singleton"><h2>Паттерн «Синглтон»</h2>
+
+<ul class="list-point">
+    <li><u-text-define>«Синглтон» (Singleton)</u-text-define> порождающий паттерн проектирования, гарантирующий что у класса есть только один экземпляр, и предоставляет к нему глобальную точку доступа в однопоточном приложении</li>
+    <li>В рамках применения этого паттерна новый экземпляр некоего класса создаётся в том случае, если он пока не создан. Если же экземпляр класса уже существует, то, при попытке обращения к конструктору, возвращается ссылка на соответствующий объект. Последующие вызовы конструктора всегда будут возвращать тот же самый объект</li>
+
+    <li><b>Зачем:</b> Использование конструктора плохая практика, особенно если у класса есть зависимости const user = new User()</li>
+    <li><b>Применение</b>: сервисы в Angular</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Какие проблемы решает</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li><u-code>Гарантирует наличие единственного экземпляра класса</u-code> Чаще всего это полезно для доступа к какому-то общему ресурсу, например, базе данных. Такое поведение невозможно реализовать с помощью обычного конструктора, так как конструктор класса всегда возвращает новый объект</li>
+    <li><u-code>Предоставляет глобальную точку доступа</u-code> Это не просто глобальная переменная, через которую можно достучаться к определённому объекту. Глобальные переменные не защищены от записи, поэтому любой код может подменять их значения без вашего ведома</li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Представление класса в виде синглтона</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Обычный класс a !== b</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class usualClass {
+    constructor() {
+        // this.name = null;
+    }
+    testMethod() {
+        return 'Hello'
+    }
+}
+
+const a = new usualClass();
+const b = new usualClass();
+<u-code>console.log(a === b); // false</u-code>
+console.log(a.testMethod());
+</v-code>
+
+<v-two-code type="js;js" comment="Singleton ES5;Singleton ES6">
+<template v-slot:first>
+const Universe = (function(){
+    let instance = null;
+    function func() {
+        if (!instance) {
+            instance = this;
+            this.size = 100;
+        }
+        return instance;
+    }
+    func.prototype.getSize = function() {
+       return this.size;
+    }
+    func.prototype.setSize = function(size) {
+       this.size = size;
+    }
+    return func;
+})();
+
+const a = new Universe();
+const b = new Universe();
+
+<u-code>console.log(a === b); // true</u-code>
+console.log(a.getSize(), b.getSize()); // 100, 100
+a.setSize(200);
+console.log(a.getSize(), b.getSize()); // 200, 200
+</template>
+<template v-slot:last>
+const instance = null;
+
+class Singleton {
+    constructor() {
+        if(!instance){
+            instance = this;
+        }
+        return instance;
+    }
+}
+const a = new Singleton();
+const b = new Singleton();
+<u-code>console.log(a === b); // true</u-code>
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Представление класса в виде объектного литерала</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Всякий раз, когда мы обращаемся к переменной user, мы получаем ссылку на один и тот же объект</li>
+</ul>
+<v-code lang="js" title="">
+const user = {
+    name: 'Tony',
+    greet: function() {
+        console.log('Hello!');
+    }
+};
+</v-code>
+</div><div id="patterns-generating-builder"><h2>Паттерн «Строитель»</h2>
+
+<ul class="list-point">
+    <li><u-text-define>«Строитель»</u-text-define> - порождающий паттерн проектирования, который позволяет создавать сложные объекты пошагово. Строитель даёт возможность использовать один и тот же код строительства для получения разных представлений объектов</li>
+    <li>Паттерн Строитель нужен, если объект может существовать в разных вариациях или процесс инстанцирования состоит из нескольких шагов</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Пример гамбургера с разными компонентами</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class BurgerBuilder {
+    constructor(size) {
+        this.size = size
+    }
+    addPepperoni() {
+        this.pepperoni = true
+        return this
+    }
+    addCheeze() {
+        this.cheeze = true
+        return this
+    }
+    build() {
+        return new Burger(this)
+    }
+}
+const burger = (new BurgerBuilder(14))
+    .addPepperoni()
+    .addCheeze()
+</v-code>
+</div><div id="patterns-generating-simple-factory"><h2>Паттерн «Простая фабрика»</h2>
+
+<ul class="list-point">
+    <li><u-text-define>«Простая фабрика»</u-text-define> - производит нужный экземпляр, не утруждая клиента тонкостями этого процесса</li>
+    <li>Ненужно каждый раз создавать экземпляр класса</li>
+</ul>
+<v-code lang="js" title="">
+class WoodenDoor {
+    constructor(width, height){
+        this.width = width
+        this.height = height
+    }
+    getWidth(){
+        return this.width
+    }
+    getHeight(){
+        return this.height
+    }
+}
+const DoorFactory = {
+    makeDoor(width, height) {
+        return new WoodenDoor(width, height); 
+    }
+}
+const door = DoorFactory.makeDoor(100, 200)
+console.log('Width:', door.getWidth())
+console.log('Height:', door.getHeight())
+</v-code>
+</div><div id="patterns-structural-decorator"><h2>Паттерн «Декоратор»</h2>
+
+<ul class="list-point">
+    <li><u-text-define>«Декоратор»</u-text-define> - структурный паттерн проектирования, который позволяет динамически добавлять объектам новую функциональность, оборачивая их в полезные «обёртки»</li>
+    <li><u>Декораторы</u> - функции высшего порядка, которые принимают в качестве аргумента одну функцию и возвращают другую</li>
+    <li>Расширения функционала объектов без модификации существующих классов или функций-конструкторов. Паттерн можно использовать для добавления к объектам неких возможностей без модификации кода, который ответственен за их создание</li>
+    <li>Применяя «Декоратор», вы не меняете первоначальный класс и не создаёте дочерних классов</li>
+
+    <li>Декоратор - приём программирования, который позволяет взять существующую функцию и изменить/расширить ее поведение</li>
+    <li>Декоратор получает функцию и возвращает обертку, которая делает что-то своё «вокруг» вызова основной функции</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Пример #1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function Car(name) {
+    this.name = name;
+    this.color = 'White';
+}
+
+// создание нового объекта, который планируется декорировать
+const tesla = new Car('Tesla Model 3');
+
+// декорирование объекта - добавление нового функционала
+tesla.setColor = function(color) {
+    this.color = color;
+}
+tesla.setPrice = function(price) {
+    this.price = price;
+}
+
+tesla.setColor('black');
+tesla.setPrice(49000);
+console.log(tesla.color); // выводит black
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример #2. Декоратор проверки доступа</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function checkPermissionDecorator(f) {
+    return function() {
+        if (isAdmin()) {
+            return f.apply(this, arguments);
+        }
+            alert( 'Недостаточно прав' );
+    }
+}
+
+function save() { ... }
+
+save = checkPermissionDecorator(save);
+// Теперь вызов функции save() проверяет права
+</v-code>
+</div><div id="patterns-structural-facade"><h2>Паттерн «Фасад»</h2>
+
+<ul class="list-point">
+    <li><u-text-define>«Фасад»</u-text-define> - структурный паттерн проектирования, который предоставляет простой интерфейс к сложной системе классов, библиотеке или фреймворку</li>
+</ul>
+
+<v-code lang="js" title="">
+const $ = function(target) {
+    return new MemeQuery(target);
+}
+function MemeQuery(target) {
+    this.target = document.querySelector(target);
+}
+MemeQuery.prototype.html = function(html) {
+    this.target.innerHTML = html;
+    return this;
+}
+
+$('#myParagraph').html('Meeemee').html('Some JS design patterns');
+</v-code>
+</div><div id="patterns-behavioral-observer"><h2>Паттерн «Наблюдатель»</h2>
+
+<ul class="list-point">
+    <li><u-text-define>«Наблюдатель»</u-text-define> - поведенческий паттерн проектирования, который создаёт механизм подписки, позволяющий одним объектам следить и реагировать на события, происходящие в других объектах</li>
+    <li>Основан на зависимости один ко многим: при изменении состояния одного объекта (Observer), все зависимые объекты (Observable) оповещаются об этом. Самое главное в общении этих двух объектов, что не нужна прямая связь между объектом и субъектом. Это позволяет добиться модульности клиентской части кода</li>
+    <li><u>Observable</u> (Издатели) - наблюдаемый объект. Содержит список [Observer] и если у него что-то происходит, всех оповещает в цикле. Когда в издателе будет происходить важное событие, он будет проходиться по списку подписчиков и оповещать их об этом, вызывая определённый метод объектов-подписчиков</li>
+    <li><u>[Observer]</u> (Подписчики) - наблюдатели (кучка объектов) за Observable</li>
+</ul>
+</div><div id="patterns-other-module"><h2>Паттерн «Модуль»</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Модуль</u-text-define> - прием, с помощью которого мы можем скрывать какие-то реализации. Самостоятельный фрагмент кода, который можно изменять, не затрагивая другой код проекта. Модули, кроме того, позволяют избегать такого явления, как загрязнение областей видимости, благодаря тому, что они создают отдельные области видимости для объявляемых в них переменных.</li>
+    <li>Модуль использует <u>IIFE</u>, <u>замыкания</u> и <u>области видимости функций</u> для имитации концепции <u>инкапсуляции</u></li>
+    <li><u-code>Модуль при помощи замыканий</u-code> – это оборачивание пакета функционала в единую внешнюю функцию, которая тут же выполняется</li>
+    <li>Все функции модуля будут иметь доступ к другим переменным и внутренним функциям этого же модуля через замыкание. Но снаружи программист, использующий модуль, может обращаться напрямую только к тем переменным и функциям, которые экспортированы. Благодаря этому будут скрыты внутренние аспекты реализации, которые нужны только разработчику модуля</li>
+    <li><b>Недостаток</b> приходится создавать публичные функции только для того, чтобы обращаться к приватным функциям и переменным</li>
+</ul>
+
+<v-code lang="js" title="">
+const myModule = (function() {
+    const privateVariable = 'Hello World';
+    function privateMethod() {
+        console.log(privateVariable);
+    }
+    return {
+        publicMethod: function() {
+            privateMethod();
+        }
+    }
+})();
+</v-code>
+
+<v-code lang="js" title="">
+myModule.publicMethod(); // Выводит 'Hello World'
+</v-code>
+</div><div id="patterns-other-module-revealing"><h2>Паттерн «Открытый модуль»</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Открытый модуль</u-text-define> - в паттерне назначаем свойствам возвращаемого объекта приватные функции, которые хотим сделать общедоступными</li>
+</ul>
+
+<ul class="list-point">
+    <b>Преимущества паттерна «Открытый модуль» перед паттерном «Модуль»</b>
+    <li>«Открытый модуль» позволяет делать общедоступными скрытые сущности модуля (и снова скрывать их, если нужно), модифицируя, для каждой из них, лишь одну строку в объекте, возвращаемом после выполнения IIFE</li>
+    <li>Возвращаемый объект не содержит определения функций. Всё, что находится справа от имён его свойств, определено в IIFE. Это способствует чистоте кода и упрощает его чтение</li>
+</ul>
+
+<v-code lang="js" title="">
+const myRevealingModule = (function() {
+    let privateVar = 'Peter';
+    const publicVar  = 'Hello World';
+    function privateFunction() {
+        console.log('Name: '+ privateVar);
+    }
+    function publicSetName(name) {
+        privateVar = name;
+    }
+    function publicGetName() {
+        privateFunction();
+    }
+    return {
+        setName: publicSetName,
+        greeting: publicVar,
+        getName: publicGetName
+    };
+})();
+</v-code>
+
+<v-code lang="js" title="">
+myRevealingModule.setName('Mark');
+myRevealingModule.getName(); // Выводит Name: Mark
+</v-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

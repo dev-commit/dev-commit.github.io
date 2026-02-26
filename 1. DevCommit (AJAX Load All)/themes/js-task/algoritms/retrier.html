@@ -1,0 +1,143 @@
+<h2>👿 Retrier</h2>
+
+<ul class="list-point">
+    <li>Есть Retrier, который должен делать запрос по URL</li>
+    <li>В случает неудачи, должен выполнить запрос указанное кол-во раз</li>
+    <li>Если не было результата после попыток, выбросить исключение</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>#1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function retrier(url, n) {
+	if (n > 0) {
+		return fetch(url)
+			.then(data => {
+				if (data.statusCode >= 200 && data.statusCode < 300) {
+					return data;
+				} else {
+					return retrier(url, n-1);
+				}
+			})
+			.catch(err => {
+				return retrier(url, n-1);
+			})
+	} else {
+		throw Error('Error');
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function retrier(url: string, times: number) {
+    let count = 0;
+
+    if (count === number) {
+        return;
+    }
+
+    return new Promise(function(resolve, reject) {
+        function request(url) {
+            fetch(url).then(data, error => {
+                if (data) {
+                    resolve(data);
+                }
+                if (error) {
+                    count++;
+                    request(url);
+                    reject(error);
+                }
+            })
+        }
+    })
+
+    for (let i = 0; i < times; i++) {
+        request(url);
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#3</h4>
+<!------------------------------------------------------------->
+<!-- Гришанович -->
+
+<v-code lang="js" title="">
+retrier(url, retryCount): Promise
+
+function retrier(url, retryCount) {
+    let count = 1;
+    return new Promise((resolve, reject) => {
+        send(url);
+        function send(url) {
+        fetch(url)
+       .then(response = > resolve(response))
+       .catch(err => {
+           if(count <= retryCount){
+            count++
+            send(url);
+           } else {
+               reject(err)
+           }
+       })
+    }
+    });
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#4</h4>
+<!------------------------------------------------------------->
+<!-- Кара -->
+
+<v-code lang="js" title="">
+const retrier = (url, retryCount) => fetch(url)
+    .then(
+        res => {
+            if (res.ok) {
+                return res;
+            }
+            if (retryCount) {
+                return retrier(url, retryCount - 1);
+            }
+            throw res.error;
+        },
+        res => {
+            if (retryCount) {
+                return retrier(url, retryCount - 1);
+            }
+            throw res.error;
+        }
+    );
+
+retrier('https://some.api', 5) // url
+    .then(res) => console.log('Успешно');
+    .catch(err) => console.log('Ошибка');
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>#5</h4>
+<!------------------------------------------------------------->
+<!-- Матвеев -->
+
+<v-code lang="js" title="">
+function retrier(url, retryCount): Promise {
+    if (typeof retryCount === 'number' && retryCount > 0) {
+        return fetch(url)
+            .catch(err => {
+                if (retryCount === 1) {
+                    return Promise.reject(err);
+                }
+                return retrier(url, retryCount - 1);
+            })
+    } else {
+        return Promise.reject('Failed');
+    }
+}
+
+retrier('https://ya.ru', 123).then(data => ...);
+</v-code>

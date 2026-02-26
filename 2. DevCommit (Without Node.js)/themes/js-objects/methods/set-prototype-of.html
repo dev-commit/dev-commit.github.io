@@ -1,0 +1,36 @@
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Object.setPrototypeOf</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="Object." method="setPrototypeOf" after="" arg="(obj, prototype)">
+	Устанавливает прототип (то есть, внутреннее свойство [[Prototype]]) указанного объекта в другой объект после создания объекта или null.
+	Устанавливает obj.__proto__ = prototype
+    </v-method>
+
+	<v-method-arg arg="obj">Объект, которому устанавливается прототип</v-method-arg>
+	<v-method-arg arg="prototype">Новый прототип объекта (объект или null)</v-method-arg>
+</div>
+
+<v-code lang="js" title="">
+var dict = Object.setPrototypeOf({}, null);
+</v-code>
+
+<ul class="list-point">
+    <li>Плохо сказывается на производительности</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Примеры</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const animal = {
+	say() {
+		console.log(this.name);
+	}
+}
+const cat = {
+	name: 'cat'
+}
+Object.setPrototypeOf(cat, animal);
+cat.say(); // => "cat"
+</v-code>

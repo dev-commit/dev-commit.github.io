@@ -1,0 +1,115 @@
+<h2>Добавление и удаление узлов</h2>
+
+<ul class="list-point" style="list-style: none">
+	
+	<!------------------------------------------------------------->
+	<h4>Создание узлов:</h4>
+	<!------------------------------------------------------------->
+
+    <li><u-code-list>document.</u-code-list><u-code-npm>createElement</u-code-npm> - создает новый элемент с указанным тегом</li>
+	<ul class="list-point">
+		<li><u-code-text>tag</u-code-text> - тег для узла</li>
+	</ul>
+	<hr>
+
+    <li><u-code-list>document.</u-code-list><u-code-npm>createTextNode</u-code-npm> - создает новый текстовый узел с заданным текстом</li>
+	<ul class="list-point">
+		<li><u-code-text>text</u-code-text> - текст для узла</li>
+	</ul>
+	<hr>
+
+	<li><u-code-list>elem.</u-code-list><u-code-npm>cloneNode</u-code-npm> - клонирование узла elem</li>
+	<ul class="list-point">
+		<li><u-code-text>bool</u-code-text> - <u>true</u> - создаст «глубокую» копию элемента вместе с атрибутами, включая подэлементы; <u>false</u> - копия будет создана без дочерних элементов</li>
+	</ul>
+	<hr>
+
+	<!------------------------------------------------------------->
+	<h4>Вставка и удаление узлов:</h4>
+	<!------------------------------------------------------------->
+
+    <li><u-code-list>parentElem.</u-code-list><u-code-npm>appendChild</u-code-npm> - добавляет elem в конец дочерних элементов parentElem</li>
+	<ul class="list-point">
+		<li><u-code-text>elem</u-code-text> - добавляемый элемент, созданный через createElement</li>
+		<li><u>return elem</u> - вставленный узел</li>
+	</ul>
+	<hr>
+
+    <li><u-code-list>parentElem.</u-code-list><u-code-npm>insertBefore</u-code-npm> - вставляет elem в коллекцию детей parentElem, перед элементом nextSibling</li>
+	<ul class="list-point">
+		<li><u-code-text>elem</u-code-text> - добавляемый элемент, созданный через createElement</li>
+		<li><u-code-text>nextSibling</u-code-text> - элемент, перед которым производится вставка. Если null - сработает как appendChild</li>
+		<li><u>return elem</u> - вставленный узел</li>
+	</ul>
+	<hr>
+
+    <li><u-code-list>parentElem.</u-code-list><u-code-npm>removeChild</u-code-npm> - удаляет elem из списка детей parentElemт</li>
+	<ul class="list-point">
+		<li><u-code-text>elem</u-code-text> - элемент для удаления</li>
+		<li><u>return elem</u> - удаленный узел</li>
+	</ul>
+	<hr>
+
+    <li><u-code-list>parentElem.</u-code-list><u-code-npm>replaceChild</u-code-npm> - среди детей parentElem удаляет elem и вставляет на его место newElem</li>
+	<ul class="list-point">
+		<li><u-code-text>newElem</u-code-text> - элемент для замены</li>
+		<li><u-code-text>elem</u-code-text> - элемент для удаления</li>
+		<li><u>return elem</u> - удаленный узел</li>
+	</ul>
+	<hr>
+
+	<li class="red"><u-code-list>elem.</u-code-list><u-code-npm>remove</u-code-npm> - удаляет элемент напрямую, не требуя ссылки на родителят</li>
+	<hr>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Создание</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var element = document.<u-code>createElement</u-code>('div');
+element.innerHTML = 'Go to google';
+element.className = 'class-google';
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Вставка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var wrapper = document.querySelector('#wrapper');
+var element = document.createElement('div');
+</v-code>
+
+<v-code lang="js" title="">
+wrapper.<u-code>appendChild</u-code>(element);                      // внутри wrapper после контента
+wrapper.<u-code>insertBefore</u-code>(element, wrapper.firstChild); // внутри wrapper перед контентом
+wrapper.parentNode.<u-code>insertBefore</u-code>(element, wrapper); // перед wrapper
+</v-code>
+
+<ul class="list-point">
+    <li>Если вы хотите переместить элемент на новое место – не нужно его удалять со старого</li>
+    <li>Все методы вставки автоматически удаляют вставляемый элемент со старого места</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Замена</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+wrapper.parentNode.<u-code>replaceChild</u-code>(element, wrapper); // заменить элемент другим элементом
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Удаление</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+wrapper.parentNode.<u-code>removeChild</u-code>(element); // удаление нового элемента
+wrapper.parentNode.<u-code>removeChild</u-code>(wrapper); // удаление элемента обертки
+document.body.<u-code>removeChild</u-code>(element);      // удаление нового элемента (если родитель body)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Текстовые узлы для вставки текста</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var div = document.createElement('div');
+div.appendChild(document.<u-code>createTextNode</u-code>('text'));
+</v-code>

@@ -1,0 +1,41 @@
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Подключение через &lt;script&gt;</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="html" title="">
+&lt;script src="https://unpkg.com/vue/dist/vue.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/vue-router/dist/vue-router.js"&gt;&lt;/script&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>index.html</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+	&lt;router-link to="/home"&gt;Home&lt;/router-link&gt;
+	&lt;router-link to="/about"&gt;About&lt;/router-link&gt;
+	&lt;router-view&gt;&lt;/router-view&gt;
+&lt;/div&gt;
+&lt;script src="index.js"&gt;&lt;/script&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>index.js</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const Home = { template: '&lt;div&gt;Home&lt;/div&gt;' }
+const About = { template: '&lt;div&gt;About&lt;/div&gt;' }
+
+const routes = [
+	{ path: '/home', component: Home },
+	{ path: '/about', component: About }
+]
+
+const router = new VueRouter({
+	routes
+})
+
+const app = new Vue({
+	router
+}).$mount('#app')
+</v-code>

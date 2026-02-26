@@ -1,0 +1,477 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>🔰 Enzyme + Jest</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Основное</div><a href="#main-info">📑 Информация</a><a href="#main-npm">🍋 Установка</a><div class="theme">API</div><a href="#api-methods-render">🔥 Методы рендеринга</a><a href="#api-methods">🔥 Методы</a><div class="theme">Методы</div><a href="#methods-other"><u-menu>...</u-menu></a><a href="#methods-state"><u-menu>state</u-menu></a><a href="#methods-props"><u-menu>props</u-menu></a><a href="#methods-simulate"><u-menu>simulate</u-menu></a><a href="#methods-debug"><u-menu>debug</u-menu></a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="main-info"><h2>Информация</h2>
+
+<u-link-wrapper>
+	<a href="https://enzymejs.github.io/enzyme/" target="_blank">Enzyme</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Enzymejs</u-text-define> - библиотека для взаимодействия с React-компонентами</li>
+    <li><b>Для чего:</b> Компоненты</li>
+</ul>
+
+<ul class="list-point">
+	<b>Для чего:</b>
+    <li>Рендеринг</li>
+    <li>Манипуляции над компонентами</li>
+    <li>Имитация событий</li>
+</ul>
+</div><div id="main-npm"><h2>Установка</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>jest</u-code-npm>
+npm i --save-dev <u-code-npm>enzyme enzyme-adapter-react-16</u-code-npm>
+</v-pre-npm>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>setupTests.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Код из файла <u>setupTests.js</u> используется в каждом файле с тестами перед запуском тестов</li>
+</ul>
+
+<v-code lang="js" title="./src/setupTests.js">
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>package.json</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="package.json">
+{
+    "jest": {
+        "verbose": true,
+        "clearMocks": false,
+        "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js|jsx)?$",
+        // "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(js|jsx)$",
+        "setupFilesAfterEnv": [
+            "&lt;rootDir&gt;/setupTests.js"
+        ],
+        "testPathIgnorePatterns": [
+            "&lt;rootDir&gt;/(node_modules|.vscode)/"
+        ],
+        "collectCoverageFrom": [
+            "**/src/**/*.{js,jsx}"
+            // "src/components/**/*.{js,jsx}"
+        ]
+    }
+}
+</v-code>
+</div><div id="api-methods-render"><h2>Методы рендеринга</h2>
+
+<v-code lang="js" title="">
+import Enzyme, { shallow, render, mount } from 'enzyme';
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>1. shallow</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Не рендерит дочерние компоненты</li>
+    <li>Основной метод по работе с тестами</li>
+    <li>Работает с React-нодой</li>
+    <li><u>Lifecycle methods</u>: constructor, render, componentDidMount, componentDidUpdate</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. render</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Рендерит дочерние компоненты</li>
+    <li>Работает с React-нодой</li>
+    <li><u>Lifecycle methods</u>: constructor, render, componentDidMount, componentDidUpdate</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. mount</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Рендерит дочерние компоненты</li>
+    <li>Нужен на уровне Snapshots, когда не важен Lifecycle</li>
+    <li>Работает с DOM-нодой (результат рендера - HTML)</li>
+    <li><u>Lifecycle methods</u>: render</li>
+</ul>
+</div><div id="api-methods"><h2>Методы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Без Enzyme</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import React from 'react'
+
+const App = () =&gt; {
+    return (&lt;h1&gt;Hello&lt;/h1&gt;)
+}
+
+it('Export component is correct', () =&gt; {
+	<em>expect</em>(App).<u-code>toBeDefined</u-code>();
+})
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Структура</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+it('', () =&gt; {
+	const wrapper = shallow(&lt;App propApp="Hello App" /&gt;);
+	expect(wrapper.<em>ЭлементСоСвойствами</em>).<em>ВалидаторJest</em>();
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Элемент со свойствами</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>1. Поиск всех элементов (компонент или dom-элемент)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+.<u-code>find</u-code>('div')           // выборка всех "div"
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Выбор элеметов</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+.<u-code>first</u-code>()               // первый элемент
+.<u-code>last</u-code>()                // последний элемент
+.<u-code>at</u-code>(0)                 // первый элемент
+.<u-code>at</u-code>(1)                 // второй элемент
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Работа с элементами</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+.<u-code>text</u-code>()                 .toBe('Hello') / .toContain('ello')  // содержит текст, заданный в jest
+.<u-code>html</u-code>()                 .toBe('&lt;h1&gt;Hi&lt;/h1&gt;')                 // содержит html, заданный в jest
+.<u-code>exists</u-code>()               .toBeTruthy()                        // элемент существует
+.<u-code>length</u-code>                 .toBe(1) / .toBe(0)                  // если "1" - элемент существует, если "0" - не существует
+.<u-code>hasClass</u-code>('header')     .toBeTruthy() / .toBeFalsy()         // содежит класс "header"
+.<u-code>contains</u-code>(&lt;h1&gt;Hi&lt;/h1&gt;)  .toBeTruthy()                        // содержит html-код
+.<u-code>props</u-code>().propChild      .toBe('Hello Child')                 // обращение к значению пропсов
+.<u-code>prop</u-code>('target')         .toBe('_blank')                      // обращение к конкретному значению пропа
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Валидаторы Jest</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+.<u-code>toBe</u-code>('Hello')                       // содержит текст
+.<u-code>toBe</u-code>('&lt;h1&gt;Hi&lt;/h1&gt;')     // содержит html
+.<u-code>toBe</u-code>(1)                             // найден 1 элемент
+.<u-code>toBe</u-code>(0)                             // найдено 0 элементов
+
+.<u-code>toContain</u-code>('ello')                   // содержит часть текста
+
+.<u-code>not</u-code>.<u-code>toBe</u-code>('_blank') // не содержит текст
+
+.<u-code>toBeTruthy</u-code>()                        // истина
+.<u-code>toBeFalsy</u-code>()                         // ложь
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Jest beforeEach</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+let wrapper;
+
+<em>beforeEach</em>(() => {
+    wrapper = <em>shallow</em>(&lt;App /&gt;);
+})
+
+<em>it</em>('test1', () => {
+    <em>expect</em>(wrapper...).toBe(...);
+});
+
+<em>it</em>('test2', () => {
+    <em>expect</em>(wrapper...).toBe(...);
+});
+</v-code>
+</div><div id="methods-other"><h2>Основные действия</h2>
+
+<v-code lang="js" title="">
+import React from 'react';
+import { shallow } from 'enzyme';
+</v-code>
+
+<v-code lang="js" title="">
+const App = ({ propApp }) => (
+    &lt;div&gt;
+        &lt;h1 className="header"&gt;Hello&lt;/h1&gt;
+    &lt;/div&gt;
+)
+</v-code>
+
+<v-code lang="js" title="">
+it('', () =&gt; {
+    const wrapper = shallow(&lt;App /&gt;);
+
+    <em>expect</em>(!!wrapper)                                            .<u-code>toBeTruthy</u-code>();
+
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>first</u-code>().<u-code>text</u-code>())                  <span class="fix-u-code"></span>.<u-code>toBe</u-code>(<em>'Hello'</em>);
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>last</u-code>().<u-code>text</u-code>())                   <span class="fix-u-code"></span>.<u-code>toBe</u-code>(<em>'Hello'</em>);
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>at</u-code>(<em>0</em>).<u-code>text</u-code>())                    <span class="fix-u-code"></span>.<u-code>toBe</u-code>(<em>'Hello'</em>);
+    
+	<em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>text</u-code>())                           .<u-code>toBe</u-code>(<em>'Hello'</em>);
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>text</u-code>())                           .<u-code>toContain</u-code>(<em>'ello'</em>);
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>html</u-code>())                           .<u-code>toBe</u-code>(<em>'&lt;h1 class="header"&gt;Hello&lt;/h1&gt;'</em>);
+    <em>expect</em>(wrapper.<u-code>contains</u-code>(<em>&lt;h1 className="header"&gt;Hello&lt;/h1&gt;</em>)) <span class="fix-u-code"></span>.<u-code>toBeTruthy</u-code>();
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>length</u-code>)                           .<u-code>toBe</u-code>(<em>1</em>);
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h2'</em>).<u-code>length</u-code>)                           .<u-code>toBe</u-code>(<em>0</em>);
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>exists</u-code>())                         .<u-code>toBeTruthy</u-code>();
+    
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>hasClass</u-code>(<em>'header'</em>))               .<u-code>toBeTruthy</u-code>();
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'h1'</em>).<u-code>hasClass</u-code>(<em>'nothing'</em>))              .<u-code>toBeFalsy</u-code>();
+});
+</v-code>
+
+<v-code lang="js" title="">
+// expect(Component.displayName).toBe('TestComponent')
+</v-code>
+
+<v-code lang="js border" title="">
+expect(wrapper.find('h1').length).toBe(1);  // есть элемент
+expect(wrapper.find('h2').length).toBe(0);  // нет элемента
+</v-code>
+</div><div id="methods-state"><h2>state</h2>
+
+<v-code lang="js" title="">
+import React, { Component } from 'react';
+import { shallow } from 'enzyme';
+</v-code>
+
+<v-code lang="js" title="">
+class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			name: 'Tony'
+		};
+    }
+    render() {
+		return (
+			&lt;div&gt;
+                &lt;h1&gt;Hello&lt;/h1&gt;
+			&lt;/div&gt;
+		);
+	}
+}
+</v-code>
+
+<v-code lang="js" title="">
+it('', () => {
+    const wrapper = shallow(&lt;App /&gt;);
+
+	<u-code-comment>// Аналогично</u-code-comment>.
+    <em>expect</em>(wrapper.<u-code>state</u-code>(<em>'name'</em>)) .<u-code>toBe</u-code>('Tony');
+    <em>expect</em>(wrapper.<u-code>state</u-code>().name)  .<u-code>toBe</u-code>('Tony');
+});
+</v-code>
+</div><div id="methods-props"><h2>props</h2>
+
+<v-code lang="js" title="">
+import React, { Component } from 'react';
+import { shallow } from 'enzyme';
+</v-code>
+
+<v-code lang="js" title="">
+const Child = ({ propChild }) =&gt; (
+    &lt;div&gt;{propChild}&lt;/div&gt;
+);
+
+class App extends Component {
+	constructor(props) {
+		super(props);
+    }
+    render() {
+		return (
+            &lt;div <u-code>title</u-code>="Root"&gt;
+                &lt;Child <u-code>propChild</u-code>="Child" /&gt;
+                &lt;a <u-code>target</u-code>="_blank"&gt;&lt;/a&gt;
+            &lt;/div&gt;
+		);
+	}
+}
+</v-code>
+
+<v-code lang="js" title="">
+it('', () => {
+    const props = { propApp: 'App' };
+    const wrapper = shallow(&lt;App {...props} /&gt;);
+
+    <em>expect</em>(wrapper.<u-code>instance</u-code>().<u-code>props</u-code>.propApp)       .<u-code>toBe</u-code>(<em>'App'</em>); <u-code-comment>   // Для компонента &lt;App /&gt; (должен быть классовый комапонент)</u-code-comment>.
+    <em>expect</em>(wrapper.<u-code>prop</u-code>(<em>'title'</em>))                  <span class="fix-u-code"></span>.<u-code>toBe</u-code>(<em>'Root'</em>); <u-code-comment>  // Для корневого узла компонента &lt;App /&gt; (в данном случае &lt;div title="Root"&gt;)</u-code-comment>.
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>Child</em>).<u-code>prop</u-code>(<em>'propChild'</em>))  .<u-code>toBe</u-code>(<em>'Child'</em>); <u-code-comment> // Для React-компонента внутри &lt;App /&gt;</u-code-comment>.
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>'a'</em>).<u-code>prop</u-code>(<em>'target'</em>))       .<u-code>toBe</u-code>(<em>'_blank'</em>); <u-code-comment>// Для DOM-элемента внутри &lt;App /&gt;</u-code-comment>.
+    <em>expect</em>(wrapper.<u-code>find</u-code>(<em>Child</em>).<u-code>text</u-code>(<em>'propChild'</em>))  .<u-code>toBeTruthy</u-code>(); <u-code-comment>  // Проверка для React-компонента внутри &lt;App /&gt;</u-code-comment>.
+});
+</v-code>
+
+<v-code lang="js" title="">
+// Аналогичные записи
+<em>expect</em>(wrapper.<u-code>find</u-code>(<em>'a'</em>).<u-code>props</u-code>().target)  .<u-code>toBe</u-code>(<em>'_blank'</em>);
+<em>expect</em>(wrapper.<u-code>find</u-code>(<em>'a'</em>).<u-code>prop</u-code>(<em>'target'</em>))  .<u-code>toBe</u-code>('_blank');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Mock Function</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+it('', () => {
+    const props = {
+        handleClick: jest.fn()
+    }
+});
+</v-code>
+</div><div id="methods-simulate"><h2>simulate</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="." method="simulate" after="" arg="(event, [...args])">
+    Имитация событий на корневом узле в "wrapper". Должен быть один узел
+    </v-method>
+	<v-method-arg arg="event">Имя события для симуляции</v-method-arg>
+	<v-method-arg arg="[...args]">Mock-объект события, который будет передан обработчикам событий</v-method-arg>
+</div>
+
+<v-code lang="js" title="">
+import React, { Component } from 'react';
+import { shallow } from 'enzyme';
+</v-code>
+
+<v-code lang="js" title="">
+class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+            name: 'Tony',
+            job: ''
+		};
+    }
+    handleClick = () =&gt; {
+        this.setState({
+            name: 'Jack'
+        });
+    }
+    handleChange = ({ target: { value } }) =&gt; {
+        this.setState({
+            job: value
+        });
+    }
+    render() {
+		return (
+			&lt;div&gt;
+                &lt;button <u-code>onClick</u-code>={this.handleClick}&gt;Ok&lt;/button&gt;
+                &lt;input <u-code>onChange</u-code>={this.handleChange} type="text"/&gt;
+			&lt;/div&gt;
+		);
+	}
+}
+</v-code>
+
+<v-code lang="js" title="">
+it('', () =&gt; {
+    const wrapper = shallow(&lt;App /&gt;);
+
+    <em>expect</em>(wrapper.<u>state</u>(<em>'name'</em>)).<u>toBe</u>(<em>'Tony'</em>);  <u-code-comment>// 1. Начальное состояние name: 'Jack'</u-code-comment>.
+    wrapper.<u>find</u>(<em>'button'</em>).<u-code>simulate</u-code>('<u-code>click</u-code>');   <u-code-comment>// 2. Изменили состояние: name: 'Tony'</u-code-comment>.
+    <em>expect</em>(wrapper.<u>state</u>(<em>'name'</em>)).<u>toBe</u>(<em>'Jack'</em>);  <u-code-comment>// 3. Проверили корректность изменения состояния</u-code-comment>.
+});
+</v-code>
+
+<v-code lang="js" title="">
+it('', () =&gt; {
+    const wrapper = shallow(&lt;App /&gt;);
+
+    <em>expect</em>(wrapper.<u>state</u>(<em>'job'</em>)).<u>toBe</u>(<em>''</em>); <u-code-comment>                                        // 1. Начальное состояние job: ''</u-code-comment>.
+    wrapper.<u>find</u>(<em>'input'</em>).<u-code>simulate</u-code>('<u-code>change</u-code>', { target: { value: 'Developer' } }); <u-code-comment>// 2. Изменили состояние: job: 'Developer'</u-code-comment>.
+    <em>expect</em>(wrapper.<u>state</u>(<em>'job'</em>)).<u>toBe</u><em>('Developer'</em>); <u-code-comment>                               // 3. Проверили корректность изменения состояния</u-code-comment>.
+});
+</v-code>
+
+</div><div id="methods-debug"><h2>debug</h2>
+
+<v-code lang="js" title="">
+import React from 'react';
+import { shallow } from 'enzyme';
+</v-code>
+
+<v-code lang="js" title="">
+const App = () => (
+    &lt;div&gt;
+        &lt;h1 className="header"&gt;Hello&lt;/h1&gt;
+    &lt;/div&gt;
+)
+</v-code>
+
+<v-code lang="js" title="">
+it('', () => {
+    const wrapper = shallow(&lt;App /&gt;);
+
+    console.log(wrapper.<u-code>debug</u-code>());
+});
+</v-code>
+
+<v-code lang="js" title="">
+// => 
+// &lt;div&gt;
+//     &lt;h1 className="header"&gt;
+//         Hello
+//     &lt;/h1&gt;
+// &lt;/div&gt;
+</v-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

@@ -1,0 +1,89 @@
+<h2>Асинхронность</h2>
+
+<!------------------------------------------------------------->
+<h4>Promise и setTimeout</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// 1 - синхронный код
+console.log(1);
+
+Promise.resolve().then(() => {
+	// 3 - микротаска
+	console.log(3);
+	
+	// 5 - макротаска, поставится в очеред после setTimeout(() => { console.log(2); })
+	setTimeout(() => {
+		console.log(4);
+	})
+})
+
+// 4 - макротаска
+setTimeout(() => {
+	console.log(2);
+})
+
+// 2 - синхронный код
+console.log(5);
+
+// => 1, 5, 3, 2, 4
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Бесконечный Promise и setTimeout</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function a() {
+	console.log('a');
+	Promise.resolve().then(a);
+}
+
+function b() {
+	console.log('b');
+	setTimeout(b, 0);
+}
+
+a();
+b();
+
+// => a, b, a (бесконечно)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Async Await + Promise + setTimeout</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var a = 1;
+
+var fn = async function() {
+    setTimeout(() => {
+        console.log('Пятый', a); // => 6
+        a = 2;
+    }, 0);
+
+    var promise = new Promise(function(resolve, reject) {
+        console.log('Первый', a); // => 1
+        a = 3;
+        resolve();
+    });
+
+    promise
+        .then(() => {
+            console.log('Второй', a); // => 3
+            a = 4;
+        })
+        .catch(() => {
+            console.log('Не выведет', a);
+            a = 5;  
+        })
+        .then(() => {
+            console.log('Четвертый', a); // => 4
+            a = 6;
+        });
+
+    await promise;
+
+    console.log('Третий', a); // => 4 
+}
+
+fn();
+</v-code>

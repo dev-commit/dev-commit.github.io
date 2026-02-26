@@ -1,0 +1,331 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>🍋 React Testing</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Основы</div><a href="#main-info">📑 Информация</a><div class="theme">1. React Testing Library</div><a href="#react-tsting-library-info">📑 Информация</a><a href="#react-tsting-library-npm">🍋 Установка</a><a href="#react-tsting-library-methods">🔥 Методы</a><a href="#react-tsting-library-code-react-cli">Использование с CreateReactApp</a><a href="#react-tsting-library-code-react-cli-samples">⚡️ Примеры</a><div class="theme">2. React Test Renderer</div><a href="#react-test-renderer-info">📑 Информация</a><a href="#react-test-renderer-npm">🍋 Установка</a><a href="#react-test-renderer-code">⚡️ Примеры</a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="main-info"><h2>Информация</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Структура тестов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+describe('Название блока тестов', () => {
+	it('Название теста', () => {
+		// given (дано)
+		// when (условие)
+		// then (результат)
+		expect(...)
+	})
+})
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Snapshots</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<b>Применять</b>
+    <li>Компонент максимально статичен и почи никогда не меняется (верстка, stateless компоненты)</li>
+    <li>Детерминированные компоненты (запуск одних и тех же тестов для компонента, который не меняется, должен возврещать одинаковые результаты)</li>
+    <li>При рефакторинге существующих компонентов (изменение только функционала без изменения вёрстки)</li>
+
+    <b>Не применять</b>
+    <li>Во всех остальных случаях</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Mocks: для чего использовать</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>imports</li>
+    <li>styles</li>
+    <li>axios</li>
+    <li>redux</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примет использования ReactDOM.render</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+it('renders without crashing', () => {
+    const div = document.createElement('div');
+    ReactDOM.render(&lt;App /&gt;, div);
+});
+</v-code>
+</div><div id="react-tsting-library-info"><h2>Информация</h2>
+
+<u-link-wrapper>
+	<a href="https://testing-library.com/docs/react-testing-library/intro" target="_blank">React Testing Library</a>
+	<a href="https://testing-library.com/docs/dom-testing-library/intro" target="_blank">Testing Library DOM</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>React Testing Library</u-text-define> - ешение для тестирования компонентов React</li>
+    <li>Библиотека построена поверх библиотеки тестирования DOM (<u>Testing Library DOM</u>), в которой находится большая часть логики запросов</li>
+    <li>Вместо того, чтобы иметь дело с экземплярами визуализированных компонентов React, ваши тесты будут работать с реальными DOM-узлами</li>
+    <li>Эта библиотека является заменой для <u>Enzyme</u></li>
+    <li>Библиотека не является <u>Test Runner</u> или <u>Framework</u></li>
+    <li>Для работы рекомендуется Jest, хотя библиотека работает с любой средой</li>
+</ul>
+</div><div id="react-tsting-library-npm"><h2>Установка</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>@testing-library/react</u-code-npm>
+npm i --save-dev <u-code-npm>@testing-library/jest-dom</u-code-npm>
+npm i --save-dev <u-code-npm>@testing-library/user-event</u-code-npm>
+</v-pre-npm>
+
+<ul class="list-point">
+    <li><u-code-text>react-testing-library</u-code-text> has moved to <u-code-text>@testing-library/react</u-code-text></li>
+    <li><u-code-text>jest-dom</u-code-text> has moved to <u-code-text>@testing-library/jest-do</u-code-text></li>
+</ul>
+</div><div id="react-tsting-library-methods"><h2>Методы</h2>
+
+<v-code lang="js" title="">
+import { render, fireEvent, waitFor, screen } from '@testing-library/react';
+</v-code>
+
+<ul class="list-point">
+    <li><u-code-text>render</u-code-text> - метод рендерит элемент React в DOM и возвращает служебные функции для тестирования компонента.</li>
+    <li><u-code-text>fireEvent</u-code-text> - метод позволяет запускать события для имитации действий пользователя</li>
+    <li><u-code-text>waitFor</u-code-text></li>
+    <li><u-code-text>screen</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+const {
+	getByText,
+	container,
+	asFragment,
+} = render(&lt;App /&gt;);
+</v-code>
+</div><div id="react-tsting-library-code-react-cli"><h2>Использование с Create React App</h2>
+
+<ul class="list-point">
+    <li>Необходимо установить <u>Create React App</u></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Главный файл</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="./src/index.js">
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App/App';
+
+ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пакеты, входящие в состав Create React App</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="package.json">
+{
+	"dependencies": {
+		"@babel/core": "7.9.0",
+		"babel-jest": "^24.9.0",
+		"babel-loader": "8.1.0",
+		"babel-plugin-named-asset-import": "^0.3.6",
+		"babel-preset-react-app": "^9.1.2",
+
+		"@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.3.2",
+		"@testing-library/user-event": "^7.1.2",
+
+		"jest": "24.9.0",
+		"jest-environment-jsdom-fourteen": "1.0.1",
+		"jest-resolve": "24.9.0",
+		"jest-watch-typeahead": "0.4.2"
+	}
+}
+</v-code>
+</div><div id="react-tsting-library-code-react-cli-samples"><h2>Примеры</h2>
+
+<ul class="list-point">
+    <li>После запуска теста, создается файл <u-code-text>./__snapshots__/App.test.js.snap</u-code-text> в котором находится HTML-код компонента App</li>
+    <li>Если изменить HTML-код компонента App, то тест не пройдёт</li>
+    <li>Файл теста обычно помещается в директорию <u-code-text>__test__</u-code-text> и называется <u-code-text>App.test.js</u-code-text></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Глобальное подключение в <u>./src/setupTests.js</u></h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="./src/setupTests.js">
+import '@testing-library/jest-dom/extend-expect';
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Test</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="App.test.js">
+import React from 'react';
+import { render, cleanup } from '@testing-library/react';
+
+import App from './App';
+
+// для рендера одного компонента несколько раз
+afterEach(cleanup);
+
+it('Get Snapshot', () =&gt; {
+    const { asFragment } = render(&lt;App label="My Label" /&gt;);
+    expect(<u-code>asFragment</u-code>()).<u-code>toMatchSnapshot</u-code>();
+});
+
+it('Check Element', () =&gt; {
+    const { getByTestId, getByText } = render(&lt;App label="My Label" /&gt;);
+
+    // элемент содержит проп data-testid="headerId"
+    const a1 = expect(<u-code>getByTestId</u-code>('headerId'));
+    // элемент содержит проп data-testid="headerId", получаем атрибут "title"
+    const a2 = expect(<u-code>getByTestId</u-code>('headerId').getAttribute('title'));
+    // элемент содержит текстовый контент (полный, регистрозависимый)
+    const a3 = expect(<u-code>getByText</u-code>('My Label'));
+    // элемент содержит текстовый контент (допускается часть)
+    const a4 = expect(<u-code>getByText</u-code>(/label/i));
+
+    // элемент содержит часть текстового контента (регистрозависимый)
+    a1.<u-code>toHaveTextContent</u-code>('My');
+    // элемент содержит часть текстового контента (регистроНЕзависимый)
+    a1.<u-code>toHaveTextContent</u-code>(/my/i);
+    // элемент создержит className="headerClass"
+    a1.<u-code>toHaveClass</u-code>('headerClass');
+    // элемент toBeInTheDocument
+    a1.<u-code>toBeInTheDocument</u-code>();
+    // атрибут равен "Hello"
+    a2.<u-code>toBe('Hello')</u-code>;
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Component</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="App.js">
+import React from 'react';
+
+const App = ({ label }) =&gt; (
+    &lt;header&gt;
+        &lt;h1
+            data-testid="headerId"
+            className="headerClass"
+            title="Hello"
+        &gt;
+            {label}
+        &lt;/h1&gt;
+    &lt;/header&gt;
+);
+
+export default App;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Snapshot</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="./__snapshots__/App.test.js.snap">
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Get Snapshot 1`] = `
+&lt;DocumentFragment&gt;
+    &lt;header&gt;
+        &lt;h1
+            class="headerClass"
+            data-testid="headerId"
+            title="Hello"
+        &gt;
+            My Label
+        &lt;/h1&gt;
+    &lt;/header&gt;
+&lt;/DocumentFragment&gt;
+`;
+</v-code>
+</div><div id="react-test-renderer-info"><h2>Информация</h2>
+
+<u-link-wrapper>
+	<a href="https://ru.reactjs.org/docs/test-renderer.html" target="_blank">React.js</a>
+	<a href="https://jestjs.io/docs/ru/tutorial-react" target="_blank">Jest. Testing React Apps</a>
+	<a href="https://jestjs.io/docs/ru/snapshot-testing" target="_blank">Jest. Snapshot Testing</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>react-test-renderer</u-text-define> - пакет с рендерером, ктороый умеет рендерить React-компоненты в обычные JavaScript-объекты, не используя при этом DOM или мобильное окружение</li>
+    <li>Пакет <u>react-test-renderer</u> облегчает получение снимка иерархии представления платформы (чем-то похожего на DOM-дерево), отрендеренного компонентом React DOM или React Native. При этом не используются ни браузер, ни jsdom</li>
+</ul>
+</div><div id="react-test-renderer-npm"><h2>Установка</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>react-test-renderer</u-code-npm>
+npm i --save-dev <u-code-npm>jest</u-code-npm>
+</v-pre-npm>
+</div><div id="react-test-renderer-code"><h2>Примеры</h2>
+
+<!------------------------------------------------------------->
+<h4>Создание Snapshot</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import React from 'react';
+import renderer from 'react-test-renderer';
+
+const App = () =&gt; (&lt;Button label="click me" /&gt;);
+
+const Button = ({ label }) =&gt; (
+    &lt;div data-testid="button" className="button-style"&gt;
+    	{label}
+    &lt;/div&gt;
+);
+
+it('matches snapshot', () =&gt; {
+    const tree = renderer.create(&lt;Button lable="save"&gt;&lt;/Button&gt;).toJSON();
+    expect(tree).toMatchSnapshot();
+});
+</v-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

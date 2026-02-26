@@ -1,0 +1,675 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Node.js</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Основное</div><a href="#main-info">📑 Информация</a><a href="#main-function">🍕 Функции</a><a href="#main-modules">🍕 Модули</a><a href="#main-files">🍕 Файлы и директории</a><a href="#main-export"><u-menu>require</u-menu> <u-menu>exports</u-menu></a><a href="#main-pipe"><u-menu>.pipe</u-menu></a><a href="#main-server">Сервер</a><a href="#main-stream">Потоки</a><a href="#main-router">Маршрутизация</a><a href="#main-url">Данные из url</a><div class="theme">NPM пакеты</div><a href="#package-express"><u-menu-border>express</u-menu-border></a><a href="#package-body-parser"><u-menu-border>body-parser</u-menu-border></a><a href="#package-nodemailer"><u-menu-border>nodemailer</u-menu-border></a><div class="theme">Прочее</div><a href="#other-samples">Примеры</a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="main-info"><h2>Информация</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Node.js</u-text-define> - платформа, среда запуска JS на локальном компьютере</li>
+</ul>
+
+<v-code lang="js" title="">
+node -v       // Проверка версии NodeJs
+</v-code>
+</div><div id="main-function"><h2>Функции</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Именованная функция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var name = function() {
+	console.log('text');
+};
+name();
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Вызов функции через другую функцию</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var name = function() {
+	console.log('text');
+};
+function call(func) {
+	func();
+}
+call(name);
+</v-code>
+</div><div id="main-modules"><h2>Модули</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Модуль отслеживания событий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// модуль отслеживания событий
+var events = require('events');
+</v-code>
+
+<v-code lang="js" title="">
+var my_emit = new events.EventEmitter();
+</v-code>
+
+<v-code lang="js" title="">
+// обработчик событий
+my_emit.on('some_event', function(text) {
+    console.log(text);
+});
+</v-code>
+
+<v-code lang="js" title="">
+// вызов события
+my_emit.emit('some_event', 'Обработчки событий');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Модуль наследования событий для объекта</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var events = require('events'); // модуль отслеживания событий
+var util = require('util');     // модуль наследования событий для объекта
+</v-code>
+
+<v-code lang="js" title="">
+// конструктор объектов
+var cars = function(model) {
+    this.model = model;
+}
+</v-code>
+
+<v-code lang="js" title="">
+// наследование событий для всех объектов, созданных на основе cars
+util.inherits(cars, events.EventEmitter);
+</v-code>
+
+<v-code lang="js" title="">
+var bmw   = new cars('BMW');
+var audi  = new cars('Audi');
+var volvo = new cars('Volvo');
+</v-code>
+
+<v-code lang="js" title="">
+// массив объектов
+var cars_arr = [bmw, audi, volvo];
+cars_arr.forEach(function(element) {
+    element.on('speed', function(text) {
+        console.log(element.model + ' speed is - ' + text);
+    });
+});
+</v-code>
+
+<v-code lang="js" title="">
+bmw.emit('speed', '254km');
+audi.emit('speed', '150km');
+</v-code>
+</div><div id="main-files"><h2>Файлы и директории</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Библиотека <u-code-text>fs</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const fs = require('fs');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Чтение из файла</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронно
+const fileSync  = fs.readFileSync('text.txt', 'utf8');
+
+// асинхронно  
+const fileASync = fs.readFile('text.txt', 'utf8');       
+
+// асинхронно
+fs.readFile('text.txt', 'utf8', function(err, data) {
+    console.log(data);
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Запись в файл</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронно
+fs.writeFileSync('text.txt', 'Hello \n World');
+
+// асинхронно
+fs.writeFile('text.txt', 'Hello \n World', function(err, data) {}); 
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Удаление файла</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронно
+fs.unlinkSync('file.txt'); 
+
+// асинхронно
+fs.unlink('file.txt', function() {});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Проверка существования файла или директории</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+fs.existsSync('stuffs');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Создание директории</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронно
+fs.mkdirSync('stuff');
+
+// асинхронно
+fs.mkdir('stuff');
+</v-code>
+
+<ul class="list-point">
+    <li>При использовании асинхронного метода, необходимо использовать функцию обратного вызова</li>
+</ul>
+
+<v-code lang="js" title="">
+fs.mkdir('stuff', function() {
+	fs.readFile('readme.txt', 'utf8', function(err, data) {
+		fs.writeFile('./stuff/writeme.txt', data);
+	});
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Удаление пустой директории</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// синхронно
+fs.rmdirSync('stuff');
+
+// асинхронно
+fs.rmdir('stuff');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Удаление непустой директории</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const rimraf = require('rimraf');
+
+// удаление не пустой директории
+fs.mkdirSync('nodejs/pages');
+</v-code>
+
+<v-code lang="js" title="">
+// удаление сначала файла из папки
+fs.unlink('./test-folder/file.txt', function() {
+    // после этого удаление папки
+    fs.rmdir('test-folder', function() {});
+});
+</v-code>
+
+</div><div id="main-export"><h2>require, exports</h2>
+
+things.js
+<v-code lang="js" title="">
+var array_counter = function(array) {
+    return "В массиве находится " + array.length + " элемента!";
+};
+module.exports = array_counter;
+</v-code>
+index.js
+<v-code lang="js" title="">
+var counter = require('./things');
+var a = counter([1, 7, 9, 99, 45, 8]);
+console.log(a);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Exports нескольких переменных/функций (1 вариант)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+things.js
+<v-code lang="js" title="">
+var multiply = function(x, y) {
+    // шаблон
+    return `${x} умножить ${y} равно ${x * y}`;
+};
+var some_value = 451;
+module.exports.multiply = multiply;
+module.exports.some_value = some_value;
+</v-code>
+index.js
+<v-code lang="js" title="">
+var things = require('./things');
+var a = things.some_value;
+var b = things.multiply(5, 7);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Exports нескольких переменных/функций (2 вариант)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+things.js
+<v-code lang="js" title="">
+module.exports.multiply = function(x, y) {
+    return `${x} умножить ${y} равно ${x * y}`;
+};
+module.exports.some_value = 451;
+</v-code>
+index.js
+<v-code lang="js" title="">
+var things = require('./things');
+var a = things.some_value;
+var b = things.multiply(5, 7);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Exports нескольких переменных/функций (3 вариант)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+things.js
+<v-code lang="js" title="">
+var multiply = function(x, y) {
+    return `${x} умножить ${y} равно ${x * y}`;
+};
+var some_value = 451;
+module.exports = {
+    array_counter: array_counter,
+    multiply: multiply,
+    some_value: some_value
+};
+</v-code>
+index.js
+<v-code lang="js" title="">
+var things = require('./things');
+var a = things.some_value;
+var b = things.multiply(5, 7);
+</v-code>
+</div><div id="main-pipe"><h2>.pipe</h2>
+
+<!------------------------------------------------------------->
+<h4>Взять файл article.txt и записать его в news.txt</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var fs = require('fs');
+var myReadShort = fs.createReadStream(__dirname + '/article.txt', 'utf8');
+var myWriteShort = fs.createWriteStream(__dirname + '/news.txt');
+myReadShort.pipe(myWriteShort);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вывод текстового файла на страницу</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var fs = require('fs');
+var http = require('http');
+var server = http.createServer(function(req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
+    var myReadShort = fs.createReadStream(__dirname + '/article.txt', 'utf8');
+    myReadShort.pipe(res);
+});
+server.listen(3000, '127.0.0.1');
+console.log('Отслеживаем порт 3000');
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вывод html на страницу</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var fs = require('fs');
+var http = require('http');
+var server = http.createServer(function(req, res) {
+    res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+    var myReadShort = fs.createReadStream(__dirname + '/index.html', 'utf8');
+    myReadShort.pipe(res);
+});
+server.listen(3000, '127.0.0.1');
+console.log('Отслеживаем порт 3000');
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вывод json на страницу</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var fs = require('fs');
+var http = require('http');
+var server = http.createServer(function(req, res) {
+    res.writeHead(200, {'Content-Type': 'application/json; charset=utf-8'});
+    var obj = {
+        model: 'Audi',
+        speed: '234',
+        wheels: 4
+    };
+    // конвертация в строку
+    res.end(JSON.stringify(obj));
+});
+server.listen(3000, '127.0.0.1');
+console.log('Отслеживаем порт 3000');
+</v-code>
+</div><div id="main-server"><h2>Сервер</h2>
+
+<v-code lang="bash" title="">
+req # request (запрос)
+res # response (ответ)
+</v-code>
+
+<v-code lang="js" title="">
+var http = require('http');
+var server = http.createServer(function(req, res) {
+    console.log('url: ' + req.url);
+    res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
+    res.end('Привет мир');
+});
+server.listen(3000, '127.0.0.1');
+console.log('Отслеживаем порт 3000');
+</v-code>
+</div><div id="main-stream"><h2>Потоки</h2>
+
+<v-code lang="js" title="">
+var fs = require('fs');
+// поток на чтение
+var myReadShort = fs.createReadStream(__dirname + '/article.txt', 'utf8');
+// поток на запись
+var myWriteShort = fs.createWriteStream(__dirname + '/news.txt');
+// обработчик чтения данных
+myReadShort.on('data', function(chunk) {
+	console.log('Данные получены: \n' + chunk);
+	// записываем в новый файл
+	myWriteShort.write(chunk);
+});
+</v-code>
+</div><div id="main-router"><h2>Маршрутизация</h2>
+
+Проверка url и вывод страницы 404, если страница не найдена
+<v-code lang="js" title="">
+var fs = require('fs');
+var http = require('http');
+var server = http.createServer(function(req, res) {
+    console.log('url: ' + req.url);
+    if (req.url === '/index' || req.url === '/') {
+        res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+        fs.createReadStream(__dirname + '/index.html').pipe(res);
+    } else if (req.url === '/about') {
+        res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+        fs.createReadStream(__dirname + '/about.html').pipe(res);
+    } else {
+        res.writeHead(404, {'Content-Type': 'text/html; charset=utf-8'});
+        fs.createReadStream(__dirname + '/404.html').pipe(res);
+    }
+});
+server.listen(3000, '127.0.0.1');
+console.log('Отслеживаем порт 3000');
+</v-code></div><div id="main-url"><h2>Данные из url</h2>
+
+<v-code lang="js" title="">
+app.get('/news/:id', function(req, res) {
+    console.log(req.query);
+    res.render('news');
+});
+</v-code>
+
+<v-code lang="html" title="">
+http://127.0.0.1:3000/news/some?filter=id&city=penza  - запрос
+{ filter: 'id', city: 'penza' }                       - результат
+</v-code>
+</div><div id="package-express"><h2>express</h2>
+
+<v-code lang="js" title="">
+npm i express          - установка пакета
+npm uninstall express  - удаление пакета
+npm i                  - установка всех пакетов из package.json
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Маршрутизация на Express</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var express = require('express');
+var app = express();
+</v-code>
+
+<v-code lang="js" title="">
+// статическая ссылка (главная)
+app.get('/', function(req, res) {
+    res.send('This is home');
+});
+
+// статическая ссылка (news)
+app.get('/news', function(req, res) {
+    res.send('This is news');
+});
+
+// ссылка с name статьи /news/23
+app.get('/news/:name', function(req, res) {
+    res.send('id=' + req.params.name);
+});
+
+// ссылка с name и id статьи /news/23
+app.get('/news/:name/:id', function(req, res) {
+    res.send('id=' + req.params.name + req.params.id);
+});
+</v-code>
+
+<v-code lang="js" title="">
+// отображение html файла
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/index.html');
+});
+app.get('/about', function(req, res) {
+    res.sendFile(__dirname + '/about.html');
+});
+</v-code>
+
+<v-code lang="js" title="">
+app.listen(3000);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Шаблонизатор на Expres</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Установка шаблонизатора ejs</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+npm i ejs
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>index.js</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var express = require('express');
+var app = express();
+// указание шаблонизатора, который будем использовать
+app.set('view engine', 'ejs');
+// ссылка на статические файлы (css, img, doc и т.д. иначе не будут загружаться)
+app.use('/public', express.static('public'));
+app.get('/news/:id', function(req, res) {
+    // берет шаблон news.ejs из папки views
+    // передает свойство newsId = req.params.id
+    // передает переменную newsParam = 234
+    // передаем объект newsParam
+    var obj = {title: 'Новость', id: 4, paragraphs: ['Текст', 'Числа: 2, 4', 77]};
+    res.render('news', {newsId: req.params.id, newsParam: 234, newsObj: obj});
+});
+app.get('/about', function(req, res) {
+    res.render('about');
+});
+app.listen(3000);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>public/css/style.css</h4>
+<!------------------------------------------------------------->
+public - все статические файлы (css, img, doc и т.д.)
+
+<!------------------------------------------------------------->
+<h4>views/about.ejs</h4>
+<!------------------------------------------------------------->
+подключение статического файла
+<v-code lang="html" title="">
+&lt;link rel="stylesheet" href="/public/css/style.css"&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>views/news.ejs</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+<% include blocks/header.ejs %>    - подключение файла-заголовка
+<%= newsId %>                      - вывод переменной
+<%= newsObj.id %>                  - вывод переменной объекта
+</v-code>
+<v-code lang="html" title="">
+&lt;ul&gt;
+    &lt;% newsObj.paragraphs.forEach(function(item) { %&gt;
+        &lt;li&gt;&lt;%= item %&gt;&lt;/li&gt;
+    &lt;% }); %&gt;
+&lt;/ul&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>views/blocks/header.ejs</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href="/"&gt;main&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/about"&gt;about&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/news/новости"&gt;news&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</v-code>
+</div><div id="package-body-parser"><h2>body-parser</h2>
+
+<v-code lang="html" title="">
+npm i body-parser
+https://www.npmjs.com/package/body-parser
+</v-code>
+
+<h3>view/about.ejs</h3>
+<v-code lang="html" title="">
+&lt;form method="post" action="/about"&gt;
+    &lt;input type="email" name="email" placeholder="Email"&gt;
+    &lt;input type="password" name="password" placeholder="Password"&gt;
+    &lt;input type="checkbox" name="checkbox"&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>index.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');                           // подключение пакета
+var urlencodedParser = bodyParser.urlencoded({ extended: false }); // принимаем данные из post-запроса
+app.set('view engine', 'ejs');
+app.get('/about', function(req, res) {
+    res.render('about');
+});
+app.post('/about', urlencodedParser, function(req, res) {  // обработка данных из формы
+    if (!req.body) return res.sendStatus(400);             // если не переданы данные из формы
+    console.log(req.body);                                 // все данные
+    console.log(req.body.email);                           // только email
+    console.log(req.body.password);                        // только password
+    res.render('about');
+});
+app.listen(3000);
+</v-code>
+</div><div id="package-nodemailer"><h2>nodemailer</h2>
+
+<v-code lang="html" title="">
+https://www.npmjs.com/package/nodemailer
+</v-code>
+</div><div id="other-samples"><h2>Примеры</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Exports функции 1</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+things.js
+<v-code lang="js" title="">
+function things(name) {
+    return `Привет, ${name}`;
+}
+module.exports = things;
+</v-code>
+index.js
+<v-code lang="js" title="">
+var things = require('./things');
+var a = things('Tony');
+console.log(a);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Exports функции 2</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+greet.js
+<v-code lang="js" title="">
+module.exports = function(greeting) {
+    return function(name) {
+        return `${greeting}, ${name}`;
+    }
+}
+</v-code>
+
+index.js
+<v-code lang="js" title="">
+const getGreet = require('./greet');
+const greet = getGreet('Привет');
+console.log(greet('Tony'));
+console.log(greet('Harvey'));
+console.log(greet('Andy'));
+</v-code>
+
+Результат
+<v-code lang="js" title="">
+// => Привет, Tony
+// => Привет, Harvey
+// => Привет, Andy
+</v-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

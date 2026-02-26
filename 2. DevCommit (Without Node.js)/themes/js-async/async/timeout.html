@@ -1,0 +1,79 @@
+<h2>Таймеры</h2>
+
+<ul class="list-point">
+	<li>Минимальная задержка таймера от 0 до 4мс</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>setTimeout</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+	<v-method before="" method="setTimeout" after="" arg="(func/code, delay, [arg1, arg2...])">
+		однократное выполнение кода через некоторое время
+	</v-method>
+	<v-method-arg arg="func/code">функция или строка кода для исполнения</v-method-arg>
+	<v-method-arg arg="delay">задержка в миллисекундах, 1000 миллисекунд равны 1 секунде</v-method-arg>
+	<v-method-arg arg="arg1, arg2…">aргументы, которые нужно передать функции</v-method-arg>
+</div>
+
+<div class="v-method-wrapper">
+	<v-method before="" method="clearTimeout" after="" arg="(timerId)">останавливает исполнение setTimeout</v-method>
+	<v-method-arg arg="timerId">числовой идентификатор таймера</v-method-arg>
+</div>
+
+<v-code lang="js" title="">
+// если первый аргумент является строкой, то интерпретатор создаёт анонимную функцию из этой строки
+const timer = <u-code>setTimeout</u-code>("console.log('go');", 1000);
+// анонимная функция
+const timer = <u-code>setTimeout</u-code>(function() { console.log('go'); }, 1000);
+// функция
+const timer = <u-code>setTimeout</u-code>(func, 1000);
+
+function func() {
+    console.log('go');
+}
+
+<u-code>clearTimeout</u-code>(timer);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Передача аргументов</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+setTimeout(func, 1000, 'Привет', 'Tony'); // Привет Tony
+function func(phrase, who) {
+	console.log(phrase + ' ' + who);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Рекурсивный setTimeout (альтернатива setInterval)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const timerId = setTimeout(function tick() {
+	console.log( "тик" );
+	timerId = setTimeout(tick, 2000);
+}, 2000);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>setInterval</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+	<v-method before="" method="setInterval" after="" arg="(func/code, delay, [arg1, arg2...])">
+		повторение выполнения кода через определенное время
+	</v-method>
+	<v-method-arg arg="func/code">функция или строка кода для исполнения</v-method-arg>
+	<v-method-arg arg="delay">задержка в миллисекундах, 1000 миллисекунд равны 1 секунде</v-method-arg>
+	<v-method-arg arg="arg1, arg2…">aргументы, которые нужно передать функции</v-method-arg>
+</div>
+
+<div class="v-method-wrapper">
+	<v-method before="" method="clearInterval" after="" arg="(timerId)">останавливает исполнение setInterval</v-method>
+	<v-method-arg arg="timerId">числовой идентификатор таймера</v-method-arg>
+</div>
+
+<v-code lang="js" title="">
+const timer = <u-code>setInterval</u-code>("console.log('go');", 1000);
+<u-code>clearInterval</u-code>(timer);
+</v-code>

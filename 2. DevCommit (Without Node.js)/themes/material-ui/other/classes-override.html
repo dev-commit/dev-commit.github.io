@@ -1,0 +1,40 @@
+<h2>Переопределение стилей из classes</h2>
+
+<!------------------------------------------------------------->
+<h4>Место использования компонента</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;MyCheckbox className={classes.checkbox} /&gt;
+</v-code>
+
+<v-code lang="js" title="">
+checkbox: {
+    padding: '10px',
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Базовый компонент</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;Checkbox className={classes.root} /&gt;
+</v-code>
+
+<v-code lang="js" title="">
+root: {
+    color: 'blue',
+}
+</v-code>
+
+<ul class="list-point">
+    <li>В итоговом варианте, стили объеднятся</li>
+</ul>
+
+<v-code lang="js" title="">
+root: {
+    padding: '10px',
+    color: 'blue
+}
+</v-code>
+
+

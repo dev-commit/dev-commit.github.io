@@ -1,0 +1,21 @@
+<h2>Пересечение массивов</h2>
+
+<v-two-code type="js;js" comment="Неоптимально;Оптимально">
+<template v-slot:first>
+let resultArr = arr0.filter(item => {
+    return arr1.indexOf(item) !== -1
+})
+</template>
+<template v-slot:last>
+let hashMap = {};
+
+arr1.forEach(item => {
+    hashMap[item] = null;
+})
+
+let resultArr = arr0.filter(item => {
+    return typeof hashMap[item] !== undefined;
+})
+</template>
+</v-two-code>
+

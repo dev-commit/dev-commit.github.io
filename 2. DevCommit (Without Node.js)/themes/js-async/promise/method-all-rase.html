@@ -1,0 +1,62 @@
+<h2>Параллельное выполнение Promise.all и Promise.race</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="Promise.all" after="" arg="([iterable])">Выполнение нескольких промисов. Если какой-то из промисов завершился с ошибкой, то результатом Promise.all будет эта ошибка. При этом остальные промисы игнорируются</v-method>
+	<v-method-arg arg="iterable">массив (или другой итерируемый объект) промисов</v-method-arg>
+	<v-method-return>новый промис, который ждёт, пока все переданные промисы завершатся, и переходит в состояние «выполнено» с массивом их результатов</v-method-return>
+</div>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="Promise.race" after="" arg="([iterable])">Выполнение первого самого быстрого промиса. Результатом будет только первый успешно выполнившийся промис из списка. Остальные игнорируются</v-method>
+	<v-method-arg arg="iterable">массив (или другой итерируемый объект) промисов, которые нужно выполнить</v-method-arg>
+	<v-method-return>новый промис</v-method-return>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример #1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const promise1 = new Promise(function(resolve, reject) {
+	setTimeout(() => resolve('promise-1-2000'), 2000);
+})
+
+const promise2 = new Promise(function(resolve, reject) {
+	setTimeout(() => resolve('promise-2-1000'), 1000);
+})
+
+Promise.<u-code>all</u-code>([promise1, promise2])
+	.then(value => console.log(value));
+	// => ["promise-1-2000", "promise-2-1000"]
+
+Promise.<u-code>race</u-code>([promise2, promise1])
+	.then(value => console.log(value));
+    // => "promise-2-1000"
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример #2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function go(num) {
+	return new Promise(function(resolve, reject) {
+		setTimeout(() => resolve(num), 1000);
+	})
+}
+
+let p1 = go(1);
+let p2 = go(2);
+let p3 = go(3);
+
+// выполняет все обещания даже если ошибка в первом
+// но закончится всё равно ошибкой
+Promise.all([p1, p2, p3])
+	.then(value => console.log(value));
+
+// получить результат от первого
+Promise.race([p1, p2, p3])
+	.then(value => console.log(value));
+</v-code>

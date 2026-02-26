@@ -1,0 +1,57 @@
+<h2>Информация</h2>
+
+<u-link-wrapper>
+    <a href="https://react-redux.js.org/introduction/quick-start" target="_blank">Документация react-redux</a>
+    <a href="https://redux.js.org/introduction/getting-started" target="_blank">Документация redux</a>
+    <a href="https://maxfarseer.gitbooks.io/redux-course-ru-v2/" target="_blank">Максим Пацианский "React Redux" (книга)</a>
+    <a href="https://getinstance.info/articles/react/learning-react-redux/" target="_blank">Новый уровень React: Redux</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>NPM</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npm i --save <u-code-npm>redux</u-code-npm>
+npm i --save <u-code-npm>react-redux</u-code-npm>
+</v-pre-npm>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Redux</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Redux</u-text-define> - это инструмент управления состоянием приложения (предсказуемый контейнер состояния для JS приложений). Он подходит для одностраничных приложений, в которых управление состоянием может со временем становиться сложным. Redux не связан с каким-то определенным фреймворком, и хотя разрабатывался для React, может использоваться с Angular или jQuery</li>
+
+    <li>Redux - <u>отделение данных от представления</u></li>
+
+    <li>В React «однонаправленный поток данных» - поток данных проходит в одном направлении, от родителя к ребенку. При этом не очевидно, как два компонента, не связанные отношением родитель-ребенок, будут взаимодействовать между собой</li>
+
+    <li>Redux предлагает хранить все состояние приложения в одном месте, называемом <u>«store»</u> («хранилище»). Компоненты «отправляют» изменение состояния в хранилище, а не напрямую другим компонентам. Компоненты, которые должны быть в курсе этих изменений, «подписываются» на хранилище</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Принципы</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li>Единственный источник истины</li>
+    <li>Состояние доступно только для чтения</li>
+    <li>Изменения делаются «чистыми» функциями</li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Однонаправленный поток данных</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li>Приложение получило начальное состояние (<u-code-text>initial state</u-code-text>)</li>
+    <li>Пользователь нажав кнопку, отправил действие (<u-code-text>dispatch action</u-code-text>)</li>
+    <li>Соответсвующий редьюсер обновил часть приложения, в согласии с тем, что узнал от действия</li>
+    <li>Приложение изменилось и теперь отражает новое состояние</li>
+    <li>... (все повторяется по кругу, с пункта 2)</li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Структура файлов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Rails Style</li>
+    <li>Redux Ducks</li>
+</ul>

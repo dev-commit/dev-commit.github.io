@@ -1,0 +1,52 @@
+<h2>Директива @at-root</h2>
+
+<ul class="list-point">
+    <li>Изымает одно или несколько правил из родительского селектора в корневой уровень документа. Можно использовать с селекторами первого уровня вложенности</li>
+    <li>Поднимает содержимые в ней правила в корень, отменяя цепочку от родителя</li>
+</ul>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+.parent {
+	color: red;
+		@at-root .child{
+			color: green;
+		}
+}
+</template>
+<template v-slot:last>
+.parent {
+	color: red;
+}
+.child {
+	color: green;
+}
+</template>
+</v-two-code>
+
+<v-two-code type="css;css" comment="SCSS;CSS">
+<template v-slot:first>
+.parent {
+	color: red;
+		@at-root {
+			.child1{
+				color: green;
+			}
+			.child2{
+				color: orange;
+			}
+		}
+}
+</template>
+<template v-slot:last>
+.parent {
+	color: red;
+}
+.child1 {
+	color: green;
+}
+.child2 {
+	color: orange;
+}
+</template>
+</v-two-code>

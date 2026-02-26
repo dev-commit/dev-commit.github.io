@@ -1,0 +1,66 @@
+<h2>Примеры</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример #1</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="Объявление">
+const sleep = ms => {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(), ms)
+    })
+}
+</v-code>
+
+<v-code lang="js" title="Обычный вызов">
+sleep(2000).then(() => console.log('After 2 sec'));
+sleep(3000).then(() => console.log('After 3 sec'));
+</v-code>
+
+<v-code lang="js" title="Promise.all">
+Promise.all([sleep(2000), sleep(5000)]).then(() => {
+	console.log('All promises');
+})
+</v-code>
+
+<v-code lang="js" title="Promise.race">
+Promise.race([sleep(2000), sleep(5000)]).then(() => {
+    console.log('Race promises');
+})
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример #2</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function applyForVisa(document) {
+	console.log('Обработка заявления...');
+	let promise = new Promise(function(resolve, reject) {
+		setTimeout(function() {
+			Math.random() > 0 ? resolve({}) : reject('В визе отказано');
+		}, 2000);
+	});
+	return promise;
+}
+function getVisa(visa) {
+	console.info('Виза получена');
+	return new Promise(function(resolve, reject) {
+		setTimeout(() => resolve(visa), 2000);
+	});
+}
+function bookHotel(visa) {
+	console.log(visa);
+	console.log('Бронируем отель');
+	return Promise.resolve(visa);
+	// return Promise.reject('Нет мест');
+}
+function buyTickets(booking) {
+	console.log('Покупаем билеты');
+	console.log('Бронь', booking);
+}
+applyForVisa({})
+	.then(getVisa)
+	.then(bookHotel)
+	.then(buyTickets)
+	.catch(error => console.error(error))
+	.then(() => console.log('Выведется в любом случае'));
+</v-code>

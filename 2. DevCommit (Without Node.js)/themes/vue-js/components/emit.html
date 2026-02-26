@@ -1,0 +1,59 @@
+<h2>Передача событий между компонентами</h2>
+
+<ul class="list-point">
+	<li>Создание событий. Глобальный метод <u-code-text>$emit()</u-code-text></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Прослушиване событий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;app-child @close="modal = false"&gt;&lt;/app-child&gt;   &lt;!-- родительский компонент --&gt;
+&lt;button @click="<u-code>$emit</u-code>('close')"&gt;&lt;/button&gt;        &lt;!-- дочерний компонент --&gt;
+</v-code>
+
+<v-code lang="html" title="">
+&lt;app-child @close="modal = $event"&gt;&lt;/app-child&gt;  &lt;!-- родительский компонент --&gt;
+&lt;button @click="<u-code>$emit</u-code>('close', true)"&gt;&lt;/button&gt;  &lt;!-- дочерний компонент --&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+	&lt;ul&gt;
+		&lt;li v-for="message in messages"&gt;<span v-pre>{{ message }}</span>&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;message @message-saved="handleMessage"&gt;&lt;/message&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+Vue.component('message', {
+	template: '&lt;input type="text" v-model="message" @keyup.enter="saveMessage"&gt;',
+	data: function() {
+		return {
+			message: ''
+		}
+	},
+	methods: {
+		saveMessage() {
+			this.$emit('message-saved', this.message); // передача события родителю
+			this.message = '';
+		}
+	}
+})
+
+var app = new Vue({
+	el: '#app',
+	data: {
+		messages: []
+	}
+	methods: {
+		handleMessage(message){
+			this.messages.push(message)
+		}
+	}
+})
+</v-code>

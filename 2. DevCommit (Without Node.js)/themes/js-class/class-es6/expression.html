@@ -1,0 +1,40 @@
+<h2>Выражения классов</h2>
+
+<ul class="list-point">
+	<li>Классы являются функциями, поэтому класс можно объявить двумя способами</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1. Class Declaration</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+class Task {
+	constructor() {
+		//
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Class Expression (выражение класса)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var Task = class Task {
+	constructor() {
+		console.log('Create a task');
+	}
+}
+
+var SubTask = class extends Task {
+	constructor() {
+		super();
+		console.log('Create a subtask');
+	}
+}
+
+var task = new Task();
+var subtask = new SubTask();
+</v-code>
+
+
+

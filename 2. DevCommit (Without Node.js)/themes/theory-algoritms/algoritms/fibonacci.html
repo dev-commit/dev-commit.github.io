@@ -1,0 +1,54 @@
+<h2>Последовательность Фибоначчи (Fibonacci Sequence)</h2>
+
+<ul class="list-point">
+    <li>Принимает индекс элемента последовательности, возвращает значение</li>
+    <li>Последовательность: <u-code-text>0 1 1 2 3 5 8 13 21 34 55 ...</u-code-text></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>🔥 Решение 1: Оптимальное решение (сложность единичная, линейная)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Нумерация индеков с <u-code-text>0</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+const fibonacci = n => {
+	const arrFib = [0, 1];
+
+	while(arrFib.length <= n) {
+		arrFib.push(arrFib[arrFib.length-1] + arrFib[arrFib.length-2])
+	}
+	return arrFib[n];
+}
+
+console.log(fibonacci(0)); // 13
+</v-code>
+
+<ul class="list-point">
+    <li>Нумерация индеков с <u-code-text>1</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+const fibonacci = n => {
+	const arrFib = [0, 1];
+
+	while(arrFib.length < n) {
+		arrFib.push(arrFib[arrFib.length-1] + arrFib[arrFib.length-2])
+	}
+	return n ? arrFib[n-1] : 'Неверный индекс';
+}
+
+console.log(fibonacci(7)); // 8
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Решение 2: Рекурсивное решение (сложность 2 в степени n)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const fibonacci = n => {
+    return n < 2 ? n : fibonacci(n-1) + fibonacci(n-2);
+}
+
+console.log(fibonacci(10) === 55); 
+</v-code>

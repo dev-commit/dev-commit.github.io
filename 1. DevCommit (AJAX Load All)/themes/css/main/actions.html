@@ -1,0 +1,70 @@
+<h2>События браузера</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. CSS Will Change</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Уведомление браузера о том, что элемент изменит своё состояние</li>
+    <li>Не надо ставить на каждый элемент</li>
+    <li>Ставить ДО изменения и убирать ПОСЛЕ</li>
+</ul>
+
+<v-code lang="css" title="">
+div {
+    will-change: scroll-position;
+    will-change: transform;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Scroll Snap</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Контроль поведения скролла</li>
+</ul>
+
+<v-code lang="css" title="">
+div {
+	scroll-snap-type: ...;
+	scroll-padding: ...;
+	scroll-snap-align: ...;	
+}
+</v-code>
+
+<v-code lang="css" title="">
+.container {
+    scroll-snap-type: y mandatory;
+}
+.child {
+    scroll-snap-align: start;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Overscroll Behavior</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Использование цепочек прокрутки</li>
+    <li>Обычное поведение: Если вы находитесь внутри элемента, который имеет собственную прокрутку, и вы прокрутили его до нижней 
+части, то следующий родительский элемент начинает прокручиваться в этом направлении</li>
+    <li>Overscroll Behavior позволяет предотвратить прокрутку до полной загрузки и рендеринга DOM-дерева</li>
+</ul>
+
+<v-code lang="css" title="">
+.container {
+    overscroll-behavior: none;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>4. Ovefflow Anchor</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Может применяться на BODY и на другие элементы</li>
+</ul>
+
+<v-code lang="css" title="">
+body {
+    overflow-anchor: auto | none;
+}
+</v-code>

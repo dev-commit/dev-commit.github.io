@@ -1,0 +1,59 @@
+<h2>CSS Media Queries</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+/* <u-code>Desktop First</u-code> */
+@media screen and (max-width: 480px) {
+    /* Ширина экрана стала меньше 480px */
+}
+
+/* <u-code>Mobile First</u-code> */
+@media screen and (min-width: 480px) {
+    /* Ширина экрана больше 480px */
+}
+
+/* <u-code>Несколько условий</u-code> */
+@media screen and (min-width: 600px) and (max-width: 980px) {
+	/* Экраны от 600px до 980px */
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Стандартные разрешения экрана</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+1200px  # Large Devices, Wide Screens
+1024px  # Medium Devices, Desktops
+992px   # Medium Devices, Desktops
+768px   # Small Devices, Tablets
+640px   # Small Devices, Tablets
+480px   # Extra Small Devices, Phones
+320px   # Custom, iPhone Retina
+</v-code>
+
+<v-code lang="bash" title="">
+1920px  # ширина фонового изображения (Full HD)
+1280px  # ширина изображения для галереи
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Прочее</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Print</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+@media print
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Для мобильной версии когда шрифт разный</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+html * {
+	max-height: 1000000px;
+}
+</v-code>

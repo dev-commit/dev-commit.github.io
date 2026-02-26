@@ -1,0 +1,32 @@
+<h2>Ссылка на DOM элемент</h2>
+
+<ul class="list-point">
+	<li><u-text-define>$refs</u-text-define> создает ссылку на DOM элемент или на экземпляр компонента и делает его доступным</li>
+	<li>Удобно использовать когда нужно написать компонент с API или нужна работа с DOM</li>
+
+    <u-code-text>$refs</u-code-text>
+	<li>глобальный массив</li>
+	<li>не является реактивным</li>
+	<li>заполняются только после того, как компонент был отрисован</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Управление html-элементами</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+    &lt;h2 ref="header"&gt;Hello world!&lt;/h2&gt;
+    &lt;button v-on:click="change"&gt;Change&lt;/button&gt;
+&lt;/div&gt;
+</v-code>
+<v-code lang="js" title="">
+new Vue({
+    el: "#app",
+    methods:{
+        change: function(){
+            this.$refs.header.innerText = "Welcome to Vue.js";
+            // this.$refs.header.focus();
+        }
+    }
+});
+</v-code>

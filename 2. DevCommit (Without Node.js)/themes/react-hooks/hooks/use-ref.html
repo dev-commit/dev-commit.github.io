@@ -1,0 +1,160 @@
+<h2>Хук useRef</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useRef" after="" arg="(initialValue)">Похож на useState и также создает состояние. Состояние, определенное через useRef сохраняется между ренедерами компонента, но при этом при изменении значения useRef не происхожит перерендера
+    </v-method>
+    <v-method-arg arg="initialValue">начальное состояние</v-method-arg>
+    <v-method-return>объект со свойством current</v-method-return>
+</div>
+
+<v-code lang="js border" title="">
+import React, { useRef } from 'react';
+
+const refContainer = useRef(initialValue);
+</v-code>
+
+<ul class="list-point">
+    <li>useRef возвращает изменяемый <u>ref-объект</u>, свойство <u-code-text>.current</u-code-text> которого инициализируется переданным аргументом (<u>initialValue</u>). Возвращённый объект будет сохраняться в течение всего времени жизни компонента</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Описание</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Назначение</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li>Получение ссылок на DOM - элементы (задание фокусов на элементы)</li>
+    <li>Сохранение мутируемого значения (props, state)</li>
+    <li>Получение значений предыдыдущего state</li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>Сравнение <u>useRef</u> и <u>useState</u></h4>
+<!------------------------------------------------------------->
+<v-two><template v-slot:first>
+<b><u-code-text>useRef</u-code-text></b>
+<ul class="list-point">
+    <li>После изменения не вызывается перерендер</li>
+    <li>Хранение состояния напрямую не связанному с JSX</li>
+</ul>
+</template><template v-slot:last>
+<b><u-code-text>useState</u-code-text></b>
+<ul class="list-point">
+    <li>После изменения вызывается перерендер</li>
+    <li>Хранение состояния связанного с JSX</li>
+</ul>
+</template></v-two>
+
+<!------------------------------------------------------------->
+<h4>Применение для сохранения мутируемого значения (н-р: props)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Хук удобен для сохранения любого мутируемого значения, по аналогии с тем, используются поля экземпляра в классах</li>
+    <li>Это возможно, поскольку <u>useRef()</u> создаёт обычный JavaScript-объект. Единственная разница между <u>useRef()</u> и просто созданием самого объекта <u>{current: ...}</u> - это то, что <u-text-underline>хук useRef даст один и тот же объект с рефом при каждом рендере</u-text-underline></li>
+    <li><u>useRef</u> не уведомляет, когда изменяется его содержимое. Мутирование свойства <u-code-text>.current</u-code-text> <u-text-underline>не вызывает повторный рендер</u-text-underline>. Если необходимо запустить некоторый код, когда React присоединяет или отсоединяет реф к узлу DOM, можно использовать <u>колбэк-реф</u> вместо этого</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!------------------------------------------------------------->
+<h4>Получение ссылки на DOM-элемент</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { useRef } from 'react';
+
+const App = () =&gt; {
+    const inputRef = <u-code>useRef(null)</u-code>;
+
+    const handleClick = () =&gt; {
+        // получение элемента
+        alert(<u-code>inputRef.current.value</u-code>);
+        // установка фокуса
+        <u-code>inputRef.current.focus();</u-code>
+    }
+
+    return (
+        &lt;div&gt;
+            &lt;input type="text" <u-code>ref={inputRef}</u-code> /&gt;
+            &lt;button onClick={handleClick}&gt;Ok&lt;/button&gt;
+        &lt;/div&gt;
+    )
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Посчитать, сколько раз рендерили компонент</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { useState, useEffect, useRef } from 'react';
+
+const App = () =&gt; {
+    const [value, setValue] = useState('initial');
+    const renderCount = <u-code>useRef(1)</u-code>
+
+    useEffect(() =&gt; {
+        <u-code>renderCount.current++;</u-code>
+    });
+
+    return (
+        &lt;div&gt;
+            {<u-code>renderCount.current</u-code>}
+            &lt;input type="text" onChange={e =&gt; setValue(e.target.value)} value={value} /&gt;
+        &lt;/div&gt;
+    )
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Изменение props</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>props</u-code-text> мутировать нельзя, поэтому если нужно изменить, то помещаем в <u>useRef</u> / <u>useState</u></li>
+</ul>
+
+<v-two-code type="js;js" comment="useRef;useState">
+<template v-slot:first>
+const Component = ({ hint }) =&gt; {
+    const hintRef = <u-code>useRef</u-code>(hint);
+    hintRef.current = 'Новое значение';
+}
+</template>
+<template v-slot:last>
+const Component = ({ hint }) => {
+    const [hintData, setHintData] = <u-code>useState</u-code>(hint);
+    setHintData('Новое значение');
+    return &lt;Tooltip title={hintData} /&gt;
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Получение значений предыдыдущего state</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Получить значение предыдущего "value" (что было до рендера)</li>
+    <li>С помощью useState нельзя сделать</li>
+</ul>
+
+<v-code lang="js" title="">
+import { useEffect, useState, useRef } from 'react';
+
+const App = () =&gt; {
+    const [value, setValue] = useState('initial');
+    const prevValue = useRef('')
+
+    useEffect(() =&gt; {
+        prevValue.current = value;
+    }, [value]);
+
+    return (
+        &lt;div&gt;
+            &lt;div&gt;Прошлое состояние: {prevValue.current}&lt;/div&gt;
+            &lt;input type="text" onChange={e =&gt; setValue(e.target.value)} value={value} /&gt;
+        &lt;/div&gt;
+    )
+}
+</v-code>

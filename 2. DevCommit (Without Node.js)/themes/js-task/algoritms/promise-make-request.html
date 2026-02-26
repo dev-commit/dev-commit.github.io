@@ -1,0 +1,235 @@
+<h2>Promise Make Request</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Простое условие</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Написать функцию makeRequest, получающую на вход массив ссылок</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4><u-text-underline>Решение 1</u-text-underline></h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>В функцию приходит массив url, по каждому из которых нужно сделать запрос и получить данные.</li>
+    <li>Из функции нужно вернуть массив объектов с даными со всех url</li>
+	<hr>
+    <li>Делаем параллельно запросы и в итоге мы учитываем последовательность, которая будет у нас в итоге.</li>
+    <li>Т.е. не путаем местами приходящие элементы.</li>
+	<hr>
+    <li>В итоге, в <u>result</u> находится массив объектов, каждый объект - результат запроса на соответствующий url</li>
+</ul>
+
+<v-code lang="js" title="Рабочий вариант">
+const makeConcurrentRequest = urls => {
+    return new Promise(resolve => {
+        let result = [];
+        let counter = 0;
+
+        const makeRequest = index => {
+            fetch(urls[index])
+                .then(res => res.json())
+                .then(body => {
+                    result[index] = body;
+
+                    if (urls.length-1 === counter) {
+                        resolve(result);
+                    } else {
+                        counter++;
+                        makeRequest(counter);
+                    }
+                })
+        }
+
+        makeRequest(0);
+    });
+};
+
+const urls = [
+    'https://jsonplaceholder.typicode.com/todos/1',
+    'https://jsonplaceholder.typicode.com/todos/2',
+    'https://jsonplaceholder.typicode.com/todos/3'
+]
+
+makeConcurrentRequest(urls)
+    .then((result) => console.log(result));
+</v-code>
+
+
+<v-details title="<u-text-underline>Решение 2 (Promise.all)</u-text-underline>">
+<v-code lang="js" title="">
+const makeConcurrentRequest = async (urls) => {
+    const res = await Promise.all(urls.map(res => {
+		return fetch(res).then(res => res.json())
+	 }))
+
+	 return res;
+};
+
+const urls = [
+    'https://jsonplaceholder.typicode.com/todos/1',
+    'https://jsonplaceholder.typicode.com/todos/2',
+    'https://jsonplaceholder.typicode.com/todos/3'
+]
+
+makeConcurrentRequest(urls)
+    .then((result) => console.log(result));
+</v-code>
+</v-details>
+
+
+<v-details title="<u-text-underline>Решение 3 (реализация на React)</u-text-underline>">
+<ul class="list-point">
+	<li>С каждым изменением setFilmsName будет происходить дополнительный перерендер</li>
+</ul>
+
+<v-code lang="js" title="">
+const PersonItemFilms = ({ films }) =&gt; {
+    const [filmsName, setFilmsName] = useState([]);
+
+    useEffect(() =&gt; {
+        (async () =&gt; {
+            await films.forEach(async item =&gt; {
+                const response = await fetch(item);
+                const body = await response.json();
+
+                setFilmsName(prev =&gt; {
+                    return [
+                        ...prev,
+                        {
+                            title: body.title,
+                            episode: body.episode_id
+                        }
+                    ]
+                })
+            });
+        })();
+
+        return () =&gt; {
+            setFilmsName([]);
+        }
+    }, []);
+
+    return (
+        &lt;&gt;
+            {filmsName
+                .map(({ title, episode }) =&gt;
+                    &lt;p key={episode}&gt;{title} {episode}&lt;/p&gt;
+                )
+            }
+        &lt;/&gt;
+    )
+}
+</v-code>
+</v-details>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Расширенное условие</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li>Написать функцию makeRequest, получающую на вход массив ссылок и число, указывающее максимальное количество одновременных запросов.</li>
+    <li>Oдновременно должно выполняться не более указанного числа запросов должен возвращаться массив результатов в той же последовательности, что и адреса запросов.</li>
+    <li>Нельзя делать повторные запросы на дублирующиеся адреса (при этом результат всё равно должен присутствовать в результирующем массиве).</li>
+</ul>
+
+<v-code lang="js" title="">
+const urls = [
+	'https://jsonplaceholder.typicode.com/todos/1',
+	'https://jsonplaceholder.typicode.com/todos/2',
+	'https://jsonplaceholder.typicode.com/todos/3',
+	'https://jsonplaceholder.typicode.com/todos/3',
+	'https://jsonplaceholder.typicode.com/todos/5',
+	'https://jsonplaceholder.typicode.com/todos/6',
+	'https://jsonplaceholder.typicode.com/todos/7'
+];
+ 
+makeConcurrentCall(urls, 2).then(console.log);
+</v-code>
+
+<v-details title="<u-text-underline>Решение 1 (urls, total)</u-text-underline>">
+<v-code lang="js" title="">
+const makeConcurrentCall = (urls, total) => {
+	let indexCount = total;
+	const buff = [...new Set(urls)].map(url => ({
+		url
+	}));
+
+	return new Promise((resolve) => {
+		const makeRequest = (index) => {a
+			const {
+				url
+			} = buff[index];
+			return fetch(url).then(response => response.json()).then((data) => {
+				buff.find(e => e.url === url).data = data;
+				if (buff.every(response => response.data)) {
+					resolve(urls.map(url => buff.find(e => e.url === url).data));
+				};
+				if (!buff[indexCount]) return;
+				makeRequest(indexCount);
+				indexCount++;
+			})
+		};
+		for (let i = 0; i < total; i++) {
+			makeRequest(i)
+		}
+	})
+}
+</v-code>
+</v-details>
+
+<v-details title="<u-text-underline>Решение 2 (urls, total)</u-text-underline>">
+<v-code lang="js" title="">
+function makeConcurrentCall(urls, total) {
+	let res = [];
+	let countIndex = total;
+
+	return new Promise((resolve) => {
+		function request(index) {
+			fetch(urls[index]).then(response => response.json()).then(response => {
+				res[index] = response;
+				if (res.length === urls.length) {
+					resolve(res);
+				}
+				request(countIndex++);
+			})
+		}
+		for (let i = 0; i < total; i++) {
+			request(i);
+		}
+	})
+}
+</v-code>
+</v-details>
+
+<v-details title="<u-text-underline>Решение 3 (urls, maxCount)</u-text-underline>">
+<ul class="list-point">
+    <li>Дублирование не реализовано</li>
+</ul>
+
+<v-code lang="js" title="">
+function makeConcurrentCall(urls, maxCount) {
+	let res = [];
+	let count = 0;
+
+	return new Promise((resolve, reject) => {
+		function request(index) {
+			fetch(urls[index])
+				.then(response => response.json())
+				.then(response => {
+					res[index] = response;
+					count++;
+					if (count === urls.length) {
+						resolve(res);
+					}
+					request(index + maxCount);
+				})
+		}
+		for (let i = 0; i < maxCount; i++) {
+			request(i);
+		}
+	})
+}
+</v-code>
+</v-details>

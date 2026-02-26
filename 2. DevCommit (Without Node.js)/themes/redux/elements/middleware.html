@@ -1,0 +1,101 @@
+<h2>Middleware</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Middleware</u-text-define> - (посредник) — функция, которая вызывается при передаче действия ещё до того, как это действие попадёт в <u>reducer</u> и <u>store.</u></li>
+    <li>Активировать middleware можно с помощью Redux функции applyMiddleware. Она берёт middleware, которое мы хотим зарегистрировать, и возвращает функцию, которая, в свою очередь, берёт функцию createStore. Затем эта вторая функция создаёт для нас store с уже включённым в него middleware</li>
+
+    <hr>
+    <li><u>Middleware</u> - шаблонный способ подцепления к actions, отправляемым в redux store</li>
+    <li><u>Middleware</u> - функции, которые перехватывают действия</li>
+
+    <hr>
+    <li>Суть middleware функций, взять входные данные, добавить что-то и передать дальше. Middleware - это всегда функция, которые обычно возвращают функцию, если только целью middleware не является прервать цепочку вызовов</li>
+    <li><u>Применение: </u>логгирование, обработка исключений, модифицирование действий, кэширование результатов и изменения способа и времени попадания действия в store</li>
+</ul>
+
+<hr>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Параметры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>store</u-code-text> объект с методами <u>getState</u>, <u>dispatch</u> и т.д.</li>
+    <li><u-code-text>next</u-code-text> функция, принимающая <u>action</u> и вызывающая <u>reducer</u></li>
+    <li><u-code-text>action</u-code-text> передаваемый action c <u>type</u> и <u>payload</u></li>
+</ul>
+
+<v-code lang="js border" title="">
+const starterMiddleware = store => next => action => {
+    // action           => { type: "NAME", payload: "Tony" }  - Action
+    // store.getState() => { reducerStarter: { name: "" } }   - Prev State
+
+    // Вызывается Reducer
+    const nextState = next(action);
+
+    // store.getState() => { reducerStarter: { name: "Tony" } }   - New State
+
+    return nextState;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты записи</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="Стрелочная фукнкция;Обычная функция">
+<template v-slot:first>
+const starterMiddleware = store => next => action => {
+    //
+    return next(action)
+}
+</template>
+<template v-slot:last>
+const logger = (store) => {
+    return function (next) {
+        return function (action) {
+        	//
+        	return next(action)
+        }
+    }
+}
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Middleware Logger</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const logger = (store) => {
+    return function (next) {
+        return function (action) {
+            console.log('Action', action);
+            console.log('Prev State', <u-code>store.getState</u-code>());
+
+            const nextState = <u-code>next(action)</u-code>;
+            console.log('New State', <u-code>store.getState</u-code>());
+            return nextState;
+        }
+    }
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Middleware Forbidden Words</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const forbiddenWords = (store) => {
+    return function (next) {
+        return function (action) {
+            const forbidden = ['Jack'];
+
+            if (<u-code>action.type</u-code> === NAME) {
+                const found = forbidden.filter(w => <u-code>action.payload</u-code>.includes(w))
+                if (found.length) {
+                    return <u-code>store.dispatch</u-code>(setName('NoName'));
+                }
+            }
+
+            return <u-code>next(action)</u-code>;
+        }
+    }
+}
+</v-code>

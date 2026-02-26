@@ -1,0 +1,21 @@
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Конфигурование сервера</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<u-link-wrapper>
+	<a href="https://router.vuejs.org/ru/guide/essentials/history-mode.html#примеры-конфигурирования-серверов" target="_blank">Примеры конфигурирования серверов</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Apache (.htaccess)</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+&lt;IfModule mod_rewrite.c&gt;
+	RewriteEngine On
+	RewriteBase /
+	RewriteRule ^index\.html$ - [L]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule . /index.html [L]
+&lt;/IfModule&gt;
+</v-code>

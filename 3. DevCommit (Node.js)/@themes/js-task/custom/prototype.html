@@ -1,0 +1,21 @@
+<h2>Прототипы</h2>
+
+<v-code lang="js" title="">
+function F () {
+    this.a = 10;
+}
+
+F.prototype.foo = function () {
+    return this.a;
+}
+
+const a = myNew(F);
+console.log(a); // { a: 10, __proto__: { foo, constructor } }
+console.log(a.foo()); // 10
+
+function myNew(F) {
+	let obj = Object.create(F.prototype);
+	F.call(obj);
+	return obj;
+}
+</v-code>

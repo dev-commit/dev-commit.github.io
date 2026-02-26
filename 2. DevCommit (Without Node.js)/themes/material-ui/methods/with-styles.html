@@ -1,0 +1,34 @@
+<h2>withStyles</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Простой пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="Component.jsx">
+import { <u-code>withStyles</u-code> } from '@material-ui/core/styles';
+import <u-code>cn</u-code> from 'classnames';
+import styles from './ComponentStyles';
+
+const Component = ({ classes }) => {
+	return (
+		&lt;&gt;
+			&lt;div className={classes.wrapper}&gt;&lt;/div&gt;
+			&lt;div className={cn(classes.one, classes.two)}&gt;&lt;/div&gt;
+			&lt;OtherComponent classes=<span v-pre>{{</span> root: classes.test <span v-pre>}}</span> /&gt;
+		&lt;/&gt;
+	);
+};
+
+export default withStyles(styles)(Component);
+</v-code>
+
+<v-code lang="css" title="ComponentStyles.js">
+const ComponentStyles = () => ({
+    wrapper: {
+		mardin: '10px',
+	},
+	one: { },
+	two: { }
+});
+
+export default ComponentStyles;
+</v-code>

@@ -1,0 +1,109 @@
+<h2>🔥 Полифил Object.create</h2>
+
+<ul class="list-point">
+    <li><u>Object.create</u> создаёт пустой объект с __proto__, равным первому аргументу</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Исходный Object.create()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const objFirst = {
+    name: 'Tony'
+};
+
+const objSecond = Object.create(objFirst); // => {} __proto__: name: "Tony"
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Запись в виде полифила</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="Через prototype">
+if (!Object.create) {
+    Object.create = function(proto) {
+        function F() {};
+        F.prototype = proto;
+        return new F;
+    }
+}
+</v-code>
+
+<v-code lang="js" title="Через setPrototypeOf">
+if (!Object.create) {
+    Object.create = function(proto) {
+        const newObject = {};
+        Object.setPrototypeOf(proto, newObject);
+        return newObject;
+    }
+}
+</v-code>
+
+<v-code lang="js" title="Через __proto__">
+if (!Object.create) {
+    Object.create = function(proto) {
+		const newObject = {};
+		newObject.__proto__ = proto;
+		return newObject;
+    }
+}
+</v-code>
+
+<v-code lang="js" title="">
+const o = Object.create(object);
+
+// Получить доступ к prototype
+o.__proto__
+Object.getPrototypeOf(o);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Запись в виде функции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const objFirst = {
+    name: 'Tony'
+};
+
+//if (!Object.create) Object.create = create; // проверка поддержки Object.create
+const objSecond = create(objFirst); // => {} __proto__: name: "Tony"
+
+function create(proto) {
+    // 1. Создана новая функция F. Она ничего не делает с this,
+    // так что если вызвать new F, то получим пустой объект
+    function F() {}
+
+    // 2. Свойство F.prototype устанавливается в будущий прототип proto
+    F.prototype = proto;
+
+    // 3. Результатом вызова new F будет пустой объект с __proto__ 
+    // равным значению F.prototype. Возвращаем объект
+    return new F(); 
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Множественное наследование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const objFirst= {
+    a: 1
+};
+const objSecond= {
+    p: {value: 20},
+    k: {value: 30}
+};
+
+function create(objFirst, objSecond) {
+    function F() {}
+    F.prototype = objFirst;
+
+    let myProto = new F();
+
+    for (key in objSecond) {
+        myProto[key] = objSecond[key].value;
+    }
+    return myProto;
+}
+
+const obj = create(objFirst, objSecond);
+</v-code>

@@ -1,0 +1,271 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Gulp & Parcel</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Gulp</div><a href="#gulp-npm">NPM</a><a href="#gulp-structure">Структура</a><a href="#gulp-gulp4">Gulp 4</a><a href="#gulp-gulpfile">gulpfile.js</a><a href="#gulp-other">Примечания</a><div class="theme">Parcel</div><a href="#parcel-info">Информация</a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="gulp-npm"><h2>NPM</h2>
+
+<v-code lang="bash" title="">
+npm i <em>gulp</em> -g                       # установить gulp глобально
+<em>gulp</em> -v                             # проверить версию gulp
+</v-code>
+
+<v-code lang="bash" title="">
+npm i --save-dev <em>gulp</em>                # gulp
+npm i --save-dev <em>gulp-sass</em>           # sass
+npm i --save-dev <em>gulp-autoprefixer</em>   # autoprefixer
+npm i --save-dev <em>browser-sync</em>        # browsersync (livereload)
+npm i --save-dev <em>del</em>                 # очистка директорий
+npm i --save-dev <em>gulp-cssnano</em>        # минификация CSS
+</v-code>
+
+<v-code lang="bash" title="">
+npm i --save-dev <em>gulp-imagemin</em>       # оптимизация изображений
+npm i --save-dev <em>imagemin-pngquant</em>   # оптимизация изображений
+npm i --save-dev <em>gulp-cache</em>          # кеширование изображений
+npm i --save-dev <em>gulp-uglifyjs</em>       # минификация JS
+npm i --save-dev <em>gulp-concat</em>         # конкатинация JS
+npm i --save-dev <em>gulp-rename</em>         # конкатинация CSS
+</v-code>
+
+<v-code lang="bash" title="">
+npm i -g <em>bower</em>                       # установка package manager bower глобально
+bower i <em>jquery</em>                       # установка библиотек с помощью Bower
+</v-code></div><div id="gulp-structure"><h2>Структура проекта</h2>
+
+<v-code lang="bash" title="">
+&#10006; dist             # собранный проект в production 
+	&#8226; common.js     # пользовательские функции
+	&#8226; libs.min.js   # все библиотеки
+&#10006; app              # исходники проекта
+&#8226; gulpfile.js       # gulp файл-инструкция 
+&#8226; .bowerrc          # bower файл-инструкция (указание пути установки libs)
+&#8226; package.json      # описание зависимостей и информации о проекте
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>.bowerrc</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+1. Создать файл .bowerrc
+- c помощью FileZilla
+- создав файл .bowerrc. (последняя точка уберется)
+2. В файле указать куда устанавливать пакеты с помощью bower
+3. Перезапустить командную строку
+</v-code>
+</div><div id="gulp-gulp4"><h2>Gulp 4</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Live Reload (index.html)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="gulpfile.js">
+const gulp = require('gulp');                    // 4.0.1
+const server = require('browser-sync').create(); // 2.26.5
+
+function reload(done) {
+    server.reload();
+    done();
+}
+
+function serve(done) {
+    server.init({
+        server: {
+            baseDir: './'
+        }
+    });
+    done();
+}
+
+const watch = () =&gt; gulp.watch('index.html', gulp.series(reload));
+const dev = gulp.series(serve, watch);
+
+module.exports.dev = dev;
+</v-code>
+</div><div id="gulp-gulpfile"><h2>Gulpfile.js</h2>
+
+<u-link-wrapper>
+	<a href="/files/gulp/gulpfile1.js" download="" target="_blank">Скачать gulpfile.js v.1.0 (small)</a>
+	<a href="/files/gulp/gulpfile2.js" download="" target="_blank">Скачать gulpfile.js v.2.0 (full)</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Простой пример task</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var gulp = require('gulp');
+gulp.task('mytask', function() {
+	console.log('Привет, я таск!');
+});
+gulp mytask - запуск из консоли
+</v-code>	
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Структура task</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var gulp = require('gulp');         // подключение пакета 
+gulp.task('mytask', function() {    // инструкция
+	gulp.src('source-files') // взяли файлы
+	.pipe(plugin())                 // выполнили действие над ними (вызов команды, плагина)
+	.pipe(gulp.dest('folder'))      // выгрузили результат работы плагина (только папка)
+});
+</v-code>	
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Аргументы task</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+task
+	'' - название таска
+	[] - таски, которые необходимо выполнить до запуска таска
+	function - функция
+</v-code>	
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Выбор файлов по шаблону</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+return gulp.src();
+	'app/sass/main.scss'                           - выбрать конкретный файл
+	'app/sass/*.scss'                              - выбрать все файлы из директории
+	'app/sass/**/*.scss'                           - выбрать все файлы включая поддиректории
+	'!app/sass/main.scss'                          - файл исключится из выборки
+	['!app/sass/main.scss', 'app/sass/**/*.scss']) - указание нескольких условий
+	'app/sass/*.+(scss|sass)'                      - выбрать все файлы scss и sass из директории
+</v-code>	
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Дефолтный таск</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+gulp.task('default', ['watch']);
+gulp - запуск из консоли
+</v-code></div><div id="gulp-other"><h2>Примечания</h2>
+
+<v-code lang="js" title="">
+1. В пути проекта (терминала) не должно быть русскоязычных папок
+   Многие gulp пакеты не понимают русскоязычных путей
+2. Запуск командной строки в директории проекта (shift+пкм)
+3. После изменения gulpfile.js, нужно перезапускать сервер 
+   gulp watch
+4. В командной строке ctrl+c 2 раза - выйти из watch
+</v-code>	
+
+<v-code lang="js" title="">
+Файлы из папки sass с нижним подчеркиванием
+_part.scss не участвуют в компиляции, их можно добавить только через import в другой sass файл
+@import "part"
+при этом можно не указывать нижнее подчеркивание и расширение.
+</v-code>	
+
+<v-code lang="js" title="">
+При импорте css файла в sass не нужно писать расширение у css
+@import "app/libs/magnific-popup/dist/magnific-popup";
+</v-code>
+
+<v-code lang="js" title="">
+gulp vinyl-ftp загрузка на сервер
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Sublime Text</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+CTRL+SHIFT+P (Package Control) -> Install Package -> SCSS
+</v-code>
+</div><div id="parcel-info"><h2>Информация</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+npm install -g parcel-bundler # установка глобально
+npm init -y                   # создание package.json в папке проекта
+parcel index.html             # запуск сервера разработки http://localhost:1234/
+parcel build index.html       # продакшен-сборка
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файлы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="index.html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;meta charset="UTF-8"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;script src="./index.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</v-code> 
+
+<v-code lang="js" title="index.js">
+console.log('Hello');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Скрипты в package.json</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+{
+	"scripts": {
+		"dev": "parcel &lt;your entry file&gt;",
+		"build": "parcel build &lt;your entry file&gt;"
+	}
+}
+</v-code>
+
+<v-code lang="js" title="">
+npm run dev
+npm run build
+</v-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

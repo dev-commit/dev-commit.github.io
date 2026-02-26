@@ -1,0 +1,41 @@
+<h2>mini-css-extract-plugin</h2>
+
+<v-pre-npm>
+npm i --save-dev <u-code-npm>mini-css-extract-plugin</u-code-npm>
+</v-pre-npm>
+
+<ul class="list-point">
+	<li><u-text-define>mini-css-extract-plugin</u-text-define> - создает отдельный файл css</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>css-loader + mini-css-extract-plugin</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="webpack.config.js">
+    <u-code-wrapper>
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+    </u-code-wrapper>
+module.exports = {
+	module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                	<u-code-wrapper>
+                    MiniCssExtractPlugin.loader,
+                    </u-code-wrapper>
+                	'css-loader'
+                ]
+            }
+        ]
+    },
+    plugins: [
+    	<u-code-wrapper>
+        new MiniCssExtractPlugin({
+        	filename: '[name].css'
+        	//filename: 'styles.css'
+    	})
+    	</u-code-wrapper>
+    ]
+};
+</v-code>

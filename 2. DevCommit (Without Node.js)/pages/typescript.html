@@ -1,0 +1,611 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>🍋 TypeScript</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Основное</div><a href="#main-info">📑 Информация</a><a href="#main-install">🍋 Установка и настройка</a><div class="theme">Типы</div><a href="#types-basic">🔰 <u-menu-unactive>Базовые</u-menu-unactive></a><a href="#types-typle">🔰 <u-menu-unactive>Typle</u-menu-unactive></a><a href="#types-any">🔰 <u-menu-unactive>Any</u-menu-unactive></a><a href="#types-never">🔰 <u-menu-unactive>Never</u-menu-unactive></a><a href="#types-type">🔰 <u-menu-unactive>Type</u-menu-unactive></a><div class="theme">Интерфейсы</div><a href="#interface-main">⭐️ Основы</a><a href="#interface-inherit">⭐️ Наследование интерфейсов</a><a href="#interface-with-class">⭐️ Взаимодействие с классами</a><a href="#interface-dynamic-key-obj">⭐️ Динамические ключи объекта</a><div class="theme">Функции</div><a href="#function-main">🍪 Основы</a><a href="#function-functions-overload">🍪 Перегрузка функций</a><div class="theme">Классы</div><a href="#class-main">🥥 Основы</a><a href="#class-modificator">🥥 Модификаторы полей</a><a href="#class-abstract">🥥 Абстрактные классы</a><div class="theme">Другие возможности</div><a href="#capabilities-enums">⚾️ Enums</a><a href="#capabilities-guards">⚾️ Guards</a><a href="#capabilities-generics">⚾️ Generics</a><a href="#capabilities-operators">⚾️ Операторы</a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="main-info"><h2>Информация</h2>
+
+<ul class="list-point">
+    <li><u-text-define>TypeScript</u-text-define> - язык программирования, который является надмножеством JavaScript, имеет статическую систему типов и собственный компилятор. Статическая типизация позволяет отлавливать ошибки и баги во время компиляции, ещё до запуска приложения</li>
+</ul>
+
+<u-link-wrapper>
+	<a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">TypeScript Documentation: Basic Types</a>
+	<a href="https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html" target="_blank">TypeScript Documentation: Migrating from Javascript</a>
+	<a href="https://www.typescriptlang.org/docs/handbook/react-&-webpack.html" target="_blank">TypeScript Documentation: React and Webpack</a>
+</u-link-wrapper>
+</div><div id="main-install"><h2>Установка и настройка</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Минимальная установка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npm i -g <u-code-npm>typescript</u-code-npm>
+</v-pre-npm>
+
+<v-code lang="js" title="">
+tsc file.ts
+node file.js
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Установка Flow</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npm i --save-dev <u-code-npm>typescript</u-code-npm>
+</v-pre-npm>
+
+<!------------------------------------------------------------->
+<h4>Добавление flow в секцию "scripts" файла package.json</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="package.json">
+{
+	// ...
+	"scripts": {
+		"build": "tsc",
+		// ...
+	},
+	// ...
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Настройка компилятора TypeScript</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Создание конфигурационного файла tsconfig.json</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html" target="_blank">tsconfig.json</a>
+	<a href="https://github.com/Microsoft/TypeScript-React-Starter/blob/master/tsconfig.json" target="_blank">Готовый tsconfig.json для React</a>
+</u-link-wrapper>
+
+<v-pre-npm>
+npx <u-code-npm>tsc</u-code-npm> --init
+</v-pre-npm>
+
+<ul class="list-point">
+    <li>Компилятор берёт исходный TypeScript код, и компилирует его в JavaScript. И нам нужно, чтобы не возникло путаницы между исходными файлами и сгенерированным кодом.</li>
+    <li>Эту проблему можно решить в два шага:</li>
+    <li>Во-первых, изменим структуру проекта. Все файлы с исходниками переместим в директорию src.</li>
+
+<li><v-code lang="js" title="">
+├── package.json
+├── src
+│   └── index.ts
+└── tsconfig.json
+</v-code></li>
+
+    <li>Затем, укажем компилятору откуда ему брать исходные файлы и куда сохранять скомпилированный код.</li>
+
+<li><v-code lang="js" title="tsconfig.json">
+{
+	"compilerOptions": {
+		// ...
+		"rootDir": "src",
+		"outDir": "build"
+		// ...
+	},
+}
+</v-code></li>
+
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Запуск TypeScript</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Если эта команда не вывела ничего в терминале, то процесс компиляции прошёл успешно</li>
+</ul>
+
+<v-code lang="bash" title="">
+npm run build
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Расширения файлов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-list>.tsx</u-code-list> - для файлов, содержащих разметку JSX</li>
+    <li><u-code-list>.ts</u-code-list> - для всего остального</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определения типов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Для анализа ошибок и выдачи всплывающих подсказок компилятор TypeScript использует файлы объявлений. Они содержат в себе всю информацию о типах, которые используются в конкретной библиотеке. В свою очередь это позволяет нам использовать JavaScript библиотеки в проекте совместно с TypeScript.</li>
+    <li>Существует два основных способа получения файлов объявлений:</li>
+    <li><b>Bundled</b> — Библиотека устанавливается вместе с собственным файлом объявлений. Чтобы проверить, есть ли у библиотеки файл объявлений, поищите index.d.ts в её исходных файлах. В некоторых библиотеках наличие и расположение этого файла указываются в package.json в секциях typings или types.</li>
+    <li><b><a href="https://github.com/DefinitelyTyped/DefinitelyTyped" target="_blank">DefinitelyTyped</a></b> репозиторий файлов объявлений. Например, React устанавливается без собственного файла объявления - вместо этого мы устанавливаем его отдельно:</li>
+<v-code lang="bash" title="bash">
+npm i --save-dev @types/react
+</v-code>
+	
+	<li><b>Локальные объявления</b> Иногда пакет, который вы хотите использовать, не имеет ни собственного файла объявлений, ни соответствующего файла в репозитории DefinitelyTyped. В этом случае, мы можем объявить собственный локальный файл объявлений. Для этого надо создать файл declarations.d.ts в корне директории, где лежат исходники вашего проекта. Файл объявлений может выглядеть примерно так:</li>
+<v-code lang="js" title="js">
+declare module 'querystring' {
+	export function stringify(val: object): string
+	export function parse(val: string): object
+}
+</v-code>
+</ul>
+</div><div id="types-basic"><h2>Базовые</h2>
+
+<v-code lang="js" title="">
+const str:         string        = 'Hello'
+const bool:        boolean       = true
+const int:         number        = 42
+const float:       number        = 4.2
+const num:         number        = 3e10
+</v-code>
+
+<v-code lang="js" title="">
+const nubmerArray: number[]      = [1, 2, 3]
+const nubmerArray: Array&lt;number&gt; = [1, 2, 3] // Дженерик типы - указывает из чего состоит данный объект
+const nubmerArray: string[]      = ['Hello', 'World']
+</v-code>
+</div><div id="types-typle"><h2>Typle</h2>
+
+<ul class="list-point">
+    <li>Массив из разных типов данных</li>
+</ul>
+
+<v-code lang="js" title="">
+const contact: [string, number] = ['Tony', 23]
+</v-code>
+</div><div id="types-any"><h2>Any</h2>
+
+<ul class="list-point">
+    <li>Можно переопределить тип данных</li>
+</ul>
+
+<v-code lang="js" title="">
+let variable: any = 42
+variable = 'Hello'
+</v-code>
+</div><div id="types-never"><h2>Never</h2>
+
+<ul class="list-point">
+    <li>Если функиця возвращает ошибку</li>
+    <li>Если функция не завершает свое выполнение</li>
+</ul>
+
+<v-code lang="js" title="">
+function throwError(message: string): never {
+	throw new Error(message)
+}
+</v-code>
+
+<v-code lang="js" title="">
+function infinite(): never {
+	while(true) {}
+}
+</v-code>
+</div><div id="types-type"><h2>Type</h2>
+
+<ul class="list-point">
+    <li>Создание собственного типа</li>
+</ul>
+
+<v-code lang="js" title="">
+type Login = string
+const login: Login = 'admin'
+</v-code>
+
+<v-code lang="js" title="">
+// строка или число
+type ID = string | number
+const id1: ID = 42
+const id2: ID = 'Hello'
+</v-code>
+
+<v-code lang="js" title="">
+type SomeType = string | null | undefined
+</v-code>
+</div><div id="interface-main"><h2>Основы</h2>
+
+<ul class="list-point">
+    <li>Тип для объектов или классов, в котором указыается какие поля должны присутствовать у этих объектов</li>
+</ul>
+
+<v-code lang="js" title="">
+interface Rect {
+	readonly id: string // только для чтения
+	color?: string      // необязательный параметр
+	size: {
+		width: number
+		height: number
+	}
+}
+
+const rect1: Rect = {
+	id: '1',
+	size: {
+		width: 20,
+		height: 30
+	},
+	color: '#ccc' // можно не задавать
+}
+</v-code>
+
+<v-code lang="js" title="">
+// приведение объекта к типу
+const rect = {} as Rect // новая запись
+const rect = &lt;Rect&gt;{}   // старя запись
+</v-code>
+</div><div id="interface-inherit"><h2>Наследование интерфейсов</h2>
+
+<v-code lang="js" title="">
+interface RectWithArea extends Rect {
+	getArea: () => number // вернет number
+}
+
+const rect2: Rect = {
+	id: '1',
+	size: {
+		width: 20,
+		height: 30
+	},
+	getArea(): number {
+		return 42
+	}
+}
+</v-code>
+</div><div id="interface-with-class"><h2>Взаимодействие с классами</h2>
+
+<v-code lang="js" title="">
+interface IClock {
+	time: Date,
+	setTime(date: Date): void
+}
+
+class Clock implements IClock {
+	time: Date = new Date()
+	
+	setTime(date: Date): void {
+		//
+	}
+}
+</v-code>
+</div><div id="interface-dynamic-key-obj"><h2>Динамические ключи объекта</h2>
+
+<ul class="list-point">
+    <li>Интерфейс для объекта, у которого большое количество динамических ключей</li>
+    <li>Указание типа ключа <u-code-text>[key: string]</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+interface Styles {
+	[key: string]: string
+}
+
+const css: Styles  {
+	border '1px solid black',
+	marginTop: '2px',
+	borderRadius: '5px'
+}
+</v-code>
+</div><div id="function-main"><h2>Основы</h2>
+
+<v-code lang="js" title="">
+// void - функция ничего не вернет
+function sayMyName(name: string): void {
+	console.log(name)
+}
+</v-code>
+
+<v-code lang="js" title="">
+function add(a: number, b: number): number {
+	return a + b
+}
+</v-code>
+
+<v-code lang="js" title="">
+function toUpperCase(str: string): string {
+	return str.toUpperCase()
+}
+</v-code>
+</div><div id="function-functions-overload"><h2>Перегрузка функций</h2>
+
+<ul class="list-point">
+    <li>Можно встретить в библиотеках: <u>Lodash</u>, <u>rxjs</u></li>
+</ul>
+
+<v-code lang="js" title="">
+interface MyPosition {
+	x: number | undefined
+	y: number | undefined
+}
+interface MyPositionWithDefault extends MyPosition {
+	default: string
+}
+
+function position(): MyPosition
+function position(a: number): MyPositionWithDefault
+function position(a: number, b: number): MyPosition
+
+function position(a?: number, b?: number) {
+	if (!a && !b) {
+		return { x: undefined, y: undefined }
+	}
+
+	if (a && !b) {
+		return { x: a, y: undefined, default: a.toString() }
+	}
+	
+	return { x: a, y: b }
+}
+
+position()     // { x: undefined, y: undefined }
+position(1)    // { x: 1, y: undefined, default: '1' }
+position(1, 2) // { x: 1, y: 2 }
+</v-code>
+</div><div id="class-main"><h2>Основы</h2>
+
+<v-code lang="js" title="">
+class Typescript {
+	version: string
+
+	constructor(version: string) {
+		this.version = version
+	}
+
+	info(name: string) {
+		return `[${name}]: Typescript version is ${this.version}`
+	}
+}
+</v-code>
+
+<i>Аналогичные записи</i>
+<v-two-code type="js;js" comment="Короткий вариант;Длинный вариант">
+<template v-slot:first>
+class Car {
+	readonly numberOfWheels: number = 4
+	constructor(readonly model: string) {}
+}
+</template>
+<template v-slot:last>
+class Car {
+	readonly model: string
+	readonly numberOfWheels: number = 4
+
+	constructor(theModel: string) {
+		this.model = theModel
+	}
+}
+</template>
+</v-two-code>
+</div><div id="class-modificator"><h2>Модификаторы полей</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Виды модификаторов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-underline>protected</u-text-underline> - внутри класса и в наследниках</li>
+    <li><u-text-underline>public</u-text-underline> - внутри класса и для всех инстансов (<u>задан по умолчанию</u>)</li>
+    <li><u-text-underline>private</u-text-underline> - внутри класса</li>
+</ul>
+
+<v-code lang="js" title="">
+class Animal {
+	protected voice: string = ''
+	public color: string = 'black'
+
+	constructor() {
+		this.go()
+	}
+
+	private go() {
+		console.log('Go')
+	}
+}
+
+class Cat extends Animal {
+	public setVoice(voice: string): void {
+		this.voice = voice
+	}
+}
+
+const cat = new Cat()
+cat.setVoice('test')
+console.log(cat.color)
+// cat.voice
+</v-code></div><div id="class-abstract"><h2>Абстрактные классы</h2>
+
+<ul class="list-point">
+    <li>Описывают методы, которые будет реализованы у классов-наследников</li>
+</ul>
+
+<v-code lang="js" title="">
+abstract class Component {
+	abstract render(): void
+	abstract info(): string
+}
+
+class AppComponent extends Component {
+	render(): void {
+		console.log('Component on render')
+	}
+
+	info(): string {
+		return 'This is info';
+	}
+}
+</v-code>
+</div><div id="capabilities-enums"><h2>Enums</h2>
+
+<ul class="list-point">
+    <li>Позволяют лучше структурировать код, если присутстуют однотипные элементы</li>
+</ul>
+
+<v-code lang="js" title="">
+enum Membership {
+	Simple,
+	Standart,
+	Premium
+}
+
+const membership = Membership.Standart  // 1
+const membershipReverse = Membership[1] // "Standart"
+</v-code>
+
+<v-code lang="js" title="">
+enum SocialMedia {
+	VK = 'VK',
+	FACEBOOK = 'FACEBOOK',
+	INSTAGRAM = 'INSTAGRAM'
+}
+
+const social = SocialMedia.INSTAGRAM // "INSTAGRAM"
+</v-code>
+</div><div id="capabilities-guards"><h2>Guards</h2>
+
+<ul class="list-point">
+    <li>Вспомогательные конструкции, позволяющие работать с типами: <u-code-text>typeof</u-code-text>, <u-code-text>instanceof</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+function strip(x: string | number) {
+	if (typeof x === 'number') {
+		return x.toFixed(2)
+	}
+	return x.trim()
+}
+
+class MyResponse {
+	header = 'response header'
+	result = 'response result'
+}
+
+class MyError {
+	header = 'error header'
+	message = 'error message'
+}
+
+function handle(res: MyResponse | MyError) {
+	if (res instanceof MyResponse) {
+		return {
+			info: res.header + res.result
+		}
+	} else {
+		return {
+			info: res.header + res.message
+		}
+	}
+}
+</v-code>
+
+<v-code lang="js" title="">
+type AlertType = 'success' | 'danger' | 'warning'
+
+function setAlertType(type: AlertType) {
+	// ....
+}
+
+setAlertType('success')
+setAlertType('warning')
+
+// setAlertType('default')
+</v-code>
+</div><div id="capabilities-generics"><h2>Generics</h2>
+
+<v-code lang="js" title="">
+const arrayOfNumbers: Array&lt;number&gt; = [1, 1, 2, 3, 5]
+const arrayOfStrings: Array&lt;string&gt; = ['Hello', 'Vladilen']
+
+// динамически подстраивается под разные типы данных
+function reverse&lt;T&gt;(array: T[]): T[] {
+	return array.reverse()
+}
+
+reverse(arrayOfNumbers)
+reverse(arrayOfStrings)
+</v-code>
+
+</div><div id="capabilities-operators"><h2>Операторы</h2>
+
+<v-code lang="js" title="">
+interface Person {
+	name: string
+	age: number
+}
+
+// keyof - пробегаемся по типу Person
+// тип из ключей интерфейса
+type PersonKeys = keyof Person // 'name' | 'age'
+
+let key: PersonKeys = 'name'
+key = 'age'
+</v-code>
+
+<v-code lang="js" title="">
+type User = {
+	_id: number
+	name: string
+	email: string
+	createdAt: Date
+}
+
+// Создать новый тип из существующего, не включая некоторые поля
+
+// Указываем, какие поля нужно не забирать (_id и createdAt)
+type UserKeysNoMeta1 = Exclude&lt;keyof User, '_id' | 'createdAt'&gt; // 'name' | 'email'
+// Указываем, какие поля нужно забрать (name, email)
+type UserKeysNoMeta2 = Pick&lt;User, 'name' | 'email'&gt; // 'name' | 'email'
+
+let u1: UserKeysNoMeta1 = 'name'
+// u1 = '_id'
+</v-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

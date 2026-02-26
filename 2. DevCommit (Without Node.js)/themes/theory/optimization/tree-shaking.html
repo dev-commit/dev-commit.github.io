@@ -1,0 +1,33 @@
+<h2>Tree shaking</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Tree shaking</u-text-define>(Встряхивание дерева) - метод оптимизации библиотек путем удаления любого кода из окончательного файла, который фактически не используется.</li>
+    <li>Когда приложение на Javascript достигает определенного размера, его обычно разделяют на модули. Однако, через какое то время, становиться сложно отслеживать все что импортируется и как это используется. В итоге при сборке пакетов, мы можем получить большое количество импортированный кода, который фактически не используется.</li>
+    <li>Если воспользоватьчя tree shaking, тогда только то, что мы импортировали и фактически использовали попадет в окончательную сборку.</li>
+    <li>Tree shaking может работать только в том случае, если модули являются статическими («static»)</li>
+</ul>
+
+<v-code lang="js" title="">
+// импорт, который импортируется, но не используется, впоследствии полностью исключается
+// реализация webpack
+import { add, <u-code>multiply</u-code> } from 'math';
+add(1, 2);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Настройка Tree shaking в Webpack</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="webpack.config.js">
+module.exports = {
+	mode: "production",
+}
+</v-code>
+
+<v-code lang="js" title="// package.json">
+// пометить определенные файлы как исключения для Tree shaking
+{
+	"sideEffects": [
+		"./src/polyfill.js"
+	]
+}
+</v-code>

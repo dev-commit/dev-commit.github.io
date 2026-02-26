@@ -1,0 +1,116 @@
+<h2>Модули ES6</h2>
+
+<u-link-wrapper>
+	<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/import" target="_blank">import</a>
+	<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Statements/export" target="_blank">export</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+	<b>Особенности</b>
+	<li>Не блокируют парсинг html</li>
+	<li>Выполняются отложенно</li>
+	<li>Имею свою область видимости</li>
+	<li>Код модуля всегда выполняется в строгом режиме</li>
+	<li>Для экспорта обязательно нужно имя</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>import</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import MyClass from './modules/lib';                   // значение экспортированное по умолчанию  
+import { libFunction } from './modules/lib';           // одно значение
+import { libFunction, libConst } from './modules/lib'; // несколько значений
+import { libConst as name } from './modules/lib';      // изменение имени значения
+import './modules/lib' as obj;                         // импорт модуля как объекта, значениями свойств которого будут экспортированные значения (obj.libConst)
+import * as obj from './modules/lib';                  // импорт модуля как объекта
+import './modules/lib'                                 // импорт всех данных (в "./modules/lib" нет "export"), запуск кода из модуля
+import MyClass, { libFunction } from './modules/lib';  // совмещение различных видов
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>export</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+export default MyClass;               // экспорт по умолчанию
+export const a = 22;                  // одно значение
+export { one, two };                  // несколько значений (const one, const two)
+export { one as once, two as twice }; // изменение имени значения
+
+export function libFunction() {
+    console.log(libFunction);
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Экспорт компонента по умолчанию</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+./src/components/App/App.js
+./src/components/App/index.js
+./src/components/OtherComponent/OtherComponent.js
+</v-code>
+
+<v-code lang="js border" title="App">
+const App = () => {
+	//
+};
+
+export default App;
+</v-code>
+
+<v-code lang="js border" title="index.js">
+// Вариант 1
+export { default } from './App';
+
+// Вариант 2
+import App from './App';
+export default App;
+</v-code>
+
+<v-code lang="js border" title="OtherComponent">
+// не нужно указывать полный путь: ./src/components/App/App.js
+import App from '../App';
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>export default class</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="Именованный класс;Анонимный класс">
+<template v-slot:first>
+export default class User {
+	constructor(name) {
+		this.name = name;
+	}
+};
+
+import User from './modules/lib';
+let user = new User('Jane'); // => User {name: "Jane"}
+</template>
+<template v-slot:last>
+export default class { 
+	constructor(name) {
+		this.name = name;
+	}
+};
+
+import User from './modules/lib';
+let user = new User('Jane'); // => _default {name: "Jane"}
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование в браузере</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+	<a href="https://codesandbox.io/s/oj2rwm9v35" target="_blank">CodeSandbox</a>
+</u-link-wrapper>
+
+<v-code lang="html red" title="">
+&lt;!-- Использование в браузере --&gt;
+&lt;script type="module"&gt;&lt;/script&gt;
+
+&lt;!-- Подключение модуля из внешнего файла --&gt;
+&lt;script type="module" import="main.js"&gt;&lt;/script&gt;
+</v-code>

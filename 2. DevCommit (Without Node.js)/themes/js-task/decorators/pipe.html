@@ -1,0 +1,46 @@
+<h2>pipe</h2>
+
+<!------------------------------------------------------------->
+<h4>Реализация из статьи</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function pipe(){
+	var args = Array.from(arguments);
+	var result = args.shift();
+
+	while(args.length) {
+		var f = args.shift();
+		result = f(result);
+	}
+	return result;
+}
+
+pipe(
+	textFromFile,
+	trim,
+	sanitize,
+	parse,
+	extractData,
+	send
+);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Реализовать pipe (не доделано)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+reverse(get6Characters(uppercase(getName({ name: 'Buckethead' }))));
+
+pipe(
+	getName,
+	uppercase,
+	get6Characters,
+	reverse
+)({ name: 'Buckethead' });
+
+function pipe(...func) {
+	return function(obj) {
+		return func.reduce((previousValue, currentValue) => currentValue(previousValue), obj)
+	}
+}
+</v-code>

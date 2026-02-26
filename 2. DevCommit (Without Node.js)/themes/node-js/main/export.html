@@ -1,0 +1,74 @@
+<h2>require, exports</h2>
+
+things.js
+<v-code lang="js" title="">
+var array_counter = function(array) {
+    return "В массиве находится " + array.length + " элемента!";
+};
+module.exports = array_counter;
+</v-code>
+index.js
+<v-code lang="js" title="">
+var counter = require('./things');
+var a = counter([1, 7, 9, 99, 45, 8]);
+console.log(a);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Exports нескольких переменных/функций (1 вариант)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+things.js
+<v-code lang="js" title="">
+var multiply = function(x, y) {
+    // шаблон
+    return `${x} умножить ${y} равно ${x * y}`;
+};
+var some_value = 451;
+module.exports.multiply = multiply;
+module.exports.some_value = some_value;
+</v-code>
+index.js
+<v-code lang="js" title="">
+var things = require('./things');
+var a = things.some_value;
+var b = things.multiply(5, 7);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Exports нескольких переменных/функций (2 вариант)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+things.js
+<v-code lang="js" title="">
+module.exports.multiply = function(x, y) {
+    return `${x} умножить ${y} равно ${x * y}`;
+};
+module.exports.some_value = 451;
+</v-code>
+index.js
+<v-code lang="js" title="">
+var things = require('./things');
+var a = things.some_value;
+var b = things.multiply(5, 7);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Exports нескольких переменных/функций (3 вариант)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+things.js
+<v-code lang="js" title="">
+var multiply = function(x, y) {
+    return `${x} умножить ${y} равно ${x * y}`;
+};
+var some_value = 451;
+module.exports = {
+    array_counter: array_counter,
+    multiply: multiply,
+    some_value: some_value
+};
+</v-code>
+index.js
+<v-code lang="js" title="">
+var things = require('./things');
+var a = things.some_value;
+var b = things.multiply(5, 7);
+</v-code>

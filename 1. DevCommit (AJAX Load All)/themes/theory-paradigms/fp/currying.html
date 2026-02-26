@@ -1,0 +1,113 @@
+<h2>Каррирование</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Каррирование / Карринг (Currying)</u-text-define> - в функциональном программирование - это преобразование функции с множеством аргументов в набор вложенных функций с одним аргументом. При вызове каррированной функции с передачей ей одного аргумента, она возвращает новую функцию, которая ожидает поступления следующего аргумента. Новые функции, ожидающие следующего аргумента, возвращаются при каждом вызове каррированной функции — до тех пор, пока функция не получит все необходимые ей аргументы. Ранее полученные аргументы, благодаря механизму <u>замыканий</u>, ждут того момента, когда функция получит всё, что ей нужно для выполнения вычислений. После получения последнего аргумента функция выполняет вычисления и возвращает результат.
+    <li>При каррировании число вложенных функций равно числу аргументов исходной функции. Каждая из этих функций ожидает собственный аргумент. Если функция аргументов не принимает, или принимает лишь один аргумент, то каррировать её нельзя</li>
+
+    <li><u-text-define>Частичное применение функций (Partial Function Application)</u-text-define> - функцию преобразуют в другую функцию, обладающую меньшим числом аргументов. Некоторые аргументы такой функции оказываются зафиксированными (для них задаются значения по умолчанию)</li>
+
+    <li>Каррирование и преобразования функций реализуются в JavaScript благодаря замыканиям и тому, что функции в JS являются объектами первого класса (их можно передавать в качестве аргументов другим функциям, возвращать из них, присваивать переменным)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Каррирование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример 1</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment=";">
+<template v-slot:first>
+// исходная функция
+function multiply(a, b, c) {
+    return a * b * c;
+}
+multiply(1,2,3); // 6
+</template>
+<template v-slot:last>
+// каррирование
+function multiply(a) {
+    return (b) => {
+        return (c) => {
+            return a * b * c
+        }
+    }
+}
+log(multiply(1)(2)(3)) // 6
+
+//const mul1 = multiply(1);
+//const mul2 = mul1(2);
+//const result = mul2(3);
+//log(result); // 6
+</template>
+</v-two-code>
+
+<h4>Пример 2</h4>
+<v-code lang="js" title="">
+function add(x){
+    return function() {
+        return x + y;
+    }
+}
+inc = add(1);
+console.log(inc(15));   // 16
+console.log(add(8)(7)); // 15
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Частичное применение функций</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function volume(l) {
+    return (w, h) => {
+        return l * w * h
+    }
+}
+</v-code>
+
+<v-two-code type="js;js" comment=";">
+<template v-slot:first>
+// вариант использования 1
+const hV = volume(70);
+hV(203,142);
+hV(220,122);
+hV(120,123);
+</template>
+<template v-slot:last>
+// вариант использования 2
+volume(70)(90,30);
+volume(70)(390,320);
+volume(70)(940,340);
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Частичная функция через bind</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Вызов <u>bind</u> позволяет фиксировать первые аргументы функции («каррировать» её), и таким образом из общей функции получить её «частные» варианты – чтобы использовать их многократно без повтора одних и тех же аргументов каждый раз</li>
+    <li>Если в bind указаны аргументы - они будут прибавлены к каждому вызову новой функции, причем встанут перед теми, которые указаны при вызове</li>
+</ul>
+
+<u-link-wrapper>
+    <a href="js.html#methods-this-bind" target="_blank">[Local] bind()</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+function mul(a, b) {
+    return a * b;
+};
+
+// double умножает только на два
+var double = mul.bind(null, 2); // контекст фиксируем null, он не используется
+
+console.log( double(3) ); // = mul(2, 3) = 6
+console.log( double(4) ); // = mul(2, 4) = 8
+console.log( double(5) ); // = mul(2, 5) = 10
+</v-code>
+
+<ul class="list-point">
+    <li>При вызове double будет передавать свои аргументы исходной функции mul после тех, которые указаны в bind, то есть в данном случае после зафиксированного первого аргумента 2</li>
+    <li>"double" является «частичной функцией» (partial function) от mul</li>
+    <li>При помощи bind мы можем получить из функции её «частный вариант» как самостоятельную функцию</li>
+</ul>

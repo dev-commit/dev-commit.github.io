@@ -1,0 +1,55 @@
+<h2>Spread-оператор массивов (ES6)</h2>
+
+<ul class="list-point">
+    <li>Оператор разворота (spread оператор) - позволяет разворачить элементы массива для передачи в качестве аргументов функций или в элементы другого массива</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Массив</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const arr1 = ['Kate', 'Jack'];
+const arr2 = ['Tony', 'Natasha'];
+const result = [...arr1, 'Tom', ...arr2];
+console.log(result); // => 'Kate', 'Jack', 'Tom', 'Tony', 'Natasha'
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function add(x,y,z) {
+	console.log(x + y + z);
+}
+const numbers = [1, 2, 3];
+add(...numbers);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Переопределение свойства у объекта</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const obj1 = {
+    name: 'Jack',
+    age: 25,
+}
+const obj2 = {
+    ...obj1,
+    age: 27
+}
+console.log(obj2); // => { age: 27, name: "Jack" }
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Нахождение максмального значения</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const maxValue = Math.max(...arr1, ...arr2);
+console.log(maxValue); // => 6
+</v-code>

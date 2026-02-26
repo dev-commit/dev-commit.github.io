@@ -1,0 +1,80 @@
+<h2>redux-devtools-extension</h2>
+
+<u-link-wrapper>
+	<a href="https://github.com/zalmoxisus/redux-devtools-extension" target="_blank">redux-devtools-extension</a>
+	<a href="https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=ru" target="_blank">Интернет-магазин Chrome</a>
+</u-link-wrapper>
+
+<v-pre-npm>
+npm i --save <u-code-npm>redux-devtools-extension</u-code-npm> # для работы devtools
+</v-pre-npm>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Минимальный вариант</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="redux/reducers/store.js">
+import { createStore } from 'redux';
+import { <u-code>composeWithDevTools</u-code> } from 'redux-devtools-extension';
+import rootReducer from './reducers';
+
+export default createStore(
+	rootReducer,
+	<u-code>composeWithDevTools</u-code>()
+);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вместе с "redux-thunk"</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { createStore, applyMiddleware } from 'redux';
+import { <u-code>composeWithDevTools</u-code> } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers';
+
+export default createStore(
+	rootReducer,
+	<u-code>composeWithDevTools</u-code>(
+		applyMiddleware(thunk)
+	)
+);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Без "redux-devtools-extension", вместе с "compose"</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { <u-code>compose</u-code>, createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers'
+
+const store = createStore(
+    rootReducer,
+    compose(
+        applyMiddleware(thunk),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
+);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Без "redux-devtools-extension"</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Если найдено расширение, то мы применяем его во второй аргумент <u-code-text>createStore</u-code-text>, в другом случае он будет <u-code-text>undefined</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+import { createStore } from 'redux';
+import rootReducer from './reducers'
+
+// Вынести в переменную
+const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
+const devtoolMiddleware = ext && ext();
+
+export default createStore(rootReducer, devtoolMiddleware);
+</v-code>

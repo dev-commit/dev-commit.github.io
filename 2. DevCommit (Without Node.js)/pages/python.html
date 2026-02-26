@@ -1,0 +1,1081 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Python</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Основное</div><a href="#main-cmd">CMD</a><a href="#main-type">Типы данных</a><a href="#main-base">Базовые принципы</a><a href="#main-if">Условный оператор if</a><a href="#main-circle">Циклы</a><a href="#main-array">Списки (массивы)</a><a href="#main-function">Функции</a><a href="#main-module">Модули</a><a href="#main-pyowm">Модуль определения погоды (pyowm)</a><a href="#main-encode">Изменение кодировки на utf-8</a><a href="#main-format">Форматирование строк. Метод format</a><a href="#main-docstring">Строки документирования (docstring)</a><div class="theme">ООП</div><a href="#oop-class">Классы, ООП</a><a href="#oop-object">Объекты (словари)</a><div class="theme">Python и MySQL</div><a href="#mysql-base">Базовые принципы</a><div class="theme">SQLAlchemy</div><a href="#sqlalchemy-base">Базовые принципы</a><div class="theme">Falcon</div><a href="#falcon-base">Базовые принципы</a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="main-cmd"><h2>CMD</h2>
+
+<v-code lang="bash" title="">
+python                   # проверка python
+python test.py           # запустить программу test.py (cmd открыт из директории программы)
+pip install name_package # установить пакет из PyPi
+</v-code>
+</div><div id="main-type"><h2>Типы данных</h2>
+
+<v-code lang="python" title="">
+t1 = 25              # integer
+t2 = 2.5             # float
+t3 = 'строка'        # string
+t4 = True            # boolean
+t5 = None            # none (пустая переменная, если вывести значение функции без return)
+t6 = {'key':'value'} # dictionary (словарь)
+</v-code>
+
+<v-code lang="python" title="">
+str(a)   # преобразование в строку
+int(a)   # преобразование в целое число
+float(a) # преобразование в дробной число
+list(a)  # преобразование в список
+</v-code>
+</div><div id="main-base"><h2>Basis</h2>
+
+<v-code lang="python" title="">
+print()                # вывод в консоль
+print("Привет \"Мир")  # экранирование кавычек
+print('Привет \nМир')  # перевод строки
+print('''Привет
+Мир''')                # многострочный вывод
+
+a = input('Ваши имя: ') # запрос данных у пользователя (возвращает строку)
+
+print('Привет'*3)       # умножение строк
+print(3*'Привет')       # умножение строк
+
+# лексиграфическое сравнение
+# сравненеи строк, у какой строки больший вес
+# регистр строк не учитывается
+print ('Test' > 'Tesa')
+
+del test                # удаление переменной test
+</v-code>
+
+<v-code lang="python" title="">
+# метасинтаксические переменные
+# зарезервированные переменные, используемые в примерых для Python
+foo
+bar
+</v-code>
+
+<v-code lang="python" title="">
+# in-place уместные операторы
+a += 10
+a += 1 # инкрементирование
+</v-code>
+
+<v-code lang="python" title="">
+a1 = 5**2   # возведение степень (2)
+a2 = 20//6  # частное (сколько 6 в числе 20)
+a3 = 20 % 6 # деление по модулю
+</v-code></div><div id="main-if"><h2>Условный оператор if</h2>
+
+<v-code lang="python" title="">
+weather = 'Хорошая'
+
+if weather == 'Хорошая':
+	print('run')
+else:
+	print('wait')
+</v-code>
+
+<v-code lang="python" title="">
+weather = 'Хорошая'
+time = 'День'
+
+if weather == 'Хорошая':
+	print('run')
+	if time == 'День':
+		print('run run')
+</v-code>
+
+<v-code lang="python" title="">
+weather = 'Хорошая'
+
+if weather == 'Хорошая':
+	print('run')
+elif weather == 'Нормальная':
+	print('go')
+else:
+	print('wait')
+</v-code>
+
+<v-code lang="python" title="">
+weather = 'Хорошая'
+time = 'День'
+
+if weather == 'Хорошая' and ( time == 'День' or time == 'Ночь' ):
+	print('run')
+</v-code>
+
+<v-code lang="python" title="">
+weather = 'Хорошая'
+
+if not weather == 'Хорошая':
+	print('run')
+</v-code>
+</div><div id="main-circle"><h2>Циклы</h2>
+
+<v-code lang="python" title="">
+i = 1
+while i <= 5:
+	print(i)
+	i += 1
+	if i == 3:
+		break
+</v-code>
+
+<v-code lang="python" title="">		
+number = 0
+while number <= 10:
+	number += 1
+	if (number % 2) != 0:
+		continue;
+	print('Четное число ' + str(number))
+</v-code>
+</div><div id="main-array"><h2>Списки (массивы)</h2>
+
+<v-code lang="python" title="">
+arr1 = ['a', 'b', 'c']           # список
+arr1[1]                          # обращение к элементу списка
+
+arr2 = ['a', 'b', ['d1', 'd2'] ] # список в списке
+arr2[2][1]                       # обращение к элементу многомерного списка
+
+arr1 * 2                         # умножение списка ['a', 'b', 'c', 'a', 'b', 'c']
+arr1 + ['d', 'i']                # сложение двух списков ['a', 'b', 'c', 'd', 'i']
+
+str1 = 'Привет'                  # строка
+str1[2]                          # обращение к элементу строки
+
+arr1.append('d')    # добавление элемента в конец списка
+arr1.insert(0, 'z') # добавление элемента 'z' в заданную позицию '0' списка
+arr1.remove('a')    # удаление элемента списка
+arr1.pop(1)         # удаление элемента списка по индексу
+
+len(arr1)           # длина списка
+max(arr1)           # максимальный элемент списка
+max(arr1)           # минимальный элемент списка
+arr1.count('a')     # кол-во вхождений определенных значений в список (если значения повторяются)
+arr1.reverse()      # перевернуть значения массива (ничего не возвращает, только изменяет список)
+
+# поверка наличия значения элемента в списке
+if 'a' in arr1:
+	print('A is in list')
+
+# поверка отсутствия значения элемента в списке
+if 'a' not in arr1:
+	print('A is not in list')
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Диапазон</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+# диапазон
+# возвращает не список, а итерируемые объекты диапазона
+a = range(100)        # (0, 100)
+b = range(50, 100)    # (50, 100)
+c = range(50, 100, 2) # (50, 100) шаг генерации 2 (только четные числа)
+
+numbers = list(range(100)) # преобразование в список. список из 100 цифр
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Перебор списка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+arr = ['a', 'b', 'c', 'd']
+
+i = 0
+length = len(arr) - 1
+
+while i<=length:
+	print(arr[i])
+	i+=1
+</v-code>
+
+<v-code lang="python" title="">
+arr = ['a', 'b', 'c', 'd']
+
+for element in arr:
+	print(element)
+</v-code>
+
+<v-code lang="python" title="">
+# Выполнение кода заданное кол-во раз
+for element in range(10):
+	print('Выполнится 10 раз')
+</v-code>
+</div><div id="main-function"><h2>Функции</h2>
+
+<v-code lang="python" title="">
+def sum(a, b):
+	return a+b
+
+# функция изначально должна быть определена
+a = sum(5,10) # вызов функции
+a = sum       # запись функции в переменную, которую можно вызвать a(5,10)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Передача функции аргументов в другую функцию</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+def greet(name):
+	print('Hi' + name())
+
+def get_name():
+	return input('Input name ')
+
+greet(get_name)
+</v-code>
+</div><div id="main-module"><h2>Модули</h2>
+
+<ol class="list-num">
+	<li>Модули, которые написали сами</li>
+	<li>Модули внешние, загруженные с интернета</li>
+	<li>Модули, интергированные в Python (STL - standart library)</li>
+</ol>
+
+<ul class="list-point">
+    <li><u>PyPi</u> - репозиторий Python</li>
+    <li><u>pip</u> - программа, позволяющая устанавливать пакеты из PyPi</li>
+</ul>
+
+<v-code lang="js" title="">
+import math                      # импорт объекта модуля (нужно обращаться к объекту)
+from math import sqrt            # импорт отдельной функции модуля
+from math import sqrt as my_sqrt # импорт отдельной функции модуля и ее переименование
+from math import sqrt, pi        # импорт нескольких методов/свойств
+from math import *               # получить все свойства и методы
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Random</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+print(random.randint(1, 100)) # от 1 до 100 (обращение к объекту)
+print(randint(1, 100))        # от 1 до 100 (обращение к методу)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Math</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+print(sqrt(25)) # квадратный корень
+print(pi)       # число Пи
+</v-code></div><div id="main-pyowm"><h2 id="pyowm">Модуль определения погоды (pyowm)</h2>
+
+<v-code lang="python" title="">
+import pyowm
+
+owm = pyowm.OWM('6d00d1d4e704068d70191bad2673e0cc')
+observation = owm.weather_at_place('London')
+w = observation.get_weather()
+
+temperature = w.get_temperature('celsius')['temp'];
+status = w.get_detailed_status()
+
+print(temperature, status)
+</v-code>
+</div><div id="main-encode"><h2>Изменение кодировки на utf-8</h2>
+
+<v-code lang="python" title="">
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
+</v-code>
+</div><div id="main-format"><h2>Форматирование строк. Метод format</h2>
+
+<v-code lang="python" title="">
+# если для подстановки требуется только один аргумент, то значение - сам аргумент
+a = 'Hello {}'.format('Tony')           # 'Hello, Tony!'
+a = 'Hello {name}'.format(name='Tony')  # 'Hello, Tony!'
+
+# если для подстановки требуется несколько аргументов
+a = '{0}, {1}, {2}'.format('a', 'b', 'c') # 'a, b, c'
+</v-code>
+
+</div><div id="main-docstring"><h2>Строки документирования (docstring)</h2>
+
+<v-code lang="python" title="">
+def sum(a, b):
+	'''Описание функции'''
+	print(a+b)
+
+# получить строку документирования
+sum.__doc__
+</v-code>
+</div><div id="oop-class"><h2>Классы, ООП</h2>
+
+<ul class="list-point">
+    <li><u>Переменные</u> - поля</li>
+    <li><u>Функции</u> - методы</li>
+    <li><u>self</u> обязательный аргумент в методе, содержащий в себе экземпляр класса, передающийся при вызове метода</li>
+</ul>
+
+<v-code lang="python" title="">
+# объявление класса
+class Person:
+	name = 'Tony'
+	age = 25
+	def set(self, name, age):
+		self.name = name
+		self.age = age
+
+superPerson = Person()       # создание объекта (экземпляра класса)
+print(superPerson.name)      # обращение к свойству объекта
+
+superPerson.set('Steve', 27) # изменение свойства объекта (свойство класса не изменяется)
+print(superPerson.name)      # обращение к свойству объекта
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Наследование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+# объявление нового класса, наследованого от Person
+class Student(Person):
+	course = 1
+
+superStudent = Student()
+superStudent.set('Jack', 19)
+print(superStudent.name)
+print(superStudent.course)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Инкапсуляция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+# одно нижнее подчеркивание - рекомендация не использовать свойсво/метод
+# при использовании ошибка выдаваться не будет
+class Person:
+	_name = 'Tony'
+	_age = 25
+	def _set(self, name, age):
+		self._name = name
+		self._age = age
+
+superPerson = Person()
+print(superPerson._name)
+superPerson._set('Steve', 14)
+</v-code>
+
+<v-code lang="python" title="">
+# два нижних подчеркивания - более жесткая рекомендация не использовать свойсво/метод
+# при использовании ошибка выдаваться будет
+class Person:
+	__name = 'Tony'
+	__age = 25
+	def __set(self, name, age):
+		self.__name = name
+		self.__age = age
+
+# обход ошибки, обращение по классу
+superPerson = Person()
+print(superPerson._Person__name)
+superPerson._Person__set('Steve', 14)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Полиморфизм</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+# Полиморфизм - использование одного метода по разному в разных классах
+print(2+2)     # для чисел сложение
+print('2'+'2') # для строк конкатенация
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Инициализация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+class Person:
+	def __init__(self, name, age):
+		self.name = name
+		self.age = age
+
+superPerson = Person('Tony', 25)
+print(superPerson.name, superPerson.age)
+</v-code>
+
+<v-code lang="python" title="">
+# age=None выставление значения по умолчанию
+class Person:
+	def __init__(self, name, age=None):
+		self.name = name
+		self.age = age
+
+superPerson = Person('Tony')
+print(superPerson.name, superPerson.age)
+</v-code>
+
+
+</div><div id="oop-object"><h2>Объекты (словари)</h2>
+
+<v-code lang="python" title="">
+dic = {
+	'name': 'Tony',
+	'age': 25,
+	'address': {
+		'town':'London',
+		'home':'255'
+	}
+}
+
+# если элемент не найден, вернет ошибку
+print(dic['name'])
+print(dic['address']['town'])
+
+# если элемент не найден, вернет None, если не задан 2 аргумент
+print(dic.get('name', 'Значение не найдено'))
+</v-code>
+
+<v-code lang="python" title="">
+# проверка существования ключа в словаре
+if ('name1') in dic:
+	print('exists')
+else:
+	print('not exists')
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Перебор значений словаря (value)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+for value in dic:
+	print(value)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Перебор значений словаря (value) и номера текущей итерации (index)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+for index, value in enumerate(dic):
+	print(index)
+	print(value)
+</v-code>
+</div><div id="mysql-base"><h2>Python и MySQL</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Basic</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+	<a href="https://www.w3schools.com/python/python_mysql_getstarted.asp" target="_blank">w3schools</a>
+</u-link-wrapper>
+
+<v-code lang="bash" title="">
+pip install mysql-connector
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>encoding_content.py</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+# кодировка utf-8
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
+
+# вывод html
+print("Content-Type: text/html\n")
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>db_сonnect.py</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+import mysql.connector
+mydb = mysql.connector.connect(
+	host="localhost",
+	user="root",
+	passwd="",
+	database="motmom"
+)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>db_select.py</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+#!C:/Users/Sawyer/AppData/Local/Programs/Python/Python37-32/python.exe
+import encoding_content
+import db_сonnect
+
+mycursor = db_сonnect.mydb.cursor()
+mycursor.execute("SELECT * FROM event")
+myresult = mycursor.fetchall()
+
+arr = []
+for x in myresult:
+	arr.append([x[0], x[1], str(x[2])])
+print(arr)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>db_insert.py</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+#!C:/Users/Sawyer/AppData/Local/Programs/Python/Python37-32/python.exe
+import encoding_content
+import db_сonnect
+
+mycursor = db_сonnect.mydb.cursor()
+sql = "INSERT INTO event (NAME, TIME) VALUES (%s, %s)"
+val = ("TestName", "12:12:12")
+mycursor.execute(sql, val)
+db_сonnect.mydb.commit()
+print(mycursor.rowcount, "record inserted.")
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>db_update.py</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+#!C:/Users/Sawyer/AppData/Local/Programs/Python/Python37-32/python.exe
+import encoding_content
+import db_сonnect
+
+mycursor = db_сonnect.mydb.cursor()
+sql = "UPDATE event SET NAME='UpdateName', TIME='01.01.01' WHERE ID=7"
+mycursor.execute(sql)
+db_сonnect.mydb.commit()
+print(mycursor.rowcount, "record(s) affected")
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>db_delete.py</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+#!C:/Users/Sawyer/AppData/Local/Programs/Python/Python37-32/python.exe
+import encoding_content
+import db_сonnect
+
+mycursor = db_сonnect.mydb.cursor()
+sql = "DELETE FROM event WHERE ID=7"
+mycursor.execute(sql)
+db_сonnect.mydb.commit()
+print(mycursor.rowcount, "record(s) deleted")
+</v-code>
+
+<v-code lang="js" title="">
+// JavaScript Code (SELECT)
+$.get('python/db_select.py', {}, function(data) {
+	var arr = eval(data);
+	var result = '';
+	for(var i=0; i&lt;arr.length; i++) {
+		var id   = arr[i][0];
+		var name = arr[i][1];
+		var time = arr[i][2];
+		result += `&lt;div&gt;${id} ${name} ${time}&lt;/div&gt;`;
+	}
+	$('body').append(result);
+})
+</v-code>
+</div><div id="sqlalchemy-base"><h2>SQLAlchemy</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Basic</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="http://wiki.python.su/Документации/SQLAlchemy" target="_blank">wiki.python.su</a>
+    <a href="https://ru.wikibooks.org/wiki/SQLAlchemy" target="_blank">wikibooks.org</a>
+    <a href="https://docs.sqlalchemy.org/en/latest/" target="_blank">docs.sqlalchemy.org</a>
+    <a href="https://docs.sqlalchemy.org/en/latest/orm/tutorial.html" target="_blank">docs.sqlalchemy.org tutorial</a>
+    <a href="https://docs.sqlalchemy.org/en/latest/dialects/mysql.html" target="_blank">docs.sqlalchemy.org mysql</a>
+    <a href="https://slides.com/kataev/sqlalchemy-pycon#/" target="_blank">slides.com</a>
+    <a href="https://stackoverflow.com/questions/22252397/importerror-no-module-named-mysqldb" target="_blank">stackoverflow.com mysqldb</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+pip install SQLAlchemy
+pip install pymysql
+pip install --upgrade SQLAlchemy
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Тестирование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+import sqlalchemy
+print (sqlalchemy.__version__) # посмотреть версию SQLALchemy
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Работа с БД</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Connect</h4>
+<!------------------------------------------------------------->
+<v-code lang="python" title="">
+from sqlalchemy import create_engine
+engine = create_engine('mysql+pymysql://root:123@localhost/motmom')
+# root      - user
+# 123       - password
+# localhost - host
+# motmom    - db name
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Declarative creation of a table, class</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+Base = declarative_base()
+
+class User(Base):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(50))
+    fullname = Column(String(50))
+    password = Column(String(50))
+
+    def __init__(self, name, fullname, password):
+        self.name = name
+        self.fullname = fullname
+        self.password = password
+    def __repr__(self):
+        return "&lt;User('%s','%s', '%s')&gt;" % (self.name, self.fullname, self.password)
+
+# users_table = User.__table__ # доступ к имени таблицы
+
+# create table
+Base.metadata.create_all(engine)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Session</h4>
+<!------------------------------------------------------------->
+<v-code lang="python" title="">
+from sqlalchemy.orm import sessionmaker
+Session = sessionmaker(bind=engine)
+session = Session()
+
+# select query
+for instance in session.query(User).order_by(User.id):
+    print(instance.name, instance.fullname)
+
+# insert query
+insertRecord = User('Tony', 'Tony Stark', 'TonyFirst')
+session.add(insertRecord)
+session.commit()
+
+# update query
+updateRecord = session.query(User).filter_by(id=1).first()
+updateRecord.name = 'New Name'
+session.commit()
+
+# delete query
+deleteRecord = session.query(User).filter_by(id=1).first()
+session.delete(deleteRecord)
+session.commit()
+</v-code>
+
+<v-code lang="python" title="">
+session.close()
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Select Query</h4>
+<!------------------------------------------------------------->
+<v-code lang="python" title="">
+query1 = session.query(User).filter_by(name='Tony').first() # выбрать 1 запись по совпадению поля name
+query2 = session.query(User).filter(User.name=='Tony')      # выбрать 1 запись по совпадению поля name
+query3 = session.query(User).filter(User.name=='Tony').filter(User.fullname=='Stark') # выбрать 1 запись по совпадению поля name и fullname
+query4 = session.query(User).order_by(User.id)              # выбрать все записи, все поля, сортировка по ID
+query5 = session.query(User.name).order_by(User.id)         # выбрать все записи, поле name, сортирока по ID
+</v-code>
+</div><div id="falcon-base"><h2>Falcon</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="falcon">Basic</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+	<a href="https://falcon.readthedocs.io/en/stable/" target="_blank">falcon.readthedocs.io</a>
+	<a href="https://insomnia.rest/" target="_blank">Insomnia REST Client</a>
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+pip install falcon
+pip install waitress
+pip install [gunicorn|uwsgi|waitress]
+</v-code>
+
+<ul class="list-point">
+    <li><u>Falcon</u> является фреймворком <em>WSGI</em>, потому для работы веб-приложения потребуется сервер приложений WSGI</li>
+</ul>
+
+<v-code lang="bash" title="">
+1. <em>Gunicorn</em>. Gunicorn для <em>UNIX-среды</em> несовместим с Windows. UNIX - семейство операционных систем (Mac OS X, GNU/Linux).
+2. <em>uWSGI</em>
+3. <em>Waitress</em>
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Simple Text</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import falcon
+from waitress import serve
+
+class ObjRes(object):
+    def on_get(self, req, resp):
+    	resp.status = falcon.HTTP_200
+    	resp.body = 'hello world'
+
+api = falcon.API()
+api.add_route('/', ObjRes())
+serve(api, host="127.0.0.1", port=8001)
+</v-code>
+
+<v-code lang="js" title="">
+python app.py
+http://127.0.0.1:8001/
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>HTML</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import falcon
+from waitress import serve
+
+class ObjRes(object):
+    def on_get(self, req, resp):
+    	resp.status = falcon.HTTP_200
+    	resp.content_type = falcon.MEDIA_HTML
+    	resp.body = '&lt;h1&gt;Hello World&lt;/h1&gt;'
+
+api = falcon.API()
+api.add_route('/', ObjRes())
+serve(api, host="127.0.0.1", port=8001)
+</v-code>
+
+<v-code lang="js" title="">
+python app.py
+http://127.0.0.1:8001/
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Json (Object)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import falcon, json
+from waitress import serve
+
+class ObjRes(object):
+    def on_get(self, req, resp):
+    	resp.status = falcon.HTTP_200
+    	content = {
+    		'name':'Tony',
+    		'age':'25',
+    		'country':'Russia'
+    	}
+    	resp.body = json.dumps(content)
+
+api = falcon.API()
+api.add_route('/', ObjRes())
+serve(api, host="127.0.0.1", port=8001)
+</v-code>
+
+<v-code lang="python" title="">
+http://127.0.0.1:8001/
+{"name": "Tony", "age": "25", "country": "Russia"}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Json (read URL)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import falcon, json
+from waitress import serve
+
+class ObjRes(object):
+	def on_get(self, req, resp):
+		resp.status = falcon.HTTP_200
+
+		validate_params = True
+
+		if 'name' not in req.params:
+			validate_params = False
+
+		if (validate_params is True):
+			output = {
+				'name' : req.params['name']
+			}
+		else:
+			output = {
+				'error' : 'You need name in your params'
+			}
+		resp.body = json.dumps(output)
+
+api = falcon.API()
+api.add_route('/', ObjRes())
+serve(api, host="127.0.0.1", port=8001)
+</v-code>
+
+<v-code lang="python" title="">
+http://127.0.0.1:8001/
+{"error": "You need name in your params"}
+
+http://127.0.0.1:8001/?name=Tony
+{"name": "Tony"}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Read Params</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+# read url params http://127.0.0.1:8001/?name=Tony
+name = req.params['name']
+# req.host
+# req.path
+# req.query_string
+
+# read json params {"name" : "Tony"}
+data = json.loads(req.stream.read())
+a = data['name']
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>HTTP-методы GET/POST/PUT/DELETE</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+import falcon, json
+from waitress import serve
+
+class ObjRes(object):
+    def on_get(self, req, resp):
+    	resp.status = falcon.HTTP_200
+    	data = json.loads(req.stream.read())
+    	output = {
+    		'msg' : 'Hello {0}'.format(data['name'])
+    	}
+    	resp.body = json.dumps(output)
+
+    def on_post(self, req, resp):
+    	resp.status = falcon.HTTP_200
+    	data = json.loads(req.stream.read())
+    	equel = int(data['x']) + int(data['y'])
+    	output = {
+    		'msg' : 'x: {x} + y: {y} is equel to {e}'.format(x=data['x'], y=data['y'], e=equel)
+    	}
+    	resp.body = json.dumps(output)
+
+    def on_put(self, req, resp):
+    	resp.status = falcon.HTTP_200
+    	output = {
+    		'msg' : 'put is not supported'
+    	}
+    	resp.body = json.dumps(output)
+
+    def on_delete(self, req, resp):
+    	resp.status = falcon.HTTP_200
+    	output = {
+    		'msg' : 'delete is not supported'
+    	}
+    	resp.body = json.dumps(output)
+
+api = falcon.API()
+api.add_route('/', ObjRes())
+serve(api, host="127.0.0.1", port=8001)
+</v-code>
+
+<v-code lang="python" title="">
+# GET
+# JSON { "name": "Tony" }
+# Result { "msg": "Hello Tony" }
+
+# POST
+# JSON { "x": "100", "y": "200" }
+# Result { "msg": "x: 100 + y: 200 is equel to 300" }
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Validated JSON input</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+import falcon, json
+from waitress import serve
+
+class ObjRes(object):
+
+	__json_content = {}
+
+	def __validate_json_input(self, req):
+		try:
+			self.__json_content = json.loads(req.stream.read())
+			print('json from client is validated')
+			return True
+		except ValueError:
+			self.__json_content = {}
+			print('json from client is not validated')
+			return False
+
+	def on_get(self, req, resp):
+		resp.status = falcon.HTTP_200
+		validated = self.__validate_json_input(req)
+		output = {
+			'status' : 200,
+			'msg' : None
+		}
+
+		if (validated == True):
+			if 'name' in self.__json_content:
+				output['msg'] = 'Hello {name}'.format(name=self.__json_content['name'])
+			else:
+				output['status'] = 404
+				output['msg'] = 'json input need name params'
+		else:
+			output['status'] = 404
+			output['msg'] = 'json input is not validated'
+
+		resp.body = json.dumps(output)
+
+api = falcon.API()
+api.add_route('/', ObjRes())
+serve(api, host="127.0.0.1", port=8001)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Hooks</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+import falcon
+from waitress import serve
+
+class Authorize(object):
+	def __init__(self, roles):
+		self._roles = roles
+
+	def __call__(self, req, resp, resource, params):
+		# DB - Get user role
+		if 'Admin' in self._roles:
+			req.user_id = 5
+		else:
+			raise falcon.HTTPBadRequest('Bad request', 'You are not a admin right now')
+
+class ObjRes(object):
+
+	@falcon.before(Authorize(['Admin','Normal','Guest']))
+
+	def on_get(self, req, resp):
+		output = {
+			'method':'get',
+			'user-id':req.user_id
+		}
+		resp.media = output
+
+	@falcon.before(Authorize(['Normal','Guest']))
+	def on_post(self, req, resp):
+		output = {
+			'method':'post',
+			'user-id':req.user_id
+		}
+		resp.media = output
+
+api = falcon.API()
+api.add_route('/', ObjRes())
+serve(api, host="127.0.0.1", port=8001)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Basic Auth</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+import falcon
+import base64
+from waitress import serve
+
+user_accounts = {
+	'admin':'123'
+}
+
+class Authorize(object):
+	def __init__(self):
+		pass
+
+	def __auth_basic(self, username, password):
+		if username in user_accounts and user_accounts[username] == password:
+			print('You have access')
+		else:
+			raise falcon.HTTPUnauthorized('Unauthorized', 'You access is not a allowed')
+
+	def __call__(self, req, resp, resource, params):
+		auth_exp = req.auth.split(' ') if req.auth is not None else (None, None)
+
+		if auth_exp[0] is not None and auth_exp[0].lower() == 'basic':
+			auth = base64.b64decode(auth_exp[1]).decode('utf-8').split(':')
+			username = auth[0]
+			password = auth[1]
+			self.__auth_basic(username, password)
+		else:
+			raise falcon.HTTPNotInplemented('Not Inplemented', 'You don\'t use the right auth method')
+
+class ObjRes(object):
+
+	@falcon.before(Authorize())
+
+	def on_get(self, req, resp):
+		output = {
+			'method':'get'
+		}
+		resp.media = output
+
+api = falcon.API()
+api.add_route('/', ObjRes())
+serve(api, host="127.0.0.1", port=8001)
+</v-code>
+
+<v-code lang="bash" title="">
+Insomnia -> Basic Auth
+</v-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

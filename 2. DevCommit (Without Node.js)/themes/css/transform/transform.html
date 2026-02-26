@@ -1,0 +1,102 @@
+<h2>Transform</h2>
+
+<v-code lang="css" title="">
+div {
+	transform: translate(50px, 50px);
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Особенности</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Не прерывает поток (не влияют на другие элементы)</li>
+    <li>Трансформации можно записывать несколько через пробел</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Сдвиг</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Один параметр translate(): перемещает элемент вдоль оси х</li>
+    <li>Два параметра translate(): первое значение для оси х, второе для оси у</li>
+</ul>
+
+<v-code lang="css" title="">
+div {
+	transform: translate(50px, 50px);    <u-code-comment># сдвигает элемент на заданное значение по горизонтали и вертикали (положительное значение сдвигает вправо, отрицательное влево)</u-code-comment>
+	transform: translateX(50px);         <u-code-comment># сдвигает элемент по горизонтали на указанное значение</u-code-comment>
+	transform: translateY(50px);         <u-code-comment># сдвигает элемент по вертикали на указанное значение</u-code-comment>
+	transform: translateZ(50px);         <u-code-comment># сдвигает элемент по оси Z на указанное значение</u-code-comment>	
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Поворот</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+div {
+	transform: rotate(15deg);     <u-code-comment># поворот</u-code-comment>
+	transform: rotateX(15deg);    <u-code-comment># поворот по оси X</u-code-comment>
+	transform: rotateY(15deg);    <u-code-comment># поворот по оси Y</u-code-comment>
+	transform: rotateZ(15deg);    <u-code-comment># поворот по оси Z</u-code-comment>
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Масштабирование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Один параметр scale(): изменение размеров элемента одинаково по высоте и ширине</li>
+    <li>Два параметра scale(): первое значение изменяет размер элемента по горизонтали, второе по вертикали</li>
+</ul>
+
+<v-code lang="css" title="">
+div {
+	transform: scale(1.2);       <u-code-comment># масштабирует элемент по горизонтали и вертикали</u-code-comment>
+	transform: scaleX(1.2);      <u-code-comment># масштабирует элемент по горизонтали</u-code-comment>
+	transform: scaleY(1.2);      <u-code-comment># масштабирует элемент по вертикали</u-code-comment>
+	transform: scaleZ(1.2);      <u-code-comment># масштабирует элемент по оси Z</u-code-comment>
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>4. Наклон (искажение)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Один параметр: элемент искажается по горизонтали</li>
+    <li>Два параметра: первое значение искажает элемент по горизонтали, второе по вертикали</li>
+</ul>
+
+<v-code lang="css" title="">
+div {
+	transform: skew(15deg);
+	transform: skewX(15deg);     <u-code-comment># наклоняет элемент на заданный угол по вертикали</u-code-comment>
+	transform: skewY(15deg);     <u-code-comment># наклоняет элемент на заданный угол по горизонтали</u-code-comment>
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>5. Остальное</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+div {
+	matrix        <u-code-comment># задаёт двумерную матрицу преобразований</u-code-comment>
+	matrix3d      <u-code-comment># задаёт трёхмерную матрицу преобразований</u-code-comment>
+	rotate3d      <u-code-comment># поворачивает элемент в трёхмерном пространстве</u-code-comment>
+	scale3d       <u-code-comment># масштабирует элемент в трёхмерном пространстве</u-code-comment>
+	translate3d   <u-code-comment># сдвигает элемент на заданное значение в трёхмерном пространстве</u-code-comment>
+	perspective   <u-code-comment># задаёт перспективу</u-code-comment>
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Свойства трансформации</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+div {
+	transform          <u-code-comment># определяет, какая функция будет применяться (translate, rotate, scale, skew)</u-code-comment>
+	transform-origin   <u-code-comment># позволяет изменять точку начала преобразования (работает как background-position)</u-code-comment>
+	transform-style    <u-code-comment># для настройки 3D</u-code-comment>
+}
+</v-code>

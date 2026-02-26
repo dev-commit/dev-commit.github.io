@@ -1,0 +1,13 @@
+<h2>Данные из url</h2>
+
+<v-code lang="js" title="">
+app.get('/news/:id', function(req, res) {
+    console.log(req.query);
+    res.render('news');
+});
+</v-code>
+
+<v-code lang="html" title="">
+http://127.0.0.1:3000/news/some?filter=id&city=penza  - запрос
+{ filter: 'id', city: 'penza' }                       - результат
+</v-code>

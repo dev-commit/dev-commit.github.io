@@ -1,0 +1,65 @@
+<h2>Скрипты</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>package.json</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-pre-npm>
+npm run <u-code-npm>start</u-code-npm>
+npm run <u-code-npm>build</u-code-npm>
+</v-pre-npm>
+
+<ul class="list-point">
+	<li>В Webpack 4 есть два режима: режим <u>production</u>, который создает оптимизированные файлы, готовые к использованию в режиме <u>production</u> и режим <u>development</u>, который создает легко читаемый код. Флаг <u-code-text>--mode</u-code-text> позволяет выбрать, какой режим использовать</li>
+	<li>Флаги <u-code-text>--open</u-code-text> и <u-code-text>--hot</u-code-text> ответственны за обновление веб-страницы всякий раз, когда происходят какие-либо изменения в компонентах</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Основное</h4>
+<!------------------------------------------------------------->
+<v-code lang="json" title="">
+{
+	"scripts": {
+		"start": "webpack-dev-server",         <u-code-comment># server</u-code-comment>
+		"build": "webpack"                     <u-code-comment># watcher</u-code-comment>
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Дополнительно</h4>
+<!------------------------------------------------------------->
+<v-code lang="json" title="">
+{
+	"scripts": {
+		"watch":  "webpack -w",                         <u-code-comment># watcher</u-code-comment>
+		"watch":  "webpack --watch",                    <u-code-comment># watcher</u-code-comment>
+		"dev":    "webpack -d",                         <u-code-comment># development</u-code-comment>
+		"prod":   "webpack -p",                         <u-code-comment># production</u-code-comment>
+		"dev":    "webpack --mode development --watch", <u-code-comment># development</u-code-comment>
+		"prod":   "webpack --mode production"           <u-code-comment># production</u-code-comment>
+		"start":  "webpack-dev-server --mode development --open --hot"
+	}
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>webpack.config.js</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+module.exports = {
+	mode: 'development',
+	devtool: 'source-map',
+	module: {
+		rules: [
+			...
+		]
+	},
+	devServer: {
+		...
+	},
+	plugins: [
+		...
+	]
+}
+</v-code>

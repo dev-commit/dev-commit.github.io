@@ -1,0 +1,28 @@
+<h2>Добавление методов</h2>
+
+<!------------------------------------------------------------->
+<h4>Добавление метода в прототип класса</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function User(name) {
+	this.name = name;
+	this.avatar = 'Photo';
+}
+<u-code>User.prototype.deleteAvatar</u-code> = function() {
+	this.avatar = null;
+}
+var user = new User('Jack'); // => User {name: "Jack", avatar: "Photo", __proto__: deleteAvatar: ƒ () }
+user.deleteAvatar();
+console.log(user);           // => User {name: "Jack", avatar: null, __proto__: deleteAvatar: ƒ ()}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Изменение встроенных прототипов</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+<u-code>Object.prototype.myFunc</u-code> = function() {
+    alert('myFunc');
+}
+let obj = {}
+obj.myFunc(); // => 'myFunc'
+</v-code>

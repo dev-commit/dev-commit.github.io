@@ -1,0 +1,35 @@
+<h2>Тег template</h2>
+
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+	&lt;starter&gt;Starter&lt;/starter&gt;
+	&lt;starter&gt;Starter&lt;/starter&gt;
+&lt;/div&gt;
+&lt;template id="starter"&gt;
+	&lt;div&gt;
+		&lt;h1&gt;Hello&lt;/h1&gt;
+		&lt;slot&gt;&lt;/slot&gt;
+		&lt;button&gt;Ok&lt;/button&gt;
+		&lt;button&gt;Cancel&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/template&gt;
+</v-code>
+
+<v-code lang="js" title="">
+Vue.component('starter', {
+	template: '#starter',
+	data: function() {
+		return{
+			active: false
+		}
+	},
+	methods: {
+		open(){
+			this.active = true
+		}
+	}
+})
+var app = new Vue({
+	el: '#app'
+})
+</v-code>

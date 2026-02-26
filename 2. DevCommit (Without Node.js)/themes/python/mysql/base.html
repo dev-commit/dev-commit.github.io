@@ -1,0 +1,116 @@
+<h2>Python и MySQL</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Basic</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+	<a href="https://www.w3schools.com/python/python_mysql_getstarted.asp" target="_blank">w3schools</a>
+</u-link-wrapper>
+
+<v-code lang="bash" title="">
+pip install mysql-connector
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>encoding_content.py</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+# кодировка utf-8
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
+
+# вывод html
+print("Content-Type: text/html\n")
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>db_сonnect.py</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+import mysql.connector
+mydb = mysql.connector.connect(
+	host="localhost",
+	user="root",
+	passwd="",
+	database="motmom"
+)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>db_select.py</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+#!C:/Users/Sawyer/AppData/Local/Programs/Python/Python37-32/python.exe
+import encoding_content
+import db_сonnect
+
+mycursor = db_сonnect.mydb.cursor()
+mycursor.execute("SELECT * FROM event")
+myresult = mycursor.fetchall()
+
+arr = []
+for x in myresult:
+	arr.append([x[0], x[1], str(x[2])])
+print(arr)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>db_insert.py</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+#!C:/Users/Sawyer/AppData/Local/Programs/Python/Python37-32/python.exe
+import encoding_content
+import db_сonnect
+
+mycursor = db_сonnect.mydb.cursor()
+sql = "INSERT INTO event (NAME, TIME) VALUES (%s, %s)"
+val = ("TestName", "12:12:12")
+mycursor.execute(sql, val)
+db_сonnect.mydb.commit()
+print(mycursor.rowcount, "record inserted.")
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>db_update.py</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+#!C:/Users/Sawyer/AppData/Local/Programs/Python/Python37-32/python.exe
+import encoding_content
+import db_сonnect
+
+mycursor = db_сonnect.mydb.cursor()
+sql = "UPDATE event SET NAME='UpdateName', TIME='01.01.01' WHERE ID=7"
+mycursor.execute(sql)
+db_сonnect.mydb.commit()
+print(mycursor.rowcount, "record(s) affected")
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>db_delete.py</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="python" title="">
+#!C:/Users/Sawyer/AppData/Local/Programs/Python/Python37-32/python.exe
+import encoding_content
+import db_сonnect
+
+mycursor = db_сonnect.mydb.cursor()
+sql = "DELETE FROM event WHERE ID=7"
+mycursor.execute(sql)
+db_сonnect.mydb.commit()
+print(mycursor.rowcount, "record(s) deleted")
+</v-code>
+
+<v-code lang="js" title="">
+// JavaScript Code (SELECT)
+$.get('python/db_select.py', {}, function(data) {
+	var arr = eval(data);
+	var result = '';
+	for(var i=0; i&lt;arr.length; i++) {
+		var id   = arr[i][0];
+		var name = arr[i][1];
+		var time = arr[i][2];
+		result += `&lt;div&gt;${id} ${name} ${time}&lt;/div&gt;`;
+	}
+	$('body').append(result);
+})
+</v-code>

@@ -1,0 +1,227 @@
+<h2>Назначение обработчиков событий</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Приоритетность событий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<b>Атрибут HTML + DOM-свойство + addEventListener</b>
+    <li>DOM-свойство перебьёт Атрибут HTML</li>
+    <li><u>Выведет</u>: DOM-свойство и addEventListener</li>
+    <hr>
+    <b>Атрибут HTML + addEventListener</b>
+    <li><u>Выведет</u>: Атрибут HTML и addEventListener</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. addEventListener и removeEventListener</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Если функцию не сохранить где-либо, а просто передать в addEventListener, то потом получить её обратно, чтобы снять обработчик, будет невозможно</li>
+	<li>Нет метода, который позволяет считать обработчики событий, назначенные через addEventListener</li>
+</ul>
+
+<div class="v-method-wrapper">
+    <v-method before="element." method="addEventListener" after="" arg="(type, listener[, options])">
+   	Добавление нескольких обработчиков на одно событие одного элемента
+    </v-method>
+    <v-method before="element." method="removeEventListener" after="" arg="(type, listener[, options])">
+    Удаление обработчика события
+    </v-method>
+
+	<v-method-arg arg="type*">имя события, например click</v-method-arg>
+	<v-method-arg arg="listener*">ссылка на функцию-обработчик или объект, содержащий метод handleEvent</v-method-arg>
+	<v-method-arg arg="options">
+		Объект options, который определяет характеристики объекта, прослушивающего событие
+		<ul class="list-point">
+			<li><u-code-text>capture (bool)</u-code-text> - фаза, на которой должен сработать обработчик. Указывает, что события этого типа будут отправлены зарегистрированному слушателю listener перед отправкой на EventTarget, расположенный ниже в дереве DOM</li>
+
+			<li><u-code-text>once (bool)</u-code-text> - указывает, что слушатель должен быть вызван не более одного раза после добавления. Если true, слушатель (обработчик) автоматически удаляется при вызове</li>
+			
+			<li><u-code-text>passive (bool)</u-code-text> - true указывает, что слушатель никогда не вызовет preventDefault(). Если все же вызов будет произведен, браузер должен игнорировать его и генерировать консольное предупреждение. Пример Улучшение производительности прокрутки с помощью passive true</li>
+			
+			<li><u-code-text>mozSystemGroup (bool)</u-code-text> - (не стандартизировано) указывает, что слушатель должен быть добавлен в системную группу. Доступно только в коде, запущенном в XBL или в расширении Chrome</li>
+		</ul>
+	</v-method-arg>
+
+	<v-method-arg arg="useCapture">Если равно true, useCapture указывает, что пользователь желает начать захват. После инициализации захвата все события указанного типа будут отправлены в зарегистрированный listener перед отправкой в какой-либо EventTarget под ним в дереве DOM. События, восходящие вверх по дереву, не будут вызывать слушателей, которым назначено использовать захват. Значение useCapture по умолчанию равно false</v-method-arg>
+	<v-method-arg arg="wantsUntrusted">(не стандартизовано, только Gecko/Mozilla) - Если равно true, слушатель будет получать сгенерированные события, посланные со страницы (по умолчанию равно false для chrome и true для обычных веб-страниц). Этот параметр доступен только в Gecko и в основном полезен для использования в дополнениях и самом браузере</v-method-arg>
+
+	<v-method-return>undefined</v-method-return>
+</div>
+
+<v-code lang="html" title="">
+&lt;button id="element"&gt;Action&lt;/button&gt;
+</v-code>
+
+<v-code lang="js" title="">
+function action() {
+	alert(1);
+}
+var element = document.querySelector('#element');
+element.<u-code>addEventListener</u-code>('click', action);
+element.<u-code>removeEventListener</u-code>('click', action);
+</v-code>
+
+<v-code lang="js" title="">
+// для удаления нужно передать именно ту функцию-обработчик которая была назначена
+// так removeEventListener не сработает
+// в removeEventListener передана не та же функция, а другая, с одинаковым кодом
+element.addEventListener('click', function() {alert('ok')});
+element.removeEventListener('click', function() {alert('ok')});
+</v-code>
+
+<v-code lang="js" title="">
+// добавление нескольких обработчков на одно событие
+element.onclick = () => alert('Привет из onclick');
+element.addEventListener('click', () => alert('Привет'));
+element.addEventListener('click', () => alert('Привет Мир'));
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Передача аргументов в addEventListener</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="bind">
+const elementId = 77;
+const listener = (id) => {
+	console.log(id);
+}
+li.addEventListener('click', listener.bind(null, elementId));
+</v-code>
+
+<v-code lang="js" title="Замыкание в функции">
+const elementId = 77;
+const listener = (id) => {
+	return function() {
+		console.log(id);
+	}
+}
+element.addEventListener('click', listener(elementId));
+
+</v-code>
+
+<v-code lang="js" title="Анонимная самовызывающаяся функция">
+const elementId = 77;
+element.addEventListener('click', (function(id) {
+	return function() {
+		console.log(id);
+	}
+})(elementId));
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Обработчики некоторых событий можно назначать только через addEventListener</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>transitionend</li>
+    <li>DOMContentLoaded</li>
+</ul>
+
+<v-code lang="js" title="">
+element.ontransitionend = function() {
+	alert('DOM property'); // не сработает
+};
+
+element.addEventListener("transitionend", function() {
+	alert('addEventListener'); // сработает по окончании анимации
+});
+</v-code>
+
+<u-message-info>
+	Когда мы устанавливаем обработчик событий на объект <u-code-text>document</u-code-text>, мы всегда должны использовать метод <u-code-text>addEventListener</u-code-text>, а не <u>document.on&lt;событие&gt;</u>, т.к. в случае последнего могут возникать конфликты: новые обработчики будут перезаписывать уже существующие
+</u-message-info>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объект-обработчик: handleEvent в addEventListener</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>В addEventListener можно назначать обработчиком не только функцию, но и объект с методом handleEvent</li>
+    <li>Если addEventListener получает объект в качестве обработчика, он вызывает <u-code-text>object.handleEvent(event)</u-code-text>, когда происходит событие</li>
+</ul>
+
+<v-code lang="js" title="Использование объекта">
+element.addEventListener('click', {
+	handleEvent(event) {
+		//
+	}
+});
+</v-code>
+
+<v-code lang="js" title="Использование класса">
+class Listener {
+	handleEvent(event) {
+		//
+	}
+}
+
+const listener = new Listener();
+element.addEventListener('click', listener);
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Атрибут HTML</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;button onclick="alert('action')"&gt;Action&lt;/button&gt;
+&lt;button onclick="alert(&amp;quot;action&amp;quot;)"&gt;Использование двойных кавычек&lt;/button&gt;
+&lt;button onclick="alert(this.innerHTML)"&gt;Вывести содержимое&lt;/button&gt;
+&lt;button onclick="action()"&gt;Action&lt;/button&gt;
+</v-code>
+
+<ul class="list-point">
+    <li>При создании обработчика браузером из атрибута, он автоматически создаёт функцию с телом из значения атрибута: action(). Разметка генерирует такое свойство:</li>
+</ul>
+
+<v-code lang="js" title="">
+button.onclick = function() {
+	action(); // содержимое атрибута
+};
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. DOM-свойство</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Если обработчик задан через атрибут, то браузер читает HTML-разметку, создаёт новую функцию из содержимого атрибута и записывает в свойство <u>onclick</u></li>
+	<li>Обработчик хранится именно в <u>DOM-свойстве</u>, а атрибут – лишь один из способов его инициализации</li>
+	<li>Так как <u>DOM-свойство</u> <u>onclick</u>, в итоге, одно, то назначить более одного обработчика так нельзя</li>
+	<li>DOM-свойства чувствительны к регистру, поэтому необходимо использовать <u>elem.onclick</u> вместо <u>elem.ONCLICK</u></li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;button id="element"&gt;Action&lt;/button&gt;
+</v-code>
+
+<v-code lang="js" title="Назначение новой функции">
+element.onclick = function() {
+	alert(1);
+}
+</v-code>
+
+<v-code lang="js" title="Назначение существующей функции">
+element.onclick = action;
+
+function action() {
+	alert(1);
+}
+</v-code>
+
+<v-code lang="js" title="Удаление обработчика">
+element.onclick = null;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Особенности</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// при нажатии на body будут ошибки,
+// атрибуты всегда строки, и функция станет строкой
+document.body.setAttribute('onclick', function() { alert(1) });
+</v-code>
+
+<v-code lang="js" title="">
+element.onclick = function() { alert(1); }
+// заменит предыдущий обработчик
+element.onclick = function() { alert(2); }
+</v-code>

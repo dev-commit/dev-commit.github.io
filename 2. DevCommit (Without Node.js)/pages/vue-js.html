@@ -1,0 +1,3952 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Vue.js</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Информация</div><a href="#main-info">📑 Информация</a><a href="#main-structure-files">Структура проекта</a><a href="#main-structure-code">⚡️ Пример кода vue-cli</a><a href="#main-instance-vue">⚡️ Экземпляр Vue</a><a href="#main-lifecycle-hooks">Хуки жизненного цикла</a><a href="#web-virtual-dom">Virtual DOM (Общее)</a><div class="theme">Реактивность</div><a href="#reactivity-reactivity">Реактивность</a><a href="#reactivity-set"><u-menu>vm.$set</u-menu> - добаление реакт. элементов</a><a href="#reactivity-next-tick"><u-menu>vm.$nextTick</u-menu> - обновление</a><a href="#reactivity-force-update"><u-menu>vm.$forceUpdate</u-menu> - переотрисовка</a><div class="theme">Директивы</div><a href="#directives-info">Шаблоны и директивы</a><a href="#directives-v-text_v-html"><u-menu>v-text</u-menu> <u-menu>v-html</u-menu></a><a href="#directives-v-show_v-if"><u-menu>v-show</u-menu> <u-menu>v-if</u-menu> <u-menu>v-else</u-menu> <u-menu>v-else-if</u-menu></a><a href="#directives-v-for"><u-menu>v-for</u-menu></a><a href="#directives-v-on"><u-menu>v-on:</u-menu></a><a href="#directives-v-bind"><u-menu>v-bind:</u-menu> :class :style</a><a href="#directives-v-model"><u-menu>v-model</u-menu></a><a href="#directives-v-pre"><u-menu>v-pre</u-menu></a><a href="#directives-v-cloak"><u-menu>v-cloak</u-menu></a><a href="#directives-v-once"><u-menu>v-once</u-menu></a><div class="theme">Компоненты</div><a href="#components-info">📑 Информация</a><a href="#components-component-simple">Простой компонент</a><a href="#components-component-registration">Регистрация компонента</a><a href="#components-component-global">Глобальный компонент</a><a href="#components-component-dynamic">Динамические компоненты</a><a href="#components-props"><u-menu>props</u-menu></a><a href="#components-slot"><u-menu>&lt;slot&gt;</u-menu></a><a href="#components-template"><u-menu>&lt;template&gt;</u-menu></a><a href="#components-emit"><u-menu>$emit</u-menu></a><div class="theme">Опции и прочее</div><a href="#options-and-other-computed"><u-menu>computed</u-menu></a><a href="#options-and-other-watch"><u-menu>watch</u-menu></a><a href="#options-and-other-created"><u-menu>created</u-menu></a><a href="#options-and-other-transition"><u-menu>&lt;transition&gt;</u-menu></a><a href="#options-and-other-vue-extend"><u-menu>Vue.extend</u-menu></a><div class="theme">DOM</div><a href="#dom-event"><u-menu>$event</u-menu> - доступ к событию</a><a href="#dom-refs"><u-menu>$refs</u-menu> - ссылка на DOM элемент</a><div class="theme">Переиспользование и композиция</div><a href="#composition-mixins">Примеси</a><a href="#composition-user-directives">Пользовательские директивы</a><a href="#composition-render">Render-функции</a><a href="#composition-plugins">Плагины</a><a href="#composition-filters">Фильтры</a><div class="theme">Vuex</div><a href="#vuex-info">📑 Информация</a><a href="#vuex-src">Подключение</a><a href="#vuex-store">🔥 0. Хранилище (store)</a><a href="#vuex-state">🔥 1. Состояние (state)</a><a href="#vuex-getters">🔥 2. Геттеры (getters)</a><a href="#vuex-mutations">🔥 3. Мутации (mutations)</a><a href="#vuex-actions">🔥 4. Действия (actions)</a><a href="#vuex-modules">🔥 5. Модули (modules)</a><a href="#vuex-samples">Примеры</a><div class="theme">Vue Router</div><a href="#vue-router-info">📑 Информация</a><a href="#vue-router-src-script">Подключение через &lt;script&gt;</a><a href="#vue-router-src-npm">Подключение через NPM</a><a href="#vue-router-server-configuration">Конфигурование сервера</a><a href="#vue-router-path-static">🍪 Статический путь</a><a href="#vue-router-path-dynamic">🍪 Динамический путь</a><a href="#vue-router-path-comparison">🍪 Сопоставление путей</a><a href="#vue-router-navigation">🍪 Программная навигация</a><a href="#vue-router-passing-props">🍪 Входные параметры (props)</a><a href="#vue-router-navigation-guards">🍪 Навигационные хуки</a><a href="#vue-router-scroll-behavior">🍪 Поведение прокрутки страницы</a><a href="#vue-router-lazy-loading">🍪 Леннивая загрузка маршрутов</a><a href="#vue-router-active-link">Стилизация активной ссылки</a><div class="theme">Vue CLI</div><a href="#vue-cli-info">📑 Информация</a><a href="#vue-cli-components-system">Компоненты системы</a><a href="#vue-cli-npm-command">Npm/Vue Command</a><a href="#vue-cli-import_export"><u-menu>import</u-menu> <u-menu>export</u-menu></a><a href="#vue-cli-vscode">Настройка Visual Studio Code</a><div class="theme">VueLoader</div><a href="#vue-loader-package">⚡️ Пакеты</a><div class="theme">Плагины</div><a href="#plugins-vuetify">Vuetify</a><a href="#plugins-fontawesome">FontAwesome</a><div class="theme">Тестирование</div><a href="#testing-unit-testing">Модульное тестирование</a><a href="#testing-vue-devtools">Vue-DevTools</a><div class="theme">Примеры</div><a href="#samples-cart">Добавить / удалить из корзины</a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="main-info"><h2>Информация</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Vue</u-text-define> (2014 год) - прогрессивный фреймворк для создания пользовательских интерфейсов. В отличие от фреймворков-монолитов, Vue создан пригодным для постепенного внедрения. Его ядро в первую очередь решает задачи уровня представления (<u>view</u>), что упрощает интеграцию с другими библиотеками и существующими проектами. С другой стороны, Vue полностью подходит и для создания сложных одностраничных приложений (SPA, Single-Page Applications), если использовать его совместно с современными инструментами и дополнительными библиотеками</li>
+	<li>В ядре Vue.js находится система, которая позволяет декларативно <u>отображать данные в DOM</u> с помощью простых шаблонов</li>
+<v-code lang="html" title="">
+&lt;div id="app"&gt;<span v-pre>{{ message }}</span>&lt;/div&gt;
+</v-code>
+	<li>Хоть Vue и не реализует <u>паттерн MVVM</u> в полной мере, архитектура фреймворка им во многом вдохновлена. Поэтому переменную с экземпляром Vue традиционно именуют vm (сокращённо от ViewModel)</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Основные элементы</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://ru.vuejs.org/v2/guide/" target="_blank"><em>Vue.js</em> - фреймворк</a>
+	<a href="https://router.vuejs.org/ru/" target="_blank"><em>Vue Router</em> - маршрутизация</a>
+	<a href="https://vuex.vuejs.org/ru/guide/" target="_blank"><em>Vuex</em> - паттерн управления состоянием</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Сборка</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://cli.vuejs.org/ru/guide/" target="_blank"><em>Vue CLI 3</em> - система сборки</a>
+	<a href="https://vue-loader.vuejs.org/ru" target="_blank"><em>Vuetify.js</em> - VueLoader</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Библиотеки компонентов</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://vuetifyjs.com/ru/getting-started/quick-start" target="_blank"><em>Vuetify.js</em> - Vue.js Material Component Framework</a>
+	<a href="https://bootstrap-vue.js.org/" target="_blank"><em>Vue.js Bootstrap</em></a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Тестирование</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://vue-test-utils.vuejs.org/ru/" target="_blank"><em>Vue Test Utils</em> - официальная библиотека модульного тестирования</a>
+	<a href="https://github.com/vuejs/vue-devtools" target="_blank"><em>Vue-DevTools</em> - browser devtools extension for debugging Vue.js applications</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Серверный рендеринг</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://ssr.vuejs.org/ru/" target="_blank"><em>Vue SSR</em> - серверный рендеринг</a>
+	<a href="https://ru.nuxtjs.org/" target="_blank"><em>Nuxt.js</em> - SSR для Vue.js</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Мобильная разработка</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://nativescript-vue.org/ru/docs/introduction/" target="_blank"><em>NativeScript-Vue</em> - нативные мобильные приложения</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Пакеты</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://curated.vuejs.org/" target="_blank"><em>Vue Curated</em> - packages for Vue app</a>
+	<a href="https://github.com/vuejs/awesome-vue" target="_blank"><em>Awesome Vue.js</em> - curated list of awesome things related to Vue.js</a>
+</u-link-wrapper>
+</div><div id="main-structure-files"><h2>Структура проекта</h2>
+
+<v-code lang="bash" title="">
+&#10006; public
+	&#8226; index.html
+	&#8226; favicon.ico
+&#10006; src
+	&#10006; assets
+		&#10006; img
+	&#10006; components
+		&#10006; pages
+		&#10006; compoments
+		&#10006; ui
+			&#8226; index.js
+			&#8226; Button.vue
+	&#10006; services
+	&#8226; App.vue
+	&#8226; main.js
+	&#8226; package-lock.json
+	&#8226; vuex.js
+&#8226; package.json
+&#8226; vue.config.js
+&#8226; jsconfig.json # настройка компилятора Vue (?)
+</v-code>
+</div><div id="main-structure-code"><h2>Пример кода vue-cli</h2>
+
+<!------------------------------------------------------------->
+<h4>main.js</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="js">
+import Vue from 'vue'
+import App from './App.vue'
+
+new Vue({
+    el: '#app',
+    render: function(h) { 
+        return h(App) 
+    }
+	// render: h => h (App)
+})
+</v-code>
+
+<hr>
+
+<!------------------------------------------------------------->
+<h4>App.vue</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="html">
+&lt;template&gt;
+    &lt;div id="app"&gt;
+        &lt;img src="./assets/logo.png"&gt;
+        &lt;h1&gt;Text App&lt;/h1&gt;
+        &lt;h2&gt;<span v-pre>{{text}}</span>&lt;/h2&gt;
+        &lt;app-header message="Text Header"&gt;&lt;/app-header&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</v-code>
+
+<v-code lang="js" title="js">
+&lt;script&gt;
+import Header from './components/Header.vue'
+
+export default {
+    components: {
+        'app-header': Header
+    },
+    data() {
+        return {
+            text: 'Text in Vue'
+        }
+    },
+    methods: {
+        testMethod() {
+            //
+        }
+    }
+}
+&lt;/script&gt;
+</v-code>
+
+<v-code lang="css" title="css">
+&lt;style scoped&gt;
+h1 {
+    color: blue;
+}
+&lt;/style&gt;
+</v-code>
+
+<hr>
+
+<!------------------------------------------------------------->
+<h4>Header.vue</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="html">
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;h1&gt;<span v-pre>{{message}}</span>&lt;/h1&gt;
+        &lt;h2&gt;<span v-pre>{{text}}</span>&lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</v-code>
+
+<v-code lang="js" title="js">
+&lt;script&gt;
+export default {
+    data() {
+        return {
+            text: 'Text in Header'
+        }
+    },
+    props: {
+        message: String
+    }
+}
+&lt;/script&gt;
+</v-code>
+
+<v-code lang="css" title="css">
+&lt;style scoped&gt;
+h1 {
+    color: orange;
+}
+&lt;/style&gt;
+</v-code></div><div id="main-instance-vue"><h2>Экземпляр Vue</h2>
+
+<v-code lang="js" title="">
+var app = new Vue({
+	<u-code>el</u-code>: '#app',             // элемент DOM дерева
+	<u-code>data</u-code>: {                 // состояние
+		name: 'Tony'
+	},
+	<u-code>template</u-code>:               // представление
+		`&lt;div&gt;<span v-pre>{{ count }}</span>&lt;/div&gt;`, 
+	<u-code>methods</u-code>: {              // действия
+		nameMethod() {
+			this.view = true;
+		}
+	},
+	<u-code>computed</u-code>: {             // вычисляемые свойства
+		doubleValue() {
+			return this.value * 2
+		}
+	},
+	<u-code>created()</u-code> {             // хук
+		console.log(this.name);
+	},
+	<u-code>watch</u-code>: {                // наблюдатель
+		name() {
+			console.log('name changed');
+		}
+	},
+	<u-code>mixins</u-code>: [mixin]         // миксин
+})
+</v-code>
+
+<ul class="list-point">
+	<li><u-text-define>Состояние</u-text-define> - «источник истины», управляющий приложением</li>
+	<li><u-text-define>Представление</u-text-define> - отображение <u>состояния</u> заданное декларативно</li>
+	<li><u-text-define>Действия</u-text-define> - возможные пути изменения <u>состояния</u> приложения в ответ на взаимодействие пользователя с <u>представлением</u></li>
+	<li>Состояние -> Представление -> Действия -></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Свойства</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Переопределение свойства</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+app.messText = 'New Text';
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Неопределенные свойства</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+catalog: null  // для объектов
+products: []   // для массивов
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Разделение файлов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;!-- my-component.vue --&gt;
+&lt;template src="./my-component.html"&gt;&lt;/template&gt;
+&lt;script src="./my-component.js"&gt;&lt;/script&gt;
+&lt;style src="./my-component.css"&gt;&lt;/style&gt;
+</v-code>
+</div><div id="main-lifecycle-hooks"><h2>Хуки жизненного цикла</h2>
+
+<v-two><template v-slot:first>
+	<!------------------------------------------------------------->
+	<h4>Диаграмма жизненного цикла</h4>
+	<!------------------------------------------------------------->
+	<img src="/img/vue/lifecycle.png" width="550px">
+</template><template v-slot:last>
+	<!------------------------------------------------------------->
+	<h4>Диаграмма</h4>
+	<!------------------------------------------------------------->
+	<ul class="list-point">
+		<li><u-text-define>1</u-text-define> Инициализация нового экземпляра Vue</li>
+		<li><u-text-define>2</u-text-define> Инициализация событий и жизненного цикла компонента. Пока элемент не создан в него могут быть добавлены данные</li>
+		<li><u-text-define>4</u-text-define> Инициализация инъекций и системы реактивности. После чего компонент создается. Компонент создан, но не смонтирован в DOM</li>
+		<li><u-text-define>6</u-text-define> <b>Проверка</b>: Есть ли у компонента <u-code-text>el</u-code-text> - элемент DOM дерева в который предположительно будет смонтирован компонент</li>
+		<li><u-text-define>7</u-text-define> <b>Проверка</b>: Есть ли у компонента шаблон <u-code-text>template</u-code-text></li>
+		<li><u-text-define>11</u-text-define> Создание готового экземпляра Vue с раземеткой и необходимыми данными, который появляется в DOM дереве</li>
+		<li><u-text-define>13</u-text-define> Можно взаимодействовать с компонентом: изменить его внутренние данные</li>
+		<li><u-text-define>15</u-text-define> Обновление витруального DOM, поиск различий и перерендеривание компонента</li>
+		<li><u-text-define>18</u-text-define> Уничтожаются все зависимые компоненты и все связи с ним</li>
+	</ul>
+	<!------------------------------------------------------------->
+	<h4>Хуки жизненного цикла экземпляра</h4>
+	<!------------------------------------------------------------->
+	<ul class="list-point">
+		<li><u-text-define>3</u-text-define> Хук <u-code-text>beforeCreate</u-code-text> - вызывается перед созданием компонента</li>
+		<li><u-text-define>5</u-text-define> Хук <u-code-text>created</u-code-text> - вызывается после того как компонент создан, но не смонтирован в DOM</li>
+		<li><u-text-define>10</u-text-define> Хук <u-code-text>beforeMount</u-code-text> - вызывается перед монтированием компонента в DOM. Пока элемент не смонтирован в DOM, можно добавить в него данные</li>
+		<li><u-text-define>12</u-text-define> Хук <u-code-text>mounted</u-code-text> - вызывается когда компонент находится в DOM. Может быть вызван метод, выполнение которого зависит от отрендерренного DOM-дерева</li>
+		<li><u-text-define>14</u-text-define> Хук <u-code-text>beforeUpdate</u-code-text> - вызывается перед перерендерингом компонента, после изменения данных в нем</li>
+		<li><u-text-define>16</u-text-define> Хук <u-code-text>updated</u-code-text> - вызывается после обновления компонента</li></li>
+		<li><u-text-define>17</u-text-define> Хук <u-code-text>beforeDestroy</u-code-text> - вызывается перед уничтожением компонента
+		<li><u-text-define>20</u-text-define> Хук <u-code-text>destroyed</u-code-text> - вызывается после того как компонент уничтожен и удален из DOM</li>
+	</ul>
+
+	<!------------------------------------------------------------->
+	<h4>Описание</h4>
+	<!------------------------------------------------------------->
+	<ul class="list-point">
+		<li>Каждый экземпляр Vue при создании проходит через последовательность шагов инициализации — например, настраивает наблюдение за данными, компилирует шаблон, монтирует экземпляр в DOM, обновляет DOM при изменении данных. Между этими шагами вызываются функции, называемые <u>хуками жизненного цикла</u>, с помощью которых можно выполнять свой код на определённых этапах</li>
+		<li>Все хуки вызываются с контекстной переменной <u>this</u>, ссылающейся на вызывающий экземпляр Vue</li>
+		<li>Не используйте <u>стрелочные функции</u> в свойствах экземпляра и в коллбэках, например <u-code-text>created: () => console.log(this.a)</u-code-text> или <u-code-text>vm.$watch('a', newVal => this.myMethod())</u-code-text>. Так как стрелочные функции не имеют собственного <u>this</u>, то <u>this</u> в коде будет обрабатываться как любая другая переменная и её поиск будет производиться в областях видимости выше до тех пор пока не будет найдена</li>
+	</ul>
+</template></v-two>
+</div><div id="web-virtual-dom"><h2>Virtual DOM</h2>
+
+<ul class="list-point">
+    <li><u-text-define>DOM (Document Object Model)</u-text-define> - способ представления структурного документа с помощью объектов. Это кроссплатформенное и языко-независимое соглашение для представления и взаимодействия с данными в HTML, XML и т.д. </li>
+    <li><b>Проблема:</b> никогда не был рассчитан для создания динамического пользовательского интерфейса (UI)</li>
+    <hr>
+
+    <li><u-text-define>Shadow DOM</u-text-define> - Спецификация, описывающая метод объединения нескольких DOM-деревьев в одну иерархию и как эти деревья взаимодействуют друг с другом в пределах документа, что позволяет лучше скомпоновать DOM</li>
+    <hr>
+
+	<li><u-text-define>Virtual DOM</u-text-define> - техника и набор библиотек / алгоритмов, которые позволяют нам улучшить производительность на клиентской стороне, избегая прямой работы с DOM путем работы с легким JavaScript-объектом, имитирующем DOM-дерево</li>
+
+	<li>Вместо того, чтобы взаимодействовать с DOM напрямую, мы работаем с его легковесной копией. Мы можем вносить изменения в копию, исходя из наших потребностей, а после этого применять изменения к реальному DOM. При этом происходит сравнение DOM-дерева с его виртуальной копией, определяется разница и запускается перерисовка того, что было изменено</li>
+
+	<li>Virtual DOM не является стандартом и в конечном итоге мы по-прежнему взаимодействуем с DOM, но делаем это как можно реже и более эффективно</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Два варианта узнать, что данные изменились</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u-text-underline>«Dirty Checking» (грязная проверка)</u-text-underline> - опрашивать данные через регулярные промежутки времени и рекурсивно проверять все значения в структуре данных</li>
+	<li><u-text-underline>«Observable» (наблюдаемый)</u-text-underline> - наблюдение за изменением состояния. Если ничего не изменилось, мы ничего не делаем. Если изменилось, мы точно знаем, что нужно обновить</li>
+</ul>
+</div><div id="reactivity-reactivity"><h2>Реактивность</h2>
+
+<ul class="list-point">
+	<li>Модели представляют собой простые JavaScript-объекты. По мере их изменения обновляется и представление данных, благодаря чему управление состоянием приложения становится простым и очевидным</li>
+	<li>Когда простой JavaScript-объект передаётся в экземпляр <u-code-text>Vue</u-code-text> в качестве опции <u-code-text>data</u-code-text>, Vue обходит все его поля и превращает их в пары <u>геттер/сеттер</u>, используя <u-code-text>Object.defineProperty</u-code-text> (JavaScript ES5)</li>
+
+	<li>Геттеры и сеттеры не видны пользователю, но именно они являются тем внутренним механизмом, который позволяет Vue отслеживать зависимости и изменения данных. <i>К сожалению, при таком подходе выведенные в консоль браузера геттеры и сеттеры выглядят не так, как обычные объекты, поэтому для более наглядной визуализации лучше использовать инструменты разработчика <u>Vue-devtools</u></i></li>
+
+	<li>К каждому экземпляру компонента приставлен связанный с ним экземпляр наблюдателя, который помечает все поля, затронутые при отрисовке компонента, как зависимости. В дальнейшем, когда вызывается сеттер поля, помеченного как зависимость, этот сеттер уведомляет наблюдателя, который, в свою очередь, инициирует повторную отрисовку компонента</li>
+</ul>
+
+<img src="/img/vue/reactivity.png" width="550px" class="center">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объявление реактивных свойств</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Поскольку Vue не позволяет динамически добавлять корневые реактивные свойства, это означает, что все корневые поля необходимо инициализировать изначально, хотя бы пустыми значениями</li>
+	<li>Если не задать поле <u-code-text>message</u-code-text> в опции <u-code-text>data</u-code-text>, Vue выведет предупреждение, что функция отрисовки пытается получить доступ к несуществующему свойству</li>
+</ul>
+
+<v-code lang="js" title="">
+var vm = new Vue({
+	data: {
+		message: '' // объявляем поле message, содержащее пустую строку
+	}
+})
+vm.message = 'Привет!' // впоследствии задаём значение `message`
+</v-code>
+</div><div id="reactivity-set"><h2>Добаление реактивных элементов</h2>
+
+<ul class="list-point">
+	<li>Vue не может отследить добавление или удаление свойства объекта. Чтобы поле стало реактивным, Vue превращает его в пару <u>геттер/сеттер</u> в ходе инициализации экземпляра. Поэтому все поля должны изначально быть заданы в объекте <u-code-text>data</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+var vm = new Vue({
+	data: {
+		a: 1
+	}
+})
+// теперь `vm.a` — реактивное поле
+
+vm.b = 2
+// `vm.b` НЕ реактивно
+</v-code>
+
+<ul class="list-point">
+	<li>Во Vue нельзя динамически добавлять новые корневые реактивные свойства в уже существующий экземпляр. Тем не менее, можно добавить реактивное свойство во вложенные объекты, используя метод <u-code-text>Vue.set(object, key, value)</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+Vue.<u-code>set</u-code>(vm.someObject, 'b', 2);
+</v-code>
+
+<ul class="list-point">
+	<li>Также можно использовать метод экземпляра <u-code-text>vm.$set</u-code-text>, который представляет собой псевдоним к глобальному <u-code-text>Vue.set</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+this.<u-code>$set</u-code>(this.someObject, 'b', 2);
+</v-code>
+
+<ul class="list-point">
+	<li>Иногда нужно добавить несколько свойств в существующий объект, например, с помощью <u-code-text>Object.assign()</u-code-text> или <u-code-text>_.extend()</u-code-text>. Если так поступить, добавленные свойства не станут реактивными. Для решения этой задачи придётся создать новый объект, содержащий поля как оригинального объекта, так и объекта-примеси</li>
+</ul>
+
+<v-code lang="js" title="">
+// вместо `Object.assign(this.someObject, { a: 1, b: 2 })`
+this.someObject = Object.assign({}, this.someObject, { a: 1, b: 2 })
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ограничения, связанные с массивами</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+Vue.<u-code>set</u-code>(vm.items, indexOfItem, newValue)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Массивы</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var vm = new Vue({
+	data: {
+		items: ['a', 'b', 'c']
+	}
+})
+</v-code>
+
+<v-two-code type="js;js" comment="Неверно;Верно">
+<template v-slot:first>
+vm.items[1] = 'x';   // не реактивно
+vm.items.length = 2; // не реактивно
+</template>
+<template v-slot:last>
+Vue.set(vm.items, indexOfItem, newValue); // реактивно
+vm.items.splice(newLength);               // реактивно
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Объекты</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var vm = new Vue({
+	data: {
+		userProfile: {
+			name: 'Anika'
+		}
+	}
+})
+
+Vue.set(vm.userProfile, 'age', 27)
+</v-code>
+</div><div id="reactivity-next-tick"><h2>nextTick - асинхронная очередь обновлений</h2>
+
+<ul class="list-point">
+	<li><u-text-define>nextTick</u-text-define> - работа с обновлённым DOM после изменения данных</li>
+	<li>Во Vue обновление DOM выполняется асинхронно. Каждый раз, когда обнаруживается изменение в данных, создаётся очередь, которая используется в качестве буфера для этого и последующих изменений, происходящих в текущей итерации (<u-code-text>“tick”</u-code-text>) цикла событий. Если один и тот же наблюдатель срабатывает несколько раз, в очередь он попадёт всё равно лишь единожды. Благодаря использованию буфера и устранению дубликатов, вычисления и манипуляции DOM сводятся к минимуму. В следующей итерации цикла событий Vue разбирает очередь и выполняет актуальные (уже не содержащие дубликатов) обновления. На низком уровне для асинхронной постановки задач в очередь используются <u-code-text>Promise.then</u-code-text> и <u-code-text>MessageChannel</u-code-text>, а если они недоступны, то <u-code-text>setTimeout(fn, 0)</u-code-text></li>
+
+	<li>Итак, если выполнить код <u-code-text>vm.someData = 'value'</u-code-text>, компонент не будет отрисован сразу же. Он обновится в следующей итерации при разборе очереди. Чтобы выполнить какой-нибудь код только после того, как завершится обновление DOM, можно передать коллбэк в метод <u-code-text>Vue.nextTick(callback)</u-code-text> после изменения данных. Он будет вызван после обновления DOM</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;div id="example"&gt;<span v-pre>{{ message }}</span>&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+var vm = new Vue({
+	el: '#example',
+	data: {
+		message: '123'
+	}
+})
+vm.message = 'новое сообщение'; // изменяем данные (DOM еще не обновлён)
+vm.$el.textContent === 'новое сообщение'; // false
+Vue.<u-code>nextTick</u-code>(function () {
+	vm.$el.textContent === 'новое сообщение'; // true (DOM обновлён)
+})
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Метод экземпляра</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Существует также метод экземпляра <u-code-text>vm.$nextTick()</u-code-text>, особенно подходящий для использования внутри компонентов, поскольку он не требует обращения к глобальной переменной <u-code-text>Vue</u-code-text>, а также автоматически связывает контекст <u>this</u> коллбэка с текущим экземпляром Vue</li>
+</ul>
+
+<v-code lang="js" title="">
+Vue.component('example', {
+	template: '<span v-pre>{{ message }}</span>',
+	data: function () {
+		return {
+			message: 'не обновлено'
+		}
+	},
+	methods: {
+		updateMessage: function () {
+			this.message = 'обновлено'
+			console.log(this.$el.textContent) // => 'не обновлено'
+			this.<u-code>$nextTick</u-code>(function () {
+				console.log(this.$el.textContent) // => 'обновлено'
+			})
+		}
+	}
+})
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование с Promise</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+Vue.nextTick()
+	.then(function () {
+		// DOM обновлён
+	})
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование с async/await</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Поскольку <u-code-text>$nextTick()</u-code-text> возвращает промис, вы можете достичь того же, используя синтаксис <u-code-text>async/await</u-code-text> (ES2016)</li>
+</ul>
+
+<v-code lang="js" title="">
+methods: {
+	updateMessage: async function () {
+		this.message = 'обновлено'
+		console.log(this.$el.textContent) // => 'не обновлено'
+		await this.<u-code>$nextTick</u-code>()
+		console.log(this.$el.textContent) // => 'обновлено'
+	}
+}
+</v-code>
+</div><div id="reactivity-force-update"><h2>forceUpdate</h2>
+
+<ul class="list-point">
+	<li><u-text-define>forceUpdate</u-text-define> - заставляет экземпляр Vue произвести переотрисовку. Метод затронет не все дочерние компоненты, а только сам экземпляр и дочерние компоненты с контентными слотами</li>
+</ul>
+
+</div><div id="directives-info"><h2>Информация</h2>
+
+<ul class="link-page-wrapper">
+	<li><a href="#directives-info-syntax">Синтаксис шаблонов</a></li>
+	<li><a href="#directives-info-directives">Директивы</a></li>
+	<li><a href="#directives-info-dynamic-arguments">Динамические аргументы</a></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="directives-info-syntax">Синтаксис шаблонов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Для связывания <u>DOM</u> с данными экземпляра Vue использует синтаксис, основанный на HTML. Все шаблоны Vue являются валидным HTML-кодом, который могут распарсить все HTML-парсеры и браузеры.</li>
+	<li>Для работы Vue компилирует шаблоны в <u>render-функции</u> виртуального DOM. В сочетании с системой реактивности, Vue умеет определять минимальное число компонентов для повторной отрисовки и применяет минимальное количество манипуляций к DOM при изменении состояния приложения.</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="directives-info-directives">Директивы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-text-define>Директивы</u-text-define> - специальные атрибуты с префиксом <u-code-text>v-</u-code-text>. В качестве значения они принимают одно выражение JavaScript (за исключением v-for). Директива реактивно применяет к DOM изменения при обновлении значения этого выражения</li>
+	<li>Некоторые директивы могут принимать <u>«аргумент»</u>, разделённый от названия директивы двоеточием <u-code-text>v-bind:href="url"</u-code-text></li>
+	<li><В данном случае href - аргумент, указывающий директиве v-bind связать атрибут href элемента со значением выражения url</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="directives-info-dynamic-arguments">Динамические аргументы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;a v-bind:[attributeName]="url"&gt; ... &lt;/a&gt;
+</v-code>
+
+<ul class="list-point">
+	<li><u-code-text>attributeName</u-code-text> будет выполняться как выражение JavaScript, а его вычисленное значение использоваться в качестве финального значения аргумента. Например, если экземпляр Vue имеет в данных свойство <u-code-text>attributeName</u-code-text>, значение которого равно <u-code-text>"href"</u-code-text>, то это будет эквивалентно привязке <u-code-text>v-bind:href</u-code-text></li>
+
+	<li>Ожидается, что динамические аргументы в результате будут строкой, за исключением <u>null</u>. Специальное значение null можно использовать для явного удаления привязки. Любые другие нестроковые значения будут вызывать предупреждения.</li>
+	<li>Динамические выражения аргументов имеют синтаксические ограничения, потому что некоторые символы недопустимы в именах атрибутов HTML, такие как пробелы и кавычки. Также стоит избегать верхнего регистра если указываете шаблоны в DOM</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;!-- Подобное вызовет предупреждение компилятора. --&gt;
+&lt;a v-bind:['foo' + bar]="value"&gt; ... &lt;/a&gt;
+</v-code>
+
+<v-code lang="html" title="">
+&lt;!-- Будет преобразовано в v-bind:[someattr] при указании в шаблоне в DOM. --&gt;
+&lt;a v-bind:[someAttr]="value"&gt; ... &lt;/a&gt;
+</v-code>
+</div><div id="directives-v-text_v-html"><h2>v-text, v-html</h2>
+
+<v-code lang="html" title="">
+&lt;p&gt;<span v-pre>{{ messText }}</span>&lt;/p&gt;      <u-code-comment># интерполяция, текстовое содержимое</u-code-comment>
+&lt;p <u-code>v-text</u-code>="messText"&gt;&lt;/p&gt;  <u-code-comment># текстовое содержимое</u-code-comment>
+&lt;p <u-code>v-html</u-code>="messHTML"&gt;&lt;/p&gt;  <u-code-comment># html содержимое</u-code-comment>
+</v-code></div><div id="directives-v-show_v-if"><h2>Conditional Rendering</h2>
+
+<ul class="link-page-wrapper">
+	<li><a href="#v-show-elseif">v-else-if</a></li>
+	<li><a href="#v-show-vif-template">v-if и &lt;template&gt;</a></li>
+	<li><a href="#v-show-vif-slot">v-if и &lt;slot&gt;</a></li>
+	<li><a href="#v-show-key">Управление повторным использованием элементов при помощи key</a></li>
+</ul>
+
+<ul class="list-point">
+	<li><u-text-define>Conditional Rendering</u-text-define> (условная отрисовка) включает <u-code-text>v-show, v-if, v-else, v-else-if</u-code-text></li>
+	
+	<hr>
+	<li><u-code-text>v-if</u-code-text> производит «настоящую» условную отрисовку, удостоверяясь что подписчики событий и дочерние компоненты внутри блока должным образом уничтожаются и воссоздаются при изменении истинности управляющего условия</li>
+	<li><u-code-text>v-if</u-code-text> ленивый: если условие ложно на момент первоначальной отрисовки, он не произведёт никаких действий — условный блок не будет отображён, пока условие не станет истинным</li>
+	<li><u-code-text>v-if</u-code-text> работает с псевдоэлементом <u-code-text>&lt;template&gt;</u-code-text></li>
+	
+	<hr>
+	<div></div>
+	<li><u-code-text>v-show</u-code-text> не работает с псевдоэлементом <u-code-text>&lt;template&gt;</u-code-text> и с <u-code-text>v-else</u-code-text></li>
+	
+	<hr>
+	<li>Для <u-code-text>v-if</u-code-text> выше затраты на переключения, а у <u-code-text>v-show</u-code-text> больше затрат на первичную отрисовку. Если вы предполагаете, что переключения будут частыми, используйте <u-code-text>v-show</u-code-text>, если же редкими или маловероятными - <u-code-text>v-if</u-code-text></li>
+	<li>Совместное использование <u-code-text>v-if</u-code-text> и <u-code-text>v-for</u-code-text> не рекомендуется. При совместном использовании <u-code-text>v-if</u-code-text> и <u-code-text>v-for</u-code-text>, директива <u-code-text>v-for</u-code-text> имеет более высокий приоритет</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;p <u-code>v-show</u-code>="view"&gt;text&lt;/p&gt;  <u-code-comment># устанавливается display: none/block</u-code-comment>
+&lt;p <u-code>v-if</u-code>="view"&gt;text&lt;/p&gt;    <u-code-comment># условие if. удаляется/добавляется в DOM дерево</u-code-comment>
+&lt;p <u-code>v-else</u-code>&gt;text&lt;/p&gt;         <u-code-comment># условие else при невыполнении if</u-code-comment>
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-show-elseif">v-else-if</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;div v-if="type === 'A'"&gt;A&lt;/div&gt;
+&lt;div v-else-if="type === 'B'"&gt;B&lt;/div&gt;
+&lt;div v-else-if="type === 'C'"&gt;C&lt;/div&gt;
+&lt;div v-else&gt;Не A/B/C&lt;/div&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-show-vif-template">v-if и &lt;template&gt;</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-code-text>v-if</u-code-text> - директива, она должна быть указана в одном конкретном теге. Eсли нужно указать отображение для нескольких элементов можно применить <u-code-text>v-if</u-code-text> к псевдоэлементу <u-code-text>&lt;template&gt;</u-code-text>, который служит невидимой обёрткой и сам в результатах отрисовки не появляется</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;template v-if="ok"&gt;
+	&lt;h1&gt;Заголовок&lt;/h1&gt;
+	&lt;p&gt;Абзац 1&lt;/p&gt;
+&lt;/template&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-show-vif-slot">v-if и &lt;slot&gt;</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-code-text>&lt;slot&gt;</u-code-text> невидимая обёртка - не появляется в результатах отрисовки</li>
+</ul>
+
+<v-two-code type="html;html" comment="html;result">
+<template v-slot:first>
+&lt;div&gt;
+    &lt;slot v-if="view"&gt;text&lt;/p&gt;
+&lt;/div&gt;
+</template>
+<template v-slot:last>
+&lt;div&gt;
+    text
+&lt;/div&gt;
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-show-key">Управление повторным использованием элементов при помощи key</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two><template v-slot:first>
+<v-code lang="html" title="">
+&lt;input v-if="loginType==='admin'"&gt;
+&lt;input v-else&gt;
+</v-code>
+<ul class="list-point">
+	<li>Vue старается эффективно управлять элементами DOM настолько, зачастую переиспользуя их вместо того чтобы создавать заново</li>
+	<li>Пример: переключение между типами логина</li>
+	<li>Изменение <u-code-text>loginType</u-code-text> не сотрёт то, что пользователь ввёл в поле. Оба шаблона используют одни и те же элементы, поэтому <u-code-text>&lt;input&gt;</u-code-text> не заменяется</li>
+</ul>
+</template><template v-slot:last>
+<v-code lang="html" title="">
+&lt;input v-if="loginType==='admin'" <u-code>key</u-code>="name"&gt;
+&lt;input v-else <u-code>key</u-code>="email"&gt;
+</v-code>
+<ul class="list-point">
+	<li>Иногда такое поведение нежелательно, поэтому Vue можно явно указать, что элементы должны быть полностью независимы и их не нужно переиспользовать</li>
+	<li>Для этого нужно указать уникальное значение ключа <u-code-text>key</u-code-text></li>
+	<li>Теперь эти поля ввода будут отрисовываться заново при каждом переключении</li>
+</ul>
+</template></v-two>
+</div><div id="directives-v-for"><h2>Отрисовка списков: v-for</h2>
+
+<ul class="link-page-wrapper">
+	<li><a href="#v-for-arr">Отображение массива элементов</a></li>
+	<li><a href="#v-for-components">v-for на компонентах</a></li>
+</ul>
+
+<ul class="list-point">
+	<li>Когда присутствуют вместе на одном элементе, <u-code-text>v-for</u-code-text> имеет больший приоритет, чем <u-code-text>v-if</u-code-text>. Поэтому <u-code-text>v-if</u-code-text> будет выполняться для каждой итерации цикла</li>
+	<li><u-code-text>key</u-code-text> с <u-code-text>v-for</u-code-text> всегда обязателен для компонентов</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-for-arr">Отображение массива элементов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="html">
+&lt;li <u-code>v-for</u-code>="item <u-code>in</u-code> items"&gt;<span v-pre>{{ item.name }}</span>&lt;/li&gt;
+&lt;li <u-code>v-for</u-code>="item <u-code>of</u-code> items"&gt;<span v-pre>{{ item.name }}</span>&lt;/li&gt;
+&lt;li <u-code>v-for</u-code>="(item, i) <u-code>in</u-code> items"&gt;<span v-pre>{{i}}, {{ item.name }}</span>&lt;/li&gt;
+&lt;li <u-code>v-for</u-code>="item <u-code>in</u-code> items" <u-code>:key</u-code>="item.id"&gt;<span v-pre>{{ item.name }}</span>&lt;/li&gt;
+</v-code>
+
+<v-code lang="js" title="js">
+items: [
+	{name: 'Tony',  age: 25},
+	{name: 'Tyler', age: 27},
+	{name: 'Tom',   age: 20}
+]
+</v-code>
+
+<hr><hr>
+
+
+
+
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+	&lt;ul&gt;
+		&lt;!-- Без индексов --&gt;
+		&lt;li v-for="car in cars"&gt;<span v-pre>{{ car.model }}</span>, <span v-pre>{{ car.speed }}</span>&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;ul&gt;
+		&lt;!-- С индексами --&gt;
+		&lt;li v-for="(car, i) in cars"&gt;<span v-pre>{{i}}, {{ car.model }}, {{ car.speed }}</span>&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+    &lt;ul&gt;
+    	&lt;!-- Итерирование свойств объекта --&gt;
+        &lt;li v-for="value in user"&gt;<span v-pre>{{ value }}</span>&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul&gt;
+    	&lt;!-- Использование второго аргумента для получения ключей объекта --&gt;
+        &lt;li v-for="(value, key) in user"&gt;<span v-pre>{{ key }}: {{ value }}</span>&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul&gt;
+    	&lt;!-- Использование третьего аргумента для получения индексов объекта --&gt;
+        &lt;li v-for="(value, key, index) in user"&gt;<span v-pre>{{ index }}. {{ key }}: {{ value }}</span>&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+var app = new Vue({
+	el: '#app', 
+	data: {
+		show: false,
+		cars: [
+			{model: 'Bmw',    speed: 250},
+			{model: 'Audi',   speed: 350},
+			{model: 'Nissan', speed: 270},
+			{model: 'Ford',   speed: 150}
+		],
+		user: {
+            name: 'Tony',
+            age: 25
+        }
+	}
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-for-components">v-for на компонентах</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>При использовании <u-code-text>v-for</u-code-text> на компонентах обязательно требуется указывать <u-code-text>key</u-code-text></li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;my-component v-for="item in items" :key="item.id"&gt;&lt;/my-component&gt;
+</v-code>
+
+<ul class="list-point">
+	<li>В компонент никакие данные не передаются автоматически, поскольку у компонентов изолированные области видимости. Для передачи итерируемых данных в компонент необходимо явно использовать входные параметры</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;my-component
+	v-for="(item, index) in items"
+	v-bind:item="item"
+	v-bind:index="index"
+	v-bind:key="item.id"
+&gt;&lt;/my-component&gt;
+</v-code></div><div id="directives-v-on"><h2>v-on:</h2>
+
+<ul class="link-page-wrapper">
+	<li><a href="#v-on-mod-actions">Модификаторы событий</a></li>
+	<li><a href="#v-on-mod-key">Модификаторы клавиш</a></li>
+	<li><a href="#v-on-mod-key-system">Системные модификаторы клавиш</a></li>
+	<li><a href="#v-on-exact">Модификатор .exact</a></li>
+	<li><a href="#v-on-mod-key-mouse">Модификаторы клавиш мыши</a></li>
+</ul>
+
+<ul class="list-point">
+	<li><u-text-define>v-on</u-text-define> - подписка на события DOM и выполнения JavaScript-кода по их наступлении</li>
+</ul>
+
+<v-code lang="html" title="html">
+&lt;button <u-code>v-on:click</u-code>=""&gt;&lt;/button&gt;            <u-code-comment># полная запись</u-code-comment>
+&lt;button <u-code>@click</u-code>=""&gt;&lt;/button&gt;                <u-code-comment># сокращенная запись</u-code-comment>
+&lt;button <u-code>@click</u-code>="methodOne"&gt;&lt;/button&gt;       <u-code-comment># указание названия метода</u-code-comment>
+&lt;button <u-code>@click</u-code>="methodTwo('hi')"&gt;&lt;/button&gt; <u-code-comment># указание JavaScript-выражения</u-code-comment>
+</v-code>
+
+<v-code lang="js" title="js">
+var app = new Vue({
+	el: '#app',
+	methods: {
+		methodOne() {
+			console.log('methodOne');
+		},
+		methodTwo(text) {
+			console.log(text); // => hi
+		}
+	}
+})
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Императивный вызов методов</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+app.methodOne();
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-on-mod-actions">Модификаторы событий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li>При использовании модификаторов порядок имеет значение, потому что код генерируется в том же порядке</li>
+	<li>В отличие от остальных модификаторов, которые поддерживают только нативные события DOM, модификатор <u-code-text>.once</u-code-text> может использоваться и в пользовательских событиях компонентов</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>События</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u-code-list>.stop</u-code-list> - событие не будет всплывать дальше <u-code-text>event.stopPropagation()</u-code-text></li>
+	<li><u-code-list>.prevent</u-code-list> - отмена обычного поведения <u-code-text>event.preventDefault()</u-code-text></li>
+	<li><u-code-list>.capture</u-code-list> - событие, нацеленное на внутренний элемент, обрабатывается здесь до обработки этим элементом</li>
+	<li><u-code-list>.self</u-code-list> - вызов обработчика только в случае наступления события непосредственно на данном элементе (то есть не на дочернем компоненте)</li>
+	<li><u-code-list>.once</u-code-list> - событие click сработает только 1 раз</li>
+	<li><u-code-list>.passive</u-code-list> - сообщает браузеру, что вы не хотите предотвращать поведение по умолчанию для события. <u-code-text>event.preventDefault()</u-code-text> будет проигнорирован. Поэтому нельзя использовать вместе <u-code-text>.passive</u-code-text> и <u-code-text>.prevent</u-code-text>. Соответствующий опции <u-code-text>passive</u-code-text> в <u-code-text>addEventListener</u-code-text>. Модификатор <u-code-text>.passive</u-code-text> особенно полезен для повышения производительности на мобильных устройствах</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Примеры</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;!-- событие click не будет всплывать дальше --&gt;
+&lt;a v-on:click.stop="doThis"&gt;&lt;/a&gt;
+
+&lt;!-- событие submit больше не будет перезагружать страницу --&gt;
+&lt;form v-on:submit.prevent="onSubmit"&gt;&lt;/form&gt;
+
+&lt;!-- модификаторы можно объединять в цепочки --&gt;
+&lt;a v-on:click.stop.prevent="doThat"&gt;&lt;/a&gt;
+
+&lt;!-- и использовать без указания метода-обработчика --&gt;
+&lt;form v-on:submit.prevent&gt;&lt;/form&gt;
+
+&lt;!-- можно отслеживать события в режиме capture, т.е. событие, нацеленное --&gt;
+&lt;!-- на внутренний элемент, обрабатывается здесь до обработки этим элементом --&gt;
+&lt;div v-on:click.capture="doThis"&gt;...&lt;/div&gt;
+
+&lt;!-- вызов обработчика только в случае наступления события непосредственно --&gt;
+&lt;!-- на данном элементе (то есть не на дочернем компоненте) --&gt;
+&lt;div v-on:click.self="doThat"&gt;...&lt;/div&gt;
+
+&lt;!-- событие click сработает только 1 раз --&gt;
+&lt;a v-on:click.once="doThis"&gt;&lt;/a&gt;
+
+&lt;!-- по умолчанию событие scroll (при прокрутке) произойдёт --&gt;
+&lt;!-- незамедлительно, вместо ожидания окончания `onScroll`  --&gt;
+&lt;!-- на случай, если там будет `event.preventDefault()`     --&gt;
+&lt;div v-on:scroll.passive="onScroll"&gt;...&lt;/div&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Отмена обычного поведения</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;button <u-code>@click</u-code>="submit1"&gt;&lt;/button&gt;
+&lt;button <u-code>@click.prevent</u-code>="submit2"&gt;&lt;/button&gt;
+</v-code>
+
+<v-code lang="js" title="">
+methods: {
+	submit1(e) {
+		<u-code>e.preventDefault()</u-code>;
+		console.log('prevent');
+	}
+	submit2() {
+		console.log('prevent');
+	}
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-on-mod-key">Модификаторы клавиш</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Использование значения <u-code-text>keyCode</u-code-text> событий - устаревшая практика и может не поддерживаться в новых браузерах</li>
+	<li>Можно использовать любые допустимые имена клавиш, предоставляемые через <u-code-text>KeyboardEvent.key</u-code-text> в качестве модификаторов, именуя их в kebab-case</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;input type="text" @keyup="methodOne"&gt;       <u-code-comment># любые символы</u-code-comment>
+&lt;input type="text" @keyup.13="methodOne"&gt;    <u-code-comment># использование значений keyCode (enter)</u-code-comment>
+&lt;input type="text" @keyup.enter="methodOne"&gt; <u-code-comment># использование модификатора (enter)</u-code-comment>
+</v-code>
+
+<v-code lang="js" title="">
+methods: {
+	methodOne(){
+		console.log('methodOne')
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Псевдонимы для наиболее часто используемых клавиш</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u-code-list>.enter</u-code-list></li>
+	<li><u-code-list>.esc</u-code-list></li>
+	<li><u-code-list>.space</u-code-list></li>
+	<li><u-code-list>.tab</u-code-list></li>
+	<li><u-code-list>.delete</u-code-list> ("delete" и "backspace")</li>
+	<li><u-code-list>.up</u-code-list> <u-code-list>.down</u-code-list></li>
+	<li><u-code-list>.left</u-code-list><u-code-list>.right</u-code-list></li>
+</ul>
+
+<u-link-wrapper>
+	<a href="https://vuejs.org/v2/guide/events.html#Key-Modifiers" target="_blank">Список псевдонимов клавиш в Vue</a>
+	<a href="https://css-tricks.com/snippets/javascript/javascript-keycodes/#article-header-id-1" target="_blank">Таблица с кодами клавиш</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Определение пользовательских псевдонимов клавиш</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Определение пользовательских псевдонимов клавиш через глобальную опцию <u-code-text>config.keyCodes</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+Vue.config.keyCodes.f1 = 112; // позволит использовать 'v-on:keyup.f1'
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-on-mod-key-system">Системные модификаторы клавиш</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Можно использовать следующие модификаторы для отслеживания событий мыши или клавиатуры с зажатой клавишей-модификатором</li>
+	<li><u-code-list>.ctrl</u-code-list></li>
+	<li><u-code-list>.alt</u-code-list></li>
+	<li><u-code-list>.shift</u-code-list></li>
+	<li><u-code-list>.meta</u-code-list></li>
+</ul>
+
+<u-message-info>
+<ul class="list-point">
+	<li>Клавиши-модификаторы отличаются от обычных клавиш и при отслеживании событий <u-code-text>keyup</u-code-text> они должны быть нажаты, когда событие генерируется. Другими словами, <u-code-text>keyup.ctrl</u-code-text> сработает только тогда, когда вы отпустите клавишу, удерживая нажатой <u-code-text>ctrl</u-code-text>. Это не сработает, если вы отпустите только клавишу <u-code-text>ctrl</u-code-text>. Если вы хотите такое поведение, используйте <u-code-text>keyCode</u-code-text> для <u-code-text>ctrl</u-code-text> вместо <u-code-text>keyup.17</u-code-text></li>
+</ul>
+</u-message-info>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-on-exact">Модификатор .exact</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-text-define>.exact</u-text-define> позволяет контролировать точную комбинацию системных модификаторов, необходимых для запуска события</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;!-- сработает, даже если Alt или Shift также нажаты --&gt;
+&lt;button @click.ctrl="onClick"&gt;A&lt;/button&gt;
+
+&lt;!-- сработает, только когда нажат Ctrl и не нажаты никакие другие клавиши --&gt;
+&lt;button @click.ctrl.exact="onCtrlClick"&gt;A&lt;/button&gt;
+
+&lt;!-- сработает, только когда не нажаты никакие системные модификаторы --&gt;
+&lt;button @click.exact="onClick"&gt;A&lt;/button&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-on-mod-key-mouse">Модификаторы клавиш мыши</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Модификаторы ограничивают обработчик события только вызовами определённой кнопкой мыши</li>
+</ul>
+
+<ul class="list-point">
+	<li><u-code-list>.left</u-code-list></li>
+	<li><u-code-list>.right</u-code-list></li>
+	<li><u-code-list>.middle</u-code-list></li>
+</ul>
+</div><div id="directives-v-bind"><h2>v-bind:</h2>
+
+<ul class="link-page-wrapper">
+	<li><a href="#v-bind-bind">Связывание атрибутов элементов</a></li>
+	<li><a href="#v-bind-values">Указание дополнительных значений</a></li>
+	<li><a href="#v-bind-class">CSS-классы</a></li>
+	<li><a href="#v-bind-style">CSS Style</a></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-bind-bind">Связывание атрибутов элементов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li>Директива связывает входной атрибут тега или входной параметр компонента с выражением</li>
+	<li>Значение атрибута берется из переменной</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;a <u-code>v-bind:href</u-code>="url"&gt;<span v-pre>{{ link }}</span>&lt;/a&gt;  <u-code-comment># полная запись</u-code-comment>
+&lt;p <u-code>v-bind:class</u-code>="activeClass"&gt;&lt;/p&gt;   <u-code-comment># полная запись</u-code-comment>
+&lt;p <u-code>:class</u-code>="activeClass"&gt;&lt;/p&gt;         <u-code-comment># сокращенная запись</u-code-comment>
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-bind-values">Указание дополнительных значений</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;div class="img" :style="{ backgroundImage: 'url('+item.img+')' }"&gt;&lt;/div&gt;
+&lt;a :href="'courses/'+i"&gt;&lt;/a&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Для Vue-Cli-3</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Без <u-code-text>require</u-code-text> данамический путь с использованием переменной не будет корректным</li>
+</ul>
+<v-code lang="html" title="">
+&lt;img :src="require('@/assets/img/'+item.img)"&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-bind-class">CSS-классы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;!-- active - название класса --&gt;
+&lt;p <u-code>:class</u-code>="{ active:true }"&gt;&lt;/p&gt;      <u-code-comment># true (отобразится)</u-code-comment>
+&lt;p <u-code>:class</u-code>="{ active:false }"&gt;&lt;/p&gt;     <u-code-comment># false (не отобразится)</u-code-comment>
+&lt;p <u-code>:class</u-code>="{ active:isActive }"&gt;&lt;/p&gt;  <u-code-comment># свойство isActive (true/false)</u-code-comment>
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование нескольких классов</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div className={'wrapper' + ' ' + classes.wrapper}&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование с обычным атрибутом class</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Наличие класса <u-code-text>active</u-code-text> будет определяться истинностью параметра <u-code-text>isActive</u-code-text></li>
+</ul>
+
+<v-code lang="html" title="html">
+&lt;div 
+	class="static" 
+	v-bind:class="{ active: isActive, 'text-danger': hasError }"
+&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="js">
+data: {
+	isActive: true,
+	hasError: false
+}
+</v-code>
+
+<v-code lang="html" title="result">
+&lt;div class="static active"&gt;&lt;/div&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Массив в аргументе</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="html">
+&lt;div :class="[activeClass, errorClass]"&gt;&lt;/div&gt;
+</v-code>
+<v-code lang="js" title="js">
+data: {
+    activeClass: 'class-active',
+    errorClass: 'class-error'
+}
+</v-code>
+<v-code lang="html" title="result">
+&lt;div class="active text-danger"&gt;&lt;/div&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Объект в аргументе</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div v-bind:class="classObject"&gt;&lt;/div&gt;
+</v-code>
+<v-code lang="js" title="">
+data: {
+	classObject: {
+		active: true,
+		'text-danger': false
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вычисляемое свойство в аргументе</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div v-bind:class="classObject"&gt;&lt;/div&gt;
+</v-code>
+<v-code lang="js" title="">
+data: {
+	isActive: true,
+	error: null
+},
+computed: {
+	classObject: function () {
+		return {
+			active: this.isActive && !this.error,
+			'text-danger': this.error && this.error.type === 'fatal'
+		}
+	}
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-bind-style">CSS Style</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Объектная запись в HTML</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div :style="{ color: activeColor, fontSize: fontSize+'px' }"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+data: {
+    activeColor: 'blue',
+    fontSize: 30
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Объектная запись в JS</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div :style="styleObject"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+// styleObject может содержать массивы или объекты
+data: {
+	styleObject: {
+		width: '100px',
+		height: '100px',
+		background: 'blue'
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование массивов</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;!-- Позволяет применить несколько объектов стилей к одному и тому же элементу --&gt;
+&lt;div v-bind:style="[baseStyles, overridingStyles]"&gt;&lt;/div&gt;
+</v-code>
+</div><div id="directives-v-model"><h2>v-model</h2>
+
+<ul class="link-page-wrapper">
+	<li><a href="#v-model-mod">Модификаторы</a></li>
+</ul>
+
+<ul class="list-point">
+	<li><u-text-define>v-model</u-text-define> - двунаправленное связывание данных с элементами (н-р input и textarea)</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;input type="text" <u-code>v-model</u-code>="messText"&gt;
+&lt;p&gt;<span v-pre>{{ messText }}</span>&lt;/p&gt;
+
+&lt;input type="checkbox" <u-code>v-model</u-code>="view"&gt;
+&lt;label&gt;<span v-pre>{{ view }}</span>&lt;/label&gt;
+</v-code>
+
+<p>Аналогично</p>
+<v-code lang="html" title="">
+&lt;input type="text" <u-code>@input="messText = $event.target.value"</u-code>&gt;
+&lt;p&gt;<span v-pre>{{ messText }}</span>&lt;/p&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-model-mod">Модификаторы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;!-- Удаление пробелов --&gt;
+&lt;input type="text" <u-code>v-model.trim</u-code>="messText"&gt;
+</v-code></div><div id="directives-v-pre"><h2>v-pre</h2>
+
+<ul class="list-point">
+	<li><u-text-define>v-pre</u-text-define> - пропуск компиляции у элемента и его потомков</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;p <u-code>v-pre</u-code>&gt;<span v-pre>{{ Lorem ipsum dolor sit ameto }}</span>&lt;/p&gt;
+</v-code></div><div id="directives-v-cloak"><h2 id="dir-cloak">v-cloak</h2>
+
+<ul class="list-point">
+	<li><u-text-define>v-cloak</u-text-define> - скрытие нескомпилированных шаблонов до тех пор, пока экземпляр Vue не будет готов</li>
+</ul>
+
+<v-code lang="html" title="html">
+&lt;span v-cloak&gt;<span v-pre>{{item.name}}</span>&lt;/span&gt;
+</v-code>
+
+<v-code lang="css" title="css">
+[v-cloak] { display:none; }
+</v-code>
+</div><div id="directives-v-once"><h2 id="dir-once">v-once</h2>
+
+<ul class="list-point">
+	<li><u-text-define>v-once</u-text-define> - однократно отрисовывает элемент или компонент. При повторной отрисовке он, а также все его потомки, рассматриваются как статический контент и пропускаются</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;span v-once&gt;Это никогда не изменится: <span v-pre>{{ message }}</span>&lt;/span&gt;
+</v-code></div><div id="components-info"><h2>Информация</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Компоненты</u-text-define> - это переиспользуемые экземпляры Vue со своим именем и предустановленными опциями. Его можно использовать как пользовательский тег внутри корневого экземпляра <u>Vue</u>, созданного с помощью <u-code>new Vue</u-code></li>
+	<li>Экземляр <u>Vue</u> организован в дерево вложенных, повторно используемых компонентов</li>
+	<li>Когда экземпляр <u>Vue</u> создан, он добавляет все свойства, найденные в опции <u>data</u>, в систему реактивности Vue. Поэтому представление будет «реагировать» на их изменения, обновляясь в соответствии с новыми значениями. Когда значения изменяются, представление будет переотрисовано. Свойства в data будут реактивными, только если они существовали при создании экземпляра</li>
+</ul>
+
+<u-link-wrapper>
+	<a href="https://vuejsdevelopers.com/2017/03/24/vue-js-component-templates/" target="_blank">7 Ways To Define A Component Template in Vue.js</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Преимущества перед спецификацией W3C Web Components</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+	<li>Поддерживается большинством браузеров (IE9 и выше). При необходимости компоненты Vue могут быть «обёрнуты» в нативные пользовательские элементы</li>
+	<li>Возможности, недоступные в простых пользовательских элементах: кросс-компонентная передача данных, коммуникация с использованием пользовательских событий и интеграция с инструментами сборок</li>
+</ol>
+</div><div id="components-component-simple"><h2>Простой компонент</h2>
+
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+	&lt;task&gt;&lt;/task&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="html" title="">
+Vue.component('task', {
+    data() {
+        return {
+            name: 'Tony',
+            age: 21
+        }
+    },
+    template: '&lt;p&gt;Hello <span v-pre>{{name}} {{age}}</span>&lt;/p&gt;',
+    methods: {
+        increment() {
+            this.age++;
+        }
+    }
+})
+var app = new Vue({
+	el: '#app'
+})
+</v-code>
+
+<v-code lang="js" title="">
+// Hello Tony 21
+</v-code>
+
+<ul class="list-point">
+	<li><u-text-define>data()</u-text-define> - Состояние. Управление приложением</li>
+	<li><u-text-define>template</u-text-define> - Представление. Отображение состояния заданное декларативно</li>
+	<li><u-text-define>methods</u-text-define> - Действия. Возможные пути изменения состояния приложения в ответ на взаимодействие пользователя с представлением</li>
+</ul>
+
+
+<p>Из template должен возвращаться только 1 родительский объект</p>
+<v-two-code type="js;js" comment=";">
+<template v-slot:first>
+// не сработает, выведет только первый span
+template: 
+	`&lt;span&gt;1&lt;/span&gt;
+	&lt;span&gt;2&lt;/span&gt;`
+</template>
+<template v-slot:last>
+// сработает
+template: 
+	`&lt;div&gt;
+		&lt;span&gt;1&lt;/span&gt;
+		&lt;span&gt;2&lt;/span&gt;
+	&lt;/div&gt;`
+</template>
+</v-two-code>
+</div><div id="components-component-registration"><h2>Регистрация компонента</h2>
+
+<!------------------------------------------------------------->
+<h4>Глобальная регистрация, работает для всех Vue объектов</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+Vue.component('component-a', {
+	template: 'content'
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Локальная регистрация</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var app = new Vue({
+	el: '#app',
+	components: { 
+        'component-a': {
+            template: 'content'
+        } 
+    }
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Локальная регистрация из объекта</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+var ComponentA = {
+	template: 'content'
+}
+
+new Vue({
+	el: '#app',
+	components: {
+		'component-a': ComponentA
+	}
+})
+</v-code>
+</div><div id="components-component-global"><h2>Глобальный компонент</h2>
+
+<!------------------------------------------------------------->
+<h4>./main.js</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import './components/ui'
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>./components/ui/index.js</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import Vue from 'vue'
+import Button from './Button.vue'
+Vue.component('ui-button', Button)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>./components/ui/Button.vue</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;template&gt;
+    &lt;button :class="classes" class="ui-btn"&gt;
+        &lt;slot&gt;&lt;/slot&gt;
+    &lt;/button&gt;
+&lt;/template&gt;
+</v-code>
+<v-code lang="js" title="">
+&lt;script&gt;
+export default {
+    props: {
+        color: { type: String, default: 'primary' },
+        block: { type: Boolean }
+    },
+    computed: {
+        classes() {
+            return {
+                ['ui-btn--'+this.color]: true,
+                'ui-btn--block': this.block
+            };
+        }
+    }
+}
+&lt;/script&gt;
+</v-code>
+<v-code lang="css" title="">
+&lt;style scoped&gt;
+.ui-btn {
+    display: block;
+}
+.ui-btn--primary {
+    background: yellowgreen;
+}
+&lt;/style&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Any Component</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;ui-button @click.<u-code>native</u-code>="getFunc" color="primary" block&gt;This is a button&lt;/ui-button&gt;
+</v-code>
+
+<ul class="list-point">
+	<li><u-text-define>.native</u-text-define> - подписка на нативные события браузера на корневом элементе компонента</li>
+	<li>через <u-text-define>.native</u-text-define> вешаются события на компоненты</li>
+	<li>а т.к. button рутовый элемент компонента то клик вешается на кнопку</li>
+	<li>есть еще <u-text-define>.left</u-text-define> если нужно навешать обработчик на обычный блок div или еще что-то</li>
+</ul>
+</div><div id="components-component-dynamic"><h2>Динамические компоненты</h2>
+
+<!------------------------------------------------------------->
+<h4>Создание компонента</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;component <u-code>:is</u-code>="currentView"&gt;&lt;/component&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Кэширование компонента (сохранение состояния)</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+<u-code>&lt;keep-alive&gt;</u-code>
+	&lt;component <u-code>:is</u-code>="currentView"&gt;&lt;/component&gt;
+<u-code>&lt;/keep-alive&gt;</u-code>
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;!-- если нужна анимация, component обернуть в transition --&gt;
+&lt;div id="app"&gt;
+	&lt;nav&gt;
+		&lt;a href="#" @click="changeView('orange')"&gt;orange&lt;/a&gt;
+		&lt;a href="#" @click="changeView('blue')"&gt;blue&lt;/a&gt;
+	&lt;/nav&gt;
+	<u-code>&lt;component :is="currentView"&gt;&lt;/component&gt;</u-code>
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="html" title="">
+&lt;template id="orange-template"&gt;
+	&lt;div class="orange-block"&gt;&lt;/div&gt;
+&lt;/template&gt;
+&lt;template id="blue-template"&gt;
+	&lt;div class="blue-block"&gt;&lt;/div&gt;
+&lt;/template&gt;
+</v-code>
+
+<v-code lang="js" title="">
+var app = new Vue({
+	el: '#app',
+	data: {
+		currentView: 'orange'
+	},
+	components: {
+		orange: {
+			template: '#orange-template'
+		},
+		blue: {
+			template: '#blue-template'
+		}
+	},
+	methods: {
+		changeView(view) {
+			this.currentView = view
+		}
+	}
+})
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты import</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>require code 1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+components: {
+	'app-icon': require('./icons/icon-shopping-cart.vue').default
+	'app-icon': () => import('./icons/icon-shopping-cart.vue')
+},
+beforeCreate() {
+	this.$options.components.TreeFolderContents = require('./icons/icon-shopping-cart.vue').default
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>require code 2</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;template&gt;
+	&lt;component :is="$options.components[name]"&gt;&lt;/component&gt;
+&lt;/template&gt;
+</v-code>
+
+<v-code lang="js" title="">
+&lt;script&gt;
+export default {
+	props: {
+		name: { type: String }
+	},
+	created() {
+		this.$options.components[this.name] = require('./icons/icon-'+this.name+'.vue').default;
+	}
+}
+&lt;/script&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Подшрузка компонента с данными из роутинга</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;template&gt;
+    &lt;app-theme /&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+    components: {
+        'app-theme': null,
+    },
+    created() {
+        this.$options.components['app-theme'] = 
+            require(`../category/${this.$route.params.name}.vue`).default;
+    }
+}
+&lt;/script&gt;
+</v-code>
+</div><div id="components-props"><h2>Передача переменных между компонентами (props)</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты props (дочерний компонент)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+props: ['message', 'name']
+props: {
+	message: String
+}
+props: {
+    count: {
+        type: Number,    // задание типа
+        default: 77,     // значение по умолчанию
+        required: true   // обязательное значение
+    }
+}
+</v-code>
+
+<ul class="list-point">
+	<li>Значением type может быть один из следующих нативных конструкторов:</li>
+	<li>
+		<u-code>String</u-code>
+		<u-code>Number</u-code>
+		<u-code>Boolean</u-code>
+		<u-code>Array</u-code>
+		<u-code>Object</u-code>
+		<u-code>Date</u-code>
+		<u-code>Function</u-code>
+		<u-code>Symbol</u-code>
+	</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h4>Родительский компонент</h4>
+<!------------------------------------------------------>
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+	&lt;task message="Hello" :name="userName"&gt;&lt;/task&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="bash" title="">
+message="Hello"   # передача текста из html
+:name="userName"  # передача переменной из app
+</v-code>
+
+<!------------------------------------------------------>
+<h4>Дочерний компонент</h4>
+<!------------------------------------------------------>
+<v-code lang="js" title="">
+Vue.component('task', {
+	template: '&lt;p&gt;<span v-pre>{{ message + name }}</span>&lt;/p&gt;',
+	props: ['message', 'name']
+})
+var app = new Vue({
+	el: '#app',
+    data: {
+        userName: 'Tony'
+    }
+})
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Валидация входных параметров</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+props: {
+	// Просто проверка типа (`null` и `undefined` проходят проверку для любого типа)
+	propA: Number,
+	// Несколько допустимых типов
+	propB: [String, Number],
+	// Обязательное значение строкового типа
+	propC: {
+		type: String,
+		required: true
+	},
+	// Число со значением по умолчанию
+	propD: {
+		type: Number,
+		default: 100
+	},
+	// Объект со значением по умолчанию
+	propE: {
+		type: Object,
+		// Для объектов или массивов значения по умолчанию
+		// должны возвращаться из функции
+		default: function () {
+			return { message: 'hello' }
+		}
+	},
+	// Пользовательская функция для валидации
+	propF: {
+		validator: function (value) {
+			// Значение должно соответствовать одной из этих строк
+			return ['success', 'warning', 'danger'].indexOf(value) !== -1
+		}
+	}
+}
+</v-code></div><div id="components-slot"><h2>Передача данных между компонентами (slot)</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Описание</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li>Слот имеет доступ к тем же свойствам экземпляра app.vue (т.е. к той же «области видимости»), что и остальная часть шаблона</li>
+	<li>Слот не имеет доступа к области видимости &lt;app-task&gt;</li>
+	<li>Всё в родительском шаблоне компилируется в области видимости родительского компонента; всё в дочернем шаблоне компилируется в области видимости дочернего компонента</li>
+</ul>
+
+<v-code lang="js" title="">
+<u-code>v-slot:user</u-code>  // полная запись
+<u-code>#user</u-code>        // сокращенная запись
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------>
+<h4>Родительский компонент</h4>
+<!------------------------------------------------------>
+<v-code lang="html" title="">
+&lt;app-task&gt;
+	&lt;template v-slot:user&gt;User Admin&lt;/template&gt;
+&lt;/app-task&gt;
+</v-code>
+
+<!------------------------------------------------------>
+<h4>Дочерний компонент</h4>
+<!------------------------------------------------------>
+<v-code lang="html" title="">
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;slot name="user"&gt;User Default&lt;/slot&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Слоты с ограниченной областью видимости</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Атрибуты, привязанные к элементу &lt;slot&gt;, называются входными параметрами слота</li>
+</ul>
+
+<!------------------------------------------------------>
+<h4>Родительский компонент</h4>
+<!------------------------------------------------------>
+<v-code lang="html" title="">
+<span v-pre>{{userGeneral}}</span>
+&lt;app-task&gt;
+    &lt;template v-slot:user="slotProps"&gt;
+    	&lt;!-- slotProps виден только внутри template --&gt;
+    	<span v-pre>{{userGeneral = slotProps.user}}</span>
+    &lt;/template&gt;
+&lt;/app-task&gt;
+
+&lt;script&gt;
+export default {
+    data() {
+        return {
+            userGeneral: null
+        };
+    }
+&lt;/script&gt;
+</v-code>
+
+<!------------------------------------------------------>
+<h4>Дочерний компонент</h4>
+<!------------------------------------------------------>
+<v-code lang="html" title="">
+&lt;template&gt;
+    &lt;div&gt;
+        &lt;slot name="user" :user="userChild"&gt;&lt;/slot&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+    data() {
+        return {
+            userChild: 'Tony'
+        }
+    }
+}
+&lt;/script&gt;
+</v-code></div><div id="components-template"><h2>Тег template</h2>
+
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+	&lt;starter&gt;Starter&lt;/starter&gt;
+	&lt;starter&gt;Starter&lt;/starter&gt;
+&lt;/div&gt;
+&lt;template id="starter"&gt;
+	&lt;div&gt;
+		&lt;h1&gt;Hello&lt;/h1&gt;
+		&lt;slot&gt;&lt;/slot&gt;
+		&lt;button&gt;Ok&lt;/button&gt;
+		&lt;button&gt;Cancel&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/template&gt;
+</v-code>
+
+<v-code lang="js" title="">
+Vue.component('starter', {
+	template: '#starter',
+	data: function() {
+		return{
+			active: false
+		}
+	},
+	methods: {
+		open(){
+			this.active = true
+		}
+	}
+})
+var app = new Vue({
+	el: '#app'
+})
+</v-code></div><div id="components-emit"><h2>Передача событий между компонентами</h2>
+
+<ul class="list-point">
+	<li>Создание событий. Глобальный метод <u-code-text>$emit()</u-code-text></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Прослушиване событий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;app-child @close="modal = false"&gt;&lt;/app-child&gt;   &lt;!-- родительский компонент --&gt;
+&lt;button @click="<u-code>$emit</u-code>('close')"&gt;&lt;/button&gt;        &lt;!-- дочерний компонент --&gt;
+</v-code>
+
+<v-code lang="html" title="">
+&lt;app-child @close="modal = $event"&gt;&lt;/app-child&gt;  &lt;!-- родительский компонент --&gt;
+&lt;button @click="<u-code>$emit</u-code>('close', true)"&gt;&lt;/button&gt;  &lt;!-- дочерний компонент --&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+	&lt;ul&gt;
+		&lt;li v-for="message in messages"&gt;<span v-pre>{{ message }}</span>&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;message @message-saved="handleMessage"&gt;&lt;/message&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+Vue.component('message', {
+	template: '&lt;input type="text" v-model="message" @keyup.enter="saveMessage"&gt;',
+	data: function() {
+		return {
+			message: ''
+		}
+	},
+	methods: {
+		saveMessage() {
+			this.$emit('message-saved', this.message); // передача события родителю
+			this.message = '';
+		}
+	}
+})
+
+var app = new Vue({
+	el: '#app',
+	data: {
+		messages: []
+	}
+	methods: {
+		handleMessage(message){
+			this.messages.push(message)
+		}
+	}
+})
+</v-code>
+</div><div id="options-and-other-computed"><h2>Computed Properties</h2>
+
+<ul class="link-page-wrapper">
+	<li><a href="#options-and-other-computed-set">Сеттеры вычисляемых свойств</a></li>
+	<li><a href="#options-and-other-computed-samples">Примеры</a></li>
+</ul>
+
+<ul class="list-point">
+	<li><u-text-define>Computed Properties</u-text-define> - вычисляемые (обработанные) свойства применяются когда есть зависимость переменных от других переменных</li>
+	<li>Кешируются, основываясь на своих реактивных зависимостях. Вычисляемое свойство пересчитывается лишь тогда, когда изменится одна из его реактивных зависимостей</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+	&lt;input type="text" @input="increment($event.target.value)"&gt;
+	&lt;p&gt;<span v-pre>{{value}}</span>&lt;/p&gt;
+	&lt;p&gt;<span v-pre>{{doubleValue}}</span>&lt;/p&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+var app = new Vue({
+	el: '#app', 
+	data: {
+		value: 1
+	},
+	methods: {
+		increment(value) {
+			this.value = value
+		}
+	},
+	computed: {
+		doubleValue() {
+			return this.value * 2
+		}
+	}
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="options-and-other-computed-set">Сеттеры вычисляемых свойств</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>По умолчанию вычисляемые свойства работают только на чтение, но при необходимости можно также указать и сеттер</li>
+	<li>Теперь запись <u-code-text>vm.fullName = 'Иван Иванов'</u-code-text> вызовет сеттер, и <u-code-text>vm.firstName</u-code-text> и <u-code-text>vm.lastName</u-code-text> будут соответствующим образом обновлены</li>
+</ul>
+
+<v-code lang="js" title="">
+computed: {
+	fullName: {
+		// геттер:
+		get: function () {
+			return this.firstName + ' ' + this.lastName
+		},
+		// сеттер:
+		set: function (newValue) {
+			var names = newValue.split(' ')
+			this.firstName = names[0]
+			this.lastName = names[names.length - 1]
+		}
+	}
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="options-and-other-computed-samples">Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример #1. При вводе более 10 символов, скрывается кнопка</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+	&lt;form action=""&gt;
+		&lt;span&gt;<span v-pre>{{ count }}</span> / 10&lt;/span&gt;
+		&lt;textarea v-model="text"&gt;&lt;/textarea&gt;
+		&lt;button <u-code>v-if="count &lt;= 10"</u-code>&gt;Отправить&lt;/button&gt;
+	&lt;/form&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+var app = new Vue({
+	el: '#app',
+	data: {
+		text: ''
+	},
+	computed: {
+		count() {
+			return this.text.length
+		}
+	}
+})
+</v-code>
+</div><div id="options-and-other-watch"><h2>Методы-наблюдатели (watch)</h2>
+
+<ul class="list-point">
+	<li>Полезны для «дорогих» или асинхронных операций, выполняемых в ответ на изменение данных</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Наблюдение за одним свойством</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;input type="text" v-model="messText"&gt;
+</v-code>
+
+<v-code lang="js" title="">
+// при изменении свойства messText, вызывается messText()
+var app = new Vue({
+    el: '#app',
+    data: {
+        messText: null
+    },
+    watch: {
+        messText() {
+            console.log(this.messText);
+        }
+    }
+})
+</v-code>
+</div><div id="options-and-other-created"><h2>Хук created</h2>
+
+<ul class="list-point">
+	<li><u-text-define>created</u-text-define> можно использовать для выполнения кода после создания экземпляра</li>
+	<li>Нельзя использовать стрелочные функции в свойствах экземпляра и в коллбэках</li>
+</ul>
+
+<v-code lang="js" title="">
+new Vue({
+	data: {
+		a: 1
+	},
+	created() {
+		console.log(this.a); // this указывает на экземпляр vm
+	}
+})
+// => "Значение a: 1"
+</v-code></div><div id="options-and-other-transition">
+<h2>Анимация</h2>
+
+<img src="/img/vue/animation1.png" height="230px" class="center">
+
+<v-code lang="html" title="">
+&lt;transition name="fade"&gt;&lt;/transition&gt;
+&lt;transition name="slide-down"&gt;&lt;/transition&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h4>#1 - Плавное появление</h4>
+<v-code lang="css" title="">
+.fade-enter-active, .fade-leave-active {
+	transition: opacity 0.4s;
+}
+.fade-enter, .fade-leave-to {
+	opacity: 0;
+}
+</v-code>
+
+<h4>#2 - Всплытие снизу</h4>
+<v-code lang="css" title="">
+.element {
+	position: fixed;
+    bottom: 25px;
+    left: 25px;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: 1s;
+}
+.fade-enter, .fade-leave-to {
+    transform: translateY(100px);
+}
+</v-code>
+
+<h4>#3 - Keyframes</h4>
+<v-code lang="css" title="">
+.fade-enter-active {
+	animation: fade 0.4s;
+}
+.fade-leave-active {
+	animation: fade 0.4s reverse;
+}
+@keyframes fade {
+	0%   { transform: scale(0); }
+	50%  { transform: scale(1.5); }
+	100% { transform: scale(1); }
+}
+</v-code></div><div id="options-and-other-vue-extend"><h2>Vue.extend(options)</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Vue.extend</u-text-define> - создаёт «подкласс» базового конструктора Vue. Принимает параметром объект с опциями нового компонента. Наследрвание от другого компонента API</li>
+	<li>У объекта, передаваемого в <u-code-text>Vue.extend()</u-code-text>, свойство <u-code-text>data</u-code-text> должно быть функцией</li>
+</ul>
+
+
+<v-code lang="html" title="html">
+&lt;div id="mount-point"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="js">
+// Создание конструктора
+var Profile = Vue.extend({
+	template: '<span v-pre>{{firstName}} {{lastName}}, также известный как {{alias}}</span>',
+	data: function () {
+		return {
+			firstName: 'Уолтер',
+			lastName: 'Уайт',
+			alias: 'Гейзенберг'
+		}
+	}
+})
+// создаёт экземпляр Profile и монтирует его к элементу DOM
+new Profile().$mount('#mount-point')
+</v-code>
+
+<v-code lang="html" title="result">
+&lt;p&gt;Уолтер Уайт, также известный как Гейзенберг&lt;/p&gt;
+</v-code>
+</div><div id="dom-event"><h2>Доступ к оригинальному событию DOM</h2>
+
+<ul class="list-point">
+	<li><u-text-define>$event</u-text-define> - доступ к оригинальному событию DOM, <u-code-text>event</u-code-text> нативное событие DOM</li>
+	<li><u-code-text>event.target</u-code-text> - выбранный элемент</li>
+	<li><u-code-text>this</u-code-text> внутри методов указывает на экземпляр Vue</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;button @click="methodOne"&gt;&lt;/button&gt;
+&lt;button @click="methodTwo(<u-code>$event</u-code>, id)"&gt;&lt;/button&gt;
+</v-code>
+
+<v-code lang="js" title="">
+var app = new Vue({
+	el: '#app',
+	methods: {
+		methodOne(<u-code>event</u-code>) {
+			if (event) {
+				console.log(<u-code>event</u-code>.target.tagName);
+				<u-code>event</u-code>.preventDefault();
+			}
+		},
+		methodTwo(<u-code>event</u-code>, id) {
+			<u-code>event</u-code>.toElement.classList.add('active');
+		}
+	}
+})
+</v-code></div><div id="dom-refs"><h2>Ссылка на DOM элемент</h2>
+
+<ul class="list-point">
+	<li><u-text-define>$refs</u-text-define> создает ссылку на DOM элемент или на экземпляр компонента и делает его доступным</li>
+	<li>Удобно использовать когда нужно написать компонент с API или нужна работа с DOM</li>
+
+    <u-code-text>$refs</u-code-text>
+	<li>глобальный массив</li>
+	<li>не является реактивным</li>
+	<li>заполняются только после того, как компонент был отрисован</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Управление html-элементами</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+    &lt;h2 ref="header"&gt;Hello world!&lt;/h2&gt;
+    &lt;button v-on:click="change"&gt;Change&lt;/button&gt;
+&lt;/div&gt;
+</v-code>
+<v-code lang="js" title="">
+new Vue({
+    el: "#app",
+    methods:{
+        change: function(){
+            this.$refs.header.innerText = "Welcome to Vue.js";
+            // this.$refs.header.focus();
+        }
+    }
+});
+</v-code></div><div id="composition-mixins"><h2>Примеси</h2>
+
+<ul class="link-page-wrapper">
+	<li><a href="#composition-mixins-basic">Основы</a></li>
+	<li><a href="#composition-mixins-merge">Слияние опций</a></li>
+	<li><a href="#composition-mixins-global">Глобальные примеси</a></li>
+	<li><a href="#composition-mixins-user-merge">Пользовательские стратегии слияния опций</a></li>
+</ul>
+
+<ul class="list-point">
+	<li><u-text-define>Примеси (mixins)</u-text-define> - гибкий инструмент повторного использования кода в компонентах Vue. Объект примеси может содержать любые опции компонентов. При использовании компонентом примеси, все опции примеси «подмешиваются» к собственным опциям компонента</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="composition-mixins-basic">Основы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var mixin = {
+    data() {
+        return {
+            mixinData: 'This is Mixin Data'
+        }
+    }
+}
+export default {
+    <u-code>mixins: [mixin]</u-code>,
+    created: function () {
+        console.log(<u-code>this.$data</u-code>); // => { mixinData: "This is Mixin Data" }
+    }
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="composition-mixins-merge">Слияние опций</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Если примесь и компонент содержат пересекающиеся опции, ожидающие значения в форме объектов, такие как <u-code-text>methods</u-code-text>, <u-code-text>components</u-code-text> и <u-code-text>directives</u-code-text> будут объединены. В случае конфликта, приоритет имеют опции компонента</li>
+</ul>
+
+<v-code lang="js" title="">
+var mixin = {
+    data() {
+        return {
+            text: 'This is Mixin Text'
+        }
+    }
+}
+export default {
+    mixins: [mixin],
+    data() {
+        return {
+            text: 'This is Component Text'
+        }
+    },
+    created: function () {
+        console.log(this.$data); // => { text: "This is Component Text" }
+    }
+}
+</v-code>
+
+<ul class="list-point">
+	<li>Функции <u-code-text>хуков</u-code-text> с одинаковыми именами объединяются в массив, чтобы все они вызывались. Хуки примеси будут вызываться <u>перед</u> собственными хуками компонента</li>
+</ul>
+
+<v-code lang="js" title="">
+var mixin = {
+	created: function () {
+		console.log('Вызван хук примеси')
+	}
+}
+export default {
+	mixins: [mixin],
+	created: function () {
+		console.log('Вызван хук компонента')
+	}
+})
+// => "Вызван хук примеси"
+// => "Вызван хук компонента"
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="composition-mixins-global">Глобальные примеси</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Необходимо использовать осторожно. После применения, примесь окажет влияние на все экземпляры Vue, создаваемые в дальнейшем, включая внешние компоненты</li>
+	<li>При правильном использовании это можно использовать для вставки логики обработки пользовательских опций</li>
+	<li>Неплохой идеей будет их оформление в виде <u>плагинов</u>, что позволит избежать дублирования кода</li>
+</ul>
+
+<v-code lang="js" title="">
+// добавляем обработчик для пользовательской опции `myOption`
+Vue.mixin({
+	created: function () {
+		var myOption = this.$options.myOption;
+		if (myOption) {
+			console.log(myOption);
+		}
+	}
+})
+new Vue({
+	myOption: 'hello!'
+})
+// => "hello!"
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="composition-mixins-user-merge">Пользовательские стратегии слияния опций</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>При слиянии пользовательских опций применяется стратегия по умолчанию, которая просто заменяет одни значения другими. Если вы хотите использовать пользовательскую логику при слиянии пользовательских опций, добавьте функцию в <u-code-text>Vue.config.optionMergeStrategies</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+Vue.config.optionMergeStrategies.myOption = function (toVal, fromVal) {
+	// return mergedVal
+}
+</v-code>
+
+<ul class="list-point">
+	<li>Для большей части опций-объектов можно просто использовать стратегию, применяемую по умолчанию для опции <u-code-text>methods</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+var strategies = Vue.config.optionMergeStrategies
+strategies.myOption = strategies.methods
+</v-code>
+
+<ul class="list-point">
+	<li>Более сложным примером может послужить стратегия слияния из Vuex 1.x:</li>
+</ul>
+
+<v-code lang="js" title="">
+const merge = Vue.config.optionMergeStrategies.computed
+Vue.config.optionMergeStrategies.vuex = function (toVal, fromVal) {
+	if (!toVal) return fromVal
+	if (!fromVal) return toVal
+	return {
+		getters: merge(toVal.getters, fromVal.getters),
+		state: merge(toVal.state, fromVal.state),
+		actions: merge(toVal.actions, fromVal.actions)
+	}
+}
+</v-code></div><div id="composition-user-directives"><h2>Пользовательские директивы</h2>
+
+<ul class="link-page-wrapper">
+	<li><a href="#composition-user-directives-focus">Пример реализации фокуса</a></li>
+	<li><a href="#composition-user-directives-hooks">Хуки жизненного цикла директивы</a></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="composition-user-directives-focus">Пример реализации фокуса</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>В качестве примера реализуем фокус на элементе <u-code-text>input</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+// Регистрируем глобальную пользовательскую директиву `v-focus`
+Vue.directive('focus', {
+	// Когда привязанный элемент вставлен в DOM...
+	inserted: function (el) {
+		// Переключаем фокус на элемент
+		el.focus()
+	}
+})
+</v-code>
+
+<ul class="list-point">
+	<li>Чтобы зарегистрировать директиву локально, можно передать опцию <u-code-text>directives</u-code-text> при определении компонента</li>
+</ul>
+
+<v-code lang="js" title="">
+directives: {
+	focus: {
+		// определение директивы
+		inserted: function (el) {
+			el.focus()
+		}
+	}
+}
+</v-code>
+
+<ul class="list-point">
+	<li>Теперь в шаблонах можно использовать новый атрибут <u-code-text>v-focus</u-code-text></li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;input v-focus&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="composition-user-directives-hooks">Хуки жизненного цикла директивы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-code-list>bind</u-code-list> вызывается однократно, при первичном связывании директивы с элементом. Здесь можно поместить код инициализации</li>
+	<li><u-code-list>inserted</u-code-list> вызывается после вставки связанного элемента внутрь элемента родителя (сам родитель может на этот момент и не принадлежать ещё основному дереву элементов)</li>
+	<li><u-code-list>update</u-code-list> вызывается после обновления VNode компонента-контейнера, но, возможно, до обновления дочерних элементов. Значение директивы к этому моменту может измениться, а может и нет. Сравнивая текущее и прошлое значения, вы можете избежать избыточных операций</li>
+	<li><u-code-list>componentUpdated</u-code-list> вызывается после обновления как VNode компонента-контейнера, так и VNode его потомков</li>
+	<li><u-code-list>unbind</u-code-list> вызывается однократно, при отвязывании директивы от элемента</li>
+</ul>
+</div><div id="composition-render"><h2>Функция render()</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Render-функции</u-text-define> - более низкоуровневая альтернатива шаблонам</li>
+</ul>
+
+<v-code lang="js" title="">
+new Vue({
+    el: '#app',
+    render: function(h) { 
+        return h(App) 
+    }
+	// render: h => h (App)
+})
+</v-code>
+
+<ul class="list-point">
+	<li><u-code-list>h</u-code-list> является сокращением от hyperscript</li>
+	<li><u-code-list>hyperscript</u-code-list> - скрипт, который генерирует HTML-структуру</li>
+	<li>Про сокращение <u-code-text>h</u-code-text> можно думать как о более краткой форме функции <u-code-text>createElement</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+// vue-версия функции render() принимает три аргумента
+render(h) {
+	return h('div', {}, [...])
+}
+// 1 - тип элемента
+// 2 - объект данных (свойства, атрибуты, классы, стили)
+// 3 - массив дочерних Node-узлов (можно размещать вложенные вызовы функции createElement и вернуть обратно дерево виртуальных DOM-узлов)
+</v-code></div><div id="composition-plugins"><h2>Плагины</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Плагины</u-text-define> позволяют добавить во Vue некоторую глобальную функциональность. Область применения плагинов явно не определена</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Типы плагинов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+	<li>Добавляют глобальные методы и/или свойства, например <u>vue-custom-element</u></li>
+	<li>Добавляют глобальные объекты: директивы/фильтры/переходы и т.д., например <u>vue-touch</u></li>
+	<li>Добавляют опции компонентам через глобальную примесь, например <u>vue-router</u></li>
+	<li>Добавляют методы экземпляра <u-code-text>Vue</u-code-text> через <u-code-text>Vue.prototype</u-code-text></li>
+	<li>Библиотеки, предоставляющие собственные API и комбинирующие вышеперечисленные возможности, например <u>vue-router</u></li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование плагинов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li>Для использования плагина необходимо вызвать глобальный метод <u-code-text>Vue.use()</u-code-text>. Его нужно вызывать перед new <u-code-text>Vue()</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+// вызывает `MyPlugin.install(Vue)`
+Vue.use(MyPlugin)
+
+new Vue({
+	//... настройки
+})
+</v-code>
+
+<ul class="list-point">
+	<li>Можно передавать дополнительные параметры в плагин</li>
+</ul>
+
+<v-code lang="js" title="">
+Vue.use(MyPlugin, { someOption: true })
+</v-code>
+
+<ul class="list-point">
+	<li><u-code-text>Vue.use</u-code-text> автоматически предотвращает многократную регистрацию плагина. Несколько вызовов <u-code-text>Vue.use</u-code-text> для одного плагина установит его лишь один раз</li>
+	<li>Некоторые официальные плагины <u-code-text>Vue.js</u-code-text>, такие как <u>vue-router</u>, автоматически вызывают <u-code-text>Vue.use()</u-code-text>, если обнаружат глобальную переменную <u-code-text>Vue</u-code-text>. Однако при использовании инструментов модульного окружения, например <u>CommonJS</u>, необходимо всегда вызывать <u-code-text>Vue.use()</u-code-text> явно</li>
+</ul>
+
+<v-code lang="js" title="">
+// При использовании CommonJS посредством Browserify или Webpack
+var Vue = require('vue')
+var VueRouter = require('vue-router')
+
+// Не забудьте этот вызов!
+Vue.use(VueRouter)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Создание плагина</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Плагин <u-code-text>Vue.js</u-code-text> должен содержать метод <u-code-text>install</u-code-text>. Этот метод будет вызываться с конструктором <u-code-text>Vue</u-code-text> в качестве первого аргумента, и с дополнительными опциями плагина в качестве второго (если передавались)</li>
+</ul>
+
+<v-code lang="js" title="">
+MyPlugin.install = function (Vue, options) {
+	// 1. добавление глобального метода или свойства
+	Vue.myGlobalMethod = function () {
+		// некоторая логика ...
+	}
+
+	// 2. добавление глобального объекта
+	Vue.directive('my-directive', {
+		bind (el, binding, vnode, oldVnode) {
+			// некоторая логика ...
+		}
+		...
+	})
+
+	// 3. добавление опций компонентов
+	Vue.mixin({
+		created: function () {
+			// некоторая логика ...
+		}
+		...
+	})
+
+	// 4. добавление метода экземпляра
+	Vue.prototype.$myMethod = function (methodOptions) {
+		// некоторая логика ...
+	}
+}
+</v-code>
+</div><div id="composition-filters"><h2>Фильтры</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Фильтры</u-text-define> применяются для распространённых задач форматирования текста</li>
+	<li>Находят своё применение в двух местах: в <u>mustache-интерполяциях</u> и в <u>выражениях v-bind</u></li>
+	<li>Фильтры добавляются в конце выражения JavaScript и отделяются вертикальной чертой</li>
+</ul>
+
+<v-code lang="html" title="">
+<span v-pre>{{ message | capitalize }}</span>                 &lt;!-- mustache --&gt;
+&lt;div v-bind:id="rawId | formatId"&gt;&lt;/div&gt;   &lt;!-- v-bind --&gt;
+<span v-pre>{{ message | filterA | filterB }}</span>          &lt;!-- цепочки фильтров --&gt;
+<span v-pre>{{ message | filterA('arg1', arg2) }}</span>      &lt;!-- параметры --&gt;
+</v-code>
+
+<ul class="list-point">
+	<li>Функция фильтра всегда принимает значение выражения (результат предыдущей цепочки) в качестве первого аргумента. В этом примере функция фильтра <u-code-text>capitalize</u-code-text> получит значение <u-code-text>message</u-code-text> в качестве аргумента</li>
+	<li>В этом случае <u-code-text>filterA</u-code-text>, определённый с одним аргументом, получит значение message, а затем функция <u-code-text>filterB</u-code-text> будет вызвана с результатом <u-code-text>filterA</u-code-text>, переданным единственным аргументом в <u-code-text>filterB</u-code-text></li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+	<li>Фильтры являются JavaScript-функциями, и потому могут принимать параметры</li>
+	<v-code lang="html" title="">
+<span v-pre>{{ message | filterA('arg1', arg2) }}</span>
+</v-code>
+	<li><u-code-text>filterA</u-code-text> определяется как функция с тремя аргументами. Значение <u-code-text>message</u-code-text> будет передано первым аргументом. Простая строка <u-code-text>'arg1'</u-code-text> будет передана в <u-code-text>filterA</u-code-text> вторым аргументом, а значение выражения <u-code-text>arg2</u-code-text> - третьим</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+	&lt;p&gt;<span v-pre>{{ message | lowercase }}</span>&lt;/p&gt;
+	&lt;p&gt;<span v-pre>{{ message | uppercase }}</span>&lt;/p&gt;
+	&lt;p&gt;<span v-pre>{{ message | filter1 | filter2 }}</span>&lt;/p&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+// глобальный фильтр
+Vue.filter('uppercase', function(value){
+	return value.toUpperCase()
+});
+
+var app = new Vue({
+	el: '#app', 
+	data: {
+		message: 'Hello'
+	},
+	// локальный фильтр
+	filters: {
+		lowercase(value) {
+			return value.toLowerCase()
+		}
+	}
+});
+</v-code>
+
+<ul class="list-point">
+	<li>Обращение к объекту <u-code-text>data</u-code-text> и вывод его в формат <u-code-text>json</u-code-text> и спользуя стандартный фильтр <u-code-text>json</u-code-text></li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;pre&gt;<span v-pre>{{ $data | json }}</span>&lt;/pre&gt;
+</v-code></div><div id="vuex-info"><h2>Описание</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Vuex</u-text-define> - паттерн управления состоянием + библиотека для приложений на Vue.js. Он служит централизованным хранилищем данных для всех компонентов приложения с правилами, гарантирующими, что состояние может быть изменено только предсказуемым образом</li>
+	<li>Vuex интегрируется с официальным расширением <u>vue-devtools</u>, предоставляя «из коробки» такие продвинутые возможности, как «машину времени» для отладки и экспорт/импорт слепков состояния данных</li>
+
+	<li>Идея: вынести всё общее состояние приложения из компонентов и управлять им в глобальном синглтоне. При этом наше дерево компонентов становится одним большим «представлением» и любой компонент может получить доступ к состоянию приложения или вызывать действия для изменения состояния, независимо от того, где они находятся в дереве</li>
+
+	<li>Постоено на основе <u>Flux</u></li>
+</ul>
+
+<img src="/img/vue/vuex1.png" width="700px" class="center">
+</div><div id="vuex-src"><h2>Подключение</h2>
+
+<!------------------------------------------------------------->
+<h4>Подключение через &lt;script&gt;</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.22/vue.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.1.0/vuex.min.js"&gt;&lt;/script&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Подключение через NPM</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import Vue from 'vue'
+import Vuex from 'vuex'
+Vue.use(Vuex)
+</v-code>
+</div><div id="vuex-store"><h2>Хранилище (store)</h2>
+
+<v-code lang="js" title="">
+const store = <u-code>new Vuex.Store</u-code>({
+    state:     { ... },  // хранилище
+    getters:   { ... },  // геттеры
+    mutations: { ... },  // мутации 
+    actions:   { ... }    // действия
+})
+</v-code>
+
+<ul class="list-point">
+    <li><u-text-define>Хранилище</u-text-define> - контейнер, в котором хранится состояние вашего приложения</li>
+</ul>
+
+<ol class="list-num">
+    <b>Отличие от простого глобального объекта</b>
+    <li>Хранилище Vuex реактивно. Когда компоненты Vue полагаются на его состояние, то они будут реактивно и эффективно обновляться, если состояние хранилища изменяется</li>
+    <li>Нельзя напрямую изменять состояние хранилища. Единственный способ внести изменения - явно вызвать мутацию. Это гарантирует, что любое изменение состояния оставляет след и позволяет использовать инструментарий, чтобы лучше понимать ход работы приложения. Причина, по которой мы вызываем мутацию, вместо изменения state напрямую, в том, что мы хотим явным образом отслеживать её</li>
+</ol></div><div id="vuex-state"><h2>Состояние (state)</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>state</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const store = new Vuex.Store({
+    <u-code>state</u-code>: {
+        count: 0,
+        name: null
+    },
+    mutations: {
+        changeStore(state, payload) {
+            state.count = payload.count;
+            state.name = payload.name;
+        }
+    }
+})
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>HTML</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+	<span v-pre>{{count}} {{name}}</span>
+	&lt;button @click="change"&gt;Изменить состояние&lt;/button&gt;
+	&lt;component-child&gt;&lt;/component-child&gt;
+&lt;/div&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Дочерний компонент</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const ComponentChild = {
+    template: `<span v-pre>&lt;div&gt;{{ count }}&lt;/div&gt;</span>`,
+    computed: {
+        count() {
+            return <u-code>this.$store.state.count</u-code>; // получение доступа к объекту состояния из дочернего элемента
+        }
+    }
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Родительский компонент</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+var app = new Vue({
+	el: '#app',
+    // указание хранилища в опции «store» обеспечивает
+    // доступ к нему также и во всех дочерних компонентах через this.$store
+	<u-code>store</u-code>,
+	components: { 
+        'component-child': ComponentChild 
+    },
+	methods: {
+		change() {
+			<u-code>store.commit</u-code>('changeStore', {count:77, name:'Tony'}); // изменение состояния
+		}
+	},
+	computed: {
+		count() { return <u-code>store.state.count</u-code>; }, // получение доступа к объекту состояния
+		name()  { return <u-code>store.state.name</u-code>; }   // получение доступа к объекту состояния
+	}
+});
+</v-code>
+</div><div id="vuex-getters"><h2>Геттеры (getters)</h2>
+
+<!------------------------------------------------------------->
+<h4>Установка геттера в Vuex.Store</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const store = new Vuex.Store({
+    state: {
+        count: 0
+    },
+    <u-code>getters</u-code>: {
+        storeCount(state) {
+            return state.count
+        }
+    }
+})
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Чтение геттера</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+&lt;template&gt;
+    &lt;div class="container"&gt;Корзина покупок <span v-pre>{{ <u-code>count</u-code> }}</span>&lt;/div&gt;
+&lt;/template&gt;
+</v-code>
+
+<v-code lang="js" title="">
+&lt;script&gt;
+export default {
+    computed: {
+        <u-code>count()</u-code> {
+            return <u-code>this.$store.getters.storeCount</u-code>
+        }
+    }
+}
+&lt;/script&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Чтение геттера (mapGetters)</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;template&gt;
+    &lt;div class="container"&gt;Корзина покупок <span v-pre>{{ <u-code>storeCount</u-code> }}</span>&lt;/div&gt;
+&lt;/template&gt;
+</v-code>
+
+<v-code lang="js" title="">
+&lt;script&gt;
+import { <u-code>mapGetters</u-code> } from 'vuex'
+
+export default {
+    computed: {
+    	// смешиваем результат mapGetters с внешним объектом computed
+        <u-code>...mapGetters</u-code>([
+            <u-code>'storeCount'</u-code>
+        ])
+    }
+}
+&lt;/script&gt;
+</v-code>
+
+<v-code lang="js" title="">
+// указание другого имени
+export default {
+    computed: {
+        ...mapGetters({
+            count: 'storeCount'
+        })
+    }
+}
+</v-code>
+</div><div id="vuex-mutations"><h2>Мутации (mutations)</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Мутации</u-text-define> являются единственным способом изменения состояния хранилища во Vuex</li>
+	<li>Обработчики мутаций обязаны быть синхронными. Во Vuex мутации — это синхронные транзакции</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Простые мутации</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const store = new Vuex.Store({
+	state: {
+		count: 1
+	},
+	<u-code>mutations</u-code>: {
+		changeStore(state) {
+			state.count++;
+		}
+	}
+});
+</v-code>
+
+<v-code lang="js" title="">
+var app = new Vue({
+	el: '#app',
+	methods: {
+		change() {
+			<u-code>store.commit</u-code>('changeStore');
+		}
+	}
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Мутации с нагрузкой</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+<u-code>mutations</u-code>: {
+    changeStore(state, <u-code>payload</u-code>) {
+        state.count = payload.count;
+        state.name = payload.name;
+    }
+}
+
+methods: {
+	change() {
+		<u-code>store.commit</u-code>('changeStore', {count:77, name:'Tony'}); // изменение состояния
+	}
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объектный синтаксис</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+<u-code>store.commit</u-code>({
+	type: 'changeStore',
+	count: 77
+});
+</v-code>
+
+<v-code lang="js" title="">
+<u-code>mutations</u-code>: {
+	changeStore(state, payload) {
+		state.count = payload.count;
+	}
+}
+</v-code></div><div id="vuex-actions"><h2>Действия (actions)</h2>
+
+<ul class="list-point">
+	<li>Вместо того, чтобы напрямую менять состояние, действия инициируют мутации</li>
+	<li>Действия могут использоваться для асинхронных операций</li>
+	<li>mapActions создает локальные псевдонимы для действий в виде методов компонента</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Диспетчеризация действий</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+export const store = new Vuex.Store({
+    state: {
+        count: 0
+    },
+    mutations: {
+        changeCount(state, payload) {
+            state.count = payload.count;
+        }
+    },
+    <u-code>actions</u-code>: {
+        changeCount(context, payload) {
+            context.commit('changeCount', {count:payload.count});
+        }
+    }
+});
+</v-code>
+
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+	&lt;button @click="changeCount"&gt;ChangeState&lt;/button&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+import {store} from './vuex.js'
+
+export default {
+    methods: {
+        changeCount() {
+            store.dispatch('changeCount', {count: 77});
+        }
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>mapActions</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { mapActions } from 'vuex'
+
+export default {
+    methods: {
+        ...mapActions([
+            'changeCount'
+        ])
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>mapActions с нагрузкой</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+    &lt;button @click="changeCount(77)"&gt;ChangeState&lt;/button&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+store = new Vuex.Store({
+    actions: {
+        changeCount({ commit }, count) {
+            commit('changeCount', {count:count});
+        }
+    }
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вернуть значение из actions</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+store = new Vuex.Store({
+    actions: {
+    	addProductId({ commit }, id) {
+	        commit('addProductId', {count:id});
+	        return true;
+	    }
+    }
+});
+</v-code>
+
+<v-code lang="js" title="">
+export default {
+    methods: {
+		...mapActions([
+			'addProductId'
+		]),
+        chooseProduct(id) {
+            this.addProductId(id).then(response => {
+            	console.log(response);
+            });
+        }
+    }
+}
+</v-code>
+</div><div id="vuex-modules"><h2>Модули (modules)</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Модули</u-text-define> - каждый модуль может содержать собственное состояние, мутации, действия, геттеры и даже встроенные подмодули</li>
+	<li>Из-за использования единого дерева состояния, все глобальные данные приложения оказываются помещены в один большой объект. По мере роста приложения, хранилище может существенно раздуться</li>
+</ul>
+
+<v-code lang="js" title="">
+const moduleA = {
+	state: { ... },
+	mutations: { ... }
+}
+const moduleB = {
+	state: { ... },
+	mutations: { ... }
+}
+const store = new Vuex.Store({
+	<u-code>modules</u-code>: {
+		a: moduleA,
+		b: moduleB
+	}
+})
+store.state.a // -> состояние модуля `moduleA`
+store.state.b // -> состояние модуля `moduleB`
+</v-code>
+</div><div id="vuex-samples"><h2>Примеры</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример #1</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>vuex.js</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+export const store = new Vuex.Store({
+    state: {
+        count: 0
+    },
+    getters: {
+        storeCount(state) {
+            return state.count;
+        }
+    },
+    mutations: {
+        changeCount(state, payload) {
+            state.count = payload.count;
+        }
+    },
+    actions: {
+        changeCount({ commit }, count) {
+            commit('changeCount', {count:count});
+        }
+    }
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>App.vue</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;template&gt;
+    &lt;div id="app"&gt;
+        <span v-pre>{{ storeCount }}</span>
+        &lt;button @click="changeCount(77)"&gt;ChangeState&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</v-code>
+
+<v-code lang="js" title="">
+&lt;script&gt;
+import { mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
+import {store} from './vuex.js'
+
+export default {
+    computed: {
+        ...mapGetters([
+            'storeCount'
+        ])
+    },
+    methods: {
+        ...mapActions([
+            'changeCount'
+        ])
+    }
+}
+&lt;/script&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример #2</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="mapActions">
+addUser(state, payload) {
+    state.users.push(payload)
+}
+methods: {
+    ...mapActions(['updateMessage']),
+    ...mapMutations(['addUser'])
+}
+v-on:click="addUser({id:4, name:'Tony'})"
+</v-code>
+
+<v-code lang="js" title="mutations, commit">
+mutations: {
+    authenticate(state, { token, expiration }) {
+        localStorage.setItem('token', token)
+        localStorage.setItem('expiration', expiration)
+    }
+}
+commit('authenticate', {
+    token,
+    expiration
+})
+</v-code>
+</div><div id="vue-router-info"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Описание</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li><u-text-define>Vue Router</u-text-define> - официальная библиотека маршрутизации для Vue.js</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Возможности</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Вложенные маршруты/представления</li>
+	<li>Модульная конфигурация маршрутизатора</li>
+	<li>Доступ к параметрам маршрута, query, wildcards</li>
+	<li>Анимация переходов представлений на основе Vue.js</li>
+	<li>Удобный контроль навигации</li>
+	<li>Автоматическое проставление активного CSS класса для ссылок</li>
+	<li>Режимы работы HTML5 history или хэш, с авто-переключением в IE9</li>
+	<li>Настраиваемое поведение прокрутки страницы</li>
+</ul>
+
+<ul class="list-point">
+	<li><u-text-define>&lt;router-link&gt;</u-text-define> - компонент для включения навигации пользователя в приложении с поддержкой роутинга</li>
+	<li><u-text-define>&lt;router-view&gt;</u-text-define> - функциональный компонент, который отрисовывает согласованный компонент для данного пути</li>
+	<li>Иногда один и тот же URL может совпасть с несколькими маршрутами. В таких случаях приоритет определяется порядком определения маршрутов: чем раньше определён маршрут, тем выше у него приоритет</li>
+</ul>
+</div><div id="vue-router-src-script"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Подключение через &lt;script&gt;</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="html" title="">
+&lt;script src="https://unpkg.com/vue/dist/vue.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/vue-router/dist/vue-router.js"&gt;&lt;/script&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>index.html</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+	&lt;router-link to="/home"&gt;Home&lt;/router-link&gt;
+	&lt;router-link to="/about"&gt;About&lt;/router-link&gt;
+	&lt;router-view&gt;&lt;/router-view&gt;
+&lt;/div&gt;
+&lt;script src="index.js"&gt;&lt;/script&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>index.js</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const Home = { template: '&lt;div&gt;Home&lt;/div&gt;' }
+const About = { template: '&lt;div&gt;About&lt;/div&gt;' }
+
+const routes = [
+	{ path: '/home', component: Home },
+	{ path: '/about', component: About }
+]
+
+const router = new VueRouter({
+	routes
+})
+
+const app = new Vue({
+	router
+}).$mount('#app')
+</v-code>
+</div><div id="vue-router-src-npm"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Подключение через NPM</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="bash" title="">
+npm i --save-dev vue-router 
+</v-code>
+
+<v-code lang="bash" title="">
+&#10006; public
+	&#8226; index.html
+&#10006; src
+	&#8226; App.vue
+	&#8226; main.js
+&#8226; package.json
+&#8226; vue.config.js
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>vue.config.js</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+module.exports = {
+    runtimeCompiler: true
+};
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>main.js</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import App from './App.vue'
+
+Vue.use(VueRouter)
+
+const Foo = { template: '&lt;div&gt;foo1&lt;/div&gt;' }
+const Bar = { template: '&lt;div&gt;bar2&lt;/div&gt;' }
+
+const routes = [
+    { path: '/foo', component: Foo },
+    { path: '/bar', component: Bar }
+]
+
+const router = new VueRouter({
+    mode: 'history',
+    routes 
+})
+
+new Vue({
+    el: '#app',
+    render: h => h(App),
+    router
+})
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>App.vue</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;template&gt;
+    &lt;div id="app"&gt;
+        &lt;router-link to="/foo"&gt;Перейти к Foo&lt;/router-link&gt;
+        &lt;router-link to="/bar"&gt;Перейти к Bar&lt;/router-link&gt;
+        &lt;router-view&gt;&lt;/router-view&gt;
+    &lt;/div&gt;
+&lt;/template&gt;
+</v-code>
+</div><div id="vue-router-server-configuration"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Конфигурование сервера</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<u-link-wrapper>
+	<a href="https://router.vuejs.org/ru/guide/essentials/history-mode.html#примеры-конфигурирования-серверов" target="_blank">Примеры конфигурирования серверов</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Apache (.htaccess)</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+&lt;IfModule mod_rewrite.c&gt;
+	RewriteEngine On
+	RewriteBase /
+	RewriteRule ^index\.html$ - [L]
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule . /index.html [L]
+&lt;/IfModule&gt;
+</v-code>
+</div><div id="vue-router-path-static"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Статический путь</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Ссылка</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;router-link to="/contact"&gt;Контакты&lt;/router-link&gt;
+</v-code>
+
+<v-code lang="js" title="">
+const routes = [
+    { path: '/contact', component: Contact }
+]
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Именованный маршрут</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;router-link :to="{name: 'contact'}"&gt;Контакты&lt;/router-link&gt;
+</v-code>
+
+<v-code lang="js" title="">
+const routes = [
+    { path: '/contact', component: Contact, name: 'contact' }
+]
+</v-code>
+</div><div id="vue-router-path-dynamic"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Динамический путь</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="html" title="">
+&lt;router-link :to="'/catalog/'+i"&gt;Подробнее&lt;/router-link&gt;                      &lt;!-- неименованный путь --&gt;
+&lt;router-link :to="{name: 'product', params: {id: i}}"&gt;Подробнее&lt;/router-link&gt; &lt;!-- именованный путь --&gt;
+</v-code>
+<v-code lang="js" title="">
+const routes = [
+    { path: '/catalog/:id', component: Product }                  // неименованный путь
+    { path: '/catalog/:id', component: Product, name: 'product' } // именованный путь
+]
+</v-code>
+
+<v-code lang="html" title="">
+&lt;template&gt;
+	&lt;span&gt;<span v-pre>{{ $route.params.id }}</span>&lt;/span&gt;
+&lt;/template&gt;
+</v-code>
+
+<v-code lang="js" title="">
+export default {
+    created() {
+        console.log(this.$route.params.id);
+    }
+}
+</v-code></div><div id="vue-router-path-comparison"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сопоставление путей</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+path: '/contact'     // contact page
+path: '/'            // index page
+path: '*'            // сопоставляется со всем
+path: '/user-*'      // сопоставляется со всем, начинающимся с '/user-'
+path: '/catalog/:id' // динамический путь
+</v-code>
+</div><div id="vue-router-navigation"><h2>Программная навигация</h2>
+
+<ul class="list-point">
+	<li><u-code-text>router.<u-code>push</u-code>(location, onComplete?, onAbort?)</u-code-text> (аналог: <u-code-text>window.history.pushState</u-code-text>) - для перехода к новому URL. Метод добавляет новую запись в историю навигации, что позволяет клику пользователя по кнопке "назад" в браузере сработать привычным образом. В качестве аргумента можно передать строку или объект, описывающий маршрут</li>
+	<li><u-code-text>router.<u-code>replace</u-code>(location, onComplete?, onAbort?)</u-code-text> (аналог: <u-code-text>window.history.replaceState</u-code-text>) - действует как router.push, с той лишь разницей, что переход осуществляется без добавления новой записи в историю навигации, а заменяет текущую запись в нём</li>
+	<li><u-code-text>router.<u-code>go</u-code>(n)</u-code-text> (аналог: <u-code-text>window.history.go</u-code-text>) - метод принимает параметром целое число, которое указывает на сколько шагов необходимо перейти по истории навигации</li>
+</ul>
+
+<ul class="list-point">
+	<li>Внутри экземпляра Vue у вас есть доступ к экземпляру маршрутизатора через <u-code-text>$router</u-code-text>. Поэтому можно вызвать <u-code-text>this.$router.push</u-code-text></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>push</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+&lt;router-link :to="..."&gt;	# декларативная запись
+router.push(...)        # программная запись
+</v-code>
+
+<v-code lang="js" title="">
+// строка
+router.push('home')
+
+// объект
+router.push({ path: 'home' })
+
+// именованный маршрут
+router.push({ name: 'user', params: { userId: '123' } })
+
+// со строкой запроса, получится /register?plan=private
+router.push({ path: 'register', query: { plan: 'private' } })
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>replace</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+&lt;router-link :to="..." replace&gt; # декларативная запись
+router.replace(...)             # программная запись
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>go</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// перейти на одну запись вперёд, эквивалентно history.forward()
+router.go(1)
+
+// перейти на одну запись назад, эквивалентно history.back()
+router.go(-1)
+
+// перейти на 3 записи вперёд
+router.go(3)
+
+// если записей в истории недостаточно много, переход просто не произойдёт
+router.go(-100)
+router.go(100)
+</v-code>
+</div><div id="vue-router-passing-props"><h2>Передача входных параметров в компоненты маршрута</h2>
+
+<ul class="list-point">
+	<li>Использование <u-code-text>$route</u-code-text> в компоненте создаёт жёсткую связь с маршрутом, что ограничивает гибкость компонента, потому что он может быть использован только для определённых URL-адресов</li>
+	<li>Для разделения компонента от маршрутизатора можно использовать входные параметры (<u-code-text>props</u-code-text>)</li>
+	<li>Это позволяет использовать компонент в любом месте, а также облегчает его повторное использование и тестирование</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Жесткая связь с $route</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const User = {
+	template: 'Пользователь <span v-pre>{{ <u-code>$route.params.id</u-code> }}</span>'
+}
+const router = new VueRouter({
+	routes: [
+		{ path: '/user/:<u-code>id</u-code>', component: User }
+	]
+})
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Разделение с помощью входных параметров</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const User = {
+	<u-code>props</u-code>: ['id'],
+	template: 'Пользователь <span v-pre>{{ <u-code>id</u-code> }}</span>'
+}
+const router = new VueRouter({
+	routes: [
+		{ path: '/user/:<u-code>id</u-code>', component: User, <u-code>props</u-code>: true },
+	]
+})
+</v-code></div><div id="vue-router-navigation-guards"><h2>Навигационные хуки</h2>
+
+<ul class="list-point">
+	<li>Навигационные хуки vue-router используются для перенаправлений или отмены навигационных переходов. Есть несколько способов внедрить навигационный хук: глобально, для конкретного маршрута, или для конкретного компонента</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Глобальные хуки (до навигационных хуков)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Глобальные навигационные хуки вызываются в порядке их создания при каждом навигационном переходе</li>
+</ul>
+
+<ul class="list-point">
+	<b>В каждый навигационный хук передаётся три параметра</b>
+	<li><u-code-text>to: Route</u-code-text>: целевой объект Route, к которому осуществляется переход</li>
+	<li><u-code-text>from: Route</u-code-text>: текущий маршрут, с которого осуществляется переход к новому</li>
+	<li><u-code-text>next: Function</u-code-text>: функция, вызов которой разрешает хук. В зависимости от переданных в next аргументов, результатом будет:</li>
+
+	<ul class="list-point">
+		<li><u-code-text>next()</u-code-text>: переход к следующему хуку в цепочке. Если хуков больше нет, переход считается подтверждённым</li>
+		<li><u-code-text>next(false)</u-code-text>: отмена перехода. Если URL был изменён (вручную пользователем, или кнопкой "назад"), он будет сброшен на соответствующий маршрут from</li>
+		<li><u-code-text>next('/')</u-code-text> или <u-code-text>next({ path: '/' })</u-code-text>: перенаправление на другой маршрут. Текущий переход будет отменён, и процесс начнётся заново для нового маршрута. Вы можете передать любой объект местоположения в next, который позволяет вам указывать опции такие как replace: true, name: 'home' и любой другой параметр используемый во входном параметре to компонента router-link или router.push</li>
+		<li><u-code-text>next(error)</u-code-text>: если аргумент, переданный next является экземпляром Error, навигация будет прервана и ошибка будет передана в коллбэк, зарегистрированный через router.onError()</li>
+	</ul>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Регистрация: beforeEach</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// регистрация глобального хука
+const router = new VueRouter({ ... })
+router.<u-code>beforeEach</u-code>((to, from, next) => {
+	// ...
+})
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Разрешения перехода: beforeResolve</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+router.<u-code>beforeResolve</u-code>() => {
+	// ...
+}
+// похож на router.beforeEach, с той разницей, что разрешающий хук будет вызван 
+// непосредственно перед подтверждением навигации, 
+// после того, как будут разрешены все хуки компонента и асинхронные компоненты для маршрута
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Завершения перехода: afterEach</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+router.<u-code>afterEach</u-code>((to, from) => {
+	// ...
+})
+// в отличие от сторожевых хуков, в них не передаётся функция next, 
+// и на навигацию они повлиять не могут
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Для конкретных маршрутов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const router = new VueRouter({
+	routes: [
+		{
+			path: '/foo',
+			component: Foo,
+			<u-code>beforeEnter</u-code>: (to, from, next) => {
+				// ...
+			}
+		}
+	]
+})
+// можно указать напрямую для конкретного маршрута в его конфигурации
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Для конкретных компонентов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const Foo = {
+	template: `...`,
+	<u-code>beforeRouteEnter</u-code>(to, from, next) {
+		// вызывается до подтверждения пути, соответствующего этому компоненту.
+		// НЕ ИМЕЕТ доступа к контексту экземпляра компонента `this`,
+		// так как к моменту вызова экземпляр ещё не создан!
+	},
+	<u-code>beforeRouteUpdate</u-code>(to, from, next) {
+		// вызывается когда маршрут, что рендерит этот компонент изменился,
+		// но этот компонент будет повторно использован в новом маршруте.
+		// Например, для маршрута с динамическими параметрами `/foo/:id`, когда мы
+		// перемещаемся между `/foo/1` и `/foo/2`, экземпляр того же компонента `Foo`
+		// будет использован повторно, и этот хук будет вызван когда это случится.
+		// Также имеется доступ в `this` к экземпляру компонента.
+	},
+	<u-code>beforeRouteLeave</u-code>(to, from, next) {
+		// вызывается перед переходом от пути, соответствующего текущему компоненту;
+		// имеет доступ к контексту экземпляра компонента `this`.
+	}
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Полная цепочка обработки навигации</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+ <ol class="list-num">
+ 	<li>Срабатывание навигации</li>
+ 	<li>Вызов leave-хуков в деактивируемых компонентах</li>
+ 	<li>Вызов глобальных <u-code-text>beforeEach</u-code-text> хуков</li>
+ 	<li>Вызов <u-code-text>beforeRouteUpdate</u-code-text> хука в переиспользуемых компонентах</li>
+ 	<li>Вызов <u-code-text>beforeEnter</u-code-text> в конфигурации маршрута</li>
+ 	<li>Разрешение асинхронных компонентов для маршрута</li>
+ 	<li>Вызов <u-code-text>beforeRouteEnter</u-code-text> в активируемых компонентах</li>
+ 	<li>Вызов глобальных <u-code-text>beforeResolve</u-code-text> хуков</li>
+ 	<li>Навигация подтверждена</li>
+ 	<li>Вызов глобальных <u-code-text>afterEach</u-code-text> хуков</li>
+ 	<li>Выполняется обновление DOM</li>
+ 	<li>Вызов коллбэков, переданных в <u-code-text>next</u-code-text> в <u-code-text>beforeRouteEnter</u-code-text> хуке с созданными экземплярами</li>
+ </ol>
+</div><div id="vue-router-scroll-behavior"><h2>Поведение прокрутки страницы</h2>
+
+<ul class="list-point">
+	<li>При переходе между страницами в рамках клиентской маршрутизации, можно сохранять позицию прокрутки для каждой записи в истории (что обычно делают браузеры при работе с традиционными приложениями), или же прокручивать страницу наверх. vue-router позволяет использовать оба варианта, и даже более того - позволяет полностью настроить поведение прокрутки при навигации</li>
+</ul>
+
+<v-code lang="js" title="">
+// при создании экземпляра маршрутизатора, вы можете указать функцию scrollBehavior
+const router = new VueRouter({
+	routes: [...],
+	<u-code>scrollBehavior</u-code>(to, from, savedPosition) {
+		// возвращаем требуемую позицию прокрутки
+	}
+})
+</v-code>
+
+<ul class="list-point">
+	<li>Функция <u-code-text>scrollBehavior</u-code-text> получает объекты маршрутов <u-code-text>to</u-code-text> и <u-code-text>from</u-code-text>. В третьем параметре, <u-code-text>savedPosition</u-code-text>, передаётся сохранённая в истории браузера позиция прокрутки (только в случае popstate-перехода, вызванного нажатием кнопок вперёд/назад в браузере)</li>
+
+	<li>Функция возвращает объект позиции прокрутки. Он может иметь одну из двух форм</li>
+	<ul class="list-point">
+		<li><u-code-text>{ x: number, y: number }</u-code-text></li>
+		<li><u-code-text>{ selector: string, offset? : { x: number, y: number }}</u-code-text></li>
+	</ul>
+	<li>Если возвращается пустой объект или значение, приводимое к ложному, прокрутки не будет</li>
+</ul>
+
+<v-code lang="js" title="">
+// заставим браузер прокручивать к началу каждой открытой страницы
+scrollBehavior(to, from, savedPosition) {
+	return { x: 0, y: 0 }
+}
+</v-code>
+
+<v-code lang="js" title="">
+// возврат savedPosition позволяет эмулировать нативное поведение браузера при использовании кнопок назад/вперёд
+scrollBehavior(to, from, savedPosition) {
+	if (savedPosition) {
+		return savedPosition
+	} else {
+		return { x: 0, y: 0 }
+	}
+}
+</v-code>
+
+<v-code lang="js" title="">
+// эмуляция поведение "прокрутки к якорю"
+scrollBehavior(to, from, savedPosition) {
+	if (to.hash) {
+		return {
+			selector: to.hash
+			// , offset: { x: 0, y: 10 }
+		}
+	}
+}
+</v-code>
+</div><div id="vue-router-lazy-loading"><h2>Ленивая загрузка маршрутов</h2>
+
+<ul class="list-point">
+	<li>При использовании модульной системы, итоговая JavaScript-сборка может оказаться довольно большой, что негативно отразится на времени загрузки страницы. В некоторых случаях было бы эффективнее разделить компоненты каждого маршрута на отдельные фрагменты, и подгружать их только при переходе к соответствующему маршруту</li>
+</ul>
+
+<v-code lang="js" title="">
+// асинхронный компонент можно определить как функцию-фабрику, которая возвращает Promise (который должен разрешиться самим компонентом)
+const Foo = () => Promise.resolve({ /* определение компонента */ })
+
+// с Webpack 2 мы можем использовать синтаксис динамических импортов для указания точек разделения кода
+import('./Foo.vue') // возвращает Promise
+
+// Webpack автоматически выделит в отдельный фрагмент
+const Foo = () => import('./Foo.vue')
+
+// в конфигурации маршрута ничего менять не нужно, можно использовать Foo как обычно
+const router = new VueRouter({
+	routes: [
+		{ path: '/foo', component: Foo }
+	]
+})
+</v-code>
+</div><div id="vue-router-active-link"><h2>Стилизация активной ссылки</h2>
+
+<ul class="list-point">
+	<li>при совпадении маршрута <u-code-text>&lt;router-link&gt;</u-code-text> автоматически получает класс <u-code-text>&lt;router-link&gt;</u-code-text> представляет собой ссылку <u-code-text>&lt;a&gt;</u-code-text></li>
+</ul>
+
+<v-code lang="css" title="">
+.router-link-active {
+	/* */
+}
+</v-code>
+</div><div id="vue-cli-info"><h2>Описание</h2>
+
+<ul class="list-point">
+	<li><u-text-define>scoped</u-text-define> - применение css стилей только для текущего компонента</li>
+	<li><u-text-define>template</u-text-define> - должен содержать только 1 родительский элемент</li>
+	<li>Файл index.html содержит простую разметку HTML с единственным элементом "app" в body. Он будет заменён на DOM, сгенерированный vue. По этой причине тэг body не рекомендуется использовать в качестве корневого элемента</li>
+</ul></div><div id="vue-cli-components-system"><h2>Компоненты системы</h2>
+
+<ul class="list-point">
+	<li><u-text-define>1. CLI (@vue/cli)</u-text-define> - npm-пакет, устанавливаемый глобально и предоставляющий команду <u-code-text>vue</u-code-text> в терминале. Он позволяет быстро создать новый проект командой <u-code-text>vue create</u-code-text>, или мгновенно прототипировать ваши новые идеи через <u-code-text>vue serve</u-code-text>. Также можно управлять проектами в графическом интерфейсе через <u-code-text>vue ui</u-code-text></li>
+	<li><u-text-define>2. Сервис CLI (@vue/cli-service)</u-text-define> - зависимость для разработки. Это npm-пакет, устанавливаемый локально в каждый проект, создаваемый с помощью <u-code-text>@vue/cli</u-code-text>. Сервис CLI построен на основе <u-code-text>webpack</u-code-text> и <u-code-text>webpack-dev-server</u-code-text></li>
+	<li><u-text-define>3. Плагины для CLI</u-text-define> - npm-пакеты, которые предоставляют дополнительные возможности для ваших проектов, создаваемых через Vue CLI</li>
+
+	<hr>
+
+	<li><u-text-define>Пресет</u-text-define> - это связка плагинов и конфигураций</li>
+</ul>
+</div><div id="vue-cli-npm-command"><!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2>Bash Command</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+npm install -g @vue/cli                 # cli
+npm install -g @vue/cli-service-global  # быстрый прототип приложения не создавая инфраструктуры, все зависимости берутся из глобальных
+</v-code>
+
+<v-code lang="bash" title="">
+npm install     # install dependencies
+npm run dev     # serve with hot reload at localhost:8080
+npm run serve   # serve with hot-reload
+npm run build   # build for production with minification (создает папку dist с готовым js)
+</v-code>
+
+<v-code lang="bash" title="">
+node --version  # версия nodejs
+vue --version   # версия Vue CLI
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h2>Vue Command</h2>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4><u-text-header>vue serve</u-text-header></h4>
+<!------------------------------------------------------------->
+<p>Запустить .js или .vue файл в режиме разработки без конфигурации</p>
+<v-code lang="bash" title="">
+<u-code>serve</u-code> [options] [entry]
+	-o, --open             # открыть в браузере
+	-c, --copy             # скопировать локальный URL в буфер обмена
+	-h, --help             # вывести информацию об использовании команды
+</v-code>
+
+<v-code lang="bash" title="">
+vue serve                  # aвтоматически выбирает стартовый файл в текущем каталоге — этот файл может быть одним из main.js, index.js, App.vue или app.vue
+vue serve MyComponent.vue  # явное указание стартового файла
+</v-code>
+
+<!------------------------------------------------------------->
+<h4><u-text-header>vue build</u-text-header></h4>
+<!------------------------------------------------------------->
+<p>Собрать .js или .vue файл в режиме production без конфигурации</p>
+<v-code lang="bash" title="">
+<u-code>build</u-code> [options] [entry]
+	-t, --target &lt;target&gt;  # цели сборки (app | lib | wc | wc-async, по умолчанию: app)
+	-n, --name &lt;name&gt;      # имя для библиотеки или веб-компонента (по умолчанию: имя файла входной точки)
+	-d, --dest &lt;dir&gt;       # каталог расположения готовой сборки (по умолчанию: dist)
+	-h, --help             # вывести информацию об использовании команды
+</v-code>
+
+<v-code lang="bash" title="">
+vue build MyComponent.vue  # собрать целевой файл в режиме production для публикации
+</v-code>
+
+<!------------------------------------------------------------->
+<h4><u-text-header>vue create</u-text-header></h4>
+<!------------------------------------------------------------->
+<p>Создание нового проекта с помощью vue-cli-service</p>
+<v-code lang="bash" title="">
+<u-code>create</u-code> [options] &lt;app-name&gt;
+	-p, --preset &lt;presetName&gt;       # пропустить подсказки и использовать сохранённый или сторонний пресет настроек
+	-d, --default                   # пропустить подсказки и использовать пресет настроек по умолчанию
+	-i, --inlinePreset &lt;json&gt;       # пропустить подсказки и использовать вставленную строку JSON в качестве пресета настроек
+	-m, --packageManager &lt;command&gt;  # использовать указанный npm клиент при установке зависимостей
+	-r, --registry &lt;url&gt;            # использовать указанный npm регистр при установке зависимостей
+	-g, --git [message|false]       # форсировать / пропустить инициализацию git, опционально указать сообщение к первому коммиту
+	-n, --no-git                    # пропустить инициализацию git
+	-f, --force                     # перезаписать целевой каталог, если такой уже есть
+	-c, --clone                     # использовать git clone при загрузке стороннего пресета настроек
+	-x, --proxy                     # использовать указанный прокси при создании проекта
+	-b, --bare                      # развернуть проект не показывая инструкции для новичков
+	-h, --help                      # вывод информации об использовании команды
+</v-code>
+
+<v-code lang="bash" title="">
+vue create hello-world
+</v-code>
+
+<!------------------------------------------------------------->
+<h4><u-text-header>vue ui</u-text-header></h4>
+<!------------------------------------------------------------->
+<p>Графический интерфейс</p>
+<v-code lang="bash" title="">
+vue ui
+</v-code>
+
+<!------------------------------------------------------------->
+<h4><u-text-header>vue add</u-text-header></h4>
+<!------------------------------------------------------------->
+<p>Добавление новых плагинов</p>
+<v-code lang="bash" title="">
+vue add vuex
+</v-code></div><div id="vue-cli-import_export"><h2>Импорт и экспорт</h2>
+
+<!------------------------------------------------------------->
+<h4>Переменная</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+export var a = 10                                  // App.vue
+import {a} from './App.vue'                        // main.js
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Функция</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+export function greet() {
+	console.log('Hello');
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Компонент</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+export default {}                                  // Header.vue
+import Header from './components/Header.vue'       // App.vue
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>JSON</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import listJSON from '../assets/json/catalog.json' // json
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Варианты</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+export {multiply, divide};                         // экспорт нескольких элементов
+import { sum, multiply } from './utils.js'         // импорт нескольких избранных элементов
+import * as utils from './utils.js'                // импорт всего, что экспортирует модуль
+export {sum as add, multiply}                      // псевдоними для экспортируемых сущностей
+import { add, multiply as mult } from './utils.js' // псевдоними для импортируемых сущностей
+import './ui'                                      // если не указывать файл, то import index.js из "ui"
+</v-code>
+</div><div id="vue-cli-vscode"><h2>Настройка Visual Studio Code</h2>
+
+<v-code lang="bash" title="">
+Vetur    # плагин для подстветки синтаксиса
+</v-code>
+
+<v-code lang="bash" title="">
+Settings -> Extensions -> Emmet -> Edit in settings.json
+</v-code>
+
+<v-code lang="json" title="">
+"emmet.showAbbreviationSuggestions": true,
+"emmet.showExpandedAbbreviation": "always",
+"emmet.includeLanguages": {
+	"vue-html": "html",
+	"vue": "html"
+}
+</v-code></div><div id="vue-loader-package"><h2>Пакеты</h2>
+
+<u-link-wrapper>
+	<a href="https://vue-loader.vuejs.org/ru/" target="_blank"><em>VueLoader</em></a>
+</u-link-wrapper>
+
+<v-pre-npm>
+npm i --save     vue vue-router vuex vuetify
+npm i --save-dev <u-code-npm>vue-template-compiler</u-code-npm> <u-code-npm>vue-loader</u-code-npm> <u-code-npm>vue-style-loader</u-code-npm>
+</v-pre-npm>
+
+</div><div id="plugins-vuetify"><h2>Vuetify</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Подключение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>NPM</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+npm install vuetify --save
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>main.js</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import Vue from 'vue'
+import Vuetify from 'vuetify'
+Vue.use(Vuetify)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>index.html</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;link href='https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css' rel="stylesheet"&gt;
+&lt;link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet"&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Компонет "alert"</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <a href="https://vuetifyjs.com/ru/components/alerts" target="_blank">Vuetify Alerts</a>
+</u-link-wrapper>
+
+<v-code lang="html" title="">
+&lt;v-app&gt;
+	&lt;v-alert :value="true" type="success"&gt;This is a success alert&lt;/v-alert&gt;
+	&lt;v-alert :value="true" type="info"&gt;This is a info alert&lt;/v-alert&gt;
+	&lt;v-alert :value="true" type="warning"&gt;This is a warning alert&lt;/v-alert&gt;
+	&lt;v-alert :value="true" type="error"&gt;This is a error alert&lt;/v-alert&gt;
+&lt;/v-app&gt;
+</v-code>
+
+<v-code lang="css" title="">
+.application {
+    width: 100%;
+}
+.application--wrap {
+    min-height: auto;
+    flex-grow: 0;
+}
+.application .v-alert {
+    margin: 15px 0px;
+}
+</v-code>
+</div><div id="plugins-fontawesome"><h2>FontAwesome</h2>
+
+<u-link-wrapper>
+    <a href="https://github.com/FortAwesome/vue-fontawesome" target="_blank">Vue-FontAwesome</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>NPM</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+npm i --save @fortawesome/fontawesome-svg-core
+npm i --save @fortawesome/vue-fontawesome
+</v-code>
+
+<v-code lang="bash" title="">
+npm i --save @fortawesome/free-solid-svg-icons
+npm i --save @fortawesome/free-regular-svg-icons
+npm i --save @fortawesome/free-brands-svg-icons
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>main.js</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { library }                 from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon }         from '@fortawesome/vue-fontawesome'
+</v-code>
+
+<v-code lang="js" title="">
+import { faComment as fasComment } from '@fortawesome/free-solid-svg-icons'
+import { faComment as farComment } from '@fortawesome/free-regular-svg-icons'
+library.add(fasComment, farComment)
+</v-code>
+
+<v-code lang="js" title="">
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>component.vue</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;font-awesome-icon :icon="['fas', 'comment']" /&gt;
+&lt;font-awesome-icon :icon="['far', 'comment']" /&gt;
+</v-code>
+</div><div id="testing-unit-testing"><h2>Модульное тестирование</h2>
+
+<ul class="list-point">
+	<li>Vue CLI предоставляет опции для модульного тестирования с помощью <u>Jest</u> или <u>Mocha</u>, которые работают из коробки. Также есть официальный пакет <u>Vue Test Utils</u>, который предоставляет более подробное руководство для пользовательских конфигураций</li>
+	<li>Для тестирования компонента нужно просто импортировать его вместе с Vue, и использовать обыкновенные операторы контроля (здесь в качестве примера мы используем операторы контроля expect в стиле Jasmine/Jest)</li>
+	<li>Тесты <u>end-to-end</u> гарантирует, что несколько компонентов хорошо взаимодействуют друг с другом. Они находятся на более высоком уровне. Примерами таких тестов может быть тестирование регистрации, входа и изменения данных у пользователя. Они работают медленнее, чем модульные тесты или тестирование снимками</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Vue Test Utils</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u>Vue Test Utils</u> тестирует компоненты Vue монтируя их изолированно, создавая моки необходимых входных данных (входные параметры, инъекции и пользовательские события) и выполняя проверки над результатом (результат рендеринга, вызванные пользовательские события)</li>
+	<li>Примонтированные компоненты возвращаются внутри Wrapper, который предоставляет множество удобных методов для манипулирования, перемещения и различных запросов для экземпляра компонента Vue</li>
+</ul>
+
+<v-code lang="js" title="">
+// Импортируем метод `mount()` из `vue-test-utils`
+// и компонент, который хотим протестировать
+import { mount } from '@vue/test-utils'
+import Counter from './counter'
+
+// Теперь монтируем компонент и у нас появляется wrapper
+const wrapper = mount(Counter)
+
+// Вы можете получить доступ к экземпляру Vue через `wrapper.vm`
+const vm = wrapper.vm
+
+// Чтобы изучить wrapper подробнее, просто выведите его в консоль
+// и ваши приключения с `vue-test-utils` начнутся
+console.log(wrapper)
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Тестирование отрендеренного HTML компонента</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Теперь, когда у нас есть wrapper, первой вещью, которую мы можем захотеть проверить что отрендеренный HTML компонента соответствует нашим ожиданиям</li>
+</ul>
+
+<v-code lang="js" title="">
+import { mount } from '@vue/test-utils'
+import Counter from './counter'
+
+describe('Компонент Counter', () => {
+	// Теперь монтируем компонент и получаем wrapper
+	const wrapper = mount(Counter)
+
+	it('отображает корректную разметку', () => {
+		expect(wrapper.html()).toContain('&lt;span class="count"&gt;0&lt;/span&gt;')
+	})
+
+	// также легко проверить наличие других элементов
+	it('имеет кнопку', () => {
+		expect(wrapper.contains('button')).toBe(true)
+	})
+})
+</v-code>
+</div><div id="testing-vue-devtools"><h2>Vue-DevTools</h2>
+
+<ul class="list-point">
+	<li>Profiling Components with the Chrome Performance Tab</li>
+</ul>
+
+<ol class="list-num">
+	<li>Установка Vue.js devtools из Chrome Web Store</li>
+	<li>Console -> Vue -> Дерево компонентов, data (изменение значений в реальном времени) и т.д.</li>
+</ol>
+
+<ul class="list-point">
+	<li>Components</li>
+	<li>Vuex</li>
+	<li>Events - события, посылаемые дочерними компонентами родительскому</li>
+</ul>
+
+<v-code lang="js" title="">
+$vm0.user; // доступ к методу текущего компонента
+</v-code></div><div id="samples-cart"><h2>Добавить / удалить из корзины</h2>
+
+<v-code lang="html" title="">
+&lt;button :class="{active:checkProduct(id)}"&gt;
+	&lt;slot v-if="checkProduct(id)"&gt;Удалить из корзины&lt;/slot&gt;
+	&lt;slot v-else&gt;Добавить в корзину&lt;/slot&gt;
+&lt;/button&gt;
+</v-code>
+
+<ul class="list-point">
+	<li>отображение кнопки "Добавить в корзину" без класса "active"</li>
+	<li>отображение кнопки "Удалить из корзины" с классом "active"</li>
+	<li>checkProduct(id) вернет true/false</li>
+</ul></div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

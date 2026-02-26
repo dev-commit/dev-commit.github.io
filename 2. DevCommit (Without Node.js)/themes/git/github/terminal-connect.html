@@ -1,0 +1,95 @@
+<h2>Подключение по SSH</h2>
+
+<u-link-wrapper>
+	<a href="https://www.gitignore.io/" target="_blank">Generate GitIgnore</a>
+	<a href="https://www.youtube.com/playlist?list=PL3LQJkGQtzc5rDeb7FjACNb6sOW300yA0" target="_blank">[playlist] GitHub</a>
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Два вида соединения</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+git@github.com:anton-sergeenkov/repo.git      # соединение по SSH
+https://github.com/anton-sergeenkov/repo.git  # соединение по HTTPS
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>SSH</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Git Bash</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://git-scm.com/" target="_blank">Git</a>
+</u-link-wrapper>
+
+<v-code lang="bash" title="">
+# 1. Install Git
+
+# 2. Open Git Bash
+	<u-code-wrapper>
+	$ cd путь_до_папки ($ cd и перетащить папку)
+	</u-code-wrapper>
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Generating a new SSH key</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank">Generating a new SSH key</a>
+</u-link-wrapper>
+
+<v-code lang="bash" title="">
+# 1. Generating a new SSH key
+	<u-code-wrapper>
+	$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+	</u-code-wrapper>
+# 2. Adding your SSH key to the ssh-agent
+	<u-code-wrapper>
+	$ eval $(ssh-agent -s)
+	</u-code-wrapper>
+# 3. Add your SSH private key to the ssh-agent
+	<u-code-wrapper>
+	$ ssh-add ~/.ssh/id_rsa
+	</u-code-wrapper>
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Add the SSH key to your GitHub account</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<a href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account" target="_blank">Adding a new SSH key to your GitHub account</a>
+</u-link-wrapper>
+
+<v-code lang="bash" title="">
+# 1. Copy the SSH key to your clipboard
+	<u-code-wrapper>
+	$ clip < ~/.ssh/id_rsa.pub
+	</u-code-wrapper>
+# 2. https://github.com/ -> Settings -> SSH and GPG keys -> New SSH key
+	- ввести название ключа
+	- вставить ключ скопированный в буфер обмена на 1 этапе
+
+# 3. https://github.com/ -> Репозиторий -> Clone or download -> Use SSH -> Скопировать строку
+
+# 4. Git Bash
+	<u-code-wrapper>
+	$ git clone git@github.com:name_account/name_repo.git
+	</u-code-wrapper>
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>HTTPS / HTTP</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При подключении по HTTPS / HTTP требуется единоразовый ввода логина и пароля от учетной записи</li>
+    <li>После этого логин и пароль сохранятся на компьютере</li>
+
+    <hr>
+    <li>Если изенился логин/пароль, необходимо обновить данные учетной записи</li>
+    <li>Панель управления -> Учетные записи пользователей -> Диспетчер учетных данных</li>
+    <li><u-code-text>git:https://github.com</u-code-text> так выглядит учетка для Git</li>
+    <li>Можно изменить данные учетки или ее удалить</li>
+    <li>Если учетка была удалена, при следующем взаимодействии в консоле, git попросит ввести логин и пароль в отдельном окне авторизации</li>
+</ul>

@@ -1,0 +1,179 @@
+<h2>v-bind:</h2>
+
+<ul class="link-page-wrapper">
+	<li><a href="#v-bind-bind">Связывание атрибутов элементов</a></li>
+	<li><a href="#v-bind-values">Указание дополнительных значений</a></li>
+	<li><a href="#v-bind-class">CSS-классы</a></li>
+	<li><a href="#v-bind-style">CSS Style</a></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-bind-bind">Связывание атрибутов элементов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li>Директива связывает входной атрибут тега или входной параметр компонента с выражением</li>
+	<li>Значение атрибута берется из переменной</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;a <u-code>v-bind:href</u-code>="url"&gt;<span v-pre>{{ link }}</span>&lt;/a&gt;  <u-code-comment># полная запись</u-code-comment>
+&lt;p <u-code>v-bind:class</u-code>="activeClass"&gt;&lt;/p&gt;   <u-code-comment># полная запись</u-code-comment>
+&lt;p <u-code>:class</u-code>="activeClass"&gt;&lt;/p&gt;         <u-code-comment># сокращенная запись</u-code-comment>
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-bind-values">Указание дополнительных значений</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;div class="img" :style="{ backgroundImage: 'url('+item.img+')' }"&gt;&lt;/div&gt;
+&lt;a :href="'courses/'+i"&gt;&lt;/a&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Для Vue-Cli-3</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Без <u-code-text>require</u-code-text> данамический путь с использованием переменной не будет корректным</li>
+</ul>
+<v-code lang="html" title="">
+&lt;img :src="require('@/assets/img/'+item.img)"&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-bind-class">CSS-классы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;!-- active - название класса --&gt;
+&lt;p <u-code>:class</u-code>="{ active:true }"&gt;&lt;/p&gt;      <u-code-comment># true (отобразится)</u-code-comment>
+&lt;p <u-code>:class</u-code>="{ active:false }"&gt;&lt;/p&gt;     <u-code-comment># false (не отобразится)</u-code-comment>
+&lt;p <u-code>:class</u-code>="{ active:isActive }"&gt;&lt;/p&gt;  <u-code-comment># свойство isActive (true/false)</u-code-comment>
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование нескольких классов</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div className={'wrapper' + ' ' + classes.wrapper}&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование с обычным атрибутом class</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Наличие класса <u-code-text>active</u-code-text> будет определяться истинностью параметра <u-code-text>isActive</u-code-text></li>
+</ul>
+
+<v-code lang="html" title="html">
+&lt;div 
+	class="static" 
+	v-bind:class="{ active: isActive, 'text-danger': hasError }"
+&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="js">
+data: {
+	isActive: true,
+	hasError: false
+}
+</v-code>
+
+<v-code lang="html" title="result">
+&lt;div class="static active"&gt;&lt;/div&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Массив в аргументе</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="html">
+&lt;div :class="[activeClass, errorClass]"&gt;&lt;/div&gt;
+</v-code>
+<v-code lang="js" title="js">
+data: {
+    activeClass: 'class-active',
+    errorClass: 'class-error'
+}
+</v-code>
+<v-code lang="html" title="result">
+&lt;div class="active text-danger"&gt;&lt;/div&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Объект в аргументе</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div v-bind:class="classObject"&gt;&lt;/div&gt;
+</v-code>
+<v-code lang="js" title="">
+data: {
+	classObject: {
+		active: true,
+		'text-danger': false
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вычисляемое свойство в аргументе</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div v-bind:class="classObject"&gt;&lt;/div&gt;
+</v-code>
+<v-code lang="js" title="">
+data: {
+	isActive: true,
+	error: null
+},
+computed: {
+	classObject: function () {
+		return {
+			active: this.isActive && !this.error,
+			'text-danger': this.error && this.error.type === 'fatal'
+		}
+	}
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="v-bind-style">CSS Style</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Объектная запись в HTML</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div :style="{ color: activeColor, fontSize: fontSize+'px' }"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+data: {
+    activeColor: 'blue',
+    fontSize: 30
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Объектная запись в JS</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div :style="styleObject"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+// styleObject может содержать массивы или объекты
+data: {
+	styleObject: {
+		width: '100px',
+		height: '100px',
+		background: 'blue'
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование массивов</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;!-- Позволяет применить несколько объектов стилей к одному и тому же элементу --&gt;
+&lt;div v-bind:style="[baseStyles, overridingStyles]"&gt;&lt;/div&gt;
+</v-code>

@@ -1,0 +1,88 @@
+<h2>Хук контекста useContext</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useContext" after="" arg="()">
+	Можно подписаться на контекст React без использования каких-либо вложений
+    </v-method>
+    <v-method-arg arg="obj">объект контекста (значение, возвращённое из <u-code-text>React.createContext</u-code-text>)</v-method-arg>
+    <v-method-return>Возвращает текущее значение контекста для принятого контекста</v-method-return>
+</div>
+
+<ul class="list-point">
+    <li>Текущее значение контекста определяется пропом value ближайшего <u-code-text>&lt;MyContext.Provider&gt;</u-code-text> над вызывающим компонентом в дереве</li>
+</ul>
+
+<v-code lang="js border" title="">
+import React, { useContext } from 'react';
+
+const value = <u-code>useContext</u-code>(MyContext);
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример #1. Смена темы</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="index.jsx">
+import ThemeProvider from './ThemeProvider';
+import { useTheme } from './ThemeProvider';
+
+const App = () =&gt; (
+    &lt;ThemeProvider&gt;
+        &lt;View /&gt;
+        &lt;Change /&gt;
+    &lt;/ThemeProvider&gt;
+);
+
+const View = () =&gt; {
+    const isTheme = useTheme();
+    return (
+        &lt;&gt;
+            Выбрана тема: {isTheme.theme}
+        &lt;/&gt;
+    )
+};
+
+const Change = () =&gt; {
+    const isTheme = useTheme();
+
+    return (
+        &lt;&gt;
+            &lt;button onClick={() =&gt; isTheme.change('dark')}&gt;Dark&lt;/button&gt;
+            &lt;button onClick={() =&gt; isTheme.change('light')}&gt;Light&lt;/button&gt;
+        &lt;/&gt;
+    )
+};
+
+export default App;
+</v-code>
+
+<v-code lang="js" title="ThemeProvider.jsx">
+import React, { useState, useContext } from 'react'
+
+const ThemeContext = React.createContext()
+
+export const ThemeProvider = ({ children, ...props }) =&gt; {
+    const [theme, setTheme] = useState('light')
+
+    const change = (name) =&gt; setTheme(name)
+
+    return (
+		&lt;ThemeContext.Provider
+            value=<span v-pre>{{</span>
+                theme,
+                change
+            <span v-pre>}}</span>
+			{...props}
+		&gt;
+            { children}
+        &lt;/ThemeContext.Provider&gt;
+    )
+}
+
+export default ThemeProvider
+export const useTheme = () =&gt; useContext(ThemeContext)
+</v-code>

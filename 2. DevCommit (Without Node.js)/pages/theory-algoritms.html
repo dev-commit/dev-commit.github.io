@@ -1,0 +1,637 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>⚡️ Алгоритмы</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Big-O Notation</div><a href="#big-o-info">📑 Информация</a><a href="#big-o-variants">🥑 Варианты</a><a href="#big-o-structure">🥑 Структуры данных</a><a href="#big-o-samples">🥑 Примеры</a><div class="theme">Основное</div><a href="#main-info">📑 Информация</a><a href="#main-paradigms">📑 Методы разработки алгоритмов</a><div class="theme">Алгоритмы</div><a href="#algoritms-sort">⚡️ Сортировка</a><a href="#algoritms-search">⚡️ Поиск</a><a href="#algoritms-string-reverse">⚡️ Переворот строки</a><a href="#algoritms-hashing">⚡️ Хеширование</a><a href="#algoritms-fibonacci">⚡️ Число Фибоначчи</a><a href="#algoritms-factorial">⚡️ Факториал</a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="big-o-info"><h2>Big-O Notation (сложность алгоритмов)</h2>
+
+<u-link-wrapper>
+    <a href="https://www.bigocheatsheet.com/" target="_blank">bigocheatsheet.com</a>
+    <a href="https://www.youtube.com/watch?v=ZRdOb4yR0kk" target="_blank">[YouTube] Оценка сложности алгоритма</a>
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Big-O Notation</u-text-define> - временная сложность алгоритма</li>
+    <li>Показывает <b>верхнюю границу сложности алгоритма</b> зависимости между <b>входными параметрами</b> функции и <b>количеством операций</b>, которые выполнит процессор</li>
+    <li>Нельзя оценивать работу алгоритм с точки зрения времени. Один и тот же алгоритм на разных машинах будет выполняться разное время. Алгоритм включает в себя число шагов. Идея Big-O - сколько шагов нужно сделать чтобы алгоритм завершил свое выполнение</li>
+    
+    <hr>
+    <li><u-text-define>Сложность алгоритма (вычислительная сложность)</u-text-define> - функция зависимости объёма работы, которая выполняется некоторым алгоритмом, от размера входных данных</li>
+    <li>Объём работы обычно измеряется временем и вычислительными ресурсами. Время определяется количеством элементарных шагов, необходимых для решения задачи. Ресурсы определяются объёмом памяти или места на носителе данных</li>
+
+    <hr>
+    <li><u-text-define>Time Complexity</u-text-define> (Временная сложность вычисления) - сколько нужно тиков процессору, чтобы исполнить операции (максимальное кол-во токов, которое подвязано на входные данные, которые участвуют в алгоритмах). Смотрим какой массив значений приходит на вход - он влияет на Time Complexity</li>
+    <li><u-text-define>Space Complexity</u-text-define> (Пространсвенная сложность вычисления) - вся выделенная память, которая участвуют в алгоритме. Н-р: для уменьшение показателей не нужно создавать новый массив, нужно корректировать существующий</li>
+</ul>
+
+</div><div id="big-o-variants"><h2>Варианты</h2>
+
+<ul class="list-point">
+    <li><u-code-text>O(0)</u-code-text> - ничего не происходит</li>
+
+    <hr>
+    <li><u-code-text>O(1)</u-code-text> - постоянная величина (константное время)</li>
+    <li>Независимо от кол-ва входных данных, требуется 1 операция</li>
+    <li><u>Пример</u>: определить чётное или нечетное число</li>
+
+    <hr>
+    <li><u-code-text>O(log N)</u-code-text> - логарифмическая сложность (бинарный поиск)</li>
+    <li>Алгоритм "разделяй и властвуй": есть телефонный справочник, в котором нужно найти телефон. Открываем справочник посередине, отбрасываем половину и т.д.</li>
+    <li>Всегда будет меньше чем половина <u>N</u></li>
+
+    <hr>
+    <li><u-code-text>O(N)</u-code-text> - линейная (прямо пропорциональна) сложность</li>
+    <li>Зависит от количества передаваемых бит, н-р: 4 элемента - 4 операции</li>
+    <li><u>Пример</u>: перебор массива forEach</li>
+
+    <hr>
+    <li><u-code-text>O(N * log N)</u-code-text></li>
+    <li>Работают большинство алгоритмов сортировки: heap-sort, merge-sort, метод sort JavaScript</li>
+
+    <hr>
+    <li><u-code-text>O(N<sup>2</sup>)</u-code-text> - O(N * N) квадратичная сложность</li>
+    <li>Вложенные действия - умножение</li>
+    <li><u>Пример</u>: цикл в цикле</li>
+
+    <hr>
+    <li><u-code-text>O(2<sup>N</sup>)</u-code-text></li>
+
+    <hr>
+    <li><u-code-text>O(N!)</u-code-text></li>
+</ul>
+
+<img src="/img/algoritms/big-o-complexity-chart.png" width="550px">
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Верхняя граница (отбрасывание констант)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+O(N + N) == <em>O(N)</em>
+O(N + 1) == <em>O(N)</em>
+O(2N)    == <em>O(N)</em>
+</v-code>
+
+<ul class="list-point">
+    <li>Мы говорим как будет вести себя алгоритм на бесконечности</li>
+    <li>Если алгоритм для n-элементов выполняет n-тактов плюс один такт для вывода информацим на экран, то сложность такого алгоритма всё равно O(N), т.к. бесконечность гораздо больше единицы. Тоже самое касается алгоритмов, которые выполняются за O(2N) или более</li>
+    <li>Big-O описывает только скорость роста. Поэтому мы отбрасываем константы при оценке сложности</li>
+    <li>Алгоритм, описываемый как O(2N) должен описываться как O(N)</li>
+</ul>
+</div><div id="big-o-structure"><h2>Структуры данных</h2>
+
+<img class="img-margin" src="/img/algoritms/common-data-structure-operations.png" width="650px">
+<img class="img-margin" src="/img/algoritms/array-sorting-algorithms.png" width="400px">
+
+
+</div><div id="big-o-samples"><h2>Примеры</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Быстродействие</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Рекурсия => Быстродействие: O(N)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function pow(x, n) {
+    if (n != 1) {
+        return x * pow(x, n - 1);
+    } else {
+        return x;
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Сложение чисел => Быстродействие: O(1)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function sum(a, b) {
+    return a + b;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Быстродействие: O(N)</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment=";">
+<template v-slot:first>
+let min = 1;
+let max = 10;
+for(let i=0; i<=100; i++) {
+    if (i < min) min = i;
+    if (i > max) max = i;
+}
+</template>
+<template v-slot:last>
+let min = 1;
+let max = 10;
+for(let i=0; i<=100; i++) {
+    if (i < min) min = i;
+}
+for(let i=0; i<=100; i++) {
+    if (i > max) max = i;
+}
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сложение и умножение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment=";">
+<template v-slot:first>
+// Быстродействие: O(A + B)
+let arrA = [1,2,3];
+let arrB = [1,2,3];
+for(let i=0; i<=arrA; i++) {
+    console.log(i);
+}
+for(let i=0; i<=arrB; i++) {
+    console.log(i);
+}
+// Проход по массивам выполняется последовательно
+// Выполнение первого цикла не зависит от выполнения второго
+// A - длина массива arrA
+// B - длина массива arrB
+</template>
+<template v-slot:last>
+// Быстродействие: O(A * B)
+let arrA = [1,2,3];
+let arrB = [1,2,3];
+for(let a=0; a<=arrA; a++) {
+    for(let b=0; b<=arrB; b++) {
+        console.log(a, b);
+    }
+}
+// Выполнить что-то N раз, пока делаешь что-то свое
+// Цикл по "B" зависим от цикла по "A"
+</template>
+</v-two-code>
+</div><div id="main-info"><h2>Информация</h2>
+
+<ul class="list-point">
+    <li>Книга: <b>Grokking Algorithms</b></li>
+</ul>
+
+</div><div id="main-paradigms"><h2>Algorithm Design Paradigms (Методы разработки алгоритмов)</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Методы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>1. Метод грубой силы / полный перебор / исчерпывающий поиск (Brute-Force)</li>
+    <li>2. Разделяй и властвуй / метод декомпозиции (Divide and Conquer)</li>
+    <li>3. Динамическое программирование (Dynamic Programming)</li>
+    <li>4. Жадный алгоритм (Greedy Algorithm)</li>
+    <li>5. Поиск с возвратом (Backtracking)</li>
+    <li>6. Локальный поиск (Local Search)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Метод грубой силы / полный перебор / исчерпывающий поиск (Brute-Force)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Сложность полного перебора зависит от количества всех возможных решений задачи. Если пространство решений очень велико, то полный перебор может не дать результатов в течение нескольких лет или даже столетий</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Разделяй и властвуй / метод декомпозиции (Divide and Conquer)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Принцип работы</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Разделить задачу на поздадачи</li>
+    <li>Решить подзадачи</li>
+    <li>Скомбинировать результаты решений, если это требуется</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Примеры</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <b>Пример с комбинированием: Сортировка слиянием (Merge Sort)</b>
+    <li>Делим массив пополам</li>
+    <li>Решаем задачу рекурсивно для обоих половин</li>
+    <li>Объединяем решение с помощью алгоритма слияния</li>
+    
+    <hr>
+    <b>Пример без комбинирования: Binary Search (Бинарный поиск)</b>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Примеры алгоритмов</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Quick Sort, Merge Sort</li>
+    <li>Median of Medians (поиск медианы с помощью алгоритма выбора)</li>
+    <li>Fast Fourier Trnasform (алгоритм быстрых преобразований Фурье)</li>
+    <li>Алгоритм в обработке сигнала (н-р в аудиокодеках)</li>
+</ul>
+
+<i>В качестве разновижности применяется алгоритм "Уменьшай и властвуй / Метод уменьшения размера задачи" (Decrease and Conquer)</i>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Динамическое программирование (Dynamic Programming)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Разделение задачи на подзадачи, но подзадачи должны пересекаться: у разных подзадач может быть одна и та же под-под-задача и вместо того чтобы вычислять ее много раз, ее можно вычислить 1 раз, положить в кеш и использовать в дальнейшем</li>
+    <li>Похож на "Резделяй и властвуй"</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Подходы</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<b>1. Сверху вниз / Мемоизация (Top-down / Memoization)</b>
+    <li>Каждый раз, когда требуется выполнить подзадачу, которую мы еще не решили - мы решаем ее и записываем ответ в таблицу, которую потом будем переиспользовать</li>
+    <li>+ не нужно заранее знать порядок заполнения таблицы</li>
+    <li>+ таблицу не обязательно заполнять целиком - в ней будет минимальное, необходимое для решения задачи</li>
+
+	<hr>
+    <b>2. Снизу вверх / Табуляция (Bottom-up / Tabulation)</b>
+    <li>Необходимо заранее определить порядок заполнения таблицы и заполнить ее целиком</li>
+    <li>Решение основной задачи заключается в чтении конкретной ячейки таблицы</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Использование</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Сравнение данных, н-р исходников программ для определения наболее длинных общих последовательностей текст</li>
+    <li>Алгоритмы на графах, н-р поиск кратчайшего расстояния</li>
+    <li>Машинной обучение, н-р нейронные сети</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>4. Жадный алгоритм (Greedy Algorithm)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Метод для задачь оптимизации: сначала сортируем данные по определенному принципу, а дальше циелически выбираем лучший вариант</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Применение</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Алгоритм Хаффмана — жадный алгоритм оптимального префиксного кодирования алфавита с минимальной избыточностью (сжатие jpeg, mp3, gzip)</li>
+    <li>Анализ данных, алгоритмы кластеризации</li>
+    <li>Алгоритмы на графах, раскраска графов</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>5. Поиск с возвратом (Backtracking)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li> Перебор частичных решений и каждый раз когда попадается плохое частичное решение, которое не ведет к решению основной задачи, мы отменяем его и пробуем другое частичное решение</li>
+    <li>Модификация метода: <b>Метод ветвей и границ (Branch and Bound)</b></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Применение</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Задачи с маршрутизацией</li>
+    <li>Задачи с компьютерным зрением и т.д.</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>6. Локальный поиск (Local Search)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Есть множество решений задачи</li>
+    <li>Определяем какое есть отношение между этими решениями (связываем решения между собой если они не сильно отличаются - находятся в некоторой окрестности)</li>
+    <li>Двигаемся в рамках окрестности от решения к решению, каждый раз выбирая решение не хуже предыдущего</li>
+</ul>
+    
+<!------------------------------------------------------------->
+<h4>Применение</h4>
+<!-------------------------------------------------------------> 
+<ul class="list-point">
+    <li>Градиентный подъем / спуск</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>7. Преобразуй и властвуй / метод преобразования (Transform and Conquer)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Преобразование имеющейся задачи в другую задачу, н-р более простую, а потом решить ее</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Применение</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>СУБД при запросах к БД</li>
+</ul>
+</div><div id="algoritms-sort"><h2>Алгоритмы сотрировки (Sorting Algorithms)</h2>
+
+<!------------------------------------------------------------->
+<h4>Метод sort в JavaScript</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+arr.sort(function(a, b){ 
+    if(a < b) {
+        return 1;
+    } else {
+        return -1
+    }
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Виды алгоритмов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li>Пузырьковая сортировка (Bubble sort)</li>
+    <li>Сортировка выбором (Selection sort)</li>
+    <li>Сортировка вставками (Insertion sort)</li>
+    <li>Быстрая сортировка</li>
+    <li>Сортировка слиянием (Merge Sort)</li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>1. Пузырьковая сортировка</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><b>Суть</b>: сравнение соседних элементов и их обмене, если они находятся не в надлежащем порядке. Неоднократно выполняя это действие, мы заставляем наибольший элемент "всплывать" к концу массива. Следующий проход приведет к всплыванию второго наибольшего элемента, и так до тех пор, пока после n-1 итерации массив не будет полностью отсортирован</li>
+    <li><b>Плюс</b>: простая реализация</li>
+    <li><b>Минусы</b>: эффективен он лишь для небольших массивов</li>
+    <li><b>Сложность</b>: O(N<sup>2</sup>)</li>
+</ul>
+
+<v-code lang="js" title="">
+function BubbleSort(A){
+    var n = A.length;
+    for (var i = 0; i < n-1; i++) { 
+        for (var j = 0; j < n-1-i; j++) { 
+            if (A[j+1] < A[j]) { 
+                var t = A[j+1]; A[j+1] = A[j]; A[j] = t; 
+            }
+        }
+    }                     
+    return A;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Сортировка выбором</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><b>Суть</b>: начинается с поиска наименьшего элемента в списке и обмена его с первым элементом (таким образом, наименьший элемент помещается в окончательную позицию в отсортированном массиве). Затем мы сканируем массив, начиная со второго элемента, в поисках наименьшего среди оставшихся n-1 элементов и обмениваем найденный наименьший элемент со вторым, т.е. помещаем второй наименьший элемент в окончательную позицию в отсортированном массиве. В общем случае, при i-ом проходе по списку (0<=i<=n-2) алгоритм ищет наименьший элемент среди последних n-i элементов и обменивает его с A[i]. После выполнения n-1 проходов список оказывается отсортирован</li>
+</ul>
+
+<v-code lang="js" title="">
+function SelectionSort(A) {
+    var n = A.length;
+    for (var i = 0; i < n - 1; i++) {
+        var min = i;
+        for (var j = i + 1; j < n; j++) {
+            if (A[j] < A[min]) min = j;
+        }
+        var t = A[min];
+        A[min] = A[i];
+        A[i] = t;
+    }
+    return A;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Сортировка вставками</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><b>Суть</b>: На каждом шаге алгоритма сортировки встаками выбирается один из элементов входного массива и вставляется на нужную позицию в уже отсортированном массиве, до тех пор, пока входных элементы не будут исчерпана. Метод выбора очередного элемента из исходного массива произволен; может использоваться практически любой алгоритм выбора</li>
+</ul>
+
+<v-code lang="js" title="">
+function InsertionSort(A) {
+    var n = A.length;
+    for (var i = 0; i < n; i++) {
+        var v = A[i],
+            j = i - 1;
+        while (j >= 0 && A[j] > v) {
+            A[j + 1] = A[j];
+            j--;
+        }
+        A[j + 1] = v;
+    }
+    return A;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>4. Быстрая сортировка</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function QuickSort(A) {
+    if (A.length == 0) return [];
+    var a = [],
+        b = [],
+        p = A[0];
+    for (var i = 1; i < A.length; i++) {
+        if (A[i] < p) a[a.length] = A[i];
+        else b[b.length] = A[i];
+    }
+    return QuickSort(a).concat(p, QuickSort(b));
+}
+</v-code>
+</div><div id="algoritms-search"><h2>Алгоритмы поиска (Searching Algorithms)</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Виды алгоритмов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Линейный поиск (Liear Search) - медленный, нет плюсов</li>
+    <li>Бинарный поиск (Binary Search) - быстрее</li>
+</ul></div><div id="algoritms-string-reverse"><h2>Алгоритм переворота строки (String Reverse Algorithm)</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u>Задача</u>: Реализуйте функцию reverse, которая переворачивает строку. Например:</li>
+</ul>
+
+<v-code lang="js" title="">
+reverse('hello, world!'); // !dlrow ,olleh
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Решение через массив</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function reverse(str) {
+    return str.split("").reverse().join("");
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Решение чрезе цикл while</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function reverse(str) {
+	let i = str.length - 1;
+	let result = '';
+
+	while (i >= 0) {
+		result = result + str[i];
+		i = i - 1;
+	}
+
+	return result;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Решение через цикл for</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function reverse(str) {
+    var newStr = '', i;
+
+    for (i = str.length - 1; i >= 0; i--) {
+        newStr += str.charAt(i);
+    }
+    return newStr;
+}
+</v-code>
+</div><div id="algoritms-hashing"><h2>Хеширование (Hashing algorithm)</h2>
+
+<ul class="list-point">
+    <li>Используется для Hash Table, где в качестве ключа используется hash-код</li>
+    <li>Хеширование - функция, в которой что-то передается, н-р строка. Функция превращает эту строку в hash-код и по этому hash-коду можно сделать поиск</li>
+    <li>Алгоритм хеширования MD5</li>
+</ul>
+</div><div id="algoritms-fibonacci"><h2>Последовательность Фибоначчи (Fibonacci Sequence)</h2>
+
+<ul class="list-point">
+    <li>Принимает индекс элемента последовательности, возвращает значение</li>
+    <li>Последовательность: <u-code-text>0 1 1 2 3 5 8 13 21 34 55 ...</u-code-text></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>🔥 Решение 1: Оптимальное решение (сложность единичная, линейная)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Нумерация индеков с <u-code-text>0</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+const fibonacci = n => {
+	const arrFib = [0, 1];
+
+	while(arrFib.length <= n) {
+		arrFib.push(arrFib[arrFib.length-1] + arrFib[arrFib.length-2])
+	}
+	return arrFib[n];
+}
+
+console.log(fibonacci(0)); // 13
+</v-code>
+
+<ul class="list-point">
+    <li>Нумерация индеков с <u-code-text>1</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+const fibonacci = n => {
+	const arrFib = [0, 1];
+
+	while(arrFib.length < n) {
+		arrFib.push(arrFib[arrFib.length-1] + arrFib[arrFib.length-2])
+	}
+	return n ? arrFib[n-1] : 'Неверный индекс';
+}
+
+console.log(fibonacci(7)); // 8
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Решение 2: Рекурсивное решение (сложность 2 в степени n)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const fibonacci = n => {
+    return n < 2 ? n : fibonacci(n-1) + fibonacci(n-2);
+}
+
+console.log(fibonacci(10) === 55); 
+</v-code>
+</div><div id="algoritms-factorial"><h2>Факториал (Factorial Algorithm)</h2>
+
+<v-two-code type="js;js" comment="Через цикл;Через рекурсию">
+<template v-slot:first>
+function factorial(n){
+    var result = 1;
+    while(n){
+        result *= n--;
+    }
+    return result;
+}
+</template>
+<template v-slot:last>
+function factorial(n, result){
+    result = result || 1;
+    if(!n){
+        return result;
+    }else{
+        return factorial(n-1, result*n);
+    }
+}
+</template>
+</v-two-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    

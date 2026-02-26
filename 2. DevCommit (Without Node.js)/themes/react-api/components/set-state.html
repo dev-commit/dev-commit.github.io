@@ -1,0 +1,114 @@
+<h2>setState()</h2>
+
+<v-two-code type="js;js" comment="Состояние не зависит от предыдущего состояния;Состояние зависит от предыдущего состояния">
+<template v-slot:first>
+this.setState({
+	counter: 77
+});
+</template>
+<template v-slot:last>
+this.setState((state, props) => ({
+	counter: state.counter + props.increment
+}));
+</template>
+</v-two-code>
+
+<ul class="list-point">
+	<li><u-text-define>Состояние (state)</u-text-define> - содержит данные, специфичные для этого компонента. Они могут измениться со временем. Состояние определяется пользователем и должно быть простым объектом JavaScript</li>
+	<li>Контролируется и доступно только конкретному компоненту. Этот процесс называется <u>«нисходящим» («top-down»)</u> или <u>«однонаправленным» («unidirectional»)</u> потоком данных. Состояние всегда принадлежит определённому компоненту, а любые производные этого состояния могут влиять только на компоненты, находящиеся «ниже» в дереве компонентов</li>
+	<li>Нельзя менять состояние напрямую, иначе не происходит повторного рендер (так как более поздний вызов setState() может перезаписать эту мутацию). Конструктор - это единственное место, где можно присвоить значение <u-code-text>this.state</u-code-text> напрямую</li>
+	<li>Не нужно вставлять в состояние значение, если оно не используется для рендера или потока данных (например, идентификатор таймера). Такие значения можно определить как поля экземпляра компонента</li>
+</ul>
+
+<div class="v-method-wrapper">
+    <v-method before="this." method="setState" after="" arg="(updater, callback)">
+    добавляет в очередь изменения в состоянии компонента. Также он указывает React, что компонент и его дочерние элементы должны быть повторно отрендерены с обновлённым состоянием. Этот метод используется для обновления интерфейса в ответ на обработчики событий и ответы сервера
+    </v-method>
+
+	<v-method-arg arg="updater"> значения state для обновления (объект или функция)</v-method-arg>
+	<v-method-arg arg="callback"> гарантированно вызывается после того как было применено обновление</v-method-arg>
+</div>
+
+<v-two-code type="js;js" comment="правильно;неправильно">
+<template v-slot:first>
+this.<u-code>setState</u-code>({comment: 'Привет'});
+</template>
+<template v-slot:last>
+this.state.comment = 'Привет';
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Асинхронное обновления состояния</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Обновления состояния могут быть асинхронными</li>
+	<li>React может сгруппировать несколько вызовов <u-code-text>setState()</u-code-text> в одно обновление для улучшения производительности</li>
+	<li>Поскольку <u-code-text>this.props</u-code-text> и <u-code-text>this.state</u-code-text> могут обновляться асинхронно, вы не должны полагаться на их текущее значение для вычисления следующего состояния</li>
+</ul>
+
+<v-code lang="js" title="">
+// Неправильно: код может не обновить счётчик
+this.setState({
+	counter: this.state.counter + this.props.increment,
+});
+</v-code>
+
+<ul class="list-point">
+	<li>Второй вариант вызова <u-code-text>setState()</u-code-text>, принимает функцию, а не объект. Эта функция получит предыдущее состояние в качестве первого аргумента и значения пропсов непосредственно во время обновления в качестве второго аргумента</li>
+</ul>
+
+<v-two-code type="js;js" comment="стрелочная функция;обычная функция">
+<template v-slot:first>
+this.setState((state, props) => ({
+	counter: state.counter + props.increment
+}));
+</template>
+<template v-slot:last>
+this.setState(function(state, props) {
+	return {
+		counter: state.counter + props.increment
+	};
+});
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм работы setState</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li>React объединяет уже имеющийся state с объектом, передаваемым в setState()</li>
+    <li>React запускает процесс синхронизации с DOM. Он создает новое дерево элементов виртуального ReactDOM, сравнивает его с предыдущем деревом элементов, окончательно выясняет что же случилось и как это сделать наиболее безболезненно </li>
+    <li>Финальное обновление DOM в браузере</li>
+    <li></li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Множественный setState()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Каждый раз когда React сталкивается с множественными setState(), то из каждого вызова он извлекает передаваемый объект и соединяет их между собой. В результате получается один единственный объект, с которым в итоге и произойдет вызов setState()</li>
+    <li>Если вызывать <u>setState() с объектом</u> несколько раз - React запустит процедуру слияния объектов в один в целях оптимизации своей работы. И тогда, если в объектах наличествуют свойства с одинаковыми ключами — в итоговый объект запишется лишь значение последнего из них</li>
+    <li>Если вызывать <u>setState() с функцией</u> несколько раз, React начинает обновлять состояние приложения с каждым вызовом функционального setState(), и каждому следующему в очереди вызову он передает уже вычисленное от предыдущего</li>
+</ul>
+
+<v-two-code type="js;js" comment="Добавится +1;Добавится +2">
+<template v-slot:first>
+// объединение вызовов setState в один
+incrementCount(){
+	this.setState({count : this.state.count + 1}) 
+	this.setState({count : this.state.count + 1})
+}
+</template>
+<template v-slot:last>
+// исполнение setState в том порядке в котором были вызваны
+incrementCount(){
+	this.setState((prevState, props) => ({
+		count: prevState.count + 1
+	}));
+	this.setState((prevState, props) => ({
+		count: prevState.count + 1
+	}));
+}
+</template>
+</v-two-code>

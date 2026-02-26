@@ -1,0 +1,29 @@
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Статический путь</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Ссылка</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;router-link to="/contact"&gt;Контакты&lt;/router-link&gt;
+</v-code>
+
+<v-code lang="js" title="">
+const routes = [
+    { path: '/contact', component: Contact }
+]
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Именованный маршрут</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;router-link :to="{name: 'contact'}"&gt;Контакты&lt;/router-link&gt;
+</v-code>
+
+<v-code lang="js" title="">
+const routes = [
+    { path: '/contact', component: Contact, name: 'contact' }
+]
+</v-code>

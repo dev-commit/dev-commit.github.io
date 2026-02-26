@@ -1,0 +1,56 @@
+<h2>Поведение прокрутки страницы</h2>
+
+<ul class="list-point">
+	<li>При переходе между страницами в рамках клиентской маршрутизации, можно сохранять позицию прокрутки для каждой записи в истории (что обычно делают браузеры при работе с традиционными приложениями), или же прокручивать страницу наверх. vue-router позволяет использовать оба варианта, и даже более того - позволяет полностью настроить поведение прокрутки при навигации</li>
+</ul>
+
+<v-code lang="js" title="">
+// при создании экземпляра маршрутизатора, вы можете указать функцию scrollBehavior
+const router = new VueRouter({
+	routes: [...],
+	<u-code>scrollBehavior</u-code>(to, from, savedPosition) {
+		// возвращаем требуемую позицию прокрутки
+	}
+})
+</v-code>
+
+<ul class="list-point">
+	<li>Функция <u-code-text>scrollBehavior</u-code-text> получает объекты маршрутов <u-code-text>to</u-code-text> и <u-code-text>from</u-code-text>. В третьем параметре, <u-code-text>savedPosition</u-code-text>, передаётся сохранённая в истории браузера позиция прокрутки (только в случае popstate-перехода, вызванного нажатием кнопок вперёд/назад в браузере)</li>
+
+	<li>Функция возвращает объект позиции прокрутки. Он может иметь одну из двух форм</li>
+	<ul class="list-point">
+		<li><u-code-text>{ x: number, y: number }</u-code-text></li>
+		<li><u-code-text>{ selector: string, offset? : { x: number, y: number }}</u-code-text></li>
+	</ul>
+	<li>Если возвращается пустой объект или значение, приводимое к ложному, прокрутки не будет</li>
+</ul>
+
+<v-code lang="js" title="">
+// заставим браузер прокручивать к началу каждой открытой страницы
+scrollBehavior(to, from, savedPosition) {
+	return { x: 0, y: 0 }
+}
+</v-code>
+
+<v-code lang="js" title="">
+// возврат savedPosition позволяет эмулировать нативное поведение браузера при использовании кнопок назад/вперёд
+scrollBehavior(to, from, savedPosition) {
+	if (savedPosition) {
+		return savedPosition
+	} else {
+		return { x: 0, y: 0 }
+	}
+}
+</v-code>
+
+<v-code lang="js" title="">
+// эмуляция поведение "прокрутки к якорю"
+scrollBehavior(to, from, savedPosition) {
+	if (to.hash) {
+		return {
+			selector: to.hash
+			// , offset: { x: 0, y: 10 }
+		}
+	}
+}
+</v-code>

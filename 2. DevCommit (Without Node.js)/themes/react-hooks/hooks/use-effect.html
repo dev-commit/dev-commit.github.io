@@ -1,0 +1,173 @@
+<h2>Хук эффекта useEffect</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useEffect" after="" arg="(effect, deps)">
+    необходим для выполнения Side Effects (побочных эффектов)
+    </v-method>
+	<v-method-arg arg="effect">коллбэк</v-method-arg>
+	<v-method-arg arg="deps">dependencies - массив, с указанием от чего зависит useEffect</v-method-arg>
+</div>
+
+<v-code lang="js border" title="">
+import React, { useEffect } from 'react';
+</v-code>
+
+<v-code lang="js border" title="">
+// <b><u-code-text>componentDidMount</u-code-text> и <u-code-text>componentDidUpdate</u-code-text></b>
+// Отсделить каждый рендеринг компонента. Выполняется после каждого рендера и обновления
+useEffect(() => {
+	document.title = 'Заголовок';
+});
+</v-code>
+
+<v-code lang="js border" title="">
+// <b><u-code-text>componentDidMount</u-code-text></b>
+useEffect(() => {
+	document.title = 'Заголовок';
+}, []);
+</v-code>
+
+<v-code lang="js border" title="">
+// <b><u-code-text>componentDidUpdate</u-code-text></b>
+// Выполнит эффект, только если count изменился при отрисовке
+useEffect(() => {
+	document.title = `Вы нажали ${this.state.count} раз`;
+}, [count]); 
+</v-code>
+
+<v-code lang="js border" title="">
+// <b><u-code-text>componentWillUnmount</u-code-text></b>
+useEffect(() => () => {
+	window.removeEventListener('resize', onResize);
+}, []);
+</v-code>
+
+<v-code lang="js border" title="">
+// <b><u-code-text>componentDidMount</u-code-text> и <u-code-text>componentWillUnmount</u-code-text></b>
+useEffect(() => {
+    // componentDidMount
+    window.addEventListener('resize', onResize, false);
+    // componentWillUnmount
+    return () => {
+		window.removeEventListener('resize', onResize);
+	}
+}, []);
+</v-code>
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Переписывание на Хуки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>async await</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="useEffect;componentDidMount">
+<template v-slot:first>
+useEffect(() => {
+    (async () => {
+        await myAsyncFunction();
+        myFunction();
+    })();
+}, []);
+</template>
+<template v-slot:last>
+async componentDidMount() {
+    await myAsyncFunction();
+    myFunction();
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>getDerivedStateFromProps</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="useEffect;getDerivedStateFromProps">
+<template v-slot:first>
+const CompanySelect = ({ company }: Props) => {
+    const [value, setValue] = useState(null);
+
+    useEffect(() => {
+        if (company && isNil(value)) {
+            setValue(company);
+        }
+    });
+};
+</template>
+<template v-slot:last>
+type State = { value: ?string }
+type Props = { company: string }
+
+class CompanySelect extends PureComponent&lt;Props, State&gt; {
+    state = { value: null };
+
+    static getDerivedStateFromProps(nextProps: Props, prevState: State) {
+        if (nextProps.company && isNil(prevState.value)) {
+            return {
+                value: nextProps.company,
+            };
+        }
+
+        return null;
+    }
+}
+</template>
+</v-two-code>
+
+<hr>
+
+<v-two-code type="js;js" comment="useEffect;getDerivedStateFromProps">
+<template v-slot:first>
+useEffect(() => {
+    if (!isEditRow) {
+        setTypesActivityState(typesActivity);
+    }
+});
+</template>
+<template v-slot:last>
+static getDerivedStateFromProps(nextProps, prevState) {
+    if (!prevState.isEditRow) {
+        return {
+            typesActivity: nextProps.typesActivity,
+        };
+    }
+    return null;
+}
+</template>
+</v-two-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Теория</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Побочные эффекты</u-text-define> - операции, которые могут влиять на работу других компонентов и их нельзя выполнить во время рендера. Н-р: запрашивать данные, делать подписки или вручную менять DOM из React-компонента</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Виды эффектов</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><b>1. Эффекты без сброса</b>. Иногда мы хотим выполнить дополнительный код после того, как React обновил DOM. Сетевые запросы, изменения DOM вручную, логирование — всё это примеры эффектов, которые не требуют сброса</li>
+    <li><b>2. Эффекты со сбросом</b>. Например, может потребоваться установить подписку на какой-нибудь внешний источник данных</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Теория</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Если эффект возвращает функцию, React выполнит её, когда придет время для очистки. Функция указывает эффекту, как выполнить «сброс». React производит очистку, когда компонент демонтируется</li>
+    <li>Каждый раз, когда компонент перерисовывается, мы планируем новый эффект, заменяя предыдущий</li>
+    <li>В отличие от componentDidMount или componentDidUpdate, эффекты, запланированные с помощью useEffect, не блокируют браузер, чтобы обновить экран</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li>При вызове <u>useEffect</u>, React получает указание запустить вашу функцию с «эффектом» после того, как он отправил изменения в DOM. Поскольку эффекты объявляются внутри компонента, у них есть доступ к его <u>пропсам</u> и <u>состоянию</u>. По умолчанию, React запускает эффекты после каждого рендера, включая первый рендер</li>
+    <li>Хуки позволяют разделить код на основе того, что он делает, а не на основании имён методов жизненного цикла</li>
+    <li>Если вы хотите запустить эффект и очистить его только один раз (при монтировании и демонтировании), вы можете передать пустой массив [] в качестве второго аргумента. Это укажет React, что ваш эффект не зависит от каких-либо значений из props или state, поэтому его не нужно повторно выполнять</li>
+    <li>React будет сбрасывать эффект перед тем, как компонент размонтируется. Однако, как мы уже знаем, эффекты выполняются не один раз, а при каждом рендере. Вот почему React также сбрасывает эффект из предыдущего рендера, перед тем, как запустить следующий</li>
+    <li>React будет выполнять каждый используемый эффект в компоненте, согласно порядку их объявления</li>
+</ul>

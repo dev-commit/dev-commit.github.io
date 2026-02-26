@@ -1,0 +1,23 @@
+<h2>@custom-selector</h2>
+
+<u-link-wrapper>
+	<a href="https://github.com/postcss/postcss-custom-selectors" target="_blank">PostCSS Custom Selectors</a>
+</u-link-wrapper>
+
+<v-two-code type="css;css" comment="PostCSS;CSS">
+<template v-slot:first>
+@custom-selector :--heading {
+	expansion: h1, h2, h3
+}
+article :--heading + p {
+	margin: 0;
+}
+</template>
+<template v-slot:last>
+article h1 + p,
+article h2 + p,
+article h3 + p {
+	margin: 0;
+}
+</template>
+</v-two-code>

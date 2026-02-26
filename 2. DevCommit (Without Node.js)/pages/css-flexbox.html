@@ -1,0 +1,339 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Flexbox</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../src/img/favicon.png">
+            <link href="../src/preloader/preloader.css" rel="stylesheet" type="text/css">
+        </head>
+        <body>
+            <div id="preloader"></div>
+
+            <div id="container">
+                <div id="menu-left">
+                    <div id="menu-left-starter">
+                        <div id="menu-left-show"></div>
+                        <a href="#menu-top">Starter</a>
+                    </div>
+                    <div id="menu-build"><div class="theme">Основное</div><a href="#main-info">Информация</a><div class="theme">Flex Container</div><a href="#container-display"><u-menu>display</u-menu></a><a href="#container-justify-content"><u-menu>justify-content</u-menu></a><a href="#container-align-items"><u-menu>align-items</u-menu></a><a href="#container-align-content"><u-menu>align-content</u-menu></a><a href="#container-flex-flow"><u-menu>flex-flow</u-menu> <u-menu>flex-direction</u-menu> <u-menu>flex-wrap</u-menu></a><div class="theme">Flex Element</div><a href="#element-flex"><u-menu>flex</u-menu> <u-menu>flex-grow</u-menu> <u-menu>flex-shrink</u-menu> <u-menu>flex-basis</u-menu></a><a href="#element-order"><u-menu>order</u-menu></a><a href="#element-align-self"><u-menu>align-self</u-menu></a><div class="theme">Прочее</div><a href="#other-margin">Поведение margin</a><a href="#other-samples">Примеры</a></div>
+                </div>
+                <div id="content-wrapper">
+                    <div id="menu-top"><a href="/pages/assessment" class="menu menu-other">Ассессмент</a><a href="/pages/js-tasks" class="menu menu-other">🍕 Задачи</a><a href="/pages/theory" class="menu menu-other">📑 Теория</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/theory-patterns" class="menu menu-other">⚡️ Паттерны</a><a href="/pages/theory-paradigms" class="menu menu-other">⚡️ Парадигмы</a><a href="/pages/theory-algoritms" class="menu menu-other">⚡️ Алгоритмы</a><a href="/pages/theory-data-structures" class="menu menu-other">⚡️ Структуры данных</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js" class="menu menu-js">🥑 JavaScript</a><a href="/pages/js-class" class="menu menu-js">🥑 Классы</a><a href="/pages/js-objects" class="menu menu-js">🥑 Объекты</a><a href="/pages/js-async" class="menu menu-js">🍋 Асинхронность</a><a href="/pages/js-network" class="menu menu-js">🍋 Сеть</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/js-web-api" class="menu menu-js">🥑 Web API</a><a href="/pages/js-web-components" class="menu menu-js">WebComponents</a><a href="/pages/canvas" class="menu menu-js">Canvas</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/react-js" class="menu menu-fw">💥 React.js</a><a href="/pages/react-api" class="menu menu-fw">💥 React API</a><a href="/pages/react-hooks" class="menu menu-fw">💥 React Hooks</a><a href="/pages/redux" class="menu menu-fw">🍋 Redux</a><a href="/pages/react-router" class="menu menu-fw">React Router</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/prop-types" class="menu menu-fw">PropTypes</a><a href="/pages/formik" class="menu menu-fw">Formik</a><a href="/pages/reselect" class="menu menu-fw">Reselect</a><a href="/pages/material-ui" class="menu menu-fw">Material-UI & JSS</a><a href="/pages/vue-js" class="menu menu-fw">Vue.js</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/testing" class="menu menu-other">📑 Тестирование</a><a href="/pages/jest" class="menu menu-other">🔰 Jest</a><a href="/pages/enzyme" class="menu menu-other">🔰 Enzyme + Jest</a><a href="/pages/react-testing" class="menu menu-other">🍋 React Testing</a><a href="/pages/cypress" class="menu menu-other">🔰 Cypress</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/html" class="menu menu-html">HTML</a><a href="/pages/css" class="menu menu-html">CSS</a><a href="/pages/css-flexbox" class="menu menu-html">Flexbox</a><a href="/pages/css-grid" class="menu menu-html">CSS Grid</a><a href="/pages/svg" class="menu menu-html">SVG</a><a href="/pages/sass" class="menu menu-html">Sass</a><a href="/pages/bootstrap" class="menu menu-html">Bootstrap</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/git" class="menu menu-php">🥥 Git</a><a href="/pages/typescript" class="menu menu-php">🍋 TypeScript</a><a href="/pages/flow" class="menu menu-php">🍋 Flow</a><a href="/pages/webpack" class="menu menu-php">🥥 Webpack</a><a href="/pages/gulp" class="menu menu-php">Gulp & Parcel</a><a href="/pages/npm" class="menu menu-php">NPM & Yarn</a><a href="/pages/ramda" class="menu menu-php">Ramda</a><div style="width: 100%; flex-shrink: 0"></div><a href="/pages/other" class="menu menu-other">Other</a><a href="/pages/node-js" class="menu menu-other">Node.js</a><a href="/pages/php" class="menu menu-other">PHP</a><a href="/pages/python" class="menu menu-other">Python</a><a href="/pages/mysql" class="menu menu-other">mySql</a><a href="/pages/linux" class="menu menu-other">Linux</a><a href="/pages/jquery" class="menu menu-other">jQuery</a></div>
+                    <div id="content"><div id="main-info"><h2>Информация</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>CSS Flexible Box Layout Module</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<img src="/img/css-flexbox/flex-axis.jpg" height="400" class="center">
+
+<ul class="list-point">
+    <li><u-code-list>Main Axis</u-code-list> - главная ось (по горизонтали)</li>
+    <li><u-code-list>Cross Axis</u-code-list> - второстепенная ось (по вертикали)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Flexbox и блочная модель</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Не работает <u>float</u></li>
+    <li>Внешние отступы не схлопываются и не выпадают</li>
+</ul>
+
+</div><div id="container-display"><h2>display: flex</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="display">display</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+.flex-container {
+	display: flex;   <u-code-comment># задание flex</u-code-comment>
+}
+</v-code>
+
+</div><div id="container-justify-content"><h2>justify-content: flex-start</h2>
+
+<ul class="list-point">
+    <li>Управляет размещением элемента вдоль главной оси (по горизонтали)</li>
+</ul>
+
+<img src="/img/css-flexbox/justify-content.jpg" height="135">
+
+<v-code lang="css" title="">
+.flex-container {
+	justify-content: flex-start;       <u-code-comment># флексы прижаты к началу строки</u-code-comment>
+	justify-content: flex-end;         <u-code-comment># флексы прижаты к концу строки</u-code-comment>
+	justify-content: center;           <u-code-comment># флексы выравниваются по центру строки</u-code-comment>
+	justify-content: space-between;    <u-code-comment># флексы равномерно располагаются с одинаковыми расстояниями между ними (первый и последний элемент прижимаются к краям контейнера)</u-code-comment>
+	justify-content: space-around;     <u-code-comment># флексы равномерно располагаются с одинаковыми расстояниями вокруг них (первый и последний элемент не прижимаются к краям контейнера)</u-code-comment>
+}
+</v-code>
+</div><div id="container-align-items"><h2>align-items: stretch</h2>
+
+<ul class="list-point">
+    <li>Управляет размещением элемента вдоль второстепенной оси (по вертикали)</li>
+</ul>
+
+<img src="/img/css-flexbox/align-items.jpg" height="135">
+
+<v-code lang="css" title="">
+.flex-container {
+	align-items: flex-start;       <u-code-comment># флексы выравниваются в начале поперечной оси контейнера</u-code-comment>
+	align-items: flex-end;         <u-code-comment># флексы выравниваются в конце поперечной оси контейнера</u-code-comment>
+	align-items: center;           <u-code-comment># флексы выравниваются по линии поперечной оси</u-code-comment>
+	align-items: stretch;          <u-code-comment># флексы растягиваются таким образом, чтобы занять всё доступное пространство контейнера</u-code-comment>
+	align-items: baseline;         <u-code-comment># флексы выравниваются по их базовой линии (по нижней части параграфа)</u-code-comment>
+}
+</v-code>
+</div><div id="container-align-content"><h2>align-content: stretch</h2>
+
+<ul class="list-point">
+    <li>Выравнивание многострочных элементов по вертикали (указывает, как несколько рядов должны отделяться друг от друга)</li>
+    <li>align-content отвечает за расстояние между рядами, в то время как align-items отвечает за то, как элементы в целом будут выровнены в контейнере. Когда только один ряд, align-content ни на что не влияет</li>
+</ul>
+
+<img src="/img/css-flexbox/align-content.jpg" height="135">
+
+<v-code lang="css" title="">
+.flex-container {
+	align-content: flex-start;       <u-code-comment># флексы располагаются в начале поперечной оси. Каждая следующая строка идёт вровень с предыдущей</u-code-comment>
+	align-content: flex-end;         <u-code-comment># флексы располагаются начиная с конца поперечной оси. Каждая предыдущая строка идёт вровень со следующей</u-code-comment>
+	align-content: center;           <u-code-comment># флексы располагаются по центру контейнер</u-code-comment>
+	align-content: space-between;    <u-code-comment># флексы равномерно располагаются с одинаковыми расстояниями между ними (первый и последний элемент прижимаются к краям контейнера)</u-code-comment>
+	align-content: space-around;     <u-code-comment># флексы равномерно располагаются с одинаковыми расстояниями вокруг них (первый и последний элемент не прижимаются к краям контейнера)</u-code-comment>
+	align-content: stretch;          <u-code-comment># флексы растягиваются, заполняя контейнер равномерно (по умолчанию)</u-code-comment>
+}
+</v-code>
+</div><div id="container-flex-flow"><h2>flex-flow: row nowrap</h2>
+
+<ul class="list-point">
+    <li>Рекомендуется использовать flex-flow, a не отдельные свойства (работает быстрее)</li>
+</ul>
+
+<div class="container-margin">
+
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<h2>flex-direction: row</h2>
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<ul class="list-point">
+    <li>Задаёт направление основных осей в контейнере</li>
+</ul>
+
+<img src="/img/css-flexbox/flex-direction.jpg" height="135">
+<v-code lang="css" title="">
+.flex-container {
+	flex-direction: row;              <u-code-comment># расположение блоков по горизонтали (по умолчанию)</u-code-comment>
+	flex-direction: row-reverse;      <u-code-comment># расположение блоков по горизонтали (реверсионно)</u-code-comment>
+	flex-direction: column;           <u-code-comment># расположение блоков по вертикали</u-code-comment>
+	flex-direction: column-reverse;   <u-code-comment># расположение блоков по вертикали (реверсионно)</u-code-comment>
+}
+</v-code>
+
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<h2>flex-wrap: nowrap</h2>
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<ul class="list-point">
+    <li>Задает перенос флексов</li>
+</ul>
+<img src="/img/css-flexbox/flex-wrap.jpg" height="135">
+
+<v-code lang="css" title="">
+.flex-container {
+	flex-wrap: nowrap;           <u-code-comment># флексы выстраиваются в одну линию</u-code-comment>
+	flex-wrap: wrap;             <u-code-comment># флексы выстраиваются в несколько строк</u-code-comment>
+	flex-wrap: wrap-reverse;     <u-code-comment># флексы выстраиваются в несколько строк реверсивно</u-code-comment>
+}
+</v-code>
+</div>
+</div><div id="element-flex"><h2>flex: 0 1 auto</h2>
+
+<ul class="list-point">
+    <li>Блоки растягиваются на всю ширину контейнера (flex = flex-grow = 1)</li>
+</ul>
+
+<v-code lang="css" title="">
+.flex-element {
+	flex: auto;
+	flex: 1;
+	flex-grow: 1;
+}
+</v-code>
+
+<v-code lang="css" title="">
+.flex-element {
+	flex: 1 1 auto;  <u-code-comment># занимают равное место, пока влезают</u-code-comment>
+	flex: 1 1 250px; <u-code-comment># указали фиксированную минимальную ширину</u-code-comment>
+}
+</v-code>
+
+<div class="container-margin">
+
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<h2>flex-grow: 0</h2>
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<ul class="list-point">
+    <li>Определяет для flex элемента возможность растягиваться по ширине</li>
+</ul>
+
+<v-code lang="css" title="">
+.flex-element {
+	flex-grow: 2; <u-code-comment># если для всех flex-item, то это равные 2 части от container-flex (заполнят всю ширину блока)</u-code-comment>
+}
+</v-code>
+
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<h2>flex-shrink: 1</h2>
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<ul class="list-point">
+    <li>Определяет возможность блока ужиматься при необходимости</li>
+    <li>Необходимо задать ширину элемента</li>
+</ul>
+
+<v-code lang="css" title="">
+.flex-element {
+	flex-shrink: 2;
+}
+</v-code>
+
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<h2>flex-basis: auto</h2>
+<!--zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz-->
+<ul class="list-point">
+    <li>Базовый размер отдельно взятого блока (аналогично min-width) - размер элемента вдоль главной оси</li>
+</ul>
+
+<v-code lang="css" title="">
+.flex-element {
+	flex-basis: 20%;   <u-code-comment># вместо width</u-code-comment>
+	flex-basis: auto;  <u-code-comment># принимает значение ширины элемента</u-code-comment>
+}
+</v-code>
+
+<img src="/img/css-flexbox/flex-basis.png" width="600px">
+
+</div>
+</div><div id="element-order"><h2>order: 0</h2>
+
+<ul class="list-point">
+    <li>Определяет порядок вывода флексов</li>
+</ul>
+
+<v-code lang="css" title="">
+.flex-element {
+	order: 0;          <u-code-comment># по умолчанию у всех элементов</u-code-comment>
+	order: 3;          <u-code-comment># элемент выводится третьим по порядку</u-code-comment>
+	order: -1;         <u-code-comment># элемент выводится первым по порядку</u-code-comment>
+}
+</v-code>
+</div><div id="element-align-self"><h2>align-self: auto</h2>
+
+<ul class="list-point">
+    <li>Переопределяет значение свойства align-items (позволяет вручную управлять выравниванием конкретного элемента)</li>
+</ul>
+
+<v-code lang="css" title="">
+.flex-element {
+	align-self: auto;             <u-code-comment># выравнивать как указано у контейнера (по умолчанию)</u-code-comment>
+	align-self: flex-start;       <u-code-comment># флексы выравниваются в начале поперечной оси контейнера</u-code-comment>
+	align-self: flex-end;         <u-code-comment># флексы выравниваются в конце поперечной оси контейнера</u-code-comment>
+	align-self: center;           <u-code-comment># флексы выравниваются по линии поперечной оси</u-code-comment>
+	align-self: stretch;          <u-code-comment># флексы растягиваются таким образом, чтобы занять всё доступное пространство контейнера</u-code-comment>
+	align-self: baseline;         <u-code-comment># флексы выравниваются по их базовой линии (по нижней части параграфа)</u-code-comment>	
+}
+</v-code>
+
+</div><div id="other-margin"><h2>Поведение margin</h2>
+
+<ul class="list-point">
+    <li>Центрирование элемента</li>
+</ul>
+
+<v-code lang="css" title="">
+.flex-element {
+	margin: auto;      <u-code-comment># центрирует 1 блок по горизонтали и вертикали</u-code-comment>
+	margin-left: auto; <u-code-comment># выравнивает блок по правому краю, а остальные блоки по левому</u-code-comment>
+	margin-top: auto;
+	margin-right: auto;
+	margin-bottom: auto;
+}	
+</v-code>
+</div><div id="other-samples"><h2>Примеры</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Выравнивание дочерних блоков (текста внутри блока) по горизонтали и вертикали</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Выравнивание дочерних блоков по горизонтали и вертикали</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+.container {
+	display: flex;
+	height: 100vh;
+}
+.item {
+	margin: auto;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2 обтекающих блока, занимающих 100% ширины container</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+.container { display: flex; }
+.box-left  { flex-basis: 250px; }
+.box-right { flex-grow: 1; }
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Блоки с правой и левой стороны</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+.item:first-child {
+	margin-right: auto;
+}
+.item:last-child {
+	margin-left: auto;
+}
+</v-code>
+</div></div>
+                </div>
+            </div>
+        
+            <!-- OWN JAVASCRIPT !!! -->
+            <script src="../src/libs/jquery.js"></script>
+            <script src="../src/preloader/preloader.js"></script>
+            <script src="../src-core/js/utils.js"></script>
+            <script src="../src/js/main.js"></script>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src-core/css/basic.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/index.css">
+        
+            <!-- Libraries -->
+            <script src="../src-core/libs/highlight/highlight.pack.js"></script>
+            <script src="../src-core/libs/vue.js"></script>
+        
+            <!-- Custom Elements -->
+            <script src="../src-core/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-web/custom-elements.css">
+        
+            <!-- Vue.js Components -->
+            <script src="../src-core/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src-core/components-vue/vue-components.css">
+        
+            <!-- JavaScript -->
+            <script src="../src-core/js/init.js"></script>
+        </body>
+        </html>
+    
