@@ -1,0 +1,1128 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>📑 SOLID</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/theory-solid/build-theory-solid.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">📑 SOLID</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Основы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__theory-solid/main/info"
+            href="#theory-solid/main/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+</ul><h4>🏷️ Principles</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__theory-solid/principles/1-srp"
+            href="#theory-solid/principles/1-srp"
+        >
+            1. Single Responsibility
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__theory-solid/principles/2-ocp"
+            href="#theory-solid/principles/2-ocp"
+        >
+            2. Open Closed
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__theory-solid/principles/3-lsp"
+            href="#theory-solid/principles/3-lsp"
+        >
+            3. Liskóv Substitution
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__theory-solid/principles/4-isp"
+            href="#theory-solid/principles/4-isp"
+        >
+            4. Interface Segregation
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__theory-solid/principles/5-dip"
+            href="#theory-solid/principles/5-dip"
+        >
+            5. Dependency Inversion
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="theory-solid/main/info"><h2>Информация</h2>
+
+<u-link-wrapper>
+    <v-link url="https://www.youtube.com/playlist?list=PLmqFxxywkatQNWLG1IZYUhKoQrnuZHqaK" text="YouTube. Playlist (Сергей Немчинский)" list="true" />
+    <v-link url="https://habr.com/ru/companies/productivity_inside/articles/505430/" text="Статья. Принципы SOLID в картинках" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>SOLID</u-text-define> - пять основных принципов ООП, которые были собраны Робертом Мартином, автором нескольких книг</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Цель</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Способствуют созданию системы, которую будет легко поддерживать и расширять в течение долгого времени</li>
+    <li>Способствуют легкому понимают кода и его переиспользованию</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Когда следует применять</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><em>Жесткость</em> - трудно вносить изменнея в код. Одно изменение вносит изменение в другие модули</li>
+    <li><em>Хрупкость</em> - свойство программы повреждаться во многих местах при внесении одного изменения</li>
+    <li><em>Ненужная сложность</em> - содержание элементов не используемых в данный момент</li>
+    <li><em>Ненужные повторения</em> - проблема дублирования кода</li>
+    <li><em>Непрозрачность</em> - трудность кода для понимания</li>
+</ul>
+</div><div id="theory-solid/principles/1-srp"><!-- TODO:
+<f-search>SOLID -> [S] The Single Responsibility Principle</f-search>
+-->
+
+<h2>1. The Single Responsibility Principle</h2>
+
+<ul class="list-point">
+    <li><u-text-define>The Single Responsibility Principle</u-text-define> - Принцип единственной ответственности</li>
+    <li>Каждый кдасс должен иметь одну обязанность (ответственность) и эта обязанность должна быть полностью инкапсулирована в класс. Он должен содержать поля и методы, относящиеся только к одному функционалу</li>
+    <li>Для класса должна быть только 1 причина для изменения</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Принципы</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Разделение больших классов, реализующих разный функционал</li>
+    <li>Слияние мелких классов и объединение в одном классе однотипоной функциональности (если определенная функциональность разбросана по разным классам, ее нужно собрать в одном классе)</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Результат применения</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>В случаем возникновения изменений - <u>задействовать наименьшее количество модулей</u></li>
+    <li>Изменения, внесенные в класс, не затрагивают поведение других классов и не вызывают ошибок. Код проще читать, легче поддерживать и изменять</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Нарушение принципа</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>God object</u-text-define> (Божественный объект) - антипаттерн, представляющий собой класс в котором находится слишком много различного функционала</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Fitness Tracker</h4>
+<!------------------------------------------------------------->
+
+<ul class="list-point">
+    <li>Есть система, которая считает "Шаги" и "Скорость движения"</li>
+    <li>При этом, другим разработчикам может потребоваться функционал отдельно для "Шагов" или "Скорости движения"</li>
+</ul>
+
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<ul>
+    <li>Разделение классов по функционалу</li>
+</ul>
+<v-code lang="js border" title="">
+class Steps {
+    constructor() { this.steps = 100; }
+    getSteps() { return this.steps; }
+}
+class Speed {
+    constructor() { this.speed = 200; }
+    getSpeed() { return this.speed; }
+}
+</v-code>
+
+<ul>
+    <li>Объединение классов "Steps" и "Speed"</li>
+</ul>
+<v-code lang="js border" title="">
+class Tracker {
+	constructor(steps, speed) {
+		this.steps = steps;
+		this.speed = speed;
+	}
+	getTracker() {
+		const steps = this.steps.getSteps();
+		const speed = this.speed.getSpeed();
+		console.log(steps, speed); // 100, 200
+	}	
+}
+
+const tracker = new Tracker(new Steps, new Speed);
+tracker.getTracker();
+</v-code>
+</template><template v-slot:last>
+<ul>
+    <li>Обработка "Шагов" и "Скорости движения" в одном месте</li>
+    <li>Если потребуется переиспользовать логику только "Шагов" - это не получится</li>
+</ul>
+
+<v-code lang="js" title="">
+class Tracker {
+	constructor() {
+		this.steps = 100;
+		this.speed = 200;
+	}
+	getTracker() {
+		const steps = this.getSteps();
+		const speed = this.getSpeed();
+		console.log(steps, speed); // 100, 200
+	}
+	getSteps() { return this.steps; }
+	getSpeed() { return this.speed; }
+}
+
+const tracker = new Tracker();
+tracker.getTracker();
+</v-code>
+
+</template></v-two-border>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Применение в React</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+ <ul class="list-point">
+    <li>На примере React компонента: компонент, который отрисовывает пользовательский интерфейс, не должен содержать в себе логику авторизации этого пользователя.</li>
+ </ul>
+ </div><div id="theory-solid/principles/2-ocp"><!-- TODO:
+<f-search>SOLID -> [O] The Open Closed Principle</f-search>
+-->
+
+<h2>2. The Open Closed Principle</h2>
+
+<ul class="list-point">
+    <li><u-text-define>The Open Closed Principle</u-text-define> - Принцип открытости/закрытости</li>
+    <li>Программные сущности (классы, модули, функции и т.д.) должны быть открыты для расширения, но закрыты для модификации</li>
+    <li>Любой блок должен быть открыт для добавления новой функциональности. Новая функциональность не должна изменять существующую</li>
+
+    <hr>
+
+    <li>Небольшое изменение класса не должно затрагивать связанные с ним модули</li>
+    <li>От класса можно наследоваться и расширить его функциональность, но нет прямой возможности менять функциональность базового класса</li>
+    <li>Неважно сколько добавили свойств объекту, код будет работать</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Результат применения</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u>Разработка устойчивого к изменениям приложения</u>: при добавлении нового поведения у программной сущности обеспечиваем корректную работу существующего кода, который взаимодействует с этой сущностью</li>
+    <li>Сделать поведение класса более разнообразным, не вмешиваясь в текущие операции, которые он выполняет. Благодаря этому вы избегаете ошибок в тех фрагментах кода, где задействован этот класс</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Принцип помогает</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Проектировать модули, выполняющие только одну задачу</li>
+    <li>Вводит абстракцию, через которую связываются сущности</li>
+    <li>Позволяет расширять имплементацию и расширяет ее от изменений</li>
+    <li>Выносит место взаимодействия модулей в отдельную прозрачную сущность</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Две трактовки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h5>1. От Боба Мартина. Полиморфный (приоритетная трактовка)</h5>
+<ul class="list-point">
+    <li><u>КлиентскийКод</u> должен зависеть от интерфейса, который неизменный (<u>КлиентскийКод</u> не нужно переписывать)</li>
+    <li><u>БазовыйКласс</u> и <u>КлассНаследник</u> реализует одинаковый неизменный интерфейс</li>
+</ul>
+<p><img src="/@img/solid/open-closed1.png" width="300px" /></p>
+
+
+<h5>2. От Бертрана Мейера</h5>
+<ul class="list-point">
+    <li>После разработки <u>БазовогоКласса</u>, он полностью закрывается для изменений. Исключение только для bugfix</li>
+    <li>Добавление новой функциональность происходит с помощью наследования. Новая функциональность добавляеся в <u>КлассНаследник</u></li>
+    <li><u>КлассНаследник</u> может иметь другой интерфейс. При этом, если <u>КлиентскийКод</u> до этого вызывал <u>БазовыйКласс</u>, а сейчас вызывает <u>КлассНаследник</u> с другим интерфейсом, то придется переписывать <u>КлиентскийКод</u></li>
+</ul>
+<p><img src="/@img/solid/open-closed2.png" width="550px" /></p>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Примеры аналогичны Liskóv Substitution Principle. Можно рассмотреть пример на Shape</li>
+</ul>
+
+<u-message-error>Пример не проверен</u-message-error>
+
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<v-code lang="js border" title="">
+class Vehicle {
+    constructor(fuelCapacity, fuelEfficiency) {
+        this.fuelCapacity = fuelCapacity;
+        this.fuelEfficiency = fuelEfficiency;
+    }
+    getMaxDistance() {
+        let distance = this.fuelCapacity * this.fuelEfficiency;
+<u-code-wrapper>
+        if (this instanceof HybridVehicle) {
+            distance += this.electricRange;
+        }
+</u-code-wrapper>
+        return distance;
+    }
+}
+
+class HybridVehicle extends Vehicle {
+    constructor(fuelCapacity, fuelEfficiency, electricRange) {
+        super(fuelCapacity, fuelEfficiency);
+        this.electricRange = electricRange;
+    }
+<u-code-wrapper>
+    getMaxDistance() {
+        return this.fuelCapacity * this.fuelEfficiency + this.electricRange;
+    }
+</u-code-wrapper>
+}
+
+</v-code>
+</template><template v-slot:last>
+<v-code lang="js" title="">
+class Vehicle {
+    constructor(fuelCapacity, fuelEfficiency) {
+        this.fuelCapacity = fuelCapacity;
+        this.fuelEfficiency = fuelEfficiency;
+    }
+    getMaxDistance() {
+        return this.fuelCapacity * this.fuelEfficiency;
+    }
+}
+
+class HybridVehicle extends Vehicle {
+    constructor(fuelCapacity, fuelEfficiency, electricRange) {
+        super(fuelCapacity, fuelEfficiency);
+        this.electricRange = electricRange;
+    }
+}
+</v-code>
+</template></v-two-border>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Применение в React</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-details title="Пример с кнопкой">
+<ul class="list-point">
+    <li>На примере выше мы имеем абстрактную базовую кнопку, которую мы не можем изменять, но можем расширять, за счет передачи таких значений как <u>className</u>, <u>onClick</u> и <u>children</u></li>
+</ul>
+
+<v-code lang="js" title="">
+const Button = ({onClick, children, className = ''}) =&gt; {
+  return (
+    &lt;button className={`base-button ${className}`} onClick={onClick}&gt;
+      {children}
+    &lt;/button&gt;
+  );
+};
+
+const PrimaryButton = ({onClick, children}) =&gt; {
+  return (
+    &lt;Button onClick={onClick} className="primary-button"&gt;
+      {children}
+    &lt;/Button&gt;
+  );
+};
+
+const IconButton = ({onClick, icon, children}) =&gt; {
+  return (
+    &lt;Button onClick={onClick} className="icon-button"&gt;
+      &lt;span className="icon"&gt;{icon}&lt;/span&gt;
+      {children}
+    &lt;/Button&gt;
+  );
+};
+</v-code>
+</v-details>
+
+<v-details title="Пример с HOC">
+<v-code lang="js" title="">
+// Базовый компонент Button
+const Button = ({ children, onClick, ...props }) =&gt; {
+  return (
+    &lt;button onClick={onClick} {...props}&gt;
+      {children}
+    &lt;/button&gt;
+  );
+};
+
+// Higher-Order Component для добавления логирования
+const withLogging = WrappedComponent =&gt; {
+  return function LoggingComponent(props) {
+    const handleClick = () =&gt; {
+      console.log(`Button clicked: ${props.children}`);
+      
+      if (props.onClick) {
+        props.onClick();
+      }
+    };
+
+    return &lt;WrappedComponent {...props} onClick={handleClick} /&gt;;
+  };
+};
+
+// Создание компонента с логированием
+const LoggingButton = withLogging(Button);
+</v-code>
+</v-details>
+</div><div id="theory-solid/principles/3-lsp"><!-- TODO:
+<f-search>SOLID -> [L] The Liskóv Substitution Principle</f-search>
+-->
+
+<h2>3. The Liskóv Substitution Principle</h2>
+
+<ul class="list-point">
+    <li><u-text-define>The Liskóv Substitution Principle</u-text-define> - Принцип подстановки Барбары Лиско́в</li>
+    <li>Если модуль корректно работает с <u>SuperClass</u>, он также должен корректно работать с его наследником <u>ChildClass</u>: если заменить <u>SuperClass</u> на <u>ChildClass</u>, в приложении не должно быть ошибок</li>
+    <li><u>ChildClass</u> должен дополнять, а не изменять <u>SuperClass</u> и не должен противоречить поведению, заданному <u>SuperClass</u></li>
+    <li>Если <u>ChildClass</u> не способен выполнять те же действия, что и класс-родитель, возникает риск ошибок</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Результат применения</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Позволяет гарантировать, что любой созданный нами подкласс будет корректно использоваться ранее реализованными модулями, которые работали с классом-родителем</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Принцип помогает</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Выявлять проблемные абстракции и скрытые связи между сущностями</li>
+    <li>Делать поведение модулей предсказуемым</li>
+    <li>Вводить ограничение на наследование, чтобы потомки не противоречили базовому поведению</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Реализация</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Общий интерфейс для обоих классов</li>
+    <li>Вместо наследования одного класса от другого использовать интерфейс</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Shape</h4>
+<!------------------------------------------------------------->
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<ul>
+    <li>Абстрактный класс</li>
+</ul>
+<v-code lang="js border" title="Базовый класс">
+class Shape {
+    <u-code>area</u-code>() {
+        // abstract class
+    }
+}
+</v-code>
+
+<ul>
+    <li>Полиморфизм (различная реализация для <u>area</u>)</li>
+</ul>
+<v-code lang="js border" title="Наследники">
+class Square extends Shape {
+    <u-code>area</u-code>() {
+        return 'Draw Square'
+    }
+}
+class Circle extends Shape {
+    <u-code>area</u-code>() {
+        return 'Draw Circle'
+    }
+}
+</v-code>
+
+<ul>
+    <li>Класс AreaCalculator должен одинаково работать со всеми наследниками</li>
+    <li>В данном случае проблем не возникнет, т.к. у каждого класса есть метод "area"</li>
+</ul>
+
+<v-code lang="js border" title="Класс для калькуляции">
+class AreaCalculator {
+    constructor(shapes = []) {
+        this.shapes = shapes;
+    }
+    calc() {
+        const res = this.shapes.map(item => item.<u-code>area</u-code>());
+        console.log(res);
+    }
+}
+</v-code>
+
+<v-code lang="js border" title="Вызов">
+const areaCalculator = new AreaCalculator([
+    new Square(),
+    new Circle()
+]);
+
+areaCalculator.calc(); // => ["Draw Square", "Draw Circle"]
+</v-code>
+
+</template><template v-slot:last>
+<v-code lang="js" title="Наследники">
+class Square {
+    constructor() {
+        this.type = 'square';
+    }
+}
+class Circle {
+    constructor() {
+        this.type = 'circle';
+    }
+}
+</v-code>
+<v-code lang="js" title="Класс для калькуляции">
+class AreaCalculator {
+    constructor(shapes = []) {
+        this.shapes = shapes;
+    }
+
+    calc() {
+		const res = this.shapes.map(item => {
+			switch(item.type) {
+				case 'square': return 'Draw Square'; break;
+				case 'circle': return 'Draw Circle'; break;
+				default: return 'Draw Default';
+			}
+		});
+		console.log(res);
+    }
+}
+</v-code>
+
+<v-code lang="js" title="Вызов">
+const areaCalculator = new AreaCalculator([
+    new Square(),
+    new Circle()
+]);
+
+areaCalculator.calc(); // => ["Draw Square", "Draw Circle"]
+</v-code>
+
+</template></v-two-border>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Применение в React</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Пример с кнопками из "The Open Closed Principle": каждый вид кнопки, который расширил базовую, может использоваться вместо базовой без каких-либо изменений, соответственно выполняется прицип LSP.</li>
+</ul>
+
+<v-details title="Пример с кнопкой из 'The Open Closed Principle'">
+<v-code lang="js" title="">
+const Button = ({onClick, children, className = ''}) =&gt; {
+  return (
+    &lt;button className={`base-button ${className}`} onClick={onClick}&gt;
+      {children}
+    &lt;/button&gt;
+  );
+};
+
+const PrimaryButton = ({onClick, children}) =&gt; {
+  return (
+    &lt;Button onClick={onClick} className="primary-button"&gt;
+      {children}
+    &lt;/Button&gt;
+  );
+};
+
+const IconButton = ({onClick, icon, children}) =&gt; {
+  return (
+    &lt;Button onClick={onClick} className="icon-button"&gt;
+      &lt;span className="icon"&gt;{icon}&lt;/span&gt;
+      {children}
+    &lt;/Button&gt;
+  );
+};
+</v-code>
+</v-details>
+</div><div id="theory-solid/principles/4-isp"><!-- TODO:
+<f-search>SOLID -> [I] The Interface Segregation Principle</f-search>
+-->
+
+<h2>4. The Interface Segregation Principle</h2>
+
+<ul class="list-point">
+    <li><u-text-define>The Interface Segregation Principle</u-text-define> - Принцип разделения интерфейса</li>
+    <li><u>ClientCode</u> НЕ должен зависеть от методов, которые они их НЕ используют. Если какой-то метод интерфейса не используется <u>ClientCode</u>, то изменения этого метода не должны приводить к внесению изменений в <u>ClientCode</u></li>
+    <li>Много интерфейсов, специально предназначенных для <u>ClientCode</u>, лучше, чем один интерфейс общего назначения</li>
+</ul>
+
+<u-message-warn>
+    <ul class="list-point">
+        <li>Этот принцип не связан с изменением <u>SuperClass</u> и <u>ChildClass</u> - речь только про <em>Interface</em>, описывающий этот класс</li>
+        <li>Можно создать 2 <em>Interface</em>: первый будет описывать все методы <u>Class</u>, а второй будет содержать только методы, необходимые <u>ClientCode</u></li>
+        <li><b>Пример</b>: на Backend сложный класс с кучей методов. Frontend-разработчики описали <em>Interface</em>, который им нужен и Backend-разработчики сформировали новый <em>Interface</em> для Frontend, содержащий только необходимые методы. При этом, в <em>Interface</em> не были включены методы, которые не используются на Frontend</li>
+    </ul>
+</u-message-warn>
+
+<!------------------------------------------------------------->
+<h5>Принципы</h5>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li>Класс должен содержать только необходимые методы. При необходимости происходит разделение на несколько классов</li>
+    <li>Если <u>ClientCode</u> не использует какие-то методы, они не должны нарушать его работы</li>
+    <li>При изменении методов интерфейса не должны меняться программные сущности, которые этот метод не используют </li>
+</ol>
+
+<!------------------------------------------------------------->
+<h5>Результат применения</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Снижение зависимостей между модулями</li>
+    <li>При наследовании нет ненужной функциональности - каждый класс делает то, что от него действительно требуется</li>
+    <li>Отсутствие проблем, связанных с реализацией больших интерфейсов (классы имплементируют только необходимые им методы)</li>
+    <li>Декомпозиция</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример 1</h4>
+<!------------------------------------------------------------->
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<v-code lang="js border" title="Базовый класс">
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+}
+</v-code>
+<v-code lang="js border" title="Объекты">
+const swimmer = {
+    swim() {
+        console.log(this.name+'умеет плавать')
+    }
+}
+const flier = {
+    fly() {
+        console.log(this.name+'умеет летать')
+    }
+}
+</v-code>
+<v-code lang="js border" title="Наследники">
+class Dog extends Animal {}
+class Eagle extends Animal {}
+
+Object.assign(Dog.prototype, swimmer);
+Object.assign(Eagle.prototype, flier);
+</v-code>
+<v-code lang="js border" title="Вызов методов">
+const dog = new Dog('Jack');
+dog.swim();
+// dog.fly();  // нет метода
+
+const eagle = new Eagle('Bobby');
+// eagle.swim(); // нет метода
+eagle.fly();
+</v-code>
+
+</template><template v-slot:last>
+<v-code lang="js" title="Базовый класс">
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+    swim() {
+        console.log(this.name+'умеет плавать')
+    }
+    fly() {
+        console.log(this.name+'умеет летать')
+    }
+}
+
+</v-code>
+<v-code lang="js" title="Наследники">
+class Dog extends Animal {
+    fly() { return null }
+}
+class Eagle extends Animal {
+    swim() { return null }
+}
+</v-code>
+<v-code lang="js" title="Вызов методов">
+const dog = new Dog('Jack');
+dog.swim(); // +
+dog.fly();  // -
+
+const eagle = new Eagle('Bobby');
+eagle.swim(); // -
+eagle.fly();  // +
+</v-code>
+
+</template></v-two-border>
+
+<!------------------------------------------------------------->
+<h4>Пример 2</h4>
+<!------------------------------------------------------------->
+<u-message-error>Пример не проверен</u-message-error>
+
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<v-code lang="js border" title="">
+class OrderService {
+    printCheque() {}
+}
+
+class PizzaOnlyOrderService extends OrderService {
+    orderPizza(pizzaQty) {
+        console.log(`Received order of ${pizzaQty} pizzas`);
+    }
+}
+class DrinksOnlyOrderService extends OrderService {
+    orderDrink(drinksQty) {
+        console.log(`Received order of ${drinksQty} pizzas`);
+    }
+}
+</v-code>
+</template><template v-slot:last>
+<v-code lang="js" title="">
+class OrderService {
+    printCheque() {}
+}
+
+class PizzaOnlyOrderService extends OrderService {
+    orderPizza(pizzaQty) {
+        console.log(`Received order of ${pizzaQty} pizzas`);
+    }
+    orderDrink(drinksQty) {
+        console.log(`Can't order ${drinksQty} drinks in pizza only order.`);
+    }
+    orderCombo(pizzaQty, drinksQty) {
+        if (drinksQty) throw Error('No combo in pizza only order');
+        console.log(`Received order of ${pizzaQty} pizzas`);
+    }
+}
+</v-code>
+</template></v-two-border>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Применение в React</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<ul>
+    <li>В компонент UserName необходимо передавать только поле имени, а не весь объект</li>
+</ul>
+<v-code lang="js border" title="">
+type UserNameProps = {
+  userName: string;
+}
+const UserName: React.FC&lt;UserNameProps&gt; = ({ userName }) =&gt; (
+  &lt;div&gt;
+    {userName}
+  &lt;/div&gt;
+)
+
+const UsersList: React.FC&lt;UsersListProps&gt; = ({ users }) =&gt; (
+  &lt;div&gt;
+    {users.map(user =&gt; &lt;UserName key={user.id} userName={user.name} /&gt;)}
+  &lt;/div&gt;
+)
+</v-code>
+
+</template><template v-slot:last>
+<ul>
+    <li><b>Нарушение</b>: передавать в компонент <u>UserName</u> огромный объект, а использовать только одно его поле</li>
+</ul>
+<v-code lang="js" title="">
+interface IUser {
+  id: string;
+  name: string;
+  age: number;
+  gender: 'male' | 'female';
+  city?: string;
+}
+
+type UserNameProps = {
+  user: IUser;
+};
+const UserName: React.FC&lt;UserNameProps&gt; = ({ user }) =&gt; {
+  return &lt;div&gt;{user.name}&lt;/div&gt;;
+};
+
+type UsersListProps = {
+  users: IUser[];
+};
+const UsersList: React.FC&lt;UsersListProps&gt; = ({ users }) =&gt; {
+  return (
+    &lt;div&gt;
+      {users.map((user) =&gt; (
+        &lt;UserName key={user.id} user={user} /&gt;
+      ))}
+    &lt;/div&gt;
+  );
+};
+</v-code>
+</template></v-two-border>
+</div><div id="theory-solid/principles/5-dip"><!-- TODO:
+<f-search>SOLID -> [D] The Dependency Inversion Principle</f-search>
+-->
+
+<h2>5. The Dependency Inversion Principle</h2>
+
+<ul class="list-point">
+    <li><u-text-define>The Dependency Inversion Principle</u-text-define> - Принцип инверсии зависимостей</li>
+
+    <hr>
+
+    <li>Зависимость на Абстракциях. Нет зависимости на что-то конкретное</li>
+    <li>Любые зависимости лучше всего выностить в абстракции, т.е. инкапсулировать в отдельных сущностях</li>
+    <li><b>Назначение</b>: устранить зависимость классов верхнего уровня от классов нижнего уровня за счёт введения интерфейсов</li>
+    <li>Использовать все классы через <em>Interface</em></li>
+    <li>Использует Angular в своём ядре</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Результат применения</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u>Уменьшение зависимости между модулями</u>. Низкая связанность между модулями достигается за счет независимости классов верхнего уровня от классов нижнего уровня. Если появляются связи между двумя объектами, их нужно разделить</li>
+    <li><u>Возможность повторного использования</u></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Принципы</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li>Модули верхних уровней не должны зависеть от модулей нижних уровней</li>
+    <li>Модули верхних и нижних модулей должны зависеть от абстракций (инверсируем зависимости)</li>
+    <li>Абстракции не должны зависеть от деталей</li>
+    <li>Детали должны зависеть от абстракций</li>
+</ol>
+
+
+<v-two-border title="Dependency Inversion;Not Dependency Inversion"><template v-slot:first>
+<ul>
+    <li><u>User</u> может работать с любыми <u>Settings</u>, которые ему будут переданы</li>
+</ul>
+<v-code lang="js step" title="">
+class User {
+    constructor(settings) {
+        this.settings = settings
+    }
+}
+
+const user = new User(new Settings());
+</v-code>
+</template><template v-slot:last>
+<ul>
+    <li><u>User</u> может работать только с <u>Settings</u>, которые указаны у него</li>
+</ul>
+<v-code lang="js step" title="">
+class User {
+    constructor() {
+        this.settings = new Settings()
+    }
+}
+
+const user = new User();
+</v-code>
+</template></v-two-border>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<ul>
+    <li>Создать новый класс, который будет являться интерфейсом для взаимодействия между сущностями</li>
+    <li><u>class Database</u> не зависит от абстракций низшего уровня, она зависит только от тех абстракций, который передали в класс</li>
+    <li>Изменили порядок зависимостей и сделали код масштабируемым</li>
+</ul>
+
+<v-code lang="js border" title="Базовые классы">
+class Fetch {
+    request(url) {
+        return Promise.resolve('data from fetch');
+    }
+}
+class LocalStorage {
+    get() {
+        const data = 'data from local storage';
+        return data;
+    }
+}
+</v-code>
+<v-code lang="js border" title="Оболочки">
+// Оболочка для Fetch
+class FetchClient {
+    constructor() {
+        this.fetch = new Fetch();
+    }
+
+    clientGet(key) {
+        return this.fetch.request(key);
+    }
+}
+
+// Оболочка для LocalStorage
+class LocalStorageClient {
+    constructor() {
+        this.localStorage = new LocalStorage();
+    }
+
+    clientGet(key) {
+        return this.localStorage.get(key);
+    }
+}
+</v-code>
+<v-code lang="js border" title="">
+class Database {
+    constructor(client) {
+        this.client = client;
+    }
+
+    getData(key) {
+        return this.client.clientGet(key);
+    }
+}
+
+// работает с FetchClient() если нужно
+const db = new Database(new FetchClient());
+// или работаем с LocalStorageClient() если нужно
+const db = new Database(new LocalStorageClient());
+
+console.log(db.getData('rand'));
+</v-code>
+
+</template><template v-slot:last>
+<ul>
+    <li>Изначально данные получались через <u>class Fetch</u></li>
+    <li>Потом данные необходимо брать из <u>class LocalStorage</u></li>
+    <li>При изменении места откуда берутся данные, необходимо менять <u>class Database</u></li>
+</ul>
+
+<v-code lang="js" title="Базовые классы">
+class Fetch {
+    request(url) {
+        return Promise.resolve('data from fetch');
+    }
+}
+class LocalStorage {
+    get() {
+        const data = 'data from local storage';
+        return data;
+    }
+}
+</v-code>
+<v-code lang="js" title="">
+class Database {
+    constructor() {
+        // this.fetch = new Fetch();
+        this.localStorage = new LocalStorage();
+    }
+
+    getDate() {
+        // return this.fetch.request('vk.com');
+        return this.localStorage.get('ls key');
+    }
+}
+
+const db = new Database();
+console.log(db.getData());
+</v-code>
+
+</template></v-two-border>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Данные</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash none" title="">
+Decoupling
+    &#9776; Inversion of Control
+        &#8226; Dependency Injection
+    &#9776; Dependency Invertion
+        &#8226; Inderfaces
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Применение в React</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<ul>
+    <li>Мы определили интерфейс функции логгера, создали несколько конкретных реализаций логгера, которые соответствуют определенному интерфейсу. Компонент <u>UserService</u> теперь принимает логгер через пропс, что позволяет легко менять реализацию логгера, не изменяю при этом код компонента. Благодаря чему, мы можем использовать <u>UserService</u> с любым логгером, который реализует интерфейс <u>ILogger</u></li>
+</ul>
+<v-code lang="js border" title="">
+const ConsoleLogger: ILogger = {
+  log: (message: string) =&gt; {
+    console.log(`Console: ${message}`);
+  },
+};
+const FileLogger: ILogger = {
+  log: (message: string) =&gt; {
+    // Логика записи в файл
+    console.log(`File: ${message}`);
+  },
+};
+
+type UserServiceProps = {
+  logger: ILogger;
+};
+const UserService: React.FC&lt;UserServiceProps&gt; = ({ logger }) =&gt; {
+  const createUser = (name: string) =&gt; {
+    // Логика создания пользователя
+    logger.log(`User ${name} created`);
+  };
+  return (
+    &lt;div&gt;
+      &lt;button onClick={() =&gt; createUser('John Doe')}&gt;Create User&lt;/button&gt;
+    &lt;/div&gt;
+  );
+};
+</v-code>
+
+<v-code lang="js border" title="">
+// Пример использования
+&lt;UserService logger={ConsoleLogger} /&gt;
+&lt;UserService logger={FileLogger} /&gt;
+</v-code>
+
+</template><template v-slot:last>
+<ul>
+    <li>Мы имеем простой компонент с кнопкой, по нажатию на которую происходит логирование. В данном примере высокоуровневым компонентом у нас является кнопка, а низкоуровневым — функция логгер <u>ConsoleLogger</u> ее нажатия. Как мы видим кнопка напрямую зависит от реализации данного логгера, а согласно принципу, она должна зависеть от абстракции. Проблема в том, что если придется использовать другой способ логирования, то придуется изменять код компонента</li>
+</ul>
+<v-code lang="js" title="">
+const ConsoleLogger = {
+  log: (message: string) =&gt; {
+    console.log(`Log: ${message}`);
+  }
+};
+
+const UserService = () =&gt; {
+  // Жесткая зависимость от конкретного логгера
+  const createUser = (name: string) =&gt; {
+    ConsoleLogger.log(`User ${name} created`);
+  };
+  return (
+    &lt;div&gt;
+      &lt;button onClick={() =&gt; createUser('John Doe')}&gt;Create User&lt;/button&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default UserService;
+</v-code>
+</template></v-two-border>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

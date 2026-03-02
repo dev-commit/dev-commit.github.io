@@ -1,0 +1,99 @@
+<h2>Модель распространения событий</h2>
+
+<u-link-wrapper>
+	<v-link url="https://www.w3.org/TR/DOM-Level-3-Events/" text="UI Events" list="true" />
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>DOM Events - модель распространения событий</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<table>
+	<tr>
+		<td><u-inline-circle>1</u-inline-circle></td>
+		<td><b>Фаза погружения/перехвата<br> (Capturing phase)</b></td>
+		<td><u-code-text>Event.CAPTURING_PHASE=1</u-code-text></td>
+		<td>Идет от родительского элемента (<u>document</u> или <u>window</u> в зависимости от события) до целевого</td>
+	</tr>
+	<tr>
+		<td><u-inline-circle>2</u-inline-circle></td>
+		<td><b>Фаза цели <br>(Target phase)</b></td>
+		<td><u-code-text>Event.AT_TARGET=2</u-code-text></td>
+		<td>Событие достигло целевого (исходного) элемента</td>
+	</tr>
+	<tr>
+		<td><u-inline-circle>3</u-inline-circle></td>
+		<td><b>Фаза всплытия<br> (Bubbling stage)</b></td>
+		<td><u-code-text>Event.BUBBLING_PAGE=3</u-code-text></td>
+		<td>Идёт от целевого элемента до родительского (<u>document</u> или <u>window</u></td>
+	</tr>
+</table>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Необходимость всплытия и погружения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Реализация делегирования</li>
+    <li>Настройка дефолтных обработчиков</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм работы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При наступлении события – самый глубоко вложенный элемент, на котором оно произошло, помечается как «целевой» <u-code-text>event.target</u-code-text></li>
+    <li>Затем событие сначала двигается вниз от корня документа к event.target, по пути вызывая обработчики, поставленные через <u-code-text>addEventListener(...., {capture: true})</u-code-text></li>
+    <li>Далее обработчики вызываются на целевом элементе</li>
+    <li>Далее событие двигается от event.target вверх к корню документа, по пути вызывая обработчики, поставленные через on&lt;event&gt; и addEventListener без третьего аргумента или с третьим аргументом равным false</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Схема работы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>На картинке клик по ячейке <u>td</u>, расположенной внутри таблицы</li>
+    <li>При клике на <u>td</u> событие перемещается по цепочке родителей сначала вниз к элементу (погружается), затем оно достигает целевой элемент (фаза цели), а потом идёт наверх (всплытие), вызывая по пути обработчики</li>
+</ul>
+
+<v-two><template v-slot:first>
+<img src="/@img/dom/propagation/capturing1.png" width="400px">
+</template><template v-slot:last>
+<img src="/@img/js/event.jpg" width="350px">
+</template></v-two>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html" title="">
+&lt;form&gt;FORM
+	&lt;div&gt;DIV
+		&lt;p&gt;P&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/form&gt;
+
+&lt;script&gt;
+	for(let elem of document.querySelectorAll('*')) {
+		elem.addEventListener("click", e =&gt; alert(`Погружение: ${elem.tagName}`), true);
+		elem.addEventListener("click", e =&gt; alert(`Всплытие: ${elem.tagName}`));
+	}
+&lt;/script&gt;
+</v-code>
+
+<ol class="list-num">
+    <b>Клик на &lt;p&gt;</b>
+    <li><u>HTML → BODY → FORM → DIV</u> (фаза погружения, первый обработчик)</li>
+    <li><u>P</u> (фаза цели, срабатывают обработчики, установленные и на погружение и на всплытие, так что выведется два раза)</li>
+    <li><u>DIV → FORM → BODY → HTML</u> (фаза всплытия, второй обработчик)</li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Прочее</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>На каждой фазе разные обработчики на одном элементе срабатывают в порядке назначения</li>
+    <li>Если несколько обработчиков одного события, назначенных addEventListener на один элемент, в рамках одной фазы, то их порядок срабатывания – тот же, в котором они установлены</li>
+</ul>
+
+<v-code lang="js" title="">
+element.addEventListener("click", e => alert(1)); // всегда сработает перед следующим
+element.addEventListener("click", e => alert(2));
+</v-code>

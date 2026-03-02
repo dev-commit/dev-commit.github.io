@@ -1,0 +1,1321 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Array</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/js-array/build-js-array.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">Array</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Основное</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/main/info"
+            href="#js-array/main/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/main/spread-array"
+            href="#js-array/main/spread-array"
+        >
+            🔥 Spread-оператор Array (ES6)
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/main/destructive-array"
+            href="#js-array/main/destructive-array"
+        >
+            🔥 Деструктуризация Array (ES6)
+        </a>
+    </li>
+</ul><h4>🏷️ Циклы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/cycles/info"
+            href="#js-array/cycles/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/cycles/map"
+            href="#js-array/cycles/map"
+        >
+            <u-menu-accent>map</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/cycles/forEach"
+            href="#js-array/cycles/forEach"
+        >
+            <u-menu-accent>forEach</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/cycles/reduce"
+            href="#js-array/cycles/reduce"
+        >
+            <u-menu-accent>reduce</u-menu-accent> <u-menu-accent>reduceRight</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/cycles/filter"
+            href="#js-array/cycles/filter"
+        >
+            <u-menu-accent>filter</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/cycles/every"
+            href="#js-array/cycles/every"
+        >
+            <u-menu-accent>every</u-menu-accent> <u-menu-accent>some</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/cycles/for-while"
+            href="#js-array/cycles/for-while"
+        >
+            <u-menu-outline>for</u-menu-outline> <u-menu-outline>while</u-menu-outline>
+        </a>
+    </li>
+</ul><h4>🏷️ Методы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/methods/push"
+            href="#js-array/methods/push"
+        >
+            <u-menu>push</u-menu> <u-menu>pop</u-menu> <u-menu>unshift</u-menu> <u-menu>shift</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/methods/length"
+            href="#js-array/methods/length"
+        >
+            <u-menu>length</u-menu> <u-menu>reverse</u-menu> <u-menu>concat</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/methods/sort"
+            href="#js-array/methods/sort"
+        >
+            <u-menu>sort</u-menu> <u-menu>toSorted</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/methods/join"
+            href="#js-array/methods/join"
+        >
+            <u-menu>join</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/methods/slice"
+            href="#js-array/methods/slice"
+        >
+            <u-menu>slice</u-menu> <u-menu>splice</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/methods/includes"
+            href="#js-array/methods/includes"
+        >
+            <u-menu>includes</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/methods/indexOf"
+            href="#js-array/methods/indexOf"
+        >
+            <u-menu>indexOf</u-menu> <u-menu>lastIndexOf</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/methods/find"
+            href="#js-array/methods/find"
+        >
+            <u-menu>find</u-menu> <u-menu>findIndex</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/methods/isArray"
+            href="#js-array/methods/isArray"
+        >
+            <u-menu>Array.isArray</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/methods/from"
+            href="#js-array/methods/from"
+        >
+            <u-menu>Array.from</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/methods/flat"
+            href="#js-array/methods/flat"
+        >
+            <u-menu>flat</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/methods/flatMap"
+            href="#js-array/methods/flatMap"
+        >
+            <u-menu>flatMap</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/methods/fill"
+            href="#js-array/methods/fill"
+        >
+            <u-menu>fill</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/methods/at"
+            href="#js-array/methods/at"
+        >
+            <u-menu>at</u-menu>
+        </a>
+    </li>
+</ul><h4>🏷️ Примеры</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-array/samples/samples"
+            href="#js-array/samples/samples"
+        >
+            Примеры
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="js-array/main/info"><h2>Информация</h2>
+
+<ul class="list-point">
+	<li>Массив - это объект, где в качестве ключей выбраны цифры, с дополнительными методами и свойством length</li>
+	<li>Так как это объект, то в функцию он передаётся по ссылке</li>
+	<li>Нет причин использовать массив как обычный объект, хотя технически это и возможно</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объявление</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const arr = [];                // Пустой массив
+const arr = ['Tony', 'Anne'];  // Массив из заполненных элементов
+const arr = [,,'Tony'];        // Пропуск элементов в массиве
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Конструктор</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const arr = new Array(5);              // Пустой массив в длиной 5
+const arr = new Array('Tony', 'Anne'); // Массив из заполненных элементов
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Массив обьектов</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const a = [
+	{ name: 'Tony', age: 23 },
+	{ name: 'Jack', age: 25 }
+];
+
+console.log(a[0].name); // 'Tony'
+console.log(a[1].age);  // 25
+</v-code>
+
+
+
+</div><div id="js-array/main/spread-array"><!-- TODO:
+<f-search>JS -> ES6 -> Array -> Spread-оператор</f-search>
+-->
+
+<h2>Spread-оператор массивов (ES6)</h2>
+
+<ul class="list-point">
+    <li>Оператор разворота (spread оператор) - позволяет разворачить элементы массива для передачи в качестве аргументов функций или в элементы другого массива</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Массив</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const arr1 = ['Kate', 'Jack'];
+const arr2 = ['Tony', 'Natasha'];
+const result = [...arr1, 'Tom', ...arr2];
+console.log(result); // => 'Kate', 'Jack', 'Tom', 'Tony', 'Natasha'
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function add(x,y,z) {
+	console.log(x + y + z);
+}
+const numbers = [1, 2, 3];
+add(...numbers);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Переопределение свойства у объекта</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const obj1 = {
+    name: 'Jack',
+    age: 25,
+}
+const obj2 = {
+    ...obj1,
+    age: 27
+}
+console.log(obj2); // => { age: 27, name: "Jack" }
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Нахождение максмального значения</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const maxValue = Math.max(...arr1, ...arr2);
+console.log(maxValue); // => 6
+</v-code>
+</div><div id="js-array/main/destructive-array"><!-- TODO:
+<f-search>JS -> ES6 -> Array -> Деструктуризация массивов</f-search>
+-->
+
+<h2>Деструктивное присваивание массивов (ES6) - деструктуризация</h2>
+
+<v-code lang="js" title="">
+const languages = ['JavaScript', 'Python', 'Ruby'];
+</v-code>
+
+<v-two-code type="js;js" comment="ES6;ES5">
+<template v-slot:first>
+const [js, py, rb] = languages;
+</template>
+<template v-slot:last>
+const js = languages[0];
+const py = languages[1];
+const rb = languages[2];
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const scores = [3, 4, 5];
+const [low, , high] = scores;      // игнорирование значения
+const [low, ...rest] = scores;     // преобразование в массив оставшихся значений
+const [low, mid, high=5] = scores; // значение по умолчанию
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Значение из многомерного массива</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const scores = [3, 4, [5, 6]];
+const [low, mid, [high, higher]] = scores;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Как параметр функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function cumputeScore([low, mid]) {
+	console.log(low, mid);
+}
+cumputeScore([3, 4]);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Для возврата нескольких значений из функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function getScores() {
+	return [3, 4, 5];
+}
+
+const [low, mid, high] = getScores();
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Комбинация деструктуризации объектов и массивов</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const shape = {
+	type: 'element',
+	coordinates: {
+		start: [22, 77]
+	}
+}
+
+const { coordinates: { start: [startX, startY] } } = shape;
+console.log(startX, startY); // => 22, 77
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Быстрый обмен значений переменнных</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const yes = 'Yes';
+const no = 'No';
+
+[yes, no] = [no, yes];
+</v-code>
+</div><div id="js-array/cycles/info"><h2>Циклы для перебора массива</h2>
+
+<ul class="list-point">
+	<li><u-code-list>map</u-code-list> - для трансформации массива в массив</li>
+	<li><u-code-list>forEach</u-code-list> - для перебора массива</li>
+	<li><u-code-list>reduce / reduceRight</u-code-list> - для прохода по массиву с вычислением значения</li>
+	<li><u-code-list>filter</u-code-list> - для фильтрации массива</li>
+	<li><u-code-list>every / some</u-code-list> - для проверки массива</li>
+</ul>
+</div><div id="js-array/cycles/map"><!-- TODO:
+<f-search>JS -> Array -> <u>map()</u></f-search>
+-->
+
+<h2>map()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="arr." method="map" after="" arg="(callback, thisArg)">
+    создаёт новый массив с результатом вызова указанной функции для каждого элемента массива
+    </v-method>
+
+	<v-method-arg arg="callback">
+	Функция, создающая элемент в новом массиве, принимает три аргумента:<br>
+	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
+	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
+	<u>array</u> - массив, по которому осуществляется проход<br>
+	</v-method-arg>
+
+	<v-method-arg arg="thisArg">
+	Необязательный параметр. Значение, используемое в качестве this при вызове функции callback
+	</v-method-arg>
+
+	<v-method-return>Новый массив, где каждый элемент является результатом callback функции</v-method-return>
+</div>
+
+<v-code lang="js border" title="">
+const newArray = arr.map((currentValue, index, array) => {
+	// Возвращает элемент для newArray
+}[, thisArg]);
+</v-code>
+
+<v-code lang="js" title="">
+const numbers = [1, 2, 3];
+const doubles = numbers.map((num) => {
+	return num * 2;
+});
+
+console.log(numbers); // => [1, 2, 3]
+console.log(doubles); // => [2, 4, 6]
+</v-code>
+</div><div id="js-array/cycles/forEach"><!-- TODO:
+<f-search>JS -> Array -> <u>forEach()</u></f-search>
+-->
+
+<h2>forEach()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="arr." method="forEach" after="" arg="(callback, thisArg)">
+    Выполняет указанную функцию один раз для каждого элемента в массиве
+    </v-method>
+
+	<v-method-arg arg="callback">
+	Функция, которая будет вызвана для каждого элемента массива; в нее будет передано три аргумента:<br>
+	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
+	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
+	<u>array</u> - массив, по которому осуществляется проход<br>
+	</v-method-arg>
+
+	<v-method-arg arg="thisArg">
+	Необязательный параметр. Значение, используемое в качестве this при вызове функции callback
+	</v-method-arg>
+</div>
+
+<v-code lang="js border" title="">
+arr.forEach((currentValue, index, array) => {
+	// Your iterator
+}[, thisArg]);
+</v-code>
+
+<ul class="list-point">
+	<li>Ничего не возвращает, используется только для перебора</li>
+</ul>
+
+<v-code lang="js" title="">
+const arr = ['Яблоко', 'Апельсин', 'Груша'];
+arr.forEach((element, index, arr) => {
+	console.log(element, index, arr);
+});
+</v-code>
+
+<v-code lang="js" title="">
+// 'Яблоко'   0  Array(3)
+// 'Апельсин' 1  Array(3)
+// 'Груша'    2  Array(3)
+</v-code>
+</div><div id="js-array/cycles/reduce"><!-- TODO:
+<f-search>JS -> Array -> <u>reduce()</u></f-search>
+<f-search>JS -> Array -> <u>reduceRight()</u></f-search>
+-->
+
+<h2>reduce / reduceRight</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="arr." method="reduce/reduceRight" after="" arg="(callback, initialValue)">
+    применяет функцию reducer к каждому элементу массива <i><u>(слева-направо)/(справа-налево)</u></i>, возвращая одно результирующее значение
+    </v-method>
+
+	<v-method-arg arg="callback">
+	Функция, выполняющаяся для каждого элемента массива, принимает четыре аргумента:<br>
+	<u>accumulator/previousValue</u> - значение, возвращённое предыдущим выполнением функции callback, либо значение initialValue, если оно предоставлено<br>
+	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
+	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
+	<u>array</u> - массив, по которому осуществляется проход<br>
+	</v-method-arg>
+
+	<v-method-arg arg="initialValue">
+	Необязательный параметр. Объект, используемый в качестве первого аргумента при первом вызове функции callback
+	</v-method-arg>
+</div>
+
+<v-code lang="js border" title="">
+array.reduceRight((previousValue, currentValue, index, array) => {
+	// ...
+});
+</v-code>
+
+<ul class="list-point">
+	<li>Используется для последовательной обработки каждого элемента массива с сохранением промежуточного результата</li>
+	<li><b>arr.reduce</b> идёт по массиву слева-направо</li>
+	<li><b>arr.reduceRight</b> идёт по массиву справа-налево</li>
+</ul>
+
+<v-code lang="js" title="">
+arr.reduce(callback[, initialValue])
+</v-code>
+
+<ul class="list-point">
+	<b>callback(previousValue, currentItem, index, arr)</b>
+	<li><u-code>previousValue</u-code> - последний результат вызова функции, «промежуточный результат»</li>
+	<li><u-code>currentItem</u-code> - текущий элемент массива, элементы перебираются по очереди слева-направо</li>
+	<li><u-code>index</u-code> - номер текущего элемента</li>
+	<li><u-code>arr</u-code> - обрабатываемый массив</li>
+</ul>
+
+<ul class="list-point">
+	<b>initialValue - начальное значение</b>
+	<li>Если есть <u-code>initialValue</u-code>, то на первом вызове значение <u-code>previousValue</u-code> будет равно <u-code>initialValue</u-code></li>
+	<li>Если нет <u-code>initialValue</u-code>, то оно равно первому элементу массива, а перебор начинается со второго</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Пример 1: Сумма элементов массива</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// сумма элементов массива
+const arr = [1, 2, 3, 4, 5];
+
+// для каждого элемента массива запустить функцию,
+// промежуточный результат передавать первым аргументом далее
+const result = arr.reduce((sum, current) => {
+  return sum + current;
+});
+
+console.log(result); // 15
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример 2: Перебор объекта</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const data = {
+	name: 'Tony',
+	age: 23,
+	stars: 100,
+};
+
+const res = Object.keys(data).reduce(
+	(result, key) => {
+		const value = data[key];
+		result[key] = value;
+		return result;
+	},
+	{ greet: 'Hello' }
+);
+
+console.log(res);
+</v-code>
+
+<v-code lang="js" title="">
+// {
+// 	greet: 'Hello',
+// 	name: 'Tony',
+// 	age: 23,
+// 	stars: 100,
+// }
+</v-code>
+</div><div id="js-array/cycles/filter"><!-- TODO:
+<f-search>JS -> Array -> <u>filter()</u></f-search>
+-->
+
+<h2>filter()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="arr." method="filter" after="" arg="(callback, thisArg)">
+    создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции
+    </v-method>
+
+	<v-method-arg arg="callback">
+	Функция, которая будет вызвана для каждого элемента массива. Если функция возвращает true, то элемент остаётся в массиве, если false, то удаляется. Три аргумента:<br>
+	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
+	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
+	<u>array</u> - массив, по которому осуществляется проход<br>
+	</v-method-arg>
+
+	<v-method-arg arg="thisArg">
+	Необязательный параметр. Значение, используемое в качестве this при вызове функции callback
+	</v-method-arg>
+
+	<v-method-return>Новый массив с элементами для которых callback вернёт true. Если ни один элемент не пройдет тест, то будет возвращен пустой массив</v-method-return>
+</div>
+
+<ul class="list-point">
+	<li>Используется для фильтрации массива через функцию</li>
+	<li>Создаёт новый массив, в который войдут только те элементы arr, для которых вызов callback(item, i, arr) возвратит true</li>
+</ul>
+
+<v-code lang="js" title="">
+// Выбор положительных элементов массива
+const arr = [1, -1, 2, -2, 3];
+const result = arr.filter(number => {
+	return number > 0;
+});
+
+console.log(result); // => [1, 2, 3]
+</v-code>
+
+<v-code lang="js" title="">
+// Поиск вхождения подстроки в массив
+const arr = ['Tony', 'Jack', 'Nick', 'Tony and Jane'];
+const result = arr.filter(item => item.<u-code>includes</u-code>('Tony')); // => ["Tony", "Tony and Jane"]
+</v-code>
+</div><div id="js-array/cycles/every"><!-- TODO:
+<f-search>JS -> Array -> <u>every()</u></f-search>
+<f-search>JS -> Array -> <u>some()</u></f-search>
+-->
+
+<h2>every() / some()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="arr." method="every / some" after="" arg="(callback, thisArg)">
+    проверяет, удовлетворяют ли <i><u>все/какие-нибудь</u></i> элементы массива условию, заданному в передаваемой функции
+    </v-method>
+
+	<v-method-arg arg="callback">
+	Функция проверки каждого элемента, принимает три аргумента:<br>
+	<u>currentValue</u> - текущий обрабатываемый элемент массива<br>
+	<u>index</u> - индекс текущего обрабатываемого элемента в массиве<br>
+	<u>array</u> - массив, по которому осуществляется проход<br>
+	</v-method-arg>
+
+	<v-method-arg arg="thisArg">
+	Необязательный параметр. Значение, используемое в качестве this при вызове функции callback
+	</v-method-arg>
+
+	<v-method-return>true если функция проверки возвращает truthy значение для <i><u>каждого/хотя бы одного</u></i> элемента массива. Иначе, false</v-method-return>
+</div>
+
+<ul class="list-point">
+	<li>Используется для проверки массива</li>
+	<li>Метод «arr.every(callback[, thisArg])» возвращает true, если вызов callback вернёт true для каждого элемента arr</li>
+	<li>Метод «arr.some(callback[, thisArg])» возвращает true, если вызов callback вернёт true для какого-нибудь элемента arr</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Пример 1: Использование callback-функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const arr = [1, -1, 2, -2, 3];
+
+// false, не все положительные
+const result = arr.<u-code>every</u-code>(number => {
+	return number > 0;
+})
+
+// true, есть хоть одно положительное
+const result = arr.<u-code>some</u-code>(number => {
+	return number > 0;
+})
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример 2: Вынесение callback-функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const arr = [1, -1, 2, -2, 3];
+
+const isPositive = number => {
+	return number > 0;
+}
+
+const result = arr.every(isPositive);
+const result = arr.some(isPositive);
+</v-code>
+</div><div id="js-array/cycles/for-while"><!-- TODO:
+<f-search>JS -> Array -> <u>for</u></f-search>
+<f-search>JS -> Array -> <u>while</u></f-search>
+-->
+
+<h2>Циклы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Цикл for</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+for (let i = 1; i < 10; i++) {  
+    console.log(i); 
+}
+</v-code>
+
+<h3>Цикл while</h3>
+<v-code lang="js" title="">
+let i = 0;
+
+while (i < 10) {  
+    console.log(i); 
+    i++;  
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Цикл do while</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+let i = 0;
+
+do {  
+    console.log(i); 
+    i++;  
+} while (i < 10);
+</v-code>
+
+<v-code lang="js" title="">
+break    // выход из цикла
+continue // прекращает выполнение текущей итерации цикла и переходит на следующую
+</v-code>
+
+
+
+</div><div id="js-array/methods/push"><!-- TODO:
+<f-search>JS -> Array -> <u>push()</u></f-search>
+<f-search>JS -> Array -> <u>pop()</u></f-search>
+<f-search>JS -> Array -> <u>unshift()</u></f-search>
+<f-search>JS -> Array -> <u>shift()</u></f-search>
+-->
+
+<h2>push(), pop(), unshift(), shift()</h2>
+
+<v-code lang="js" title="">
+arr.<u-code>push</u-code>('Jack', 'Tony');    // Добавляет элементы в конец
+arr.<u-code>unshift</u-code>('Jack', 'Tony'); // Добавляет элементы в начало
+arr.<u-code>pop</u-code>();                   // Удаляет и возвращает последний элемент
+arr.<u-code>shift</u-code>();                 // Удаляет и возвращает первый элемент
+</v-code>
+</div><div id="js-array/methods/length"><!-- TODO:
+<f-search>JS -> Array -> <u>length</u></f-search>
+<f-search>JS -> Array -> <u>reverse()</u></f-search>
+<f-search>JS -> Array -> <u>concat()</u></f-search>
+-->
+
+<h2>length, reverse(), concat()</h2>
+
+<v-code lang="js" title="">
+// длина массива (индекс последнего элемента)
+const a = arr.<u-code>length</u-code>;
+</v-code>
+
+<v-code lang="js" title="">
+// меняет порядок элементов в массиве на обратный
+arr.<u-code>reverse</u-code>();
+</v-code>
+
+<v-code lang="js" title="">
+// создаёт новый массив, в который копируются элементы из массивов
+const arr = arr1.<u-code>concat</u-code>(arr2, arr3);
+</v-code>
+</div><div id="js-array/methods/sort"><!-- TODO:
+<f-search>JS -> Array -> <u>sort()</u></f-search>
+<f-search>JS -> Array -> <u>toSorted()</u></f-search>
+-->
+
+<h2>sort(), toSorted()</h2>
+
+<u-link-wrapper>
+	<v-link url="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" text="MDN: sort()" list="true" />
+	<v-link url="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted" text="MDN: toSorted" list="true" />
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>sort vs toSorted</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js border;js border" comment="sort();toSorted()">
+<template v-slot:first>
+const arr = ['c', 'a', 'b'];
+const newArr = arr.<u-code-mod>sort</u-code-mod>();
+
+// MUTABLE
+console.log(arr);    // => ['a', 'b', 'c'];
+console.log(newArr); // => ['a', 'b', 'c'];
+</template>
+<template v-slot:last>
+const arr = ['c', 'a', 'b'];
+const newArr = arr.<u-code-mod>toSorted</u-code-mod>();
+
+// IMMUTABLE
+console.log(arr);    // => ['c', 'a', 'b'];
+console.log(newArr); // => ['a', 'b', 'c'];
+</template>
+</v-two-code>
+
+
+
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Правила</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Сортировка по алфавиту, преобразуя элементы к строке</li>
+	<li>Дефолтная сортировка - по возрастанию</li>
+	<li>Можно задать функцию сравнения</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функция сравнения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const numbers = [10, 5, 200]
+
+// Сортировка по возрастанию (по-умолчанию)
+// => [5, 10, 200]
+const a1 = numbers.toSorted((a, b) => {
+	return a - b
+})
+
+// Сортировка по убыванию
+// => [200, 10, 5]
+const a2 = numbers.toSorted((a, b) => {
+	return b - a
+})
+
+// Добавление логики (сортировка по возрастанию)
+// => [5, 10, 200]
+const a3 = numbers.toSorted((a, b) => {
+	if (a > b) return 1;
+	if (a < b) return -1;
+})
+</v-code>
+
+<h5>Возвращаемые значения из функции сравнения</h5>
+
+<table>
+	<tr>
+		<td>Значение < 0</td>
+		<td>"a" первый</td>
+	</tr>
+	<tr>
+		<td>Значение === 0</td>
+		<td>Ничего не изменится</td>
+	</tr>
+	<tr>
+		<td>Значение > 0</td>
+		<td>"b" первый</td>
+	</tr>
+</table>
+</div><div id="js-array/methods/join"><!-- TODO:
+<f-search>JS -> Array -> <u>join()</u></f-search>
+-->
+
+<h2>join()</h2>
+
+<u-message-info><u-code-text>str.split()</u-code-text> - обратное преобразование</u-message-info>
+
+<v-code lang="js" title="">
+// Преобразование массива в строку с заданным разделителем
+const str = arr.<u-code>join</u-code>('.');
+</v-code>
+</div><div id="js-array/methods/slice"><!-- TODO:
+<f-search>JS -> Array -> <u>slice()</u></f-search>
+<f-search>JS -> Array -> <u>splice()</u></f-search>
+-->
+
+<h2>slice(), splice()</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>slice</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// Копировать с 1 до 7 не включая, если не указан второй аргумент, то до конца
+const arr2 = arr1.<u-code>slice</u-code>(1, 7)
+
+// Копировать с 1 до конца
+const arr2 = arr1.<u-code>slice</u-code>(1)
+
+// Копировать c 2 элемента с конца и дальше
+const arr2 = arr.<u-code>slice</u-code>(-2)
+
+// Копировать весь массив
+const arr2 = arr.<u-code>slice</u-code>();
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>splice</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// Удалить с 3 индекса 2 элемента
+arr.<u-code>splice</u-code>(3, 2)
+
+// Добавление элементов
+arr.<u-code>splice</u-code>(2, 0, 'Алина', 'Марина')
+
+// Замена элементов (заменить 2 удаленных элемента на Алексей, Билл)
+arr.<u-code>splice</u-code>(1, 2, 'Алексей", "Билл')
+
+// Удалить с последнего индекса-1 1 элемент (отрицательная позиция отсчитывается с конца)
+arr.<u-code>splice</u-code>(-1, 1);
+</v-code>
+</div><div id="js-array/methods/includes"><!-- TODO:
+<f-search>JS -> Array -> <u>includes()</u></f-search>
+-->
+
+<h2>includes()</h2>
+
+<ul class="list-point">
+    <li>Метод <u>includes()</u> определяет, содержит ли массив определённый элемент, возвращая в зависимости от этого true или false</li>
+</ul>
+
+<v-code lang="js" title="">
+const arr = [1, 2, 3];
+console.log(arr.<u-code>includes</u-code>(2)); // => true
+console.log(arr.<u-code>includes</u-code>(5)); // => false
+</v-code>
+
+<v-code lang="js" title="">
+const arr = ['cat', 'dog', 'bat'];
+console.log(arr.<u-code>includes</u-code>('cat')); // => true
+console.log(arr.<u-code>includes</u-code>('at'));  // => false
+</v-code>
+</div><div id="js-array/methods/indexOf"><!-- TODO:
+<f-search>JS -> Array -> <u>indexOf()</u></f-search>
+<f-search>JS -> Array -> <u>lastIndexOf()</u></f-search>
+-->
+
+<h2>indexOf() / lastIndexOf()</h2>
+
+<v-code lang="js" title="">
+// возвращает первый индекс, по которому элемент может быть найден в массиве
+// или -1, если индекса нет
+const a = colors.<u-code>indexOf</u-code>('white');
+</v-code>
+
+<v-code lang="js" title="">
+// возвращает последний индекс, по которому данный элемент может быть найден в массиве
+// или -1, если такого индекса нет 
+const a = colors.<u-code>lastIndexOf</u-code>('white');
+</v-code>
+</div><div id="js-array/methods/find"><!-- TODO:
+<f-search>JS -> Array -> Array.prototype.<u>find()</u></f-search>
+-->
+
+<h2>Array.prototype.find()</h2>
+
+<ul class="list-point">
+    <li><u-text-define>find()</u-text-define> - возвращает <u>значение первого найденного в массиве элемента</u>, которое удовлетворяет условию переданному в callback функции. В противном случае возвращается <u>undefined</u></li>
+    <li><u-text-define>findIndex</u-text-define> - возвращает индекс найденного в массиве элемента вместо его значения</li>
+</ul>
+
+<v-code lang="js" title="">
+const arr = ['Jack', 'Kate', 'Tony'];
+
+const result = arr.<u-code>find</u-code>((element) => {
+	if (element === 'Tony') {
+		return element;
+	}
+})
+
+console.log(result); // => Tony
+</v-code>
+
+<v-code lang="js" title="">
+const arr = ['Jack', 'Kate', 'Tony'];
+
+const result = arr.<u-code>findIndex</u-code>((element) => {
+	if (element === 'Tony') {
+		return element;
+	}
+})
+
+console.log(result); // => 2
+</v-code>
+</div><div id="js-array/methods/isArray"><!-- TODO:
+<f-search>JS -> Array -> <u>isArray()</u></f-search>
+-->
+
+<h2>isArray()</h2>
+
+<v-code lang="js" title="">
+// проверка на массив
+const a = Array.<u-code>isArray</u-code>([1, 2, 3]);   // true
+const b = Array.<u-code>isArray</u-code>('Not Array'); // false
+</v-code>
+</div><div id="js-array/methods/from"><!-- TODO:
+<f-search>JS -> Array -> Array.<u>from()</u></f-search>
+-->
+
+<h2>Array.from()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="Array." method="from" after="" arg="(arrayLike, mapFn, thisArg)">
+    Метод создаёт новый экземпляр Array из массивоподобного или итерируемого объекта
+    </v-method>
+
+	<v-method-arg arg="arrayLike*">Массивоподобный или итерируемый объект, преобразуемый в массив</v-method-arg>
+	<v-method-arg arg="mapFn">Отображающая функция, вызываемая для каждого элемента массива</v-method-arg>
+	<v-method-arg arg="thisArg">Значение, используемое в качестве this при выполнении функции mapFn</v-method-arg>
+
+	<v-method-return>Новый массив</v-method-return>
+</div>
+
+<ul class="list-point">
+    <li>Необязательный параметр mapFn позволяет выполнять функцию <u>map</u> для каждого элемента создаваемого массива (или его подкласса)</li>
+    <li>Вызов <u-code-text>Array.from(obj, mapFn, thisArg)</u-code-text> эквивалентен цепочке <u-code-text>Array.from(obj).map(mapFn, thisArg)</u-code-text>, за исключением того, что он не создаёт промежуточного массива</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Массив из строки String</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const a = Array.from('foo'); // ['f', 'o', 'o']
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Аргумент mapFn</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Манипулирование элементами
+const a = Array.from([1, 2, 3], x => x + x); // [2, 4, 6]
+
+// Генерирование последовательности чисел
+const a = Array.from({ length: 5 }, (v, k) => k); // [0, 1, 2, 3, 4]
+</v-code>
+</div><div id="js-array/methods/flat"><!-- TODO:
+<f-search>JS -> Array -> <u>flat()</u></f-search>
+-->
+
+<h2>flat()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="arr" method="flat" after="" arg="(depth)">
+    Возвращает новый массив, в котором все элементы вложенных подмассивов были рекурсивно "подняты" на указанный уровень depth
+    </v-method>
+
+	<v-method-arg arg="depth">уровень вложенности</v-method-arg>
+
+	<v-method-return>Новый массив</v-method-return>
+</div>
+
+<v-code lang="js" title="">
+const arr = [1,2,3, [4,5,6,7, [8,9,10]]];
+
+// 1 уровень вложенности (по умолчанию)
+const a1 = arr.<u-code-mod>flat</u-code-mod>(); // => [1,2,3,4,5,6,7, [8,9,10]]
+
+// 2 уровни вложенности
+const a2 = arr.<u-code-mod>flat</u-code-mod>(2); // => [1,2,3,4,5,6,7,8,9,10]
+
+console.log(a1);
+</v-code>
+</div><div id="js-array/methods/flatMap"><!-- TODO:
+<f-search>JS -> Array -> Array.prototype.<u>flatMap()</u></f-search>
+-->
+
+<h2>Array.prototype.flatMap()</h2>
+
+<ul class="list-point">
+	<li>Получить плоский массив из объекта</li>
+</ul>
+
+<v-code lang="js" title="">
+const checkedRows = {
+	'0': [1,2,3],
+	'1': [4,5,6],
+}
+
+const b = Object.values(checkedRows).flatMap(value => value);
+// => [1, 2, 3, 4, 5, 6]
+</v-code>
+</div><div id="js-array/methods/fill"><!-- TODO:
+<f-search>JS -> Array -> Array.prototype.<u>fill()</u></f-search>
+-->
+
+<h2>Array.prototype.fill()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="[]." method="fill" after="" arg="(value*, start, end)">
+    Метод заполняет все элементы массива от начального до конечного индексов одним значением.
+    </v-method>
+
+	<v-method-arg arg="value">Значение, заполняющее массив</v-method-arg>
+	<v-method-arg arg="start = 0">Необязательный параметр. Начальный индекс</v-method-arg>
+	<v-method-arg arg="end = this.length">Необязательный параметр. Конечный индекс</v-method-arg>
+
+	<v-method-return>Изменённый массив</v-method-return>
+</div>
+
+<v-code lang="js" title="">
+[1, 2, 3].fill(4);        // [4, 4, 4]
+[1, 2, 3].fill(4, 1);     // [1, 4, 4]
+[1, 2, 3].fill(4, 1, 2);  // [1, 4, 3]
+</v-code>
+</div><div id="js-array/methods/at"><!-- TODO:
+<f-search>JS -> Array -> Array.prototype.<u>at()</u></f-search>
+-->
+
+<h2>Array.prototype.at()</h2>
+
+<u-link-wrapper>
+    <v-link url="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/at" text="" list="true" />
+</u-link-wrapper>
+
+<v-code lang="js" title="">
+const arr = ['apple', 'banana', 'orange'];
+
+// Выборка с начала массива
+const a1 = arr.<u-code>at</u-code>(0); // => "apple" (первый элемент)
+const a2 = arr.<u-code>at</u-code>(1); // => "banana"
+const a3 = arr.<u-code>at</u-code>(2); // => "orange"
+const a4 = arr.<u-code>at</u-code>(3); // => undefined
+
+// Выборка с конца массива
+const a5 = arr.<u-code>at</u-code>(-1); // => "orange" (последний элемент)
+const a6 = arr.<u-code>at</u-code>(-2); // => "banana"
+const a7 = arr.<u-code>at</u-code>(-3); // => "apple"
+const a8 = arr.<u-code>at</u-code>(-4); // => undefined
+</v-code>
+</div><div id="js-array/samples/samples"><h2>Примеры</h2>
+
+<!------------------------------------------------------------->
+<h4>Общее</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+arr['someIndex'] = 'someValue'; // использование строки в виде индекса
+arr.length = 10;                // все элементы больше 10 индекса будут удалены
+delete arr[4];                  // присваивание элементу по индексу 4 undefined
+const a = Array.isArray(arr);   // проверка на массив
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Простоой перебор массива</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+for (let i=0; i<=arr.length-1; i++) {
+	console.log(arr[i]);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Перебор массива и удаление выбранного элемента</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const id = 12;
+
+for (let i=0; i<=arr.length-1; i++) {
+	if (id == arr[i]) {
+		arr.splice(i, 1);
+		break;
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Добавление нового элемента в массив</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+if (arr != '') {
+	arr[arr.length] = id;
+} else {
+	arr[0] = id;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Удаление элемента массива</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+arr.splice(arr.indexOf(String(id)), 1);
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

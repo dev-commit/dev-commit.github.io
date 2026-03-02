@@ -1,0 +1,24 @@
+<h2>Массив объектов</h2>
+
+<v-code lang="js" title="">
+// Объект с ключом "name"
+type FieldType = {
+	name: string;
+};
+</v-code>
+
+<v-code lang="js" title="">
+// Массив, состоящий из FieldType
+// Массив объектов
+type MyFields1 = FieldType[];
+// Массив объектов (аналогичная запись)
+type MyFields2 = Array&lt;FieldType&gt;;
+</v-code>
+
+<v-code lang="js" title="">
+// Результат: массив объектов
+const fields: MyFields2 = [
+	{ name: 'name' },
+	{ name: 'age' },
+];
+</v-code>

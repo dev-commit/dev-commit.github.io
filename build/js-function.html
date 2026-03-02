@@ -1,0 +1,1023 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Function</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/js-function/build-js-function.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">Function</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Замыкания</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-function/closures/closures"
+            href="#js-function/closures/closures"
+        >
+            📑 Замыкания
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-function/closures/environment"
+            href="#js-function/closures/environment"
+        >
+            📑 Области видимости
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-function/closures/funarg"
+            href="#js-function/closures/funarg"
+        >
+            📑 Фунарг-проблема
+        </a>
+    </li>
+</ul><h4>🏷️ Функции</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-function/function/info"
+            href="#js-function/function/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-function/function/announcement"
+            href="#js-function/function/announcement"
+        >
+            ⭐️ Объявление
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-function/function/arrow"
+            href="#js-function/function/arrow"
+        >
+            ⭐️ Стрелочные функции (ES6)
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-function/function/parameters"
+            href="#js-function/function/parameters"
+        >
+            ⭐️ Параметры функции (ES6)
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-function/function/arguments"
+            href="#js-function/function/arguments"
+        >
+            Arguments
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-function/function/recursion"
+            href="#js-function/function/recursion"
+        >
+            Рекурсия
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-function/function/named-function-expression"
+            href="#js-function/function/named-function-expression"
+        >
+            Named Function Expression
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="js-function/closures/closures"><!-- TODO:
+<f-search>JS -> Function -> Замыкания, LexicalEnvironment</f-search>
+-->
+
+<h2>Замыкания</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Теория</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-text-define>Замыкание</u-text-define> - функция и ее лексическая область видимости в которой она была создана. При этом функция замыкает в себе некоторую информацию из области видимости</li>
+	<li><u>Замыкание</u> - возможность функции запонимать своё лексическое окрущение</li>
+	<li><u>Замыкание</u> - функция вместе со всеми внешними переменными, которые ей доступны</li>
+
+	<li><u-text-define>Лексическое окружение</u-text-define> - переменные внешней области видимости, к которым функция имеет доступ</li>
+	<li><u-text-define>Scope Chain (Цепочка областей видимости)</u-text-define> - связанная с контекстом исполнения цепь объектов переменных, в которой происходит поиск переменных. Объединённое множество идентификаторов, доступ к которым имеет текущее окружение, носит имя <u>"область видимости" (scope)</u>. В процессе движения от родительского окружения к дочернему число доступных идентификаторов возрастает, и сами области видимости складываются в <u>"цепочку областей видимости"</u></li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм работы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Создание LexicalEnvironment</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>В момент создания функции определяется ее лексическое окружение</li>
+    <li>Создается специальный внутренний объект (словарь / лексическое окружение / объект переменных) LexicalEnvironment, привязанный к этому вызову</li>
+	<li>LexicalEnvironment - это хранилище для данных в памяти и механизм для извлечения этих данных при обращении</li>
+	<li>LexicalEnvironment существует когда есть хотя бы одна функция у которой свойство <u>[[Environment]]</u> ссылается на него</li>
+	<li>LexicalEnvironment является внутренним, он скрыт от прямого доступ</li>
+	<li>На верхнем уровне им является <u>«глобальный объект»</u>, в браузере – <u>window</u></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. Свойства LexicalEnvironment</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Все аргументы, функции переменные и константы внутри функции автоматически записываются в LexicalEnvironment и становятся <u>свойствами</u> LexicalEnvironment: имена становятся <u>ключами</u>, а значения <u>значениями</u> в LexicalEnvironment</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Ссылка на [[Environment]]</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u>LexicalEnvironment</u> получает ссылку на скрытое свойство <u>[[Environment]]</u>, которое ссылается на <u>LexicalEnvironment</u> в котором функция была создана, а также на все его <u>свойства</u>. Н-р если функция создана в глобальном объекте <u>window</u>, то <u>[[Environment]]</u> будет ссылаться на <u>window</u></li>
+	<li>Благодаря [[Environment]], функция имеет доступ к <u>внешним переменным</u></li>
+	<li>[[Environment]] появляется и исчезает вместе с функцией</li>
+	<li>К [[Environment]] нет прямого доступа</li>
+	<li>При создании функции с использованием <u>new Function</u>, её свойство [[Environment]] ссылается не на текущий LexicalEnvironment, а на window. Следствие - такие функции не могут использовать замыкание</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>4. Доступ к переменным</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Интерпретатор, при доступе к переменной, сначала пытается найти переменную в текущем <u>LexicalEnvironment</u>, а затем, если её нет - ищет во внешнем объекте переменных, н-р <u>window</u></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>5. Доступ к внешним переменным</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Для доступа к внешней переменной функция по ссылке <u>[[Environment]]</u> обращается во <u>внешний объект переменных</u> и берёт то значение, которое там есть на момент обращения</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Свойства замыкания</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Сохранение промежуточных данных (переменных). Мы получаем доступ к переменным, созданным в процессе вызова окружающей функции, даже если вызов этой функции уже завершился возвратом</li>
+	<li>Инкапсуляция</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Практика</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример 1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function sum(a) {
+	return function(b) {
+		return a + b;
+	}
+}
+const s = sum(10);
+console.log(s(15));
+
+// в функции "s" можно производить вычисления с переменными, объявленными в функции sum, 
+// выполнение которых уже завершено, которые уже возвратили некие значения 
+// и обработаны сборщиком мусора
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример 2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const func = function() {
+	const i = 10;
+	return function() {
+		return i;
+	}
+}
+
+const anotherFunc = function() {
+	const i = 20;
+	console.log(func()());
+}
+anotherFunc();
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример 3</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="js;js">
+<template v-slot:first>
+function counter() {
+	const count = 0;
+	return function() {
+		count++;
+		console.log(count);
+	}
+}
+
+const plus = counter();
+plus(); // 1
+plus(); // 2
+plus(); // 3
+</template>
+<template v-slot:last>
+function counter() {
+	const count = 0;
+	return function() {
+		return count++;
+	}
+}
+
+const plus = counter();
+console.log(plus()); // 0
+console.log(plus()); // 1
+console.log(plus()); // 2
+</template>
+</v-two-code>
+
+<v-code lang="js" title="">
+const counter = (function() {
+	const count = 0;
+	return function() {
+		return count++;
+	}
+})();
+
+console.log(counter()); // 0
+console.log(counter()); // 1 
+console.log(counter()); // 2 
+</v-code>
+</div><div id="js-function/closures/environment"><!-- TODO:
+<f-search>JS -> Function -> Лексическая и динамическая область видимости</f-search>
+-->
+
+<h2>Лексическая и динамическая область видимости</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Лексическая (статическая) область видимости</u-text-define> - при создании функции, она запоминает Lexical Environment в котором была <u>СОЗДАНА</u></li>
+    <li>Функция запоминает внешний Scope по месту создания, а не по месту вызова</li>
+    <li>Используется в JavaScript</li>
+
+    <li><u-text-define>Динамическая область видимости</u-text-define> - при создании функции, она запоминает Lexical Environment в котором была <u>ВЫЗВАНА</u></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>20 берется по месту создания, а не по месту вызова функции</li>
+    <li>Внутрення переменая <u-code-text>bar</u-code-text> - <u>[[Evironment]]</u> хранит ссылку на <u>Lexical Environment</u> <u-code-text>foo</u-code-text>, где существует локальная переменная <u-code-text>a</u-code-text></li>
+    <li>Функция создалась и ссылка закреплена за функцией</li>
+    <li>Когда вызывается функция <u-code-text>bar</u-code-text>, создаеся <u>Контекст исполнения (Execution Cintext)</u>, вместе с ним создается <u>Lexical Environment</u> и <u>Environment Record</u></li>
+    <li>У <u>Environment Record</u> есть свойство <u>outer</u> куда помещается ссылка <u>bar.[[Evironment]]</u></li>
+</ul>
+
+<v-code lang="js" title="">
+function foo() { // a
+	const a = 20
+	return function bar() { // bar.[[Evironment]] = LE foo
+		console.log(a); // a 
+	}
+}
+
+const a = 10
+const bar = foo()
+bar(); // EC - LE ER.outer - bar.[[Evironment]]
+
+// => 20
+</v-code>
+</div><div id="js-function/closures/funarg"><!-- TODO:
+<f-search>JS -> Function -> Фунарг-проблема</f-search>
+-->
+
+<h2>Фунарг-проблема</h2>
+
+<u-link-wrapper>
+	<v-link url="http://dmitrysoshnikov.com/ecmascript/ru-chapter-6-closures/#funarg-problema" text="Тонкости ECMA-262-3" list="true" />
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Фунарг</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li><u-text-define>Фунарг</u-text-define> - сокращение от «функциональный аргумент»</li>
+	<li>В <u>стековых</u> языках программирования, локальные переменные функции хранятся в стеке, который наполняется новыми элементами при выполнении функции. При выходе из функции, эти переменные удаляются из стека</li>
+	<li><u>Ограничения</u> для использования функций при "возврате из функции" и при "передаче в виде аргумента"</li>
+	
+    <hr>
+    <li><u>Решение:</u> Использование замыканий</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Виды</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Проблема восходящего фунарга</u-text-define> (upward funarg) - возникает при возврате функции из некоторой функции</li>
+    <li><u-text-define>Проблема нисходящего фунарга</u-text-define> (downward funarg) - возникает при передаче функции в качестве параметра некоторой функции</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Проблема #1: Свободные переменные</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Наиболее характерно Фунарг-проблема проявляется при использовании в функции свободных переменных</li>
+    <li><u-text-define>Свободная переменная</u-text-define> (Free variable) - переменная, используемая функцией, но не являющаяся ни параметром, ни локальной переменной этой функции</li>
+</ul>
+
+<v-code lang="js" title="">
+function testFn() {
+	const <u-code>localVar</u-code> = 10;
+
+	function innerFn(innerParam) {
+		alert(innerParam + <u-code>localVar</u-code>);
+	}
+
+	return innerFn;
+}
+ 
+const someFn = testFn();
+someFn(20); // 30
+</v-code>
+
+<ul class="list-point">
+    <li>В данном случае, для функции <u>innerFn</u> свободной переменной является <u>localVar</u></li>
+    <li>Если бы в данной системе использовалась стековая реализация для хранения локальных переменных, это означало бы, что по завершении функции <u>testFn</u>, все её локальные переменные должны были бы удалиться из стека, что привело бы к ошибке при вызове функции <u>innerFn</u> снаружи посредством <u>someFn</u></li>
+    <li>В данном случае, при стековой организации, и сам возврат функции <u>innerFn</u> был бы невозможен, т.к. <u>innerFn</u> так же является локальной функцией для функции <u>testFn</u> и будет удалена по завершению <u>testFn</u></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Проблема #2: Передача функции в качестве аргумента</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Проблема возникает при организации системы с <u>динамической областью видимости</u></li>
+</ul>
+
+<v-code lang="js" title="">
+const x = 10;
+
+function someFn() {
+	alert(x);
+}
+
+someFn(); // 10 - и при статической и при динамической Scope
+ 
+(function () {
+	const x = 20;
+	someFn(); // 10 - при статической, 20 - при динамической Scope
+})();
+ 
+// аналогично, при передаче someFn
+// в качестве параметра
+ 
+(function (funArg) {
+	const x = 30;
+	funArg(); // 10 - при статической, 30 - при динамической Scope
+})(someFn);
+</v-code>
+
+<ul class="list-point">
+    <li>При организации системы с динамической областью видимости, разрешение имени переменной осуществляется в пределах динамического (активного) стека переменных (свободная переменная ищется в динамической цепи вызова, а не в статической цепи создания функции), что может привести к неоднозначности</li>
+    <li>При этом, даже, если <u>x</u> будет определена (в отличии от предыдущего примера, где локальные переменные удалились бы из стека и были бы не определены), возникнет вопрос, какое из значений <u>x</u> (точнее, <u>x</u> из какого контекста, какой области видимости) должно использоваться в различных вызовах функции <u>someFn</u>?</li>
+</ul>
+</div><div id="js-function/function/info"><h2>Особенности</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Аргумент функции</u-text-define> - передаваемое значение</li>
+	<li><u-text-define>Параметр функции</u-text-define> - принимаемое значение</li>
+	<li>Директива <u-code-text>return</u-code-text> может использоваться без значения, чтобы прекратить выполнение и выйти из функции</li>
+	<li>Если в функции не указан <u-code-text>return</u-code-text>, она вернет <u-code-text>undefined</u-code-text></li>
+	<li>Функции (Function Declaration) совершают поднятие <u>hoisting</u> к началу контекста в котором объявлены, поэтому можно использовать функции до их объявления</li>
+	<li>Функция - это особый тип объекта со специальными свойствами, например, constructor и call</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Функции - объекты первого класса (First-class Objects)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Функции называют объектами первого класса, потому что они обрабатываются также, как и любое другое значение в JS. Они могут присваиваться переменным, быть свойством объекта (методом), элементом массива, аргументом другой функции, значением, возвращаемым функцией. Единственным отличием функции от любого другого значения в JS является то, что функция может быть выполнена или вызвана</li>
+</ul>
+</div><div id="js-function/function/announcement"><!-- TODO:
+<f-search>JS -> Function -> Function Declaration</f-search>
+<f-search>JS -> Function -> Function Expression</f-search>
+<f-search>JS -> Function -> IIFE (анонинимная самовызывающаяся)</f-search>
+<f-search>JS -> Function -> new Function</f-search>
+-->
+
+<h2>Объявление</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Function Declaration</u-text-define> - функция, объявленная в основном потоке кода, создаются интерпретатором до выполнения кода</li>
+	<li><u-text-define>Function Expression</u-text-define> - объявление функции в контексте какого-либо выражения, например присваивания. Создаются в процессе выполнения выражения, в котором созданы, в данном случае при операции присваивания</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Function Declaration</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function func(num) {
+	console.log(num);
+}
+func(1);
+</v-code>
+
+<v-code lang="js" title="">
+// присвоили ссылку на функцию
+const a = func;
+function func(){
+	//
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Function Expression (выражения функции)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const func = function(num) {
+	console.log(num);
+}
+func(2);
+</v-code>
+
+<v-code lang="js" title="">
+const Task = function Task() {
+	//
+}
+// создание нового объекта использую функцию Task
+const task = new Task();
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Функцию можно скопировать в другую переменную</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function sayHi() {   // создать функцию и поместить её в переменную sayHi
+	alert( "Привет" );
+}
+
+const func = sayHi;    // копирование функции в новую переменную
+func(); // Привет    // функцию можно вызывать и как sayHi() и как func()
+
+sayHi = null;
+sayHi();             // ошибка
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. IIFE (анонинимная с немедленным вызовом - самовызывающаяся)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-text-define>Immediately-Invoked Functional Expression (IIFE)</u-text-define> немедленно вызываемое функциональное выражение</li>
+</ul>
+
+<ul class="list-point">
+	<li>Если браузер видит <u>function</u> в основном потоке кода – он считает, что это <u>Function Declaration</u></li>
+	<li>Если же <u>function</u> идёт в составе более сложного выражения, то он считает, что это <u>Function Expression</u></li>
+	<li>Скобки в анонимной функции нужны чтобы показать, что это <u>Function Expression</u>, который по правилам JavaScript можно вызвать «на месте»</li>
+</ul>
+
+<v-code lang="js" title="">
+(function(num) {
+	console.log(num);
+})(3);
+</v-code>
+
+<v-code lang="js" title="">
+const count = (function(num) {
+	console.log(num);
+})(3);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Анонимная функция</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function ask(question, yes, no) {
+	if (confirm(question)) yes()
+	else no();
+}
+
+ask(
+	"Вы согласны?",
+	function() { alert("Вы согласились."); },
+	function() { alert("Вы отменили выполнение."); }
+);
+</v-code>
+<!------------------------------------------------------------->
+<h4>Возвращение функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const func = function() {
+	return function() {
+		console.log('Hi');
+	}
+}
+func()();
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>4. new Function</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<b>new Function(params, code)</b>
+	<li><u>params</u> - параметры функции через запятую в виде строки</li>
+	<li><u>code</u> - код функции в виде строки</li>
+</ul>
+
+<v-code lang="js" title="">
+// создание функции из строки
+const sum = new Function('a,b', 'return a+b;');
+const result = sum(1, 2);
+alert(result); // 3
+</v-code>
+</div><div id="js-function/function/arrow"><!-- TODO:
+<f-search>JS -> ES6 -> Function -> Стрелочные функции</f-search>
+-->
+
+<h2>Стрелочные функции (ES6)</h2>
+
+<u-link-wrapper>
+	<a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank">MDN</a>
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Особенности</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Контекст</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Стрелочная функция не имеет своего контекста <em>this</em></li>
+		<li>this берется из контекста (окружения) в котором функция объявлена в независимости от того где эта функция будет выполнена</li>
+		<li>Нельзя использовать <em>.bind()</em> <em>.call()</em> <em>.apply()</em>, т.к. нельзя изменить <u>this</u>, который берется из контекста</li>
+</ul>
+
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+const person = {
+	name: 'Tony',
+	greet: () => {
+		// this - объект из контекста window
+		console.log('Hello' + this.name);
+	}
+}
+person.greet();
+</template>
+<template v-slot:last>
+const person = {
+	name: 'Tony',
+	greet: function() {
+		// this - это person
+		console.log('Hello' + this.name);
+	}
+}
+person.greet();
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>2. Prototype</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Нет свойства <em>prototype</em></li>
+	<li>Нельзя использовать как конструкторы объектов (c <em>new</em>) и вызовут ошибку при использовании с new</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Arguments</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Псевдомассив <em>arguments</em> недоступен. Берется родительский arguments</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>4. Генераторы</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Ключевое слово <em>yield</em> не может быть использовано в теле стрелочной функции</li>
+	<li>Как следствие стрелочные функции не могут быть использованы как генераторы</li>
+</ul>
+
+<hr>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>2 аргумента</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+const add = (x, y) => x + y;
+</template>
+<template v-slot:last>
+function add(x, y) {
+	return x + y;
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>1 агрумент</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Если функция принимает 1 параметр, не нужно заключать его в скобки</li>
+</ul>
+
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+const square = x => x*x;
+</template>
+<template v-slot:last>
+const square = function(x) {
+	return x*x;
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Без аргументов</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+const giveMeAnswer = () => 42;
+</template>
+<template v-slot:last>
+const giveMeAnswer = function() {
+	return 42;
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Не возвращает значение</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+const log = () => console.log('hi');
+</template>
+<template v-slot:last>
+const log = function() {
+	console.log('hi');
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Состоит из двух строк</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Если в стрелочной функции несколько строк, то используются фигурные скобки и <u-code-text>return</u-code-text></li>
+</ul>
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+const multiply = (x, y) => {
+	const result = x*y;
+	return result;
+}
+</template>
+<template v-slot:last>
+const multiply = function(x, y) {
+	const result = x*y;
+	return result;
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Возвращает объект</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Возвращаемый объект оборачивается в круглые скобки</li>
+</ul>
+
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+const getPerson = () => ({ name:'Jack' });
+</template>
+<template v-slot:last>
+const getPerson = function() {
+	return { name:'Jack' }
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Самовызывающаяся функция (IIFE)</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js;js" comment="arrow function;function">
+<template v-slot:first>
+(() => console.log('IIFE'))();
+</template>
+<template v-slot:last>
+(function(){
+	console.log('IIFE');
+})();
+</template>
+</v-two-code>
+</div><div id="js-function/function/parameters"><!-- TODO:
+<f-search>JS -> ES6 -> Function -> Параметры функции</f-search>
+-->
+
+<h2>Параметры функции (ES6)</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Параметры по умолчанию (default parameters)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Параметры по умолчанию будут срабатывать если параметр <u>не передан</u> или параметр равен <u>undefined</u></li>
+</ul>
+
+<v-code lang="js" title="">
+function greet(greeting='Hello', name='Friend') {
+	console.log(greeting + ' ' + name);
+}
+greet();
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Псевдомассив аргументов arguments (ES5)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// arguments в ES5 - псевдо-массив, содержащий переданные агрументы
+[object Arguments] {
+	0: arg1,
+	1: arg2, 
+	2: arg3
+}
+</v-code>
+
+<v-code lang="js" title="">
+function my() {
+	// конвертация в обычный массив
+	let arr = Array.prototype.slice.call(arguments);
+	console.log(arr); // => [1, 2, 3]
+}
+my(1, 2, 3);
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Оставшиеся параметры (rest parameters)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Синтаксис отдельных параметров превращает отдельные элементы в масссив</li>
+    <li><b>Ограничение 1: </b>Rest-параметр обязан идти <u>последним</u> в функции</li>
+    <li><b>Ограничение 2: </b>Нельзя иметь больше одного rest-параметра</li>
+</ul>
+
+<v-code lang="js" title="Только rest-параметры">
+function my(...numbers) {
+	console.log(numbers); // => [1, 2, 3]
+}
+my(1, 2, 3);
+</v-code>
+
+<v-code lang="js" title="rest с обычными параметрами">
+function my(a, b, ...numbers) {
+	console.log(a);       // => 1
+	console.log(b);       // => 2
+	console.log(numbers); // => [3, 4]
+}
+my(1, 2, 3, 4);
+</v-code>
+</div><div id="js-function/function/arguments"><!-- TODO:
+<f-search>JS -> Function -> arguments</f-search>
+-->
+
+<h2>Псевдомассив аргументов "arguments"</h2>
+
+<ul class="list-point">
+	<li>Любая функция может быть вызвана с произвольным количеством аргументов</li>
+	<li>Нет «перегрузки» функций, «полиморфизма функций»: объявление нескольких одинаковых функции с разными аргументами</li>
+	<li>arguments - «псевдомассив» или «коллекция», т.е. объект, который похож на массив, в нём есть нумерованные свойства и length, но методов массива у него нет</li>
+</ul>
+
+<v-code lang="js" title="">
+› <u-code>arguments</u-code>        // список аргументов по номерам (arguments[0], arguments[1])
+› <u-code>arguments.length</u-code> // количество аргументов
+</v-code>
+
+<v-code lang="js" title="">
+function greet() {
+	for (let i = 0; i < <u-code>arguments.length</u-code>; i++) {
+		console.log(<u-code>arguments[i]</u-code>);
+	}
+}
+greet('Tony', 'Jack', 'Anne');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Аргументы по умолчанию через ||</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function showWarning(width, title) {
+	width = width || 200; // если не указана width, то width = 200
+	title = title || "Предупреждение";
+}
+</v-code>
+
+<v-code lang="js" title="">
+// при передаче width = 0 или width = null, оператор ИЛИ заменит его на значение по умолчанию
+// оператор ИЛИ если нужно использовать значение по умолчанию только если width === undefined
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>«Именованные аргументы» - объект в виде аргумента</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function showMessage(options) {
+	const width = options.width || 200;
+	const height = options.height || 100;
+	const contents = options.contents || "Предупреждение";
+}
+</v-code>
+
+<v-code lang="js" title="">
+showMessage({
+	contents: "Вы вызвали функцию"
+});
+</v-code>
+</div><div id="js-function/function/recursion"><!-- TODO:
+<f-search>JS -> Function -> Рекурсия</f-search>
+-->
+
+<h2>Рекурсия</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Информация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Отличие рекурсии от цикла</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Рекурсия будет висеть в памяти. Цикл на каждой итерации новый</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Степень pow(x, n) через рекурсию</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+function pow(x, n) {
+	// пока n != 1, сводить вычисление pow(x,n) к pow(x,n-1)
+	if (n != 1) {
+		return x * pow(x, n - 1);
+	} else {
+		return x;
+	}
+}
+alert( pow(2, 3) ); // 8
+</v-code>
+</div><div id="js-function/function/named-function-expression"><!-- TODO:
+<f-search>JS -> Function -> Named Function Expression</f-search>
+-->
+
+<h2>Named Function Expression</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Named Function Expression (NFE)</u-text-define> - именованные функциональные выражения</li>
+	<li>Имя NFE используется для единственной цели – позволить изнутри функции вызвать саму себя</li>
+	<li>Если функция задана как Function Expression, ей можно дать имя</li>
+	<li>Оно будет доступно только внутри функции</li>
+	<li>Это имя предназначено для надёжного рекурсивного вызова функции, даже если она записана в другую переменную</li>
+	<li>С Function Declaration так поступить нельзя</li>
+	<li>NFE нельзя перезаписать</li>
+</ul>
+
+<v-code lang="js" title="">
+const f = function sayHi(name) {
+  alert( sayHi ); // изнутри функции - видно (выведет код функции)
+};
+
+alert( sayHi ); // снаружи - не видно (ошибка: undefined variable 'sayHi')
+</v-code>
+
+<v-two-code type="js;js" comment="js;js">
+<template v-slot:first>
+function f(n) {
+  return n ? n * f(n - 1) : 1;
+};
+
+const g = f;
+f = null;
+
+alert( g(5) ); // запуск функции с новым именем - ошибка при выполнении!
+// функция из своего кода обращается к своему старому имени f
+// этой функции уже нет, f = null
+</template>
+<template v-slot:last>
+const f = function factorial(n) {
+	return n ? n*factorial(n-1) : 1;
+};
+
+const g = f;  // скопировали ссылку на функцию-факториал в g
+f = null;
+
+alert( g(5) ); // 120, работает!
+</template>
+</v-two-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

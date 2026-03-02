@@ -1,0 +1,112 @@
+<!-- TODO:
+<f-search>JS -> API -> <u>Math.round()</u></f-search>
+<f-search>JS -> API -> <u>Math.ceil()</u></f-search>
+<f-search>JS -> API -> <u>Math.floor()</u></f-search>
+<f-search>JS -> API -> <u>Math.random()</u></f-search>
+
+<f-search>JS -> API -> <u>Math.pow()</u></f-search>
+<f-search>JS -> API -> <u>Math.sqrt()</u></f-search>
+<f-search>JS -> API -> <u>Math.abs()</u></f-search>
+<f-search>JS -> API -> <u>Math.max()</u></f-search>
+<f-search>JS -> API -> <u>Math.min()</u></f-search>
+<f-search>JS -> API -> <u>Math.exp()</u></f-search>
+<f-search>JS -> API -> <u>Math.log()</u></f-search>
+
+<f-search>JS -> API -> <u>Math.PI()</u></f-search>
+<f-search>JS -> API -> <u>Math.E()</u></f-search>
+<f-search>JS -> API -> <u>Math.sin()</u></f-search>
+<f-search>JS -> API -> <u>Math.cos()</u></f-search>
+<f-search>JS -> API -> <u>Math.tan()</u></f-search>
+<f-search>JS -> API -> <u>Math.atan()</u></f-search>
+<f-search>JS -> API -> <u>Math.asin()</u></f-search>
+<f-search>JS -> API -> <u>Math.acos()</u></f-search>
+-->
+
+<h2>Math</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Округление</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+// Округляет число к ближайшему целому (5 округляется вверх)
+const a1 = Math.<u-code>round</u-code>(5.1); // => 5
+const a2 = Math.<u-code>round</u-code>(5.5); // => 6
+const a3 = Math.<u-code>round</u-code>(5.9); // => 6
+</v-code>
+
+<v-code lang="js" title="">
+const a2 = Math.<u-code>ceil</u-code>(5.1);  // => 6, округляет число в большую сторону
+const a3 = Math.<u-code>floor</u-code>(5.9); // => 5, округляет число в меньшую сторону
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Random</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// Генерация случайного дробного числа от 0 (включительно) до 1 (не включая)
+// н-р: 0.27647450465282075
+const a = Math.<u-code>random</u-code>();
+</v-code>
+
+<h5>Варианты диапазонов</h5>
+<ul class="list-point">
+	<li>Значение, на которое умножается, должно быть на 1 больше нужного</li>
+</ul>
+
+<v-code lang="js" title="">
+const a = Math.floor(Math.random() * 2);  // 0 - 1
+const a = Math.floor(Math.random() * 3);  // 0 - 2
+const a = Math.floor(Math.random() * 4);  // 0 - 3
+const a = Math.floor(Math.random() * 5);  // 0 - 4
+const a = Math.floor(Math.random() * 6);  // 0 - 5
+const a = Math.floor(Math.random() * 7);  // 0 - 6
+const a = Math.floor(Math.random() * 8);  // 0 - 7
+const a = Math.floor(Math.random() * 9);  // 0 - 8
+const a = Math.floor(Math.random() * 10); // 0 - 9
+</v-code>
+
+<v-code lang="js" title="">
+const a = Math.floor(Math.random() * 101); // 0 - 100
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Методы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const a1 = Math.<u-code>pow</u-code>(4,2);        // степень 4 в 2
+const a2 = Math.<u-code>sqrt</u-code>(400);       // квадратный корень числа
+const a3 = Math.<u-code>abs</u-code>(-7);         // модуль
+const a4 = Math.<u-code>max</u-code>(1, 2, 3, 4); // большее число из аргументов
+const a5 = Math.<u-code>min</u-code>(1, 2, 3, 4); // меньшее число из аргументов
+const a6 = Math.<u-code>exp</u-code>(2);          // возведение часла "e" в указанную степень
+const a7 = Math.<u-code>log</u-code>(5);          // натуральный логарифм числа
+</v-code>
+
+<v-code lang="js" title="">
+const a1 = Math.<u-code>PI</u-code>; // число PI
+const a2 = Math.<u-code>E</u-code>;  // чисто E
+</v-code>
+
+<v-code lang="js" title="">
+const a1 = Math.<u-code>sin</u-code>(1);  // синус (радиан)
+const a2 = Math.<u-code>cos</u-code>(1);  // косинус
+const a3 = Math.<u-code>tan</u-code>(1);  // тангенс
+const a4 = Math.<u-code>atan</u-code>(1); // арктангенс
+const a5 = Math.<u-code>asin</u-code>(1); // арксинус
+const a6 = Math.<u-code>acos</u-code>(1); // арккосинус
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Random(min, max)</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const mtRand = (min, max) => {
+	return Math.floor(Math.random() * (max - min + 1));
+	//return Math.random() * (max - min) + min;
+}
+</v-code>

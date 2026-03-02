@@ -1,0 +1,22 @@
+<h2>Установка версии пакета</h2>
+
+<v-code lang="bash" title="">
+npm i <i>PackageName</i>         #
+npm i <i>PackageName</i><u-code>@4.16.1</u-code>  # конкретная версия
+npm i <i>PackageName</i><u-code>@^</u-code>       # последняя версия
+</v-code>
+
+<ul class="list-point">
+    <li><b><u-code-text>~</u-code-text></b> (тильда) подбирает последнюю минорную версию пакета (последнюю цифру), например <u>~7.3.3</u> найдет последнюю <u>7.3.x</u>, допустим <u>7.3.12</u> но не <u>7.4.0</u></li>
+    <li><b><u-code-text>^</u-code-text></b> (крышка) подбирает последнюю мажорную версию пакета (среднюю цифру), например <u>^7.3.3</u> найдет последнюю <u>7.x.x</u>, допустим <u>7.4.0</u> но не <u>8.0.0</u></li>
+</ul>
+
+<v-code lang="bash" title="">
+npm i <i>PackageName</i>
+</v-code>
+
+<ul class="list-point">
+    <li>Пакета нет в package.json - установится последняя версия</li>
+    <li>Пакет есть в package.json <u-code-text>PackageName": "1.0.0"</u-code-text> - установится версия <u>1.0.0</u></li>
+    <li>Пакет есть в package.json <u-code-text>PackageName": "^1.0.0"</u-code-text> - установится последняя версия</li>
+</ul>

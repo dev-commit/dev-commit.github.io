@@ -1,0 +1,469 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Flow</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/flow/build-flow.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">Flow</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Основное</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__flow/main/info"
+            href="#flow/main/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__flow/main/install"
+            href="#flow/main/install"
+        >
+            ⚙️ Установка и настройка
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__flow/main/variants"
+            href="#flow/main/variants"
+        >
+            💎 Варианты
+        </a>
+    </li>
+</ul><h4>🏷️ Темы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__flow/themes/type-data"
+            href="#flow/themes/type-data"
+        >
+            ⚡️ Типы данных
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__flow/themes/var"
+            href="#flow/themes/var"
+        >
+            🔥 Переменные
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__flow/themes/function"
+            href="#flow/themes/function"
+        >
+            🔥 Функции
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__flow/themes/type"
+            href="#flow/themes/type"
+        >
+            🔥 Тип
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__flow/themes/react"
+            href="#flow/themes/react"
+        >
+            Использование с React.js
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__flow/themes/vscode"
+            href="#flow/themes/vscode"
+        >
+            Настройка VSCode
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="flow/main/info"><!-- TODO:
+<f-search>Flow -> Информация</f-search>
+-->
+
+<h2>Информация</h2>
+
+<u-link-wrapper>
+    <v-link url="https://flow.org/" text="Документация" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Flow</u-text-define> - библиотека для статической типизации JavaScript, разработанная в Facebook. Flow расширяет возможности JavaScript, добавляя аннотации типов для переменных, функций и React-компонентов</li>
+</ul>
+
+<v-code lang="js" title="Обход flow">
+// $FlowFixMe
+</v-code>
+</div><div id="flow/main/install"><!-- TODO:
+<f-search>Flow -> Установка и настройка</f-search>
+-->
+
+<h2>Установка и настройка</h2>
+
+<!------------------------------------------------------------->
+<h4>1. Установка Flow</h4>
+<!------------------------------------------------------------->
+<v-pre-npm>
+npm i --save-dev <u-code-accent>flow-bin</u-code-accent>
+</v-pre-npm>
+
+<!------------------------------------------------------------->
+<h4>2. Добавление flow в секцию "scripts" файла package.json</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="package.json">
+{
+	// ...
+	"scripts": {
+		"flow": "flow",
+			// ...
+		},
+	// ...
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Запуск исходной конфигурации</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+npm run flow init
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>4. Установка пресета для работы с Flow</h4>
+<!------------------------------------------------------------->
+<v-pre-npm>
+npm i --save-dev <u-code-accent>@babel/preset-flow</u-code-accent>
+</v-pre-npm>
+
+<!------------------------------------------------------------->
+<h4>5. Добавление пресета в конфигурацию Babel, файл .babelrc</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title=".babelrc">
+{
+	"presets": [
+		<u-code>"@babel/preset-flow",</u-code>
+		"react"
+	]
+}
+</v-code>
+
+<ul class="list-point">
+    <li>Для работы с Flow не требуется отдельно устанавливать пресет react - Flow уже понимает JSX-синтаксис. Тем не менее, часто используют оба пресета одновременно</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>6. Запуск Flow</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+npm run flow
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>7. Добавление аннотаций типов</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>По умолчанию Flow проверяет только файлы, содержащие специальную аннотацию (обычно её указывают в самом начале файла)</li>
+</ul>
+
+<v-code lang="js" title="">
+// @flow
+</v-code>
+</div><div id="flow/main/variants"><!-- TODO:
+<f-search>Flow -> Варианты</f-search>
+-->
+
+<h2>Варианты</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование типа в массиве</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Params = {
+	name: string,
+	count: number,
+};
+
+const response: Array&lt;Params&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование типа в функции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+export type UserCredentials = {
+    username: string,
+    password: string,
+};
+
+export const login = (creds: UserCredentials) =&gt; ();
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Экспорт и импорт типа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+export type ActivityType = Array&lt;{ name: string, checked: boolean }&gt;;
+
+export const a: ActivityType  = [
+    { name: 'Name', checked: true },
+];
+
+import type { ActivityType } from './MyFile';
+</v-code>
+
+
+</div><div id="flow/themes/type-data"><!-- TODO:
+<f-search>Flow -> Типы данных</f-search>
+-->
+
+<h2>Типы данных</h2>
+
+<v-code lang="js" title="Простые типы">
+number
+string
+boolean
+null
+any
+</v-code>
+
+<v-code lang="js" title="Объекты">
+Object
+Date
+Promise&lt;Object&gt;
+</v-code>
+
+<v-code lang="js" title="Массивы">
+Array&lt;string&gt;,
+Array&lt;{ name: string, checked: boolean }&gt;,
+Array&lt;*&gt;,
+Array&lt;*&gt; | Array&lt;SelectItems&gt;,
+</v-code>
+
+<v-code lang="js" title="Функции">
+Function
+() =&gt; void
+() =&gt; number
+(date: ?Date) =&gt; void
+(id: ?number) =&gt; void
+(Object) =&gt; void
+(name: string, data: string | number) => boolean | Promise&lt;boolean&gt;
+</v-code>
+
+</div><div id="flow/themes/var"><!-- TODO:
+<f-search>Flow -> Переменные</f-search>
+-->
+
+<h2>Переменные</h2>
+
+<v-code lang="js" title="types">
+const a:string = 'str';
+const a:number = 77;
+</v-code>
+</div><div id="flow/themes/function"><!-- TODO:
+<f-search>Flow -> Функции</f-search>
+-->
+
+<h2>Функции</h2>
+
+<v-code lang="js" title="functions">
+function my(x: string, y: number = 77) {}
+function my(x: '1' | '2') {}       // может передаваться '1' или '2'
+function my(x: number | string) {} // может передаваться number или string
+</v-code>
+</div><div id="flow/themes/type"><!-- TODO:
+<f-search>Flow -> Тип</f-search>
+-->
+
+<h2>Тип</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определение типа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="type">
+type Props = {
+    property: string,
+    property?: string,
+    property: ?string,
+    property: number | null,
+    onHandle: () =&gt; void,
+}
+
+type SelectItems = {
+    title: string,
+    value: string,
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Импорт типа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import type Node from 'react';
+import React, { useState, type Node } from 'react';
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование типов в аргументах функции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type UserCredentials = {
+    username: string,
+    password: string,
+};
+const login = (creds: UserCredentials) => (
+	//
+);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование типов в описании типов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Sale = {
+    id: number,
+    companyId: number,
+};
+type Params = {
+    content: Array&lt;Sale&gt;,
+    totalElements: number,
+    number: number,
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Несколько типов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type PropsOne = {
+	values: Object,
+}
+type PropsTwo = {
+	valuesNew: Object,
+} & PropsOne;
+</v-code>
+
+</div><div id="flow/themes/react"><!-- TODO:
+<f-search>Flow -> Использование с React.js</f-search>
+-->
+
+<h2>Использование с React.js</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>useState</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const [state, setState]: [object, Function] = useState({});
+</v-code>
+</div><div id="flow/themes/vscode"><!-- TODO:
+<f-search>Flow -> Настройка Flow в VSCode</f-search>
+-->
+
+<h2>Настройка Flow в VSCode</h2>
+
+<v-code lang="js" title="">
+npm i flow-bin -g
+</v-code>
+
+<v-code lang="js" title="">
+Расширения VSCode Flow Language Support
+
+Настройки -> Settings -> Commonly Used -> Edit in settings.json
+    "flow.useNPMPackagedFlow": true,
+    "javascript.validate.enable": false
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

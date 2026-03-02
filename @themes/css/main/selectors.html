@@ -1,0 +1,106 @@
+<h2>Селекторы</h2>
+
+<!------------------------------------------------------------->
+<h4>Базовые селекторы</h4>
+<!------------------------------------------------------------->
+<table>
+    <tr>
+        <td class="accent">div</td>
+        <td>Тег</td>
+    </tr>
+    <tr>
+        <td class="accent">.class</td>
+        <td>Класс</td>
+    </tr>
+    <tr>
+        <td class="accent">#id</td>
+        <td>Идентификатор</td>
+    </tr>
+    <tr>
+        <td class="accent">*</td>
+        <td>Все элементы</td>
+    </tr>
+    <tr>
+        <td class="accent">div p</td>
+        <td>Вложенные селекторы (каскад)</td>
+    </tr>
+    <tr>
+        <td class="accent">header, p</td>
+        <td>Несколько элементов</td>
+    </tr>
+</table>
+
+<!------------------------------------------------------------->
+<h4>Селекторы > + ~</h4>
+<!------------------------------------------------------------->
+<table>
+    <tr>
+        <td class="accent">ul li > span</td>
+        <td>Не все span, а только дочерние span</td>
+    </tr>
+    <tr>
+        <td class="accent">ul li + li</td>
+        <td>Все последующие элементы li</td>
+    </tr>
+    <tr>
+        <td class="accent">.class1 ~ div</td>
+        <td>Все div элементы после class1</td>
+    </tr>
+    <tr>
+        <td class="accent">.class1 ~ *</td>
+        <td>Все элементы после class1</td>
+    </tr>
+</table>
+
+<!------------------------------------------------------------->
+<h4>Атрибуты</h4>
+<!------------------------------------------------------------->
+<table>
+    <tr>
+        <td class="accent">input[type="text"]</td>
+        <td>Все input у которых type="text"</td>
+    </tr>
+    <tr>
+        <td class="accent">input[name="text"]</td>
+        <td>Все input у которых name="text"</td>
+    </tr>
+    <tr>
+        <td class="accent">input[class="text"]</td>
+        <td>Все input у которых class="text"</td>
+    </tr>
+</table>
+
+<!------------------------------------------------------------->
+<h4>Атрибуты и классы</h4>
+<!------------------------------------------------------------->
+<table>
+    <tr>
+        <td class="accent">a[title]</td>
+        <td>Все a у которых есть атрибут title</td>
+    </tr>
+    <tr>
+        <td class="accent">[checked]</td>
+        <td>Выбранный элемент для checkbox и radio</td>
+    </tr>
+    <tr>
+        <td class="accent">[class|="yes"]</td>
+        <td>Все div у которых class начинается со слова yes, может содержать "-", н-р "yes-class"</td>
+    </tr>
+    <tr>
+        <td class="accent">[class^="yes"]</td>
+        <td>Выбирает подстроку с начала названия класса, н-р "yesclass"</td>
+    </tr>
+    <tr>
+        <td class="accent">[class$="yes"]</td>
+        <td>Выбирает подстроку с конца названия класса, н-р "classyes"</td>
+    </tr>
+    <tr>
+        <td class="accent">[class*="yes"]</td>
+        <td>Выбирает подстроку в любом месте названия класса, н-р "classyesmy"</td>
+    </tr>
+    <tr>
+        <td class="accent">[class~="yes"]</td>
+        <td>Когда задано несколько классов, н-р "yes tagname"</td>
+    </tr>
+</table>
+

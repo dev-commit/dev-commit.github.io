@@ -1,0 +1,62 @@
+<h2>Reducer (преобразователь)</h2>
+
+<ul class="list-point">
+    <li><u>Reducer</u> - Чистая функция типа <u-code-text>(state, action) => newState</u-code-text>, которая берет на вход <u>предыдущее состояние</u> и <u>action</u> и возвращает новое состояние. Не модифицирует данные, а всегда возвращает новые данные. Указывает, как состояние приложения должно измениться в ответ на Action</li>
+    <li>Мы не мутировали наш state, мы создали новый state. В редьюсере, мы всегда должны возвращать новый объект, а не измененный предыдущий</li>
+    <li>Менять состояние приложения - синхронная операция</li>
+    <li>Объект, который мы возвращаем в редьюсере, далее с помощью функции <u-code-text>connect</u-code-text>, превратится в свойства для компонентов. Благодаря этому, внутри компонента <u-code-text>&lt;Component /&gt;</u-code-text>, мы сможем получить доступ к свойству <u-code-text>this.props.name_prop</u-code-text></li>
+    <li><u-text-underline>Reducer Composition</u-text-underline> - фундаментальный шаблон построения redux приложений: мы разбиваем наше глобальное состояние на кусочки, за каждый кусочек отвечает свой <u-code-text>reducer</u-code-text>. Кусочки объединяются в <u-code-text>rootReducer</u-code-text> Корневом Редьюсере</li>
+</ul>
+
+<v-code lang="js" title="">
+const reducerStarter = (state = { name: '' }, action) => {
+    switch (action.type) {
+        case 'NAME':
+            return {
+                ...state,
+                name: action.payload
+            }
+        default:
+            return state;
+    }
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Редьюсер - Чистая функция</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Redux принимает переданное в него состояние (state) и отдаёт его каждому reducer в цикле. Если есть какие-либо изменения он ожидает получить новый объект из reducer функции (также он рассчитывает получить старый объект обратно, если изменений не было).</li>
+    <li>Дальше Redux проверяет, изменилось ли старое состояние путём обычного сравнения, а так как мы мутировали свойство старого объекта вместо создания нового, внутри нашего reducer, то старое и новое состояние будут ссылаться на один и тот же объект. Поэтому Redux думает, что ничего не изменилось!</li>
+</ul>
+
+<v-code lang="js" title="">
+const initState = { a: 1 };
+
+const reducer = (state) => {
+	state.a = 3;  // мутируем исходный объект initState
+	return state; // возвращаем обратно initState
+}
+
+const newState = reducer(initState);
+console.log(newState, initState); // {a: 3} {a: 3}
+// newState === initState // true
+</v-code>
+
+<v-code lang="js" title="">
+Новый объект  = Новое состояние
+Старый объект = Не изменённое состояние
+// Вот поэтому редюсеры должны быть "Чистыми функциями" в Redux
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Чистые функции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Чистые функции</u-text-define> (pure functions)</li>
+    <li>Возвращает один и тот же результат для одинаковых входных данных</li>
+    <li>Не изменяет входные данные (иммутабельность)</li>
+    <li>Не зависит от внешнего состояния (базы данных, DOM или глобальной переменной)</li>
+    <li>Не имеет побочных эффектов (side effects): не влияют на состояние программы</li>
+    <li>Чистые функции могут вызывать только чистые функции</li>
+</ul>

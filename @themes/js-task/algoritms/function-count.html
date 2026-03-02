@@ -1,0 +1,12 @@
+<h2>Функция, считающая кол-во своих вызовов</h2>
+
+<v-code lang="js" title="">
+const func = function() {
+	func.counter = func.counter || 0;
+	return ++func.counter;
+};
+
+console.log(func()); // 1
+console.log(func()); // 2
+console.log(func()); // 3
+</v-code>

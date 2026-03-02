@@ -1,0 +1,51 @@
+<h2>Передача строки для ключа объекта</h2>
+
+<!------------------------------------------------------------->
+<h4>Поля</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+interface IIcons {
+    [key: string]: IconDefenition;
+}
+
+const icon: IIcons = {
+    Icon1: faIcon1,
+    Icon2: faIcon2,
+}
+
+icon['Icon1']
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Рефы</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+interface ITooltipRefs {
+  [key: string]: HTMLDivElement | null
+}
+
+const tooltipRefs: ITooltipRefs = {}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>as keyof</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+export const MAP_ARROW_CODES: IMapArrowCodes = {
+  ArrowUp: "⬆️",
+  ArrowDown: "⬇️",
+  ArrowRight: "➡️",
+  ArrowLeft: "⬅️",
+}
+
+export interface IMapArrowCodes {
+  ArrowUp: string
+  ArrowDown: string
+  ArrowRight: string
+  ArrowLeft: string
+}
+
+const currentValue = MAP_ARROW_CODES.ArrowUp
+
+MAP_ARROW_CODES[currentValue as keyof IMapArrowCodes]
+</v-code>

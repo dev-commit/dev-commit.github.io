@@ -1,0 +1,64 @@
+<h2>Полифил bind()</h2>
+
+<ul class="list-point">
+	<li><u-text-define>bind</u-text-define> - создаёт новую функцию, которая при вызове устанавливает предоставленное значение в качестве контекста выполнения this. Возвращает «обёртку», которая передаст вызов в исходную функцию, с привязанным контекстом</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Исходный bind()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js none" title="">
+function foo(a, b) {
+	console.log(a, b, this.name);
+}
+
+const bar = foo.bind({ name: 'Tony' }, 2, 3);
+const result = bar(2, 3); // => 2 3 "Tony" 
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Полифил</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="Реализация">
+function bind(callback, context) {
+    return function() {
+        return callback.apply(context, arguments);
+    }
+}
+</v-code>
+
+<v-code lang="js" title="Исходный код">
+function foo(a, b) {
+	console.log(a, b, this.name);
+}
+
+const bar = bind(foo, { name: 'Tony' });
+const result = bar(2, 3); // => 2 3 "Tony"
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>👿 Усложненный вариант</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js red" title="">
+Function.prototype.bind = function (context) {
+	const fun = this;
+	const arg1 = Array.prototype.slice.call(arguments, 1);
+	return function () {
+		const arg2 = Array.prototype.slice.call(arguments);
+		return fun.call(context, arg1.concat(arg2))
+	}
+}
+</v-code>
+
+<v-code lang="js red" title="">
+Function.prototype.bind = function (context) {
+	const arg1 = Array.prototype.slice.call(arguments, 1);
+	const fun = this;
+
+	return function () {
+		const arg2 = Array.prototype.slice.call(arguments);
+		return fun.apply(context, arg1.concat(arg2))
+	}
+}
+</v-code>

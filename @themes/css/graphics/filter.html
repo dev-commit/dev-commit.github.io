@@ -1,0 +1,27 @@
+<h2>CSS Filters</h2>
+
+<v-code lang="css" title="">
+div {
+	filter: blur(5px);         <u-code-comment># размытие (напрямую к body применить нельзя)</u-code-comment>
+	filter: brightness(150%);  <u-code-comment># яркость, 100% по умолчанию</u-code-comment>
+	filter: contrast(150%);    <u-code-comment># контрастность, 100% по умолчанию</u-code-comment>
+	filter: grayscale(70%);    <u-code-comment># черно-белое, 0% по умолчанию</u-code-comment>
+	filter: hue-rotate(90deg); <u-code-comment># поворот оттенка, определяет угол, 0deg по умолчанию</u-code-comment>
+	filter: invert(100%);      <u-code-comment># инвертирование</u-code-comment>
+	filter: opacity(50%);      <u-code-comment># прозрачность</u-code-comment>
+	filter: saturate(150%);    <u-code-comment># изменение насыщенности</u-code-comment>
+	filter: sepia(100%);       <u-code-comment># сепия</u-code-comment>
+	filter: drop-shadow(10px 10px 3px rgba(100,0,0,0.5)); <u-code-comment># добавляет тень к изображениям, учитывая прозрачные участки</u-code-comment>
+}
+</v-code>
+
+<ul class="list-point">
+	<li>Можно применять несколько фильтров</li>
+	<li>Первый фильтр применяется к исходному изображению, а остальные к предыдущему</li>
+</ul>
+
+<v-code lang="css" title="">
+div {
+	filter: contrast(150%) sepia(100%);
+}
+</v-code>

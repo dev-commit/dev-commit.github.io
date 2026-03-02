@@ -1,0 +1,717 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>
+  <div
+    style="
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+      background-color: #7256d1;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    "
+  >
+  </div>
+Blockchain</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/blockchain/build-blockchain.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">
+  <div
+    style="
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+      background-color: #7256d1;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    "
+  >
+  </div>
+Blockchain</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Основное</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__blockchain/main/structure"
+            href="#blockchain/main/structure"
+        >
+            📑 Структура
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__blockchain/main/algoritm"
+            href="#blockchain/main/algoritm"
+        >
+            🔥 Алгоритм работы
+        </a>
+    </li>
+</ul><h4>🏷️ 1. Blockchain</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__blockchain/blockchain/blockchain"
+            href="#blockchain/blockchain/blockchain"
+        >
+            📑 Blockchain
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__blockchain/blockchain/smart-contract"
+            href="#blockchain/blockchain/smart-contract"
+        >
+            Smart Contract
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__blockchain/blockchain/solidity"
+            href="#blockchain/blockchain/solidity"
+        >
+            <u-menu>Solidity</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__blockchain/blockchain/ipfs"
+            href="#blockchain/blockchain/ipfs"
+        >
+            <u-menu>IPFS</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__blockchain/blockchain/filecoin"
+            href="#blockchain/blockchain/filecoin"
+        >
+            <u-menu-gray>Filecoin</u-menu-gray>
+        </a>
+    </li>
+</ul><h4>🏷️ 2. Crypto Wallet</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__blockchain/crypto-wallet/crypto-wallet"
+            href="#blockchain/crypto-wallet/crypto-wallet"
+        >
+            📑 Crypto Wallet
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__blockchain/crypto-wallet/metamask"
+            href="#blockchain/crypto-wallet/metamask"
+        >
+            <u-menu>Metamask</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__blockchain/crypto-wallet/web3auth"
+            href="#blockchain/crypto-wallet/web3auth"
+        >
+            <u-menu>web3auth</u-menu>
+        </a>
+    </li>
+</ul><h4>🏷️ 3. NFT</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__blockchain/nft/nft"
+            href="#blockchain/nft/nft"
+        >
+            📑 NFT
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__blockchain/nft/token"
+            href="#blockchain/nft/token"
+        >
+            📑 Token
+        </a>
+    </li>
+</ul><h4>🏷️ 4. Application Web 3.0</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__blockchain/application-web3/application-web3"
+            href="#blockchain/application-web3/application-web3"
+        >
+            📑 Application Web 3.0
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__blockchain/application-web3/web3"
+            href="#blockchain/application-web3/web3"
+        >
+            <u-menu>Web3.js</u-menu> <u-menu>Ethers.js</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__blockchain/application-web3/truffle"
+            href="#blockchain/application-web3/truffle"
+        >
+            <u-menu-gray>Truffle</u-menu-gray>
+        </a>
+    </li>
+</ul><h4>🏷️ Теория</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__blockchain/theory/crypto-coins"
+            href="#blockchain/theory/crypto-coins"
+        >
+            📑 Crypto Coins
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__blockchain/theory/subtypes-cryptocurrency"
+            href="#blockchain/theory/subtypes-cryptocurrency"
+        >
+            📑 Подтипы криптовалюты
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="blockchain/main/structure"><h2>Структура</h2>
+
+<ul class="list-point">
+    <li><u>Черные линии</u> - Web 2.0</li>
+    <li><u>Синие линии</u> - Web 3.0</li>
+</ul>
+
+<img src="/@img/blockchain/web3.png" width="650px">
+</div><div id="blockchain/main/algoritm"><h2>Алгоритм</h2>
+
+
+<v-two><template v-slot:first>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>⭐️ Blockchain Server</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h5>1. Создать Blockchain Server</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>На базе Ethereum и т.д.</li>
+    <li><u-menu-code>IPFS</u-menu-code></li>
+    <li><u-menu-code><a href="https://geth.ethereum.org/" target="_blank" class="link">geth</a></u-menu-code> - Go приложение, позволяющее запустить свою Node Ethereum Blockchain локально или на удаленном сервере</li>
+    <li><u-menu-code><a href="https://trufflesuite.com/ganache/" target="_blank" class="link">Ganache</a></u-menu-code> - локальный блокчейн для разработки, который можно использовать для имитации поведения публичного блокчейна</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>2. Добавить хранилище для Blockchain-сети</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Decentrilized Storages - хранилище</li>
+    <li>На базе Ethereum и т.д.</li>
+    <li><u-menu-code>Pinata</u-menu-code> - базируется на IPFS</li>
+    <li><u-menu-code>Filecoin</u-menu-code> - базируется на IPFS</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>2. Добавить Smart Contracts к Blockchain</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-menu-code>Solidity</u-menu-code></li>
+    <li><u-menu-code><a href="https://remix.ethereum.org/" target="_blank" class="link">Remix</a></u-menu-code> - онлайн редактор кода для Smart Contracts. Позволяет добавлять Smart Contracts в Blockchain (production или тестовый)</li>
+</ul>
+
+
+
+</template><template v-slot:last>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>⭐️ Crypto Wallet</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h5>Создать крипто-кошелёк</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>На базе Etherium Chain и т.д.</li>
+    <li><u-menu-code>Metamask</u-menu-code> - сеть для передачи NFT</li>
+</ul>
+
+<hr>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>⭐️ NFT</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h5>Создать NFT для файла</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>NFT можно создавать через разные генераторы</li>
+    <li><u-menu-code>Autominter</u-menu-code></li>
+</ul>
+
+</template></v-two>
+
+<hr>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>⭐️ Frontend Application Web 3.0</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h5>1. Добавить авторизацию через Wallet</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Добавить крипто-кошелек в приложение</li>
+    <li>Приложение через библиотеку <u-menu-code>Web3.js</u-menu-code> делает запрос к <u>Wallet</u> (кошельку) для авторизации пользователя</li>
+    <li>В кошельке хранится <u>Etherium-аккаунт</u> (например) пользователя для Blockchain</li>
+    <li><u-menu-code>web3auth</u-menu-code> - инфраструктура для подключения кошельков</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>2. Реализовать обращение к Blockchain Server</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>После авторизации, приложение может обращаться к <u>Blockchain Server</u></li>
+    <li>Для обращения к Blockchain должна быть своя <u>Node Blockchain</u> - свой компьютер, подключенный к Blockchain сети и имеющей копию Etherium (например)</li>
+</ul>
+
+<p>Можно не создавать свою <u>Node Blockchain</u>, а воспользоваться API для доступа к Blockchain и облачным протоколам хранения:
+<ul class="list-point">
+    <li><u-menu-code>Infura</u-menu-code></li>
+    <li><u-menu-code>Moralis</u-menu-code></li>
+    <li><u-menu-code>Alchemy</u-menu-code></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>3. Передать NFT через Wallet</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-menu-code>-</u-menu-code></li>
+</ul>
+</div><div id="blockchain/blockchain/blockchain"><h2>Blockchain</h2>
+
+<u-link-wrapper>
+    <v-link url="https://www.youtube.com/watch?v=UkAhVpiUVd4" text="[YouTube] Миша Ларченко. Структура и инструменты Blockchain" list="true" />
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Структура блока</h4>
+<!------------------------------------------------------------->
+<p><u-text-define>Blockchain</u-text-define> - цепочка блоков, которые содержат информацию:</p>
+<ol class="list-num">
+    <li><b>Данные</b>. Зависит от типа Blockchain, н-р для Bitcoin: отправитель, получатель, сумма</li>
+    <li><b>Хэш блока</b>. Если в блоке есть изменения, то меняется хэш блока, что делает недействительным все последующие блоки (каждый последующий блок хранит хэш предыдущего)</li>
+    <li><b>Хэш предыдущего блока</b>. Если нет предыдущего блока, то это первый блок (Генезис-блок)</li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>Децентрализация</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Использование одноранговой сети</li>
+    <li>Децентрализованный глобальный код, открытый для всех</li>
+</ul>
+
+<p><u-text-define>P2P</u-text-define> (Peer-to-Peer). Blockchain использует P2P сеть и любой человек может присоединиться</p>
+
+<ul class="list-point">
+    <li>При подключении к сети, пользователь получает полную копию Blockchain</li>
+    <li>При создании нового блока, он отправляется всем подключенным к сети узлам (пользователям). Каждый узел проверяет новый блок и его хэш, чтобы убедиться в его достоверности. Если всё в порядке, то каждый узел добавляет это блок в свою копию Blockchain. Если блок фальсифицирован, то будет отклонен остальными узлами сети</li>
+    <li>Чтобы фальсифицировать блок, то под контролем должно быть более 50% сейти Blockchain, чтобы признать консенсус и признать фальсифициорованный блок действительным, поэтоум <u>однажды записанную информация практически невозможно изменить или удалить</u></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Принципы безопасности</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li><b>Хэширование</b> - задание уникального хэша каждому блоку. Блок хранит свой хэш и хэш последующего блока</li>
+    <li><b>Prof of Work</b> - механизм, замедляющий создание новых блоков (для Bitcoin это 10 минут). Существенно затрудняется изменение блоков: если изменяется 1 блок, то нужно пересчитать Prof of Work для всех остальных блоков, что является труным процессом</li>
+    <li><b>Децентрализация</b></li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>Создание нового блока</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Эмиссия осуществляется за счёт майнинга</li>
+    <li>Устройство, которые быстрее всех решит криптографическую задачу и создаст новый блок, получит немного криптовалюты</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Правила</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>У каждой криптовалюты должен быть свой Blockchain</li>
+</ul>
+</div><div id="blockchain/blockchain/smart-contract"><h2>Smart Contract (Смарт-контракт)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Smart Contract</u-text-define> - программа написанная на языке <u-menu-code>Solidity</u-menu-code>, хранящиеся внутри Blockchain и способная выполнять определенные действия (автоматический обмен монет и т.д.)</li>
+    <li>Программа проверяет корректность выполнения всех условий между продавцом и покупателем. Если корректно, то сделка совершается - иначе, откатывается</li>
+</ul>
+</div><div id="blockchain/blockchain/solidity"><h2>Solidity</h2>
+
+<u-link-wrapper>
+    <v-link url="https://docs.soliditylang.org/" text="" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Solidity</u-text-define> - объектно-ориентированный язык высокого уровня для реализации <u>Smart Contracts</u>, которые можно воспринимать как API</li>
+    <li>Smart Contracts можно воспринимать как API</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li><u-menu-code>OpenZeppelin</u-menu-code> - набор готовых Smart Contracts</li>
+    <v-link url="https://www.openzeppelin.com/contracts" />
+</ul>
+</div><div id="blockchain/blockchain/ipfs"><h2>IPFS</h2>
+
+<u-link-wrapper>
+    <v-link url="https://ipfs.tech/" text="" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>IPFS</u-text-define> - Хранище, основанное на Blockchain</li>
+</ul>
+</div><div id="blockchain/blockchain/filecoin"><h2>Filecoin</h2>
+
+<u-link-wrapper>
+    <v-link url="https://filecoin.io/" text="" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Filecoin</u-text-define> - децентрализованная сеть хранения</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Ссылки</h4>
+<!------------------------------------------------------------->
+<h5>Основное</h5>
+<u-link-wrapper>
+    <v-link url="https://dataonboarding.filecoin.io/" text="" list="true" />
+    <v-link url="https://filecoin.io/store/" text="" list="true" />
+    <v-link url="https://docs.filecoin.io/store/filecoin-plus/overview/" text="" list="true" />
+</u-link-wrapper>
+
+<h5>YouTube</h5>
+<u-link-wrapper>
+    <v-link url="https://www.youtube.com/watch?v=-kxNpRiEd_c" text="" list="true" />
+    <v-link url="https://www.youtube.com/watch?v=8JqyEB80KFA" text="" list="true" />
+    <v-link url="https://www.youtube.com/watch?v=Pkng0DqAXXI" text="" list="true" />
+</u-link-wrapper>
+</div><div id="blockchain/crypto-wallet/crypto-wallet"><h2>Crypto Wallet</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Crypto Wallet</u-text-define> (криптокошелёк) - физически НЕ хранят криптовалюту и НЕ отправляют крипто-токены, вместо этого у кошелька есть ключи к криптовалюте, которая хранятся в общедоступных сетях Blockchain</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Задачи</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li>Предоставляют интерфейс для управления криптовалютными балансами</li>
+    <li>Предоставляют цифровые подписи, авторизующие каждую транзакцию</li>
+    <li>Хранят <u>Public Key</u> и <u>Private Key</u>, необходимые для покупки криптовалюты</li>
+    <li>Некоторые кошельки позволяют выполнять операции с криптовалютой: покупать, продавать, взаимодействовать с децентрализованными приложениями Decentralised Applications (dApps)</li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Открытый и закрытый ключ</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Public Key</u-text-define> (открытый ключ) - подобен номеру банковского счета и может широко распространяться</li>
+    <li>Позволяет пользователям получать транзакции криптокошелька</li>
+</ul>
+
+<hr class="small">
+
+<ul class="list-point">
+    <li><u-text-define>Private Key</u-text-define> (закрытый ключ) - подобен паролю банковского счета или PIN-коду и должен храниться в секрете</li>
+    <li><u>Private Key</u> пользователя подтверждает право собственности на соответствующий <u>Public Key</u></li>
+</ul>
+
+<hr class="small">
+
+<ul class="list-point">
+    <li>Каждый <u>Public Key</u> связан с одним соответствующим <u>Private Key</u>: вместе они используются для шифрования и расшифровки данных</li>
+    <li>При отправке токенов <u>Private Key</u> пользователя подписывает транзакцию и передает ее в сеть Blockchain</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Типы кошельков</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Hot Wallet</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>Hot Wallet</u-text-define> (горячие кошельки) - подключены к Интернету</li>
+    <li><u>Private Key</u> хранятся и шифруются в самом приложении, которое хранится в сети</li>
+</ul>
+
+<h5>Примеры</h5>
+<ul class="list-point">
+    <li><em>Web-based wallets</em></li>
+    <li><em>Mobile wallets</em></li>
+    <li><em>Desktop wallets</em></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Cold Wallet</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>Cold Wallet</u-text-define> (холодные кошельки) - находятся в автономном режиме</li>
+</ul>
+
+<h5>Примеры</h5>
+<ul class="list-point">
+    <li><em>Paper wallet</em> - физическое место, где ключи пользователя записываются или распечатываются</li>
+    <li><em>Hardware wallet</em> - внешний девайс (обычно устройство USB или Bluetooth), в котором хранятся ключи пользователя. Пользователь может подписать транзакцию, только нажав физическую кнопку на устройстве</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Custodial</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>Custodial</u-text-define> - большинство сетевых криптокошельков, как правило, являются кастодиальными кошельками. Обычно предлагаемые на биржах криптовалюты</li>
+    <li>Пользователи больше не имеют полного контроля над своими токенами, а <u>Private Key</u>, необходимые для подписи транзакций, хранятся только на бирже</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Non-Custodial</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>Non-Custodial</u-text-define> - <u>Private Key</u> хранится локально у пользователя</li>
+    <li>Пользователя просят записать и безопасно сохранить список из 12 случайно сгенерированных слов, известных как <u>recovery</u> (восстановление), <u>seed</u> (начальное число) или <u>mnemonic phrase</u> (мнемоническая фраза)</li>
+    <li>Аппаратные кошельки по своей сути не связаны с хранением, поскольку закрытые ключи хранятся на самом устройстве</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>NFT Wallet</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-define>NFT Wallet</u-text-define> - кошельки для ханения NFT</li>
+    <li>Для кошельков NFT существует два основных варианта: <u>Hardware wallets</u> (аппаратные) или <u>Software-based wallets</u> (программные)</li>
+</ul>
+</div><div id="blockchain/crypto-wallet/metamask"><h2>Metamask</h2>
+
+<u-link-wrapper>
+    <v-link url="https://metamask.io/" text="" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Metamask</u-text-define> - отдельная программа / плагин для браузеров / крипто-кошелек</li>
+    <li>Позволяет авторизовать Web 3.0 приложение в Blockchain сети при помощи аккаунта</li>
+    <li>В MetaMask можно создать кошелек (аккаунт) Ethereum и использовать этот аккаунт для авторизации</li>
+    <li>Позволяет подключить Сhrome-браузер к сети Blockchain</li>
+</ul>
+</div><div id="blockchain/crypto-wallet/web3auth"><h2>web3auth Wallet</h2>
+
+<u-link-wrapper>
+    <v-link url="https://web3auth.io/" text="" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Web3 Wallet</u-text-define> - инфраструктура для подключения цифровых кошельков</li>
+</ul>
+</div><div id="blockchain/nft/nft"><h2>NFT</h2>
+
+<ul class="list-point">
+    <li><u-text-define>NFT</u-text-define> (Non-Fungible Token, невзаимозаменяемый токен) - цифровой сертификат, подтверждающий факт владения конкретным цифровым активом</li>
+    <li>В блокчейн-сети можно найти информацию обо всех владельцах вплоть до текущего</li>
+    <li>Права NFT работают только в рамках блокчейн-сети, в которой был создан токен</li>
+    <li><u-text-define>Минтинг</u-text-define> - создание NFT токена</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Структура NFT</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><b>Ссылка на произведение искусства</b></li>
+    <li><b>Смарт-контракт</b>. Определяет права и возможности управления активом владельца NTF: владеть, купить или продать</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Прочее</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u>Популярные сервисы по созданию и торговле NFT</u>: Zora, Rarible, OpenSea, SuperRare, CryptoPunks, Nifty, Gateway, Foundation</li>
+</ul>
+</div><div id="blockchain/nft/token"><h2>Token</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Токен</u-text-define> - отображение баланса о некотором активе</li>
+    <li>Единица учета: набор цифр, записанный в Blockchain</li>
+</ul>
+</div><div id="blockchain/application-web3/application-web3"><h2>Application Web 3.0</h2>
+
+<!------------------------------------------------------------->
+<h4>Два варианта работы с Blockchain</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>1. <b>Frontend Only</b>. Frontend напрямую обращается к Blockchain со Smart Contracts как к API и получает данные</li>
+    <li>2. <b>Backend Only</b>. Frontend работает с API сервера, не взаимодействуя с Blockchain напрямую. Application Server (Backend) взаимодействует с Blockchain и БД</li>
+</ul>
+</div><div id="blockchain/application-web3/web3"><h2>Библиотеки Web3.js и Ethers.js</h2>
+
+<u-link-wrapper>
+    <v-link url="https://web3js.readthedocs.io/en/v1.10.0/" text="Web3.js - Ethereum JavaScript API" list="true" />
+    <v-link url="https://github.com/ethereumjs/ethereumjs-monorepo" text="EthereumJS Monorepo" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Web3.js</u-text-define> - библиотека JavaScript для взаимодействия с Blockchain-сетью Ethereum или любым другим, построенным на базе Ethereum</li>
+    <li>Она превращает приложение (н-р на React) в приложение с поддержкой Blockchain</li>
+</ul>
+
+<hr>
+
+<u-link-wrapper>
+    <v-link url="https://docs.ethers.org/v6/" text="Ethers.js" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Ethers.js</u-text-define> - библиотека для всех ваших потребностей Ethereum</li>
+</ul>
+</div><div id="blockchain/application-web3/truffle"><h2>Truffle</h2>
+
+<u-link-wrapper>
+    <v-link url="https://trufflesuite.com/" text="" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>Truffle</u-text-define> - фреймворк, предлагающий набор инструментов:</li>
+</ul>
+
+<ol class="list-num">
+    <li>Деплой приложния / миграция в сеть Ethereum</li>
+    <li>Сборка и управление Smart Contracts</li>
+    <li>Создание аккаунтов в Ethereum</li>
+    <li>Управление сетью</li>
+    <li>Консоль разработки</li>
+</ol>
+</div><div id="blockchain/theory/crypto-coins"><h2>Crypto Coins</h2>
+
+<ul class="list-point">
+    <li>Bitcoin (BTC)</li>
+    <li>Ethereum (ETH)</li>
+    <li>Tether (USDT)</li>
+    <li>USDT (Tether) - Stable Coin. Привязка в валюте</li>
+    <li>BNB (Binance) - Coin биржи, мпеньше комиссия</li>
+</ul>
+</div><div id="blockchain/theory/subtypes-cryptocurrency"><h2>Подтипы криптовалюты</h2>
+
+<ol class="list-num">
+    <li>Добываемые: Bitcoin</li>
+    <li>Обеспеченные, н-р золотом: Gold Mint</li>
+    <li>Прослойки</li>
+    <li>Утилитарные: Premecoin</li>
+    <li>Программируемые: Ethereum</li>
+</ol>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

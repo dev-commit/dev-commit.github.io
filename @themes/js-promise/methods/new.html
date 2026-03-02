@@ -1,0 +1,46 @@
+<h2>new Promise</h2>
+
+<!------------------------------------------------------------->
+<h4>Promise</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="Объявление">
+let promise = new <u-code>Promise</u-code>((resolve, reject) => {
+    if (...) {
+    	// onResolved()
+        <u-code>resolve</u-code>('ok');
+    } else {
+    	// onRejected()
+        <u-code>reject</u-code>(new Error('Api error')); // аналогично с throw
+        throw new Error('Api error');   // аналогично с reject
+    }
+});
+</v-code>
+
+<v-code lang="js" title="Использование">
+promise
+    <u-code>.then</u-code>(result => {
+        console.log(result);
+    })
+    <u-code>.catch</u-code>(error => {
+        console.error(error);
+        console.error(error.message); 
+    })
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Функция</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="Объявление">
+function asyncFunc() {
+	let promise = new Promise((resolve, reject) => {
+		//
+	});
+	return promise;
+}
+</v-code>
+
+<v-code lang="js" title="Использование">
+asyncFunc()
+    .then(result => { ... })
+    .catch(result => { ... })
+</v-code>

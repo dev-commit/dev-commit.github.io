@@ -1,0 +1,28 @@
+<!-- TODO:
+<f-search>React Router -> API -> <u>useSearchParams()</u></f-search>
+-->
+
+<h2><u-code-text>useSearchParams()</u-code-text></h2>
+
+<u-link-wrapper>
+  <v-link url="https://reactrouter.com/api/hooks/useSearchParams" text="useSearchParams()" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+  <v-method before="" method="useSearchParams" after="" arg="()">
+  Предоставляет доступ к параметрам поиска (значение, следующее за символом <em>?</em> в URL-адресе)
+  </v-method>
+</div>
+
+<v-code lang="js" title="">
+import { useSearchParams } from "react-router"
+
+const App = () => {
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  setSearchParams("?tab=1")
+  const tab = searchParams.get("tab")
+
+  return null
+}
+</v-code>

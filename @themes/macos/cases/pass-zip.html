@@ -1,0 +1,23 @@
+<h2>Установка пароля на Zip-архив</h2>
+
+<v-code lang="bash" title="">
+zip -ejr [путь/имя_архива] [путь_к_файлу_или_папке]
+zip -ejr ~/Desktop/test.zip ~/Desktop/test
+</v-code>
+
+<u-message-comment>
+    С ключом <u-code-text>-ejr</u-code-text> были ошибки при добавлении вложенных директорий. Поэтому оставил ключ <u-code-text>-er</u-code-text>
+</u-message-comment>
+
+<v-code lang="js" title="">
+    zip -er ~/Desktop/test.zip ~/Desktop/test
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ключ "-ejr"</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>е</u-code-text> - выполнить шифрование содержимого архива паролем</li>
+    <li><u-code-text>j</u-code-text> - отбросить путь к корневой директории, т.е. архивировать только её содержимое без учета самой директории</li>
+    <li><u-code-text>r</u-code-text> - рекурсивное добавление содержимого директории</li>
+</ul>

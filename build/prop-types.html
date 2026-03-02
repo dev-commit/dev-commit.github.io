@@ -1,0 +1,307 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>PropTypes</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/prop-types/build-prop-types.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">PropTypes</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Основы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__prop-types/main/info"
+            href="#prop-types/main/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__prop-types/main/use"
+            href="#prop-types/main/use"
+        >
+            🔥 Базовый пример
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__prop-types/main/types"
+            href="#prop-types/main/types"
+        >
+            Типы
+        </a>
+    </li>
+</ul><h4>🏷️ Прочее</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__prop-types/other/own-validator"
+            href="#prop-types/other/own-validator"
+        >
+            Собственный валидатор
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="prop-types/main/info"><h2>Иформация</h2>
+
+<ul class="list-point">
+	<li>Валидаторы необязательны</li>
+    <li>По соображениям производительности <u>propTypes</u> проверяются только в режиме разработки</li>
+</ul>
+</div><div id="prop-types/main/use"><h2>Использование</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npm i --save <u-code-accent>prop-types</u-code-accent>
+</v-pre-npm>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование с функциями</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import <u-code>PropTypes</u-code> from 'prop-types';
+
+const App = ({ name }) => {
+    //
+}
+
+App.<u-code>propTypes</u-code> = {
+    name: PropTypes.any
+}
+
+export default App;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование с классами (defaultProps)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import <u-code>PropTypes</u-code> from 'prop-types';
+
+export default class App extends Component {
+    static <u-code>defaultProps</u-code> = {
+        name: 'Jack'
+    }
+	render() {
+		return (this.props.name);
+	}
+}
+
+// проверка типа
+App.<u-code>propTypes</u-code> = {
+    name: PropTypes.string
+};
+
+// значение пропсов по умолчанию
+App.<u-code>defaultProps</u-code> = {
+    name: 'Jack'
+};
+
+ReactDOM.render(
+    &lt;App name="Tony" /&gt;,
+    document.getElementById('root')
+);
+</v-code>
+
+<ol class="list-num">
+    <b>Два варианты задания пропсов по умолчанию</b>
+    <li><u-code-text>static defaultProps</u-code-text> как статическое свойство класса (для компонента-наследника от <u>React.Component</u>)</li>
+    <li><u-code-text>App.defaultProps</u-code-text></li>
+</ol>
+
+<ul class="list-point">
+    <li>Определение <u>defaultProps</u> гарантирует, что <u>this.props.name</u> будет иметь значение, даже если оно не было указано родительским компонентом. Сначала применяются значения по умолчанию, заданные в <u>defaultProps</u>. После запускается проверка типов с помощью <u>propTypes</u>. Так что проверка типов распространяется и на значения по умолчанию</li>
+</ul>
+</div><div id="prop-types/main/types"><h2>Типы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Основные типы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+App.propTypes = {
+    prop: PropTypes.<u-code>any</u-code>,
+	prop: PropTypes.<u-code>number</u-code>,    
+	prop: PropTypes.<u-code>string</u-code>,
+    prop: PropTypes.<u-code>bool</u-code>,
+	prop: PropTypes.<u-code>array</u-code>,
+    prop: PropTypes.<u-code>object</u-code>,
+	prop: PropTypes.<u-code>func</u-code>,
+}
+</v-code>
+
+<v-code lang="js" title="">
+App.propTypes = {
+	prop: PropTypes.<u-code>symbol</u-code>
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Required</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+App.propTypes = {
+    // обязательное типа "string"
+	prop: PropTypes.<u-code>string.isRequired</u-code>,
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объекты и массивы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+App.propTypes = { 
+	// Объект, одного из нескольких типов
+	prop: PropTypes.<u-code>oneOfType</u-code>([
+		PropTypes.string,
+		PropTypes.number
+    ]),
+    
+    // Ограничение конкретными значениями
+    prop: PropTypes.<u-code>oneOf</u-code>(['News', 'Photos']),
+
+	// Массив объектов конкретного типа
+	prop: PropTypes.<u-code>arrayOf</u-code>(PropTypes.number),
+
+    prop: PropTypes.arrayOf(
+        PropTypes.shape({
+            title: PropTypes.string,
+            url: PropTypes.string
+        }),
+    ),
+
+	// Объект со свойствами конкретного типа
+	prop: PropTypes.<u-code>objectOf</u-code>(PropTypes.number),
+
+	// Объект с определённой структурой
+	prop: PropTypes.<u-code>shape</u-code>({
+		color: PropTypes.string,
+		fontSize: PropTypes.number
+	}),
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Прочее</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+App.propTypes = {
+    // все, что может быть отренедерено:
+    // числа, строки, элементы или массивы (или фрагменты) содержащие эти типы
+    prop: PropTypes.<u-code>node</u-code>,
+
+    prop: PropTypes.<u-code>element</u-code>,             // React-элемент
+    prop: PropTypes.<u-code>element.isRequired</u-code>,  // ограничение на один дочерний элемент
+	prop: PropTypes.<u-code>instanceOf</u-code>(Message), // экземпляр определенного класса
+}
+</v-code>
+</div><div id="prop-types/other/own-validator"><h2>Собственный валидатор</h2>
+
+<ul class="list-point">
+    <li>Можно добавить собственный валидатор. Он должен возвращать объект <u>Error</u> при ошибке валидации. Не используйте <u>console.warn</u> или <u>throw</u> - это не будет работать внутри <u>oneOfType</u></li>
+    <li>Можно задать свой валидатор для <u-code-text>arrayOf</u-code-text> и <u-code-text>objectOf</u-code-text>. Он должен возвращать объект Error при ошибке валидации. Валидатор будет вызван для каждого элемента в массиве или для каждого свойства объекта. Первые два параметра валидатора - это массив или объект и ключ текущего элемента</li>
+</ul>
+<v-code lang="js" title="Собственный валидатор">
+MyComponent.propTypes = {
+	customProp: function(props, propName, componentName) {
+		if (!/matchme/.test(props[propName])) {
+			return new Error(
+				'Проп `' + propName + '` компонента' +
+				' `' + componentName + '` имеет неправильное значение'
+			);
+		}
+	},
+	customArrayProp: PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) {
+		if (!/matchme/.test(propValue[key])) {
+			return new Error(
+				'Проп `' + propFullName + '` компонента' +
+				' `' + componentName + '` имеет неправильное значение'
+			);
+		}
+	})
+}
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

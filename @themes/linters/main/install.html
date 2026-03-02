@@ -1,0 +1,74 @@
+<h2>Установка и настройка</h2>
+
+<ul class="list-point">
+    <li>Для React-приложения</li>
+</ul>
+
+<h5>ESLint</h5>
+<v-pre-npm>
+npm i --save-dev <u-code-accent>eslint</u-code-accent> <u-code-accent>eslint-config-react-app</u-code-accent> <u-code-accent>eslint-plugin-prettier</u-code-accent>
+</v-pre-npm>
+
+<u-message-error>
+<ul class="list-point">
+    <li>Проблема при установке <u>eslint-config-react-app</u></li>
+    <li>Плагин пока не совмести с новой версией eslint 9. Нужно использовать версию 8, н-р <u>"eslint": "^8.57.0"</u></li>
+</ul>
+</u-message-error>
+
+<v-details title="Детали">
+<ul class="list-point">
+    <li>Можно установить с флагом <u>"--force"</u></li>
+</ul>
+
+<v-code lang="plaintext none" title="">
+ERESOLVE unable to resolve dependency tree
+Found: eslint@9.10.0
+Could not resolve dependency:
+peer eslint@"^8.0.0" from eslint-config-react-app@7.0.1
+</v-code>        
+</v-details>
+
+<h5>Prettier</h5>
+<v-pre-npm>
+npm i --save-dev <u-code-accent>prettier</u-code-accent> <u-code-accent>prettier-config-nick</u-code-accent>
+</v-pre-npm>
+
+<u-message-error>
+<ul class="list-point">
+    <li><u>prettier-config-nick</u> deprecated</li>
+    <li>Вместо него писать конфиг в файле .prettierrc.json</li>
+</ul>
+</u-message-error>
+
+<v-path>package.json</v-path>
+<v-code lang="js" title="">
+{
+    "scripts": {
+        "format": "prettier --write .",
+        "lint": "eslint .",
+        "lint:file": "eslint src src/components/App.jsx",
+    },
+    "devDependencies": {
+        "eslint": "^8.49.0",
+        "eslint-config-react-app": "^7.0.1",
+        "eslint-plugin-prettier": "^5.0.0",
+
+        "prettier": "^3.0.3",
+        "prettier-config-nick": "^1.0.8",
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app"
+        ],
+        "plugins": [
+            "prettier"
+        ],
+        "rules": {
+            "prettier/prettier": "error",
+            "react/jsx-no-target-blank": "off"
+        }
+    },
+    "prettier": "prettier-config-nick"
+}
+</v-code>

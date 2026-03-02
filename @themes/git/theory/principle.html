@@ -1,0 +1,57 @@
+<h2>Принцип работы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Указатели</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>HEAD</u-text-define> - ссылка на последний коммит и на текущую ветку ветку</li>
+    <li><u-text-define>Branch</u-text-define> - ветка-указатель на коммит. На один коммит может быть несколько веток-указателей (н-р: merge-commit)</li>
+    <li><u-text-define>remotes/origin/master</u-text-define> - указатель на каком коммите находится указатель ветки в удаленном репозитории. Ветки слежения удаленного репозитория</li>
+    <li>Локально <u>origin</u> нет</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Статусы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li><u-text-define>Untracked</u-text-define> - после добавления нового файла</li>
+    <li><u-text-define>Staged</u-text-define> - после <em>git add</em></li>
+    <li><u-text-define>Modified</u-text-define> - после изменения существующего файл</li>
+    <li><u-text-define>Commited</u-text-define> - после <em>git commit</em></li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Правила</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Каждый коммит ссылается на предыдущий. В качестве ссылки выступает хэш-сумма коммита</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Local Operation</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<img src="/@img/git/git1.jpg" width="450px">
+
+<ul class="list-point">
+	<li><u-text-define>I. Working Directory</u-text-define> - рабочий каталог</li>
+	<ul class="list-point">
+		<li>1. Внесение изменений в файлы рабочего каталога</li>
+		<li>2. Подготовка файлов, добавляя из слепки в область Staging Area</li>
+	</ul>
+
+	<li><u-text-define>II. Staging Area</u-text-define> - область подготовленных файлов</li>
+	<ul class="list-point">
+		<li>3 commit. Берет подготовленные файлы из индекса Staging Area и помещает их в Git Directory на постоянное хранение</li>
+	</ul>
+
+	<li><u-text-define>III. Git Directory (Repository)</u-text-define> - каталог git</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>File Status Lifecycle</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<img src="/@img/git/git2.jpg" width="450px">
+
+<ul class="list-point">
+	<li>Файл в Working Directory может находиться под версионным контролем (<u>unmodified, modified, staged</u>) и неотслеживаемые файлы (<u>untracked</u>)</li>
+</ul>

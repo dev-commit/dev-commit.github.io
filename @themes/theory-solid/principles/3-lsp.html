@@ -1,0 +1,177 @@
+<!-- TODO:
+<f-search>SOLID -> [L] The Liskóv Substitution Principle</f-search>
+-->
+
+<h2>3. The Liskóv Substitution Principle</h2>
+
+<ul class="list-point">
+    <li><u-text-define>The Liskóv Substitution Principle</u-text-define> - Принцип подстановки Барбары Лиско́в</li>
+    <li>Если модуль корректно работает с <u>SuperClass</u>, он также должен корректно работать с его наследником <u>ChildClass</u>: если заменить <u>SuperClass</u> на <u>ChildClass</u>, в приложении не должно быть ошибок</li>
+    <li><u>ChildClass</u> должен дополнять, а не изменять <u>SuperClass</u> и не должен противоречить поведению, заданному <u>SuperClass</u></li>
+    <li>Если <u>ChildClass</u> не способен выполнять те же действия, что и класс-родитель, возникает риск ошибок</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Результат применения</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Позволяет гарантировать, что любой созданный нами подкласс будет корректно использоваться ранее реализованными модулями, которые работали с классом-родителем</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Принцип помогает</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Выявлять проблемные абстракции и скрытые связи между сущностями</li>
+    <li>Делать поведение модулей предсказуемым</li>
+    <li>Вводить ограничение на наследование, чтобы потомки не противоречили базовому поведению</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h5>Реализация</h5>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Общий интерфейс для обоих классов</li>
+    <li>Вместо наследования одного класса от другого использовать интерфейс</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Shape</h4>
+<!------------------------------------------------------------->
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<ul>
+    <li>Абстрактный класс</li>
+</ul>
+<v-code lang="js border" title="Базовый класс">
+class Shape {
+    <u-code>area</u-code>() {
+        // abstract class
+    }
+}
+</v-code>
+
+<ul>
+    <li>Полиморфизм (различная реализация для <u>area</u>)</li>
+</ul>
+<v-code lang="js border" title="Наследники">
+class Square extends Shape {
+    <u-code>area</u-code>() {
+        return 'Draw Square'
+    }
+}
+class Circle extends Shape {
+    <u-code>area</u-code>() {
+        return 'Draw Circle'
+    }
+}
+</v-code>
+
+<ul>
+    <li>Класс AreaCalculator должен одинаково работать со всеми наследниками</li>
+    <li>В данном случае проблем не возникнет, т.к. у каждого класса есть метод "area"</li>
+</ul>
+
+<v-code lang="js border" title="Класс для калькуляции">
+class AreaCalculator {
+    constructor(shapes = []) {
+        this.shapes = shapes;
+    }
+    calc() {
+        const res = this.shapes.map(item => item.<u-code>area</u-code>());
+        console.log(res);
+    }
+}
+</v-code>
+
+<v-code lang="js border" title="Вызов">
+const areaCalculator = new AreaCalculator([
+    new Square(),
+    new Circle()
+]);
+
+areaCalculator.calc(); // => ["Draw Square", "Draw Circle"]
+</v-code>
+
+</template><template v-slot:last>
+<v-code lang="js" title="Наследники">
+class Square {
+    constructor() {
+        this.type = 'square';
+    }
+}
+class Circle {
+    constructor() {
+        this.type = 'circle';
+    }
+}
+</v-code>
+<v-code lang="js" title="Класс для калькуляции">
+class AreaCalculator {
+    constructor(shapes = []) {
+        this.shapes = shapes;
+    }
+
+    calc() {
+		const res = this.shapes.map(item => {
+			switch(item.type) {
+				case 'square': return 'Draw Square'; break;
+				case 'circle': return 'Draw Circle'; break;
+				default: return 'Draw Default';
+			}
+		});
+		console.log(res);
+    }
+}
+</v-code>
+
+<v-code lang="js" title="Вызов">
+const areaCalculator = new AreaCalculator([
+    new Square(),
+    new Circle()
+]);
+
+areaCalculator.calc(); // => ["Draw Square", "Draw Circle"]
+</v-code>
+
+</template></v-two-border>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Применение в React</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Пример с кнопками из "The Open Closed Principle": каждый вид кнопки, который расширил базовую, может использоваться вместо базовой без каких-либо изменений, соответственно выполняется прицип LSP.</li>
+</ul>
+
+<v-details title="Пример с кнопкой из 'The Open Closed Principle'">
+<v-code lang="js" title="">
+const Button = ({onClick, children, className = ''}) =&gt; {
+  return (
+    &lt;button className={`base-button ${className}`} onClick={onClick}&gt;
+      {children}
+    &lt;/button&gt;
+  );
+};
+
+const PrimaryButton = ({onClick, children}) =&gt; {
+  return (
+    &lt;Button onClick={onClick} className="primary-button"&gt;
+      {children}
+    &lt;/Button&gt;
+  );
+};
+
+const IconButton = ({onClick, icon, children}) =&gt; {
+  return (
+    &lt;Button onClick={onClick} className="icon-button"&gt;
+      &lt;span className="icon"&gt;{icon}&lt;/span&gt;
+      {children}
+    &lt;/Button&gt;
+  );
+};
+</v-code>
+</v-details>

@@ -1,0 +1,18 @@
+<h2>Использование Дженерика в interface</h2>
+
+<v-code lang="js step" title="">
+interface IApp&lt;T&gt; {
+  name: T;
+}
+
+const foo = &lt;T,&gt;(data: IApp&lt;T&gt;): void =&gt; {
+    //
+}
+
+foo({
+    // Поле можно пережать любого типа, т.к. передается в interface
+    // name: 'Tom',
+    // Так тоже корректно
+    name: 32,
+});
+</v-code>

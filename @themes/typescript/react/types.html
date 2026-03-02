@@ -1,0 +1,31 @@
+<h2>Типы</h2>
+
+<v-code lang="js step" title="">
+// Для Input
+const handleChange = (event: React.<u-code>ChangeEvent</u-code>&lt;<u-code>HTMLInputElement</u-code>&gt;): void => {
+    const { value } = event.target;
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Нужно проверить</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const handleClick = (event: React.SyntheticEvent): void => {
+    //
+}
+const handleClick = (event: SyntheticEvent&lt;EventTarget&gt;) => {
+    //
+}
+</v-code>
+
+<v-code lang="js" title="">
+type Props = {
+    tooltip: React.ReactElement;
+    navTab: React.HTMLAttributes&lt;HTMLButtonElement&gt;;
+}
+</v-code>
+
+<v-code lang="js" title="">
+const root: HTMLElement | null = document.querySelector(':root');
+</v-code>

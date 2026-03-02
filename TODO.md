@@ -1,20 +1,50 @@
 # TODO
 
-- Добавить HTML в темы. setTheme() из DevCommit
-- Добавить алиасы в Vite
-- Не работает проверка типов у компонентов из docs/.vitepress/components
+- Не работает ротинг с хешем после билда. На GitHub в URL добавлятся "workbook"
 
-## 💎 Новый Layout
-  - На главной основной контент прекрывает меню и нельзя нажать на меню
-  - "Поиск" - добавить белый фон
-  - Удалить нижние виджеты с навигациям по страницам
+## TODO
 
-## ✅ TODO
-  - Новые компоненты. Добавить реализацию компонентов из docs/.vitepress/components/new-components
-  - Не работает навигация по хешу: "/v-padding.html#v-padding" (актуально для базового layout)
-  - Не подставлять *.html* в конце страницы
-  - Удалить wiki/dev-commit и wiki/lets-code из путей в методичики
-  - Заменить личные ссылки https://codepen.io/, на ссылки для школы
+- Заменить все ссылки на `v-link`
 
-## ✌️ Дополнительно
-  - Деплой с GitHub Actions https://vuejs.press/guide/deployment.html#github-pages
+## @modules\@links.js
+
+```js
+const ARR_LINKS = [
+  {
+    page: "testing",
+    theme: "primary",
+    title: theory + "Тестирование",
+  },
+];
+```
+
+- Добавить поле prefix и вынести "theory" и т.д.
+- Пока в title страницы попадает HTML код
+
+## ⭐️ TODO
+
+- Изменить Bash-скрипты под MacOS
+- Добавить `f-search` ко всем блокам
+- `v-sandbox` чекнуть `needcheck`
+
+## ⭐️ FEATURES
+
+- Нормальный роутинг
+  Сейчас добавляется хэш и подгрузка страницы через Fetch
+  https://dev-commit.github.io/pages/wiki#wiki/main/symbols
+  Нужно формировать не только базовые pages, но и воложенные страницы
+
+### ⭐️ FIXME (временное решено)
+
+- Search. Если результат поиска выпадает на текущую страницу, то URL меняется, но контент не меняется. Временно решено перезагрузкой страницы
+- Мобильная версия. При вводе в поиск, скрывается левое меню. Скорее всего связано с "window.addEventListener('resize')" из "src\vue.js\build.js". При наборе текса в input, появлятся клавиатура, которая может вызвать resize. Временно решено закомментированным кодом с "window.addEventListener('resize')"
+
+---
+
+## Internal Links
+
+```html
+<a data-attr="internal" href="/pages/react-js#react-js/aliases/vite"
+  >DevCommit: Name</a
+>
+```

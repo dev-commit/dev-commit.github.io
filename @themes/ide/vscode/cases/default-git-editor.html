@@ -1,0 +1,48 @@
+<h2>VSCode default editor for Git</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Задача</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При выполнении команд “git rebase -i” и прочих, открываются файлы для редактирования</li>
+    <li>По-умолчанию - это редактор Vim в Терминале, но можно изменить на то чтобы файлы открывались в VSCode</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Windows .gitconfig</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-path>C:\Users\Anton\.gitconfig</v-path>
+
+<v-code lang="bash" title="">
+[core]
+	editor = \"C:\\Users\\Anton\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\code\" --wait
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>WSL (Linux)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Для Linux нельзя указать такой же пусть как для Windows</li>
+    <li>Нужно получить путь для VSCode в WSL, для этого нужно открыть Терминал в WSL и выполнить команду</li>
+    <li>https://qna.habr.com/q/654966</li>
+</ul>
+
+<v-code lang="bash" title="">
+# Выдаст пусть к VSCode для WSL
+which code
+</v-code>
+
+<ul class="list-point">
+    <li>После этого перейти в .gitconfig на WSL и добавить путь</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>WSL (Linux) .gitconfig</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-path>\\wsl.localhost\Ubuntu\home\anton\.gitconfig</v-path>
+
+<v-code lang="js" title="">
+[core]
+	editor = "/home/anton/.vscode-server/bin/863d2581ecda6849923a2118d93a088b0745d9d6/bin/remote-cli/code" --wait
+</v-code>

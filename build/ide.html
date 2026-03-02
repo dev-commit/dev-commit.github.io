@@ -1,0 +1,694 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>
+  <div
+    style="
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+      background-color: #7256d1;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    "
+  >
+  </div>
+IDE</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/ide/build-ide.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">
+  <div
+    style="
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+      background-color: #7256d1;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    "
+  >
+  </div>
+IDE</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ VSCode</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__ide/vscode/settings"
+            href="#ide/vscode/settings"
+        >
+            🔥 Настройки
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__ide/vscode/snippets"
+            href="#ide/vscode/snippets"
+        >
+            Сниппеты
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__ide/vscode/shortcuts"
+            href="#ide/vscode/shortcuts"
+        >
+            Shortcuts
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__ide/vscode/profile-editor"
+            href="#ide/vscode/profile-editor"
+        >
+            Редактор профилей
+        </a>
+    </li>
+</ul><h4>🏷️ Cases</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__ide/vscode/cases/workspases"
+            href="#ide/vscode/cases/workspases"
+        >
+            ⭐️ Несколько Workspaces
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__ide/vscode/cases/open-vscode-with-url"
+            href="#ide/vscode/cases/open-vscode-with-url"
+        >
+            Opening VS Code with URLs
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__ide/vscode/cases/default-git-editor"
+            href="#ide/vscode/cases/default-git-editor"
+        >
+            Default editor for Git
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__ide/vscode/cases/linter-onsave"
+            href="#ide/vscode/cases/linter-onsave"
+        >
+            Linter OnSave
+        </a>
+    </li>
+</ul><h4>🏷️ Редакторы код</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__ide/editors/codesandbox"
+            href="#ide/editors/codesandbox"
+        >
+            CodeSandbox
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__ide/editors/sublime-text"
+            href="#ide/editors/sublime-text"
+        >
+            Sublime Text
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__ide/editors/notepad"
+            href="#ide/editors/notepad"
+        >
+            Notepad++
+        </a>
+    </li>
+</ul><h4>🏷️ Плагины</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__ide/plugins/emmet"
+            href="#ide/plugins/emmet"
+        >
+            Emmet
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="ide/vscode/settings"><h2>Настройки редактора</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Color Theme</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u>Color Theme</u>: One Dark Pro</li>
+    <li><u>File Icon Theme</u>: Material Theme Icons Palenight / Material Icon Theme</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Settings</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Text Editor</h4>
+<!------------------------------------------------------------->
+<v-breadcrumbs
+    :items="[
+        'Settings',
+        'Text Editor'
+    ]"
+/>
+
+<ul class="list-point">
+    <li><em>Tab Size:</em> 2</li>
+    <li><em>Word Wrap:</em> on</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Tree: Ident</h4>
+<!------------------------------------------------------------->
+<img src="/@img/ide/vscode/settings-indent.png" width="650px" />
+
+<!------------------------------------------------------------->
+<h4>Startup Editor</h4>
+<!------------------------------------------------------------->
+<img src="/@img/ide/vscode/settings-startup-editor.png" width="500px" />
+
+<!------------------------------------------------------------->
+<h4>Explorer: Compact Folders</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>По-умолчанию вложенные пустые директории отображаются в одну линию.
+    Отключается флагом <u>Compact Folders</u> или настройкой
+    <u-code-text>"explorer.compactFolders": false</u-code-text>
+    </li>
+</ul>
+<img src="/@img/ide/vscode/settings-compact-folder.png" width="500px" />
+
+
+<!------------------------------------------------------------->
+<h4>Смена CRLF на LF</h4>
+<!------------------------------------------------------------->
+<u-message-info>
+    <ul>
+        <li><em>LF</em> и <em>CRLF</em> - стандартные завершающие символы</li>
+        <li><u-code-text>LF</u-code-text> - символ перевода строки на платформах Linux</li>
+        <li><u-code-text>CRLF</u-code-text> - символы возврата каретки и перевода строки на платформах Windows</li>
+    </ul>
+</u-message-info>
+
+<u-message-comment>
+    <ul>
+        <li>В мир компьютеров эти управляющие коды пришли из мира печатных машинок</li>
+        <li><em>«CR»</em> сокращение от «Carriage Return» (возврат каретки)</li>
+        <li><em>«LF»</em> сокращение от «Line Feed» (подача бумаги на следующую строку)</li>
+    </ul>
+</u-message-comment>
+
+<ul class="list-point">
+    <li>При создании нового файла он будет в формате <em>LF</em></li>
+</ul>
+
+<img src="/@img/ide/vscode/setting-eol.png" width="500px" />
+
+<ul class="list-point">
+    <li>Можно создать файл <u>settings.json</u> и там изменить настройки</li>
+</ul>
+
+<v-code lang="js" title=".vscode/settings.json">
+{
+    "files.eol": "\n",
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Внешний вид</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>View ➝ Appearance</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><em>Minimap</em> (убрать флаг)</li>
+    <li><em>Breadcrumbs</em> (убрать флаг)</li>
+    <li><em>Render Whitespace</em> (убрать флаг)</li>
+    <li><em>Sticky Scroll</em> (убрать флаг)</li>
+</ul>
+</div><div id="ide/vscode/snippets"><h2>Сниппеты</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Создание</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>File -> Preferences -> User Snippets</li>
+    <li>New Global Snippets file...</li>
+    <li>Ввести название</li>
+</ul>
+
+<v-code lang="js" title="react.code-snippets">
+{
+    "testName": {
+        "scope": "javascript",
+        "prefix": "log",
+        "body": [
+            "console.log('')",
+        ]
+    }
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Спецсимволы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>\t</u-code-text> - табуляция</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Параметры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>scope</u-code-text> - ограничение для файлов (по умолчанию для всех)</li>
+    <li><u-code-text>prefix</u-code-text> - вызов из файла</li>
+    <li><u-code-text>body</u-code-text> - тело сниппета</li>
+    <li><u-code-text>description</u-code-text> - описание сниппета</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Файл сниппета</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+</div><div id="ide/vscode/shortcuts"><h2>Shortcuts</h2>
+
+<ul class="list-point">
+    <li><u-code-text>Ctrl</u-code-text> + <u-code-text>Пробел</u-code-text> - при клике рядом с неимпортированным компонентом, добавляет <u>import</u> этого компонента</li>
+</ul>
+
+</div><div id="ide/vscode/profile-editor"><h2>Редактор профилей</h2>
+
+<ul class="list-point">
+    <li>Visual Studio Code версии 1.93 представила редактор профилей для переключения между различными наборами настроек</li>
+    <li><v-link url="https://code.visualstudio.com/updates/v1_91#_profiles-editor-preview" /></li>
+</ul>
+</div><div id="ide/vscode/cases/workspases"><h2>Несколько Workspaces</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>VSCode Extensions</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+  <v-link url="https://marketplace.visualstudio.com/items?itemName=tomsaunders-code.workspace-explorer" text="Workspace Explorer (не проверял)" list="true" />
+  <v-link url="https://marketplace.visualstudio.com/search?term=workspace&target=VSCode&category=All%20categories&sortBy=Relevance" text="Поиск по расширениям" list="true" />
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>VSCode расширение Workspace Sidebar</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+ 
+<!------------------------------------------------------------->
+<h4>1. Сохранить Workspase</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Открыть рабочее Workspase в VSCode</li>
+    <li>Сохранить Workspases в отдельный файл: <u>File -> Save Workspace as...</u>. У меня путь <u>D:\Workspaces</u></li>
+</ul>
+
+<h5>Структура файла</h5>
+<v-code lang="js" title="workspaceName.code-workspace">
+{
+	"folders": [
+		{
+			"name": "Name Workspace 1",
+			"path": "C:/Users/UserName/Desktop/Repo/repo1"
+		},
+		{
+			"name": "Name Workspace 2",
+			"path": "C:/Users/UserName/Desktop/Repo/repo2"
+		},
+	]
+}
+</v-code>
+
+
+<v-details title="Настройка colorCustomizations">
+<v-code lang="js" title="workspaceName.code-workspace">
+{
+  "folders": [
+    //
+  ],
+  "settings": {
+    "workbench.colorCustomizations": {
+      // Activity Bar
+      "activityBar.activeBackground": "#65c89b",
+      "activityBar.background": "#65c89b",
+      "activityBar.foreground": "#15202b",
+      "activityBar.inactiveForeground": "#15202b99",
+
+      // Activity Bar Badge
+      "activityBarBadge.background": "#945bc4",
+      "activityBarBadge.foreground": "#e7e7e7",
+
+      // Status Bar
+      "statusBar.background": "#42b883",
+      "statusBar.foreground": "#15202b",
+      "statusBarItem.hoverBackground": "#359268",
+      "statusBarItem.remoteBackground": "#42b883",
+      "statusBarItem.remoteForeground": "#15202b",
+
+      // Title Bar
+      "titleBar.activeBackground": "#42b883",
+      "titleBar.activeForeground": "#15202b",
+      "titleBar.inactiveBackground": "#42b88399",
+      "titleBar.inactiveForeground": "#15202b99"
+
+      // Common
+      "commandCenter.border": "#15202b99",
+      "sash.hoverBorder": "#65c89b",
+    },
+    "peacock.color": "#42b883"
+  }
+}
+</v-code>
+</v-details>
+
+
+<!------------------------------------------------------------->
+<h4>2. Установить расширение Workspace Sidebar</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=sketchbuch.vsc-workspace-sidebar" target="_blank">Workspace Sidebar</a></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Конфиг</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Отукрыть файл конфига и указать путь к сохраненным Workspaces</li>
+</ul>
+
+<v-path>C:\Users\UserName\AppData\Roaming\Code\User\settings.json</v-path>
+
+<v-code lang="json" title="">
+{
+  "workspaceSidebar.rootFolders": [
+    {
+      "path": "D:\\Workspaces",
+      "excludeHiddenFolders": true
+    }
+  ]
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>4. Настройка иконок</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+    <v-link url="https://github.com/sketchbuch/vsc-workspace-sidebar" title="GitHub" list="true" />
+    <v-link url="https://github.com/sketchbuch/vsc-workspace-sidebar/blob/master/docs/File%20Icon%20Themes.md" title="GitHub. File Icon Themes" list="true" />
+</u-link-wrapper>
+
+<h5>Значения</h5>
+<ul class="list-point">
+    <li>dart</li>
+    <li>java</li>
+    <li>javascript</li>
+    <li>md</li>
+    <li>typescript</li>
+    <li>tsx</li>
+    <li>jsx</li>
+    <li>yaml</li>
+</ul>
+
+<h5>Пример названия</h5>
+<ul class="list-point">
+    <li>Name.yaml.code-workspace</li>
+    <li>Name.vue.code-workspace</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>5. Интерфейс</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>В VSCode появится вкладка "Workspaces"</li>
+</ul>
+
+<img src="/@img/ide/vscode/workspace-sidebar.png" width="400px" />
+</div><div id="ide/vscode/cases/open-vscode-with-url"><h2>Opening VS Code with URLs</h2>
+
+<ul class="list-point">
+    <li><a href="https://code.visualstudio.com/docs/editor/command-line#_opening-vs-code-with-urls" target="_blank" class="link">Opening VS Code with URLs</a></li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;a href="vscode://file/C:/Users/UserName/Desktop/index.html"&gt;&lt;/a&gt;
+</v-code>
+</div><div id="ide/vscode/cases/default-git-editor"><h2>VSCode default editor for Git</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Задача</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При выполнении команд “git rebase -i” и прочих, открываются файлы для редактирования</li>
+    <li>По-умолчанию - это редактор Vim в Терминале, но можно изменить на то чтобы файлы открывались в VSCode</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Windows .gitconfig</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-path>C:\Users\Anton\.gitconfig</v-path>
+
+<v-code lang="bash" title="">
+[core]
+	editor = \"C:\\Users\\Anton\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\code\" --wait
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>WSL (Linux)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Для Linux нельзя указать такой же пусть как для Windows</li>
+    <li>Нужно получить путь для VSCode в WSL, для этого нужно открыть Терминал в WSL и выполнить команду</li>
+    <li>https://qna.habr.com/q/654966</li>
+</ul>
+
+<v-code lang="bash" title="">
+# Выдаст пусть к VSCode для WSL
+which code
+</v-code>
+
+<ul class="list-point">
+    <li>После этого перейти в .gitconfig на WSL и добавить путь</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>WSL (Linux) .gitconfig</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-path>\\wsl.localhost\Ubuntu\home\anton\.gitconfig</v-path>
+
+<v-code lang="js" title="">
+[core]
+	editor = "/home/anton/.vscode-server/bin/863d2581ecda6849923a2118d93a088b0745d9d6/bin/remote-cli/code" --wait
+</v-code>
+</div><div id="ide/vscode/cases/linter-onsave"><h2>Linter OnSave</h2>
+
+<u-link-wrapper>
+    <v-link url="https://www.digitalocean.com/community/tutorials/workflow-auto-eslinting" text="" list="true" />
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Настройка</h4>
+<!------------------------------------------------------------->
+<v-breadcrumbs
+    :items="[
+        'File',
+        'Preferences',
+        'Settings',
+        'Поиск (найти `Code Actions On Save`)'
+    ]"
+/>
+
+<!------------------------------------------------------------->
+<h4>Конфигурация</h4>
+<!------------------------------------------------------------->
+<v-path>.vscode/settings.json</v-path>
+
+<u>Было</u>
+<v-code lang="json" title="">
+{
+  "editor.codeActionsOnSave": null
+}
+</v-code>
+
+<u>Стало</u>
+<v-code lang="json" title="">
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "eslint.validate": ["javascript"]
+}
+</v-code>
+
+</div><div id="ide/editors/codesandbox"><h2>Настройка</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Настройки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Отключение Prettier</h4>
+<!------------------------------------------------------------->
+<img src="/@img/ide/codesandbox.png" width="550px">
+</div><div id="ide/editors/sublime-text"><h2>Информация</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Команды</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-code-text>Ctrl + Shift + P</u-code-text> -> <em>Package Control</em></li>
+	<li><u-code-text>Ctrl + Shift + P</u-code-text> -> <em>View: Toggle Menu</em> - убрать / показать меню</li>
+	<hr class="small">
+	<li><u-code-text>Ctrl + Shift + D</u-code-text> - продублировать строку</li>
+	<li><u-code-text>Ctrl + /</u-code-text> - комментарий</li>
+	<li><u-code-text>Ctrl + KU</u-code-text> - Uppercase</li>
+	<li><u-code-text>Ctrl + KL</u-code-text> - Lowercase</li>
+	<li><u-code-text>Ctrl + F2</u-code-text> / <u-code-text>Ctrl + Fn + F2</u-code-text> (для ноутбуков) - отметка (по ней же и снимается)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Package Control</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-code-text>Ctrl + Shift + P</u-code-text> -> <em>Install Package Control</em> - установка Package Control</li>
+</ul>
+
+<v-code lang="bash none" title="">
+Preferences -> Package Control -> Install Package -> NamePackage
+Preferences -> Package Control -> Remove Package  -> NamePackage
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Packages</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><em>One Dark Material</em> - Theme: Material-Theme, Color Scheme: Material-Theme</li>
+	<li><em>SyncedSideBar</em> - показать файл в дереве проекта при выборе файла</li>
+	<hr class="small">
+	<li><em>Emmet</em></li>
+	<li><em>SCSS</em></li>
+</ul>
+
+
+</div><div id="ide/editors/notepad"><h2>Notepad++</h2>
+
+<h5>Setting -> Preferences</h5>
+<ul class="list-point">
+    <li>Вкладка <em>"General"</em></li>
+    <li>Вкладка <em>"Margins/Border/Edge"</em></li>
+    <li>Вкладка <em>"MISC."</em></li>
+</ul>
+</div><div id="ide/plugins/emmet"><h2>Emmet</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Команды</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<table>
+    <tr>
+        <td class="accent">bgzc</td>
+        <td class="code">background-size: cover</td>
+    </tr>
+</table>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

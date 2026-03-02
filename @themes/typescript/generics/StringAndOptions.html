@@ -1,0 +1,14 @@
+<!-- TODO:
+<f-search>TypeScript -> Generics -> <u>StringAndOptions</u></f-search>
+-->
+
+<h2>Дженерик StringAndOptions</h2>
+
+<v-code lang="js" title="">
+export type BadgeProps = {
+	// Некорректно (будет приводить к строке)
+	iconPosition?: 'left' | 'right' | string;
+	// Корректно
+	iconPosition?: StringAndOptions<'left' | 'right'>;
+}
+</v-code>

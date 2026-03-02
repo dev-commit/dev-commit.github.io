@@ -1,0 +1,421 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>AI</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/ai/build-ai.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">AI</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Основы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__ai/main/info"
+            href="#ai/main/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__ai/main/usecases"
+            href="#ai/main/usecases"
+        >
+            💎 Use Cases
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__ai/main/mcp"
+            href="#ai/main/mcp"
+        >
+            MCP
+        </a>
+    </li>
+</ul><h4>🏷️ Ассистенты</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__ai/assistants/cursor"
+            href="#ai/assistants/cursor"
+        >
+            ⚡️ Cursor
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__ai/assistants/cline"
+            href="#ai/assistants/cline"
+        >
+            ⚡️ Cline
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__ai/assistants/copilot"
+            href="#ai/assistants/copilot"
+        >
+            ⚡️ GitHub Copilot
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="ai/main/info"><h2>Информация</h2>
+
+<ul class="list-point">
+    <li><u-text-define>AI (ИИ)</u-text-define> - это искусственный интеллект, технология, которая позволяет машинам имитировать человеческие способности: обучаться, решать задачи, распознавать речь и изображения, а также принимать автономные решения, анализируя большие объемы данных и выявляя в них закономерности.</li>
+</ul>
+</div><div id="ai/main/usecases"><!-- TODO:
+<f-search>AI -> DuckDuckGo</f-search>
+<f-search>AI -> reCAPTCHA</f-search>
+-->
+
+<h2>Use Cases</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обход reCAPTCHA</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>AI типа Cline может использовать поиск в интернете. Первые запрос происходит успешно, но на второй запрос поисковик просит пройти reCAPTCHA</li>
+    <li><b>Решение:</b> использовать поисковик DuckDuckGo</li>
+</ul>
+</div><div id="ai/main/mcp"><!-- TODO:
+<f-search>AI -> Model Context Protocol (MCP)</f-search>
+-->
+
+<h2>MCP</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Model Context Protocol (MCP)</u-text-define> - для интеграции внешних инструментов. Подключается к базам данных, API и источникам документации.</li>
+</ul>
+</div><div id="ai/assistants/cursor"><!-- TODO:
+<f-search>AI -> Assistants -> Cursor</f-search>
+-->
+
+<h2>Cursor</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Информация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <v-link url="https://cursor.com/ru/docs/" text="Документация" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Fork VSCode</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Элементы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <v-link url="https://cursor.com/ru/docs/get-started/concepts" text="Концепции" list="true" />
+</u-link-wrapper>
+
+<!------------------------------------------------------------->
+<h4>Tab</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Автодополнение кода, которое предлагает многострочные изменения. Нажмите Tab, чтобы принять предложения на основе текущего кода и недавних правок.</li>
+    <li>Можно отключить</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Agent</h4>
+<!------------------------------------------------------------->
+<v-breadcrumbs keys :items="['Cmd', 'I']" />
+
+<ul class="list-point">
+    <li>ИИ, который читает и изменяет код в нескольких файлах. Опишите изменения простым языком — Agent выполнит их.</li>
+    <li>Agent — это ассистент Cursor, который может самостоятельно выполнять сложные задачи разработки, запускать команды в терминале и редактировать код. Откройте в боковой панели с помощью</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Inline Edit</h4>
+<!------------------------------------------------------------->
+<v-breadcrumbs keys :items="['Cmd', 'K']" />
+
+<ul class="list-point">
+    <li>Редактирование выделенного кода на естественном языке</li>
+    <li>Позволяет описать изменения и применить их прямо на месте</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Чат</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Интерфейс для взаимодействия с ИИ</li>
+    <li>Поддерживает несколько вкладок, историю чатов, контрольные точки и экспорт</li>
+</ul>
+</div><div id="ai/assistants/cline"><!-- TODO:
+<f-search>AI -> Assistants -> Cline</f-search>
+-->
+
+<h2>Cline</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ссылки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <v-link url="https://github.com/cline/cline" text="GitHub" list="true" />
+    <v-link url="https://docs.cline.bot/" text="Документация" list="true" />
+    <v-link url="https://www.reddit.com/r/CLine/" text="Reddit" list="true" />
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Информация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Плагин для VSCode</li>
+    <li>Взаимодействие с OpenRouter (interface for LLMs) <v-link url="https://openrouter.ai/" /></li>
+    <li>Можно добавить ключи для LLM (добавлял OpenAI и Anthropic)</li>
+    <li>Почти нет документации, т.к понятный UI</li>
+    <li>Анализ изображений и снимков экрана браузера</li>
+    <li>Эмулирует результат в собственном браузере. Если загрузить изображение, то сравнивает его с тем что отрисовалось в браузере, если не соответствует, то перерисовывает</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функционал</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Add Context</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><em>@url</em> - вставьте URL-адрес расширения для загрузки и преобразования в Markdown. Это полезно, когда вы хотите предоставить Cline последние документы.</li>
+    <li><em>@problems</em> - добавляет ошибки и предупреждения в рабочей области (панель "Problems"), которые Cline может исправить.</li>
+    <li><em>@file</em> - добавляет содержимое файла, чтобы вам не приходилось тратить время на запросы API для подтверждения чтения файла (+ ввод для поиска файлов).</li>
+    <li><em>@folder</em> - добавляет все файлы из папки одновременно для ускорения работы.</li>
+    <li><em>@terminal</em> - ссылка на содержимое Терминала</li>
+    <li><em>@git</em> - ссылка на “Working Changes” и “Commits”</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Файл .clinerules</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Добавьте файл <em>.clinerules</em> в корневой уровень, чтобы указать пользовательские инструкции для проекта.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Переключение режима “Plan Mode” и “Act Mode”</h4>
+<!------------------------------------------------------------->
+
+<h5>1. Plan Mode (Режим планирования)</h5>
+<ul class="list-point">
+    <li>В этом режиме я помогаю спланировать решение задачи</li>
+    <li>Мы можем обсудить детали, требования и подход к реализации</li>
+    <li>Я могу задавать уточняющие вопросы и предлагать различные варианты решения</li>
+    <li>Этот режим полезен для сложных задач, требующих предварительного планирования</li>
+</ul>
+
+<h5>2. Act Mode (Режим действия)</h5>
+<ul class="list-point">
+    <li>В этом режиме я непосредственно выполняю задачи</li>
+    <li>Могу писать код, создавать файлы, запускать команды</li>
+    <li>Работаю пошагово, подтверждая успешность каждого действия</li>
+    <li>Этот режим используется для реализации уже спланированного решения</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Диаграммы Mermaid</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Диаграммы Mermaid в режиме "Plan mode"</li>
+    <li>Cline может визуализировать свои планы с помощью блок-схем</li>
+    <li>Блок-схемы отображаются в чате</li>
+</ul>
+</div><div id="ai/assistants/copilot"><!-- TODO:
+<f-search>AI -> Assistants -> GitHub Copilot</f-search>
+-->
+
+<h2>GitHub Copilot</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ссылки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h5>Продукты</h5>
+<u-link-wrapper>
+    <v-link url="https://github.com/features/copilot" text="Copilot" list="true" />
+    <v-link url="https://githubnext.com/projects/copilot-workspace/" text="Copilot Workspace" list="true" />
+</u-link-wrapper>
+
+<h5>Документация</h5>
+<u-link-wrapper>
+    <v-link url="https://docs.github.com/ru/copilot/quickstart" text="Документация от GitHub" list="true" />
+    <v-link url="https://code.visualstudio.com/docs/copilot/overview" text="Документация от VSCode" list="true" />
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функционал</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Текущий файл: автодополнение кода, объяснение, fix кода и т.д.</li>
+    <li>Генерация тестов</li>
+    <li>Создание файлов и разворачивание проекта</li>
+    <li>Указание контекста</li>
+    <li>Справка по API библиотек</li>
+    <li>Вопросы по VSCode</li>
+    <li>Работа с PR GitHub</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Элементы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<v-details title="Панель <u>Copilot Chat</u>">
+<h5>Информация</h5>
+<ul class="list-point">
+    <li>Может работать только с 1 файлом</li>
+</ul>
+
+<h5>Команды</h5>
+<ul class="list-point">
+    <li><u-code-text>@workspace <i>ТекстЗапроса</i></u-code-text> - можно задать вопрос по всему проекту</li>
+    <li><u-code-text>@workspace /new <i>ТекстЗапроса</i></u-code-text> - н-р: "Создай новый проект на React". Появляется кнопка "Create workspace...", после нажатия на кнопку создается директория и файлы</li>
+    <li><u-code-text>@vscode <i>ТекстЗапроса</i></u-code-text> - можно задать вопрос по VSCode. Н-р: “Как изменить тему?”</li>
+    <li><u-code-text>@vscode /search <i>ТекстЗапроса</i></u-code-text> - Умный поиск: Copilot добавляет Regex в поиск. Н-р: “js files without imports”</li>
+</ul>
+</v-details>
+
+<!------------------------------------------------------------->
+<v-details title="Панель <u>Copilot Edits</u>">
+<h5>Информация</h5>
+<ul class="list-point">
+    <li>Может создавать файлы</li>
+    <li>Можно работать с несколькими файлами</li>
+    <li>Нужно явно указать файлы с которыми нужно работать (не нашел как добавить директорию). Copilot Edits не вносит изменений за пределами рабочего набора, за исключением случаев, когда предлагается создать новый файл</li>
+</ul>
+</v-details>
+
+<!------------------------------------------------------------->
+<v-details title="Editor">
+<h5>Автодополнения кода</h5>
+<ol class="list-num">
+    <li>Начать вводить код</li>
+    <li>Copilot предложит варианты продолжения</li>
+</ol>
+
+<h5>Комментарий и Ghost Text</h5>
+<ol class="list-num">
+    <li>Написать комментарий</li>
+    <li>Нажать `Enter`, предложит код функции (Ghost Text)</li>
+    <li>Нажать `Tab` - подставится код</li>
+    <li>Нажать `Enter` и повторить процесс</li>
+</ol>
+
+<h5>GitHub Copilot Suggestions</h5>
+<ol class="list-num">
+    <li>Написать комментарий</li>
+    <li>Нажать `Ctrl` + `Enter`</li>
+    <li>Откроется окно GitHub Copilot Suggestions, в котором будут разные предложения от Copilot</li>
+</ol>
+
+<h5>Inline Chat</h5>
+<ol class="list-num">
+    <li>Нажать `Ctrl` + `I`</li>
+    <li>Откроется окно "Ask Copilot"</li>
+    <li>Ввести запрос</li>
+    <li>Код будут написан в текущем документе под запрос</li>
+</ol>
+</v-details>
+
+<!------------------------------------------------------------->
+<v-details title="Terminal CLI">
+<h5>Функционал</h5>
+<ul class="list-point">
+    <li>Можно задавать вопросы по Терминалу</li>
+</ul>
+
+<h5>Алгоритм работы</h5>
+<ol class="list-num">
+    <li>Нажать Ctrl + I</li>
+    <li>Откроется окно для запроса. Ввести команду и нажать "Run"</li>
+    <li>Может создавать файлы</li>
+</ol>
+</v-details>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

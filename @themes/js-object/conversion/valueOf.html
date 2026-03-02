@@ -1,0 +1,33 @@
+<h2>Преобразование valueOf</h2>
+
+<ul class="list-point">
+	<li>Для <b>численного</b> преобразования используется метод <u>valueOf</u>, который может возвратить любое примитивное значение. У большинства объектов valueOf не работает (возвращает сам объект и потому игнорируется), при этом для численного преобразования используется toString</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Численное преобразование объекта</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const room = {
+	number: 777,
+};
+
+alert( +room ); // NaN
+</v-code>
+
+<ul class="list-point">
+    <li>Для численного преобразования объекта используется метод <u>valueOf</u>, а если его нет – то <u>toString</u></li>
+</ul>
+
+<v-code lang="js" title="">
+const room = {
+	number: 777,
+	<u-code>valueOf</u-code>() { return this.number; },
+	<u-code>toString</u-code>() { return this.number; }
+};
+
+alert( +room );      // 777, вызвался valueOf
+delete room.valueOf; // valueOf удалён
+alert( +room );      // 777, вызвался toString
+</v-code>

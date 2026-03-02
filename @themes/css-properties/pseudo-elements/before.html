@@ -1,0 +1,29 @@
+<h2>::before, ::after</h2>
+
+<ul class="list-point">
+    <li><u-code-text>div::before</u-code-text> - псевдоэлемент before</li>
+    <li><u-code-text>div::after</u-code-text> - псевдоэлемент after</li>
+</ul>
+
+<v-code lang="css" title="">
+.item:before {
+    content: '\f219';
+    font-family: fontawesome;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>По наведению на div,меняется div::before</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div&gt;Hello&lt;/div&gt;
+</v-code>
+
+<v-code lang="css" title="">
+div::before {
+    content: '🐼';
+}
+div:hover::before {
+    background-color: blue;
+}
+</v-code>

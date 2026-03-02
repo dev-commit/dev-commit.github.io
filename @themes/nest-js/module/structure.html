@@ -1,0 +1,40 @@
+<h2>Структура</h2>
+
+<v-tree>
+› <s>app.module.ts</s>
+📂 <u-code-mod>starter</u-code-mod>
+    › <s>starter.module.ts</s>
+</v-tree>
+
+<!------------------------------------------------------------->
+<h4>starter.module.ts</h4>
+<!------------------------------------------------------------->
+<v-code lang="js border" title="">
+import { Module } from '@nestjs/common';
+
+@Module({
+    imports: [],
+    controllers: [],
+    providers: [],
+})
+export class <u-code-accent>StarterModule</u-code-accent> {}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>app.module.ts</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import { Module } from '@nestjs/common';
+import { StarterModule } from './starter/starter.module';
+
+// Декоратор для класса AppModule
+@Module({
+    // Импорт других модулей
+    imports: [<u-code>StarterModule</u-code>],
+    // Массив контроллеров
+    controllers: [],
+    // Массив сервисов
+    providers: [],
+})
+export class AppModule {}
+</v-code>

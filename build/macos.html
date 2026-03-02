@@ -1,0 +1,261 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>MacOS</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/macos/build-macos.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">MacOS</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Основное</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__macos/main/shortcuts"
+            href="#macos/main/shortcuts"
+        >
+            Keyboard shortcuts
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__macos/main/versions"
+            href="#macos/main/versions"
+        >
+            📑 Версии MacOS
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__macos/main/tilda"
+            href="#macos/main/tilda"
+        >
+            📑 Символ ~
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__macos/main/flash-cards"
+            href="#macos/main/flash-cards"
+        >
+            Flash Cards
+        </a>
+    </li>
+</ul><h4>🏷️ Cases</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__macos/cases/dot-folder"
+            href="#macos/cases/dot-folder"
+        >
+            Директория с точки
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__macos/cases/pass-zip"
+            href="#macos/cases/pass-zip"
+        >
+            Установка пароля на Zip-архив
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__macos/cases/time-zone"
+            href="#macos/cases/time-zone"
+        >
+            Смена часового пояса
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="macos/main/shortcuts"><h2>Keyboard shortcuts</h2>
+
+<ul class="list-point">
+    <li><v-breadcrumbs keys :items="['Command', 'M']" /> - свернуть приложение</li>
+    <li><v-breadcrumbs keys :items="['Command', 'Q']" /> - закрыть приложение</li>
+    <li><v-breadcrumbs keys :items="['Command', 'H']" /> - скрыть приложение</li>
+    <hr>
+    <li><v-breadcrumbs keys :items="['Command', 'Shift', '.']" /> - покажет все скрытые файлы в директории</li>
+    <li><v-breadcrumbs keys :items="['Command', 'Shift', '3']" /> - снимок ВСЕГО экрана (сохраняется на рабочий стол)</li>
+    <li><v-breadcrumbs keys :items="['Command', 'Shift', '4']" /> - снимок ЧАСТИ экрана (сохраняется на рабочий стол)</li>
+    <hr>
+    <li><v-breadcrumbs keys :items="['Command', 'Backspace']" /> - удалить файл</li>
+    <li><v-breadcrumbs keys :items="['Fn', 'F', '']" /> - открыть / закрыть приложение в полноэкранном режиме</li>
+</ul>
+</div><div id="macos/main/versions"><h2>Версии MacOS</h2>
+
+<u-message-info>
+    В конце 2020 года Apple начала перевод своих компьютеров Mac с процессоров Intel на собственные кремниевые чипы Apple M1. Позже компания представила второй, улучшенный чип, названный чипом M2
+</u-message-info>
+
+<ul class="list-point">
+    <li>Apple Silicon (новый)</li>
+    <li>Intel Chip (старый)</li>
+</ul>
+</div><div id="macos/main/tilda"><!-- TODO:
+<f-search>MacOS -> ~</f-search>
+-->
+
+<h2>Символ ~</h2>
+
+<u-message-info>
+    Тильда в unix системах означает директорию пользователя
+</u-message-info>
+
+<ul class="list-point">
+    <li><u-code-text>~/file.txt</u-code-text> - Сокращение</li>
+    <li><u-code-text>/Users/user-name/file.txt</u-code-text> - Полный путь</li>
+</ul>
+</div><div id="macos/main/flash-cards"><h2>Flash Cards</h2>
+
+<ul class="list-point">
+    <li>Файловая система флешек, используемых в Windows обычно NTFS. Она не подходи для MacOS</li>
+    <li>Флешки с NTFS будет доступны только на чтение</li>
+    <li>Для решения используются утилиты. Самая популярная Paragon <a href="https://www.paragon-software.com/home/ntfs-mac/" target="_blank" class="link">https://www.paragon-software.com/home/ntfs-mac/</a></li>
+</ul>
+</div><div id="macos/cases/dot-folder"><h2>Директория с точки</h2>
+
+<ul class="list-point">
+    <li>Вручную нельзя создать директорию, начинающуюся на точку</li>
+    <li>Это необходимо делать в Терминале</li>
+</ul>
+
+<v-code lang="bash" title="">
+mkdir .dir_name
+</v-code>
+
+<ul class="list-point">
+    <li>Другой вариант: создавать файл в IDE, например, в VSCode</li>
+</ul>
+</div><div id="macos/cases/pass-zip"><h2>Установка пароля на Zip-архив</h2>
+
+<v-code lang="bash" title="">
+zip -ejr [путь/имя_архива] [путь_к_файлу_или_папке]
+zip -ejr ~/Desktop/test.zip ~/Desktop/test
+</v-code>
+
+<u-message-comment>
+    С ключом <u-code-text>-ejr</u-code-text> были ошибки при добавлении вложенных директорий. Поэтому оставил ключ <u-code-text>-er</u-code-text>
+</u-message-comment>
+
+<v-code lang="js" title="">
+    zip -er ~/Desktop/test.zip ~/Desktop/test
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ключ "-ejr"</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>е</u-code-text> - выполнить шифрование содержимого архива паролем</li>
+    <li><u-code-text>j</u-code-text> - отбросить путь к корневой директории, т.е. архивировать только её содержимое без учета самой директории</li>
+    <li><u-code-text>r</u-code-text> - рекурсивное добавление содержимого директории</li>
+</ul>
+</div><div id="macos/cases/time-zone"><h2>Смена часового пояса</h2>
+
+<ul class="list-point">
+    <li>
+        <v-breadcrumbs
+            :items="[
+                'Настройки',
+                'Основные',
+                'Дата и время',
+                'Ближайший город'
+            ]"
+        />
+    </li>
+    <li>
+        <v-breadcrumbs
+            :items="[
+                'Настройки',
+                'Основные',
+                'Язык и регион',
+                'Регион'
+            ]"
+        />
+    </li>
+</ul>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

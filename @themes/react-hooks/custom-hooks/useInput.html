@@ -1,0 +1,47 @@
+<!-- TODO:
+<f-search>React -> Hooks Custom -> <u>useInput()</u></f-search>
+-->
+
+<h2>useInput()</h2>
+
+<!------------------------------------------------------------->
+<h4>Реализация</h4>
+<!------------------------------------------------------------->
+<v-code lang="js border" title="">
+import React, { useState } from 'react';
+
+export const useInput = (initialValue) => {
+	const [value, setValue] = useState(initialValue);
+
+    const onChange = event => setValue(event.target.value);
+	const clear = () => setValue('');
+
+	return {
+		bind: { value, onChange },
+		value,
+		clear
+	}
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import React from 'react';
+
+const App = () => {
+	const input = <u-code-accent>useInput</u-code-accent>('');
+
+	return (
+		&lt;&gt;
+			&lt;input type="text" {...input.bind} /&gt;
+			&lt;button onClick={() =&gt; input.clear()}&gt;Очистить&lt;/button&gt;
+			&lt;span&gt;{input.value}&lt;/span&gt;
+		&lt;/&gt;
+	)
+}
+</v-code>
+
+
+

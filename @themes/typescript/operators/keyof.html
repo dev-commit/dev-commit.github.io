@@ -1,0 +1,68 @@
+<h2>keyof</h2>
+
+<ul class="list-point">
+    <li><u-text-define>keyof</u-text-define> - проходится по интерфейсу и формирует новый тип из ключей интерфейса</li>
+</ul>
+
+<v-code lang="js step" title="">
+interface Foo {
+	name: string
+	age: number
+}
+
+type FooKeys = <u-code-accent>keyof</u-code-accent> Foo; // => 'name' | 'age'
+
+const a: FooKeys = 'name';  // ✅ Correct
+const b: FooKeys = 'count'; // 🅾️ Error: Нет такого поля в ключах Foo
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two><template v-slot:first>
+<ul class="list-point">
+    <li>Нужно обратиться к ключу объекта, используя строку</li>
+    <li>При обращении <u>obj[field]</u> возникает ошибка: "Type 'string' can't be used to index type 'IObj'"</li>
+    <li>Причём <u>obj['name']</u> работает корректно, т.к. нет конкретного указания, что 'name' строка</li>
+</ul>
+</template><template v-slot:last>
+<ul class="list-point">
+	<li>При использовании строки как ключа, она должа быть типа ключей объекта</li>
+	<li>Для этого можно использовать <u>keyof</u></li>
+</ul>
+</template></v-two>
+
+<v-two-code type="js step;js step" comment=";">
+<template v-slot:first>
+interface IObj {
+    name: string;
+    age: number;
+}
+
+const field: string = 'name';
+
+const obj: IObj = {
+    name: '',
+    age: 23
+}
+
+obj[field];  // 🅾️ Error
+obj['name']; // ✅ Correct
+</template>
+<template v-slot:last>
+interface IObj {
+    name: string;
+    age: number;
+}
+
+const field: <u-code-accent>keyof</u-code-accent> IObj = 'name';
+
+const obj: IObj = {
+    name: '',
+    age: 23
+}
+
+obj[field];  // ✅ Correct
+obj['name']; // ✅ Correct
+</template>
+</v-two-code>

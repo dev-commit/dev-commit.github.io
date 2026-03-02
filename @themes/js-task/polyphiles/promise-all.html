@@ -1,0 +1,62 @@
+<h2>Полифил Promise.all</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Реализация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h5>Код</h5>
+<v-code lang="js border" title="">
+const promiseAll = (promises) => {
+	return new Promise(function (resolve, reject) {
+		if (!Array.isArray(promises)) {
+			return reject(new TypeError('Arguments must be an array'));
+		}
+
+		let results = [];
+		let remaining = promises.length;
+
+		// Обработчик успешного выполнения каждого промиса
+		function handleResolve(index, value) {
+			results[index] = value;
+			remaining--;
+
+			if (remaining === 0) {
+				resolve(results);
+			}
+		}
+
+		// Обработчик ошибки при выполнении промиса
+		function handleReject(error) {
+			reject(error);
+		}
+
+		// Итерируем по массиву промисов и добавляем обработчики
+		promises.forEach((element, index) => {
+			Promise.resolve(element)
+				.then(handleResolve.bind(null, index))
+				.catch(handleReject);
+		})
+	});
+}
+</v-code>
+
+<h5>Использование</h5>
+
+<v-code lang="js" title="">
+const URL1 = 'https://jsonplaceholder.typicode.com/todos/1';
+const URL2 = 'https://jsonplaceholder.typicode.com/todos/2';
+
+const getResource = async (url) => {
+	const res = await fetch(url);
+	return await res.json();
+}
+
+const asyncFoo = async () => {
+  const p1 = getResource(URL1);
+  const p2 = getResource(URL2);
+  const a = await <u-code>promiseAll</u-code>([p1, p2]);
+	console.log(a);
+}
+
+asyncFoo();
+</v-code>

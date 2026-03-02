@@ -1,0 +1,20 @@
+<!-- TODO:
+<f-search>Canvas -> Text Gradient</f-search>
+-->
+
+<h2>Text Gradient</h2>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="js" title="">
+const grad = ctx.createLinearGradient(0, 0, 150, 0);
+grad.addColorStop(0, 'magenta');
+grad.addColorStop(0.5, 'blue');
+grad.addColorStop(1, 'red');
+ctx.fillStyle = grad;
+
+ctx.font = '22px Arial';
+ctx.fillText('Hello World', 20, 35);
+</v-code>
+</template><template v-slot:last>
+<img src="/@img/canvas/text2.png" class="img200">
+</template></v-two-fix>

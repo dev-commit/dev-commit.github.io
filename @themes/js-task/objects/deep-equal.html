@@ -1,0 +1,76 @@
+<h2>Глубокое сравнение объектов</h2>
+
+<!------------------------------------------------------------->
+<h4>Недоделано 1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+let obj = {here: {is: "an"}, object: 2};
+
+// deepEqual(obj, {here: {is: "an"}, object: 2}) // true
+// deepEqual(obj, {here: {is: "an"}, object: 3}) // false
+// deepEqual(obj, {here: 1, object: 2}) // false
+
+function deepEqual(obj1, obj2) {
+    for (let key in obj1) {
+        if (obj2[key] !== obj1[key]) {
+
+            if (typeof obj2[key] === 'object') {
+                if (deepEqual(obj1[key], obj2[key])) {
+                    return true
+                }
+            }
+
+        }
+        // return true;
+    }
+    return true;
+}
+
+const obj1 = {
+    a: {
+        b: 1
+    }
+};
+const obj2 = {
+    a: {
+        b: 1
+    }
+};
+
+console.log('res1', deepEqual(obj1, obj2));
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Недоделано 2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const obj1 = {
+	a: 23,
+	b: { g: 34, c: 235 }
+}
+const obj2 = {
+	a: 23,
+	b: { g: 34, c: 235 }
+}
+
+function shallowEqual (obj1, obj2) {
+	let res = true;
+	function check(obj1, obj2) {
+		console.log(obj1, obj2);
+		for (let key in obj1) {
+			if (obj1[key] !== obj2[key]) {
+				if(typeof obj1[key] === 'object' && typeof obj2[key] === 'object') {
+					check(obj1[key], obj2[key]);
+				} else {
+					res = false;
+				}
+			}
+		}
+	}
+
+	check(obj1, obj2);
+	return res;
+}
+
+console.log(shallowEqual(obj1, obj2));
+</v-code>

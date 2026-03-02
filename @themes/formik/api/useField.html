@@ -1,0 +1,225 @@
+<h2><u-code-text>useField()</u-code-text></h2>
+
+<v-sandbox
+	needcheck
+	codesandbox
+	url="https://codesandbox.io/s/formik-usefield-5z6lj"
+/>
+
+<u-link-wrapper>
+	<v-link url="https://formik.org/docs/api/useField" text="Документация" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useField" after="" arg="()">
+		Хук
+		<ul class="list-point">
+			<li>Автоматически подключает входные данные к Formik</li>
+			<li><u>Вызывается из дочернего компонента</u></li>
+			<li>Можно использовать для создания собственных пользовательских примитивов ввода</li>
+		</ul>
+    </v-method>
+	<v-method-return>Array</v-method-return>
+</div>
+
+<!------------------------------------------------------------->
+<h4>Array</h4>
+<!------------------------------------------------------------->
+<v-details title="field">
+<ul class="list-point">
+	<li><u-code-text>name</u-code-text> Имя элемента (атрибут name)</li>
+	<li><u-code-text>value</u-code-text> Текущее value</li>
+	<li><u-code-text>onChange</u-code-text> Function</li>
+	<li><u-code-text>onBlur</u-code-text> Function</li>
+</ul>
+</v-details>
+
+<v-details title="meta">
+<ul class="list-point">
+	<li><u-code-text>value</u-code-text> Текущее value</li>
+	<li><u-code-text>error</u-code-text> undefined</li>
+	<li><u-code-text>touched</u-code-text> false</li>
+	<li><u-code-text>initialValue</u-code-text> value, заданное по умолчанию</li>
+	<li><u-code-text>initialTouched</u-code-text> false</li>
+	<li><u-code-text>initialError</u-code-text> undefined</li>
+</ul>
+</v-details>
+
+<v-details title="helpers">
+<ul class="list-point">
+	<li><u-code-text>setValue</u-code-text> Function</li>
+	<li><u-code-text>setTouched</u-code-text> Function</li>
+	<li><u-code-text>setError</u-code-text> Function</li>
+</ul>
+</v-details>
+
+
+
+<v-code lang="js border" title="">
+import { useField } from 'formik';
+
+const Child = () => {
+	// простой вариант
+	const [field, meta, helpers] = <u-code>useField</u-code>(props);
+	// деструктуризация
+	const [, { value, touched, error }, { setTouched, setValue }] = <u-code>useField</u-code>(props);
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Простой Input</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const Input = ({ name, type }) =&gt; {
+	const [<u-code-accent>field</u-code-accent>] = <u-code>useField</u-code>(name);
+
+	return (
+		&lt;input
+			type={type}
+			name={field.name}
+			value={field.value}
+			onChange={field.onChange}
+			onBlur={field.onBlur}
+		/&gt;
+	);
+};
+</v-code>
+
+<v-code lang="html none" title="">
+&lt;!-- Вызов --&gt;
+&lt;Input name="userName" type="text" /&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Input с onChange</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const Input = ({ name, type }) =&gt; {
+	const [<u-code-accent>field</u-code-accent>, , { <u-code-accent>setValue</u-code-accent> }] = useField(name);
+
+	const handleChange = (e) =&gt; {
+		<u-code>setValue</u-code>(e.target.value);
+	};
+
+	return (
+		&lt;input
+			type={type}
+			name={field.name}
+			value={field.value}
+			onChange={handleChange}
+			onBlur={field.onBlur}
+		/&gt;
+	);
+};
+</v-code>
+
+<v-code lang="html none" title="">
+&lt;!-- Вызов --&gt;
+&lt;Input name="userName" type="text" /&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Input с Label</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const Input = ({ label, name, ...props }) =&gt; {
+	const [<u-code-accent>field</u-code-accent>] = <u-code>useField</u-code>(name);
+
+	return (
+		&lt;label&gt;
+			{label}
+			&lt;input {...field} {...props} /&gt;
+		&lt;/label&gt;
+	);
+};
+</v-code>
+
+<v-code lang="html none" title="">
+&lt;!-- Вызов --&gt;
+&lt;Input name="userName" type="text" label="Name" /&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Input с обработкой ошибок</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const Input = ({ name, ...props }) =&gt; {
+	const [<u-code-accent>field</u-code-accent>, <u-code-accent>meta</u-code-accent>] = <u-code>useField</u-code>(name);
+	const hasError = Boolean(<u-code>meta</u-code>.touched) &amp;&amp; Boolean(<u-code>meta</u-code>.error);
+
+	return (
+		&lt;&gt;
+			&lt;input {...field} {...props} /&gt;
+			{hasError ? &lt;h1&gt;{meta.error}&lt;/h1&gt; : null}
+		&lt;/&gt;
+	);
+};
+</v-code>
+
+<v-code lang="html none" title="">
+&lt;!-- Вызов --&gt;
+&lt;Input name="userName" type="text" /&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование <u-code-text>setValue</u-code-text></h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const Counter = ({ name }) =&gt; {
+	// вместо прямого использования значений в "field"
+	// используем "meta" и "helpers"
+	const [<u-code-accent>field</u-code-accent>, , { <u-code-accent>setValue</u-code-accent> }] = <u-code>useField</u-code>(name);
+
+	// console.log(field.value);
+
+	return (
+		&lt;&gt;
+			&lt;input type="button" onClick={() =&gt; <u-code>setValue</u-code>(5)} value="Count 5" /&gt;
+			&lt;input type="button" onClick={() =&gt; <u-code>setValue</u-code>(10)} value="Count 10" /&gt;
+		&lt;/&gt;
+	);
+};
+</v-code>
+
+<v-code lang="html none" title="">
+&lt;!-- Вызов --&gt;
+&lt;Counter name="userCount" /&gt;
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Главный компонент</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { <u-code>Form</u-code>, <u-code>Formik</u-code> } from 'formik';
+</v-code>
+
+<v-code lang="js" title="">
+const App = () =&gt; {
+	const initialFormData = {
+		userName: "",
+		userCount: 0
+	};
+
+	const handleSubmit = (values, actions) =&gt; {
+		// может быть асинхронное дейсвие
+		console.log(values);
+		actions.<u-code>setSubmitting</u-code>(false);
+	};
+
+	return (
+		&lt;<u-code>Formik</u-code> initialValues={initialFormData} onSubmit={handleSubmit}&gt;
+			&lt;<u-code>Form</u-code>&gt;
+				&lt;Input name="userName" type="text" label="Name" /&gt;
+				&lt;Counter name="userCount" /&gt;
+				&lt;button type="submit"&gt;Submit&lt;/button&gt;
+			&lt;/<u-code>Form</u-code>&gt;
+		&lt;/<u-code>Formik</u-code>&gt;
+	);
+};
+</v-code>

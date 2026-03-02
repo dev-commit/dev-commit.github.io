@@ -1,0 +1,91 @@
+<h2>Connect</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="connect" after="" arg="(mapStateToProps, mapDispatchToProps)">
+    Подключение компонента к Store (декоратор)
+    </v-method>
+
+	<v-method-arg arg="mapStateToProps">
+		"маппинг" (соответствие) <u-text-underline>state</u-text-underline> к props. Подписаться на обновления данных
+	    <ul class="list-point">
+	    	<li>Не только получаем в <u-code-text>this.props.XXX</u-code-text> данные, но еще подписываемся на изменение этих данных</li>
+	    	<li>Когда мы подписываемся только на нужные редьюсеры в компоненте, перерисовка происходит только в случае изменения конкретно этих данных. Если же мы бы подписались просто на весь корневой редьюсер, то не важно в каком бы редьюсере изменились данные - все подписанные на корневой редьюсер компоненты обновились бы</li>
+	    </ul>
+	</v-method-arg>
+
+	<v-method-arg arg="mapDispatchToProps">"маппинг" (соответствие) <u-text-underline>dispatch</u-text-underline> к props. "Прокинуть" actions в контейнер</v-method-arg>
+
+	<v-method-return>Результат работы функции <u>connect</u> - новый присоединенный компонент, который оборачивает переданный компонент. Компонент <u-code-text>&lt;App /&gt;</u-code-text> на выходе получился <u-code-text>&lt;Connected(App)&gt;</u-code-text>. В свойствах (<u-code-text>props</u-code-text>) компонента <u-code-text>&lt;App /&gt;</u-code-text> теперь есть метод redux <u-code-text>store - dispatch</u-code-text>, и <u>объект свойств</u></li></v-method-return>
+</div>
+
+<ul class="list-point">
+    <li><u-code-text>mapStateToProps</u-code-text> срабатывает каждый раз, когда происходит изменение state</li>
+</ul>
+
+<v-code lang="js" title="Component">
+import { <u-code>connect</u-code> } from 'react-redux';
+
+const mapStateToProps = state => ({
+	myValue: state.myReducer
+})
+const mapDispatchToProps = {
+	getMethod: getMethod
+}
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Component);
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>mapDispatchToProps</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="Объект;Функция">
+<template v-slot:first>
+const mapDispatchToProps = {
+	getPhotosAction: return
+}
+</template>
+<template v-slot:last>
+const mapDispatchToProps = function(<u-code>dispatch</u-code>) {
+	return {
+		getPhotosAction: function(year) {
+			return <u-code>dispatch</u-code>(getPhotos(year));
+		}
+	}
+}
+</template>
+</v-two-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two><template v-slot:first>
+<v-code lang="js" title="">
+export default connect(
+	null,              // subscribe = false
+	null               // action = false
+)(Component);
+</v-code>
+<v-code lang="js" title="">
+export default connect(
+	mapStateToProps,   // subscribe = true
+	null               // action = false
+)(Component)
+</v-code>
+</template><template v-slot:last>
+<v-code lang="js" title="">
+export default connect(
+	null,              // subscribe = false
+	mapDispatchToProps // action = true
+)(Component)
+</v-code>
+<v-code lang="js" title="">
+export default connect(
+	mapStateToProps,   // subscribe = true
+	mapDispatchToProps // action = true
+)(Component)
+</v-code>
+</template></v-two>

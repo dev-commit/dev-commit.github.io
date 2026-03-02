@@ -1,0 +1,45 @@
+<h2>Наследование интерфейсов</h2>
+
+<!------------------------------------------------------------->
+<h4>Наследование от одного интерфейса</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js step;js step" comment="TS;Usage">
+<template v-slot:first>
+interface IAnimal {
+	name: string;
+}
+interface ICat <u-code-mod>extends</u-code-mod> IAnimal {
+	speed: number;
+}
+</template>
+<template v-slot:last>
+const a: ICat = {
+	name: 'Tom',
+	speed: 10,
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Множественное наследование</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js step;js step" comment="TS;Usage">
+<template v-slot:first>
+interface IAnimal {
+	name: string;
+}
+interface IAction {
+	go: () => void;
+}
+interface ICat <u-code-mod>extends</u-code-mod> IAnimal, IAction {
+	speed: number;
+}
+</template>
+<template v-slot:last>
+const a: ICat = {
+	name: 'Cat',
+	speed: 10,
+	go: () => null,
+}
+</template>
+</v-two-code>

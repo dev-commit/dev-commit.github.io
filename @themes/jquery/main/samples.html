@@ -1,0 +1,36 @@
+<h2>Примеры</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сообщения, возвращаемые от php скриптов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function echo(text) {
+    $('#echo').html(text);
+    $('#echo').slideDown(700);
+    setTimeout(function() { $('#echo').slideUp(700) }, 2700);
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Поиск по товарам</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+$('#search').keyup(function() {             // search - input[text]
+    const value = $('#search').val();         // получаем вводимые символы
+    value = value.toLowerCase();            // переводим в нижний регистр
+    $('.container').css('display', 'none'); // container - содержит блоки с названиями товаров
+    $('.container:contains("'+value+'")').css('display', 'block'); // показываем блоки
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Закрытие формы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+$(document).ready(function(){
+    const formOut = true;
+    $('#box').mouseleave(function(){ formOut = true; });
+    $('#box').mouseenter(function(){ formOut = false; });
+    $('.bg').click( function() { if (formOut) { $('.bg').fadeOut(500); } });
+});
+</v-code>

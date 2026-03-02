@@ -1,0 +1,82 @@
+<h2>Типы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Основные типы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+App.propTypes = {
+    prop: PropTypes.<u-code>any</u-code>,
+	prop: PropTypes.<u-code>number</u-code>,    
+	prop: PropTypes.<u-code>string</u-code>,
+    prop: PropTypes.<u-code>bool</u-code>,
+	prop: PropTypes.<u-code>array</u-code>,
+    prop: PropTypes.<u-code>object</u-code>,
+	prop: PropTypes.<u-code>func</u-code>,
+}
+</v-code>
+
+<v-code lang="js" title="">
+App.propTypes = {
+	prop: PropTypes.<u-code>symbol</u-code>
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Required</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+App.propTypes = {
+    // обязательное типа "string"
+	prop: PropTypes.<u-code>string.isRequired</u-code>,
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объекты и массивы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+App.propTypes = { 
+	// Объект, одного из нескольких типов
+	prop: PropTypes.<u-code>oneOfType</u-code>([
+		PropTypes.string,
+		PropTypes.number
+    ]),
+    
+    // Ограничение конкретными значениями
+    prop: PropTypes.<u-code>oneOf</u-code>(['News', 'Photos']),
+
+	// Массив объектов конкретного типа
+	prop: PropTypes.<u-code>arrayOf</u-code>(PropTypes.number),
+
+    prop: PropTypes.arrayOf(
+        PropTypes.shape({
+            title: PropTypes.string,
+            url: PropTypes.string
+        }),
+    ),
+
+	// Объект со свойствами конкретного типа
+	prop: PropTypes.<u-code>objectOf</u-code>(PropTypes.number),
+
+	// Объект с определённой структурой
+	prop: PropTypes.<u-code>shape</u-code>({
+		color: PropTypes.string,
+		fontSize: PropTypes.number
+	}),
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Прочее</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+App.propTypes = {
+    // все, что может быть отренедерено:
+    // числа, строки, элементы или массивы (или фрагменты) содержащие эти типы
+    prop: PropTypes.<u-code>node</u-code>,
+
+    prop: PropTypes.<u-code>element</u-code>,             // React-элемент
+    prop: PropTypes.<u-code>element.isRequired</u-code>,  // ограничение на один дочерний элемент
+	prop: PropTypes.<u-code>instanceOf</u-code>(Message), // экземпляр определенного класса
+}
+</v-code>

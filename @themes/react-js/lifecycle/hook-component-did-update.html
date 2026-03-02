@@ -1,0 +1,29 @@
+<h2>componentDidUpdate()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="componentDidUpdate" after="" arg="(prevProps, prevState, snapshot)">
+    <u>ОБНОВЛЕНИЕ</u> вызывается сразу после обновления (изменение пропсов или состояния: setState). Не вызывается при первом рендере. Позволяет работать с DOM при обновлении компонента
+    </v-method>
+
+	<v-method-arg arg="prevProps">предыдущий prop</v-method-arg>
+	<v-method-arg arg="prevState">предыдущий state</v-method-arg>
+	<v-method-arg arg="snapshot">snapshot</v-method-arg>
+</div>
+
+<ul class="list-point">
+    <li>Необходимо делать сравнение пропсов: если не сделать - будет бесконечный цикл: <u-code-text>render -> componentDidUpdate -> render ...</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+componentDidUpdate(prevProps) {
+	// сравнение пропсов
+	if (<u-code>this.props.userID</u-code> !== <u-code>prevProps.userID</u-code>) {
+		this.fetchData(this.props.userID);
+	}
+}
+</v-code>
+
+<ul class="list-point">
+    <li>Метод подходит для выполнения таких сетевых запросов, которые выполняются на основании результата сравнения текущих пропсов с предыдущими. Если пропсы не изменились, новый запрос может и не требоваться</li>
+    <li>В методе можно вызывать <u>setState()</u>, однако его необходимо обернуть в условие, как в примере выше, чтобы не возник бесконечный цикл. Вызов <u>setState()</u> влечет за собой дополнительный рендер, который незаметен для пользователя, но может повлиять на производительность компонента. Вместо «отражения» пропсов в состоянии рекомендуется использовать пропсы напрямую</li>
+</ul>

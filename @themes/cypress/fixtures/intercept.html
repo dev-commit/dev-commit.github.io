@@ -1,0 +1,87 @@
+<h2><u-code-text>intercept</u-code-text></h2>
+
+<div class="v-method-wrapper">
+    <v-method before="cy." method="intercept" after="" arg="(url: RouteMatcher, response?: RouteHandler)">
+    Перехват и подмена сетевых запросов
+    </v-method>
+
+	<v-method-arg arg="url">объект</v-method-arg>
+	<v-method-arg arg="response">объект</v-method-arg>
+</div>
+
+<v-details title="cy.intercept()">
+<v-code lang="js" title="">
+cy.intercept(
+	{
+        method?: S
+        url?: S
+        path?: S
+        pathname?: S
+        query?: DictMatcher&lt;S&gt;
+        auth?: { username: S, password: S }
+        headers?: DictMatcher&lt;S&gt;
+        hostname?: S
+        https?: boolean
+        middleware?: boolean
+        port?: NumberMatcher
+        times?: number
+    },
+	{
+        fixture?: Fixture
+        body?: Body
+        headers?: { [key: string]: string }
+        statusCode?: number // default 200
+        forceNetworkError?: boolean
+        throttleKbps?: number
+        delay?: number
+    }
+)
+</v-code>
+</v-details>
+
+<ul class="list-point">
+    <li>Посмотреть описание аргументов можно по пути</li>
+    <li><em>node_modules\cypress\types\net-stubbing.ts</em></li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<v-path>./cypress/fixtures/data.json</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+{
+    "name": "Tony",
+    "age": 25
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<v-path>./cypress/support/utils.ts</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+Cypress.Commands.add('interceptData', () => {
+    return cy.intercept('GET', 'http://localhost:8080/api', {
+        statusCode: 200,
+        fixture: 'data.json',
+    });
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<v-path>./cypress/integration/test.spec.ts</v-path>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+describe('user create page', () => {
+    beforeEach(() => {
+        cy.interceptData().as('data');
+    });
+
+    it('check create button', () => {
+        //
+    });
+});
+</v-code>

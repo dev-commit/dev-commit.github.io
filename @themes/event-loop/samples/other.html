@@ -1,0 +1,27 @@
+<h2>Примеры</h2>
+
+<v-code lang="js" title="">
+// queue.waitForMessage ожидает события если очередь пуста
+while(queue.waitForMessage()){ 
+    queue.processNextMessage(); 
+}
+</v-code>
+
+<v-code lang="js" title="">
+// Рекурсивный вызов микротаска повесит программу
+function startMicrotask() {
+    return Promise.resolve().then(startMicrotask);
+}
+</v-code>
+
+<v-two><template v-slot:first>
+    <v-code lang="js" title="">
+console.log('Hi');
+setTimeout(function cb1() { 
+    console.log('cb1');
+}, 5000);
+console.log('Bye');
+</v-code>
+</template><template v-slot:last>
+<img src="/@img/js/event-loop/event-loop2.gif" height="300px" class="center">
+</template></v-two>

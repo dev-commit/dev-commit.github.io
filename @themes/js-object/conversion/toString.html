@@ -1,0 +1,29 @@
+<h2>Преобразование toString</h2>
+
+<ul class="list-point">
+	<li>При <b>строковом</b> преобразовании объекта используется его метод <u>toString</u>. Он должен возвращать примитивное значение, причём не обязательно именно строку</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Строковое преобразование объекта</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const user = {
+	name: 'Tony'
+};
+
+alert( user ); // [object Object]
+</v-code>
+
+<v-code lang="js" title="">
+// eсли в объекте присутствует метод toString, который возвращает примитив, то он используется для преобразования
+const obj = {
+	name: 'Tony',
+	<u-code>toString</u-code>() {
+		return this.name;
+	}
+};
+
+alert( obj ); // Tony
+</v-code>

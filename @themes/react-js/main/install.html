@@ -1,0 +1,58 @@
+<h2>Установка и настройка <u-code>React 18</u-code></h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npm install <u-code-accent>react</u-code-accent> <u-code-accent>react-dom</u-code-accent>
+</v-pre-npm>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Приложение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js border;js" comment="React 18;React 17">
+<template v-slot:first>
+import { createRoot } from 'react-dom/client';
+import App from './App';
+
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
+root.render(&lt;App /&gt;);
+</template>
+<template v-slot:last>
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+const rootElement = document.getElementById('app');
+ReactDOM.render(&lt;App /&gt;, rootElement);
+</template>
+</v-two-code>
+
+<ul class="list-point">
+    <li><u>createRoot</u>, и <u>hydrateRoot</u> принимают новый параметр <em>onRecoverableError</em>, на случай, если нужно получать уведомления, когда React восстанавливается после ошибок во время рендеринга или гидратации для ведения журнала</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Приложение SSR</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Для SSR необходимо обновить <u-code-text>hydrate</u-code-text> до <u-code-text>hydrateRoot</u-code-text></li>
+</ul>
+
+<v-two-code type="js border;js" comment="React 18;React 17">
+<template v-slot:first>
+import { hydrateRoot } from 'react-dom/client';
+
+const container = document.getElementById('app');
+const root = hydrateRoot(container, );
+</template>
+<template v-slot:last>
+import { hydrate } from 'react-dom';
+
+const container = document.getElementById('app');
+hydrate(, container);
+</template>
+</v-two-code>

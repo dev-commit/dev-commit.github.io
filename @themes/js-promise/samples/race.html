@@ -1,0 +1,26 @@
+<h2>Promise.all / Promise.race</h2>
+
+<v-code lang="js" title="Объявление">
+const sleep = ms => {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(), ms)
+    })
+}
+</v-code>
+
+<v-code lang="js" title="Обычный вызов">
+sleep(2000).then(() => console.log('After 2 sec'));
+sleep(3000).then(() => console.log('After 3 sec'));
+</v-code>
+
+<v-code lang="js" title="Promise.all">
+Promise.all([sleep(2000), sleep(5000)]).then(() => {
+	console.log('All promises');
+})
+</v-code>
+
+<v-code lang="js" title="Promise.race">
+Promise.race([sleep(2000), sleep(5000)]).then(() => {
+    console.log('Race promises');
+})
+</v-code>

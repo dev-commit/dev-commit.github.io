@@ -1,0 +1,34 @@
+<h2>Примеры</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сложение и умножение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment=";">
+<template v-slot:first>
+// Быстродействие: O(A + B)
+let arrA = [1,2,3];
+let arrB = [1,2,3];
+for(let i=0; i<=arrA; i++) {
+    console.log(i);
+}
+for(let i=0; i<=arrB; i++) {
+    console.log(i);
+}
+// Проход по массивам выполняется последовательно
+// Выполнение первого цикла не зависит от выполнения второго
+// A - длина массива arrA
+// B - длина массива arrB
+</template>
+<template v-slot:last>
+// Быстродействие: O(A * B)
+let arrA = [1,2,3];
+let arrB = [1,2,3];
+for(let a=0; a<=arrA; a++) {
+    for(let b=0; b<=arrB; b++) {
+        console.log(a, b);
+    }
+}
+// Выполнить что-то N раз, пока делаешь что-то свое
+// Цикл по "B" зависим от цикла по "A"
+</template>
+</v-two-code>

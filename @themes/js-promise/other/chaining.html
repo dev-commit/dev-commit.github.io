@@ -1,0 +1,27 @@
+<h2>«Чейнинг» (цепочки промисов)</h2>
+
+<ul class="list-point">
+	<li><u>«Чейнинг» (chaining)</u> - цепочки промисов. При чейнинге, то есть последовательных вызовах <u>.then…then…then</u>, в каждый следующий then переходит результат от предыдущего. Если очередной <u>then вернул промис</u>, то далее по цепочке будет передан не сам этот промис, а его результат. </li>
+	<li>Если then возвращает промис, то до его выполнения может пройти некоторое время, оставшаяся часть цепочки будет ждать</li>
+	<li>Общее правило: если внутри then стартует новый асинхронный процесс, то для того, чтобы оставшаяся часть цепочки выполнилась после его окончания, мы должны вернуть промис</li>
+	<li>Каждая последующая функция будет вызвана, когда предыдущий промис «зарезолвится», и вызвана она будет с результатом работы предыдущего промиса</li>
+</ul>
+
+<v-code lang="js" title="">
+function functionAsync1() {
+	const promise = new Promise(function(resolve, reject) {
+	    resolve('promise1');
+	});
+	return promise;
+}
+function functionAsync2() {
+	const promise = new Promise(function(resolve, reject) {
+	    resolve('promise2');
+	});
+	return promise;
+}
+functionAsync1()
+    <u-code>.then</u-code>(res => console.log(res)) // promise1
+    <u-code>.then</u-code>(functionAsync2)
+    <u-code>.then</u-code>(res => console.log(res)) // promise2
+</v-code>

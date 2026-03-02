@@ -1,0 +1,72 @@
+<!-- TODO:
+<f-search>Axios -> <u>get()</u></f-search>
+<f-search>Axios -> <u>post()</u></f-search>
+<f-search>Axios -> <u>patch()</u></f-search>
+<f-search>Axios -> <u>delete()</u></f-search>
+-->
+
+<h2>HTTP-методы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>GET</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+const promise = axios.get("url");
+</v-code>
+
+<v-code lang="js" title="">
+promise
+	.then(response => {
+		console.log(response.data);
+	})
+	.catch(error => {
+		console.log(error)
+	});
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>POST</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+const promise = axios.post(
+	"url",
+	{
+		name: 'Tony',
+		age: 23
+	}
+)
+</v-code>
+
+<v-code lang="js" title="">
+promise
+	.then(response => {
+		console.log(response);
+	})
+	.catch(error => {
+		console.log(error)
+	});
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>PATCH</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+axios.patch("url", {
+    name: "Tony",
+	age: "23"
+  });
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>DELETE</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+await axios
+  .delete("url")
+  .catch(e => {
+	error(500, 'Error text');
+	throw e;
+  });
+</v-code>

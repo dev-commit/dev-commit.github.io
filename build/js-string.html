@@ -1,0 +1,566 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>String</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/js-string/build-js-string.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">String</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Основное</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/main/info"
+            href="#js-string/main/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+</ul><h4>🏷️ Методы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/methods/length"
+            href="#js-string/methods/length"
+        >
+            <u-menu>length</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/methods/trim"
+            href="#js-string/methods/trim"
+        >
+            <u-menu>trim</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/methods/toString"
+            href="#js-string/methods/toString"
+        >
+            <u-menu>toString</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/methods/toUpperCase"
+            href="#js-string/methods/toUpperCase"
+        >
+            <u-menu>toUpperCase</u-menu> <u-menu>toLowerCase</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/methods/indexOf"
+            href="#js-string/methods/indexOf"
+        >
+            <u-menu>indexOf</u-menu> <u-menu>lastIndexOf</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/methods/split"
+            href="#js-string/methods/split"
+        >
+            <u-menu>split</u-menu> + ReqExp
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/methods/substring"
+            href="#js-string/methods/substring"
+        >
+            <u-menu>substring</u-menu> <u-menu>substr</u-menu> <u-menu>slice</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/methods/charAt"
+            href="#js-string/methods/charAt"
+        >
+            <u-menu>charAt</u-menu> <u-menu>charCodeAt</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/methods/startsWith"
+            href="#js-string/methods/startsWith"
+        >
+            <u-menu>startsWith</u-menu>
+        </a>
+    </li>
+</ul><h4>🏷️ ReqExp</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/reqexp/replace"
+            href="#js-string/reqexp/replace"
+        >
+            <u-menu>replace</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/reqexp/match"
+            href="#js-string/reqexp/match"
+        >
+            <u-menu>match</u-menu> <u-menu>exec</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/reqexp/search"
+            href="#js-string/reqexp/search"
+        >
+            <u-menu>search</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/reqexp/test"
+            href="#js-string/reqexp/test"
+        >
+            <u-menu>test</u-menu>
+        </a>
+    </li>
+</ul><h4>🏷️ Прочее</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-string/other/samples"
+            href="#js-string/other/samples"
+        >
+            Примеры
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="js-string/main/info"><h2>Информация</h2>
+
+<ul class="list-point">
+    <li>Строки в JavaScript имеют внутреннюю кодировку Юникод</li>
+</ul>
+</div><div id="js-string/methods/length"><!-- TODO:
+<f-search>JS -> String -> <u>length</u></f-search>
+-->
+
+<h2>length</h2>
+
+<v-code lang="js" title="">
+// Возвращает длину строки
+const a = str.<u-code>length</u-code>;
+</v-code>
+</div><div id="js-string/methods/trim"><!-- TODO:
+<f-search>JS -> String -> <u>trim()</u></f-search>
+-->
+
+<h2>trim()</h2>
+
+<v-code lang="js" title="">
+// Обрезает пробелы в начале и конце строки
+const str = str.<u-code>trim</u-code>();
+</v-code>
+</div><div id="js-string/methods/toString"><!-- TODO:
+<f-search>JS -> String -> <u>toString()</u></f-search>
+-->
+
+<h2>toString()</h2>
+
+<v-code lang="js" title="">
+// Преобразование в строку
+77.<u-code>toString()</u-code>;
+</v-code>
+</div><div id="js-string/methods/toUpperCase"><!-- TODO:
+<f-search>JS -> String -> <u>toUpperCase()</u></f-search>
+<f-search>JS -> String -> <u>toLowerCase()</u></f-search>
+-->
+
+<h2>toUpperCase(), toLowerCase() - работа с регистром</h2>
+
+<v-code lang="js" title="">
+// Верхний регистр
+const name = name.<u-code>toUpperCase</u-code>();
+// Нижний регистр 
+const name = name.<u-code>toLowerCase</u-code>();
+</v-code>
+</div><div id="js-string/methods/indexOf"><!-- TODO:
+<f-search>JS -> String -> <u>indexOf()</u></f-search>
+<f-search>JS -> String -> <u>lastIndexOf()</u></f-search>
+-->
+
+<h2>indexOf(), lastIndexOf() - поиск в строке совпадений с образцом</h2>
+
+<v-code lang="js" title="">
+const pos = str.<u-code>indexOf</u-code>('name');     // с начала (-1 не найдено)
+const pos = str.indexOf('name', 2);  // поиск начат с позиции 2
+const pos = str.<u-code>lastIndexOf</u-code>('name'); // с конца (-1 не найдено)
+</v-code>
+</div><div id="js-string/methods/split"><!-- TODO:
+<f-search>JS -> String -> <u>split()</u></f-search>
+-->
+
+<h2>split()</h2>
+
+<u-message-info><u-code-text>arr.join()</u-code-text> - обратное преобразование</u-message-info>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Базовое использование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// Преобразование строки с заданным разделителем в массив
+const arr = str.<u-code>split</u-code>(';');
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>ReqExp</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const pattern = /[\s,]+/;
+const result = text.split(pattern); // разделитель пробел
+</v-code>
+</div><div id="js-string/methods/substring"><!-- TODO:
+<f-search>JS -> String -> <u>substring()</u></f-search>
+<f-search>JS -> String -> <u>substr()</u></f-search>
+<f-search>JS -> String -> <u>slice()</u></f-search>
+-->
+
+<h2>substring(), substr(), slice() - взятие подстроки</h2>
+
+<u-code-list>slice</u-code-list>
+<ul class="list-point">
+	<li>Отрицательные значения отсчитываются от конца строки</li>
+</ul>
+<v-code lang="js" title="">
+const root = str.<u-code>slice</u-code>(1, 7);      // вырезать с 1 позиции до 7 позиции не включая
+const root = 'testme'.slice(-2);     // 'me', от 2 позиции с конца
+const root = 'testme'.slice(1, -1);  // "estm", от 1 позиции до первой с конца
+</v-code>
+
+<u-code-list>substring</u-code-list>
+
+<ul class="list-point">
+	<li>Отрицательные аргументы интерпретируются как равные нулю</li>
+	<li>Слишком большие значения усекаются до длины строки</li>
+	<li>Если start > end, то аргументы меняются местами, т.е. возвращается участок строки между start и end</li>
+</ul>
+
+<v-code lang="js" title="">
+// вырезать с 1 позиции до 7 позиции не включая
+const root = str.<u-code>substring</u-code>(1, 7);
+
+// вырезать с 1 позиции до конца строки
+const root = str.substring(1);
+
+// 'testme', -2 становится 0
+const root = 'testme'.substring(-2);
+
+// 'test', -1 становится 0 -> получили substring(4, 0), 4 > 0,
+// так что аргументы меняются местами -> substring(0, 4) = "test"
+const root = 'testme'.substring(4, -1);
+</v-code>
+
+<u-code-list>substr</u-code-list>
+<v-code lang="js" title="">
+const root = str.<u-code>substr</u-code>(1, 4);  // вырезать с 1 позиции 4 символа
+const root = str.<u-code>substr</u-code>(1);     // вырезать с 1 позиции до конца строки
+</v-code>
+</div><div id="js-string/methods/charAt"><!-- TODO:
+<f-search>JS -> String -> <u>charAt()</u></f-search>
+<f-search>JS -> String -> <u>charCodeAt()</u></f-search>
+-->
+
+<h2>charAt(), charCodeAt()</h2>
+
+<v-code lang="js" title="">
+// возвращает символ строки по индексу
+const root = <u-code>charAt</u-code>(2);
+// возвращает код символа строки по индексу (все русские буквы находятся в диапазоне от 1040 до 1103)
+const root = <u-code>charCodeAt</u-code>(2);
+</v-code>
+
+<v-code lang="js" title="">
+alert( "".charAt(0) ); // пустая строка
+alert( "" [0] );       // undefined
+</v-code>
+</div><div id="js-string/methods/startsWith"><!-- TODO:
+<f-search>JS -> String -> <u>startsWith()</u></f-search>
+-->
+
+<h2>startsWith()</h2>
+
+<u-link-wrapper>
+    <v-link url="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith" text="MDN" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="str" method="startsWith" after="" arg="(searchString, position)">
+    Метод помогает определить, начинается ли строка с символов указанных в скобках, возвращая, соответственно, true или false
+    </v-method>
+
+	<v-method-arg arg="searchString*">символы, искомые в начале данной строки</v-method-arg>
+	<v-method-arg arg="position">позиция в строке, с которой начинать поиск searchString; по умолчанию 0</v-method-arg>
+
+	<v-method-return>true или false</v-method-return>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const str = "Быть или не быть, вот в чём вопрос.";
+
+console.log(str.startsWith("Быть")); // true
+console.log(str.startsWith("не быть")); // false
+console.log(str.startsWith("не быть", 9)); // true
+</v-code>
+</div><div id="js-string/reqexp/replace"><!-- TODO:
+<f-search>JS -> String -> ReqExp -> <u>replace()</u></f-search>
+-->
+
+<h2>replace()</h2>
+
+<u-message-info>
+Ищет совпадение и заменяет
+</u-message-info>
+
+<v-code lang="js" title="">
+const text = 'привет мир';
+const pattern = /привет/;
+
+text = text.replace(pattern, function(match) {
+    return match.toUpperCase();
+});
+</v-code>
+
+<v-code lang="js" title="">
+str = str.replace(/'/g, '"');         // Поменять одинарные кавычки на двойные
+str = str.replace(/«/g, '"');         // Поменять « 
+str = str.replace(/»/g, '"');         // Поменять »
+str = str.replace(/–/g, '-');         // Поменять "–"
+str = str.replace(/\r|\n/g, '');      // Убрать перенос строки
+str = str.replace(/<\/?[^>]+>/g, ''); // Удалить HTML теги из текста
+</v-code>
+</div><div id="js-string/reqexp/match"><!-- TODO:
+<f-search>JS -> String -> ReqExp -> <u>match()</u></f-search>
+<f-search>JS -> String -> ReqExp -> <u>exec()</u></f-search>
+-->
+
+<h2>match(), exec()</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>match()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-message-info>
+Возвращает само совпадение
+</u-message-info>
+
+<v-code lang="js" title="">
+// Не игнорирует флаг global
+const text = "О дивный новый мир";
+const pattern = /новый/;
+const result = text.match(pattern); // ["новый", index: 9, input: "О дивный новый мир", groups: undefined]
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>exec()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-message-info>
+Аналогичен match()
+</u-message-info>
+
+<ul class="list-point">
+    <li>Если не установлен флаг global, результат аналогичен методу match</li>
+    <li>Если установлен флаг global, получаем 1 первый match</li>
+</ul>
+
+<v-code lang="js" title="">
+const text = "О дивный новый мир";
+const pattern = /новый/g;
+const result = pattern.exec(text); 
+</v-code>
+
+
+</div><div id="js-string/reqexp/search"><!-- TODO:
+<f-search>JS ->  ReqExp -> <u>search()</u></f-search>
+-->
+
+<h2>search()</h2>
+
+<u-message-info>
+Возвращает позицию первого элемента
+</u-message-info>
+
+<v-code lang="js" title="">
+// Игнорирует флаг global
+const text = "О дивный новый мир";
+const pattern = /мы/;
+const result = text.search(pattern); // 9
+</v-code>
+</div><div id="js-string/reqexp/test"><!-- TODO:
+<f-search>JS -> String -> ReqExp -> <u>test()</u></f-search>
+-->
+
+<h2>test()</h2>
+
+<u-message-info>
+Проверка соответствия строки регулярному выражению (true/false)
+</u-message-info>
+
+<v-code lang="js" title="">
+const text = "О дивный новый мир";
+const pattern = /новый/;
+const result = pattern.test(text); 
+</v-code>
+</div><div id="js-string/other/samples"><!-- TODO:
+<f-search>JS -> String -> Примеры -> Перебор строки</f-search>
+<f-search>JS -> String -> Примеры -> Длина числа</f-search>
+<f-search>JS -> String -> Примеры -> Сложение строки и чисел</f-search>
+<f-search>JS -> String -> Примеры -> Экранирование кавычек</f-search>
+<f-search>JS -> String -> Примеры -> Проверка на заполненное поле</f-search>
+-->
+
+<h2>Примеры</h2>
+
+<!------------------------------------------------------------->
+<h4>Перебор строки</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+for (let i=0; i <= str.length-1; i++) {
+	console.log(str[i]);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Длина числа</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const id = 100;
+const a = id.toString().length;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Сложение строки и чисел</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+"Blink" + 181 + 1;   // "Blink1811"
+"Blink" + (181 + 1); // "Blink182"
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Экранирование кавычек</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+'\n'                     // перенос строки
+alert('привет \n мир');  // вывод переноса строки
+"call me \"ziggy\" now"; // экранирование кавычек
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Проверка на заполненное поле</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const login = '';
+const password = '';
+
+isFormValid() {
+	return login.length > 0 && password.length > 0;
+}
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

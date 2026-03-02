@@ -1,0 +1,70 @@
+<h2>"LF" и "CRLF"</h2>
+
+<u-message-error>При клонировании или смене ветки, Git меняет файлы с "LF" на "CRLF"</u-message-error>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Сравнение значений</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <v-link url="https://habr.com/ru/articles/703072/" text="" list="true" />
+</u-link-wrapper>
+
+<table>
+    <tr>
+        <th>«core.autocrlf»</th>
+        <th>Команды <u-code-text>add</u-code-text> <u-code-text>commit</u-code-text></th>
+        <th>База данных Git</th>
+        <th>Команда <u-code-text>checkout</u-code-text></th>
+    </tr>
+    <tr>
+        <td class="accent">«true»</td>
+        <td>CRLF ➝ LF</td>
+        <td>LF</td>
+        <td>LF ➝ CRLF</td>
+    </tr>
+    <tr>
+        <td class="accent">«false»</td>
+        <td>Без конвертации</td>
+        <td>CRLF и/или LF</td>
+        <td>Без конвертации</td>
+    </tr>
+    <tr>
+        <td class="accent">«input»</td>
+        <td>CRLF ➝ LF</td>
+        <td>LF</td>
+        <td>Без конвертации</td>
+    </tr>
+</table>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Решение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Проверить конфиг</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+git config core.autocrlf
+</v-code>
+
+<ul class="list-point">
+    <li>Если значение отличное от <u>false</u>, то поменять</li>
+</ul>
+
+<v-code lang="bash" title="">
+git config --global core.autocrlf false # глобально
+git config --local core.autocrlf true   # для проекта
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. В проекте есть файл <u>.gitattributes</u></h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+# Auto detect text files and perform EOL normalization
+* text=auto
+</v-code>
+
+<ul class="list-point">
+    <li>Файл <u>.gitattributes</u> имеет более высокий приоритет, чем <u>core.autocrlf</u></li>
+    <li><a href="http://git-scm.com/docs/gitattributes" target="_blank" class="link">http://git-scm.com/docs/gitattributes</a></li>
+</ul>

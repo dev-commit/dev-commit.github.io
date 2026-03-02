@@ -1,0 +1,764 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>React Router</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/react-router/build-react-router.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">React Router</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Основное</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-router/main/info"
+            href="#react-router/main/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-router/main/install"
+            href="#react-router/main/install"
+        >
+            ⚙️ Установка и настройка
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-router/main/use"
+            href="#react-router/main/use"
+        >
+            🔥 Базовый пример
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-router/main/modes"
+            href="#react-router/main/modes"
+        >
+            Режимы работы
+        </a>
+    </li>
+</ul><h4>🏷️ Общее API</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-router/api/Routes"
+            href="#react-router/api/Routes"
+        >
+            <u-menu>&lt;Routes /&gt;</u-menu> <u-menu>&lt;Route /&gt;</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-router/api/Link"
+            href="#react-router/api/Link"
+        >
+            <u-menu>&lt;Link /&gt;</u-menu> <u-menu>&lt;NavLink /&gt;</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-router/api/Outlet"
+            href="#react-router/api/Outlet"
+        >
+            <u-menu>&lt;Outlet /&gt;</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-router/api/useNavigate"
+            href="#react-router/api/useNavigate"
+        >
+            <u-menu-accent>useNavigate()</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-router/api/useParams"
+            href="#react-router/api/useParams"
+        >
+            <u-menu-accent>useParams()</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-router/api/useSearchParams"
+            href="#react-router/api/useSearchParams"
+        >
+            <u-menu-outline>useSearchParams()</u-menu-outline>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-router/api/useLocation"
+            href="#react-router/api/useLocation"
+        >
+            <u-menu-outline>useLocation()</u-menu-outline>
+        </a>
+    </li>
+</ul><h4>🏷️ Declarative Mode</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-router/api-declarative-mode/BrowserRouter"
+            href="#react-router/api-declarative-mode/BrowserRouter"
+        >
+            <u-menu>&lt;BrowserRouter /&gt;</u-menu>
+        </a>
+    </li>
+</ul><h4>🏷️ Data Mode</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__react-router/api-data-mode/RouterProvider"
+            href="#react-router/api-data-mode/RouterProvider"
+        >
+            <u-menu>&lt;RouterProvider /&gt;</u-menu> <u-menu>createBrowserRouter()</u-menu>
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="react-router/main/info"><h2>Информация</h2>
+
+<u-message-ok>
+Актуализировано для версии <b>React Router 7.11.0</b>
+</u-message-ok>
+
+
+<u-link-wrapper>
+	<v-link url="https://reactrouter.com/home" text="Документация" list="true" />
+</u-link-wrapper>
+</div><div id="react-router/main/install"><h2>Установка и настройка</h2>
+
+<u-message-info>
+Для <em>Declarative Mode</em> и <em>Data Mode</em>
+</u-message-info>
+
+<v-pre-npm>
+npm i <u-code-accent>react-router</u-code-accent>
+</v-pre-npm>
+</div><div id="react-router/main/use"><h2>Базовый пример</h2>
+
+<v-sandbox url="https://codesandbox.io/p/sandbox/react-router-ctssfn" needcheck codesandbox title="React Router: Declarative Mode" />
+<v-sandbox url="https://codesandbox.io/p/sandbox/react-router-data-mode-4lywrn" needcheck codesandbox title="React Router: Data Mode" />
+</div><div id="react-router/main/modes"><h2>Режимы работы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Режимы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Declarative Mode</h4>
+<!------------------------------------------------------------->
+<u-message-info>
+Первоначальный формат
+</u-message-info>
+
+<ul class="list-point">
+  <li>Декларативный режим обеспечивает базовые функции маршрутизации, такие как сопоставление URL-адресов с компонентами, навигация по приложению и предоставление активных состояний с помощью API</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Data Mode</h4>
+<!------------------------------------------------------------->
+<u-message-info>
+Новый формат
+</u-message-info>
+
+<ul class="list-point">
+  <li>Перенеся настройку маршрутов за пределы рендеринга React, Data Mode добавляет загрузку данных, действия, состояния ожидания и многое другое</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Framework Mode</h4>
+<!------------------------------------------------------------->
+<u-message-info>
+Больше подходит для SSR
+</u-message-info>
+
+<ul class="list-point">
+  <li>Framework Mode использует плагин Vite для расширения функциональности React Router включая следующие возможности: стратегии SPA, SSR и статического рендеринга, типобезопасный href и API модуля маршрутизации и т.д.</li>
+</ul>
+
+
+</div><div id="react-router/api/Routes"><!-- TODO:
+<f-search>React Router -> API -> <u>&lt;Routes /&gt;</u></f-search>
+<f-search>React Router -> API -> <u>&lt;Route /&gt;</u></f-search>
+-->
+
+<h2><u-code-text>&lt;Routes /&gt;</u-code-text> <u-code-text>&lt;Route /&gt;</u-code-text></h2>
+
+<u-link-wrapper>
+  <v-link url="https://reactrouter.com/api/components/Routes" text="Routes" list="true" />
+  <v-link url="https://reactrouter.com/api/components/Route" text="Route" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+  <v-method before="" method="&lt;Routes /&gt;" after="" arg="">
+  Группировка роутов
+  </v-method>
+
+  <v-method-arg arg="children">Список &lt;Route&gt;</v-method-arg>
+</div>
+
+<div class="v-method-wrapper">
+  <v-method before="" method="&lt;Route /&gt;" after="" arg="">
+  Отображение UI, следит чтобы совпадали пути между компонентом и адресной строкой.<br>
+  Route технически является компонентом, но не создаёт DOM-элемента
+  </v-method>
+
+  <v-method-arg arg="path">Любой действительный URL-путь или массив путей</v-method-arg>
+  <v-method-arg arg="element">Компонент React для рендеринга только при совпадении местоположения</v-method-arg>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+import { Routes, Route } from "react-router"
+
+const App = () = (
+  &lt;Routes&gt;
+    &lt;Route path="/"          element={&lt;Home /&gt;} /&gt;
+    &lt;Route path="about"      element={&lt;About /&gt;} /&gt;
+    &lt;Route path="params/:id" element={&lt;Params /&gt;} /&gt;
+    &lt;Route path="*"          element={&lt;NotFound /&gt;} /&gt;
+  &lt;/Routes&gt;
+)
+</v-code>
+</div><div id="react-router/api/Link"><!-- TODO:
+<f-search>React Router -> API -> <u>&lt;Link /&gt;</u></f-search>
+<f-search>React Router -> API -> <u>&lt;NavLink /&gt;</u></f-search>
+-->
+
+<h2><u-code-text>&lt;Link /&gt;</u-code-text> <u-code-text>&lt;NavLink /&gt;</u-code-text></h2>
+
+<u-link-wrapper>
+	<v-link url="https://reactrouter.com/api/components/Link" text="Link" list="true" />
+	<v-link url="https://reactrouter.com/api/components/NavLink" text="NavLink" list="true" />
+	<v-link url="https://reactrouter.com/start/declarative/navigating#navlink" text="NavLink Мануал" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="&lt;Link /&gt;" after="" arg="">
+    Видоизмененная ссылка под React для редиректа на нужную страницу. Предотвращает обновление страницы, в отличии от обычной ссылки
+    </v-method>
+	<v-method-arg arg="to">Местоположение ссылки</v-method-arg>
+	<v-method-arg arg="end">Гарантирует, что этот компонент не будет сопоставлен как «активный», когда совпадают пути его потомков. Например, чтобы отобразить ссылку, которая активна только в корне веб-сайта, а не в каких-либо других URL-адресах</v-method-arg>
+</div>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="&lt;NavLink /&gt;" after="" arg="">
+    Стилизация активной ссылки
+    </v-method>
+	<v-method-arg arg="to">Местоположение ссылки</v-method-arg>
+	<v-method-arg arg="end">Гарантирует, что этот компонент не будет сопоставлен как «активный», когда совпадают пути его потомков. Например, чтобы отобразить ссылку, которая активна только в корне веб-сайта, а не в каких-либо других URL-адресах</v-method-arg>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>&lt;Link /&gt;</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { Link } from "react-router"
+
+const App = () = (
+	&lt;&gt;
+		&lt;Link to="/"&gt;Home&lt;/Link&gt;
+		&lt;Link to="/about/"&gt;About&lt;/Link&gt;
+	&lt;/&gt;
+)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>&lt;NavLink /&gt;</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Использование <u-code-text>NavLink</u-code-text> вместо <u-code-text>Link</u-code-text> добавляет к активной ссылке класс <u-code-text>active</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+import { NavLink } from "react-router"
+
+const App = () => {
+  const setActiveClass = (statuses) => {
+    return statuses.isActive ? cn(styles.link, styles.linkActive) : styles.link;
+  }
+
+	return (
+		&lt;&gt;
+			&lt;NavLink to="/" className={setActiveClass}&gt;Home&lt;/NavLink&gt;
+			&lt;NavLink to="/about/" className={setActiveClass}&gt;About&lt;/NavLink&gt;
+		&lt;/&gt;
+	)
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>CSS-Modules</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-details title="Глобальная стилизация ссылки">
+<ul class="list-point">
+	<li>При использовании <u>css-modules</u>, стилизовать ссылку нужно глобально</li>
+</ul>
+
+<v-code lang="js" title="">
+:global {
+    a.active {
+        color: yellowgreen !important;
+    }
+}
+</v-code>
+</v-details>
+
+<v-details title="Сборка create-react-app">
+<v-code lang="js" title="">
+import './Header.css'
+
+const Header = () => (
+    &lt;ul className="header__links"&gt;
+        &lt;li&gt;&lt;NavLink to="/" exact&gt;Home&lt;/NavLink&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;NavLink to="/about/"&gt;About&lt;/NavLink&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+);
+</v-code>
+
+<v-code lang="css" title="">
+.header__links a {}
+.header__links a.active {}
+</v-code>
+</v-details>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Прочее</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-details title="Настройка сервера Webpack">
+<ul class="list-point">
+	<li>При переходе по <u-code-text>Link</u-code-text> изменяется url, но физически этой страницы нет. Поэтому нужно настроить сервер</li>
+</ul>
+
+<v-code lang="js" title="webpack.config.js">
+module.exports = {
+    output: {
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'build'),
+		<u-code-wrapper>
+		publicPath: '/'
+		</u-code-wrapper>
+	},
+	devServer: {
+		contentBase: './dist',
+		<u-code-wrapper>
+		historyApiFallback: {
+			disableDotRule: true
+		},
+		</u-code-wrapper>
+		stats: 'errors-only',
+		port: 3000
+	}
+}
+</v-code>
+</v-details>
+</div><div id="react-router/api/Outlet"><!-- TODO:
+<f-search>React Router -> API -> <u>&lt;Outlet /&gt;</u></f-search>
+-->
+
+<h2><u-code-text>&lt;Outlet /&gt;</u-code-text></h2>
+
+<u-link-wrapper>
+	<v-link url="https://reactrouter.com/api/components/Outlet" text="Outlet" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="&lt;Outlet /&gt;" after="" arg="">
+    Отображает соответствующий дочерний маршрут родительского маршрута или ничего, если ни один дочерний маршрут не соответствует
+    </v-method>
+</div>
+
+<v-code lang="js" title="">
+import { Outlet } from "react-router"
+
+const App = () => {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Parent Content&lt;/h1&gt;
+      &lt;Outlet /&gt;
+    &lt;/div&gt;
+  )
+}
+</v-code>
+</div><div id="react-router/api/useNavigate"><!-- TODO:
+<f-search>React Router -> API -> <u>useNavigate()</u></f-search>
+-->
+
+<h2><u-code-text>useNavigate()</u-code-text></h2>
+
+<u-link-wrapper>
+  <v-link url="https://reactrouter.com/api/hooks/useNavigate" text="useNavigate()" list="true" />
+</u-link-wrapper>
+
+
+<div class="v-method-wrapper">
+  <v-method before="" method="useNavigate" after="" arg="()">
+  Программная навигация по странице
+  </v-method>
+</div>
+
+<v-code lang="js border" title="">
+navigate('/about') // на конкретную страницу (about)
+navigate(-1)       // на 1 страницу назад
+navigate(-2)       // на 2 страницы назад
+</v-code>
+
+<v-code lang="js" title="">
+import { BrowserRouter, Link, Routes, Route, <u-code>useNavigate</u-code> } from "react-router"
+
+const Navigate = () =&gt; {
+  const navigate = <u-code>useNavigate</u-code>()
+
+  const handleClick = () =&gt; {
+    <u-code>navigate</u-code>(-1);
+  }
+
+  return &lt;button onClick={handleClick}&gt;Click&lt;/button&gt;
+}
+
+const App = () =&gt; (
+  &lt;BrowserRouter&gt;
+    &lt;Link to="/navigate"&gt;Navigate&lt;/Link&gt;
+
+    &lt;Routes&gt;
+      &lt;Route path="navigate" element={&lt;Navigate /&gt;} /&gt;
+    &lt;/Routes&gt;
+  &lt;BrowserRouter/&gt;
+)
+</v-code>
+</div><div id="react-router/api/useParams"><!-- TODO:
+<f-search>React Router -> API -> <u>useParams()</u></f-search>
+-->
+
+<h2><u-code-text>useParams()</u-code-text></h2>
+
+<u-link-wrapper>
+  <v-link url="https://reactrouter.com/api/hooks/useParams" text="useParams()" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+  <v-method before="" method="useParams" after="" arg="()">
+  Чтение параметров URL
+  </v-method>
+</div>
+
+<v-code lang="js" title="">
+import { BrowserRouter, Link, Routes, Route, <u-code>useParams</u-code> } from "react-router"
+
+const Params = () =&gt; {
+  const params = <u-code>useParams</u-code>();
+  console.log(<u-code>params.id</u-code>); // => 42
+
+  return &lt;h1&gt;Params&lt;/h1&gt;;
+}
+
+const App = () =&gt; (
+  &lt;BrowserRouter&gt;
+    &lt;Link to="/params/42"&gt;Params&lt;/Link&gt;
+
+    &lt;Routes&gt;
+      &lt;Route path="params/:id" element={&lt;Params /&gt;} /&gt;
+    &lt;/Routes&gt;
+  &lt;BrowserRouter/&gt;
+)
+</v-code>
+</div><div id="react-router/api/useSearchParams"><!-- TODO:
+<f-search>React Router -> API -> <u>useSearchParams()</u></f-search>
+-->
+
+<h2><u-code-text>useSearchParams()</u-code-text></h2>
+
+<u-link-wrapper>
+  <v-link url="https://reactrouter.com/api/hooks/useSearchParams" text="useSearchParams()" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+  <v-method before="" method="useSearchParams" after="" arg="()">
+  Предоставляет доступ к параметрам поиска (значение, следующее за символом <em>?</em> в URL-адресе)
+  </v-method>
+</div>
+
+<v-code lang="js" title="">
+import { useSearchParams } from "react-router"
+
+const App = () => {
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  setSearchParams("?tab=1")
+  const tab = searchParams.get("tab")
+
+  return null
+}
+</v-code>
+</div><div id="react-router/api/useLocation"><!-- TODO:
+<f-search>React Router -> API -> <u>useLocation()</u></f-search>
+-->
+
+<h2><u-code-text>useLocation()</u-code-text></h2>
+
+<u-link-wrapper>
+  <v-link url="https://reactrouter.com/api/hooks/useLocation" text="useLocation()" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+  <v-method before="" method="useLocation" after="" arg="()">
+  Возвращает текущее значение <em>Location</em>. Это может быть полезно, если вы хотите выполнить какой-либо Side Effect при каждом изменении значения
+  </v-method>
+</div>
+
+<v-code lang="js" title="">
+import { useLocation } from "react-router"
+
+const App = () => {
+  let location = useLocation()
+
+  return null
+}
+</v-code>
+</div><div id="react-router/api-declarative-mode/BrowserRouter"><!-- TODO:
+<f-search>React Router -> API -> <u>&lt;BrowserRouter /&gt;</u></f-search>
+-->
+
+<h2><u-code-text>&lt;BrowserRouter /&gt;</u-code-text></h2>
+
+<u-link-wrapper>
+		<v-link url="https://reactrouter.com/api/declarative-routers/BrowserRouter" text="BrowserRouter" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+	<v-method before="" method="&lt;BrowserRouter /&gt;" after="" arg=""> Роутер
+		<ul>
+			<li>Использует html5 history api и следит за тем чтобы UI был синхронизирован с тем что написано в адресной строке</li>
+			<li>BrowserRouter технически является компонентом, но не создаёт DOM-элемента</li>
+		</ul>
+  </v-method>
+
+	<v-method-arg arg="basename">Базовый URL для всех местоположений. Если ваше приложение обслуживается из подкаталога на вашем сервере, вам нужно установить это в подкаталог. Правильно отформатированное базовое имя должно иметь косую черту в начале, но не в конце</v-method-arg>
+</div>
+
+<v-code lang="js" title="">
+import { BrowserRouter, Link, Routes, Route } from "react-router"
+
+const App = () =&gt; (
+	&lt;<u-code>BrowserRouter</u-code> basename="/root/"&gt;
+		&lt;Link to="/about"&gt;About&lt;/Link&gt;
+		&lt;Routes&gt;
+			&lt;Route path="about" element={&lt;About /&gt;} /&gt;
+		&lt;/Routes&gt;
+	&lt;/<u-code>BrowserRouter</u-code>&gt;
+)
+</v-code>
+</div><div id="react-router/api-data-mode/RouterProvider"><!-- TODO:
+<f-search>React Router -> API -> <u>&lt;RouterProvider /&gt;</u></f-search>
+-->
+
+<h2><u-code-text>&lt;RouterProvider /&gt;</u-code-text> <u-code-text>createBrowserRouter()</u-code-text></h2>
+
+<u-link-wrapper>
+		<v-link url="https://reactrouter.com/api/data-routers/RouterProvider" text="RouterProvider" list="true" />
+		<v-link url="https://reactrouter.com/api/data-routers/createBrowserRouter" text="createBrowserRouter()" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+	<v-method before="" method="&lt;RouterProvider /&gt;" after="" arg="">Отобразить пользовательский интерфейс для заданного компонента DataRouter
+  </v-method>
+
+	<v-method-arg arg="router">Массив роутов</v-method-arg>
+</div>
+
+<div class="v-method-wrapper">
+	<v-method before="" method="createBrowserRouter" after="" arg="[]">Создание нового маршрутизатора данных, который будет управлять путем приложения через <em>history.pushState</em> и <em>history.replaceState</em></v-method>
+
+	<v-method-arg arg="routes">Список роутов</v-method-arg>
+</div>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>&lt;RouterProvider /&gt;</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import ReactDOM from "react-dom/client"
+import { RouterProvider, createBrowserRouter } from "react-router/dom"
+
+const root = document.getElementById("root")
+
+const router = <u-code>createBrowserRouter</u-code>([...])
+ReactDOM.createRoot(root).render(&lt;<u-code>RouterProvider</u-code> router={router} /&gt;)
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>createBrowserRouter</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Параметры "element" и "Component"</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>В параметрах может быть <u-code-text>element</u-code-text> или <u-code-text>Component</u-code-text></li>
+</ul>
+
+<v-code lang="ts" title="">
+import { createBrowserRouter } from "react-router/dom"
+
+const About = () => &lt;h1&gt;Hello world&lt;/h1&gt;
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: &lt;div&gt;Hello World&lt;/div&gt;,
+  },
+	{
+		path: "about",
+		Component: About
+	},
+])
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вложенные маршруты</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Маршруты могут быть вложены в родительские маршруты с помощью <u-code-text>children</u-code-text></li>
+	<li>Дочерние маршруты отображаются через <u-code-text>&lt;Outlet/&gt;</u-code-text> в родительском маршруте</li>
+</ul>
+
+<u-link-wrapper>
+	<v-link url="https://reactrouter.com/api/components/Outlet" text="Outlet" list="true" />
+</u-link-wrapper>
+
+
+<v-code lang="js" title="">
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: App,
+    children: [
+      {
+        index: true,
+        Component: Home,
+      },
+      {
+        path: "about",
+        Component: About,
+      },
+    ],
+  },
+])
+</v-code>
+
+<v-code lang="js" title="">
+import { Outlet } from "react-router"
+
+const App = () => {
+  return (
+    &lt;div&gt;
+      &lt;Outlet /&gt;
+    &lt;/div&gt;
+  )
+}
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

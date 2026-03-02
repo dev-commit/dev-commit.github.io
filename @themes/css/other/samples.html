@@ -1,0 +1,273 @@
+<h2>Примеры</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Выравнивание блоков по центру</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>inline-block</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div class="container"&gt;
+	&lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="css" title="">
+.container {
+	text-align: center;
+}
+.box {
+	display: inline-block;
+	vertical-align: middle;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Горизонталь, вертикаль. Fixed</h4>
+<!------------------------------------------------------------->
+<span>Обязательно задание width и  height</span>
+<v-code lang="css" title="">
+#box {
+	width: 400px;
+	height: 700px;
+	position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    background: orange;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Горизонталь, вертикаль. Transform</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div class="container"&gt;
+	&lt;div class="box"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="css" title="">
+Проценты считаются относительно самого элемента
+.box {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.container {
+	border: 2px solid blue;
+	height: 500px;
+}
+.box {
+	width: 200px;
+	height: 200px;
+	background: gray;
+	position: relative;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Горизонталь, вертикаль. Table</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div class="container"&gt;
+	&lt;div class="text"&gt;No result found&lt;/div&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="css" title="">
+.container {
+	display: table;
+	width:100%;
+	background:orange;
+}
+.text {
+	height:500px;
+	width:100%;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Треугольник</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+div {
+	width: 0px;
+	height: 0px;
+	background: pink;
+	border-top:    100px solid transparent;
+	border-bottom: 100px solid transparent;
+	border-left:   100px solid blue;
+	border-right:  100px solid transparent;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Меню</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="html" title="">
+&lt;header&gt;
+	&lt;nav class="header-menu"&gt;
+		&lt;ul&gt;
+			&lt;li&gt;&lt;a href="#portfolio"&gt;Портфолио&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#news"&gt;Новости&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#contacts"&gt;Контакты&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/nav&gt;
+&lt;/header&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>inline-block</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+.header-menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background: orange;
+}
+.header-menu li {
+	display: inline-block;
+	vertical-align: middle;
+}
+.header-menu li a {
+	display: block;
+	color: black;
+	padding: 12px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: 0.7s;
+	background: gray;
+}
+.header-menu li a:hover {
+	background: white;
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>flexbox</h4>
+<!------------------------------------------------------------->
+<v-code lang="css" title="">
+.header-menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	background: orange;
+}
+.header-menu li a {
+	display: block;
+	color: black;
+	padding: 12px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: 0.7s;
+	background: gray;
+}
+.header-menu li a:hover {
+	background: white;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Отключение обтекания float у родительского блока (clearfix)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+.parent:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Убрать float у блока</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+.item {
+	float: none;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Убрать пробелы у inline-block</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<span>Пробелы между блоками, это пробелы между словами в строке.<br>
+Ставим font-size:0 для родителя, а для дочерних элементов возвращаем обратно</span>
+<v-code lang="html" title="">
+&lt;div class="container"&gt;
+	&lt;div class="item"&gt;&lt;/div&gt;
+	&lt;div class="item"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="css" title="">
+.container {
+	font-size: 0;
+}
+.item {
+	font-size: 16px;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>resize у div</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+div {
+	resize: both;
+	overflow: auto;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Задание максимальной, минимальной ширины и выравнивание по центру</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+.container {
+	width: 100%;
+	max-width: 960px;
+	min-width: 640px;
+	margin: 0 auto;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Псевдоклассы. При наведении на .news показывается кнопка</h3>
+<v-code lang="html" title="">
+&lt;div class="news"&gt;&lt;/div&gt;
+&lt;div class="close"&gt;&lt;/div&gt;
+</v-code>
+
+<v-code lang="css" title="">
+.news {
+	width: 100px;
+	height: 100px;
+	background: orange;
+}
+.close {
+	width: 100px;
+	height: 100px;
+	background: blue;
+	display: none;
+}
+.news:hover ~ .close {
+	display: block;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обращение к img по наведению на .item</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="css" title="">
+.item:hover img {}
+</v-code>

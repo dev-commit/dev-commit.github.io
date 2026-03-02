@@ -1,0 +1,38 @@
+<h2>Настройка порядка импортов</h2>
+
+<u-message-error>
+    <ul>
+        <li>Информация не проверенная</li>
+        <li>На проекте использовали только настройку для Prettier и этого было достаточно</li>
+    </ul>
+</u-message-error>
+
+<ul class="list-point">
+    <li><a href="https://eslint.org/docs/rules/sort-imports" target="_blank" class="link">https://eslint.org/docs/rules/sort-imports</a></li>
+    <li><a href="https://github.com/import-js/eslint-plugin-import" target="_blank" class="link">https://github.com/import-js/eslint-plugin-import</a></li>
+    <li><a href="https://github.com/Tibfib/eslint-plugin-import-helpers/blob/master/docs/rules/order-imports.md" target="_blank" class="link">https://github.com/Tibfib/eslint-plugin-import-helpers/blob/master/docs/rules/order-imports.md</a></li>
+    <li>Enforce a convention in module import order (order)</li>
+    <li><u-code-text>eslint-plugin-import</u-code-text> - плагин добавит в ваш проект проверки для всех ваших импортов и будет следить за тем, чтобы все импортируемые зависимости присутствовали в проекте, подключались в удобном для последующей работы порядке, и так далее</li>
+</ul>
+
+<v-pre-npm>
+npm i --save-dev <u-code-accent>@typescript-eslint/eslint-plugin-tslint</u-code-accent>
+</v-pre-npm>
+
+<v-code lang="json" title="">
+module.exports = {
+    rules: {
+        'import-helpers/order-imports': [
+            2,
+            {
+                newlinesBetween: 'always',
+                groups: ['/^react/', 'module'],
+                alphabetize: {
+                    order: 'asc',
+                    ignoreCase: true,
+                },
+            },
+        ],
+    },
+};
+</v-code>

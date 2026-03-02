@@ -1,0 +1,390 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Canvas</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/canvas/build-canvas.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">Canvas</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Основное</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__canvas/main/info"
+            href="#canvas/main/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__canvas/main/code"
+            href="#canvas/main/code"
+        >
+            💎 Код
+        </a>
+    </li>
+</ul><h4>🏷️ Фигуры</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__canvas/figures/rectangle"
+            href="#canvas/figures/rectangle"
+        >
+            <u-menu>Rectangle</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__canvas/figures/arc"
+            href="#canvas/figures/arc"
+        >
+            <u-menu>Arc</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__canvas/figures/line-path"
+            href="#canvas/figures/line-path"
+        >
+            <u-menu>Line</u-menu> <u-menu>Path</u-menu>
+        </a>
+    </li>
+</ul><h4>🏷️ Элементы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__canvas/elements/gradient"
+            href="#canvas/elements/gradient"
+        >
+            Gradient
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__canvas/elements/text"
+            href="#canvas/elements/text"
+        >
+            Text
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__canvas/elements/text-gradient"
+            href="#canvas/elements/text-gradient"
+        >
+            Text Gradient
+        </a>
+    </li>
+</ul><h4>🏷️ Методы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__canvas/methods/clearRect"
+            href="#canvas/methods/clearRect"
+        >
+            <u-menu-accent>clearRect</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__canvas/methods/scale"
+            href="#canvas/methods/scale"
+        >
+            <u-menu-accent>scale</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__canvas/methods/rotate"
+            href="#canvas/methods/rotate"
+        >
+            <u-menu-accent>rotate</u-menu-accent>
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="canvas/main/info"><h2>Информация</h2>
+
+<u-link-wrapper>
+    <v-link url="https://www.w3schools.com/tags/ref_canvas.asp" text="" list="true" />
+    <v-link url="https://www.pixijs.com/" text="PixiJS" list="true" />
+    <v-link url="https://threejs.org/" text="Three.js" list="true" />
+</u-link-wrapper>
+</div><div id="canvas/main/code"><!-- TODO:
+<f-search>Canvas -> <u>&lt;canvas&gt;</u></f-search>
+<f-search>Canvas -> <u>getContext()</u></f-search>
+-->
+
+<h2>Основы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>HTML</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="html step" title="">
+&lt;canvas id="canvas" style="display: block; border: 2px solid black;"&gt;
+	Your browser is not supported
+&lt;/canvas&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Выборка элемента</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+const canvas = document.getElementById('canvas')
+</v-code>
+
+<v-code lang="js" title="">
+canvas.width = 200
+canvas.height = 200
+//canvas.width = window.innerWidth
+//canvas.height = window.innerHeight
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Получение контекста: getContext()</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+const ctx = canvas.getContext('2d');
+</v-code>
+
+<v-code lang="js" title="">
+ctx.fillStyle = 'yellowgreen';
+ctx.strokeStyle = 'black';
+ctx.lineWidth = 4;
+</v-code>
+</div><div id="canvas/figures/rectangle"><!-- TODO:
+<f-search>Canvas -> <u>Rectangle</u></f-search>
+-->
+
+<h2>Rectangle</h2>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="js" title="">
+ctx.fillRect(0,0,100,100);   // fill
+ctx.strokeRect(0,0,100,100); // stroke
+</v-code>
+</template><template v-slot:last>
+<img src="/@img/canvas/rectangle1.png" class="img200">
+</template></v-two-fix>
+</div><div id="canvas/figures/arc"><!-- TODO:
+<f-search>Canvas -> <u>Arc</u></f-search>
+-->
+
+<h2>Arc</h2>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="js" title="">
+ctx.beginPath();
+ctx.arc(100, 100, 50, 0, Math.PI*2, false);
+ctx.closePath();
+ctx.fill();   // fill
+ctx.stroke(); // stroke
+</v-code>
+</template><template v-slot:last>
+<img src="/@img/canvas/arc1.png" class="img200">
+</template></v-two-fix>
+
+<v-code lang="js none" title="">
+arc();
+1 - координаты центра окружности (x)
+2 - координаты центра окружности (y)
+3 - радиус
+4 - start angle (справа)
+5 - end angle (360deg = pi*2)
+6 - рисование по часовой (false) / против (true) часовой стрелки
+</v-code>
+</div><div id="canvas/figures/line-path"><!-- TODO:
+<f-search>Canvas -> <u>Line</u></f-search>
+<f-search>Canvas -> <u>Path</u></f-search>
+-->
+
+<h2>Line, Path</h2>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="js" title="">
+ctx.beginPath();
+
+ctx.moveTo(100, 100);
+ctx.lineTo(100, 50);
+ctx.lineTo(200, 100);
+ctx.closePath();
+
+ctx.moveTo(10, 10);
+ctx.lineTo(70, 10);
+ctx.lineTo(10, 70);
+
+ctx.fill();
+ctx.stroke();
+</v-code>
+</template><template v-slot:last>
+<img src="/@img/canvas/path1.png" class="img200">
+</template></v-two-fix>
+</div><div id="canvas/elements/gradient"><!-- TODO:
+<f-search>Canvas -> Gradient</f-search>
+-->
+
+<h2>Gradient</h2>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="js" title="">
+const grad = ctx.createLinearGradient(0, 100, 100, 0);
+grad.addColorStop(0, 'green');
+grad.addColorStop(1, 'blue');
+ctx.fillStyle = grad;
+ctx.fillRect(50, 50, 100, 100);
+</v-code>
+</template><template v-slot:last>
+<img src="/@img/canvas/gradient1.png" class="img200">
+</template></v-two-fix>
+</div><div id="canvas/elements/text"><!-- TODO:
+<f-search>Canvas -> Text</f-search>
+-->
+
+<h2>Text</h2>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="js" title="">
+ctx.textAlign = 'center';
+ctx.font = '22px Arial';
+ctx.fillText('Hello World', canvas.width/2, canvas.height/2); // по центру
+</v-code>
+</template><template v-slot:last>
+<img src="/@img/canvas/text1.png" class="img200">
+</template></v-two-fix>
+</div><div id="canvas/elements/text-gradient"><!-- TODO:
+<f-search>Canvas -> Text Gradient</f-search>
+-->
+
+<h2>Text Gradient</h2>
+
+<v-two-fix><template v-slot:first>
+<v-code lang="js" title="">
+const grad = ctx.createLinearGradient(0, 0, 150, 0);
+grad.addColorStop(0, 'magenta');
+grad.addColorStop(0.5, 'blue');
+grad.addColorStop(1, 'red');
+ctx.fillStyle = grad;
+
+ctx.font = '22px Arial';
+ctx.fillText('Hello World', 20, 35);
+</v-code>
+</template><template v-slot:last>
+<img src="/@img/canvas/text2.png" class="img200">
+</template></v-two-fix>
+</div><div id="canvas/methods/clearRect"><!-- TODO:
+<f-search>Canvas -> <u>clearRect()</u></f-search>
+-->
+
+<h2>clearRect()</h2>
+
+<v-code lang="js" title="">
+ctx.clearRect(0, 0, canvas.width, canvas.height); // очистка холста
+</v-code>
+</div><div id="canvas/methods/scale"><!-- TODO:
+<f-search>Canvas -> <u>scale()</u></f-search>
+-->
+
+<h2>scale()</h2>
+
+<v-code lang="js" title="">
+ctx.scale(2,2);  // масштабирование (x,y)
+</v-code>
+</div><div id="canvas/methods/rotate"><!-- TODO:
+<f-search>Canvas -> <u>rotate()</u></f-search>
+-->
+
+<h2>rotate()</h2>
+
+<v-code lang="js" title="">
+ctx.rotate(10 * Math.PI/180); // поворот на 10deg
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

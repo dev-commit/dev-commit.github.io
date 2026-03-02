@@ -1,0 +1,93 @@
+<h2>Свойства-элементы</h2>
+
+<ul class="list-point">
+    <li>В prop может передаваться JSX</li>
+    <li>В prop может передаваться объект, который представляет из себя React-элемент</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1. Указание функции</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const App = () =&gt; {
+	return (
+		&lt;&gt;
+			{Sample()}
+		&lt;/&gt;
+	);
+};
+
+const Sample = () =&gt; {
+	return (&lt;h1&gt;Sample&lt;/h1&gt;);
+};
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Указание объекта</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const App = () =&gt; {
+	return (
+		&lt;&gt;
+			{element}
+		&lt;/&gt;
+	);
+};
+
+const element = (&lt;h1&gt;Hello&lt;/h1&gt;);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Передача в компонент</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const App = () =&gt; {
+	const element = (&lt;h1&gt;Hello&lt;/h1&gt;);
+	return &lt;Child elementObject={element} elementJsx={&lt;h1&gt;Hello&lt;/h1&gt;} /&gt;
+};
+
+const Child = (props) =&gt; {
+	return (
+		&lt;&gt;
+			{props.elementObject}
+			{props.elementJsx}
+		&lt;/&gt;
+	);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>4. Передача компонета в props</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>В React нет никаких ограничений на то, что можно передать в качестве пропсов</li>
+</ul>
+
+<v-code lang="js" title="parent js">
+// ReactDOM.render
+class ComponentParent extends React.Component {
+	render() {
+		return (<u-code>&lt;ComponentChild small={&lt;ComponentSmall /&gt;} /&gt;</u-code>);
+	}
+}
+</v-code>
+
+<v-code lang="js" title="small js">
+class ComponentSmall extends React.Component {
+	render() {
+		return (&lt;div&gt;ComponentSmall&lt;/div&gt;);
+	}
+}
+</v-code>
+
+<v-code lang="js" title="child js">
+class ComponentChild extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+	render() {
+		return (&lt;div&gt;{<u-code>this.props.small</u-code>}&lt;/div&gt;);
+	}
+}
+</v-code>
+

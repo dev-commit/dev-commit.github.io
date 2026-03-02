@@ -1,0 +1,84 @@
+<!-- TODO:
+<f-search>Паттерны -> Bridge (Мост)</f-search>
+-->
+
+<h2>Bridge (Мост)</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Bridge</u-text-define> - разделяет один или несколько классов на несколько отдельных иерархий: абстракция и реализация. Что в свою очередь помогает изменять их без зависимостей друг от друга</li>
+    <li>Отказ от корневого класса и замена всего на "абстракцию" и "реализацию"</li>
+    <li>Замена наследования композицией</li>
+</ul>
+
+<h5>Абстракция и Реализация</h5>
+<ul class="list-point">
+    <li><em>Абстракция</em> - обёртка, которая сама не выполняет работу, а делегирует ее одному из объектов реализации</li>
+    <li><em>Реализация</em> - объект, в котором описана сама реализация</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Paint Cars</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// Описание модели авто
+class Model {
+    constructor(color) {
+        this.color = color;
+    }
+};
+// Описание цвета авто
+class Color {
+    constructor(type) {
+        this.type = type;
+    }
+    get() {
+        return this.type;
+    }
+};
+</v-code>
+
+<v-code lang="js" title="">
+// Подклассы по цвету (работают только с классом Color, но не с Model)
+class BlackColor extends Color {
+    constructor() {
+        super("dark-black");
+    }
+}
+class SilbrigColor extends Color {
+    constructor() {
+        super("Silbermetallic");
+    }
+}
+</v-code>
+
+<v-code lang="js" title="">
+// Подклассы по модели (работают только с классом Model, но не с Color)
+// Нет прямого взаимодействия с классом Color, а делегирование и вызов метода "get"
+// Класс Color - мост, которые вызыват метод "get"
+class Audi extends Model {
+    constructor(color) {
+        super(color);
+    }
+    paint() {
+        return `Auto: Audi, Color: ${this.color.get()}`;
+    }
+};
+class Bmw extends Model {
+    constructor(color) {
+        super(color);
+    }
+    paint() {
+        return `Auto: Bmw, Color: ${this.color.get()}`;
+    }
+};
+</v-code>
+
+<v-code lang="js" title="">
+const blackBmw = new Bmw(new BlackColor());
+const a1 = blackBmw.paint(); // => "Auto: Bmw, Color: dark-black"
+</v-code>

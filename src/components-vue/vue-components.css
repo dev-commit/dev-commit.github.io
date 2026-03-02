@@ -1,0 +1,302 @@
+/*******************************************
+v-two
+v-two-code
+*******************************************/
+.v-two-wrapper {
+	display: flex;
+	margin: 10px 0px;
+}
+.v-two-column {
+	margin: 0px 5px;
+}
+.v-two-column-half {
+	width: 50%;
+}
+.v-two-code-comment-block {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	min-height: calc(100% - 20px);
+	margin: 10px 0;
+}
+.v-two-border {
+	box-shadow: var(--box-shadow);
+}
+.v-two-title {
+	padding: 10px;
+	font-weight: bold;
+}
+.v-two-bg-accent {
+	background-color: rgba(var(--color-sea-green-light), .5);
+}
+.v-two-bg-light {
+	background-color: rgb(var(--color-gray-20));
+}
+.v-two-vertical-top {
+	align-items: flex-start;
+}
+
+/*******************************************
+v-pre-npm
+*******************************************/
+.v-pre-npm code {
+	background: none !important;
+	position: relative;
+	padding: 0px 15px 15px 25px !important;
+}
+.v-pre-npm code:before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 3px;
+	height: 100%;
+	background: rgb(var(--color-crimson));
+}
+
+/*******************************************
+v-method, v-method-arg, v-method-return
+*******************************************/
+.v-method-wrapper {
+	font-size: 0px;
+	background: rgb(var(--color-violet-gray-light));
+	padding: 20px;
+	border-left: 4px solid rgb(var(--color-sea-green-light));
+	line-height: 2;
+	margin: 10px 0px;
+}
+	.v-method-wrapper .el {
+		font-family: monospace;
+		font-size: 14px;
+	}
+	.v-method-wrapper .expression {
+		padding: 4px;
+		color: rgb(var(--color-orange));
+		background: rgba(var(--color-brown), .2);
+	}
+	.v-method-wrapper .method {
+		background: rgb(var(--color-sea-green-light));
+		color: rgb(var(--color-white));
+		padding: 4px;
+		text-shadow: 0px 0px 2px rgb(var(--color-black));
+	}
+	.v-method-wrapper .text {
+		margin-left: 4px;
+	    color: rgba(var(--color-black), .7);
+		font-family: Roboto-Light;
+	}
+
+
+.v-method-arg--wrapper {
+	padding-left: 30px;
+}
+	.v-method-arg--wrapper .icon::before {
+		content: '⚡️';
+		padding: 2px 7px;
+		font-size: 14px;
+		color: rgb(var(--color-crimson));
+	}
+	.v-method-arg--wrapper .arg {
+		padding: 2px 4px;
+		border-radius: 3px;
+		background: rgb(var(--color-white));
+		border: 1px solid rgb(var(--color-orange));
+		color: rgb(var(--color-orange));
+	}
+	.v-method-arg--wrapper .text {
+		color: rgba(var(--color-black), .7);
+	}
+
+
+.v-method-return--wrapper {
+	padding-left: 30px;	
+}
+	.v-method-return--wrapper .icon::before {
+		content: '🍩';
+		padding: 2px 7px;
+		font-size: 14px;
+		color: rgb(var(--color-crimson));
+	}
+	.v-method-return--wrapper .arg {
+		padding: 2px 4px;
+		border-radius: 3px;
+		font-weight: bold;
+		color: rgb(var(--color-orange));
+	}
+	.v-method-return--wrapper .text {
+		color: rgba(var(--color-black), .7);
+	}
+
+/*******************************************
+v-details
+*******************************************/
+.v-details {
+	--color: rgba(var(--color-violet-medium), .5);
+
+	padding: 5px;
+	border: 1px solid rgba(var(--color-brown), 4);
+	overflow: auto;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	background-color: rgba(var(--color-brown), .1);
+	cursor: pointer;
+}
+.v-details summary {
+	padding: 10px;
+	background-color: rgb(var(--color-violet-medium), .1);
+}
+.v-details summary::-webkit-details-marker {
+	margin-right: 10px;
+	color: var(--color);
+}
+.v-details summary::marker {
+	margin-right: 10px;
+	color: var(--color);
+}
+.v-details summary {
+	font-weight: 600;
+	color: var(--color);
+}
+
+/*******************************************
+v-tree
+*******************************************/
+.v-tree {
+	line-height: 27px;
+	border-left: 4px solid rgba(var(--color-sea-green-dark), .4);
+}
+.v-tree b {
+	font-weight: normal;
+	font-size: 14px;
+	padding: 2px 5px;
+	background: rgb(var(--color-white));
+	color: rgb(var(--color-sea-green-dark));
+	border-radius: 3px;
+}
+
+/*******************************************
+v-codesandbox
+*******************************************/
+.v-sandbox {
+	font-size: 14px;
+	line-height: 2.2;
+}
+.v-sandbox .item {
+	border: 1px solid rgba(var(--color-black), .4);
+	background-color: #fff;
+	color: rgba(var(--color-black), 1);
+	padding: 3px 5px;
+	border-radius: 5px;
+}
+.v-sandbox .codesandbox {
+	border: none;
+	background-color: rgba(var(--color-violet-medium), .7);
+	color: rgb(var(--color-white));
+}
+.v-sandbox .codepen {
+	border: none;
+	background-color: rgba(var(--color-green), .7);
+	color: rgb(var(--color-white));
+}
+.v-sandbox a {
+	text-decoration: none;
+	color: inherit;
+}
+
+@media screen and (max-width: 950px) {
+	.v-two-wrapper {
+		flex-direction: column;
+	}
+	.v-two-column-half {
+		width: 100%;
+	}
+}
+
+/*******************************************
+v-tabs
+*******************************************/
+.v-tabs-container {
+	display: flex;
+	height: 600px;
+	margin: 10px 0;
+	overflow: hidden;
+	border: 2px solid rgba(var(--color-sea-green-light), .2);
+	border-radius: 5px;
+	box-shadow: var(--box-shadow);
+	background-color: rgba(var(--color-sea-green-light), .02);
+}
+.v-tabs-button {
+	display: block;
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid rgb(var(--color-sea-green-light));
+	border-radius: 2px;
+	text-align: left;
+	background: rgba(var(--color-gray-10), .9);
+	cursor: pointer;
+}
+.v-tabs-hidden {
+	display: none;
+}
+.v-tabs-active {
+	background: rgba(var(--color-sea-green-light), .3);
+}
+.v-tabs-content {
+	flex-grow: 1;
+	padding: 5px;
+	overflow: auto;
+}
+.v-tabs-content pre {
+	margin: 0;
+}
+.v-tabs-tabs {
+	border-right: 2px solid rgba(var(--color-sea-green-light), .2);
+	background-color: rgba(var(--color-sea-green-light), .1);
+}
+
+/*******************************************
+v-path
+*******************************************/
+.v-path-container {
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	color: rgba(var(--color-blue-dark), 1);
+	display: flex;
+	gap: 10px;
+	font-family: Consolas;
+}
+.v-path-container .v-path-divider {
+	height: 32px;
+	width: 3px;
+	border-radius: 2px;
+	background-color: rgba(var(--color-gray-80), .5);
+}
+.v-path-container .v-path-wrapper {
+	display: flex;
+	align-items: center;
+	padding: 0 10px;
+	border-radius: var(--border-radius-small);
+	background-color: rgb(var(--color-gray-10));
+}
+
+/*******************************************
+v-tabs
+*******************************************/
+.v-tabs-container {
+	margin: 0;
+	padding: 0;
+	font-size: 15px;
+}
+.v-tabs-container {
+	font-style: normal;
+}
+
+/*******************************************
+v-link
+*******************************************/
+.v-link-icon {
+	padding-left: 10px;
+	padding-right: 5px;
+}

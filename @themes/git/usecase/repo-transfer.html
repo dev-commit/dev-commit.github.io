@@ -1,0 +1,33 @@
+<h2>Перенос репозитория</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>clone</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li>Команда используется для полной синхронизации содержимого одного удалённого репозитория с другим</li>
+    <li>Она копирует все ветки, теги и рефы из локального репозитория в указанный удалённый репозиторий, полностью заменяя его содержимое</li>
+    <li>Это создаёт "зеркальный" локальный репозиторий, который хранит все ветки и теги</li>
+</ul>
+
+<v-code lang="js" title="">
+git <u-code>clone</u-code> <em>--mirror</em> <i>UrlИсходногоРепозитория</i>
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>push</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Команда перенесёт все данные из локального зеркального репозитория в указанный удалённый репозиторий</li>
+</ul>
+
+<v-code lang="js" title="">
+git <u-code>push</u-code> <em>--mirror</em> <i>UrlНовогоРепозитория</i>
+</v-code>
+
+<h5>Варианты</h5>
+<ul class="list-point">
+    <li><u-code-text>git push --all</u-code-text> - отправляет только все ветки, но не теги, при этом, если в новом репозитории уже есть ветки, то они останутся</li>
+    <li><u-code-text>git push --tags</u-code-text> - отправляет только теги</li>
+    <li><u-code-text>git push --mirror</u-code-text> - отправляет всё (ветки, теги, рефы) и заменяет содержимое удалённого репозитория</li>
+</ul>

@@ -1,0 +1,480 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>
+  <div
+    style="
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+      background-color: #7256d1;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    "
+  >
+  </div>
+📌 Event Loop</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/event-loop/build-event-loop.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">
+  <div
+    style="
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+      background-color: #7256d1;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    "
+  >
+  </div>
+📌 Event Loop</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Event Loop</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__event-loop/main/info"
+            href="#event-loop/main/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__event-loop/main/runtime"
+            href="#event-loop/main/runtime"
+        >
+            ⭐️ Архитектура среды выполнения
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__event-loop/main/tasks"
+            href="#event-loop/main/tasks"
+        >
+            ⭐️ Виды задач
+        </a>
+    </li>
+</ul><h4>🏷️ Примеры на Event Loop</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__event-loop/samples/addEventListener"
+            href="#event-loop/samples/addEventListener"
+        >
+            <u-menu-outline>addEventListener</u-menu-outline>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__event-loop/samples/onClick"
+            href="#event-loop/samples/onClick"
+        >
+            <u-menu-outline>onClick</u-menu-outline>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__event-loop/samples/other"
+            href="#event-loop/samples/other"
+        >
+            Прочее
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="event-loop/main/info"><h2>Архитектура среды выполнения JS</h2>
+
+<h5>Видео</h5>
+<u-link-wrapper>
+    <v-link url="https://www.youtube.com/watch?v=8aGhZQkoFbQ" text="YouTube EN: Филип Робертс" list="true" />
+    <v-link url="https://www.youtube.com/watch?v=cCOL7MC4Pl0" text="YouTube EN: Джейк Арчибальд" list="true" />
+</u-link-wrapper>
+
+<h5>Статьи</h5>
+<u-link-wrapper>
+    <v-link url="https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif" text="JavaScript Visualized: Event Loop (EN)" list="true" />
+    <v-link url="https://developer.mozilla.org/ru/docs/Web/JavaScript/EventLoop" text="MDN: Параллельная модель и цикл событий" list="true" />
+    <v-link url="https://habr.com/ru/post/461401/" text="Habr: Что ты такое, Event Loop? Или как устроен цикл событий в браузере Chrome" list="true" />
+    <v-link url="https://stasonmars.ru/javascript/polnoe-ponimanie-syncronnogo-i-asyncronnogo-javascript-s-async-await/" text="Полное понимание синхронного и асинхронного JavaScript с Async/Await" list="true" />
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>JS - однопоточная среда выполнения (<u>runtime</u>). <u>Call Stack</u> один и он может делать одну вещь в единицу времени. Одна инструкция за раз</li>
+    <li>Используется очередь функций обратного вызова</li>
+    <li>Суть блокирования - когда какие то функции занимают <u>Call Stack</u></li>
+    <li>Каждая веб-страница представляет из себя основной поток (<u>Main Thread</u>)</li>
+    <li>Движок браузера выполняет JavaScript в одном потоке. Он не может поставить обработку события на паузу, переключиться на другое событие, а после возобновить выполнение первого. Все события обрабатываются последовательно и каждое до конца</li>
+    <li>В каждом окне выполняется только один главный поток, который занимается выполнением JavaScript, отрисовкой и работой с DOM. Он выполняет команды последовательно, может делать только одно дело одновременно и блокируется при выводе модальных окон, таких как alert
+    <li>В браузерах события добавляются в очередь в любое время, если событие произошло, а так же если у него есть обработчик. В случае, если обработчика нет – событие потеряно. Так, клик по элементу, имеющему обработчик события по событию click , добавит событие в очередь, а если обработчика нет – то и событие в очередь не попадет</li>
+</ul>
+</div><div id="event-loop/main/runtime"><h2>Архитектура среды выполнения JS</h2>
+
+<u-message-comment>
+На примере движка <u>V8</u> (Chrome, Node.js)
+</u-message-comment>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Движок V8</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>V8</u-text-define> - движок JavaScript с открытым исходным кодом</li>
+    <li>Входит в релиз Chromium</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Составные части</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-text-underline>Куча (Memory Heap)</u-text-underline> - место, где происходит выделение памяти</li>
+    <li><u-text-underline>Стек вызовов (Call Stack)</u-text-underline> - место, куда в процессе выполнения кода попадают так называемые стековые кадры</li>
+</ul>
+
+
+<v-two><template v-slot:first>
+    <!------------------------------------------------------------->
+    <h4>1. Heap</h4>
+    <!------------------------------------------------------------->
+    <ul class="list-point">
+        <li><u-text-define>Heap (куча)</u-text-define> - структура данных, с помощью которой реализована динамически распределяемая память приложения</li>
+        <li>Куча - ссылка на определённую неструктурированную область памяти</li>
+        <li>Содержит объекты, на которые ссылаются переменные программы</li>
+        <li>memory allocation</li>
+    </ul>
+
+    <!------------------------------------------------------------->
+    <h4>2. Call Stack</h4>
+    <!------------------------------------------------------------->
+    <ul class="list-point">
+        <li><u-text-define>Call Stack</u-text-define> - <u>стек вызовов</u> LIFO структура (последний вошедший выходит первым)</li> 
+        <li>В стек помещаются и удаляются аргументы, локальные переменные функций по мере выполнения программы. Синхронные функции помещаются в стек вызова сразу. Асинхронные откладываются в специальную таблицу - <u>Event Table</u>, где ожидают дальнейшей обработки, чтобы не блокировать процесс выполнения программы. Видно какая функция какую вызвала (<u>execution context</u>)</li>
+        <li>Стек вызовов - это структура данных, которая, записывает сведения о месте в программе, где мы находимся. Если мы переходим в функцию, мы помещаем запись о ней в верхнюю часть стека. Когда мы из функции возвращаемся, мы вытаскиваем из стека самый верхний элемент и оказываемся там, откуда вызывали эту функцию. Каждая запись в стеке вызовов называется стековым кадром</li>
+        <li>Если будет достигнут максимальный размер стека (16 000), возникнет переполнение стека</li>
+    </ul>
+
+    <!------------------------------------------------------------->
+    <h4>3. Web API</h4>
+    <!------------------------------------------------------------->
+    <ul class="list-point">
+        <li><u-text-define>Web API</u-text-define> - <u>расширения браузера</u></li>
+        <li>Event Table и Event Queue являются частью Web API, который реализуют браузеры для того, чтобы использовать такие возможности, как асинхронные запросы, таймеры, обрабатывать DOM события и другое асинхронное поведение. Это не является стандартным функционалом JavaScript и в различных средах данное API может быть реализовано по разному</li>
+        <li>Web API - это потоки, к которым у нас нет прямого доступа, мы можем лишь выполнять обращения к ним. Они встроены в браузер, где и выполняются асинхронные действия</li>
+    </ul>
+
+    <hr>
+
+    <ul class="list-point">
+        <li><u-text-define>3.1 Event Table</u-text-define> - <u>таблица</u> в которой находится информация о том, по какому событию необходимо поместить функцию в <u>Event Queue</u> (очередь событий)</li>
+        <li><u-text-define>3.2 Callback/Event/Task Queue</u-text-define> - <u>очередь задач/событий</u> - FIFO структура (раньше выходят элементы, которые раньше были помещены). В ней находятся асинхронные функции, для которых наступило время запуска</li>
+        <li><u-text-define>3.3 Job Queue (ES6)</u-text-define> - <u>очередь заданий (микротаски)</u> Эта конструкцию можно считать слоем, расположенном поверх очереди цикла событий. Очередь заданий — это очередь, которая присоединена к концу каждого тика в очереди цикла событий</li>
+    </ul>
+
+    <!------------------------------------------------------------->
+    <h4>4. Event Loop</h4>
+    <!------------------------------------------------------------->
+    <ul class="list-point">
+        <li><u-text-define>Event Loop</u-text-define> - <u>цикл/петля событий</u> - наблюдает за стеком вызовов и очередью коллбэков (callback queue). Если стек вызовов пуст, цикл берёт первое событие из очереди и помещает его в стек, что приводит к запуску этого события на выполнение. Подобная итерация называется тиком (tick) цикла событий. Каждое событие - это просто коллбэк</li>
+        <li>Позволяет запланировать выполнение асинхронного кода сразу после выполнения синхронного кода</li>
+    </ul>
+</template><template v-slot:last>
+    <h4>Общая структура</h4>
+    <img src="/@img/js/event-loop/event-loop1.png" width="500px">
+    
+    <h4>Виды очередей</h4>
+    <img src="/@img/js/event-loop/event-loop3.png" width="500px">
+    
+    <h4>Анимация работы</h4>
+    <img src="/@img/js/event-loop/event-loop-animation.gif" width="500px">
+</template></v-two>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Краеугольные камни движка V8</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Компиляция исходного кода JavaScript непосредственно в собственный машинный код, минуя стадию промежуточного байт-кода</li>
+    <li>Эффективная система управления памятью, приводящая к быстрому объектному выделению и маленьким паузам сборки «мусора»</li>
+    <li>Введение скрытых классов и встроенных кэшей, ускоряющих доступ к свойствам и вызовам функций</li>
+</ul>
+</div><div id="event-loop/main/tasks"><h2>Виды задач</h2>
+
+<v-two><template v-slot:first>
+    <!------------------------------------------------------------->
+    <h4>1. Microtasks</h4>
+    <!------------------------------------------------------------->
+    <u-message-comment>Очередь микрозадач / задания "jobs" <u-text-underline>(выполняются все)</u-text-underline></u-message-comment>
+
+    <ul class="list-point">
+        Микрозадачи исполняются по порядку:
+        <li>Каждый раз после таски</li>
+        <li>Каждый раз когда пустеет стек</li>
+        <li>Могут выполняться посередине таска, если очистился стек</li>
+        <li>Рекурсивный вызов блокирует Event Loop</li>
+        <li><u-code>Promise.then</u-code> - микротаск <u-code>then</u-code>. <u-code>Promise.then.then</u-code> - 2 микротаска</li>
+        <li>Сначала выполняется <u>microtasks</u>, затем <u>tasks</u></li>
+        <hr>
+        <li>Если что-то выполняется, то выполняется 1 раз</li>
+        <li>Затем происходит цикл рендеринга</li>
+        <li>Если появляется что-то еще, оно планируется</li>
+        <hr>
+        <li>
+            <u-code-accent>Promises</u-code-accent>
+            <u-code-accent>process.nextTick</u-code-accent>
+            <u-code-accent>Object.observe</u-code-accent>
+            <u-code-accent>Mutation Observer</u-code-accent>
+        </li>
+    </ul>
+
+    <!------------------------------------------------------------->
+    <h4>2. Render Tasks (Animation Callbacks)</h4>
+    <!------------------------------------------------------------->
+    <ul class="list-point">
+        <li>Задачи от Render оптимизируются браузером и, если он посчитает, что в этом цикле не нужно ничего перерисовывать, то Event Loop просто пойдет дальше</li>
+        <hr>
+        <li>Вся запланированная очередь выполняется разом</li>
+        <li>Все остальное планируется на следующий раз и добавляется сверху на следующий фрейм</li>
+        <hr>
+        <li>
+            <u-code-accent>requestAnimationFrame</u-code-accent>
+            <u-code-accent>Style Recalculate</u-code-accent>
+            <u-code-accent>Layout</u-code-accent>
+            <u-code-accent>Paint</u-code-accent>
+            <u-code-accent>I/O</u-code-accent>
+            <u-code-accent>Рендеринг пользовательского интерфейса</u-code-accent>
+        </li>
+    </ul>
+
+    <!------------------------------------------------------------->
+    <h4>3. Macrotask (Tasks)</h4>
+    <!------------------------------------------------------------->
+    <u-message-comment>Очередь задач <u-text-underline>(выполняются по одной)</u-text-underline></u-message-comment>
+
+    <ul class="list-point">
+        <li>Выполняют всё по очереди, даже если есть что-то, что добавлено было сверху</li>
+        <li>Браузер может рендерить в промежутках между ними</li>
+        <li>Если скорость обработки равна скорости их добавления, то это бесконечный цикл и Event Loop ничего не может сделать, пока не закончатся микротаски</li>
+        <li>Поэтому микротаски блокируют рендеринг</li>
+        <hr>
+        <li>
+            <u-code-accent>setTimeout</u-code-accent>
+            <u-code-accent>setInterval</u-code-accent>
+            <u-code-accent>setImmediate</u-code-accent>
+            <u-code-accent>AJAX</u-code-accent>
+        </li>
+    </ul>
+</template><template v-slot:last>
+    <img src="/@img/js/event-loop/event-loop4.png" height="400px">
+</template></v-two>
+</div><div id="event-loop/samples/addEventListener"><h2>addEventListener</h2>
+
+<v-code lang="js" title="">
+button.addEventListener('click', () => {
+    Promise.resolve().then(() => console.log('Microtask 1'));
+    console.log('Listener 1');
+});
+
+button.addEventListener('click', () => {
+    Promise.resolve().then(() => console.log('Microtask 2'));
+    console.log('Listener 2');
+});
+
+// => "Listener 1", "Listener 2", "Microtask 1", "Microtask 2"
+// button.click();
+
+// => "Listener 1", "Microtask 1", "Listener 2", "Microtask 2"
+// Клик по кнопке
+</v-code>
+
+<i>1. Клик по кнопке</i>
+<ol class="list-num">
+    <li>Первый обработчик отправляется в стек</li>
+    <li>Планируется микротаск</li>
+    <li>Выполняется console.log ('Listener 1')</li>
+    <li>Обработчик #1 заканчивает своё выполнение и уходит из стека</li>
+    <li>thВыполняется микротаск ('Microtask 1')is</li>
+    <li>Второй обработчик срабатывает аналогично</li>
+</ol>
+
+<i>2. Программный клик по кнопке</i>
+<ol class="list-num">
+    <li>В стек помещается весь скрипт</li>
+    <li>Скрипт запускает первый обработчик клика, который помещается в стек</li>
+    <li>Планируется микротаск</li>
+    <li>Выполняется console.log ('Listener 1')</li>
+    <li>Мы не можем выполнить микротаск, потому что стек не пуст, выполнение кода button.click(); еще не завершилось</li>
+    <li>Переходим ко второму обработчику клика</li>
+    <li>Выполняется console.log ('Listener 2')</li>
+    <li>Скрипт заканчивается</li>
+    <li>Выполняются колбэки промисов ('Microtask 1', 'Microtask 2')</li>
+</ol>
+</div><div id="event-loop/samples/onClick"><h2>onClick</h2>
+
+<v-code lang="html" title="">
+&lt;button id="root"&gt;start test&lt;/button&gt;
+</v-code>
+
+<v-code lang="js" title="">
+document.getElementById('root').addEventListener('click', onClick);
+
+function onClick() {
+	console.log('START');
+	setTimeout(() => console.log('TIMEOUT'), 0);
+	doHardWork();
+	Promise.resolve().then(() => console.log('RESOLVE'))
+	console.log('END');
+}
+
+// Имитируем тяжелые вычисления длительностью несколько секунд
+function doHardWork() {
+	for (let i = 0; i < 50000000; i++) {
+		let number = Math.pow(number, i);
+	}
+}
+</v-code>
+
+<v-code lang="js" title="">
+// 1. Нажали 3 раза на кнопку
+// => START, END, RESOLVE
+// => START, END, RESOLVE
+// => START, END, RESOLVE
+// => TIMEOUT, TIMEOUT, TIMEOUT
+</v-code>
+
+<ul class="list-point">
+    <li>onclick - асинхронная макротаска</li>
+    <li>3 раза кликнул, в очередь добавилось 3 onclick и они начинают по очереди входить в Call Stack</li>
+    <li>setTimeout попадают в конец очереди</li>
+</ul>
+
+<v-code lang="js" title="">
+// 2. В коде прописали 3 раза onClick()
+onClick();
+onClick();
+onClick();
+
+// => START, END
+// => START, END
+// => START, END
+// => RESOLVE, RESOLVE, RESOLVE
+// => TIMEOUT, TIMEOUT, TIMEOUT
+</v-code>
+
+<ul class="list-point">
+    <li>onClick() вызывается синхронно</li>
+</ul>
+</div><div id="event-loop/samples/other"><h2>Примеры</h2>
+
+<v-code lang="js" title="">
+// queue.waitForMessage ожидает события если очередь пуста
+while(queue.waitForMessage()){ 
+    queue.processNextMessage(); 
+}
+</v-code>
+
+<v-code lang="js" title="">
+// Рекурсивный вызов микротаска повесит программу
+function startMicrotask() {
+    return Promise.resolve().then(startMicrotask);
+}
+</v-code>
+
+<v-two><template v-slot:first>
+    <v-code lang="js" title="">
+console.log('Hi');
+setTimeout(function cb1() { 
+    console.log('cb1');
+}, 5000);
+console.log('Bye');
+</v-code>
+</template><template v-slot:last>
+<img src="/@img/js/event-loop/event-loop2.gif" height="300px" class="center">
+</template></v-two>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

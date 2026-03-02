@@ -1,0 +1,146 @@
+<h2>Custom Edge</h2>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Элементы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>&lt;BaseEdge&gt;</u-text-define> - линия. Можно передать <u>markerEnd</u></li>
+    <li><u-text-define>&lt;EdgeLabelRenderer&gt;</u-text-define> - кастомные элементов на линии</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Тип линии</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>ConnectionLineType</h4>
+<!------------------------------------------------------------->
+<u-message-warn>
+Неизвестно что указать для "step". Нет "getStepPath"
+</u-message-warn>
+
+<v-code lang="js none" title="">
+export declare enum ConnectionLineType {
+  Bezier = "default",           // => getBezierPath
+  Straight = "straight",        // => getStraightPath
+  Step = "step",                // => 
+  SmoothStep = "smoothstep",    // => getSmoothStepPath
+  SimpleBezier = "simplebezier" // => getSimpleBezierPath
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Указание типа линии</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+import {
+  getBezierPath
+  getSimpleBezierPath
+  getSmoothStepPath
+  getStraightPath
+} from "reactflow"
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-tabs :tabs="['CustomEdge.tsx', 'App.tsx', 'initialState.ts']">
+<template v-slot:1>
+<v-code lang="ts" title="">
+import { BaseEdge, EdgeLabelRenderer, getStraightPath } from "reactflow"
+
+interface IEdgeLabelProps {
+  id: string
+  sourceX: number
+  sourceY: number
+  targetX: number
+  targetY: number
+  source: string
+  target: string
+  markerEnd?: string
+}
+
+const CustomEdge: React.FC&lt;ICustomEdgeProps&gt; = (props) => {
+  const {
+    id,
+    sourceX,
+    sourceY,
+    targetX,
+    targetY,
+    // source: nodeSource,
+    // target: nodeTarget,
+    markerEnd,
+  } = props
+
+  const [edgePath] = getStraightPath({ sourceX, sourceY, targetX, targetY });
+
+  const styleCenter = {
+    transform: `translate(-50%, -50%) translate(${labelX}px,${labelY}px)`
+  }
+  const onClick = () => {}
+
+  return (
+    &lt;&gt;
+      &lt;<u-code-accent>BaseEdge</u-code-accent> id={id} path={edgePath} markerEnd={markerEnd} /&gt;
+      &lt;<u-code-accent>EdgeLabelRenderer</u-code-accent>&gt;
+        &lt;button
+          style={styleCenter}
+          className={cn("nodrag", "nopan")}
+          onClick={onClick}
+        /&gt;
+      &lt;/EdgeLabelRenderer&gt;
+    &lt;/&gt;
+  )
+}
+
+export default CustomEdge
+</v-code>
+</template>
+
+<template v-slot:2>
+<v-code lang="js" title="">
+import CustomEdge from "./CustomEdge"
+
+const edgeTypes: EdgeTypes = {
+  'custom-edge': CustomEdge,
+}
+
+const edgeOptions = {
+  // type: 'step',
+  type: 'custom-edge',
+  markerEnd: {
+    type: MarkerType.ArrowClosed,
+    width: 25,
+    height: 25,
+    color: "#FF0072",
+  },
+}
+
+const App  = () => {
+  return (
+    &lt;ReactFlow
+      edgeTypes={edgeTypes}
+      defaultEdgeOptions={edgeOptions}
+    /&gt;
+  )
+}
+</v-code>
+</template>
+
+<template v-slot:3>
+<v-code lang="js" title="">
+export const initialEdges = [
+  {
+    id: "edge-1",
+    source: "node-1",
+    target: "node-2",
+    type: 'custom-edge',
+  },
+]
+</v-code>
+</template>
+</v-tabs>
+

@@ -1,0 +1,51 @@
+<h2>Декораторы</h2>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Информация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li><u-text-define>Декораторы</u-text-define> - являются инструментом декларативного программирования, они позволяют добавить к классам и их членам метаданные и тем самым изменить их поведение без изменения их кода</li>
+    <li>Декораторы представляют функции</li>
+    <li>Декораторы используют форму <u>@expression</u>, т.е. при использовании ставится символ <u>@</u> перед именем декоратора. Хотя по сути expression может быть любая функция. Эта функция будет вызвана в процессе выполнения программы, причем вызывающий код добавит аргументы с информацией о том объекте, который был задекорирован.</li>
+    <li>Важно, что декоратор - это лишь функция. При использовании, среда исполнения сначала вызовет функцию-декоратор, и только потом будет выполнен основной сценарий объекта (если код декоратора содержит этот вызов). При наличии нескольких декораторов, они будет вызваны по очереди, сверху вниз.</li>
+    <li>Декоратор для функции, свойства или параметра функции можно применить только внутри некоего класса. В настоящее время компилятор Typescript не позволит применить декоратор для функции, которая написана вне класса.</li>
+</ul>
+
+<b>К каким элементам можно добавить декораторы:</b>
+
+<ul class="list-point">
+    <li>Классы</li>
+    <li>Методы</li>
+    <li>Методы доступа (Геттеры и Сеттеры)</li>
+    <li>Свойства</li>
+    <li>Параметры</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка и настройка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Декораторы являются экпериментальной функциональностью языка TypeScript (на 2021 год), поэтому при компиляции следует указывать параметр <u>experimentalDecorators</u> в файле <u>tsconfig.json</u></li>
+</ul>
+
+<v-code lang="json none" title="">
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "<u-code>experimentalDecorators</u-code>": true,
+    "target": "es2017",
+  },
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+

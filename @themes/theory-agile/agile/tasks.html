@@ -1,0 +1,46 @@
+<!-- TODO:
+<f-search>Agile -> Backlog</f-search>
+<f-search>Agile -> Уровни задач</f-search>
+<f-search>Agile -> Tasks Workflow (Жизненный цикл задачи)</f-search>
+-->
+
+<h2>Задачи</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Backlog</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+  <li><u-text-define>Backlog</u-text-define> - приоритезированный список задач, куда записываются пожелания заказчика. Создают Scrum Master и Product Owner</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Уровни задач</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+  <li><u>Эпик</u> - большая часть функционала которая может быть завершена в рамках разработки (н-р: разработка личного кабинета пользователя). Эпики делятся на Сторисы</li>
+  <li><u>Стори/Сторисы</u> - более мелкая часть функционала которая еще не может случить для задач разработки (н-р: кабинет пользователя может состоять из функционала по авторизации, по рассылке уведомлений и т.д.). Сторис отвечает на вопрос "Я как пользователь хочу ... (н-р: иметь возможность делать посты)"</li>
+  <li><u>Таски/Задачи</u> - идут к разработчикам</li>
+  <li><u>Сабтаски</u> - подзадачи, идут к разработчикам</li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Жизненный цикл (workflow) задачи</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="bash none" title="">
+› <u-menu>OPEN</u-menu>                     # PM создал задачу
+› <u-menu>BACKLOG</u-menu>                  # Задача без оценки
+› <u-menu>TODO</u-menu>                     # Задача назначена на разработчика
+› <u-menu>IN PROGRESS</u-menu>              # Начало работы над задачей
+› <u-menu>BLOCKED</u-menu>                  # Блокер для задачи
+› <u-menu>REVIEW</u-menu>                   # Завершена, на ревью
+› <u-menu>READY FOR QA</u-menu>             # После ревью и merge в develop
+› <u-menu>IN QA / TESTING</u-menu>          # На тестировании
+› <u-menu>REJECTED</u-menu>                 # От тестировщика в случае нахождения багов
+› <u-menu>IN DEV</u-menu>                   # На DEV-стенде
+› <u-menu>READY FOR STAGE</u-menu>          # Готова к заливке на stage-стенд
+› <u-menu>ON STAGE</u-menu>                 # На STAGE-стенде
+› <u-menu>PENDING RELEASE</u-menu>          # Готова к релизу
+› <u-menu>DONE / CLOSED / RESOLVED</u-menu> # Закрыта
+› <u-menu>REOPENED</u-menu>                 # PM заново открыл задачу
+</v-code>

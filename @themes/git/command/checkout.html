@@ -1,0 +1,43 @@
+<div class="v-method-wrapper">
+    <v-method before="git " method="checkout" after="" arg="">
+    Переключение на ветку
+    </v-method>
+</div>
+
+<v-code lang="bash border" title="">
+git <u-code>checkout</u-code> <em>features</em>             # переключение на ветку "features"
+git <u-code>checkout -b</u-code> <em>features</em>          # создание новой ветки "features" и переключение на нее
+git <u-code>checkout -b</u-code> <em>bug/3-a</em> <em>origin/bug/3-a</em>
+</v-code>
+
+<v-code lang="bash" title="">
+# Откатить изменения в файле на момент последнего коммита
+git <u-code>checkout</u-code> <em>FileName</em>
+
+# Откатить изменения в файле на момент заданного коммита
+git <u-code>checkout</u-code> <em>HashCommit</em>
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Опции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-text>-b &lt;new_branch&gt;</u-code-text> - Create a new branch named &lt;new_branch&gt; and start it at &lt;start_point&gt;; see git-branch[1] for details</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Опция <u-code-text>--orphan</u-code-text></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="bash" title="">
+# Создание новой ветики без родительского коммита
+# При этом все файлы из рабочей директории будут на месте
+git <u-code>checkout --orphan</u-code> <em>features</em>
+
+# Создание новой пустой ветки
+git <u-code>checkout --orphan</u-code> <em>features</em> && git <u-code>reset --hard</u-code>
+
+# Создание новой ветики с определенного коммита
+# При этом будет создана новая ветка без родительского коммита и в индексе Git будут находится
+# все файлы из выбраного целевого коммита
+git <u-code>checkout --orphan</u-code> <em>features</em> <em>TARGET_REFERENCE</em>
+</v-code>

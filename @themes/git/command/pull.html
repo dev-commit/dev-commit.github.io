@@ -1,0 +1,44 @@
+<div class="v-method-wrapper">
+    <v-method before="git " method="pull" after="" arg="">
+    Добавление новых файлов из Working Directory в систему контроля версий (в индекс Staging Area для последующего коммита). Индексирование файлов. Сборка слепка коммита. Получить изменения из удаленного git-репозитория в локальный репозиторий
+    </v-method>
+</div>
+
+<v-code lang="bash" title="">
+git <u-code>pull</u-code> origin         # замерджить все ветки с удаленного репозитория
+git <u-code>pull</u-code> origin <em>master</em>  # замержить ветку master
+git <u-code>pull</u-code> origin HEAD    # замерджить текущую ветку
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты pull</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<u-message-ok>
+    <ul>
+        <u>git pull</u> состоит из:
+        <li><em>git fetch</em> - стягивает изменения, но не применят их</li>
+        <li><em>git merge</em> - применяет изменения в текущую ветку. Мёржим из <u>origin/develop</u> в свой локальный <u>develop</u></li>
+    </ul>
+</u-message-ok>
+
+<!------------------------------------------------------------->
+<h4>Через merge (по умолчанию)</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+git <u-code>pull</u-code> origin
+# или
+git <u-code>fetch</u-code> origin
+git <u-code>merge</u-code> origin/master
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Через rebase</h4>
+<!------------------------------------------------------------->
+<v-code lang="bash" title="">
+git <u-code>pull</u-code> --rebase origin master
+# или
+git <u-code>fetch</u-code> origin
+git <u-code>rebase</u-code> origin/master
+</v-code>

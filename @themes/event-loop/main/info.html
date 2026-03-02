@@ -1,0 +1,28 @@
+<h2>Архитектура среды выполнения JS</h2>
+
+<h5>Видео</h5>
+<u-link-wrapper>
+    <v-link url="https://www.youtube.com/watch?v=8aGhZQkoFbQ" text="YouTube EN: Филип Робертс" list="true" />
+    <v-link url="https://www.youtube.com/watch?v=cCOL7MC4Pl0" text="YouTube EN: Джейк Арчибальд" list="true" />
+</u-link-wrapper>
+
+<h5>Статьи</h5>
+<u-link-wrapper>
+    <v-link url="https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif" text="JavaScript Visualized: Event Loop (EN)" list="true" />
+    <v-link url="https://developer.mozilla.org/ru/docs/Web/JavaScript/EventLoop" text="MDN: Параллельная модель и цикл событий" list="true" />
+    <v-link url="https://habr.com/ru/post/461401/" text="Habr: Что ты такое, Event Loop? Или как устроен цикл событий в браузере Chrome" list="true" />
+    <v-link url="https://stasonmars.ru/javascript/polnoe-ponimanie-syncronnogo-i-asyncronnogo-javascript-s-async-await/" text="Полное понимание синхронного и асинхронного JavaScript с Async/Await" list="true" />
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>JS - однопоточная среда выполнения (<u>runtime</u>). <u>Call Stack</u> один и он может делать одну вещь в единицу времени. Одна инструкция за раз</li>
+    <li>Используется очередь функций обратного вызова</li>
+    <li>Суть блокирования - когда какие то функции занимают <u>Call Stack</u></li>
+    <li>Каждая веб-страница представляет из себя основной поток (<u>Main Thread</u>)</li>
+    <li>Движок браузера выполняет JavaScript в одном потоке. Он не может поставить обработку события на паузу, переключиться на другое событие, а после возобновить выполнение первого. Все события обрабатываются последовательно и каждое до конца</li>
+    <li>В каждом окне выполняется только один главный поток, который занимается выполнением JavaScript, отрисовкой и работой с DOM. Он выполняет команды последовательно, может делать только одно дело одновременно и блокируется при выводе модальных окон, таких как alert
+    <li>В браузерах события добавляются в очередь в любое время, если событие произошло, а так же если у него есть обработчик. В случае, если обработчика нет – событие потеряно. Так, клик по элементу, имеющему обработчик события по событию click , добавит событие в очередь, а если обработчика нет – то и событие в очередь не попадет</li>
+</ul>

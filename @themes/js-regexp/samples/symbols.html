@@ -1,0 +1,53 @@
+<h2>Символы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Цифры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p class="consolas">› "23"</p>
+<v-code lang="bash none" title="">
+🟢 <mark>/[\d]/</mark>      # все цифры в диапазоне 0-9
+🟠 <mark>/[\D]/</mark>      # символы кроме цифр в диапазоне 0-9
+🟢 <mark>/[0-4]/</mark>     # цифры в диапазоне 0-4
+🟠 <mark>/[^0-4]/</mark>    # символы кроме цифр в диапазоне 0-4
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Символы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p class="consolas">› "Hello, Tony!"</p>
+<v-code lang="bash none" title="">
+🟢 <mark>/[\s]/</mark>   # пустые символы (пробелы, табуляция, перенос строк)
+🟢 <mark>/[\S]/</mark>   # все не пустые символы
+🟢 <mark>/[,]/</mark>    # символ запятая ","
+🟠 <mark>/[.]/</mark>    # символ точка "."
+🟢 <mark>/[\w]/</mark>   # символы, являющиеся буквами или цифрами
+🟢 <mark>/[\W]/</mark>   # символы, НЕ являющиеся буквами или цифрами
+</v-code>
+
+<v-code lang="bash none" title="">
+🟢 <mark>/./</mark>      # любой символ кроме переноса строк
+🟠 <mark>/\./</mark>     # символ "." (экранирование)
+🟠 <mark>/[.]/</mark>    # символ "." (символьный класс)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Буквы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p class="consolas">› "Привет. You have 23 likes"</p>
+
+<v-code lang="bash none" title="">
+🟢 <mark>/[a-zA-Z]/</mark>  # любая EN буква в любом регистре
+🟢 <mark>/[а-яА-Я]/</mark>  # любая RU буква в любом регистре
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Комбинации</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<p class="consolas">› "Привет. You have 23 likes"</p>
+
+<v-code lang="bash none" title="">
+🟢 <mark>/[a-zA-Zа-яА-Я]/</mark>        # любая RU / EN буква
+🟢 <mark>/[a-zA-Z]/g</mark>             # любая EN буква - глобальный поиск
+🟢 <mark>/[a-zA-Z.,]/</mark>            # любая EN буква / символ "," / символ "."
+🟢 <mark>/[a-zA-Zа-яА-Я.,-\d\s]/</mark> # любая EN/RU буква, символы '.,-', цифры 0-9, пустые символы
+</v-code>

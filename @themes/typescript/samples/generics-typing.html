@@ -1,0 +1,18 @@
+<h2>Типизация через Дженерики</h2>
+
+<ul class="list-point">
+    <li>Задача: Типизировать функцию customMap</li>
+</ul>
+
+<v-code lang="js" title="">
+function customMap&lt;T, Z&gt;(arr: T[], callback: (item: T, index?: number) => Z): Z[] {
+	return arr.map(callback);
+}
+
+console.log(
+	customMap([1, 2, 3, 4], (item) => {
+		// Тип возвращаемого значения неизвестен
+		return item + "3";
+	});
+)
+</v-code>

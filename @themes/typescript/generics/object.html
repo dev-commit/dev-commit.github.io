@@ -1,0 +1,40 @@
+<h2>Дженерик для объекта</h2>
+
+<!------------------------------------------------------------->
+<h4>Использование <em>interface</em></h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+interface Admin&lt;S&gt; {
+    role: string;
+    user: S;
+}
+
+interface Person {
+    name: string;
+}
+
+const user: Admin&lt;Person&gt; = {
+    role: 'admin',
+    user: {
+        name: 'Jack'
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование простого типа данных</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+interface Admin&lt;S&gt; {
+    role: string;
+    user: S;
+}
+
+const user: Admin&lt;string&gt; = {
+    role: 'admin',
+    user: 'Jack'
+}
+</v-code>
+
+
+

@@ -1,0 +1,13 @@
+<h2>Задание свойств объекта</h2>
+
+<v-code lang="js" title="">
+const text = 'Some text';
+function getId() {
+	return 7;
+}
+let obj = {
+	text,
+	['prop_' + getId()]: 'some prop'
+}
+console.log(obj); // Object {text: 'Some text', prop_7: 'Some prop'}
+</v-code>

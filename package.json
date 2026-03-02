@@ -1,22 +1,20 @@
 {
-  "name": "workbook",
-  "version": "0.0.1",
-  "type": "module",
-  "scripts": {
-    "dev": "vitepress dev docs",
-    "build": "vitepress build docs",
-    "typecheck": "tsc --noEmit",
-    "preview": "vitepress preview docs",
-    "build-gh-pages": "gh-pages -d docs/.vitepress/dist",
-    "commit": "git add . && git commit -m \"Bash Script Commit\" && git push origin head",
-    "deploy": "npm run build && npm run build-gh-pages && npm run commit"
-  },
-  "devDependencies": {
-    "@types/node": "^22.10.1",
-    "gh-pages": "^6.1.1",
-    "typescript": "^5.7.2",
-    "vitepress": "^1.6.0",
-    "vue": "^3.4.0",
-    "vue-router": "^5.0.3"
-  }
+    "name": "app",
+    "version": "0.1.0",
+    "type": "module",
+    "scripts": {
+        "build-onepage": "node ./src/node.js/script-build-onepage.js",
+        "build-pages": "node ./src/node.js/script-build-pages.js",
+        "build-index": "node ./src/node.js/script-build-index.js",
+        "build-search": "node ./src/node.js/script-search.js",
+        "build": "npm run build-onepage && npm run build-pages && npm run build-index && npm run build-search",
+        "commit": "git add . && git commit -m \"Bash Script Commit\" && git push origin head",
+        "deploy": "npm run build && npm run commit",
+        "server": "http-server --port 1001"
+    },
+    "dependencies": {
+        "esm": "^3.2.25",
+        "node-eval": "^2.0.0",
+        "rimraf": "^3.0.2"
+    }
 }

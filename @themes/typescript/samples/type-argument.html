@@ -1,0 +1,40 @@
+<h2>Тип принимает агрумент</h2>
+
+<i>AllowedValues строка</i>
+<v-code lang="js" title="">
+// Объект с ключом "name" и разрешенными значениями "T"
+type FieldType&lt;T = string&gt; = {
+	name: T;
+};
+
+// Разрешенные значения для ключа "name"
+type AllowedValues = 'name' | 'age' | 'count';
+
+// Массив объектов
+type MyFields = FieldType&lt;AllowedValues&gt;[];
+
+// Результат: массив объетов с разрешенными значениями
+const fields: MyFields = [
+	{ name: 'name' },
+	{ name: 'age' },
+	// { name: 'date' }, // error
+];
+</v-code>
+
+<i>AllowedValues объект</i>
+<v-code lang="js" title="">
+type AllowedValues = {
+	id: string;
+	name?: string;
+};
+
+const fields: MyFields = [
+	{
+		name: {
+			id: '1',
+			name: 'Jack'
+		}
+	},
+];
+</v-code>
+
