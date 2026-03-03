@@ -25,10 +25,6 @@ ARR_MODULE = [
     themes: [
       [root + "tags/iframe", setTheme(1, ["&lt;iframe&gt;"])],
       [
-        root + "tags/details",
-        setTheme(1, ["&lt;details&gt;", "&lt;summary&gt;"]),
-      ],
-      [
         root + "tags/datalist",
         setTheme(1, ["&lt;datalist&gt;", "&lt;option&gt;"]),
       ],
