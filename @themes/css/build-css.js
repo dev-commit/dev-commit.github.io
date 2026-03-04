@@ -4,12 +4,7 @@ ARR_MODULE = [
   {
     title: "Основное",
     themes: [
-      [root + "main/selectors", emoji.star + "Селекторы"],
       [root + "main/priority-styles", emoji.star + "Приоритетность стилей"],
-      [
-        root + "main/selector-specificity",
-        emoji.star + "Специфичность селекторов",
-      ],
       [root + "main/custom-properties", "Custom Properties"],
     ],
   },
