@@ -70,16 +70,6 @@ HTML</a>
     <li>
         <a
             class="menu-link"
-            id="id__html/main/semantics"
-            href="#html/main/semantics"
-        >
-            📑 Семантика
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
             id="id__html/main/content-model"
             href="#html/main/content-model"
         >
@@ -146,46 +136,6 @@ HTML</a>
             ⚡️ Таблицы
         </a>
     </li>
-</ul><h4>🏷️ Атрибуты</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__html/attr/tabindex"
-            href="#html/attr/tabindex"
-        >
-            <u-menu>tabindex</u-menu>
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__html/attr/aria-label"
-            href="#html/attr/aria-label"
-        >
-            <u-menu>aria-label</u-menu>
-        </a>
-    </li>
-</ul><h4>🏷️ Прочее</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__html/other/yandex-map"
-            href="#html/other/yandex-map"
-        >
-            Яндекс Карты
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__html/other/samples"
-            href="#html/other/samples"
-        >
-            Примеры
-        </a>
-    </li>
 </ul>
                 </div>
 
@@ -237,40 +187,13 @@ HTML</a>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Общее</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="html" title="">
-&amp;nbsp;                             <u-code-comment># пробел</u-code-comment>
-&lt;link rel="import"&gt;                <u-code-comment># аналог script, но для подключения полноценных документов</u-code-comment>
-&lt;h1 contenteditable&gt;Text edit&lt;/h1&gt; <u-code-comment># редактирование контента</u-code-comment>
-&lt;a href="/"&gt;На главную&lt;/a&gt;         <u-code-comment># путь ссылки</u-code-comment>
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Валидация</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <ul class="list-point">
-    <li>Ligthhouse</li>
-		<li><v-link url="http://yoksel.github.io/html-tree/" text="CSS Tree" /></li>
-    <li>Validator</li>
+		<li>&amp;nbsp; - символ пробела</li>
 </ul>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <h3>Шаблон</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="html" title="">
-&lt;html&gt;
-	::before
-	&lt;head&gt;
-		::before
-		::after
-	&lt;/head&gt;
-	&lt;body&gt;
-		::before
-		::after
-	&lt;/body&gt;
-	::after
-&lt;/html&gt;
-</v-code>
-
 <v-code lang="html" title="">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -289,32 +212,6 @@ HTML</a>
 &lt;/body&gt;
 &lt;/html&gt;
 </v-code>
-
-<ul class="list-point">
-    <li><u-code-text>type="text/css"</u-code-text> и <u-code-text>type="text/javascript"</u-code-text> указываются по умолчанию</li>
-</ul>
-</div><div id="html/main/semantics"><h2>Семантика</h2>
-
-<ul class="list-point">
-    <li><u-text-define>Семантическая верстка</u-text-define> - подбор тегов в соответствии со спецификацией</li>
-</ul>
-
-<ul class="list-point">
-	<b>Разметка</b>
-    <li><u-code-list>&lt;section/&gt;</u-code-list> - смысловой раздел документа. Неотделяемый, в отличие от &lt;article/&gt;</li>
-    <li><u-code-list>&lt;article/&gt;</u-code-list> - независимая, отделяемая смысловая единица, например комментарий, твит, статья</li>
-    <li><u-code-list>&lt;aside/&gt;</u-code-list> - второстепенный контент</li>
-
-	<b>Теги</b>
-    <li><u-code-list>&lt;strong/&gt;</u-code-list> - нечто важное</li>
-    <li><u-code-list>&lt;b/&gt;</u-code-list> - выделение текста для привлечения внимания, без придания важности</li>
-    <li><u-code-list>&lt;li/&gt;</u-code-list> - однородные элементы</li>
-    <li><u-code-list>&lt;p/&gt;</u-code-list> - группировка фразовых элементов</li>
-	
-	<b>Изображения</b>
-    <li><u-code-list>&lt;img/&gt;</u-code-list> - содержательные изображения</li>
-    <li><u-code-list>&lt;div/&gt; -> css:background-image</u-code-list> - фоновые изображения</li>
-</ul>
 </div><div id="html/main/content-model"><h2>HTML Content Model</h2>
 
 <ul class="list-point">
@@ -595,60 +492,6 @@ https://www.youtube.com/embed/w4C-qfaEt7Y?autoplay=1
 table tr:nth-child(2n) {
     background: #f0f0f0;
 }
-</v-code>
-</div><div id="html/attr/tabindex"><h2>tabindex</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Попасть в порядок</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li><u-text-define>tabindex</u-text-define> - правляет фокусом</li>
-</ul>
-
-<v-code lang="html" title="">
-&lt;div tabindex="0"&gt;Добавляет в порядок&lt;/div&gt;
-&lt;div tabindex="-1"&gt;Делает интерактивным&lt;/div&gt;
-&lt;div tabindex="10"&gt;Больше нуля проблемный&lt;/div&gt;
-</v-code>
-
-</div><div id="html/attr/aria-label"><h2>aria-label</h2>
-
-<v-code lang="html" title="">
-&lt;a href="https://twitter.com" aria-label="Твиттер"&gt;
-</v-code>
-
-</div><div id="html/other/yandex-map"><h2>Яндекс Карты</h2>
-
-<ul class="list-point">
-    <li>Статичные и динамичные карты</li>
-    <li>Фиксированный размер</li>
-    <li>Размер в процентах</li>
-    <li>scroll=false</li>
-</ul>
-
-<v-code lang="html" title="">
-&lt;script
-	type="text/javascript"
-	charset="utf-8"
-	async
-	src="
-		https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor...&amp;amp;
-		width=500&amp;amp;
-		height=400&amp;amp;
-		lang=ru_RU&amp;amp;
-		scroll=false
-	"
-&gt;&lt;/script&gt;
-</v-code>
-</div><div id="html/other/samples"><h2>Примеры</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Открыть картинку по ссылке</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="html" title="">
-&lt;a href="images/gal/1.jpg"&gt;
-	&lt;img src="images/gal/1_mini.jpg" alt="Миниатюра 1" /&gt;
-&lt;/a&gt;
 </v-code>
 </div></div>
                 </div>

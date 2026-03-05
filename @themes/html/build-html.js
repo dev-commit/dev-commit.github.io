@@ -5,7 +5,6 @@ ARR_MODULE = [
     title: "Основное",
     themes: [
       getLink(root, "info"),
-      [root + "main/semantics", emoji.theory + "Семантика"],
       [root + "main/content-model", "Content Model"],
       [root + "main/custom-elements", "Custom Elements"],
     ],
@@ -18,20 +17,6 @@ ARR_MODULE = [
       [root + "elements/link", emoji.items + "Ссылки"],
       [root + "elements/video", emoji.items + "Видео и аудио"],
       [root + "elements/table", emoji.items + "Таблицы"],
-    ],
-  },
-  {
-    title: "Атрибуты",
-    themes: [
-      [root + "attr/tabindex", setTheme(1, ["tabindex"])],
-      [root + "attr/aria-label", setTheme(1, ["aria-label"])],
-    ],
-  },
-  {
-    title: "Прочее",
-    themes: [
-      [root + "other/yandex-map", "Яндекс Карты"],
-      [root + "other/samples", "Примеры"],
     ],
   },
 ];
