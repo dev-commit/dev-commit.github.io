@@ -160,50 +160,10 @@ CSS</a>
     <li>
         <a
             class="menu-link"
-            id="id__css/text/fonts-add"
-            href="#css/text/fonts-add"
-        >
-            Шрифты
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
             id="id__css/text/background-clip"
             href="#css/text/background-clip"
         >
             Изображение на тексте
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__css/text/font"
-            href="#css/text/font"
-        >
-            <u-menu>font-*</u-menu> <u-menu>text-*</u-menu> <u-menu>...</u-menu>
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__css/text/text-decoration"
-            href="#css/text/text-decoration"
-        >
-            <u-menu>text-decoration</u-menu> <u-menu>...</u-menu>
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__css/text/initial-letter"
-            href="#css/text/initial-letter"
-        >
-            <u-menu>initial-letter</u-menu>
         </a>
     </li>
 
@@ -244,16 +204,6 @@ CSS</a>
             href="#css/layout/css-multi-columns"
         >
             CSS Multi Columns
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__css/layout/css-writing-models"
-            href="#css/layout/css-writing-models"
-        >
-            CSS Writing Models
         </a>
     </li>
 
@@ -1297,53 +1247,6 @@ div {
 	animation: move 2s ease infinite;
 }
 </v-code>
-</div><div id="css/text/fonts-add"><h2>Шрифты</h2>
-
-<!------------------------------------------------------------->
-<h4>Variable Fonts</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li>Один шрифт, множество начертаний</li>
-</ul>
-
-<!------------------------------------------------------------->
-<h4>Виды</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li><u-code-list>Sans-serif</u-code-list> - без засечек</li>
-    <li><u-code-list>Serif</u-code-list> - с засечками</li>
-    <li><u-code-list>Accident</u-code-list> - декоративный</li>
-    <li><u-code-list>Handwriting</u-code-list> - рукописный</li>
-    <li><u-code-list>Monospaced</u-code-list> - моноширинный</li>
-    <li><u-code-list>Symbol</u-code-list> - символьный: fontawesome, stroke, icomoon</li>
-</ul>
-
-<!------------------------------------------------------------->
-<h4>Безопасные шрифты</h4>
-<!------------------------------------------------------------->
-<ol class="list-num">
-    <li>Open Sans</li>
-    <li>Museo Sans</li>
-    <li>Roboto</li>
-    <li>Verdana</li>
-    <li>AG Book</li>
-</ol>
-
-<!------------------------------------------------------------->
-<h4>Подключние</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li><u>Расширения: </u>.eot, .ttf, .woff</li>
-</ul>
-
-<v-code lang="css" title="">
-@font-face {
-    /* Название шрифта */
-    font-family: OpenSans;
-    /* Путь к файлу со шрифтом */
-    src: url(../font/OpenSans.ttf);
-}
-</v-code>
 </div><div id="css/text/background-clip"><h2>Изображение на тексте</h2>
 
 <v-code lang="css" title="">
@@ -1356,167 +1259,10 @@ span {
     -webkit-background-clip: text;
 }
 </v-code>
-</div><div id="css/text/font"><h2>Font / Text</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Свойства</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<!------------------------------------------------------------->
-<h4>font-*</h4>
-<!------------------------------------------------------------->
-<v-code lang="css" title="">
-p {
-    font-size: 20px;     <u-code-comment>#  размер шрифта</u-code-comment>
-    font-style: italic;  <u-code-comment>#  начертание шрифта</u-code-comment>
-    font-weight: bold;   <u-code-comment># насыщенность шрифта</u-code-comment>
-}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>text-*</h4>
-<!------------------------------------------------------------->
-<v-code lang="css" title="">
-p {
-    text-align: center | left | right;     <u-code-comment># горизонтальное выравнивание текста в пределах элемента</u-code-comment>
-    text-indent: 20px;                     <u-code-comment># красная строка</u-code-comment>
-    text-transform: uppercase | lowercase; <u-code-comment># преобразованием текста элемента в заглавные или прописные символы</u-code-comment>
-}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>spacing</h4>
-<!------------------------------------------------------------->
-<v-code lang="css" title="">
-div {
-	word-spacing: 10px;   <u-code-comment># расстояние между словами</u-code-comment>
-	letter-spacing: 4px;  <u-code-comment># расстояние между буквами</u-code-comment>
-	line-height: 1.5;     <u-code-comment># расстояние между строками</u-code-comment>
-}
-</v-code>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Примеры</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<!------------------------------------------------------------->
-<h4>Обрезать текст по длине блока</h4>
-<!------------------------------------------------------------->
-<v-code lang="css" title="">
-div {
-    white-space: nowrap;      <u-code-comment># запрещаем перенос строк</u-code-comment>
-    white-space: pre-wrap;    <u-code-comment># разрешить перенос строк в pre</u-code-comment>
-    overflow: hidden;         <u-code-comment># обрезаем все, что не помещается в область</u-code-comment>
-    text-overflow: ellipsis;  <u-code-comment># добавляем многоточие</u-code-comment>
-}
-</v-code>
-</div><div id="css/text/text-decoration"><h2>CSS-свойства</h2>
-
-<table>
-	<tr>
-		<td class="accent">text-decoration-line</td>
-        <td><div style="text-decoration: none">none</div></td>
-        <td><div style="text-decoration: underline solid hotpink">underline</div></td>
-        <td><div style="text-decoration: overline solid hotpink">overline</div></td>
-        <td><div style="text-decoration: line-through solid hotpink">line-through</div></td>
-        <td><div style="text-decoration: underline overline solid hotpink">underline overline</div></td>
-        <td><div style="text-decoration: underline line-through overline solid hotpink">underline line-through</div></td>
-	</tr>
-	<tr>
-		<td class="accent">text-decoration-style</td>
-        <td><div style="text-decoration: underline solid hotpink">solid</div></td>
-        <td><div style="text-decoration: underline double hotpink">double</div></td>
-        <td><div style="text-decoration: underline dotted hotpink">dotted</div></td>
-        <td><div style="text-decoration: underline dashed hotpink">dashed</div></td>
-        <td><div style="text-decoration: underline wavy hotpink">wavy</div></td>
-        <td><div style="text-decoration: underline overline hotpink">overline</div></td>
-	</tr>
-    <tr>
-        <td class="accent">text-decoration-color</td>
-        <td><div style="text-decoration: underline solid orange">orange</div></td>
-    </tr>
-    <tr>
-        <td class="accent">text-decoration-thickness</td>
-        <td><div style="text-decoration: underline solid hotpink; text-decoration-thickness: 3px">3px</div></td>
-    </tr>
-    <tr>
-        <td class="accent">text-underline-offset</td>
-        <td><div style="text-decoration: underline solid hotpink; text-underline-offset: 5px">5px</div></td>
-    </tr>
-</table>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>text-decoration</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="css none" title="">
-a {
-    text-decoration:
-        text-decoration-line
-        text-decoration-style
-        text-decoration-color;
-}
-</v-code>
-
-<v-code lang="css" title="">
-a {
-    text-decoration: underline double blue;
-    /* text-decoration-line: underline; */
-    /* text-decoration-style: double; */
-    /* text-decoration-color: blue; */
-}
-</v-code>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>text-decoration-thickness</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li>Задает толщину линии для <u-code-text>text-decoration</u-code-text> отличного от "none"</li>
-</ul>
-
-<v-code lang="css" title="">
-a {
-    text-decoration-thickness: 3px;
-}
-</v-code>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>text-underline-offset</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li>Задает отступ от текста до underline линии для <u-code-text>text-decoration</u-code-text> отличного от "none"</li>
-</ul>
-
-<v-code lang="css" title="">
-a {
-    text-decoration: underline;
-    text-underline-offset: 5px;
-}    
-</v-code>
-</div><div id="css/text/initial-letter"><h2>initial-letter</h2>
-
-<ul class="list-point">
-    <li><em>size</em> - сколько строк занимает символ</li>
-    <li><em>position</em> - с какой строки он начинается</li>
-</ul>
-
-<v-code lang="css" title="">
-p {
-    initial-letter: size position;
-}
-
-p::first-letter {
-    initial-letter: 4;
-    initial-letter: 4 1;
-}
-</v-code>
 </div><div id="css/text/linear-gradient"><h2>linear-gradient</h2>
 
 <v-code lang="js" title="">
-.gradient-text1 {
+.gradient-text {
     background: -webkit-linear-gradient(right bottom, #162454, #533389, #0a9ed8, #7a359f);
     /* background-image: linear-gradient(90deg, #ff006e, #8338ec, #3a86ff); */
 
@@ -1567,24 +1313,6 @@ article {
 	column-rule-color
 	column-rule-style
 	column-rule-width
-}
-</v-code>
-</div><div id="css/layout/css-writing-models"><h2>CSS Writing Models</h2>
-
-<u-link-wrapper>
-		<v-link url="https://labs.jensimmons.com/#writing-models" text="Примеры от Jen Simmons" list="true" />
-</u-link-wrapper>
-
-<v-code lang="css" title="">
-html {
-	writing-mode: horizontal-tb;
-	writing-mode: horizontal-bt;
-
-	writing-mode: vertical-rl;   /* сверху-вниз, справа-налево */
-	writing-mode: vertical-lr;   /* сверху-вниз, слева-напрво*/
-
-	writing-mode: sideways-rl;
-	writing-mode: sideways-lr;
 }
 </v-code>
 </div><div id="css/layout/css-exclusions"><h2>CSS Exclusions (IE)</h2>

@@ -29,11 +29,7 @@ ARR_MODULE = [
   {
     title: "Текст",
     themes: [
-      [root + "text/fonts-add", "Шрифты"],
       [root + "text/background-clip", "Изображение на тексте"],
-      [root + "text/font", setTheme(1, ["font-*", "text-*", "..."])],
-      [root + "text/text-decoration", setTheme(1, ["text-decoration", "..."])],
-      [root + "text/initial-letter", setTheme(1, ["initial-letter"])],
       [root + "text/linear-gradient", setTheme(1, ["linear-gradient"])],
       [
         root + "text/font-feature-settings",
@@ -46,7 +42,6 @@ ARR_MODULE = [
     themes: [
       [root + "layout/info", emoji.theory + "Информация"],
       [root + "layout/css-multi-columns", "CSS Multi Columns"],
-      [root + "layout/css-writing-models", "CSS Writing Models"],
       [root + "layout/css-exclusions", "CSS Exclusions (IE)"],
     ],
   },
