@@ -87,8 +87,6 @@ ARR_MODULE = [
         root + "color-module/colors-predefined",
         "5. " + setTheme(3, ["Predefined"]),
       ],
-      [root + "color-module/linear-gradient", setTheme(1, ["linear-gradient"])],
-      [root + "color-module/conic-gradient", setTheme(1, ["conic-gradient"])],
       [
         root + "color-module/color-values",
         setTheme(1, ["currentColor", "transparent"]),

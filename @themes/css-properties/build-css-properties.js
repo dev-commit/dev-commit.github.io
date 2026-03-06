@@ -20,7 +20,6 @@ ARR_MODULE = [
   {
     title: "Функции",
     themes: [
-      [root + "functions/calc", setTheme(3, ["calc()"])],
       [root + "functions/attr", setTheme(3, ["attr()"])],
       [root + "functions/image-set", setTheme(3, ["image-set()"])],
     ],
