@@ -108,10 +108,6 @@ ARR_MODULE = [
         root + "browser-actions/overflow-anchor",
         setTheme(1, ["overflow-anchor"]),
       ],
-      [
-        root + "browser-actions/scroll-behavior",
-        setTheme(1, ["scroll-behavior"]),
-      ],
     ],
   },
   {
