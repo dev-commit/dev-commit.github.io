@@ -26,20 +26,12 @@ ARR_MODULE = [
   {
     title: "Псевдо-классы",
     themes: [
-      [root + "pseudo-classes/pseudo-classes", emoji.theory + "Псевдоклассы"],
       [root + "pseudo-classes/where", setTheme(2, [":where"])],
       [root + "pseudo-classes/is", setTheme(2, [":is"])],
     ],
   },
   {
     title: "Псевдо-элементы",
-    themes: [
-      [
-        root + "pseudo-elements/pseudo-elements",
-        emoji.theory + "Псевдоэлементы",
-      ],
-      [root + "pseudo-elements/before", setTheme(2, ["::before", "::after"])],
-      [root + "pseudo-elements/slotted", setTheme(2, ["::slotted"])],
-    ],
+    themes: [[root + "pseudo-elements/slotted", setTheme(2, ["::slotted"])]],
   },
 ];
