@@ -12,7 +12,6 @@ ARR_MODULE = [
       [root + "properties/overflow", setTheme(1, ["overflow"])],
       [root + "properties/background", setTheme(1, ["background"])],
       [root + "properties/border", setTheme(1, ["border"])],
-      [root + "properties/ul", setTheme(1, ["ul", "ol"])],
       [root + "properties/scrollbar", setTheme(1, ["scrollbar"])],
       [root + "properties/caret-color", setTheme(1, ["caret-color"])],
     ],
