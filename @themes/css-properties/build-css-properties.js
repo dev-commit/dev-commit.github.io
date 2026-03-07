@@ -5,13 +5,9 @@ ARR_MODULE = [
     title: "Свойства",
     themes: [
       [root + "properties/properties-value", emoji.theory + "Значение свойств"],
-      [
-        root + "properties/box-shadow",
-        setTheme(1, ["box-shadow", "text-shadow"]),
-      ],
+      [root + "properties/box-shadow", setTheme(1, ["box-shadow"])],
       [root + "properties/overflow", setTheme(1, ["overflow"])],
       [root + "properties/background", setTheme(1, ["background"])],
-      [root + "properties/border", setTheme(1, ["border"])],
       [root + "properties/scrollbar", setTheme(1, ["scrollbar"])],
       [root + "properties/caret-color", setTheme(1, ["caret-color"])],
     ],

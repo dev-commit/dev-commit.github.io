@@ -9,16 +9,6 @@ ARR_MODULE = [
     ],
   },
   {
-    title: "Блочная модель",
-    themes: [
-      [root + "box-model/box-sizing", setTheme(1, ["box-sizing"])],
-      [root + "box-model/display", setTheme(1, ["display"])],
-      [root + "box-model/position", setTheme(1, ["position"])],
-      [root + "box-model/margin", setTheme(1, ["margin"])],
-      [root + "box-model/width", setTheme(1, ["width"])],
-    ],
-  },
-  {
     title: "Преобразования",
     themes: [
       [root + "transform/transition", setTheme(1, ["transition"])],
