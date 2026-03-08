@@ -3,16 +3,9 @@ root = "css/";
 ARR_MODULE = [
   {
     title: "Основное",
-    themes: [[root + "main/custom-properties", "Custom Properties"]],
-  },
-  {
-    title: "Текст",
     themes: [
-      [root + "text/background-clip", "Изображение на тексте"],
-      [
-        root + "text/font-feature-settings",
-        setTheme(1, ["font-feature-settings"]),
-      ],
+      [root + "main/custom-properties", "Custom Properties"],
+      [root + "main/samples", "Примеры"],
     ],
   },
   {
@@ -64,40 +57,6 @@ ARR_MODULE = [
     ],
   },
   {
-    title: "События браузера",
-    themes: [
-      [root + "browser-actions/will-change", setTheme(1, ["will-change"])],
-      [root + "browser-actions/scroll-snap", setTheme(1, ["scroll-snap"])],
-      [
-        root + "browser-actions/overscroll-behavior",
-        setTheme(1, ["overscroll-behavior"]),
-      ],
-      [
-        root + "browser-actions/overflow-anchor",
-        setTheme(1, ["overflow-anchor"]),
-      ],
-    ],
-  },
-  {
-    title: "Адаптивность",
-    themes: [
-      [root + "adaptive/meta-viewport", "Meta Viewport"],
-      [root + "adaptive/media-queries", "CSS Media queries"],
-      [root + "adaptive/browser-style", "Стилизация браузера"],
-    ],
-  },
-
-  //-----------------------------------------------------------------
-
-  {
-    title: "Features",
-    themes: [
-      [root + "features/mixins", "@apply"],
-      [root + "features/custom-selector", "@custom-selector"],
-      [root + "features/environment-variables", "CSS Environment Variables"],
-    ],
-  },
-  {
     title: "Особенности",
     themes: [
       [
@@ -111,7 +70,11 @@ ARR_MODULE = [
     ],
   },
   {
-    title: "Прочее",
-    themes: [[root + "other/samples", "Примеры"]],
+    title: "Features",
+    themes: [
+      [root + "features/mixins", "@apply"],
+      [root + "features/custom-selector", "@custom-selector"],
+      [root + "features/environment-variables", "CSS Environment Variables"],
+    ],
   },
 ];

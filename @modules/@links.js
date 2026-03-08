@@ -151,7 +151,6 @@ const ARR_LINKS = [
   { page: "cypress", theme: "secondary", title: search + "Cypress" },
   null,
   { page: "css", theme: "html", title: search + "CSS" },
-  { page: "css-properties", theme: "html", title: search + "CSS Props" },
   { page: "css-flexbox", theme: "html", title: search + "Flexbox" },
   { page: "css-grid", theme: "html", title: search + "CSS Grid" },
   { page: "svg", theme: "html", title: search + "SVG" },
