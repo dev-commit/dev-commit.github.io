@@ -60,36 +60,6 @@ CSS Props</a>
     <li>
         <a
             class="menu-link"
-            id="id__css-properties/properties/properties-value"
-            href="#css-properties/properties/properties-value"
-        >
-            📑 Значение свойств
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__css-properties/properties/box-shadow"
-            href="#css-properties/properties/box-shadow"
-        >
-            <u-menu>box-shadow</u-menu>
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__css-properties/properties/overflow"
-            href="#css-properties/properties/overflow"
-        >
-            <u-menu>overflow</u-menu>
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
             id="id__css-properties/properties/background"
             href="#css-properties/properties/background"
         >
@@ -146,16 +116,6 @@ CSS Props</a>
             <u-menu-border>:where</u-menu-border>
         </a>
     </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__css-properties/pseudo-classes/is"
-            href="#css-properties/pseudo-classes/is"
-        >
-            <u-menu-border>:is</u-menu-border>
-        </a>
-    </li>
 </ul><h4>🏷️ Псевдо-элементы</h4><ul>
     <li>
         <a
@@ -188,55 +148,7 @@ CSS Props</a>
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="css-properties/properties/properties-value"><h2>Значение свойств</h2>
-
-<ul class="list-point">
-    <li><u-code-text>none</u-code-text> - Отменяет заданные значения для свойства</li>
-    <li><u-code-text>unset</u-code-text> - Комбинация ключевых слов <u>initial</u> и <u>inherit</u>. Ключевое слово <u>unset</u> устанавливает значение свойства как <u>inherit</u>, если свойство наследуется от своего родителя, в противном случае значение устанавливается как <u>initial</u></li>
-    <li><u-code-text>inherit</u-code-text> - Сообщает, что необходимо наследовать значение свойства у родительского элемента. Результат будет заметен только в том случае, если у родителя указанное свойство установлено</li>
-    <li><u-code-text>initial</u-code-text> - Применяется для установки исходного значения свойства. Может пригодиться в нескольких случаях, к примеру, восстановить значения свойств, заданных браузером по умолчанию или задать начальное значение свойства, измененное в результате наследования</li>
-</ul>
-</div><div id="css-properties/properties/box-shadow"><h2>Box-Shadow, Text-Shadow</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Тень для блока</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<div class="v-method-wrapper">
-    <v-method before="" method="box-shadow" after="" arg="">тень для блока</v-method>
-
-	<v-method-arg arg="inset">внутренняя тень</v-method-arg>
-	<v-method-arg arg="1px">смещение по горизонтали</v-method-arg>
-	<v-method-arg arg="2px">смещени по вертикали</v-method-arg>
-	<v-method-arg arg="3px">размытие</v-method-arg>
-	<v-method-arg arg="4px">толщина</v-method-arg>
-	<v-method-arg arg="blue">цвет</v-method-arg>
-</div>
-
-<v-code lang="css" title="">
-div {
-	box-shadow: 1px 2px 3px 4px #000000;
-	box-shadow: inset 1px 2px 3px 4px #000000;
-}
-</v-code>
-
-<v-code lang="css" title="">
-div {
-	box-shadow:
-		0px 0px 0 10px orange,
-		0px 0px 0 20px yellow,
-		0px 0px 0 30px blue;
-}
-</v-code>
-</div><div id="css-properties/properties/overflow"><h2>Overflow</h2>
-
-Свойство overflow управляет отображением содержания блочного элемента, если оно целиком не помещается и выходит за область заданных размеров.
-<v-code lang="css" title="">
-div {
-    overflow: auto;   - добавление полос прокрутки, если контент не помешается в блок
-    overflow: hidden; - обрезка контента, если контент не помешается в блок
-}
-</v-code>
-</div><div id="css-properties/properties/background"><h2>Background</h2>
+                    <div id="content"><div id="css-properties/properties/background"><h2>Background</h2>
 
 <v-code lang="css" title="">
 div {
@@ -437,20 +349,6 @@ div {
 </template>
 <template v-slot:last>
 .card <u-code>:where</u-code>(h1, h2, h3) {
-    /*  */
-}
-</template>
-</v-two-code>
-</div><div id="css-properties/pseudo-classes/is"><h2>:is</h2>
-
-<v-two-code type="css;css" comment=";">
-<template v-slot:first>
-.item:hover, .item:focus {
-    /*  */
-}
-</template>
-<template v-slot:last>
-.item<u-code>:is</u-code>(:hover, :focus) {
     /*  */
 }
 </template>

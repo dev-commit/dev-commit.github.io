@@ -60,50 +60,10 @@ CSS</a>
     <li>
         <a
             class="menu-link"
-            id="id__css/main/priority-styles"
-            href="#css/main/priority-styles"
-        >
-            ⭐️ Приоритетность стилей
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
             id="id__css/main/custom-properties"
             href="#css/main/custom-properties"
         >
             Custom Properties
-        </a>
-    </li>
-</ul><h4>🏷️ Преобразования</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__css/transform/transition"
-            href="#css/transform/transition"
-        >
-            <u-menu>transition</u-menu>
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__css/transform/transform"
-            href="#css/transform/transform"
-        >
-            <u-menu>transform</u-menu>
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__css/transform/animation"
-            href="#css/transform/animation"
-        >
-            <u-menu>animation</u-menu> <u-menu>@keyframes</u-menu>
         </a>
     </li>
 </ul><h4>🏷️ Текст</h4><ul>
@@ -114,16 +74,6 @@ CSS</a>
             href="#css/text/background-clip"
         >
             Изображение на тексте
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__css/text/linear-gradient"
-            href="#css/text/linear-gradient"
-        >
-            <u-menu>linear-gradient</u-menu>
         </a>
     </li>
 
@@ -167,36 +117,6 @@ CSS</a>
         </a>
     </li>
 </ul><h4>🏷️ Shapes and Clipping</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__css/graphics/filter"
-            href="#css/graphics/filter"
-        >
-            <u-menu>filter</u-menu>
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__css/graphics/backdrop-filter"
-            href="#css/graphics/backdrop-filter"
-        >
-            <u-menu>backdrop-filter</u-menu>
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__css/graphics/clip-path"
-            href="#css/graphics/clip-path"
-        >
-            <u-menu>clip-path</u-menu>
-        </a>
-    </li>
-
     <li>
         <a
             class="menu-link"
@@ -430,26 +350,6 @@ CSS</a>
     <li>
         <a
             class="menu-link"
-            id="id__css/other/pattern"
-            href="#css/other/pattern"
-        >
-            💎 Шаблон
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__css/other/pixel-perfect"
-            href="#css/other/pixel-perfect"
-        >
-            Pixel Perfect
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
             id="id__css/other/samples"
             href="#css/other/samples"
         >
@@ -478,47 +378,7 @@ CSS</a>
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="css/main/priority-styles"><h2>Приоритетность стилей</h2>
-
-<ul class="list-point">
-    <li>Правила с <u-code-text>!important</u-code-text> находятся на втором уровне каскада, в то время как обычные правила - на четвёртом</li>
-    <li>Браузер обрабатывает селекторы справа налево</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Приоритетность</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ol class="list-num">
-    <b>Порядок приоритетности стилей по источнику и важности</b>
-    <li>Стили во время CSS-переходов (transition)</li>
-    <li>Браузерные стили с !important</li>
-    <li>Пользовательские стили с !important</li>
-    <li>Авторские (разработческие) стили с !important</li>
-    <li>Стили во время анимаций</li>
-    <li>Обычные (т.е. без !important) авторские стили</li>
-    <li>Обычные пользовательские стили</li>
-    <li>Обычные браузерные стили</li>
-</ol>
-
-<!------------------------------------------------------------->
-<h4>Пример</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li><u>Вопрос</u>: Какого цвета будут дивы?</li>
-    <li><u>Ответ</u>: оба синего</li>
-    <li>Из правил с одинаковой специфичностью применяется последнее в CSS-коде, порядок классов в HTML-разметке на это никак не влияет</li>
-</ul>
-
-<v-code lang="css" title="">
-&lt;div class="red blue"&gt;Синий цвет&lt;/div&gt;
-&lt;div class="blue red"&gt;Синий цвет&lt;/div&gt;
-</v-code>
-
-<v-code lang="js" title="">
-.red { color: red; }
-.blue { color: blue; }
-</v-code>
-</div><div id="css/main/custom-properties"><h2>Custom Properties</h2>
+                    <div id="content"><div id="css/main/custom-properties"><h2>Custom Properties</h2>
 
 <v-sandbox
     codepen
@@ -768,231 +628,6 @@ if (window.CSS && window.CSS.supports && window.CSS.supports('--a', 0)) {
     <hr>
     <li>Нельзя одномоментно сбрасывать значения всех переменных <u>--: initial</u></li>
 </ul>
-</div><div id="css/transform/transition"><h2>Transition</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>transition (анимированный переход)</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="css" title="">
-transition: all 0s ease 0s;
-1. transition-property        <u-code-comment># какие свойства анимируются</u-code-comment>
-2. transition-duration        <u-code-comment># длина анимации</u-code-comment>
-3. transition-timing-function <u-code-comment># как вычисляются промежуточные состояния</u-code-comment>
-4. transition-delay           <u-code-comment># время ожидания перед запуском эффекта</u-code-comment>
-</v-code>
-
-<v-code lang="css" title="">
-div {
-	transition: all 0.7s ease-in 0s;
-}
-</v-code>
-
-<v-code lang="css" title="">
-div {
-	background: orange;
-	transition: all 0.7s ease-in 0s;
-}
-div:hover {
-	background: blue;
-}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Применение к свойствам</h4>
-<!------------------------------------------------------------->
-<v-code lang="css" title="">
-div {
-	transition:
-		border-color .17s,
-		background-color .17s,
-		color .17s,
-		box-shadow .17s;
-}
-</v-code>
-</div><div id="css/transform/transform"><h2>Transform</h2>
-
-<v-code lang="css" title="">
-div {
-	transform: translate(50px, 50px);
-}
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Особенности</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li>Не прерывает поток (не влияют на другие элементы)</li>
-    <li>Трансформации можно записывать несколько через пробел</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>1. Сдвиг</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li>Один параметр translate(): перемещает элемент вдоль оси х</li>
-    <li>Два параметра translate(): первое значение для оси х, второе для оси у</li>
-</ul>
-
-<v-code lang="css" title="">
-div {
-	/* Сдвигает элемент на заданное значение по горизонтали и вертикали */
-	/* (положительное значение сдвигает вправо, отрицательное влево) */
-	transform: translate(50px, 50px);
-	/* Сдвигает элемент по горизонтали на указанное значение */
-	transform: translateX(50px);
-	/* Сдвигает элемент по вертикали на указанное значение */
-	transform: translateY(50px);
-	/* Сдвигает элемент по оси Z на указанное значение */
-	transform: translateZ(50px);
-}
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>2. Поворот</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="css" title="">
-div {
-	transform: rotate(15deg);  /* Поворот */
-	transform: rotateX(15deg); /* Поворот по оси X */
-	transform: rotateY(15deg); /* Поворот по оси Y */
-	transform: rotateZ(15deg); /* Поворот по оси Z */
-}
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>3. Масштабирование</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li>Один параметр scale(): изменение размеров элемента одинаково по высоте и ширине</li>
-    <li>Два параметра scale(): первое значение изменяет размер элемента по горизонтали, второе по вертикали</li>
-</ul>
-
-<v-code lang="css" title="">
-div {
-	transform: scale(1.2);  /* Масштабирует элемент по горизонтали и вертикали */
-	transform: scaleX(1.2); /* Масштабирует элемент по горизонтали */
-	transform: scaleY(1.2); /* Масштабирует элемент по вертикали */
-	transform: scaleZ(1.2); /* Масштабирует элемент по оси Z */
-}
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Зеркальное отражение блока</h4>
-<!------------------------------------------------------------->
-<ul class="list-point">
-    <li>Для отражения изображения или другого элемента, в том числе текстового, применяется <u>scale()</u> с отрицательным значением</li>
-</ul>
-
-<v-code lang="css" title="">
-div {
-	transform: scale(-1, 1);  /* Отражение по горизонтали */
-	transform: scale(1, -1);  /* Отражение по вертикали */
-	transform: scale(-1, -1); /* Одновременное отражение по горизонтали и вертикали */
-}
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>4. Наклон (искажение)</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li>Один параметр: элемент искажается по горизонтали</li>
-    <li>Два параметра: первое значение искажает элемент по горизонтали, второе по вертикали</li>
-</ul>
-
-<v-code lang="css" title="">
-div {
-	transform: skew(15deg);  /* Наклоняет элемент на заданный угол по вертикали и горизонтали */
-	transform: skewX(15deg); /* Наклоняет элемент на заданный угол по вертикали */
-	transform: skewY(15deg); /* Наклоняет элемент на заданный угол по горизонтали */
-}
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>5. Остальное</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-	<li><u-code-text>matrix</u-code-text> - задает двумерную матрицу преобразований</li>
-	<li><u-code-text>matrix3d</u-code-text> - задает трёхмерную матрицу преобразований</li>
-	<li><u-code-text>rotate3d</u-code-text> - поворачивает элемент в трёхмерном пространстве</li>
-	<li><u-code-text>scale3d</u-code-text> - масштабирует элемент в трёхмерном пространстве</li>
-	<li><u-code-text>translate3d</u-code-text> - сдвигает элемент на заданное значение в трёхмерном пространстве</li>
-	<li><u-code-text>perspective</u-code-text> - задаёт перспективу</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Свойства трансформации</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-	<li><u-code-text>transform</u-code-text> - определяет, какая функция будет применяться (translate, rotate, scale, skew)</li>
-	<li><u-code-text>transform-origin</u-code-text> - позволяет изменять точку начала преобразования (работает как background-position)</li>
-	<li><u-code-text>transform-style</u-code-text> - для настройки 3D</li>
-</ul>
-</div><div id="css/transform/animation"><h2>Animation</h2>
-
-<v-code lang="css" title="">
-div {
-	animation: none 0s ease 0s 1 normal none running;
-}
-</v-code>
-
-<v-code lang="css" title="">
-1. animation-name             <u-code-comment># название анимации</u-code-comment>
-2. animation-duration         <u-code-comment># как долго длится анимация</u-code-comment>
-3. animation-timing-function  <u-code-comment># как вычисляются промежуточные состояния</u-code-comment>
-4. animation-delay            <u-code-comment># анимация начинается спустя некоторое время</u-code-comment>
-5. animation-iteration-count  <u-code-comment># сколько раз должна выполняться анимация</u-code-comment>
-6. animation-direction        <u-code-comment># должно движение идти в обратную сторону или нет</u-code-comment>
-7. animation-fill-mode        <u-code-comment># какие стили применяются до начала анимации и после её завершения</u-code-comment>
-8. animation-play-state       <u-code-comment># проигрывать анимацию или поставить её на паузу</u-code-comment>
-</v-code>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Функция steps()</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<u-message-error>Функция не проверена</u-message-error>
-
-<ul class="list-point">
-	<li>Позволяет устанавливать время замедления анимации, что обеспечивает большую степень контроля над тем, какая часть анимации происходит и когда</li>
-</ul>
-<v-code lang="js" title="">
-div {
-	animation: 2s infinite alternate steps(10);
-}
-</v-code>
-
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Keyframes</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="css" title="">
-@keyframes move{
-    0%   { transform: translate(0px, 0px);     background: blue; }
-    25%  { transform: translate(300px, 0px);   background: red; }
-    50%  { transform: translate(300px, 300px); background: gray; }
-    75%  { transform: translate(0px, 300px);   background: green; }
-    100% { transform: translate(0px, 0px);     background: orange;}
-}
-</v-code>
-
-<v-code lang="css" title="">
-div {
-	animation-name: move;
-	animation-duration: 5s;
-	animation-timing-function: linear;
-	animation-delay: 0s;
-	animation-iteration-count: 1;
-	animation-direction: normal;
-	animation-fill-mode: none;
-	animation-play-state: running;
-}
-</v-code>
-
-<v-code lang="css" title="">
-div {
-	animation: move 2s ease infinite;
-}
-</v-code>
 </div><div id="css/text/background-clip"><h2>Изображение на тексте</h2>
 
 <v-code lang="css" title="">
@@ -1003,17 +638,6 @@ span {
     background-size: contain;
     background-position: top left;
     -webkit-background-clip: text;
-}
-</v-code>
-</div><div id="css/text/linear-gradient"><h2>linear-gradient</h2>
-
-<v-code lang="js" title="">
-.gradient-text {
-    background: -webkit-linear-gradient(right bottom, #162454, #533389, #0a9ed8, #7a359f);
-    /* background-image: linear-gradient(90deg, #ff006e, #8338ec, #3a86ff); */
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 </v-code>
 </div><div id="css/text/font-feature-settings"><h2>font-feature-settings</h2>
@@ -1107,86 +731,6 @@ element {
 	-ms-wrap-margin: 10px 20px 10px 30px; /* Некорректно */
 }
 </v-code>
-</div><div id="css/graphics/filter"><h2>CSS Filters</h2>
-
-<v-code lang="css" title="">
-div {
-	filter: blur(5px);         <u-code-comment># размытие (напрямую к body применить нельзя)</u-code-comment>
-	filter: brightness(150%);  <u-code-comment># яркость, 100% по умолчанию</u-code-comment>
-	filter: contrast(150%);    <u-code-comment># контрастность, 100% по умолчанию</u-code-comment>
-	filter: grayscale(70%);    <u-code-comment># черно-белое, 0% по умолчанию</u-code-comment>
-	filter: hue-rotate(90deg); <u-code-comment># поворот оттенка, определяет угол, 0deg по умолчанию</u-code-comment>
-	filter: invert(100%);      <u-code-comment># инвертирование</u-code-comment>
-	filter: opacity(50%);      <u-code-comment># прозрачность</u-code-comment>
-	filter: saturate(150%);    <u-code-comment># изменение насыщенности</u-code-comment>
-	filter: sepia(100%);       <u-code-comment># сепия</u-code-comment>
-	filter: drop-shadow(10px 10px 3px rgba(100,0,0,0.5)); <u-code-comment># добавляет тень к изображениям, учитывая прозрачные участки</u-code-comment>
-}
-</v-code>
-
-<ul class="list-point">
-	<li>Можно применять несколько фильтров</li>
-	<li>Первый фильтр применяется к исходному изображению, а остальные к предыдущему</li>
-</ul>
-
-<v-code lang="css" title="">
-div {
-	filter: contrast(150%) sepia(100%);
-}
-</v-code>
-</div><div id="css/graphics/backdrop-filter"><h2>Backdrop-filter (draft)</h2>
-
-<ul class="list-point">
-	<li>Аналогичен filter, но работает только с фоном, не трогая сам элемент</li>
-	<li>Значения такие же как у filter</li>
-</ul>
-
-<v-two-code type="css;css" comment="backdrop-filter;filter">
-<template v-slot:first>
-div {
-	backdrop-filter: blur(10px);
-}
-</template>
-<template v-slot:last>
-div {
-	filter: blur(10px);
-}
-</template>
-</v-two-code>
-
-<!------------------------------------------------------------->
-<h4>Функция filter</h4>
-<!------------------------------------------------------------->
-<v-code lang="css" title="">
-div {
-	background: filter (url(), blur(10px));
-}
-</v-code>
-</div><div id="css/graphics/clip-path"><h2>Clip-path</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Ссылки</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<u-link-wrapper>
-		<v-link url="https://webref.ru/layout/shapes-polygon" text="" list="true" />
-		<v-link url="https://bennettfeely.com/clippy/" text="" list="true" />
-</u-link-wrapper>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Фигуры</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-two-fix><template v-slot:first>
-<v-code lang="css" title="">
-div {
-	width: 300px;
-	height: 300px;
-	clip-path: polygon(50% 0%, 100% 100%, 0 100%);
-}
-</v-code>
-</template><template v-slot:last>
-<img src="/@img/clip-path/polygon1.png" class="img200">
-</template></v-two-fix>
 </div><div id="css/graphics/blend-mode"><h2>CSS Blend Modes</h2>
 
 <v-code lang="bash" title="">
@@ -2235,37 +1779,6 @@ element {
 	border-bottom: 1px solid transparent;	
 }
 </v-code>
-</div><div id="css/other/pattern"><h2>Шаблон</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Очистка</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="css border" title="">
-*, *:after, *:before {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    line-height: 1.75;
-}
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Стили для кода</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="css" title="">
-pre {
-    tab-size: 4;
-}
-</v-code>
-</div><div id="css/other/pixel-perfect"><h2>Pixel Perfect</h2>
-
-<u-link-wrapper>
-		<v-link url="https://chrome.google.com/webstore/search/PerfectPixel" text="Расширение для хрома PerfectPixel" list="true" />
-		<v-link url="https://github.com/yoksel/pixel-glass-js" text="JavaScript-библиотека Pixrl Glass" list="true" />
-</u-link-wrapper>
 </div><div id="css/other/samples"><h2>Примеры</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->

@@ -4,9 +4,6 @@ ARR_MODULE = [
   {
     title: "Свойства",
     themes: [
-      [root + "properties/properties-value", emoji.theory + "Значение свойств"],
-      [root + "properties/box-shadow", setTheme(1, ["box-shadow"])],
-      [root + "properties/overflow", setTheme(1, ["overflow"])],
       [root + "properties/background", setTheme(1, ["background"])],
       [root + "properties/scrollbar", setTheme(1, ["scrollbar"])],
       [root + "properties/caret-color", setTheme(1, ["caret-color"])],
@@ -21,10 +18,7 @@ ARR_MODULE = [
   },
   {
     title: "Псевдо-классы",
-    themes: [
-      [root + "pseudo-classes/where", setTheme(2, [":where"])],
-      [root + "pseudo-classes/is", setTheme(2, [":is"])],
-    ],
+    themes: [[root + "pseudo-classes/where", setTheme(2, [":where"])]],
   },
   {
     title: "Псевдо-элементы",

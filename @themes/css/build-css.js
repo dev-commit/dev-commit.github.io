@@ -3,24 +3,12 @@ root = "css/";
 ARR_MODULE = [
   {
     title: "Основное",
-    themes: [
-      [root + "main/priority-styles", emoji.star + "Приоритетность стилей"],
-      [root + "main/custom-properties", "Custom Properties"],
-    ],
-  },
-  {
-    title: "Преобразования",
-    themes: [
-      [root + "transform/transition", setTheme(1, ["transition"])],
-      [root + "transform/transform", setTheme(1, ["transform"])],
-      [root + "transform/animation", setTheme(1, ["animation", "@keyframes"])],
-    ],
+    themes: [[root + "main/custom-properties", "Custom Properties"]],
   },
   {
     title: "Текст",
     themes: [
       [root + "text/background-clip", "Изображение на тексте"],
-      [root + "text/linear-gradient", setTheme(1, ["linear-gradient"])],
       [
         root + "text/font-feature-settings",
         setTheme(1, ["font-feature-settings"]),
@@ -38,9 +26,6 @@ ARR_MODULE = [
   {
     title: "Shapes and Clipping",
     themes: [
-      [root + "graphics/filter", setTheme(1, ["filter"])],
-      [root + "graphics/backdrop-filter", setTheme(1, ["backdrop-filter"])],
-      [root + "graphics/clip-path", setTheme(1, ["clip-path"])],
       [root + "graphics/blend-mode", "CSS Blend Modes"],
       [root + "graphics/css-shapes", "CSS Shapes"],
       [root + "graphics/css-masking", "CSS Masking"],
@@ -127,10 +112,6 @@ ARR_MODULE = [
   },
   {
     title: "Прочее",
-    themes: [
-      [root + "other/pattern", emoji.code + "Шаблон"],
-      [root + "other/pixel-perfect", "Pixel Perfect"],
-      [root + "other/samples", "Примеры"],
-    ],
+    themes: [[root + "other/samples", "Примеры"]],
   },
 ];

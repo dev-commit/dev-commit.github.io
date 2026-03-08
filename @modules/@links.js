@@ -156,8 +156,6 @@ const ARR_LINKS = [
   { page: "css-grid", theme: "html", title: search + "CSS Grid" },
   { page: "svg", theme: "html", title: search + "SVG" },
   { page: "sass", theme: "html", title: "Sass" },
-  { page: "bootstrap", theme: "secondary", title: "Bootstrap" },
-  { page: "bem", theme: "secondary", title: "BEM" },
   null,
   { page: "git", theme: "tech", title: search + accent + "Git" },
   { page: "git-managers", theme: "tech", title: search + "Git Repo" },
