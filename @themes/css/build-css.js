@@ -2,10 +2,6 @@ root = "css/";
 
 ARR_MODULE = [
   {
-    title: "Основное",
-    themes: [[root + "main/custom-properties", "Custom Properties"]],
-  },
-  {
     title: "Layout",
     themes: [
       [root + "layout/info", emoji.theory + "Информация"],
