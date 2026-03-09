@@ -2,33 +2,8 @@ root = "css/";
 
 ARR_MODULE = [
   {
-    title: "Основное",
-    themes: [
-      [root + "main/custom-properties", "Custom Properties"],
-      [root + "main/samples", "Примеры"],
-    ],
-  },
-  {
-    title: "Layout",
-    themes: [
-      [root + "layout/info", emoji.theory + "Информация"],
-      [root + "layout/css-multi-columns", "CSS Multi Columns"],
-      [root + "layout/css-exclusions", "CSS Exclusions (IE)"],
-    ],
-  },
-  {
-    title: "Shapes and Clipping",
-    themes: [
-      [root + "graphics/blend-mode", "CSS Blend Modes"],
-      [root + "graphics/css-shapes", "CSS Shapes"],
-      [root + "graphics/css-masking", "CSS Masking"],
-    ],
-  },
-  {
     title: "CSS Color Module",
     themes: [
-      [root + "color-module/colors", emoji.star + "Цветовые схемы"],
-      [root + "color-module/colors-func", emoji.star + "Цветовые функции"],
       [
         root + "color-module/colors-hex",
         "1. " + setTheme(3, ["Hexadecimal Colors"]),
@@ -50,10 +25,30 @@ ARR_MODULE = [
         root + "color-module/colors-predefined",
         "5. " + setTheme(3, ["Predefined"]),
       ],
-      [
-        root + "color-module/color-values",
-        setTheme(1, ["currentColor", "transparent"]),
-      ],
+    ],
+  },
+
+  {
+    title: "Основное",
+    themes: [
+      [root + "main/custom-properties", "Custom Properties"],
+      [root + "main/samples", "Примеры"],
+    ],
+  },
+  {
+    title: "Layout",
+    themes: [
+      [root + "layout/info", emoji.theory + "Информация"],
+      [root + "layout/css-multi-columns", "CSS Multi Columns"],
+      [root + "layout/css-exclusions", "CSS Exclusions (IE)"],
+    ],
+  },
+  {
+    title: "Shapes and Clipping",
+    themes: [
+      [root + "graphics/blend-mode", "CSS Blend Modes"],
+      [root + "graphics/css-shapes", "CSS Shapes"],
+      [root + "graphics/css-masking", "CSS Masking"],
     ],
   },
   {
