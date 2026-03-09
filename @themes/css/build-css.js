@@ -24,7 +24,6 @@ ARR_MODULE = [
   {
     title: "Features",
     themes: [
-      [root + "features/mixins", "@apply"],
       [root + "features/custom-selector", "@custom-selector"],
       [root + "features/environment-variables", "CSS Environment Variables"],
     ],
