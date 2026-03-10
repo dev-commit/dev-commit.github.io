@@ -10,13 +10,6 @@ ARR_MODULE = [
     ],
   },
   {
-    title: "Features",
-    themes: [
-      [root + "features/custom-selector", "@custom-selector"],
-      [root + "features/environment-variables", "CSS Environment Variables"],
-    ],
-  },
-  {
     title: "Примеры",
     themes: [
       [root + "samples/samples", "Примеры"],
