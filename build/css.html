@@ -56,37 +56,7 @@ CSS</a>
                         <div id="search-result"></div>
                     </div>
 
-                    <h4>🏷️ Layout</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__css/layout/info"
-            href="#css/layout/info"
-        >
-            📑 Информация
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__css/layout/css-multi-columns"
-            href="#css/layout/css-multi-columns"
-        >
-            CSS Multi Columns
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__css/layout/css-exclusions"
-            href="#css/layout/css-exclusions"
-        >
-            CSS Exclusions (IE)
-        </a>
-    </li>
-</ul><h4>🏷️ Shapes and Clipping</h4><ul>
+                    <h4>🏷️ Shapes and Clipping</h4><ul>
     <li>
         <a
             class="menu-link"
@@ -188,81 +158,7 @@ CSS</a>
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="css/layout/info"><h2>Информация</h2>
-
-<ol class="list-num">
-	<li><u>Flexbox</u></li>
-	<li><u>CSS Grid</u></li>
-	<li><u>CSS Multi Columns</u></li>
-	<li><u>CSS Writing Models</u></li>
-	<li><u>CSS Exclusions</u> (IE)</li>
-</ol>
-
-
-</div><div id="css/layout/css-multi-columns"><h2>CSS Multi Columns</h2>
-
-<v-code lang="css" title="">
-article {
-	columns: 2 200px;             /* column-count и column-width */
-	column-count: 2;              /* кол-во колонок */
-	column-width: 200px;          /* ширина колонки */
-	column-gap: 20px;             /* gap между колонками */
-	column-rule: 1px dotted #000; /* линия между колонками */
-
-	column-fill
-	column-span
-	column-rule-color
-	column-rule-style
-	column-rule-width
-}
-</v-code>
-</div><div id="css/layout/css-exclusions"><h2>CSS Exclusions (IE)</h2>
-
-<ul class="list-point">
-    <li>Обтекание элемента, который находится вне потока и спозиционирован поверх контента с помощью <u>absolute</u>, <u>relative</u>, <u>fixed</u></li>
-</ul>
-
-<ul class="list-point">
-    <li><u-code-text>wrap-flow</u-code-text> - задаёт область исключения, а также способ, которым содержимое должно обтекать его</li>
-    <li><u-code-text>wrap-margin</u-code-text> - устанавливает границу или отступ вокруг области исключения</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>wrap-flow</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="css" title="">
-element {
-	-ms-wrap-flow: start;
-	-ms-wrap-flow: end;
-	-ms-wrap-flow: maximum;
-	-ms-wrap-flow: minimum;
-	-ms-wrap-flow: clear;
-	-ms-wrap-flow: both;
-}
-</v-code>
-
-<ul class="list-point">
-    <li><u-code-text>start</u-code-text> - будет огибать содержимое вокруг начала области исключения, оставив конец области пустым</li>
-    <li><u-code-text>end</u-code-text> - будет огибать содержимое в конце области исключения</li>
-    <li><u-code-text>maximum</u-code-text> - содержимое будет обёрнуто вокруг области исключения, где бы не было найдено более широкое пространство в области контейнера</li>
-    <li><u-code-text>minimum</u-code-text> - текст будет проходить через самое узкое пространство, доступное вокруг зоны исключения</li>
-    <li><u-code-text>clear</u-code-text> - очистит правую и левую часть области исключения, позволяет обтекаемому тексту находится только сверху и снизу области исключения</li>
-    <li><u-code-text>both</u-code-text> - обтекание со всех сторон</li>
-</ul>
-
-<img src="/@img/css/wrap-flow.png" width="850px">
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>wrap-margin</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="css" title="">
-element {
-	-ms-wrap-margin: 10px;                /* Корректно */
-	-ms-wrap-margin: -10px;               /* Некорректно */
-	-ms-wrap-margin: 10px 20px 10px 30px; /* Некорректно */
-}
-</v-code>
-</div><div id="css/graphics/blend-mode"><h2>CSS Blend Modes</h2>
+                    <div id="content"><div id="css/graphics/blend-mode"><h2>CSS Blend Modes</h2>
 
 <v-code lang="bash" title="">
 • normal      # обычный

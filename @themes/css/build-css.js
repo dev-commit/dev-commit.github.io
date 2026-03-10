@@ -2,14 +2,6 @@ root = "css/";
 
 ARR_MODULE = [
   {
-    title: "Layout",
-    themes: [
-      [root + "layout/info", emoji.theory + "Информация"],
-      [root + "layout/css-multi-columns", "CSS Multi Columns"],
-      [root + "layout/css-exclusions", "CSS Exclusions (IE)"],
-    ],
-  },
-  {
     title: "Shapes and Clipping",
     themes: [
       [root + "graphics/blend-mode", "CSS Blend Modes"],
