@@ -9,18 +9,4 @@ ARR_MODULE = [
       [root + "graphics/css-masking", "CSS Masking"],
     ],
   },
-  {
-    title: "Примеры",
-    themes: [
-      [root + "samples/samples", "Примеры"],
-      [
-        root + "samples/collapse-margin",
-        emoji.code + "Схлопывание внешних отступов",
-      ],
-      [
-        root + "samples/dropping-out-margin",
-        emoji.code + "Выпадение внешних отступов",
-      ],
-    ],
-  },
 ];
