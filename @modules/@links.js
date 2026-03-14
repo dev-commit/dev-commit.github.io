@@ -61,7 +61,6 @@ const ARR_LINKS = [
     theme: "theory",
     title: theory + "Программирование",
   },
-  { page: "ai", theme: "tech", title: "AI" },
   [],
 
   {
