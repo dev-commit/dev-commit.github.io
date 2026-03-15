@@ -30,17 +30,7 @@
                         <div id="search-result"></div>
                     </div>
 
-                    <h4>🏷️ Основное</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__theory-data-structures/main/info"
-            href="#theory-data-structures/main/info"
-        >
-            📑 Информация
-        </a>
-    </li>
-</ul><h4>🏷️ Структуры данных</h4><ul></ul><h4>🏷️ Линейные</h4><ul>
+                    <h4>🏷️ Структуры данных: линейные</h4><ul>
     <li>
         <a
             class="menu-link"
@@ -70,7 +60,7 @@
             ⚡️ Связанный список
         </a>
     </li>
-</ul><h4>🏷️ Остальные</h4><ul>
+</ul><h4>🏷️ Структуры данных: остальные</h4><ul>
     <li>
         <a
             class="menu-link"
@@ -170,16 +160,6 @@
             <u-menu>Set</u-menu> <u-menu>WeakSet</u-menu>
         </a>
     </li>
-</ul><h4>🏷️ Примеры</h4><ul>
-    <li>
-        <a
-            class="menu-link"
-            id="id__theory-data-structures/samples/multiple-checks"
-            href="#theory-data-structures/samples/multiple-checks"
-        >
-            💎 Множественные проверки
-        </a>
-    </li>
 </ul>
                 </div>
 
@@ -202,53 +182,7 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="theory-data-structures/main/info"><!-- TODO:
-<f-search>Структуры данных -> Информация</f-search>
--->
-
-<h2>Структуры данных</h2>
-
-<u-link-wrapper>
-    <v-link url="https://github.com/trekhleb/javascript-algorithms" text="Репозиторий реализаци структур данных на JavaScript" list="true" />
-    <v-link url="https://habr.com/ru/company/netologyru/blog/334914/" text="Хабр: 10 типов структур данных" list="true" />
-    <v-link url="https://www.youtube.com/watch?v=dgCsoASa8k0" text="YouTube: Структуры данных в JavaScript" list="true" />
-</u-link-wrapper>
-
-<ul class="list-point">
-    <li><u-text-define>Структуры данных</u-text-define> - способы хранить и организовывать множество однотипных и/или логически связанных данных</li>
-    <li>Структуры данных позволяют производить 4 основных типа действий: доступ, поиск, вставку и удаление</li>
-    <li>Назначение структур данных: представление системы в удобном для работы виде</li>
-
-    <hr>
-    <li><u>Алгоритм</u> - имплементация действия</li>
-    <li><u>Структура данных</u> - набор имплементаций (алгоритмов). Структура данных работает с памяться с помощью интерфеса</li>
-    <li><u>Интерфейс</u> - это методы. Каждый метод использует свой алгоритм чтобы работать с памятью</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Структуры данных в JavaScript</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-    <li>Array</li>
-    <li>Hash Table (Object, Set, Map) урезанный без функции кэширования</li>
-</ul>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Big-O Notation</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<img src="/@img/structure/big-o.png" width="550px">
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Назначение</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ol class="list-num">
-	<li>Упрощение исполнительных конструкиций кода</li>
-	<li>Структурирование приложения</li>
-	<li>Устраняет повторяющиеся вычисления</li>
-	<li>Ускорение приложения</li>
-</ol>
-
-</div><div id="theory-data-structures/structures/stack"><!-- TODO:
+                    <div id="content"><div id="theory-data-structures/structures/stack"><!-- TODO:
 <f-search>Структуры данных -> Stack (Стек)</f-search>
 -->
 
@@ -1170,32 +1104,6 @@ const difference = new Set([...a].filter(
 ))
 </v-code>
 </template></v-two>
-</div><div id="theory-data-structures/samples/multiple-checks"><!-- TODO:
-<f-search>Структуры данных -> Примеры -> Множественные проверки</f-search>
--->
-
-<h2>Множественные проверки</h2>
-
-<v-two-code type="js;js" comment="Неоптимально;Оптимально">
-<template v-slot:first>
-if (user.group === 'admin') {
-    alert('Hello Admin!');
-} else if (user.group === 'editor') {
-    alert('Hello Editor!');
-} else {
-    alert('Hello Iser!');
-}
-</template>
-<template v-slot:last>
-let vivas = {
-    admin: 'Admin',
-    editor: 'Editor',
-    user: 'User'
-}
-
-alert(`Hello ${user.group}`);
-</template>
-</v-two-code>
 </div></div>
                 </div>
             </div>
