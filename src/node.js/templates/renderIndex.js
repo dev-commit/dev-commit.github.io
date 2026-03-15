@@ -1,4 +1,4 @@
-export const renderIndex = (title) => (`
+export const renderIndex = (title) => `
     <!DOCTYPE html>
     <html>
     <head>
@@ -61,4 +61,4 @@ export const renderIndex = (title) => (`
         <script src="src/vue.js/index.js"></script>
     </body>
     </html>
-`);
+`;

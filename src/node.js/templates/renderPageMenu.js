@@ -1,6 +1,6 @@
-import { nodeConfig } from '../../../custom/nodeConfig.js';
+import { nodeConfig } from "../../../custom/nodeConfig.js";
 
-export const renderPageMenu = () => (`
+export const renderPageMenu = () => `
     <slot v-for="itemTitle in themesContent">
         <h4
             v-html="(!itemTitle.child ? themesEmoji : '')+' '+itemTitle.title"
@@ -38,4 +38,4 @@ export const renderPageMenu = () => (`
 
         </ul>
     </slot>
-`);
+`;
