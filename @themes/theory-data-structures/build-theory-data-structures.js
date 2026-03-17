@@ -1,14 +1,8 @@
 root = "theory-data-structures/";
 
+// TODO: Удалить @img/structure/
+
 ARR_MODULE = [
-  {
-    title: "Структуры данных: линейные",
-    themes: [
-      [root + "structures/stack", emoji.items + "Стек"],
-      [root + "structures/queue", emoji.items + "Очередь"],
-      [root + "structures/linked-list", emoji.items + "Связанный список"],
-    ],
-  },
   {
     title: "Структуры данных: остальные",
     themes: [
