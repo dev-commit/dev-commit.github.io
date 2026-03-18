@@ -5,32 +5,11 @@ const vue3 = " <u-code-mod>Vue 3</u-code-mod>";
 
 ARR_MODULE = [
   {
-    title: "Информация",
-    themes: [
-      [root + "main/links", emoji.theory + "Ссылки", false, "done"],
-      [
-        root + "main/structure-files",
-        emoji.theory + "Структура проекта",
-        false,
-        "done",
-      ],
-    ],
-  },
-  {
-    title: "Usage",
+    title: "Main",
     accent: true,
     themes: [
-      [root + "usage/cdn", emoji.code + "CDN" + vue2, false, "done"],
-      [root + "usage/vue-cli", emoji.code + "Vue CLI" + vue2, false, "done"],
-      [root + "usage/vite", emoji.code + "Vite" + vue3, false, "done"],
-    ],
-  },
-  {
-    title: "Lifecycle",
-    themes: [
-      [root + "lifecycle/vue2", emoji.theory + "Vue 2", false, "done"],
-      [root + "lifecycle/vue3", emoji.theory + "Vue 3", false, "done"],
-      [root + "lifecycle/usage", emoji.code + "Usage", false, "done"],
+      [root + "main/usage", "Использование", false, "done"],
+      [root + "main/lifecycle", "Lifecycle", false, "done"],
     ],
   },
   {
@@ -92,19 +71,5 @@ ARR_MODULE = [
       [root + "reactivity/next-tick", setTheme(1, ["vm.$nextTick"])],
       [root + "reactivity/force-update", setTheme(1, ["vm.$forceUpdate"])],
     ],
-  },
-  {
-    title: "Переиспользование и композиция",
-    themes: [
-      [root + "composition/mixins", "Примеси"],
-      [root + "composition/user-directives", "Пользовательские директивы"],
-      [root + "composition/render", "Render-функции"],
-      [root + "composition/plugins", "Плагины"],
-      [root + "composition/filters", "Фильтры"],
-    ],
-  },
-  {
-    title: "Примеры",
-    themes: [[root + "samples/cart", "Добавить / удалить из корзины"]],
   },
 ];
