@@ -39,13 +39,6 @@ const ARR_LINKS = [
     theme: "theory",
     title: theory + "Рефакторинг",
   },
-  null,
-  {
-    page: "theory-dev-methodology",
-    theme: "theory",
-    title: theory + "Методологии разработки",
-  },
-  { page: "theory-agile", theme: "theory", title: theory + "Agile | Jira" },
   {
     page: "theory-architecture",
     theme: "theory",
@@ -56,6 +49,7 @@ const ARR_LINKS = [
     theme: "theory",
     title: theory + "Программирование",
   },
+  { page: "theory-agile", theme: "theory", title: theory + "Agile | Jira" },
   [],
 
   {
