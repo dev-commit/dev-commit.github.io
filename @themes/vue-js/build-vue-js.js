@@ -15,12 +15,6 @@ ARR_MODULE = [
   {
     title: "Директивы",
     themes: [
-      [root + "directives/info", emoji.theory + "Информация"],
-      [root + "directives/v-text_v-html", setTheme(1, ["v-text", "v-html"])],
-      [
-        root + "directives/v-show_v-if",
-        setTheme(1, ["v-show", "v-if", "v-else", "v-else-if"]),
-      ],
       [root + "directives/v-for", setTheme(1, ["v-for"])],
       [root + "directives/v-on", setTheme(1, ["v-on:"])],
       [root + "directives/v-bind", setTheme(1, ["v-bind:"]) + " :class :style"],
@@ -48,7 +42,6 @@ ARR_MODULE = [
     title: "Опции и прочее",
     themes: [
       [root + "options-and-other/computed", setTheme(1, ["computed"])],
-      [root + "options-and-other/watch", setTheme(1, ["watch"])],
       [
         root + "options-and-other/transition",
         setTheme(1, ["&lt;transition&gt;"]),
