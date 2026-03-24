@@ -1,8 +1,5 @@
 root = "vue-js/";
 
-const vue2 = " <u-code-accent>Vue 2</u-code-accent>";
-const vue3 = " <u-code-mod>Vue 3</u-code-mod>";
-
 ARR_MODULE = [
   {
     title: "Main",
@@ -15,7 +12,6 @@ ARR_MODULE = [
   {
     title: "Директивы",
     themes: [
-      [root + "directives/v-for", setTheme(1, ["v-for"])],
       [root + "directives/v-on", setTheme(1, ["v-on:"])],
       [root + "directives/v-bind", setTheme(1, ["v-bind:"]) + " :class :style"],
       [root + "directives/v-model", setTheme(1, ["v-model"])],
