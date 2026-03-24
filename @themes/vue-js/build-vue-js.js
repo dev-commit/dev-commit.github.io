@@ -12,7 +12,6 @@ ARR_MODULE = [
   {
     title: "Директивы",
     themes: [
-      [root + "directives/v-on", setTheme(1, ["v-on:"])],
       [root + "directives/v-bind", setTheme(1, ["v-bind:"]) + " :class :style"],
       [root + "directives/v-model", setTheme(1, ["v-model"])],
       [root + "directives/v-pre", setTheme(1, ["v-pre"])],
@@ -30,7 +29,6 @@ ARR_MODULE = [
       [root + "components/component-dynamic", "Динамические компоненты"],
       [root + "components/props", setTheme(1, ["props"])],
       [root + "components/slot", setTheme(1, ["&lt;slot&gt;"])],
-      [root + "components/template", setTheme(1, ["&lt;template&gt;"])],
       [root + "components/emit", setTheme(1, ["$emit"])],
     ],
   },
