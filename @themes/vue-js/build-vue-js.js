@@ -5,8 +5,13 @@ ARR_MODULE = [
     title: "Main",
     accent: true,
     themes: [
+      [root + "main/slot", setTheme(1, ["&lt;slot&gt;"])],
       [root + "main/usage", "Использование", false, "done"],
       [root + "main/lifecycle", "Lifecycle", false, "done"],
+      [root + "main/computed", setTheme(1, ["computed"])],
+      [root + "main/transition", setTheme(1, ["&lt;transition&gt;"])],
+      [root + "main/component-dynamic", "Динамические компоненты"],
+      [root + "main/emit", setTheme(1, ["$emit"])],
     ],
   },
   {
@@ -17,46 +22,6 @@ ARR_MODULE = [
       [root + "directives/v-pre", setTheme(1, ["v-pre"])],
       [root + "directives/v-cloak", setTheme(1, ["v-cloak"])],
       [root + "directives/v-once", setTheme(1, ["v-once"])],
-    ],
-  },
-  {
-    title: "Компоненты",
-    themes: [
-      [root + "components/info", emoji.theory + "Информация"],
-      [root + "components/component-simple", "Простой компонент"],
-      [root + "components/component-registration", "Регистрация компонента"],
-      [root + "components/component-global", "Глобальный компонент"],
-      [root + "components/component-dynamic", "Динамические компоненты"],
-      [root + "components/props", setTheme(1, ["props"])],
-      [root + "components/slot", setTheme(1, ["&lt;slot&gt;"])],
-      [root + "components/emit", setTheme(1, ["$emit"])],
-    ],
-  },
-  {
-    title: "Опции и прочее",
-    themes: [
-      [root + "options-and-other/computed", setTheme(1, ["computed"])],
-      [
-        root + "options-and-other/transition",
-        setTheme(1, ["&lt;transition&gt;"]),
-      ],
-      [root + "options-and-other/vue-extend", setTheme(1, ["Vue.extend"])],
-    ],
-  },
-  {
-    title: "DOM",
-    themes: [
-      [root + "dom/event", setTheme(1, ["$event"])],
-      [root + "dom/refs", setTheme(1, ["$refs"])],
-    ],
-  },
-  {
-    title: "Реактивность",
-    themes: [
-      [root + "reactivity/reactivity", "Реактивность"],
-      [root + "reactivity/set", setTheme(1, ["vm.$set"])],
-      [root + "reactivity/next-tick", setTheme(1, ["vm.$nextTick"])],
-      [root + "reactivity/force-update", setTheme(1, ["vm.$forceUpdate"])],
     ],
   },
 ];
