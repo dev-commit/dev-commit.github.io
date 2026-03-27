@@ -66,16 +66,6 @@ Vuex</a>
             📑 Информация
         </a>
     </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__vue-vuex/main/install"
-            href="#vue-vuex/main/install"
-        >
-            ⚙️ Установка и настройка
-        </a>
-    </li>
 </ul><h4>🏷️ Элементы</h4><ul>
     <li>
         <a
@@ -180,24 +170,6 @@ Vuex</a>
 </ul>
 
 <img src="/@img/vue/vuex1.png" width="700px">
-</div><div id="vue-vuex/main/install"><h2>Подключение</h2>
-
-<!------------------------------------------------------------->
-<h4>Подключение через &lt;script&gt;</h4>
-<!------------------------------------------------------------->
-<v-code lang="html" title="">
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.22/vue.min.js"&gt;&lt;/script&gt;
-&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.1.0/vuex.min.js"&gt;&lt;/script&gt;
-</v-code>
-
-<!------------------------------------------------------------->
-<h4>Подключение через NPM</h4>
-<!------------------------------------------------------------->
-<v-code lang="js" title="">
-import Vue from 'vue'
-import Vuex from 'vuex'
-Vue.use(Vuex)
-</v-code>
 </div><div id="vue-vuex/elements/store"><h2>Хранилище (store)</h2>
 
 <v-code lang="js" title="">
@@ -569,7 +541,7 @@ store.state.b // -> состояние модуля `moduleB`
 </div><div id="vue-vuex/samples/samples"><h2>Примеры</h2>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Пример #1</h3>
+<h3>Пример</h3>
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 
 <!------------------------------------------------------------->
@@ -634,33 +606,6 @@ export default {
     }
 }
 &lt;/script&gt;
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Пример #2</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<v-code lang="js" title="mapActions">
-addUser(state, payload) {
-    state.users.push(payload)
-}
-methods: {
-    ...mapActions(['updateMessage']),
-    ...mapMutations(['addUser'])
-}
-v-on:click="addUser({id:4, name:'Tony'})"
-</v-code>
-
-<v-code lang="js" title="mutations, commit">
-mutations: {
-    authenticate(state, { token, expiration }) {
-        localStorage.setItem('token', token)
-        localStorage.setItem('expiration', expiration)
-    }
-}
-commit('authenticate', {
-    token,
-    expiration
-})
 </v-code>
 </div></div>
                 </div>

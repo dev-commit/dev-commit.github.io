@@ -60,16 +60,6 @@
     <li>
         <a
             class="menu-link"
-            id="id__vue-js/main/slot"
-            href="#vue-js/main/slot"
-        >
-            <u-menu>&lt;slot&gt;</u-menu>
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
             id="id__vue-js/main/usage"
             href="#vue-js/main/usage"
         >
@@ -90,26 +80,6 @@
     <li>
         <a
             class="menu-link"
-            id="id__vue-js/main/computed"
-            href="#vue-js/main/computed"
-        >
-            <u-menu>computed</u-menu>
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__vue-js/main/transition"
-            href="#vue-js/main/transition"
-        >
-            <u-menu>&lt;transition&gt;</u-menu>
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
             id="id__vue-js/main/component-dynamic"
             href="#vue-js/main/component-dynamic"
         >
@@ -120,10 +90,30 @@
     <li>
         <a
             class="menu-link"
+            id="id__vue-js/main/computed"
+            href="#vue-js/main/computed"
+        >
+            <u-menu>computed</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
             id="id__vue-js/main/emit"
             href="#vue-js/main/emit"
         >
             <u-menu>$emit</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__vue-js/main/transition"
+            href="#vue-js/main/transition"
+        >
+            <u-menu>&lt;transition&gt;</u-menu>
         </a>
     </li>
 </ul><h4>🏷️ Директивы</h4><ul>
@@ -198,96 +188,7 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="vue-js/main/slot"><h2>Передача данных между компонентами (slot)</h2>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Описание</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<ul class="list-point">
-	<li>Слот имеет доступ к тем же свойствам экземпляра app.vue (т.е. к той же «области видимости»), что и остальная часть шаблона</li>
-	<li>Слот не имеет доступа к области видимости &lt;app-task&gt;</li>
-	<li>Всё в родительском шаблоне компилируется в области видимости родительского компонента; всё в дочернем шаблоне компилируется в области видимости дочернего компонента</li>
-</ul>
-
-<v-code lang="js" title="">
-<u-code>v-slot:user</u-code>  // полная запись
-<u-code>#user</u-code>        // сокращенная запись
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Использование</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<!------------------------------------------------------>
-<h4>Родительский компонент</h4>
-<!------------------------------------------------------>
-<v-code lang="html" title="">
-&lt;app-task&gt;
-	&lt;template v-slot:user&gt;User Admin&lt;/template&gt;
-&lt;/app-task&gt;
-</v-code>
-
-<!------------------------------------------------------>
-<h4>Дочерний компонент</h4>
-<!------------------------------------------------------>
-<v-code lang="html" title="">
-&lt;template&gt;
-    &lt;div&gt;
-        &lt;slot name="user"&gt;User Default&lt;/slot&gt;
-    &lt;/div&gt;
-&lt;/template&gt;
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Слоты с ограниченной областью видимости</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-	<li>Атрибуты, привязанные к элементу &lt;slot&gt;, называются входными параметрами слота</li>
-</ul>
-
-<!------------------------------------------------------>
-<h4>Родительский компонент</h4>
-<!------------------------------------------------------>
-<v-code lang="html" title="">
-<span v-pre>{{userGeneral}}</span>
-&lt;app-task&gt;
-    &lt;template v-slot:user="slotProps"&gt;
-    	&lt;!-- slotProps виден только внутри template --&gt;
-    	<span v-pre>{{userGeneral = slotProps.user}}</span>
-    &lt;/template&gt;
-&lt;/app-task&gt;
-
-&lt;script&gt;
-export default {
-    data() {
-        return {
-            userGeneral: null
-        };
-    }
-&lt;/script&gt;
-</v-code>
-
-<!------------------------------------------------------>
-<h4>Дочерний компонент</h4>
-<!------------------------------------------------------>
-<v-code lang="html" title="">
-&lt;template&gt;
-    &lt;div&gt;
-        &lt;slot name="user" :user="userChild"&gt;&lt;/slot&gt;
-    &lt;/div&gt;
-&lt;/template&gt;
-
-&lt;script&gt;
-export default {
-    data() {
-        return {
-            userChild: 'Tony'
-        }
-    }
-}
-&lt;/script&gt;
-</v-code></div><div id="vue-js/main/usage"><h2>Vite (Vue 3)</h2>
+                    <div id="content"><div id="vue-js/main/usage"><h2>Vite (Vue 3)</h2>
 
 <v-tree>
 📂 <u-code-mod>src</u-code-mod>
@@ -416,151 +317,7 @@ h1 {
 		<li><u-code-mod>onServerPrefetch()</u-code-mod> - <u-menu-outline>SSR ONLY</u-menu-outline>. Регистрирует асинхронную функцию, которая должна быть разрешена до того, как экземпляр компонента будет отрисован на сервере</li>
     </ul>
 </template></v-two>
-</div><div id="vue-js/main/computed"><h2>Computed Properties</h2>
-
-<ul class="link-page-wrapper">
-	<li><a href="#options-and-other-computed-set">Сеттеры вычисляемых свойств</a></li>
-	<li><a href="#options-and-other-computed-samples">Примеры</a></li>
-</ul>
-
-<ul class="list-point">
-	<li><u-text-define>Computed Properties</u-text-define> - вычисляемые (обработанные) свойства применяются когда есть зависимость переменных от других переменных</li>
-	<li>Кэшируются, основываясь на своих реактивных зависимостях. Вычисляемое свойство пересчитывается лишь тогда, когда изменится одна из его реактивных зависимостей</li>
-</ul>
-
-<v-code lang="html" title="">
-&lt;div id="app"&gt;
-	&lt;input type="text" @input="increment($event.target.value)"&gt;
-	&lt;p&gt;<span v-pre>{{value}}</span>&lt;/p&gt;
-	&lt;p&gt;<span v-pre>{{doubleValue}}</span>&lt;/p&gt;
-&lt;/div&gt;
-</v-code>
-
-<v-code lang="js" title="">
-const app = new Vue({
-	el: '#app', 
-	data: {
-		value: 1
-	},
-	methods: {
-		increment(value) {
-			this.value = value
-		}
-	},
-	computed: {
-		doubleValue() {
-			return this.value * 2
-		}
-	}
-});
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3 id="options-and-other-computed-set">Сеттеры вычисляемых свойств</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<ul class="list-point">
-	<li>По умолчанию вычисляемые свойства работают только на чтение, но при необходимости можно также указать и сеттер</li>
-	<li>Теперь запись <u-code-text>vm.fullName = 'Иван Иванов'</u-code-text> вызовет сеттер, и <u-code-text>vm.firstName</u-code-text> и <u-code-text>vm.lastName</u-code-text> будут соответствующим образом обновлены</li>
-</ul>
-
-<v-code lang="js" title="">
-computed: {
-	fullName: {
-		// геттер:
-		get: function () {
-			return this.firstName + ' ' + this.lastName
-		},
-		// сеттер:
-		set: function (newValue) {
-			let names = newValue.split(' ')
-			this.firstName = names[0]
-			this.lastName = names[names.length - 1]
-		}
-	}
-}
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3 id="options-and-other-computed-samples">Примеры</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-<!------------------------------------------------------------->
-<h4>Пример #1. При вводе более 10 символов, скрывается кнопка</h4>
-<!------------------------------------------------------------->
-<v-code lang="html" title="">
-&lt;div id="app"&gt;
-	&lt;form action=""&gt;
-		&lt;span&gt;<span v-pre>{{ count }}</span> / 10&lt;/span&gt;
-		&lt;textarea v-model="text"&gt;&lt;/textarea&gt;
-		&lt;button <u-code>v-if="count &lt;= 10"</u-code>&gt;Отправить&lt;/button&gt;
-	&lt;/form&gt;
-&lt;/div&gt;
-</v-code>
-
-<v-code lang="js" title="">
-const app = new Vue({
-	el: '#app',
-	data: {
-		text: ''
-	},
-	computed: {
-		count() {
-			return this.text.length
-		}
-	}
-})
-</v-code>
-</div><div id="vue-js/main/transition"><h2>Анимация</h2>
-
-<img src="/@img/vue/animation1.png" height="230px">
-
-<v-code lang="html" title="">
-&lt;transition name="fade"&gt;&lt;/transition&gt;
-&lt;transition name="slide-down"&gt;&lt;/transition&gt;
-</v-code>
-
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h3>Примеры</h3>
-<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-<h4>#1 - Плавное появление</h4>
-<v-code lang="css" title="">
-.fade-enter-active, .fade-leave-active {
-	transition: opacity 0.4s;
-}
-.fade-enter, .fade-leave-to {
-	opacity: 0;
-}
-</v-code>
-
-<h4>#2 - Всплытие снизу</h4>
-<v-code lang="css" title="">
-.element {
-	position: fixed;
-    bottom: 25px;
-    left: 25px;
-}
-.fade-enter-active, .fade-leave-active {
-    transition: 1s;
-}
-.fade-enter, .fade-leave-to {
-    transform: translateY(100px);
-}
-</v-code>
-
-<h4>#3 - Keyframes</h4>
-<v-code lang="css" title="">
-.fade-enter-active {
-	animation: fade 0.4s;
-}
-.fade-leave-active {
-	animation: fade 0.4s reverse;
-}
-@keyframes fade {
-	0%   { transform: scale(0); }
-	50%  { transform: scale(1.5); }
-	100% { transform: scale(1); }
-}
-</v-code></div><div id="vue-js/main/component-dynamic"><h2>Динамические компоненты</h2>
+</div><div id="vue-js/main/component-dynamic"><h2>Динамические компоненты</h2>
 
 <!------------------------------------------------------------->
 <h4>Создание компонента</h4>
@@ -682,6 +439,100 @@ export default {
 }
 &lt;/script&gt;
 </v-code>
+</div><div id="vue-js/main/computed"><h2>Computed Properties</h2>
+
+<ul class="link-page-wrapper">
+	<li><a href="#options-and-other-computed-set">Сеттеры вычисляемых свойств</a></li>
+	<li><a href="#options-and-other-computed-samples">Примеры</a></li>
+</ul>
+
+<ul class="list-point">
+	<li><u-text-define>Computed Properties</u-text-define> - вычисляемые (обработанные) свойства применяются когда есть зависимость переменных от других переменных</li>
+	<li>Кэшируются, основываясь на своих реактивных зависимостях. Вычисляемое свойство пересчитывается лишь тогда, когда изменится одна из его реактивных зависимостей</li>
+</ul>
+
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+	&lt;input type="text" @input="increment($event.target.value)"&gt;
+	&lt;p&gt;<span v-pre>{{value}}</span>&lt;/p&gt;
+	&lt;p&gt;<span v-pre>{{doubleValue}}</span>&lt;/p&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+const app = new Vue({
+	el: '#app', 
+	data: {
+		value: 1
+	},
+	methods: {
+		increment(value) {
+			this.value = value
+		}
+	},
+	computed: {
+		doubleValue() {
+			return this.value * 2
+		}
+	}
+});
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="options-and-other-computed-set">Сеттеры вычисляемых свойств</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>По умолчанию вычисляемые свойства работают только на чтение, но при необходимости можно также указать и сеттер</li>
+	<li>Теперь запись <u-code-text>vm.fullName = 'Иван Иванов'</u-code-text> вызовет сеттер, и <u-code-text>vm.firstName</u-code-text> и <u-code-text>vm.lastName</u-code-text> будут соответствующим образом обновлены</li>
+</ul>
+
+<v-code lang="js" title="">
+computed: {
+	fullName: {
+		// геттер:
+		get: function () {
+			return this.firstName + ' ' + this.lastName
+		},
+		// сеттер:
+		set: function (newValue) {
+			let names = newValue.split(' ')
+			this.firstName = names[0]
+			this.lastName = names[names.length - 1]
+		}
+	}
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3 id="options-and-other-computed-samples">Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример #1. При вводе более 10 символов, скрывается кнопка</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;div id="app"&gt;
+	&lt;form action=""&gt;
+		&lt;span&gt;<span v-pre>{{ count }}</span> / 10&lt;/span&gt;
+		&lt;textarea v-model="text"&gt;&lt;/textarea&gt;
+		&lt;button <u-code>v-if="count &lt;= 10"</u-code>&gt;Отправить&lt;/button&gt;
+	&lt;/form&gt;
+&lt;/div&gt;
+</v-code>
+
+<v-code lang="js" title="">
+const app = new Vue({
+	el: '#app',
+	data: {
+		text: ''
+	},
+	computed: {
+		count() {
+			return this.text.length
+		}
+	}
+})
+</v-code>
 </div><div id="vue-js/main/emit"><h2>Передача событий между компонентами</h2>
 
 <ul class="list-point">
@@ -741,7 +592,57 @@ const app = new Vue({
 	}
 })
 </v-code>
-</div><div id="vue-js/directives/v-bind"><h2>v-bind:</h2>
+</div><div id="vue-js/main/transition"><h2>Анимация</h2>
+
+<img src="/@img/vue/animation1.png" height="230px">
+
+<v-code lang="html" title="">
+&lt;transition name="fade"&gt;&lt;/transition&gt;
+&lt;transition name="slide-down"&gt;&lt;/transition&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h4>#1 - Плавное появление</h4>
+<v-code lang="css" title="">
+.fade-enter-active, .fade-leave-active {
+	transition: opacity 0.4s;
+}
+.fade-enter, .fade-leave-to {
+	opacity: 0;
+}
+</v-code>
+
+<h4>#2 - Всплытие снизу</h4>
+<v-code lang="css" title="">
+.element {
+	position: fixed;
+    bottom: 25px;
+    left: 25px;
+}
+.fade-enter-active, .fade-leave-active {
+    transition: 1s;
+}
+.fade-enter, .fade-leave-to {
+    transform: translateY(100px);
+}
+</v-code>
+
+<h4>#3 - Keyframes</h4>
+<v-code lang="css" title="">
+.fade-enter-active {
+	animation: fade 0.4s;
+}
+.fade-leave-active {
+	animation: fade 0.4s reverse;
+}
+@keyframes fade {
+	0%   { transform: scale(0); }
+	50%  { transform: scale(1.5); }
+	100% { transform: scale(1); }
+}
+</v-code></div><div id="vue-js/directives/v-bind"><h2>v-bind:</h2>
 
 <ul class="link-page-wrapper">
 	<li><a href="#v-bind-bind">Связывание атрибутов элементов</a></li>
