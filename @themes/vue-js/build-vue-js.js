@@ -5,8 +5,6 @@ ARR_MODULE = [
     title: "Main",
     accent: true,
     themes: [
-      [root + "main/usage", "Использование", false, "done"],
-      [root + "main/lifecycle", "Lifecycle", false, "done"],
       [root + "main/component-dynamic", "Динамические компоненты"],
       [root + "main/computed", setTheme(1, ["computed"])],
       [root + "main/emit", setTheme(1, ["$emit"])],
