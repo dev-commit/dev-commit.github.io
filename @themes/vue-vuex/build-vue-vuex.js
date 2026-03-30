@@ -8,12 +8,12 @@ ARR_MODULE = [
   {
     title: "Элементы",
     themes: [
-      [root + "elements/store", "0. Хранилище (store)"],
-      [root + "elements/state", "1. Состояние (state)"],
-      [root + "elements/getters", "2. Геттеры (getters)"],
-      [root + "elements/mutations", "3. Мутации (mutations)"],
-      [root + "elements/actions", "4. Действия (actions)"],
-      [root + "elements/modules", "5. Модули (modules)"],
+      [root + "elements/store", "1. Хранилище (store)"],
+      [root + "elements/state", "2. Состояние (state)"],
+      [root + "elements/getters", "3. Геттеры (getters)"],
+      [root + "elements/mutations", "4. Мутации (mutations)"],
+      [root + "elements/actions", "5. Действия (actions)"],
+      [root + "elements/modules", "6. Модули (modules)"],
     ],
   },
   {

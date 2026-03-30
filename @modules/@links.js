@@ -127,7 +127,6 @@ const ARR_LINKS = [
 
   [],
 
-  { page: "vue-js", theme: "vue", title: search + accent + "Vue.js" },
   { page: "vue-vuex", theme: "secondary", title: search + "Vuex" },
   { page: "vue-router", theme: "secondary", title: search + "Vue Router" },
   null,
