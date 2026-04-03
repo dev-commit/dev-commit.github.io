@@ -27,7 +27,6 @@ const search = `
 // #2bd8ff
 
 const ARR_LINKS = [
-  { page: "theory-algoritms", theme: "theory", title: theory + "Алгоритмы" },
   {
     page: "theory-design-patterns",
     theme: "theory",
