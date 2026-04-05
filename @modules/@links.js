@@ -27,11 +27,6 @@ const search = `
 // #2bd8ff
 
 const ARR_LINKS = [
-  {
-    page: "theory-design-patterns",
-    theme: "theory",
-    title: theory + "Паттерны проектирования",
-  },
   { page: "theory-solid", theme: "theory", title: theory + "SOLID" },
   {
     page: "theory-refactoring",
