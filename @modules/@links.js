@@ -28,11 +28,6 @@ const search = `
 
 const ARR_LINKS = [
   {
-    page: "theory-refactoring",
-    theme: "theory",
-    title: theory + "Рефакторинг",
-  },
-  {
     page: "theory-architecture",
     theme: "theory",
     title: theory + "Архитектура",
