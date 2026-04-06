@@ -27,7 +27,6 @@ const search = `
 // #2bd8ff
 
 const ARR_LINKS = [
-  { page: "theory-solid", theme: "theory", title: theory + "SOLID" },
   {
     page: "theory-refactoring",
     theme: "theory",
