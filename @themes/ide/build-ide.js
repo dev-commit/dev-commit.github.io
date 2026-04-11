@@ -20,12 +20,4 @@ ARR_MODULE = [
       [root + "vscode/cases/linter-onsave", "Linter OnSave"],
     ],
   },
-  {
-    title: "Редакторы код",
-    themes: [
-      [root + "editors/codesandbox", "CodeSandbox"],
-      [root + "editors/sublime-text", "Sublime Text"],
-      [root + "editors/notepad", "Notepad++"],
-    ],
-  },
 ];

@@ -28,11 +28,6 @@ const search = `
 
 const ARR_LINKS = [
   {
-    page: "theory-architecture",
-    theme: "theory",
-    title: theory + "Архитектура",
-  },
-  {
     page: "theory-programming",
     theme: "theory",
     title: theory + "Программирование",
@@ -75,12 +70,7 @@ const ARR_LINKS = [
   null,
   { page: "js-regexp", theme: "js", title: "RegExp" },
   { page: "js-web-api", theme: "js", title: search + "Web API" },
-  { page: "canvas", theme: "secondary", title: "Canvas" },
-  { page: "web-components", theme: "secondary", title: "Web Components" },
-  null,
-  { page: "lodash", theme: "primary", title: "Lodash" },
-  { page: "ramda", theme: "primary", title: "Ramda" },
-  { page: "dayjs", theme: "primary", title: "Day.js" },
+
   [],
 
   { page: "react-app", theme: "accent", title: accent + "React App" },
@@ -88,8 +78,6 @@ const ARR_LINKS = [
   { page: "react-hooks", theme: "react", title: "React Hooks" },
   { page: "react-api", theme: "react", title: "React API" },
   { page: "react-router", theme: "react", title: "React Router" },
-  { page: "reactflow", theme: "secondary", title: search + "React Flow" },
-  { page: "react-use", theme: "secondary", title: "React Use" },
   null,
   { page: "material-ui", theme: "react", title: "Material UI" },
   { page: "react-hook-form", theme: "actual", title: "React Hook Form" },
@@ -100,23 +88,12 @@ const ARR_LINKS = [
   { page: "redux-saga", theme: "react", title: "Redux Saga" },
   { page: "reselect", theme: "react", title: "Reselect" },
   { page: "zustand", theme: "react", title: "Zustand" },
-  null,
-  { page: "formik", theme: "react", title: search + "Formik" },
-  { page: "yup", theme: "react", title: "Yup" },
-  { page: "react-final-form", theme: "secondary", title: "React Final Form" },
+
   [],
 
   { page: "next-js", theme: "react", title: "Next.js" },
   { page: "node-js", theme: "node", title: search + "Node.js" },
-  { page: "node-js-express", theme: "node", title: search + "Express" },
-  { page: "nest-js", theme: "node", title: search + "Nest.js" },
-  { page: "mongodb", theme: "actual", title: "MongoDB" },
-  { page: "react-native", theme: "actual", title: "React Native" },
 
-  [],
-
-  { page: "vue-vuex", theme: "secondary", title: search + "Vuex" },
-  { page: "vue-router", theme: "secondary", title: search + "Vue Router" },
   null,
   { page: "testing", theme: "primary", title: theory + "Тестирование" },
   { page: "jest", theme: "primary", title: "Jest" },
@@ -131,9 +108,7 @@ const ARR_LINKS = [
   { page: "ide", theme: "tech", title: search + "IDE" },
   { page: "linters", theme: "tech", title: search + "Linters" },
   { page: "vite", theme: "tech", title: "Vite" },
-  { page: "webpack", theme: "primary", title: search + "Webpack" },
-  { page: "npm", theme: "primary", title: search + "NPM | Yarn" },
-  { page: "cmd", theme: "primary", title: "CMD" },
+
   null,
   { page: "ci-cd", theme: "theory", title: theory + "CI / CD" },
   [],
@@ -151,4 +126,34 @@ const ARR_LINKS = [
   null,
   { page: "wiki", theme: "primary", title: "Wiki" },
   { page: "english", theme: "theory", title: theory + "English" },
+  null,
+  // Vue
+  { page: "vue-vuex", theme: "secondary", title: search + "Vuex" },
+  { page: "vue-router", theme: "secondary", title: search + "Vue Router" },
+  null,
+  // JS
+  { page: "canvas", theme: "secondary", title: "Canvas" },
+  { page: "web-components", theme: "secondary", title: "Web Components" },
+  { page: "lodash", theme: "primary", title: "Lodash" },
+  { page: "ramda", theme: "primary", title: "Ramda" },
+  { page: "dayjs", theme: "primary", title: "Day.js" },
+  null,
+  // Node.js
+  { page: "node-js-express", theme: "node", title: search + "Express" },
+  { page: "nest-js", theme: "node", title: search + "Nest.js" },
+  { page: "mongodb", theme: "actual", title: "MongoDB" },
+  { page: "react-native", theme: "actual", title: "React Native" },
+  null,
+  // Terminal
+  { page: "webpack", theme: "primary", title: search + "Webpack" },
+  { page: "npm", theme: "primary", title: search + "NPM | Yarn" },
+  { page: "cmd", theme: "primary", title: "CMD" },
+  // React
+  { page: "reactflow", theme: "secondary", title: search + "React Flow" },
+  { page: "react-use", theme: "secondary", title: "React Use" },
+  // React Form
+  null,
+  { page: "formik", theme: "react", title: search + "Formik" },
+  { page: "yup", theme: "react", title: "Yup" },
+  { page: "react-final-form", theme: "secondary", title: "React Final Form" },
 ];
