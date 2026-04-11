@@ -60,11 +60,7 @@ const ARR_LINKS = [
   { page: "axios", theme: "react", title: "Axios" },
   { page: "swr", theme: "react", title: "SWR" },
   { page: "tan-stack-query", theme: "react", title: "TanStack Query" },
-  {
-    page: "theory-network",
-    theme: "theory",
-    title: theory + "HTTP | Протоколы",
-  },
+
   { page: "network", theme: "primary", title: tech + "Сеть" },
   { page: "auth", theme: "primary", title: tech + "Авторизация" },
   null,
