@@ -27,11 +27,6 @@ const search = `
 // #2bd8ff
 
 const ARR_LINKS = [
-  {
-    page: "theory-programming",
-    theme: "theory",
-    title: theory + "Программирование",
-  },
   { page: "theory-agile", theme: "theory", title: theory + "Agile | Jira" },
   [],
 
