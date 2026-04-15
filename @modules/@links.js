@@ -27,9 +27,6 @@ const search = `
 // #2bd8ff
 
 const ARR_LINKS = [
-  { page: "theory-agile", theme: "theory", title: theory + "Agile | Jira" },
-  [],
-
   {
     page: "event-loop",
     theme: "accent",
