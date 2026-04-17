@@ -131,11 +131,11 @@ const ARR_LINKS = [
   { page: "linux", theme: "primary", title: "Linux" },
   [],
 
-  { page: "python", theme: "secondary", title: search + "Python" },
-  { page: "php", theme: "secondary", title: search + "PHP" },
-  { page: "mysql", theme: "secondary", title: "mySql" },
+  // { page: "python", theme: "secondary", title: search + "Python" },
+  // { page: "php", theme: "secondary", title: search + "PHP" },
+  // { page: "mysql", theme: "secondary", title: "mySql" },
+  // [],
 
-  [],
   { page: "wiki", theme: "primary", title: "Wiki" },
   { page: "english", theme: "theory", title: theory + "English" },
 ];
