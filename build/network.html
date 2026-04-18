@@ -1,0 +1,1207 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>✈️ Сеть</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/network/build-network.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">✈️ Сеть</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Теория</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__network/theory/client-server"
+            href="#network/theory/client-server"
+        >
+            📑 Client-Server
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__network/theory/url"
+            href="#network/theory/url"
+        >
+            📑 URL и URI
+        </a>
+    </li>
+</ul><h4>🏷️ Технологии</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__network/tech/websocket"
+            href="#network/tech/websocket"
+        >
+            ⭐️ WebSocket
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__network/tech/graphql"
+            href="#network/tech/graphql"
+        >
+            ⭐️ GraphQL
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__network/tech/webrtc"
+            href="#network/tech/webrtc"
+        >
+            ⭐️ WebRTC
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__network/tech/long-polling"
+            href="#network/tech/long-polling"
+        >
+            Long Polling
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__network/tech/sse"
+            href="#network/tech/sse"
+        >
+            SSE (Server Sent Events)
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__network/tech/cors"
+            href="#network/tech/cors"
+        >
+            ⚡️ CORS
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__network/tech/comet"
+            href="#network/tech/comet"
+        >
+            Comet
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__network/tech/jsonp"
+            href="#network/tech/jsonp"
+        >
+            JSONP
+        </a>
+    </li>
+</ul><h4>🏷️ Работа с API</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__network/api/api"
+            href="#network/api/api"
+        >
+            📑 API
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__network/api/rest-vs-soap"
+            href="#network/api/rest-vs-soap"
+        >
+            📑 REST vs SOAP
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__network/api/rest"
+            href="#network/api/rest"
+        >
+            🔥 REST API
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__network/api/soap"
+            href="#network/api/soap"
+        >
+            SOAP
+        </a>
+    </li>
+</ul><h4>🏷️ Hacking</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__network/hacking/xss"
+            href="#network/hacking/xss"
+        >
+            XSS
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__network/hacking/sql-injection"
+            href="#network/hacking/sql-injection"
+        >
+            SQL инъекции
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="network/theory/client-server"><!-- TODO:
+<f-search>Network -> Клиент-серверная архитектура</f-search>
+-->
+
+<h2>Клиент-серверная архитектура</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Клиент-серверная архитектура</u-text-define> </li>
+    <ul class="list-point">
+        <li><u>Клиент</u> - инициирует соединение и посылает запрос</li>
+        <li><u>Сервер</u> - ожидает соединения для получения запроса, производит необходимые действия и возвращают обратно сообщение с результатом</li>
+    </ul>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Веб-сервер</u-text-define> - программа, предназначенная в первую очередь для работы с протоколом HTTP. Основные реализации: <u>Apache</u>, <u>Internet Information Services (IIS)</u>, <u>nginx</u>, <u>Google Web Server</u>, <u>lighttpd</u></li>
+
+    <li><u-text-define>URI (Uniform Resource Identifier)</u-text-define> - единообразный идентификатор ресурса. Ресурс как правило, файл на сервере ('/styles.css'), или абстрактный объект ('/blogs/webdev/')</li>
+    <li>Особенностью протокола HTTP является возможность указать в запросе и ответе способ представления одного и того же ресурса по различным параметрам: формату, кодировке, языку и т. д. в частности, для этого используется HTTP-заголовок (строки содержащие разделённую двоеточием пару имя-значение)</li>
+    <li>Не предусмотрена внутренняя поддержка состояния</li>
+    <li>Аналоги FTP и SMTP</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Этапы реализации связи с backend</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li>Мокирование запросов</li>
+    <li>Использование стендов</li>
+    <li>Работа с реальными интсансами бэка</li>
+</ol>
+</div><div id="network/theory/url"><!-- TODO:
+<f-search>Network -> URL и URI</f-search>
+-->
+
+<h2>URL и URI</h2>
+
+<ul class="list-point">
+    <li><u-text-define>URI</u-text-define> (Uniform Resource Identifier) - унифицированный идентификатор ресурса</li>
+    <li>Имя и адрес ресурса в сети, включает в себя URL и URN</li>
+    <li><u-code-text>https://wiki.ru/img/logo.png</u-code-text></li>
+</ul>
+
+<ul class="list-point">
+    <li><u-text-define>URL</u-text-define> (Uniform Resource Locator) - унифицированный определитель местонахождения ресурса</li>
+    <li>Адрес ресурса в сети, определяет местонахождение и способ обращения к нему</li>
+    <li><u-code-text>https://wiki.ru</u-code-text></li>
+</ul>
+
+<ul class="list-point">
+    <li><u-text-define>URN</u-text-define> (Unifrorm Resource Name) - унифицированное имя ресурса</li>
+    <li>Имя ресурса в сети, определяет только название ресурса, но не говорит как к нему подключиться</li>
+    <li><u-code-text>img/logo.png</u-code-text></li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Структура URI</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><em>Scheme</em> (Схема) - показывает на то, как обращаться к ресурсу, чаще всего это сетевой протокол (http, ftp, ldap)</li>
+    <li><em>Hier-Part</em> (Иерархическая часть) - данные, необходимые для идентификации ресурса (н-р, адрес сайта)</li>
+    <li><em>Query</em> (Запрос) - необязательные дополнительные данные ресурса (н-р, поисковой запрос)</li>
+    <li><em>Fragment</em> (Фрагмент) - необязательный компонент для идентификации вторичного ресурса ресурса (н-р, место на странице)</li>
+</ul>
+
+<v-code lang="bash none" title="">
+URI = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Структура URL</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Протокол, который используется для доступа к ресурсу – http, https, ftp</li>
+    <li>Расположение сервера с использованием IP-адреса или имени домена - например, wiki.merionet.ru - это имя домена. https://192.168.1.17 - здесь ресурс расположен по указанному IP-адресу</li>
+    <li>Номер порта на сервере. Н-р, http://localhost: 8080, где 8080 - это порт</li>
+    <li>Точное местоположение в структуре каталогов сервера. Н-р - https://wiki.merionet.ru/ip-telephoniya/ - это точное местоположение, если пользователь хочет перейти в раздел про телефонию на сайте</li>
+    <li>Необязательный идентификатор фрагмента. Н-р, https://www.google.com/search?ei=qw3eqwe12e1w&q=URL, где q = URL - это строка запроса, введенная пользователем</li>
+</ul>
+
+<v-code lang="bash none" title="">
+[protocol]://www.[domain_name]:[port 80]/[path or exaction resource location]?[query]#[fragment]
+</v-code>
+
+<h5>Пример</h5>
+<v-code lang="plaintext none" title="">
+https://www.example.com:80/file.html?key1=value1&key2=value2#00s0350q
+</v-code>
+
+<table>
+    <tr>
+        <td><u-code-text>https://</u-code-text></td>
+        <td>Protocol</td>
+    </tr>
+    <tr>
+        <td><u-code-text>www.</u-code-text></td>
+        <td>Sub Domain</td>
+    </tr>
+    <tr>
+        <td><u-code-text>example.com</u-code-text></td>
+        <td>Domain Name</td>
+    </tr>
+    <tr>
+        <td><u-code-text>:80</u-code-text></td>
+        <td>Port</td>
+    </tr>
+    <tr>
+        <td><u-code-text>/file.html</u-code-text></td>
+        <td>Path</td>
+    </tr>
+    <tr>
+        <td><u-code-text>?</u-code-text></td>
+        <td>Query</td>
+    </tr>
+    <tr>
+        <td><u-code-text>key1=value1&key2=value2</u-code-text></td>
+        <td>Parameters</td>
+    </tr>
+    <tr>
+        <td><u-code-text>#00s0350q</u-code-text></td>
+        <td>Fragment</td>
+    </tr>
+</table>
+</div><div id="network/tech/websocket"><!-- TODO:
+<f-search>Network -> WebSocket</f-search>
+-->
+
+<h2>WebSocket</h2>
+
+<u-link-wrapper>
+	<v-link url="https://learn.javascript.ru/websocket" text="" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+	<li><u-text-define>Протокол WebSocket</u-text-define> предназначен для решения снятия ограничений обмена данными между браузером и сервером. Кросс-доменный, универсальный, безопасный. Позволяет пересылать любые данные, на любой домен, безопасно и почти без лишнего сетевого трафика. Позволяет создать <u>постоянное соединение</u> для отображения в реальном времени (н-р: сервис биржи и т.д.)</li>
+	<li>Сервер должен поддерживать протокол WebSocket</li>
+	<li>Протокол WebSocket работает над TCP</li>
+	<li>Создать подобный XMLHttpRequest-запрос (подделать WebSocket) невозможно: указанные выше заголовки запрещены к установке методом setRequestHeader</li>
+	<li>Сервер может проанализировать эти заголовки и решить, разрешает ли он WebSocket с данного домена Origin</li>
+</ul>
+
+<u-message-warn>
+	<ul class="list-flat">
+		<li><u>WebSockets</u> - выделяется отдельная абстракция, реализованная поверх HTTP, но фактически другой протокол: он двунаправленный, в отличие от HTTP, который ждет, что у тебя что-то зарезолвится на сервере.</li>
+	</ul>
+</u-message-warn>
+
+<!------------------------------------------------------------->
+<h4>Открыть соединеиние</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+// создание объекта WebSocket с указанием протокола ws
+const socket = new WebSocket("<u-code>ws</u-code>://javascript.ru/ws");  // протокол "ws" над "http"
+const socket = new WebSocket("<u-code>wss</u-code>://javascript.ru/ws"); // протокол "wss" над "https"
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Коллбэки у socket</h4>
+<!------------------------------------------------------------->
+<p>Один получение данных и три при изменениях в состоянии соединения</p>
+<v-code lang="js" title="">
+<u-code>socket.onopen</u-code> = function() {
+	console.log("Соединение установлено.");
+};
+
+<u-code>socket.onclose</u-code> = function(event) {
+	if (event.wasClean) {
+		console.log('Соединение закрыто чисто');
+	} else {
+		console.log('Обрыв соединения'); // например, "убит" процесс сервера
+	}
+	console.log('Код: ' + event.code + ' причина: ' + event.reason);
+};
+
+<u-code>socket.onmessage</u-code> = function(event) {
+	console.log('Получены данные ' + event.data);
+};
+
+<u-code>socket.onerror</u-code> = function(error) {
+	console.log('Ошибка ' + error.message);
+};
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Посылка данных</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+socket.send("Привет");              // строка
+socket.send(form.elements[0].file); // файл из формы
+</v-code>
+</div><div id="network/tech/graphql"><!-- TODO:
+<f-search>Network -> GraphQL</f-search>
+-->
+
+<h2>GraphQL</h2>
+
+<u-link-wrapper>
+	<v-link url="https://graphql.org/" text="" list="true" />
+	<v-link url="https://www.apollographql.com/" text="" list="true" />
+	<v-link url="https://www.apollographql.com/docs/" text="" list="true" />
+	<v-link url="https://www.apollographql.com/docs/react/development-testing/testing/" text="" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>GraphQL</u-text-define> - синтаксис, который описывает как запрашивать данные, и, в основном, используется клиентом для загрузки данных с сервера</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Основные характеристики GraphQL</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+	<li>Позволяет клиенту точно указать, какие данные ему нужны</li>
+	<li>Облегчает агрегацию данных из нескольких источников</li>
+	<li>Использует систему типов для описания данных</li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>3 типа запросов</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+	<li>Request: GET</li>
+	<li>Mutation: POST, DELETE etc..</li>
+	<li>WebSockets</li>
+</ol>
+
+</div><div id="network/tech/webrtc"><!-- TODO:
+<f-search>Network -> WebRTC</f-search>
+-->
+
+<h2>WebRTC</h2>
+
+<u-link-wrapper>
+    <v-link url="https://www.youtube.com/watch?v=R0wcvVYst-M" text="YouTube: WebRTC под капотом" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>WebRTC</u-text-define> (real-time communications - коммуникации в реальном времени) - проект, предназначенный для организации передачи потоковых данных между браузерами или другими поддерживающими его приложениями по технологии точка-точка</li>
+    <li>Технология WebRTC делает возможной видеосвязь через окно браузера, так что для присоединения к звонку необходимо только перейти по ссылке на соответствующую веб-страницу</li>
+    <li>В WebRTC используются два аудиокодека, G.711 и Opus, а также видеокодеки VP8 и H.264</li>
+    <li>Хотя WebRTC изначально рассчитано на соединения типа точка-точка и peer-to-peer, существует несколько готовых реализаций WebRTC-серверов, организующих сложные групповые конференции между разными браузерами. Такие серверы также обеспечивают присоединение к связи с браузерами сторонних устройств - IP-камер, использующих протокол RTSP/RTP, а также SIP и H.323-терминалов</li>
+    <hr>
+    <li>Просмотр в Chrome <u-code-text>chrome://webrtc-internals/</u-code-text></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Пример использования</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+    <v-method before="navigator." method="getUserMedia" after="" arg="(constraints)">
+    Получение доступа к устройствам
+    </v-method>
+
+	<v-method-arg arg="constraints">объект, содераший вид устройства (аудио, видео или оба)</v-method-arg>
+
+	<v-method-return>Возвращает Promise, который, в случае согласия пользователя, разрешается MediaStream объектом. Если пользователь отказывает в разрешении, или медиа устройсто не доступно, тогда промис отменяется с объектами типа NotAllowedError или NotFoundError соответственно</v-method-return>
+</div>
+
+<v-code lang="js" title="">
+navigator.mediaDevices.getUserMedia(constraints)
+	.then(stream => {
+		// используем поток
+	})
+	.catch(err => {
+		// обработка ошибки
+	})
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Преимущества</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Проведение конференции в браузере значительно упрощает процесс проведения конференции — пользователю не нужно устанавливать для этого отдельные приложения</li>
+    <li>Используемые кодеки обеспечивают хорошее качество связи</li>
+    <li>Возможность реализации любых элементов интерфейса средствами HTML5 и JavaScript</li>
+    <li>Открытый исходный код даёт больше возможностей для использования</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Недостатки</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Технология определяет только общий стандарт передачи данных (видео и звука), но отдельные решения разных браузеров относительно адресации абонентов и прочих управляющих процессов не совместимы между собой. Поэтому даже звонки между парой различных браузеров представляют отдельную сложность</li>
+    <li>Обеспечение групповых конференций требует дополнительных разработок поверх WebRTC</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>7 шагов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u>TCP</u> - WebSocket</li>
+    <li><u>UDP</u> - WebRTC (+Media, +P2P)</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1. Захват камеры</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li>Получаем объект <u-code-text>MediaStream</u-code-text> из <u-code-text>navigator.getUserMedia</u-code-text></li>
+    <li>Размер чистого потока:</li>
+<v-code lang="js" title="">
+○ изображение 640x480, 32bit: 1.2mb
+○ 30 кадров, 1 секунда: 36mb
+○ битрейт: 288mbps
+</v-code>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>2. Кодирование - сжаие аудио и видео потоков</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+● JPEG, 640x480
+    ○ 1.2mb -> 123kb
+    ○ 288mbps -> 28mbps
+● VP9, 1280x720 — 1.5mbps
+● Диффы, keyframe, interframe
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Запаковка в RTP</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Порядок - пакеты могут приходить в разном порядке</li>
+    <li>Время - хранит информацию про время чтобы синхронизировать аудио и видео дорожку</li>
+    <li>Треки</li>
+    <li>Оверхед: ~5% (62 / 1204)</li>
+    <li><u>RTCP (RPT Control Protocol)</u> - обмен информацией про потярянные пакеты, статистика их получения и т.д. Расширение основного протокола</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>4. Передача по сети через UDP</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+● Главный плюс UDP:
+    ○ минимальный интервал между пакетами
+● Минусы UDP
+    ○ пакеты теряются
+    ○ пакеты приходят поздно
+    ○ пакеты приходят в другом порядке
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>5. Распаковка RTP</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li>Восстанавливаем порядок</li>
+    <li>Достаем видео-трафик</li>
+    <li>Передаем в декодер</li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>6. Декодирование</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li>Передаем данные в правильном порядке</li>
+    <li>На выходе - чистый видео-поток - <u-code-text>MediaStream</u-code-text></li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>7. Отрисовка на экране &lt;video&gt;</h4>
+<!------------------------------------------------------------->
+<ol class="list-num">
+    <li>Прикрепляем поток к элементу и получаем картинку</li>
+</ol>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Потери пакетов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Остаются в стенах дома - Random loss или Lossy network</li>
+    <li>Дропаются по ошибке: баги в ОС или сетевом оборудовании</li>
+    <li>Дропаются из-за перегрузки сети - Network congestion</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Решение №1: Jitter buffer: рендерим позже, даем себе время на повторный запрос</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+● Минус: дополнительная постоянная задержка
+● Плюсы:
+    ○ Есть время запросить недостающий пакет
+    ○ При массовой потере, больше времени на запрос keyframe
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Решение №2: Уменьшаем битрейт, деградируем качество</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+● Битрейт = FPS * качество * разрешение
+● Минусы:
+    ○ Хуже качество (временно)
+    ○ Не поможет с random loss
+● Плюс: поможет с network congestion
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Решение №3: Forward Error Correction</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+● Умное дублирование данных на уровне кодека
+● Минус: выше битрейт — усугубляет network congestion
+● Плюс: выше шанс доставки контента с первого раза
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Решение №4: Сетевой тюнинг</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+● Лучшие сетевые маршруты
+● Настройка серверов и маршрутизаторов
+</v-code>
+</div><div id="network/tech/long-polling"><!-- TODO:
+<f-search>Network -> Long Polling</f-search>
+-->
+
+<h2>Long Polling</h2>
+
+<ul class="list-point">
+    <li><v-link url="https://learn.javascript.ru/long-polling" /></li>
+    <li>Long Polling - запрос, который завершится не сразу. Костыль над HTTP</li>
+</ul>
+</div><div id="network/tech/sse"><!-- TODO:
+<f-search>Network -> SSE (Server Sent Events)</f-search>
+-->
+
+<h2>SSE (Server Sent Events)</h2>
+
+<ul class="list-point">
+    <li><a href="https://learn.javascript.ru/server-sent-events" target="_blank" class="link">https://learn.javascript.ru/server-sent-events</a></li>
+    <li>Подписаться и слушать сервер</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>WebSocket vs Server-Sent Events</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<table class="max-width-700">
+    <tr>
+        <th>WebSocket</th>
+        <th>SSE</th>
+    </tr>
+    <tr>
+        <td>WebSocket предоставляет полноценную двустороннюю связь между клиентом и сервером по одному постоянному TCP-соединению</td>
+        <td>SSE — однонаправленную связь, позволяющую серверу отправлять данные клиенту по одному HTTP-соединению</td>
+    </tr>
+    <tr>
+        <td>WebSocket лучше подходит для интерактивных приложений вроде чатов или игр, где необходим обмен данными в обе стороны</td>
+        <td>SSE идеален для получения уведомлений или обновлений с сервера, например, новостных лент или финансовых котировок</td>
+    </tr>
+</table>
+</div><div id="network/tech/cors"><!-- TODO:
+<f-search>Network -> CORS</f-search>
+-->
+
+<h2>CORS</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Cross-origin resource sharing</u-text-define> (CORS «совместное использование ресурсов между разными источниками») - технология современных браузеров, которая позволяет предоставить веб-странице доступ к ресурсам другого домена</li>
+	<li>CORS смотрит на все заголовки</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Кросс-доменные запросы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Запрос обязательно должен быть асинхронным</li>
+</ul>
+
+<ol class="list-num">
+	<li>1. В кросс-доменный запрос браузер автоматически добавляет заголовок <u>Origin</u>, содержащий домен, с которого осуществлён запрос</li>
+	<li>2. Если сервер разрешает кросс-доменный запрос с этого домена он должен добавить к ответу заголовок <u>Access-Control-Allow-Origin</u>, содержащий домен запроса или звёздочку <u>*</u>. Только при наличии такого заголовка в ответе – браузер сочтёт запрос успешным, а иначе JavaScript получит ошибку</li>
+	<li>3. Чтобы JavaScript мог прочитать HTTP-заголовок ответа, сервер должен указать его имя в <u>Access-Control-Expose-Headers</u></li>
+</ol>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Основные заголовки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><em>Access-Control-Allow-Origin</em>, <em>Access-Control-Allow-Methods</em> и <em>Access-Control-Allow-Headers</em> на стороне сервера</li>
+	<li><em>Origin</em>, <em>Access-Control-Request-Method</em>, <em>Access-Control-Request-Headers</em> на стороне клиента во время предварительного запроса (OPTIONS)</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-details title="Простой метод GET, POST, HEAD">
+<v-code lang="js" title="Запрос с домена http://test1.ru">
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://test2.ru/script.php', true);
+xhr.onload = function() {
+  console.log(this.responseText);
+}
+xhr.onerror = function() {
+  console.log(this.status);
+}
+xhr.send();
+</v-code>
+
+<v-code lang="php" title="Сервер http://test2.ru">
+&lt;?php
+	// // разрешить доступ домену http://test1.ru
+	header('<u-code>Access-Control-Allow-Origin</u-code>: http://test1.ru');
+	// разрешить доступ любому домену
+	header('Access-Control-Allow-Origin: *');
+?&gt;
+</v-code>
+</v-details>
+
+<v-details title="Чтение JSON файла">
+<v-code lang="html" title=".htaccess">
+&lt;IfModule mod_rewrite.c&gt;
+	Header add Access-Control-Allow-Origin "*"
+	Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
+	AddType application/json .json
+&lt;/IfModule&gt;
+</v-code>
+</v-details>
+
+<v-details title="Передавать куки и HTTP-авторизацию">
+<v-code lang="js" title="">
+xhr.withCredentials = true;
+</v-code>
+
+<v-code lang="php" title="">
+&lt;?php
+	header('Access-Control-Allow-Origin: домен');    // Использование звёздочки * запрещено
+	header('<u-code>Access-Control-Allow-Credentials</u-code>: true');
+?&gt;
+</v-code>
+</v-details>
+</div><div id="network/tech/comet"><!-- TODO:
+<f-search>Network -> Comet</f-search>
+-->
+
+<h2>Comet</h2>
+
+<ul class="list-point">
+	<li><u-text-define>Comet</u-text-define> - любая модель работы веб-приложения, при которой постоянное HTTP-соединение позволяет веб-серверу отправлять (push) данные браузеру без дополнительного запроса со стороны браузера</li>
+	<li>AJAX – это «отправил запрос – получил результат», а COMET – это «непрерывный канал, по которому приходят данные»</li>
+</ul>
+
+<img src="/@img/js/comet.png" width="500px" />
+
+<ul class="list-point">
+	<b>Взаимодействие с комет сервером построено следующим образом</b>
+	<li>1. Браузер открывает страницу сайта</li>
+	<li>2. После загрузки страницы JavaScript устанавливает постоянное соединение с comet сервером</li>
+	<li>3. Пока открыта страница ваш сервер может отправить произвольное сообщение клиенту. Для этого он обращается с помощью Api к комет серверу и передаёт ему сообщение</li>
+	<li>4. Комет сервер используя открытое соединение с браузером доставляет полученное сообщение в браузер</li>
+	<li>5. JavaScript Api полученное от сервера сообщение предаёт в ваш callback</li>
+</ul>
+</div><div id="network/tech/jsonp"><!-- TODO:
+<f-search>Network -> JSONP</f-search>
+-->
+
+<h2>JSONP</h2>
+
+<ul class="list-point">
+	<li><u-text-define>JSONP</u-text-define> (JSON with Padding) - дополнение к базовому формату JSON. Он предоставляет способ запросить данные с сервера, находящегося в другом домене - операцию, запрещённую в типичных веб-браузерах из-за политики ограничения домена</li>
+	<li>JSONP - способ загрузки script на лету и обработки script, который вводится на страницу. Это означает введение нового объекта javascript с сервера в клиентское приложение /script</li>
+	<li>Стандартное применение JSONP предоставляет междоменный доступ к существующему JSON API путём оборачивания содержимого JSON в вызов функции</li>
+	<li>Разрешить браузерным страницам обойти политику ограничения домена путём вставки элемента script</li>
+	<li><u-text-define>JSONPP</u-text-define> (Parameterized JSON with Padding — «параметризованный JSON с подкладкой») — развитие идеи JSONP</li>
+	<li>Позволяет только получение данных GET методом. Отправка данных через POST недоступна</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм работы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>1. Инъекция элемента script</li>
+	<li>2. Вызов скрипта с передачей парамером callback</li>
+	<li>3. Сервер реализует выполнение callback с переданным им обязательным объектом. Функция обратного вызова - это только функция, которую вы уже настроили на клиенте, который script загружает вызовы в точке загрузки script для обработки данных, переданных ей</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Инъекция элемента script</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Скрипты, добавленные через JS ведут себя как async</li>
+</ul>
+
+<v-code lang="js" title="">
+function addScript(src){
+	const script = document.createElement('script');
+	script.src = src;
+	script.type = 'text/javascript';
+	script.async = false; // чтобы гарантировать порядок
+	document.head.appendChild(script);
+}
+
+// загружаться скрипты начнут сразу в порядке 1 -> 2 -> 3
+// выполнятся, как только загрузятся, если установлено script.async = false
+addScript('1.js');  
+addScript('2.js');  
+addScript('3.js'); 
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>JSONP</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+function addScript(src) {
+    let script = document.createElement('script');
+    script.src = src;
+    document.head.appendChild(script);
+}
+
+addScript('https://www.google.com/?id=123&callback=clientFunction');
+
+function clientFunction(arg) {
+    //
+}
+</v-code>
+</div><div id="network/api/api"><!-- TODO:
+<f-search>Network -> API</f-search>
+-->
+
+<h2>API</h2>
+
+<ul class="list-point">
+    <li><u-text-define>API</u-text-define> (Application Programming Interface, программный интерфейс приложения) - описание способов (набор классов, процедур, функций, структур или констант), которыми одна компьютерная программа может взаимодействовать с другой программой</li>
+    <li>API определяет функциональность, которую предоставляет программа (модуль, библиотека), при этом API позволяет абстрагироваться от того, как именно эта функциональность реализована</li>
+    <li>Программные компоненты взаимодействуют друг с другом посредством API. При этом обычно компоненты образуют иерархию — высокоуровневые компоненты используют API низкоуровневых компонентов, а те, в свою очередь, используют API ещё более низкоуровневых компонентов</li>
+</ul>
+
+<p>API библиотеки функций и классов включает в себя описание <u>сигнатур функций</u> и <u>семантики функций</u></p>
+<ul class="list-point">
+    <li><u>Сигнатура функции</u> - часть общего объявления функции, позволяющая средствам трансляции идентифицировать функцию среди других</li>
+    <li><u>Семантика функции</u> - описание того, что данная функция делает. Семантика функции включает в себя описание того, что является результатом вычисления функции, как и от чего этот результат зависит</li>
+</ul>
+</div><div id="network/api/rest-vs-soap"><!-- TODO:
+<f-search>Network -> REST API vs SOAP</f-search>
+-->
+
+<h2>REST API vs SOAP</h2>
+
+<table>
+    <tr>
+        <th>REST</th>
+        <th>SOAP</th>
+    </tr>
+    <tr>
+        <td>Архитектурный стиль</td>
+        <td>Протокол передачи данных на базе http</td>
+    </tr>
+    <tr>
+        <td>Кешируемый</td>
+        <td>Не кэшируемый</td>
+    </tr>
+    <tr>
+        <td>Взаимодействие с JSON, XML, Text</td>
+        <td>Взаимодействие с XML</td>
+    </tr>
+    <tr>
+        <td>Работает с прикладным протоколом HTTP</td>
+        <td>Работает с любым прикладным протоколом</td>
+    </tr>
+    <tr>
+        <td>Передача без состояний</td>
+        <td>Есть состояния</td>
+    </tr>
+</table>
+</div><div id="network/api/rest"><!-- TODO:
+<f-search>Network -> REST API</f-search>
+-->
+
+<h2>REST API</h2>
+
+<ul class="list-point">
+    <li><u-text-define>REST</u-text-define> (REpresentational State Transfer - «передача состояния представления») - <u>архитектурный стиль</u> взаимодействия компонентов <u>распределённого</u> приложения в сети. Задает общие принципы организации взаимодействия приложения/сайта с сервером посредством протокола HTTP</li>
+    <li>Каждый запрос (REST-запрос) клиента к серверу содержит в себе исчерпывающую информацию о желаемом ответе сервера (желаемом представительном состоянии), и сервер не обязан сохранять информацию о состоянии клиента («клиентской сессии»). Сервер не запоминает состояние пользователя между запросами - в каждом запросе передаётся информация, идентифицирующая пользователя (например, token, полученный через OAuth-авторизацию) и все параметры, необходимые для выполнения операции</li>
+    <li>Для веб-служб, построенных с учётом REST (то есть не нарушающих накладываемых им ограничений), применяют термин <u>RESTful</u></li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Требования к архитектуре REST</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Модель клиент-сервер</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Позволяет отдельным частям развиваться независимо друг от друга</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. Отсутствие состояния</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Протокол взаимодействия между клиентом и сервером требует соблюдения следующего условия: в период между запросами клиента никакая информация о состоянии клиента на сервере не хранится (Stateless Protocol). Все запросы от клиента должны быть составлены так, чтобы сервер получил всю необходимую информацию для выполнения запроса. Состояние сессии при этом сохраняется на стороне клиента. Информация о состоянии сессии может быть передана сервером какому-либо другому сервису (например, в службу базы данных) для поддержания устойчивого состояния, например, на период установления аутентификации. Клиент инициирует отправку запросов, когда он готов (возникает необходимость) перейти в новое состояние. Во время обработки клиентских запросов считается, что клиент находится в переходном состоянии. Каждое отдельное состояние приложения представлено связями, которые могут быть задействованы при следующем обращении клиента</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>3. Кэширование ответов сервера</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Ответы сервера, в свою очередь, должны иметь явное или неявное обозначение как кэшируемые или некэшируемые с целью предотвращения получения клиентами устаревших или неверных данных в ответ на последующие запросы</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>4. Единообразие интерфейса</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Унифицированные интерфейсы позволяют каждому из сервисов развиваться независимо</li>
+</ul>
+
+<h5>Требования, предъявляемые к унифицированным интерфейсам:</h5>
+<ul class="list-point">
+    <li><u>Идентификация ресурсов</u>. Все ресурсы идентифицируются в запросах, например, с использованием URI в интернет-системах. Ресурсы концептуально отделены от представлений, которые возвращаются клиентам. Например, сервер может отсылать данные из базы данных в виде HTML, XML или JSON, ни один из которых не является типом хранения внутри сервера</li>
+    <li><u>Манипуляция ресурсами через представление</u>. Если клиент хранит представление ресурса, включая метаданные — он обладает достаточной информацией для модификации или удаления ресурса</li>
+    <li><u>«Самоописываемые» сообщения</u>. Каждое сообщение содержит достаточно информации, чтобы понять, каким образом его обрабатывать</li>
+    <li><u>Гипермедиа как средство изменения состояния приложения (HATEOAS)</u>. Клиенты изменяют состояние системы только через действия, которые динамически определены в гипермедиа на сервере (к примеру, гиперссылки в гипертексте). Исключая простые точки входа в приложение, клиент не может предположить, что доступна какая-то операция над каким-то ресурсом, если не получил информацию об этом в предыдущих запросах к серверу.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>5. Слои</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Клиент обычно не способен точно определить, взаимодействует он напрямую с сервером или же с промежуточным узлом, в связи с иерархической структурой сетей (подразумевая, что такая структура образует слои). Применение промежуточных серверов способно повысить масштабируемость за счёт балансировки нагрузки и распределённого кэширования. Промежуточные узлы также могут подчиняться политике безопасности с целью обеспечения конфиденциальности информации</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>6. Код по требованию</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>(необязательное ограничение)</li>
+    <li>REST может позволить расширить функциональность клиента за счёт загрузки кода с сервера в виде апплетов или сценариев</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Преимущества</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Надёжность (за счёт отсутствия необходимости сохранять информацию о состоянии клиента, которая может быть утеряна)</li>
+    <li>Производительность (за счёт использования кэша)</li>
+    <li>Масштабируемость</li>
+    <li>Прозрачность системы взаимодействия (особенно необходимая для приложений обслуживания сети)</li>
+    <li>Простота интерфейсов</li>
+    <li>Портативность компонентов</li>
+    <li>Лёгкость внесения изменений</li>
+    <li>Способность эволюционировать, приспосабливаясь к новым требованиям (на примере Всемирной паутины)</li>
+</ul>
+</div><div id="network/api/soap"><!-- TODO:
+<f-search>Network -> SOAP</f-search>
+-->
+
+<h2>SOAP</h2>
+
+<ul class="list-point">
+    <li><u-text-define>SOAP</u-text-define> (Simple Object Access Protocol — простой протокол доступа к объектам) - протокол обмена структурированными сообщениями в распределённой вычислительной среде</li>
+    <li>Сейчас протокол используется для обмена произвольными сообщениями в формате XML</li>
+    <li>SOAP может использоваться с любым протоколом прикладного уровня: <u>SMTP / FTP / HTTP / HTTPS</u> и др. Однако его взаимодействие с каждым из этих протоколов имеет свои особенности, которые должны быть определены отдельно. Чаще всего SOAP используется поверх <u>HTTP</u></li>
+    <li>SOAP является одним из стандартов, на которых базируются технологии веб-служб</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Структура протокола (сообщения)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li><u-code-list>Envelope</u-code-list> - корневой элемент, который определяет сообщение и пространство имен, использованное в документе</li>
+    <li><u-code-list>Header</u-code-list> - содержит атрибуты сообщения, например: информация о безопасности или о сетевой маршрутизации</li>
+    <li><u-code-list>Body</u-code-list> - содержит сообщение, которым обмениваются приложения</li>
+    <li><u-code-list>Fault</u-code-list> - необязательный элемент, который предоставляет информацию об ошибках, которые произошли при обработке сообщений</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Недостатки</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Использование SOAP для передачи сообщений увеличивает их объём и снижает скорость обработки. В системах, где скорость важна, чаще используется пересылка XML-документов через HTTP напрямую, где параметры запроса передаются как обычные HTTP-параметры</li>
+</ul>
+</div><div id="network/hacking/xss"><!-- TODO:
+<f-search>Network -> Hacking -> XSS</f-search>
+-->
+
+<h2>XSS</h2>
+
+<ul class="list-point">
+    <li><u-text-define>XSS</u-text-define> (Cross-Site Scripting / Межсайтовый скриптинг) - вид атаки, при которой в страницу сайта внедряется вредоносный код</li>
+    <li>При открытии страницы пользователем, код выполняется на его компьютере и устанавливает соединение с веб-сервером злоумышленника, который таким образом получает контроль над системой</li>
+    <li>Основная цель злоумышленника - запустить вредоносный скрипт на компьютере жертвы</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>На что нацелен</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Кража конфиденциальных данных, переадресацию пользователя на подконтрольные хакерам сайты или на манипуляцию компьютера в интересах злоумышленников</li>
+    <li>Кража cookies пользователей при помощи встроенного на сервере скрипта с дальнейшей выборкой необходимых данных и использованием их для последующих атак и взломов</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Общая классификация XSS</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Хранимые XSS (постоянные)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Один из самых опасных типов уязвимостей, так как позволяет злоумышленнику получить доступ к серверу и уже с него управлять вредоносным кодом (удалять, модифицировать)</li>
+    <li>Каждый раз при обращении к сайту выполняется заранее загруженный код, работающий в автоматическом режиме. В основном таким уязвимостям подвержены форумы, порталы, блоги, где присутствует возможность комментирования в HTML без ограничений. Вредоносные скрипты с легкостью могут быть встроены как в текст, так и в картинки, рисунки.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. Отраженные XSS (непостоянные)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>В этом случае вредоносная строчка выступает в роли запроса жертвы к зараженному веб-сайту</li>
+</ul>
+
+<ol class="list-num">
+    <b>Схема работы</b>
+    <li>Злоумышленник заранее создает URL-ссылку, которая будет содержать вредоносный код и отправляет его своей жертве</li>
+    <li>Она направляет этот URL-запрос на сайт (переходит по ссылке)</li>
+    <li>Сайт автоматически берет данные из вредоносной строки и подставляет в виде модифицированного URL-ответа жертве</li>
+    <li>В итоге в браузере у жертвы выполняется вредоносный скрипт, который и содержится в ответе, а злоумышленник получает все cookies этого пользователя</li>
+</ol>
+
+<!------------------------------------------------------------->
+<h4>3. DOM-модели</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>В этом варианте возможно использование как хранимых XSS, так и отраженных</li>
+</ul>
+
+<ol class="list-num">
+    <b>Схема работы</b>
+    <li>Злоумышленник создает URL-адрес, который заранее содержит вредоносный код, и отправляет его по электронной почте или любым другим способом пользователю</li>
+    <li>Человек переходит по этой ссылке, зараженный сайт принимает запрос, исключая вредоносную строку</li>
+    <li>На странице у пользователя выполняется сценарий, в результате чего загружается вредоносный скрипт и злоумышленник получает cookies</li>
+</ol>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Виды XSS по способу взаимодействия</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Пассивные</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Код встраивается в определенную страницу, на которую пользователь привлекается, к примеру, с помощью фишинга</li>
+    <li>Суть: заставить пользователя перейти по вредоносной ссылке для выполнения «вредокода»</li>
+</ul>
+
+<ul class="list-point">
+    <li><u-text-define>Фишинг</u-text-define> - форма киберпреступности, основанная на методах социальной инженерии. Предполагает кражу конфиденциальных данных с компьютера пользователя и использование этих данных для получения его денег. Мошенник создает, например, копию сайта финансового учреждения или онлайн-магазина и пытается заманить туда пользователя, чтобы заставить его ввести свои имя, пароль, номер кредитной карточки и т.д.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2. Активные</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Код внедряется на уровне базы данных или исполняемом файле на сервере</li>
+    <li>От пользователя не требуется никакой активности. У форм ввода, как правило, установлен специальный обработчик событий, автоматически активирующийся при попадании на эту страничку</li>
+    <li>В итоге все пользователи, перешедшие по этой ссылке, станут жертвами злоумышленника</li>
+    <li>Хакер пытается найти уязвимость в фильтре сайта: при помощи комбинации тегов и символов создается такой запрос, чтобы сайт его понял и выполнил команду</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Методика атаки через XSS</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Запуск вредоносного кода JavaScript возможен только в браузере жертвы, поэтому сайт, на который зайдет пользователь, должен иметь уязвимость к XSS</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Вариант 1</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>1. Для совершения атаки злоумышленник изначально проверяет ресурсы на наличие уязвимостей через XSS, используя автоматизированные скрипты или ручной режим поиска. Обычно это стандартные формы, которые могут отправлять и принимать запросы (комментарии, поиск, обратная связь)</li>
+    <li>2. Проводится полный сбор страниц с формами ввода, и каждая сканируется на наличие уязвимостей. Например, у нас есть страница «Поиск» на сайте. Для проверки уязвимости XSS достаточно ввести запрос: <u-code-text>&lt;script&gt;alert("cookie: "+document.cookie)&lt;/script&gt;</u-code-text></li>
+    <li>Если на экране появится уведомление, значит вы обнаружили брешь в безопасности. В противном случае система отобразит вам страницу с результатами поиска</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Вариант 2: использование страниц, которые обрабатывают GET-запросы</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Допустим, у нас есть ссылка вида: <u-code-text>http://site.ru/catalog?p=8</u-code-text></li>
+    <li>В адресной строке вместо идентификатора <u-code-text>(8)</u-code-text> добавляем скрипт – <u-code-text>"&gt;&lt;script&gt;alert("cookie: "+document.cookie)&lt;/script&gt;</u-code-text>, в результате чего получаем ссылку такого вида: <u-code-text>http://site.ru/catalog?p= "&gt;&lt;script&gt;alert("cookie: "+document.cookie)&lt;/script&gt;</u-code-text></li>
+    <li>Если страница имеет уязвимости XSS, на экране появится уведомление такого же плана, как и в первом случае</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Предотвращение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <v-link url="http://xss-scanner.com/" text="" list="true" />
+</u-link-wrapper>
+
+<ol class="list-num">
+	<li>Фильтрация получаемых данных</li>
+    <li>В обязательном порядке нужно проверять все URL, где возможна отправка данных со стороны пользователя (формы комментариев, обратная связь, поиск)</li>
+    <li>Исключить все опасные спецсимволы, заменив их безопасными. Речь идет о скобках < и >, в которых и прописываются все зарезервированные языком html-запросы и теги</li>
+</ol>
+</div><div id="network/hacking/sql-injection"><!-- TODO:
+<f-search>Network -> Hacking -> SQL инъекции</f-search>
+-->
+
+<h2>SQL инъекции</h2>
+
+<ul class="list-point">
+    <li><u-text-define>SQL инъекции</u-text-define> - один из самых доступных способов взлома сайта</li>
+    <li>Суть таких инъекций - внедрение в данные (передаваемые через GET, POST запросы или значения Cookie) произвольного SQL кода. Если сайт уязвим и выполняет такие инъекции, то по сути есть возможность творить с БД (чаще всего это MySQL) что угодно</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Способы борьбы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Parametrised Queries (Параметризованные запросы)</u-text-define> - разделяют SQL-код и пользовательские данные, передавая их отдельно. Это не позволяет злоумышленнику внедрить вредоносные SQL-команды в запрос, так как данные всегда обрабатываются как значения, а не как исполняемый код.</li>
+    <li>Фильтрует SQL инъекции</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Принцип работы</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Разделение кода и данных: Вместо того, чтобы напрямую вставлять пользовательский ввод в SQL-строку, используются заполнители (плейсхолдеры). </li>
+    <li>Отдельная передача данных: Пользовательские данные передаются в базу данных отдельно от самого SQL-запроса, например, через объект PreparedStatement в Java. </li>
+    <li>Гарантия безопасности: База данных обрабатывает эти данные как значения, а не как часть SQL-кода. Даже если злоумышленник попытается ввести SQL-команды, они будут восприняты как обычные строки, а не как инструкции для базы данных. </li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Пример</h4>
+<!------------------------------------------------------------->
+<v-two-border title="Fine;Badly"><template v-slot:first>
+<v-code lang="js" title="">
+// С параметризацией (безопасно)
+// ? — это заполнитель
+SELECT * FROM users WHERE login = ?
+</v-code>
+<ul>
+    <li>В этом случае, при попытке ввода ' OR '1'='1', база данных обработает это как строку для поиска пользователя с логином ' OR '1'='1', а не как SQL-код. </li>
+</ul>
+
+</v-code>
+</template><template v-slot:last>
+<v-code lang="js" title="">
+// Без параметризации (уязвимо)
+SELECT * FROM users WHERE login = ' + username + ';
+</v-code>
+<ul>
+    <li>Если username будет ' OR '1'='1, запрос превратится в SELECT * FROM users WHERE login = '' OR '1'='1', что позволит получить все записи из таблицы. </li>
+    <li>В этом случае, при попытке ввода ' OR '1'='1', база данных обработает это как строку для поиска пользователя с логином ' OR '1'='1', а не как SQL-код. </li>
+</ul>
+
+</template></v-two-border>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

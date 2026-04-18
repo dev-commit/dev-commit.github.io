@@ -1,0 +1,589 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Ajax</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/js-ajax/build-js-ajax.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">Ajax</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Ajax</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-ajax/ajax/info"
+            href="#js-ajax/ajax/info"
+        >
+            📑 Описание
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-ajax/ajax/xmlhttprequest"
+            href="#js-ajax/ajax/xmlhttprequest"
+        >
+            1. XMLHttpRequest
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-ajax/ajax/fetch"
+            href="#js-ajax/ajax/fetch"
+        >
+            2. Fetch
+        </a>
+    </li>
+</ul><h4>🏷️ Not Ajax</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__js-ajax/not-ajax/form-action"
+            href="#js-ajax/not-ajax/form-action"
+        >
+            Form Action
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="js-ajax/ajax/info"><h2>Описание</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-text-define>AJAX (Asynchronous Javascript And Xml)</u-text-define> - технология обращения к серверу без перезагрузки страницы</li>
+	<li><u-text-define>JSON</u-text-define> - для отправки и получения структурированных данных, объектов</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Технологии</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-text-define>1. XMLHttpRequest</u-text-define> - (не используют в явном виде, создаются обертки)</li>
+	<li><u-text-define>2. Fetch</u-text-define> - (на Promise, нативный, полифил для IE)</li>
+	<li><u-text-define>3. Axios</u-text-define> - (на XMLHttpRequest)</li>
+</ul>
+</div><div id="js-ajax/ajax/xmlhttprequest"><!-- TODO:
+<f-search>JS -> AJAX -> XMLHttpRequest (XHR)</f-search>
+-->
+
+<h2>XMLHttpRequest</h2>
+
+<ul class="list-point">
+	<li>XMLHttpRequest («XHR») дает возможность из JavaScript делать HTTP-запросы к серверу без перезагрузки страницы</li>
+	<li>Ответы на запросы XMLHttpRequest кэшируются, как и обычные страницы</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Методы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<div class="v-method-wrapper">
+	<v-method before="xhr." method="open" after="" arg="(method, URL, async, user, password)">
+		вызов open не открывает соединение. Он лишь настраивает запрос, а коммуникация инициируется методом send
+	</v-method>
+	<v-method-arg arg="method">HTTP-метод. GET / POST / TRACE / DELETE / PUT и т.д.</v-method-arg>
+	<v-method-arg arg="URL">адрес запроса. Можно использовать не только http/https, но и другие протоколы, например ftp:// и file://. При этом есть
+	ограничения безопасности, называемые «Same Origin Policy»: запрос со страницы можно отправлять только на тот же
+	протокол://домен:порт</v-method-arg>
+	<v-method-arg arg="async">если установлено в false, то запрос производится синхронно, если true – асинхронно</v-method-arg>
+	<v-method-arg arg="user">логин для HTTP-авторизации, если нужны</v-method-arg>
+	<v-method-arg arg="password">пароль для HTTP-авторизации, если нужны</v-method-arg>
+</div>
+
+<div class="v-method-wrapper">
+	<v-method before="xhr." method="send" after="" arg="([body])">
+		открывает соединение и отправляет запрос на сервер
+	</v-method>
+	<v-method-arg arg="body">тело запроса</v-method-arg>
+</div>
+
+<div class="v-method-wrapper">
+	<v-method before="xhr." method="abort" after="" arg="()">
+		прерывает выполнение запроса
+	</v-method>
+</div>
+
+<div class="v-method-wrapper">
+	<v-method before="" method="setRequestHeader" after="" arg="(name, value)">
+		устанавливает заголовок name запроса со значением value. Отменить setRequestHeader невозможно
+	</v-method>
+	<v-method-arg arg="name">'Content-Type'</v-method-arg>
+	<v-method-arg arg="value">'application/json'</v-method-arg>
+</div>
+
+<div class="v-method-wrapper">
+	<v-method before="" method="getResponseHeader" after="" arg="(name)">
+		возвращает значение заголовка ответа name, кроме Set-Cookie и Set-Cookie2
+	</v-method>
+	<v-method-arg arg="name">'Content-Type'</v-method-arg>
+</div>
+
+<div class="v-method-wrapper">
+	<v-method before="" method="getAllResponseHeaders" after="" arg="()">
+		возвращает все заголовки ответа, кроме Set-Cookie и Set-Cookie2. Заголовки возвращаются в виде единой строки.
+		Между заголовками стоит перевод строки в два символа "\r\n" (не зависит от ОС), значение заголовка отделено двоеточием с пробелом ": "
+	</v-method>
+</div>
+
+<v-code lang="bash none" title="">
+Cache-Control: max-age=31536000
+Content-Length: 4260
+Content-Type: image/png
+Date: Sat, 08 Sep 2012 16:53:16 GMT
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Свойства XMLHttpRequest</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-code-list>xhr.status</u-code-list> - HTTP-код ответа: 200, 404, 403 и так далее. Может быть также равен 0, если сервер не ответил или при запросе на другой домен</li>
+	<li><u-code-list>xhr.statusText</u-code-list> - Текстовое описание статуса от сервера: OK, Not Found, Forbidden и т.д.</li>
+	<li><u-code-list>xhr.responseText</u-code-list> - Текст ответа сервера. Для json JSON.parse(xhr.responseText)</li>
+	<li><u-code-list>xhr.responseXML</u-code-list> - Если сервер вернул XML, снабдив его правильным заголовком Content-type: text/xml, то браузер создаст из него XML-документ. По нему можно будет делать запросы xhr.responseXml.querySelector("...") и другие</li>
+	<li><u-code-list>xhr.timeout</u-code-list> - Максимальная продолжительность асинхронного запроса. При превышении этого времени запрос будет оборван и сгенерировано событие ontimeout</li>
+</ul>
+
+<v-code lang="js" title="">
+xhr.timeout = 30000; // 30 секунд (в миллисекундах)
+xhr.ontimeout = function() {
+	alert( 'Извините, запрос превысил максимальное время' );
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>События</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-code-list>onreadystatechange</u-code-list> - можно посмотреть «текущее состояние запроса» в свойстве xhr.readyState</li>
+	<li><u-code-list>onloadstart</u-code-list> - запрос начат</li>
+	<li><u-code-list>onprogress</u-code-list> - браузер получил очередной пакет данных, можно прочитать текущие полученные данные в responseText</li>
+	<li><u-code-list>onabort</u-code-list> - запрос был отменён вызовом xhr.abort()</li>
+	<li><u-code-list>onerror</u-code-list> - произошла ошибка</li>
+	<li><u-code-list>onload</u-code-list> - запрос был успешно (без ошибок) завершён</li>
+	<li><u-code-list>ontimeout</u-code-list> - запрос был прекращён по таймауту</li>
+	<li><u-code-list>onloadend</u-code-list> - запрос был завершён (успешно или неуспешно)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Свойство xhr.readyState для текущего состояния запроса</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Событие readystatechange происходит несколько раз в процессе отсылки и получения ответа. При этом можно посмотреть «текущее состояние запроса» в свойстве xhr.readyState</li>
+	<li>Запрос проходит их в порядке 0 → 1 → 2 → 3 → … → 3 → 4, состояние 3 повторяется при каждом получении очередного пакета данных по сети</li>
+</ul>
+
+<v-code lang="bash" title="">
+const unsigned short UNSENT           = 0;   # начальное состояние
+const unsigned short OPENED           = 1;   # вызван open
+const unsigned short HEADERS_RECEIVED = 2;   # получены заголовки
+const unsigned short LOADING          = 3;   # загружается тело (получен очередной пакет данных)
+const unsigned short DONE             = 4;   # запрос завершён
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Асинхронный</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="">
+const xhr = new XMLHttpRequest();
+xhr.open('GET', 'script.php', true);
+xhr.send(); // отправляем запрос, результат придёт в обработчик onreadystatechange
+
+// установка обработчика событий
+xhr.onreadystatechange = function() {
+    // if (xhr.readyState==4 && xhr.status==200) {
+    // 	console.log(xhr.responseText);
+    // }
+
+    if (xhr.readyState != 4) return;
+
+    if (xhr.status != 200) {
+        // обработать ошибку
+        console.log(xhr.status + ':' + xhr.statusText);
+        return;
+    } 
+    
+    // получить результат из this.responseText или this.responseXML
+    console.log(xhr.responseText);
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Синхронный</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li>Возможность делать запросы на другой домен и указывать таймаут, в синхронном режиме не работают</li>
+</ul>
+
+<v-code lang="js border" title="">
+const xhr = new XMLHttpRequest();       // создаём новый объект XMLHttpRequest
+xhr.open('GET', 'script.php', false); // конфигурируем его: GET-запрос на URL 'script.php'
+xhr.send();                           // отсылаем запрос
+
+// если код ответа сервера не 200, то это ошибка
+if (xhr.status != 200) {
+	// обработать ошибку (пример вывода: 404: Not Found)
+    console.log(xhr.status + ':' + xhr.statusText);
+} else {
+	// вывести результат (responseText -- текст ответа)
+    console.log(xhr.responseText);
+} 
+</v-code>
+</div><div id="js-ajax/ajax/fetch"><!-- TODO:
+<f-search>JS -> AJAX -> Fetch</f-search>
+-->
+
+<h2>Fetch API</h2>
+
+<u-link-wrapper>
+    <v-link url="https://github.com/github/fetch" text="Полифил и описание методов" list="true" />
+    <v-link url="https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch" text="MDN" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="fetch" after="" arg="(url[, options])">
+    интерфейс для получения ресурсов (в том числе по сети)
+    </v-method>
+
+    <v-method-arg arg="url">
+    URL для отправки запроса
+    </v-method-arg>
+
+    <v-method-arg arg="options">
+    дополнительные параметры: метод, заголовки и так далее
+    </v-method-arg>
+
+    <v-method-return>promise</v-method-return>
+</div>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Свойства options</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-list>method</u-code-list> - метод запроса</li>
+    <li><u-code-list>headers</u-code-list> - заголовки</li>
+    <li><u-code-list>body</u-code-list> - тело запроса: FormData, Blob, строка и т.д.</li>
+    <li><u-code-list>mode</u-code-list> - одно из: «same-origin», «no-cors», «cors», указывает, в каком режиме кросс-доменности предполагается делать запрос</li>
+    <li><u-code-list>credentials</u-code-list> - одно из: «omit», «same-origin», «include», указывает, пересылать ли куки и заголовки авторизации вместе с запросом</li>
+    <li><u-code-list>cache</u-code-list> - одно из «default», «no-store», «reload», «no-cache», «force-cache», «only-if-cached», указывает, как кэшировать запрос</li>
+    <li><u-code-list>redirect</u-code-list> - можно поставить «follow» для обычного поведения при коде 30x (следовать редиректу) или «error» для интерпретации редиректа как ошибки</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объект response (ответ)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const a = response.headers.get('Content-Type');
+const a = response.status; 
+
+const a = response.arrayBuffer();
+const a = response.blob();
+const a = response.formData();
+const a = response.json();
+const a = response.text();
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Промисы и async</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="promise;async">
+<template v-slot:first>
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+    .then(res => res.json())
+    .then(body => console.log(body))
+</template>
+<template v-slot:last>
+const getResource = async (url) => {
+    const res = await fetch(url);
+    return await res.json();
+}
+getResource('https://jsonplaceholder.typicode.com/todos/1')
+    .then(body => console.log(body))
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Обработка ошибок</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Fetch отклоняет (reject) Promise только если произошла <u>ошибка сети</u> (сервер недоступен)</li>
+    <li>Чтобы проверить код результата, можно использовать <u-code-text>result.status</u-code-text></li>
+    <li><u-code-text>result.ok</u-code-text> содержит true, если <u-code-text>result.status</u-code-text> содержит один из OK-статусов (200-209)</li>
+</ul>
+
+<v-code lang="js" title="">
+fetch('https://jsonplaceholder.typicode.com/todos/неверный-адрес/')
+    .then(res => {
+        if (!res.ok) {
+            throw new Error(res.status);
+        }
+        return res.json();
+    })
+    .then(body => console.log(body))
+    .catch(error => console.log(error.message))
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Варианты использования</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>При вызове <u>fetch</u> возвращает <u>промис</u>, который, когда получен ответ, выполняет <u>коллбэки</u> с объектом <u>Response</u> или с ошибкой, если запрос не удался</li>
+    <li>В примере мы можем <u>в первом .then</u> проанализировать ответ и, если он нас устроит – вернуть промис с нужным форматом</li>
+    <li><u>Следующий .then</u> уже будет содержать полный ответ сервера</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Вариант #1. Без передачи значений</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+fetch('script.php')
+    .then(function(response) {
+        return response.text();
+    })
+    .then(function(body) {
+        document.body.innerHTML = body;
+    })
+    .catch(function(error) {
+        console.log(error);
+    });
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вариант #2. Передача одного значения</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+fetch('script.php', {
+	method: 'POST',
+	body: 'hello'
+})
+</v-code>
+
+<v-code lang="php" title="">
+// script.php
+&lt;?php
+    $content = file_get_contents("php://input");
+    echo $content;
+?&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Вариант #3. Передача JSON</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+fetch('script.php', {
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json'
+	},
+	body: JSON.stringify({
+		name: 'Tony',
+		login: 'Admin'
+	})
+})
+</v-code>
+
+<v-code lang="php" title="">
+// script.php
+&lt;?php
+    $content = file_get_contents("php://input");
+    $decoded = json_decode($content, true);
+    echo $decoded[name];
+?&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+fetch('https://jsonplaceholder.typicode.com/posts/')
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(() => console.log('some error...'));
+</v-code>
+
+<v-code lang="js" title="">
+fetch('https://jsonplaceholder.typicode.com/posts/')
+    .then(res => {
+        const data = res.json();
+        console.log(data); // => Promise {&lt;pending&gt;}
+        return data;
+    })
+    .then(data => {
+        console.log(data); // => Массив данных
+    })
+</v-code>
+</div><div id="js-ajax/not-ajax/form-action"><!-- TODO:
+<f-search>JS -> Network -> Form Action</f-search>
+-->
+
+<h2>Form Action</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Request JS</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Обработка формы</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;form class="form"&gt;
+	&lt;input type="text" name="name" required=""&gt;
+	&lt;input type="text" name="message" required=""&gt;
+	&lt;input type="submit" value="Отправить"&gt;
+&lt;/form&gt;
+</v-code>
+
+<v-code lang="js" title="">
+const form = document.querySelector('.form');
+
+form.addEventListener('submit', function(e) {
+	e.preventDefault();
+	const name = this['name'];
+	const message = this['message'];
+	console.log(name.value, message.value);
+});
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Отправка формы из HTML</h4>
+<!------------------------------------------------------------->
+<v-code lang="html" title="">
+&lt;form action="script.php" method="get"&gt;
+    &lt;input type="text" name="name" required=""&gt;
+    &lt;textarea name="message"&gt;&lt;/textarea&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+</v-code>
+
+<v-code lang="html" title="">
+http://test1.ru/script.php?name=myname&message=my+message
+</v-code>
+
+<v-code lang="php" title="">
+&lt;?php
+	$name    = $_GET[name]; 
+	$message = $_GET[message]; 
+?&gt;
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Response PHP</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Чтение данных в PHP</h4>
+<!------------------------------------------------------------->
+<v-code lang="php" title="">
+&lt;?php
+	$content = file_get_contents("php://input"); // чтение данных
+	$decoded = json_decode($content, true);      // если передан json
+	echo $decoded[name];                         // вывод значения "name"
+?&gt;
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Передача нескольких значений из PHP</h4>
+<!------------------------------------------------------------->
+<v-two-code type="php;php" comment=";">
+<template v-slot:first>
+&lt;?php
+    $arr = array("Tony", 25);
+    $json = json_encode($arr);
+    echo $json
+?&gt;
+</template>
+<template v-slot:last>
+response.data; // ['Tony', 25]
+</template>
+</v-two-code>
+
+<v-two-code type="php;php" comment=";">
+<template v-slot:first>
+&lt;?php
+    $arr = array("name" => "Tony", "age" => 25);
+    $json = json_encode($arr);
+    echo $json
+?&gt;
+</template>
+<template v-slot:last>
+response.data; // {name: "Tony", age: "25"}
+</template>
+</v-two-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

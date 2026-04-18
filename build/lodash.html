@@ -1,0 +1,257 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Lodash</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/lodash/build-lodash.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">Lodash</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Основное</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__lodash/main/install"
+            href="#lodash/main/install"
+        >
+            ⚙️ Установка и настройка
+        </a>
+    </li>
+</ul><h4>🏷️ Методы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__lodash/methods/debounce"
+            href="#lodash/methods/debounce"
+        >
+            <u-menu>debounce</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__lodash/methods/isEqual"
+            href="#lodash/methods/isEqual"
+        >
+            <u-menu>isEqual</u-menu>
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="lodash/main/install"><h2>Инормация</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npm i --save <u-code-accent>lodash</u-code-accent>
+</v-pre-npm>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>TypeScript типы для пакетов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<h5>Все типы</h5>
+<v-pre-npm>
+npm i --save-dev <u-code-accent>@types/lodash</u-code-accent>
+</v-pre-npm>
+
+<h5>Типы для конкретного метода</h5>
+<v-pre-npm>
+npm i --save-dev <u-code-accent>@types/lodash.debounce</u-code-accent>
+npm i --save-dev <u-code-accent>@types/lodash.difference</u-code-accent>
+npm i --save-dev <u-code-accent>@types/lodash.flow</u-code-accent>
+npm i --save-dev <u-code-accent>@types/lodash.flowright</u-code-accent>
+npm i --save-dev <u-code-accent>@types/lodash.get</u-code-accent>
+npm i --save-dev <u-code-accent>@types/lodash.keyby</u-code-accent>
+npm i --save-dev <u-code-accent>@types/lodash.merge</u-code-accent>
+npm i --save-dev <u-code-accent>@types/lodash.omit</u-code-accent>
+npm i --save-dev <u-code-accent>@types/lodash.snakecase</u-code-accent>
+npm i --save-dev <u-code-accent>@types/lodash.throttle</u-code-accent>
+</v-pre-npm>
+</div><div id="lodash/methods/debounce"><!-- TODO:
+<f-search>Lodash -> <u>debounce()</u></f-search>
+-->
+
+<h2>debounce()</h2>
+
+<u-link-wrapper>
+    <v-link url="https://lodash.com/docs/4.17.15#debounce" text="" list="true" />
+</u-link-wrapper>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка и подключение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-pre-npm>
+npm i --save <u-code-accent>lodash</u-code-accent>
+# или
+npm i --save <u-code-accent>lodash.debounce</u-code-accent>
+</v-pre-npm>
+
+<v-code lang="js" title="">
+import { debounce } from 'lodash';
+// или
+import debounce from 'lodash.debounce';
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Функциональный компонент</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { useState, useCallback } from 'react';
+import { debounce } from 'lodash';
+
+const App = () =&gt; {
+    const [inputSearchValue, setInputSearchValue] = useState('');
+
+    const getResponse = async value =&gt; {
+        const response = fetch('url');
+        //
+    };
+<u-code-wrapper>
+    // с useCallback через 2 секунды выводит ПОСЛЕДНЕЕ value из input
+    const debouncedGetResponse = <u-code>useCallback</u-code>(
+        <u-code-mod>debounce</u-code-mod>(value => getResponse(value), 300),
+        []
+    );
+
+    // без useCallback через 2 секунды выводит ВСЕ value из input
+    const debouncedGetResponse = <u-code-mod>debounce</u-code-mod>(value =&gt; getResponse(value), 300);
+
+</u-code-wrapper>
+    const handleInputChange = value =&gt; {
+        setInputSearchValue(value);
+        debouncedGetResponse(value);
+    }
+
+    return (
+        &lt;&gt;
+            &lt;input
+                type="text"
+                value={inputSearchValue}
+                onChange={(e) =&gt; handleInputChange(e.target.value)}
+            /&gt;
+        &lt;/&gt;
+    )
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Классовый компонент</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import debounce from 'lodash.debounce';
+
+class App extends Component {
+    constructor(props) {
+        this.handleSearch = debounce(this.handleSearch, 500);
+    }
+
+    handleSearch = (value) =&gt; {
+        //
+    };
+}
+</v-code>
+</div><div id="lodash/methods/isEqual"><!-- TODO:
+<f-search>Lodash -> <u>isEqual()</u></f-search>
+-->
+
+<h2>isEqual</h2>
+
+<u-message-info>
+Сравнение объектов
+</u-message-info>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка и подключение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-pre-npm>
+npm i --save <u-code-accent>lodash</u-code-accent>
+# или
+npm i --save <u-code-accent>lodash.isequal</u-code-accent>
+</v-pre-npm>
+
+<v-code lang="js" title="">
+import isEqual from 'lodash.isequal';
+
+const obj1 = { a: 1 };
+const obj2 = { a: 1 };
+const res = isEqual(obj1, obj2); // => true
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

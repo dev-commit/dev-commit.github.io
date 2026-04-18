@@ -1,0 +1,751 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>
+  <div
+    style="
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+      background-color: #7256d1;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    "
+  >
+  </div>
+📌 V8 | Rendering | Optimize</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/v8/build-v8.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">
+  <div
+    style="
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+      background-color: #7256d1;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    "
+  >
+  </div>
+📌 V8 | Rendering | Optimize</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Движок V8</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__v8/v8/info"
+            href="#v8/v8/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+</ul><h4>🏷️ Рендеринг</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__v8/rendering/critical-rendering-path"
+            href="#v8/rendering/critical-rendering-path"
+        >
+            🔥 Critical Rendering Path
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__v8/rendering/repaint-and-reflow"
+            href="#v8/rendering/repaint-and-reflow"
+        >
+            🔥 Repaint & Reflow
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__v8/rendering/requestAnimationFrame"
+            href="#v8/rendering/requestAnimationFrame"
+        >
+            <u-menu>requestAnimationFrame</u-menu>
+        </a>
+    </li>
+</ul><h4>🏷️ Оптимизация</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__v8/optimization/info"
+            href="#v8/optimization/info"
+        >
+            🔥 Оптимизация загрузки
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__v8/optimization/website-loading"
+            href="#v8/optimization/website-loading"
+        >
+            📑 Загрузка веб-страницы
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__v8/optimization/caching"
+            href="#v8/optimization/caching"
+        >
+            Кэширование
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__v8/optimization/tree-shaking"
+            href="#v8/optimization/tree-shaking"
+        >
+            Tree shaking
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="v8/v8/info"><h2>Информация</h2>
+
+<ul class="list-point">
+  <li><u-text-define>V8</u-text-define> - движок JavaScript</li>
+</ul>
+
+</div><div id="v8/rendering/critical-rendering-path"><h2>Critical Rendering Path</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Critical Rendering Path</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><u-text-define>Critical Rendering Path</u-text-define> (Критический путь рендеринга) - последовательность шагов, необходимая для первого отображения страницы (прежде чем HTML-ответ от сервера будет преобразован в пиксели на экране)</li>
+	<li>Знания о CRP необходимы для улчшения производительности</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Данные</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li><u-menu-outline>Style Calculation</u-menu-outline> - вычисление стилей для каждого элемента</li>
+    <li>Render <u-code-mod>16ms</u-code-mod></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Изображения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<img src="/@img/js/rendering/crp1.png" width="650px" />
+<hr>
+<img src="/@img/js/rendering/crp2.png" width="650px" />
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Построение DOM-дерева ✅</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Из полученного от сервера HTML-документа формируется DOM</li>
+	<li><u-text-define>DOM</u-text-define> (объектная модель документа) дерево это объект, представляющий полностью разобранную HTML-страницу. Начиная с корневого элемента <u-code-text>html</u-code-text>, узлы создаются для каждого элемента/текста на странице. Элементы, вложенные в другие элементы, представлены в виде дочерних узлов, и каждый узел содержит полный набор атрибутов для этого элемента</li>
+	<li>HTML может быть исполнен по частям. <b>Документ не должен быть загружен полностью</b> для того, чтобы контент начал появляться на странице</li>
+	<li><b>DOM-дерево помещается в JavaScript-объект Document</b></li>
+</ul>
+
+<hr>
+
+<!------------------------------------------------------------->
+<h4>2. Построение CSSOM-дерева ❌</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>Загружаются и распознаются стили, формируется CSSOM</li>
+	<li>Строится параллельно с построением DOM</li>
+	<li><u-text-define>CSSOM</u-text-define> (CSS Object Model) - объект, представляющий стили, связанные с DOM. Он выглядит так же как DOM, но с соответствующими стилями для каждого узла. Не имеет значения были ли стили объявлены явно или наследуются</li>
+	<li>CSS считается <b>«блокирующим обработку ресурсом»</b>. Это значит, что Render-дерево не может быть построено без полного первоначального разбора CSS</li>
+	<li>В отличии от HTML, CSS не может быть использован по частям в силу своей каскадной природы. Стили, описанные в документе ниже, могут переопределять и изменять стили, определённые ранее. Так что если мы начнём использовать CSS-стили до того, как будет разобрана таблица стилей, мы можем столкнуться с ситуацией, когда стили будут применяться неверно. Это означает, что для перехода к следующему шагу, необходимо полностью разобрать CSS</li>
+</ul>
+
+<u-message-warn>CSSOM перестраивается полностью каждый раз</u-message-warn>
+
+<hr>
+
+<!------------------------------------------------------------->
+<h4>3. Запуск JavaScript ❌ при async ✅</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li>JavaScript является блокирующим ресурсом для парсера. Это означает, что JavaScript блокирует разбор самого HTML-документа</li>
+	<li>Когда парсер доходит до тега <u-code-text>script</u-code-text> (не важно внутренний он или внешний), он останавливается, забирает файл (если он внешний) и запускает его</li>
+	<li>JavaScript можно загружать асинхронно, указав атрибут <u-code-text>async</u-code-text>, для того, чтобы избежать блокировки парсера</li>
+</ul>
+
+<hr>
+
+<!------------------------------------------------------------->
+<h4>4. Создание Render Tree</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u-text-define>Render-дерево</u-text-define> - совокупность DOM и CSSOM</li>
+	<li>Это дерево, которое даёт представление о том, что в конечном итоге будет отображено на странице. Это означает, что оно захватывает только видимый контент и не включает, например, элементы, которые были скрыты с помощью CSS-правила <u-code-text>display: none</u-code-text> или <u-code-text>&lt;head&gt;</u-code-text></li>
+</ul>
+
+<hr>
+
+<!------------------------------------------------------------->
+<h4>5. Layout (генерация раскладки)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u-text-define>Раскладка</u-text-define> - для каждого элемента Render Tree определяютяс его размеры и рассчитывается его положение на странице</li>
+	<li>Вычисление взаимного расположения и размеров элементов на странице, плюс компоновка всего</li>
+	<li>Браузеры используют поточный метод (<u>flow</u>), при котором в большинстве случаев достаточно одного прохода для размещения всех элементов (для таблиц проходов требуется больше)</li>
+	<hr class="small">
+	<li>Определяется размер видимой области документа (<u-code-text>viewport</u-code-text>), которая обеспечивает контекст для стилей CSS, зависимых от него, например, проценты или единицы viewport</li>
+	<li>Размер viewport определяется метатэгом, находящемся в <u-code-text>head</u-code-text> документа или, если тэг не представлен, будет использовано стандартное значение viewport 980px</li>
+</ul>
+
+<hr>
+
+<!------------------------------------------------------------->
+<h4>6. Paint (отрисовка в браузере)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+	<li><u-text-define>Отрисовка</u-text-define> - видимый контент страницы преобразуется в пиксели и отрисовывается на экране</li>
+	<li>Время, которое займет этот этап, зависит как от величины DOM, так и от того, какие стили применяются. Некоторые стили требуют больше усилий, чтобы быть применёнными, чем другие. Например, сложное градиентное фоновое изображение потребует больше времени, чем простой сплошной цвет на фоне</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Chrome Dev Tools</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+	<li><em>Chrome Dev Tools</em> ➝ <em>Performance</em> ➝ <em>Event Log</em></li>
+	<li><em>Chrome Dev Tools</em> ➝ <em>Network</em> ➝ <em>Record network activity</em></li>
+</ul>
+
+<ol class="list-num">
+	<li><b>Send Request</b> - GET-запрос, отправленный для index.html</li>
+	<li><b>Parse HTML and Send Request</b> - начать разбор HTML и построение DOM. Отправить GET запрос для style.css и main.js</li>
+	<li><b>Parse Stylesheet</b> - CSSOM, созданный для style.css</li>
+	<li><b>Evaluate Script</b> - вычислить (выполнить) main.js</li>
+	<li><b>Layout</b> - генерация раскладки, основанной на значении метатега viewport</li>
+	<li><b>Paint</b> - отрисовка пикселей в документе</li>
+</ol>
+
+</div><div id="v8/rendering/repaint-and-reflow"><h2>Repaint & Reflow</h2>
+
+<ul class="list-point">
+    <li><u>Repaint</u> и <u>Reflow</u> блокируют браузер и не пользователь, и не ваше веб-приложение не смогут ничего сделать во время reflow и repaint. В крайних случаях CSS эффекты могут затормозить выполнение JavaScript'а. Это одна из причин, почему вы сталкиваетесь с дергающейся прокруткой страницы и неотзывчивым интерфейсом</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Repaint (Restyle)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Repaint</u-text-define> (Перерисовка) - в случае изменения стилей элемента, не влияющих на его размеры и положение на странице: <u>background-color</u>, <u>border-color</u>, <u>visibility</u>, <u>opacity</u>, <u>outline</u> и т.д.</li>
+    <li>Браузер просто отрисовывает его заново, с учётом нового стиля</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Reflow (Relayout)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Reflow</u-text-define> (Перекомпановка) - если изменения затрагивают содержимое, структуру документа, положение элементов, происходит перерасчет позиций и размеров всех элементов, что приводит к полной или частичной повторной отрисовке страницы</li>
+	<li>Изменения в одном элементе могут повлиять на все дочерние, родительские или смежные элементы</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Когда запускается reflow</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Манипуляции с DOM (добавление, удаление, изменение, перестановка ВИДИМЫХ элементов)</li>
+    <li>Расчёт или изменение CSS-свойств (н-р: изменив ширину элемента, вы можете повлиять на все элементы того же уровня в DOM и окружающие его элементы)</li>
+    <li>Добавление, удаление таблиц стилей</li>
+    <li>Манипуляции с атрибутом «class»</li>
+    <li>CSS3 анимация и свойство transition (каждый кадр анимации вызывает reflow)</li>
+    <li>Использование offsetWidth и OffsetHeight (при попытке считать значения offsetWidth и offsetHeight элемента для их вычисления может быть запущен reflow)</li>
+	
+	<hr>
+	<b>Действия пользователя</b>
+    <li>Изменение содержимого, в т.ч. текста в полях форм</li>
+	<li>Манипуляции с окном браузера - изменения размеров, прокрутка</li>
+	<li>Активация псевдо-классов (например, :hover)</li>
+    <li>Изменении размера шрифта</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Оптимизация со стороны браузера</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ol class="list-num">
+    <li>Браузеры по возможности локализуют repaint и reflow в пределах элементов, подвергнувшимися изменению. Например, изменение размеров <u>абсолютно</u> или <u>фиксировано</u> спозиционированного элемента затронет только сам элемент и его потомков, в то время как изменение <u>статично</u> спозиционированного - повлечет <u>reflow</u> всех элементов, следующих за ним</li>
+    <li>Во время выполнения JavaScript браузеры кэшируют вносимые изменения, и применяют их в один проход по завершению работы блока кода</li>
+</ol>
+
+<v-two><template v-slot:first>
+<ul class="list-point">
+    <li>В ходе выполнения данного кода произойдет только один reflow и repaint:</li>
+</ul>
+<v-code lang="js" title="">
+const $body = $('body');
+$body.css('padding', '1px'); // reflow, repaint
+$body.css('color', 'red');   // repaint
+$body.css('margin', '2px');  // reflow, repaint
+// На самом деле произойдет только 1 reflow и repaint
+</v-code>
+</template><template v-slot:last>
+<ul class="list-point">
+    <li>Но, как описано выше, обращение к свойствам элементов вызовет принудительный reflow. То есть, если мы в приведённый блок кода добавим обращение к свойству элемента, это вызовет лишний reflow:</li>
+</ul>
+<v-code lang="js" title="">
+const $body = $('body');
+$body.css('padding', '1px');
+// обращение к свойству, принудительный reflow
+$body.css('padding');
+$body.css('color', 'red');
+$body.css('margin', '2px');
+</v-code>
+</template></v-two>
+</div><div id="v8/rendering/requestAnimationFrame"><h2>requestAnimationFrame</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="window" method="requestAnimationFrame" after="" arg="(callback, element)">
+    Указывает браузеру на то, что вы хотите произвести анимацию, и просит его запланировать перерисовку на следующем кадре анимации. В качестве параметра метод получает функцию, которая будет вызвана перед перерисовкой.
+    </v-method>
+
+	<v-method-arg arg="callback">функция, которая будет вызвана, когда придёт время обновить вашу анимацию на следующей перерисовке</v-method-arg>
+	<v-method-arg arg="element">(необязательный) - (не используется в Firefox или IE), определяющий элемент, который визуально содержит всю анимацию. Для canvas'а и WebGL'a им должен быть Canvas. Для других элементов вы можете опустить этот параметр для чуть лучшего пользовательского опыта</v-method-arg>
+
+	<v-method-return>requestID - длинное целое, являющееся уникальным идентификатором для записи, содержащей callback. Оно не равно нулю, но других предположений о его значении делать не следует. Вы можете передать его в window.cancelAnimationFrame() для отмены вызова</v-method-return>
+</div>
+
+<ul class="list-point">
+	<li><u-menu-outline>requestAnimationFrame</u-menu-outline> - соответствует обновлением экрана экрана. Анимация элементов DOM. Передаем callback, который нужно вызвать перед рендером</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li><b>Примечание</b>: Ваш callback метод сам должен вызвать requestAnimationFrame() иначе анимация остановится.</li>
+    <li>Вы должны вызывать этот метод всякий раз, когда готовы обновить анимацию на экране, чтобы запросить планирование анимации. Обычно запросы происходят 60 раз в секунду, но чаще всего совпадают с частотой обновления экрана. Большинство дисплеев обновляются с частотой 60Гц.</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование requestAnimationFrame</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+let step = 1;
+
+const animate = () => {
+	const element = document.getElementById('element');
+	element.style.transform = `translateX(${step++}px)`;
+    // callback явно вызывает requestAnimationFrame
+	window.<u-code>requestAnimationFrame</u-code>(animate);
+}
+
+window.<u-code>requestAnimationFrame</u-code>(animate);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Стандартное поведение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// до рендеринга дойдёт только последний
+button.addEventListener('click', () => {
+	box.style.display = 'none';
+	box.style.display = 'block';
+	box.style.display = 'none';
+})
+</v-code>
+</div><div id="v8/optimization/info"><h2>Оптимизация загрузки</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Перформанс</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u>Chrome Dev Tools</u>: <em>Lighthouse</em></li>
+    <li><u>React Dev Tools</u></li>
+    <li><u>Redux Dev Tools</u></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ввод данные через input</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u>Декоратор</u> <em>debounce</em> - создает вариант функции, которая выполняет оригинальную функцию спустя wait миллисекунд после предыдующего вызова декорированной функции. Инпут для поиска: поиск начинает на сразу, а спустя несколько секунд, чтобы пользователь успел ввести несколько букв</li>
+    <li><u>Декоратор</u> <em>throttle</em> - создает вариант функции, которая при повторяющихся вызовах выполняется через указанный временной интервал</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>React</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u>Мемоизация</u>: <u-code-text>useMemo</u-code-text> <u-code-text>useCallback</u-code-text></li>
+    <li><u>Lazy Loading</u>: <u-code-text>React.Lazy</u-code-text></li>
+    <li><u-code-text>React.memo()</u-code-text></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Webpack</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u>Tree shaking</u></li>
+    <li><u>Разбитие на чанки JavaScript</u></li>
+    <li><u>Анализ бандла</u>. <a href="https://github.com/webpack-contrib/webpack-bundle-analyzer" target="_blank" class="link">webpack-bundle-analyzer</a> - визуально показывает в каком модуле больше кода</li>
+    <li><u>Ant Design</u>, <u>Moment.js</u> - тянет кучу неиспользуемого кода</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>JavaScript</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u>Сборщик мусора</u></li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Общее</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u>Микросервисы</u></li>
+    <li><u>Кэширование</u></li>
+    <li><u>Сервис-воркеры</u></li>
+    <li><u>Виртуализация</u></li>
+</ul>
+</div><div id="v8/optimization/website-loading"><!-- TODO:
+<f-search>Optimization -> Загрузка веб-страницы</f-search>
+-->
+
+<h2>Загрузка веб-страницы</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+	<li><u-text-define>DNS (Domain Name Servers)</u-text-define> - распределенная таблица где указано имя сайта (htmlacademy.ru) и его физический адрес (178.79.181.169)</li>
+	<li><u-text-define>Служба доставки, протокол TCP/IP</u-text-define> - доставляется контент от одного сервера до другого. Доставляет HTTP-пакеты</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Алгоритм</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Ввод адреса в браузере</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+		<li>Пользователь вводит адрес, н-р: <a href="https://www.google.com/">https://www.google.com/</a></li>
+</ul>
+
+<hr>
+
+<!------------------------------------------------------------->
+<h4>2. Определение IP-адреса</h4>
+<!------------------------------------------------------------->
+
+Браузеру необходимо понять на какой IP-адрес ему делать GET-запрос
+
+<ol class="list-num">
+		<li>
+			<b>Локальный кеш</b><br>
+			Браузер пойдет в свой кэш - возможно, когда-то мы заходили на этот сайт и в кэше будет сохранена ассоциативная запись доменного имени и IP-адреса
+		</li>
+		<li>
+			<b>DNS на сервере преобразует его в IP-адрес</b><br>
+			Если в кэше его нет, то будет сделан запрос на ближайший DNS-сервер. Обычно это DNS-сервер локального провайдера и потом уже DNS-сервер вернет ассоциативную запись. Но если там нет, то пойдет дальше по цепочке на следующий DNS-сервер, пока не дойдет до корневого
+		</li>
+		<li><b>Hosting Server</b></li>
+		<li><b>WebSite</b></li>
+		<li><b>Обратно пользователю</b></li>
+</ol>
+
+<hr>
+
+<!------------------------------------------------------------->
+<h4>3. Веб-сервер</h4>
+<!------------------------------------------------------------->
+
+<h5>Сайт</h5>
+<ul class="list-point">
+		<li>Сайт лежит на сервере</li>
+</ul>
+
+<h5>Сервер</h5>
+<ul class="list-point">
+	<li>У сервера есть IP-адрес</li>
+	<li>У сервера есть много портов</li>
+</ul>
+
+<h5>Порт</h5>
+<ul class="list-point">
+	<li>На сервере существует много портов и за каждый порт отвечает какая-то программа</li>
+	<li>Порт можно не писать, браузер сам понимает по какому порту обращаться</li>
+	<li>На одном порту может находиться много сайтов. Есть конфигурационный файл, который указыват имя сервера и директорию откуда брать сайт. Это называется виртуальный хост</li>
+	<li>Веб-сервер находится на этом порту</li>
+</ul>
+
+<v-code lang="js" title="">
+Сервер: 178.79.181.169
+Порт: 80
+Сайт: google.com
+</v-code>
+
+<hr>
+
+<!------------------------------------------------------------->
+<h4>4. Получение данных страницы</h4>
+<!------------------------------------------------------------->
+
+После того как браузер получит IP-адрес, он делает HTTP-запрос методом GET на получение данных для отрисовки страницы
+
+<hr>
+
+<!------------------------------------------------------------->
+<h4>5. Критический путь рендеринга</h4>
+<!------------------------------------------------------------->
+ 
+После получения ответа от сервера, браузер начинает выполнять критический путь рендеринга
+</div><div id="v8/optimization/caching"><h2>Кэширование</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Кэширование (кэш)</u-text-define> - это некий промежуточный буфер, в котором хранятся данные. Благодаря кэшированию страница сайта не воссоздается заново для каждого пользователя. Кэширование позволяет осуществлять работу с большим количеством данных в максимально сжатые сроки и при ограниченных ресурсах (серверных и пользовательских).</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Браузерное кэширование (клиентское кэширование)</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li>Представляет собой составление для браузера команды использовать имеющуюся кэшированную копию. Работа такого кэширования основана на том, что при повторном посещении, браузеру отдаётся заголовок 304 Not Modified, а сама страница или картинка загружаются из локального пользовательского кэша. Получается, что вы экономите на трафике между браузером посетителя и хостингом сайта. Соответственно, страница вашего сайта начинает загружаться быстрее.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1.1 Кэширование файлов и картинок</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Картинка не скачивается каждый раз при открытии сайта, а просто загружается через кэш браузера.</li>
+    <li>Это первый уровень кэширования, который состоит в отдаче заголовка «expired» и заголовка «304 Not Modified». Наиболее эффективным считается кэширование на 2 недели.</li>
+    <li>Но если изображение на сайте меняется, то браузер узнает об этом не сразу, а только если выждать expiry или сбросить кэш в самом браузере. Это не очень эффективно, если файл постоянно изменяется и необходимо постоянно отдавать его актуальную версию.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1.2 Кэширование HTTPS</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Специальные заголовки вида <u>strict-security</u>.</li>
+    <li>Позволяет браузеру всегда обращаться по https к выбранному домену. Сохраняет это состояние довольно жёстко и, в случае отмены этого вида кэша, браузер ещё довольно долго будет пытаться загрузить страницу по https, при этом игнорируя текущие заголовки.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1.3 Кэширование центра сертификации (stamp центра сертификации)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Данный вид кэширования считается обязательным для применения, если вы не хотите, чтобы пользователи вашего сайта ждали, когда центр сертификации (а это некий сервер, который отвечает за достоверность вашего сертификата) обработает запрос от браузера пользователя и подтвердит, что ваш сайт действительно подтверждён им.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1.4 Кэширование страниц</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Когда страница уже сгенерирована, нужно постоянно отслеживать ее актуальность. Для этого вы должны использовать серверный кэш с отслеживанием времени изменения отдельных частей страницы (если страница строится из множества динамически генерируемых блоков). При таком подходе в каждом ответе от сервера установлены специальные заголовки, обозначающие время изменения страницы, которые затем отправляются браузером пользователя при повторном обращении к странице сайта. Сервер при получении таких заголовков может проанализировать текущее состояние страницы (возможно, даже отрисовать её), но вместо содержимого страницы отдать заголовок «304 Not Modified», что для пользовательского браузера будет означать, что можно показать страницу из своего (браузера пользователя) кэша.</li>
+    <li>Конечно, можно отправлять соответствующие заголовки без использования серверного отслеживания кэша, но в таком случае большинство пользователей получат обновление контента страницы довольно поздно. При таком подходе браузер иногда опрашивает сервер для получения обновлений, но периодичность и правила для каждого браузера настраиваются его разработчиком, поэтому надеяться на то, что ваши пользователи получат обновления вовремя, не приходится.</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <b>Как правило, кэш подразделяется по типу пользователей:</b>
+    <li>Для авторизованных;</li>
+    <li>Для неавторизованных</li>
+</ul>
+
+<hr>
+
+<ul class="list-point">
+    <li>Данное разделение обусловлено уникальностью контента, для каждого авторизованного пользователя и общностью контента для гостевых пользователей. В большинстве сайтов не авторизованный пользователь не может изменять содержимое сайта, а значит и влиять на его содержимое.</li>
+    <li>Браузерный кэш позволяет экономить трафик и время, затрачиваемое на загрузку страниц. Но для достижения эффекта экономии, пользователь должен хотя бы один раз посетить нашу страницу, а это означает, что нагрузка на серверные ресурсы уменьшится, но не значительно.</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Серверное кэширование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Под серверным кэшированием понимаются все виды кэширования, при котором данные хранятся на серверной стороне. Эти данные не доступны клиентским браузерам.</li>
+    <li>Кэш создаётся и хранится по принципу «один ко многим» (многие, в данном случае, — это клиентские устройства).</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2.1 Кэширование страницы целиком</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Наиболее эффективный кэш.</li>
+    <li>Отдача страницы происходит практически в момент обращения, как следствие – это возможность обработки миллионов запросов даже на самом слабом сервере со скоростью работы памяти и с незначительным задействованием процессора.</li>
+    <li><u>Минусы:</u> невозможность кэшировать страницы для авторизованного пользователя, либо пользователя, содержимое страницы которого зависит от текущих переменных пользователя.</li>
+    <li>Используйте этот кэш, если серверу известны все статичные состояния внешних данных, такие как: uri, get (без дополнительных параметров), пользователь не авторизован — т.е., фактически, это идеальное состояние страницы для гостевых пользователей. Учитывайте тот факт, что при таком кэшировании архитектура сайта или приложения всегда должна однотипно обрабатывать входящие запросы и отдавать однотипные ответы. Такое состояние есть в любом приложении или сайте, его нужно лишь отследить и применить к нему кэш.</li>
+    <li>Кэширование страниц целиком, чаще всего, применяют в каких-то экстренных случаях, при этом кэш страниц сохраняется на заранее указанное время (от 2 минут), в течение которого ответы от сервера однотипны (не позволяйте браузеру кэшировать это).</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2.2 Кэширование результатов компиляции PHP-файлов</h4>
+<!------------------------------------------------------------->
+<i>Различают как чистую компиляцию кода, так и его оптимизацию во время компилирования (подмена скриптов):</i>
+
+<ul class="list-point">
+    <li>APC</li>
+    <li>XCache</li>
+    <li>Компиляция с подменой скриптов HipHopVirtualMachine</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2.3 Кэширование отдельных блоков страницы</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Сложный вид кэширования</li>
+    <li><u>Необходимо отслеживать</u>: состояние таблиц, состояние сессии пользователя, выключать ли кэширование при POST или GET запросах (http query), зависимость от текущего адреса, постоянство кэширования (при изменении предыдущих условий) или его динамическую подстройку.</li>
+    <li><u>Применение</u>: если нужно, уменьшить количество запросов к базе данных от реальных (авторизованных) пользователей</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2.4 Кэширование php на основе неразделяемых ресурсов</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Лучше всего подходит при стандартизации запросов, получении данных из общих ресурсов, наличии внутренних переменных, к которым php-ресурсы обращаются несколько раз при генерации страницы.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2.5 Кэширование php на основе общих ресурсов</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Применяется для хранения сериализированных данных: конфигурационного файла, состояния таблиц, списков файловой системы.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2.6 Кэширование mysql на основе query cache</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Кэшировать эти запросы имеет смысл, если чтений из таблицы немного больше чем записи.</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>2.7 Кэширование mysql результатов работы, агрегирующие таблицы</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Существует правило: обновлений данных должно быть значительно меньше, чем чтения для их отдачи. Т.е. не имеет смысл агрегировать то, что изменится в тот же момент, при этом важна актуальность агрегированных данных.</li>
+</ul>
+
+</div><div id="v8/optimization/tree-shaking"><h2>Tree shaking</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Tree shaking</u-text-define> (встряхивание дерева) - метод оптимизации библиотек путем удаления любого кода из окончательного файла, который фактически не используется.</li>
+    <li>Когда приложение на Javascript достигает определенного размера, его обычно разделяют на модули. Однако, через какое то время, становиться сложно отслеживать все что импортируется и как это используется. В итоге при сборке пакетов, мы можем получить большое количество импортированный кода, который фактически не используется.</li>
+    <li>Если воспользоватьчя tree shaking, тогда только то, что мы импортировали и фактически использовали попадет в окончательную сборку.</li>
+    <li>Tree shaking может работать только в том случае, если модули являются статическими («static»)</li>
+</ul>
+
+<v-code lang="js" title="">
+// импорт, который импортируется, но не используется, впоследствии полностью исключается
+import { add, <u-code>multiply</u-code> } from 'math';
+add(1, 2);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Настройка Tree shaking в Webpack</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="webpack.config.js">
+module.exports = {
+	mode: "production",
+}
+</v-code>
+
+<v-code lang="js" title="// package.json">
+// Пометить определенные файлы как исключения для Tree shaking
+{
+	"sideEffects": [
+		"./src/polyfill.js"
+	]
+}
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

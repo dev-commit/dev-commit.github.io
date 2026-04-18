@@ -1,0 +1,691 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>SWR</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/swr/build-swr.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">SWR</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Основы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__swr/main/info"
+            href="#swr/main/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__swr/main/install"
+            href="#swr/main/install"
+        >
+            ⚙️ Установка и настройка
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__swr/main/peculiarities"
+            href="#swr/main/peculiarities"
+        >
+            Особенности
+        </a>
+    </li>
+</ul><h4>🏷️ API</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__swr/api/useSWR"
+            href="#swr/api/useSWR"
+        >
+            <u-menu>useSWR</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__swr/api/useSWRMutation"
+            href="#swr/api/useSWRMutation"
+        >
+            <u-menu>useSWRMutation</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__swr/api/mutate"
+            href="#swr/api/mutate"
+        >
+            <u-menu-gray>mutate</u-menu-gray>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__swr/api/useSWRInfinite"
+            href="#swr/api/useSWRInfinite"
+        >
+            <u-menu-gray>useSWRInfinite</u-menu-gray>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__swr/api/useSWRSubscription"
+            href="#swr/api/useSWRSubscription"
+        >
+            <u-menu-gray>useSWRSubscription</u-menu-gray>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__swr/api/SWRConfig"
+            href="#swr/api/SWRConfig"
+        >
+            <u-menu-gray>SWRConfig</u-menu-gray> <u-menu-gray>useSWRConfig</u-menu-gray>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__swr/api/useSWRImmutable"
+            href="#swr/api/useSWRImmutable"
+        >
+            <u-menu-gray>useSWRImmutable</u-menu-gray>
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="swr/main/info"><h2>Информация</h2>
+
+<u-link-wrapper>
+    <v-link url="https://swr.vercel.app/ru/docs/" text="" list="true" />
+</u-link-wrapper>
+
+</div><div id="swr/main/install"><h2>Установка и настройка</h2>
+
+<v-pre-npm>
+npm i --save <u-code-accent>swr</u-code-accent>
+</v-pre-npm>
+</div><div id="swr/main/peculiarities"><h2>Особенности</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Кеширование и дедупликация запросов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+  <v-link url="https://swr.vercel.app/ru/docs/advanced/performance#deduplication" text="" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+  <li><u-text-define>Дедупликаци</u-text-define> - устранение дубликатов</li>
+  <li><u>Кеширование</u> и <u>дедупликация запросов</u> позволяет пропускать ненужные сетевые запросы</li>
+  <li>SWR глубоко сравнивает изменения данных по умолчанию. Если значение data не изменилось, повторный рендеринг запускаться не будет.</li>
+</ul>
+
+<v-code lang="js" title="">
+const useUser = () => {
+  return useSWR('/api/user', fetcher)
+}
+
+const Username = () => {
+  const { data } = useUser()
+  return &lt;h1&gt;{data.name}&lt;/h1&gt;
+}
+
+const App = () => {
+  return (
+    <>
+      &lt;User /&gt;
+      &lt;User /&gt;
+      &lt;User /&gt;
+    </>
+  )
+}
+</v-code>
+
+<ul class="list-point">
+  <li>В примере компонент <u>User</u> вызывается 3 раза, но в API будет отправлен только 1 запрос, т.к. они используют один и тот же ключ SWR - <u>useUser</u>, а запрос автоматически выводится, кешируется и распределяется</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Tree Shaking</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+  <v-link url="https://swr.vercel.app/ru/docs/advanced/performance#tree-shaking" text="" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Для SWR можно легко применить Tree Shaking</li>
+    <li>Он не имеет side-effects</li>
+    <li>Это означает, что если вы импортируете только основной API useSWR, неиспользуемые API, такие, как useSWRInfinite, не будут включены в ваше приложение</li>
+</ul>
+</div><div id="swr/api/useSWR"><!-- TODO:
+<f-search>SWR -> <u>useSWR()</u></f-search>
+-->
+
+<h2>useSWR()</h2>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useSWR" after="" arg="(url, fetcher)">
+    Запускается автоматически
+    </v-method>
+
+	<v-method-arg arg="key">URL для запроса</v-method-arg>
+	<v-method-arg arg="fetcher(key, { arg })">Асинхронная функция, в которой происходит запрос. Принимает URL, переданный первым аргументом в useSWR</v-method-arg>
+  <v-method-arg arg="options">(опционально) объект со <a href="https://swr.vercel.app/ru/docs/api#options" target="_blank">свойствами</a></v-method-arg>
+
+	<v-method-return>{ data, error, isLoading, mutate }</v-method-return>
+</div>
+
+<h5>Return</h5>
+
+<ul class="list-point">
+    <li><u-code-text>data</u-code-text> - данные, возвращенные от API (или undefined, если не загружено)</li>
+    <li><u-code-text>error</u-code-text> - ошибка, выданная fetcher (или undefined)</li>
+    <li><u-code-text>isLoading</u-code-text> - статус загрузки: при совершении запроса будет true, после завершения запроса - false. Если есть текущий запрос и нет «загруженных данных». Резервные данные и предыдущие данные не считаются «загруженными данными»</li>
+    <li><u-code-text>isValidating</u-code-text> - если запрос или ревалидация загружается</li>
+    <li><u-code-text>mutate(data?, options?)</u-code-text> - функция для мутации закешированных данных</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Аргументы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+  <v-link url="https://swr.vercel.app/ru/docs/arguments" text="" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>По умолчанию key будет передан в fetcher в качестве аргумента</li>
+</ul>
+
+<v-code lang="js" title="">
+// Выражения эквивалентны
+useSWR('/api/user', () => fetcher('/api/user'))
+useSWR('/api/user', url => fetcher(url))
+useSWR('/api/user', fetcher)
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Базовый пример</h4>
+<!------------------------------------------------------------->
+<v-tabs :tabs="['api/sample.ts', 'App.tsx']">
+<template v-slot:1>
+<v-code lang="js" title="api/sample.ts">
+interface ISampleModel {
+  userId: number
+  id: number
+  title: string
+  completed: boolean
+}
+
+export const useSample = () => {
+  const { data, error, isLoading } = useSWR(
+    "https://jsonplaceholder.typicode.com/todos/1",
+    async (url): Promise&lt;ISampleModel&gt; => {
+      const res = await fetch(url)
+      return await res.json()
+    },
+  )
+
+  return {
+    data,
+    error,
+    isLoading,
+  }
+}
+</v-code>
+</template>
+<template v-slot:2>
+<v-code lang="js" title="App.tsx">
+import { useSample } from "./api/sample"
+
+const App = () => {
+    const { data, error, isLoading } = useSample()
+
+    if (error) return &lt;div&gt;Error&lt;/div&gt;
+    if (isLoading) return &lt;div&gt;Loading...&lt;/div&gt;
+   
+    return &lt;div&gt;Hi, {data.title}&lt;/div&gt;
+}
+</v-code>
+
+<v-code lang="js none" title="">
+console.log(data)
+{
+    "userId": 1,
+    "id": 1,
+    "title": "delectus aut autem",
+    "completed": false
+}
+</v-code>
+</template>
+</v-tabs>
+</div><div id="swr/api/useSWRMutation"><!-- TODO:
+<f-search>SWR -> <u>useSWRMutation()</u></f-search>
+-->
+
+<h2>useSWRMutation()</h2>
+
+<u-link-wrapper>
+    <v-link url="https://swr.vercel.app/ru/docs/mutation.ru#useswrmutation" text="" list="true" />
+    <v-link url="https://swr.vercel.app/ru/blog/swr-v2.ru#useswrmutation" text="" list="true" />
+</u-link-wrapper>
+
+<div class="v-method-wrapper">
+    <v-method before="" method="useSWRMutation" after="" arg="(url, fetcher, options)">
+    Хук для удаленных мутационных запросов (например, POST, PUT, DELETE). Удаленные мутации запускаются только вручную, а не автоматически, как <u>useSWR</u>
+    </v-method>
+
+	<v-method-arg arg="key">URL для запроса</v-method-arg>
+	<v-method-arg arg="fetcher(key, { arg })">Асинхронная функция, в которой происходит запрос. принимает URL, переданный первым аргументом в useSWRMutation</v-method-arg>
+	<v-method-arg arg="options">(опционально) объект со <a href="https://swr.vercel.app/ru/docs/mutation.ru#useswrmutation" target="_blank">свойствами</a></v-method-arg>
+
+	<v-method-return>{ data, error, isMutating, trigger, reset }</v-method-return>
+</div>
+
+<h5>Return</h5>
+
+<ul class="list-point">
+    <li><u-code-text>data</u-code-text> - данные, возвращенные от API (или undefined, если не загружено)</li>
+    <li><u-code-text>error</u-code-text> - ошибка, выданная fetcher (или undefined)</li>
+    <li><u-code-text>isMutating</u-code-text> - если есть текущая удаленная мутация</li>
+    <li><u-code-text>trigger(arg, options)</u-code-text> - функция для запуска удаленной мутаци (выполнение запроса к API)</li>
+    <li><u-code-text>reset()</u-code-text> - функция для сброса состояния (data, error, isMutating)</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Данные</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><b>Основное назначение</b>: выполнение запросов, которые изменяют данные на сервере (например, создание или обновление записи)</li>
+    <li><b>Использование</b>: используется для выполнения операций, таких как отправка данных на сервер, с последующим обновлением кеша</li>
+    <li><b>Контекст использования</b>: идеально подходит для отправки данных через POST/PUT/DELETE запрос</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Cases</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Базовый пример</h4>
+<!------------------------------------------------------------->
+
+<v-tabs :tabs="['api/sample.ts', 'App.tsx']">
+<template v-slot:1>
+<v-code lang="js" title="api/sample.ts">
+interface ISampleModel {
+  userId: number
+  id: number
+  title: string
+  completed: boolean
+}
+
+export const useSampleMutation = () => {
+  const { data, error, isMutating, trigger, reset } = useSWRMutation(
+    "https://jsonplaceholder.typicode.com/todos/1",
+    // В "url" передается первый аргумент из useSWRMutation
+    async (url): Promise&lt;ISampleModel&gt; => {
+      const res = await fetch(url)
+      return await res.json()
+    },
+  )
+
+  return {
+    data,
+    error,
+    isMutating,
+    trigger,
+    reset,
+  }
+}
+</v-code>
+</template>
+<template v-slot:2>
+<v-code lang="js" title="App.tsx">
+import { useSampleMutation } from "./api/sample"
+
+const App: React.FC = () => {
+  const { trigger, isMutating, error } = useSampleMutation()
+
+  const onClick = async () => {
+    const data = await trigger()
+    console.log(data)
+  }
+
+  console.log("error", error)
+
+  return (
+    &lt;button disabled={isMutating} onClick={onClick}&gt;
+      Click
+    &lt;/button&gt;
+  )
+}
+</v-code>
+
+<v-code lang="js none" title="">
+console.log(data)
+{
+    "userId": 1,
+    "id": 1,
+    "title": "delectus aut autem",
+    "completed": false
+}
+</v-code>
+</template>
+</v-tabs>
+
+<!------------------------------------------------------------->
+<h4>Обработка ошибок</h4>
+<!------------------------------------------------------------->
+<v-tabs :tabs="['Error из Хука', 'Try / Catch']">
+<template v-slot:1>
+<v-code lang="js" title="App.tsx">
+import { useSampleMutation } from "./api/sample"
+
+const App: React.FC = () => {
+  const { trigger, error } = useSampleMutation()
+
+  const onClick = async () => {
+    const data = await trigger()
+    console.log(data)
+  }
+
+  // error?.message
+  // error?.status
+  // error?.response?.data?.detail
+
+  return (
+    &lt;button onClick={onClick}&gt;
+      Click
+    &lt;/button&gt;
+  )
+}
+</v-code>
+</template>
+<template v-slot:2>
+<v-code lang="js" title="App.tsx">
+import { useSampleMutation } from "./api/sample"
+
+const App: React.FC = () => {
+  const { trigger } = useSampleMutation()
+
+  const onClick = async () => {
+    try {
+      const data = await trigger()
+      console.log(data)
+    } catch (e) {
+      // Обработка ошибки
+      console.log(e)
+    }
+  }
+
+  return (
+    &lt;button onClick={onClick}&gt;
+      Click
+    &lt;/button&gt;
+  )
+}
+</v-code>
+</template>
+</v-tabs>
+
+<!------------------------------------------------------------->
+<h4>Использование <em>isMutating</em> из Хука</h4>
+<!------------------------------------------------------------->
+<v-tabs :tabs="['Error из Хука']">
+<template v-slot:1>
+<v-code lang="js" title="App.tsx">
+import { useSampleMutation } from "./api/sample"
+
+const App: React.FC = () => {
+  const { trigger, isMutating } = useSampleMutation()
+
+  const onClick = async () => {
+    const data = await trigger()
+    console.log(data)
+  }
+
+  return (
+    &lt;button disabled={isMutating} onClick={onClick}&gt;
+      Click
+    &lt;/button&gt;
+  )
+}
+</v-code>
+</template>
+</v-tabs>
+
+<!------------------------------------------------------------->
+<h4>Передача аргументов в <em>trigger()</em></h4>
+<!------------------------------------------------------------->
+<v-tabs :tabs="['api/sample.ts', 'App.tsx']">
+<template v-slot:1>
+<v-code lang="js" title="api/sample.ts">
+export interface IUserModel {
+  id: number
+  name: string
+}
+
+interface IFetcherArg {
+  arg: {
+    username: string
+  }
+}
+
+export const useSampleMutation = () => {
+  const { data, error, isMutating, trigger, reset } = useSWRMutation(
+    URL,
+    // "_" - URL пробрасывается напрямую в fetcher
+    async (_, { arg }: IFetcherArg): Promise&lt;IUserModel&gt; => {
+      const { username } = arg
+      const { data } = await fetch(URL + `/${username}`)
+      return data
+    },
+  )
+
+  return {
+    data,
+    error,
+    isMutating,
+    trigger,
+    reset,
+  }
+}
+</v-code>
+</template>
+<template v-slot:2>
+<v-code lang="js" title="App.tsx">
+import { useSampleMutation } from "./api/sample"
+
+const App: React.FC = () => {
+  const { trigger } = useSampleMutation()
+
+  const onClick = async () => {
+    const data = await trigger({ username: "Tony" })
+    console.log(data)
+  }
+
+  return (
+    &lt;button onClick={onClick}&gt;
+      Click
+    &lt;/button&gt;
+  )
+}
+</v-code>
+</template>
+</v-tabs>
+</div><div id="swr/api/mutate"><!-- TODO:
+<f-search>SWR -> <u>mutate()</u></f-search>
+-->
+
+<h2>mutate()</h2>
+
+<ul class="list-point">
+    <li><u-text-define>mutate</u-text-define> - функция, которая используется для обновления кеша вручную и инициирования повторного запроса на получение данных</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Данные</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><b>Основное назначение</b>: обновление данных после получения их с сервера</li>
+    <li><b>Использование</b>: подходит для случаев, когда нужно повторно валидировать данные или обновить кеш после какой-то операции (например, после отправки формы)</li>
+    <li><b>Контекст использования</b>: обычно используется с хуком <u>useSWR</u></li>
+</ul>
+</div><div id="swr/api/useSWRInfinite"><!-- TODO:
+<f-search>SWR -> <u>useSWRInfinite()</u></f-search>
+-->
+
+<h2>useSWRInfinite()</h2>
+
+<u-link-wrapper>
+    <v-link url="https://swr.vercel.app/ru/docs/pagination#useswrinfinite" text="" list="true" />
+</u-link-wrapper>
+
+
+<ul class="list-point">
+    <li><u-text-define>useSWRInfinite</u-text-define> - дает возможность запускать несколько запросов с помощью одного хука</li>
+    <li>Может быть использовано для пагинации</li>
+</ul>
+</div><div id="swr/api/useSWRSubscription"><!-- TODO:
+<f-search>SWR -> <u>useSWRSubscription()</u></f-search>
+-->
+
+<h2>useSWRSubscription()</h2>
+
+<u-link-wrapper>
+    <v-link url="https://swr.vercel.app/ru/docs/subscription#useswrsubscription" text="" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li><u-text-define>useSWRSubscription</u-text-define> - хук React, который позволяет подписываться на реальные источники данных в реальном времени с помощью SWR</li>
+</ul>
+</div><div id="swr/api/SWRConfig"><!-- TODO:
+<f-search>SWR -> <u>&lt;SWRConfig&gt;</u></f-search>
+<f-search>SWR -> <u>useSWRConfig()</u></f-search>
+-->
+
+<h2>SWRConfig, useSWRConfig()</h2>
+
+<u-link-wrapper>
+    <v-link url="https://swr.vercel.app/ru/docs/global-configuration" text="" list="true" />
+</u-link-wrapper>
+
+
+<ul class="list-point">
+    <li><u-text-define>SWRConfig</u-text-define> - контекст, котороый может предоставить глобальные конфигурации (опции) для всех SWR хуков</li>
+    <li><u-text-define>useSWRConfig()</u-text-define> - хук для олучения глобальных конфигураций, а также mutate и cache</li>
+</ul>
+</div><div id="swr/api/useSWRImmutable"><!-- TODO:
+<f-search>SWR -> <u>useSWRImmutable()</u></f-search>
+-->
+
+<h2>useSWRImmutable()</h2>
+
+<u-link-wrapper>
+    <v-link url="https://swr.vercel.app/ru/docs/revalidation#disable-automatic-revalidations" text="" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Хук помечает ресурс как неизменяемый</li>
+    <li>Он имеет тот же API-интерфейс, что и обычный хук useSWR</li>
+</ul>
+
+<v-code lang="js" title="">
+import useSWRImmutable from 'swr/immutable'
+
+// ...
+useSWRImmutable(key, fetcher, options)
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>

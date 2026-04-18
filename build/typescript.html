@@ -1,0 +1,2976 @@
+
+    <!DOCTYPE html>
+        <html>
+        <head>
+            <title>
+  <div
+    style="
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+      background-color: #7256d1;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    "
+  >
+  </div>
+📌 TypeScript</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/png" href="../custom/favicon.svg">
+
+            <script src="../src/js/utils.js"></script>
+            <!-- Own JavaScript -->
+            <script src="../@themes/typescript/build-typescript.js"></script>
+        </head>
+        <body>
+            <div id="container">
+                <div id="menu" :class="{ hide:isHideMenu }">
+                    <div id="top">
+                        <img
+                            width="35px"
+                            height="35px"
+                            src="../src/img/show.svg"
+                            class="img"
+                            @click="toggleMenu()"
+                        >
+                        <a href="#links" class="top-link">
+  <div
+    style="
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+      background-color: #7256d1;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    "
+  >
+  </div>
+📌 TypeScript</a>
+                    </div>
+
+                    <div class="search-wrapper">
+                        <input class="search-input" id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+                        <div id="search-result"></div>
+                    </div>
+
+                    <h4>🏷️ Основное</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/main/usecases"
+            href="#typescript/main/usecases"
+        >
+            💎 Use Cases
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/main/info"
+            href="#typescript/main/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/main/install"
+            href="#typescript/main/install"
+        >
+            ⚙️ Установка и настройка
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/main/interface-vs-type"
+            href="#typescript/main/interface-vs-type"
+        >
+            <u-menu-outline>Interface</u-menu-outline> vs <u-menu-outline>Type</u-menu-outline>
+        </a>
+    </li>
+</ul><h4>🏷️ Типы данных</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/types/types"
+            href="#typescript/types/types"
+        >
+            📑 Типы данных
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/types/any-vs-unknown"
+            href="#typescript/types/any-vs-unknown"
+        >
+            📑 <em>any</em> vs <em>unknown</em>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/types/string"
+            href="#typescript/types/string"
+        >
+            <u-menu-accent>string</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/types/array"
+            href="#typescript/types/array"
+        >
+            <u-menu-accent>array</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/types/function"
+            href="#typescript/types/function"
+        >
+            <u-menu-accent>function</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/types/promise"
+            href="#typescript/types/promise"
+        >
+            <u-menu-accent>promise</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/types/object"
+            href="#typescript/types/object"
+        >
+            <u-menu-accent>object</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/types/any"
+            href="#typescript/types/any"
+        >
+            <u-menu>any</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/types/never"
+            href="#typescript/types/never"
+        >
+            <u-menu>never</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/types/typle"
+            href="#typescript/types/typle"
+        >
+            <u-menu>typle</u-menu>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/types/null"
+            href="#typescript/types/null"
+        >
+            <u-menu-gray>null</u-menu-gray> <u-menu-gray>undefined</u-menu-gray>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/types/number"
+            href="#typescript/types/number"
+        >
+            <u-menu-gray>number</u-menu-gray>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/types/boolean"
+            href="#typescript/types/boolean"
+        >
+            <u-menu-gray>boolean</u-menu-gray>
+        </a>
+    </li>
+</ul><h4>🏷️ Generics</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/generics/info"
+            href="#typescript/generics/info"
+        >
+            📑 Информация
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/generics/main"
+            href="#typescript/generics/main"
+        >
+            🔥 Основное
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/generics/function"
+            href="#typescript/generics/function"
+        >
+            Стрелочная функция
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/generics/object"
+            href="#typescript/generics/object"
+        >
+            Дженерик для объекта
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/generics/inheritance"
+            href="#typescript/generics/inheritance"
+        >
+            Наследование
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/generics/interface"
+            href="#typescript/generics/interface"
+        >
+            Дженерик в interface
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/generics/StringAndOptions"
+            href="#typescript/generics/StringAndOptions"
+        >
+            <u-menu>StringAndOptions</u-menu>
+        </a>
+    </li>
+</ul><h4>🏷️ Interface</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/interface/main"
+            href="#typescript/interface/main"
+        >
+            ⚡️ Основы
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/interface/inherit"
+            href="#typescript/interface/inherit"
+        >
+            Наследование интерфейсов
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/interface/with-class"
+            href="#typescript/interface/with-class"
+        >
+            Взаимодействие с классами
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/interface/dynamic-key-obj"
+            href="#typescript/interface/dynamic-key-obj"
+        >
+            Динамические ключи объекта
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/interface/samples"
+            href="#typescript/interface/samples"
+        >
+            Примеры
+        </a>
+    </li>
+</ul><h4>🏷️ Структуры</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/type/type"
+            href="#typescript/type/type"
+        >
+            🔥 Type
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/type/combine"
+            href="#typescript/type/combine"
+        >
+            Комбинация типов
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/enum/main"
+            href="#typescript/enum/main"
+        >
+            🔥 Enum
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/function/main"
+            href="#typescript/function/main"
+        >
+            🔥 Function
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/function/overload"
+            href="#typescript/function/overload"
+        >
+            Перегрузка функций
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/class/main"
+            href="#typescript/class/main"
+        >
+            🔥 Class
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/class/modificator"
+            href="#typescript/class/modificator"
+        >
+            Модификаторы полей
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/class/abstract"
+            href="#typescript/class/abstract"
+        >
+            Абстрактные классы
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/class/decorators"
+            href="#typescript/class/decorators"
+        >
+            Декораторы
+        </a>
+    </li>
+</ul><h4>🏷️ Операторы</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/operators/keyof"
+            href="#typescript/operators/keyof"
+        >
+            <u-menu-outline>keyof</u-menu-outline>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/operators/typeof"
+            href="#typescript/operators/typeof"
+        >
+            <u-menu-outline>typeof</u-menu-outline>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/operators/symbol-exclamation-mark"
+            href="#typescript/operators/symbol-exclamation-mark"
+        >
+            <u-menu-outline>!</u-menu-outline>
+        </a>
+    </li>
+</ul><h4>🏷️ Методы для Type</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/methods/pick"
+            href="#typescript/methods/pick"
+        >
+            <u-menu-outline>Pick</u-menu-outline>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/methods/omit"
+            href="#typescript/methods/omit"
+        >
+            <u-menu-outline>Omit</u-menu-outline>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/methods/exclude"
+            href="#typescript/methods/exclude"
+        >
+            <u-menu-outline>Exclude</u-menu-outline>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/methods/record"
+            href="#typescript/methods/record"
+        >
+            <u-menu-outline>Record</u-menu-outline>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/methods/partial"
+            href="#typescript/methods/partial"
+        >
+            <u-menu-outline>Partial</u-menu-outline>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/methods/merge"
+            href="#typescript/methods/merge"
+        >
+            <u-menu-outline>Merge</u-menu-outline>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/methods/required"
+            href="#typescript/methods/required"
+        >
+            <u-menu-outline>Required</u-menu-outline>
+        </a>
+    </li>
+</ul><h4>🏷️ React</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/react/types"
+            href="#typescript/react/types"
+        >
+            ⚡️ Типы в React
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/react/component"
+            href="#typescript/react/component"
+        >
+            <u-menu-accent>Component</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/react/CSSProperties"
+            href="#typescript/react/CSSProperties"
+        >
+            <u-menu-accent>CSSProperties</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/react/useState"
+            href="#typescript/react/useState"
+        >
+            <u-menu-accent>useState</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/react/useRef"
+            href="#typescript/react/useRef"
+        >
+            <u-menu-accent>useRef</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/react/children"
+            href="#typescript/react/children"
+        >
+            <u-menu-accent>Children</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/react/react-router"
+            href="#typescript/react/react-router"
+        >
+            <u-menu-accent>react-router</u-menu-accent>
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/react/setInterval"
+            href="#typescript/react/setInterval"
+        >
+            setInterval в useRef
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/react/services"
+            href="#typescript/react/services"
+        >
+            Описание сервисов
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/react/samples"
+            href="#typescript/react/samples"
+        >
+            💎 Примеры
+        </a>
+    </li>
+</ul><h4>🏷️ Примеры</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/samples/string-for-object-key"
+            href="#typescript/samples/string-for-object-key"
+        >
+            ⭐️ Передача строки для ключа объекта
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/samples/generics-typing"
+            href="#typescript/samples/generics-typing"
+        >
+            Типизация через Дженерики
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/samples/array-of-objects"
+            href="#typescript/samples/array-of-objects"
+        >
+            Массив объектов
+        </a>
+    </li>
+
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/samples/type-argument"
+            href="#typescript/samples/type-argument"
+        >
+            Тип принимает агрумент
+        </a>
+    </li>
+</ul><h4>🏷️ Прочее</h4><ul>
+    <li>
+        <a
+            class="menu-link"
+            id="id__typescript/other/guards"
+            href="#typescript/other/guards"
+        >
+            Guards
+        </a>
+    </li>
+</ul>
+                </div>
+
+                <div id="wrapper">
+                    <div id="links">
+                        <ul>
+                            <slot v-for="itemLink in linksContent">
+                                <li v-if="itemLink !== null && itemLink.length === 0" class="hr"></li>
+                                <li v-if="itemLink === null" class="splitter"></li>
+                                <li v-if="itemLink !== null && itemLink.length !== 0">
+                                    <a
+                                        :href="itemLink.page"
+                                        :class="{
+                                            ['theme-'+itemLink.theme]: true,
+                                            active: itemLink.page == pageName
+                                        }"
+                                        v-html="itemLink.title"
+                                    ></a>
+                                </li>
+                            </slot>
+                        </ul>
+                    </div>
+                    <div id="content"><div id="typescript/main/usecases"><h2>Use Cases</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Импорт типа и значения в одной конструкции</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+import { type Foo, BarValue } from "./types";
+</v-code>
+</div><div id="typescript/main/info"><h2>Информация</h2>
+
+<ul class="list-point">
+    <li><u-text-define>TypeScript</u-text-define> - язык программирования, который является надмножеством JavaScript, имеет статическую систему типов и собственный компилятор. Статическая типизация позволяет отлавливать ошибки и баги во время компиляции, ещё до запуска приложения</li>
+</ul>
+
+<u-link-wrapper>
+	<v-link url="https://www.typescriptlang.org/docs/handbook/basic-types.html" text="TypeScript Documentation: Basic Types" list="true" />
+	<v-link url="https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html" text="TypeScript Documentation: Migrating from Javascript" list="true" />
+	<v-link url="https://www.typescriptlang.org/docs/handbook/react-&-webpack.html" text="TypeScript Documentation: React and Webpack" list="true" />
+</u-link-wrapper>
+
+<u-link-wrapper>
+	<v-link url="https://www.typescriptlang.org/play" text="TypeScript Documentation: Playground" list="true" />
+</u-link-wrapper>
+</div><div id="typescript/main/install"><h2>Установка и настройка</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Минимальная установка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npm i -g <u-code-accent>typescript</u-code-accent>
+</v-pre-npm>
+
+<v-code lang="js" title="">
+tsc file.ts
+node file.js
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Установка Flow</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-pre-npm>
+npm i --save-dev <u-code-accent>typescript</u-code-accent>
+</v-pre-npm>
+
+<!------------------------------------------------------------->
+<h4>Добавление flow в секцию "scripts" файла package.json</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="package.json">
+{
+	// ...
+	"scripts": {
+		"build": "tsc",
+		// ...
+	},
+	// ...
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Настройка компилятора TypeScript</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Создание конфигурационного файла tsconfig.json</h4>
+<!------------------------------------------------------------->
+<u-link-wrapper>
+	<v-link url="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html" text="" list="true" />
+	<v-link url="https://github.com/Microsoft/TypeScript-React-Starter/blob/master/tsconfig.json" text="Готовый tsconfig.json для React" list="true" />
+</u-link-wrapper>
+
+<v-pre-npm>
+npx <u-code-accent>tsc</u-code-accent> --init
+</v-pre-npm>
+
+<ul class="list-point">
+    <li>Компилятор берёт исходный TypeScript код, и компилирует его в JavaScript. И нам нужно, чтобы не возникло путаницы между исходными файлами и сгенерированным кодом.</li>
+    <li>Эту проблему можно решить в два шага:</li>
+    <li>Во-первых, изменим структуру проекта. Все файлы с исходниками переместим в директорию src.</li>
+
+<li><v-code lang="js" title="">
+├── package.json
+├── src
+│   └── index.ts
+└── tsconfig.json
+</v-code></li>
+
+    <li>Затем, укажем компилятору откуда ему брать исходные файлы и куда сохранять скомпилированный код.</li>
+
+<li><v-code lang="js" title="tsconfig.json">
+{
+	"compilerOptions": {
+		// ...
+		"rootDir": "src",
+		"outDir": "build"
+		// ...
+	},
+}
+</v-code></li>
+
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Запуск TypeScript</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Если эта команда не вывела ничего в терминале, то процесс компиляции прошёл успешно</li>
+</ul>
+
+<v-code lang="bash" title="">
+npm run build
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Расширения файлов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-list>.tsx</u-code-list> - для файлов, содержащих разметку JSX</li>
+    <li><u-code-list>.ts</u-code-list> - для всего остального</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определения типов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Для анализа ошибок и выдачи всплывающих подсказок компилятор TypeScript использует файлы объявлений. Они содержат в себе всю информацию о типах, которые используются в конкретной библиотеке. В свою очередь это позволяет нам использовать JavaScript библиотеки в проекте совместно с TypeScript.</li>
+    <li>Существует два основных способа получения файлов объявлений:</li>
+    <li><b>Bundled</b> — Библиотека устанавливается вместе с собственным файлом объявлений. Чтобы проверить, есть ли у библиотеки файл объявлений, поищите index.d.ts в её исходных файлах. В некоторых библиотеках наличие и расположение этого файла указываются в package.json в секциях typings или types.</li>
+    <li><b><a href="https://github.com/DefinitelyTyped/DefinitelyTyped" target="_blank" class="link">DefinitelyTyped</a></b> репозиторий файлов объявлений. Например, React устанавливается без собственного файла объявления - вместо этого мы устанавливаем его отдельно:</li>
+<v-code lang="bash" title="bash">
+npm i --save-dev @types/react
+</v-code>
+	
+	<li><b>Локальные объявления</b> Иногда пакет, который вы хотите использовать, не имеет ни собственного файла объявлений, ни соответствующего файла в репозитории DefinitelyTyped. В этом случае, мы можем объявить собственный локальный файл объявлений. Для этого надо создать файл declarations.d.ts в корне директории, где лежат исходники вашего проекта. Файл объявлений может выглядеть примерно так:</li>
+<v-code lang="js" title="js">
+declare module 'querystring' {
+	export function stringify(val: object): string
+	export function parse(val: string): object
+}
+</v-code>
+</ul>
+</div><div id="typescript/main/interface-vs-type"><h2>Отличие Interface от Type</h2>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>1. Тип может быть примитивом</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+  <li>Интерфесы - только объекты</li>
+  <li>Типы - объекты и примитивы</li>
+</ul>
+
+<v-two-code type="js;js" comment="type;interface">
+<template v-slot:first>
+// Примитив
+type a: string;
+
+// Объект
+type A = {
+  id: number;
+}
+</template>
+<template v-slot:last>
+// Только объект
+interface A {
+  id: number;
+}
+</template>
+</v-two-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>2. Возможности <u-code-light>type</u-code-light></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type A = { x: number } | number; // альтернативные варианты
+type A = TypeB & TypeC;          // комбинация типов
+type A = TypeB;                  // присвоение другого типа
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>3. Возможности <u-code-light>interface</u-code-light></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+interface A { x: number }
+interface B extends A { y: string } // Расширение
+</v-code>
+
+<v-code lang="js" title="">
+interface A { x: number }
+interface A { y: number } // Дополнение
+</v-code>
+
+</div><div id="typescript/types/types"><h2>Типы данных</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Типы данных</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-code-mod>boolean</u-code-mod> - логическое значение true или false</li>
+    <li><u-code-mod>number</u-code-mod> - числовое значение</li>
+    <li><u-code-mod>string</u-code-mod> - строки</li>
+    <li><u-code-mod>array</u-code-mod> - массивы</li>
+    <li><u-code-mod>tuple</u-code-mod> - кортежи (массив из разных типов данных)</li>
+    <li><u-code-mod>enum</u-code-mod> - перечисления</li>
+    <li><u-code-mod>unknown</u-code-mod> - неизвестный тип</li>
+    <li><u-code-mod>any</u-code-mod> - произвольный тип (откз от проверки типов)</li>
+    <li><u-code-mod>void</u-code-mod> - отсутствие конкретного значения (н-р: возвращаемый тип функций, которые не возвращают значение</li>
+    <li><u-code-mod>null</u-code-mod> и <u-code-mod>undefined</u-code-mod> - соответствуют значениям null и undefined в JS</li>
+    <li><u-code-mod>never</u-code-mod> - представляет отсутствие значения и используется в качестве возвращаемого типа функций, которые генерируют или возвращают ошибку</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Особенности</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Если не указывать типа переменной, то TypeScript автоматически выведет тип из присваемого данной переменной значения</li>
+    <li>Так, на первой строке компилятор TS увидит, что переменной присваивается строка, поэтому для нее будет использоваться тип string. Однако на второй строке опять же компилятор выдаст ошибку, поскольку у переменной уже определен тип string. А новое значение предполагает тип number.</li>
+</ul>
+
+<v-code lang="js" title="">
+let hello = 'Hello World';
+hello = 23;
+</v-code>
+
+<ul class="list-point">
+    <li>Если переменная определяется без значения, и только впоследствии при работе программы ей присваивается значение, тогда считается, что она имеет тип any</li>
+</ul>
+
+<v-code lang="js" title="">
+let x;  // тип any
+x = 10; 
+</v-code>
+</div><div id="typescript/types/any-vs-unknown"><h2>Any vs Unknown</h2>
+
+<!------------------------------------------------------------->
+<h4>Unknown можно переопределить</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><em>unknown</em> можно определить потом через <u-text-underline>as</u-text-underline></li>
+</ul>
+
+<v-code lang="js" title="">
+const a: any;
+const b: unknown;
+
+a.b = 1; // Можно добавить ключи
+b.a = 2  // Нельзя добавить ключи
+
+(param <u-code>as</u-code> Custom).something
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>unknown - безопаснее чем any</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>При указани через <em>any</em> есть риск обратиться к методу неверного типа. Н-р, предполагали, что будет string и обратились к методу <u>length</u>, что вызвало ошибку, т.к. там был объект.</li>
+    <li><em>unknown</em> не даст сделать подобного - он будет выдавать предупреждение</li>
+</ul>
+</div><div id="typescript/types/string"><h2>string</h2>
+
+<v-code lang="js" title="">
+const str: string = 'Hello'
+</v-code>
+
+<v-two-code type="js border;js" comment="Описание;Вызов">
+<template v-slot:first>
+type Fields = {
+	name1?: string;              // необязательное поле
+	name2: string;               // строка
+	name3: string[];             // массив строк
+	name4: string[] | undefined; // массив строк или undefined
+	name5: 'Tony' | 'Jack';      // 'Tony' или 'Jack'
+};
+</template>
+<template v-slot:last>
+const a: Fields = {
+    // name1: 'Tony',
+    name2: 'Tony',
+    name3: ['Tony', 'Jack'],
+    name4: undefined,
+    name5: 'Tony',
+}
+</template>
+</v-two-code>
+</div><div id="typescript/types/array"><h2>array</h2>
+
+<ul class="list-point">
+    <li>Массивы являются строго типизированными: если изначально массив содержит строки, то в будущем он сможет работать только со строками</li>
+</ul>
+
+<v-two-code type="js border;js" comment="Описание;Вызов">
+<template v-slot:first>
+type Fields = {
+    field1: Array&lt;string&gt;;    // массив строк (Дженерик)
+    field2: string[];         // массив строк (аналогично)
+    field3: number[];         // массив чисел
+    field4: [string, number]; // кортеж из разных типов данных
+};
+</template>
+<template v-slot:last>
+const a: Fields = {
+    field1: ['a', 'b'],
+    field2: ['a', 'b'],
+    field3: [1, 2],
+    field4: ['Tony', 23],
+}
+</template>
+</v-two-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<v-code lang="js" title="">
+const list: number[] = [10, 20, 30];
+const colors: string[] = ['red', 'green', 'blue'];
+
+console.log(list[0]);
+console.log(colors[1]);
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Массив объектов 1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const a: Array<{ id: number, name: string }> = [];
+const a: { id: number, name: string }[] = [];
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Массив объектов 2</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+export interface A {
+    items: B[];
+}
+
+export interface B {
+    value: number;
+    note: string;
+}
+</v-code>
+
+<v-code lang="js" title="">
+// Использование
+const obj: A = {
+    items: [
+        { value: 1, note: '' },
+        { value: 2, note: '' },
+    ]
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Применение типа Array&lt;&gt; (Дженерик)</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Дженерик указывает из чего состоит данный объект</li>
+</ul>
+
+<v-code lang="js" title="">
+const names: Array&lt;string&gt; = ['Tom', 'Bob', 'Alice'];
+</v-code>
+</div><div id="typescript/types/function"><h2>function</h2>
+
+<v-two-code type="js border;js" comment="Описание;Вызов">
+<template v-slot:first>
+type Fields = {
+	onClick1: Function;
+	onClick2: VoidFunction;
+	onClick3: () => void;
+	onClick4: (cn: string) => void;
+	onClick5: (cn: string, isOpen?: boolean) => boolean;
+};
+</template>
+<template v-slot:last>
+const a: Fields = {
+    onClick1: () => {},
+    onClick2: () => {},
+    onClick3: () => {},
+    onClick4: (cn) => {},
+    onClick5: (cn, isOpen) => { return true },
+}
+</template>
+</v-two-code>
+</div><div id="typescript/types/promise"><h2>promise</h2>
+
+<v-two-code type="js border;js" comment="Описание;Вызов">
+<template v-slot:first>
+type Fields = {
+	p1: Promise&lt;void&gt;;
+	p2: Promise&lt;string&gt;;
+	p3: Promise&lt;boolean&gt;;
+	p4: Promise&lt;never&gt;;
+};
+</template>
+<template v-slot:last>
+const a: Fields = {
+    p1: new Promise((resolve) => { console.log('Ok') }),
+    p2: new Promise((resolve) => { return 'Ok' }),
+    p3: new Promise((resolve) => { return true }),
+    p4: new Promise((resolve) => { throw new Error('Error') }),
+}
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Promise&lt;void&gt;</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Асинхронная функция возвращает Promise, даже если нет return</li>
+    <li>Если нет return, то будет Promise&lt;void&gt;</li>
+</ul>
+
+<v-code lang="js" title="">
+export const foo = async (): Promise&lt;void&gt; => {
+    //
+};
+</v-code>
+</div><div id="typescript/types/object"><h2>object</h2>
+
+<ul class="list-point">
+    <li>Тип для объектов можно задавать через <em>interface</em> или <em>type</em></li>
+</ul>
+
+<v-code lang="js step" title="">
+interface IUser {
+    name: string;
+    age: number;
+}
+
+const user: IUser = {
+	name: 'Tony',
+	age: 23
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Перебор в цикле</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+const data: object = {
+	query,
+	status,
+};
+
+Object.keys(data).forEach((keyFilter) => {
+	const value = data[keyFilter as keyof {}];
+	const value = data[keyFilter as keyof Object];
+	const value = data[keyFilter as keyof typeof data];
+});
+</v-code>
+
+
+</div><div id="typescript/types/any"><h2>Any</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Any</u-text-define> - описывает данные, тип которых может быть неизвестен</li>
+    <li>Можно переопределить тип данных</li>
+</ul>
+
+<v-code lang="js" title="">
+let variable: any = 42;
+variable = 'Hello';
+</v-code>
+
+<v-code lang="js" title="">
+const someArray: any[] = [24, 'Tom', false];
+</v-code>
+</div><div id="typescript/types/never"><h2>Never</h2>
+
+<ul class="list-point">
+    <li>Если функиця возвращает ошибку</li>
+    <li>Если функция не завершает свое выполнение</li>
+</ul>
+
+<v-code lang="js" title="">
+function throwError(message: string): never {
+	throw new Error(message)
+}
+</v-code>
+
+<v-code lang="js" title="">
+function infinite(): never {
+	while(true) {}
+}
+</v-code>
+</div><div id="typescript/types/typle"><h2>Typle</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Tuples (кортежи)</u-text-define> - также, как и массивы, представляют набор элементов, для которых уже заранее известен тип. Массив из разных типов данных</li>
+</ul>
+
+<v-code lang="js" title="">
+// определение и инициализация кортежа
+const contact: [string, number] = ['Tony', 23];
+</v-code>
+
+<v-code lang="js" title="">
+// определение кортежа - кортеж состоит из двух элементов - строки и числа
+const contact: [string, number];
+
+// инициализация кортежа
+contact = ['Tony', 23];
+
+// использование кортежа
+console.log(contact[1]); // 23
+contact[1] = 25;
+</v-code>
+</div><div id="typescript/types/null"><h2>null и undefined</h2>
+
+<v-code lang="js" title="">
+let a: undefined = undefined;
+let b: null = null;
+</v-code>
+
+<ul class="list-point">
+    <li>Фактически можно присваивать значения undefined и null переменным других типов, например, number</li>
+    <li>В этом плане null и undefined выступают как подтипы других типов и полезны преимущественно в каких-то операциях, где неизвестен результат - то ли это будет число или строка, то ли это будет null. В этом случае, чтобы избежать возможной ошибки, мы можем проверить значение на undefined или null, как в JavaScript</li>
+</ul>
+
+<v-code lang="js" title="">
+let x: number = undefined;
+console.log(x);
+
+x = null;
+console.log(x);
+
+x = 5;
+console.log(x);
+</v-code>
+</div><div id="typescript/types/number"><h2>number</h2>
+
+<ul class="list-point">
+    <li>Все числа в TypeScript, как и в JavaScript, являются числами с плавающей точкой</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>Поддержка систем счисления</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Двоичная</li>
+    <li>Восьмеричная</li>
+    <li>Десятичная</li>
+    <li>Шестнадцатиричная</li>
+</ul>
+
+<v-code lang="js" title="">
+const decimal: number = 42;
+const decimal: number = 4.2;
+
+const hex:     number = 0xf00d;
+const binary:  number = 0b1010;
+const octal:   number = 0o744;
+</v-code>
+</div><div id="typescript/types/boolean"><h2>boolean</h2>
+
+<v-code lang="js" title="">
+const bool: boolean = true
+</v-code>
+</div><div id="typescript/generics/info"><h2>Информация</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Описание</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-define>Дженерик</u-text-define> - обобщённый тип (обобщение, дженерик) позволяет резервировать место для типа, который будет заменён на конкретный, переданный пользователем, при вызове функции или метода, а также при работе с классами.</li>
+    <li>Дженерики принимаются <u>функциями</u>, <u>интерфейсами</u>, <u>псевдонимами типов</u></li>
+</ul>
+
+<v-code lang="js border" title="">
+// Тип переданного аргумента является и типом возвращаемого значения
+function identity<u-code>&lt;T&gt;</u-code>(arg: T): T {
+    return arg;
+}
+</v-code>
+
+<ul class="list-point">
+    <li><u-text-define>&lt;T&gt;</u-text-define> – параметр-тип <u-code-text>&lt;T&gt;</u-code-text>, который будет захвачен при вызове функции и на него подменены все <u-code-text>&lt;T&gt;</u-code-text> внутри функции</li>
+    <li>Если имеется единственный параметр-тип, то он получает имя <u-code-text>T</u-code-text>, но лишь в том случае, если это не нарушает общую ясность</li>
+    <li>При объявлении нескольких параметр-типов их имена записываются, чаще всего, как <u-code-text>T</u-code-text>, <u-code-text>U</u-code-text> и <u-code-text>A</u-code-text>, соответственно</li>
+</ul>
+
+<v-code lang="js border" title="">
+// Вызов с типом number
+const value = identity<u-code>&lt;number&gt;</u-code>(23);
+
+// Аналогично
+const num: number = 23;
+identity(num);
+</v-code>
+
+<ul class="list-point">
+    <li>При вызове функции тип <u-code-text>&lt;number&gt;</u-code-text> заполняет обобщённый параметр <u-code-text>T</u-code-text></li>
+    <li>В этот момент компилятор неявно подставляет вместо <u-code-text>T</u-code-text> переданный тип <u-code-text>number</u-code-text> и переходит к валидации типов переданных аргументов, а затем входит внутрь функции и валидирует её тело</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Принцип работы</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <v-link url="https://canonium.com/articles/typescript-generics" text="" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>Принцип работы дженериков, хорошо объясним проведя аналогию работы функций и их входных параметров.</li>
+    <li>Допустим у нас есть функция print, которая принимает на вход два параметра title и info:</li>
+</ul>
+
+<v-code lang="js" title="">
+const print = (title, info) =&gt; {
+    //
+}
+
+print('Имя', 'Вася');
+</v-code>
+
+<ul class="list-point">
+    <li>В теле функции строка Имя, которую мы передаем, имеет псевдоним title, а строка Вася-info</li>
+    <li>А теперь давайте рассмотрим аналогию с дженериками:</li>
+</ul>
+
+<v-code lang="js" title="">
+const print = &lt;T, K&gt;(title: T, info: K) =&gt; {
+    //
+}
+
+print&lt;string, number&gt;('Возраст', 25);
+</v-code>
+
+<ul class="list-point">
+    <li>Тип string, который передается в дженерик получает псевдоним T, и теперь все T в параметрах, а также в теле функции будут иметь тип string. В случае с number и псевдонимом К все тоже самое.</li>
+</ul>
+</div><div id="typescript/generics/main"><h2>Основное</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const arrayOfNumbers: Array&lt;number&gt; = [1, 1, 2, 3, 5]
+const arrayOfStrings: Array&lt;string&gt; = ['Hello', 'Vladilen']
+
+// Динамически подстраивается под разные типы данных
+function reverse&lt;T&gt;(array: T[]): T[] {
+	return array.reverse()
+}
+
+reverse(arrayOfNumbers)
+reverse(arrayOfStrings)
+</v-code>
+</div><div id="typescript/generics/function"><h2>Дженерик и стрелочная функция</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><em>.TS файл</em></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+const foo2 = &lt;T&gt;(props: T): void =&gt; {
+  //
+};
+
+function foo1&lt;T&gt;(props: T): void {
+  //
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3><em>.TSX файл</em></h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<u-link-wrapper>
+    <v-link url="https://www.carlrippon.com/generic-arrow-functions/" text="" list="true" />
+</u-link-wrapper>
+
+<ul class="list-point">
+    <li>В файлах .TSX есть особенность парсинга. Если указать Дженерик для стрелочной функции, то будет ошибка</li>
+</ul>
+
+<v-code lang="js step" title="">
+// Не сработает в TSX файле
+const foo = &lt;T&gt;(data: T) =&gt; {
+    //
+}
+
+foo&lt;SomeInterface&gt;(data);
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Решение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>1. Extends trick</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+const foo = &lt;T extends unknown&gt;(data: T) =&gt; {
+    //
+}
+
+const foo = &lt;T extends any&gt;(data: T) =&gt; {
+    //
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Comma trick</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+const foo = &lt;T,&gt;(data: T) =&gt; {
+    //
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>3. Just use a regular function</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+function foo&lt;T&gt;(data: T) {
+    //
+}
+</v-code>
+</div><div id="typescript/generics/object"><h2>Дженерик для объекта</h2>
+
+<!------------------------------------------------------------->
+<h4>Использование <em>interface</em></h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+interface Admin&lt;S&gt; {
+    role: string;
+    user: S;
+}
+
+interface Person {
+    name: string;
+}
+
+const user: Admin&lt;Person&gt; = {
+    role: 'admin',
+    user: {
+        name: 'Jack'
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Использование простого типа данных</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+interface Admin&lt;S&gt; {
+    role: string;
+    user: S;
+}
+
+const user: Admin&lt;string&gt; = {
+    role: 'admin',
+    user: 'Jack'
+}
+</v-code>
+
+
+
+</div><div id="typescript/generics/inheritance"><h2>Наследование в Дженериках</h2>
+
+<ul class="list-point">
+    <li>При вызове функции можно явно не указывать Дженерик: <u>foo&lt;IBasic&gt;</u></li>
+    <li>Дженерик подставится автоматически в зависимости от аргументов</li>
+    <li>В данном случае, обязательным является только <u>{ name: string }</u>, т.к. указан в <u>IBasic</u></li>
+</ul>
+
+<v-code lang="js step" title="">
+interface IBasic {
+    name: string;
+}
+
+const foo = &lt;T extends IBasic&gt;(data: T): void =&gt; {
+    //
+}
+
+foo({
+    // Только это поле обязательное
+    name: 'Tom',
+    // Остальные поля могут быть любые
+    age: 22,
+});
+</v-code>
+</div><div id="typescript/generics/interface"><h2>Использование Дженерика в interface</h2>
+
+<v-code lang="js step" title="">
+interface IApp&lt;T&gt; {
+  name: T;
+}
+
+const foo = &lt;T,&gt;(data: IApp&lt;T&gt;): void =&gt; {
+    //
+}
+
+foo({
+    // Поле можно пережать любого типа, т.к. передается в interface
+    // name: 'Tom',
+    // Так тоже корректно
+    name: 32,
+});
+</v-code>
+</div><div id="typescript/generics/StringAndOptions"><!-- TODO:
+<f-search>TypeScript -> Generics -> <u>StringAndOptions</u></f-search>
+-->
+
+<h2>Дженерик StringAndOptions</h2>
+
+<v-code lang="js" title="">
+export type BadgeProps = {
+	// Некорректно (будет приводить к строке)
+	iconPosition?: 'left' | 'right' | string;
+	// Корректно
+	iconPosition?: StringAndOptions<'left' | 'right'>;
+}
+</v-code>
+</div><div id="typescript/interface/main"><h2>Основы</h2>
+
+<ul class="list-point">
+    <li>Тип для объектов или классов, в котором указыается какие поля должны присутствовать у этих объектов</li>
+</ul>
+
+<v-code lang="js" title="">
+interface Rect {
+	readonly id: string // только для чтения
+	color?: string      // необязательный параметр
+	size: {
+		width: number
+		height: number
+	}
+}
+
+const rect1: Rect = {
+	id: '1',
+	size: {
+		width: 20,
+		height: 30
+	},
+	color: '#ccc' // можно не задавать
+}
+</v-code>
+
+<v-code lang="js" title="">
+// приведение объекта к типу
+const rect = {} as Rect // новая запись
+const rect = &lt;Rect&gt;{}   // старя запись
+</v-code>
+</div><div id="typescript/interface/inherit"><h2>Наследование интерфейсов</h2>
+
+<!------------------------------------------------------------->
+<h4>Наследование от одного интерфейса</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js step;js step" comment="TS;Usage">
+<template v-slot:first>
+interface IAnimal {
+	name: string;
+}
+interface ICat <u-code-mod>extends</u-code-mod> IAnimal {
+	speed: number;
+}
+</template>
+<template v-slot:last>
+const a: ICat = {
+	name: 'Tom',
+	speed: 10,
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Множественное наследование</h4>
+<!------------------------------------------------------------->
+<v-two-code type="js step;js step" comment="TS;Usage">
+<template v-slot:first>
+interface IAnimal {
+	name: string;
+}
+interface IAction {
+	go: () => void;
+}
+interface ICat <u-code-mod>extends</u-code-mod> IAnimal, IAction {
+	speed: number;
+}
+</template>
+<template v-slot:last>
+const a: ICat = {
+	name: 'Cat',
+	speed: 10,
+	go: () => null,
+}
+</template>
+</v-two-code>
+</div><div id="typescript/interface/with-class"><h2>Взаимодействие с классами</h2>
+
+<v-code lang="js" title="">
+interface IClock {
+	time: Date,
+	setTime(date: Date): void
+}
+
+class Clock implements IClock {
+	time: Date = new Date()
+	
+	setTime(date: Date): void {
+		//
+	}
+}
+</v-code>
+</div><div id="typescript/interface/dynamic-key-obj"><h2>Динамические ключи объекта</h2>
+
+<ul class="list-point">
+    <li>Интерфейс для объекта, у которого большое количество динамических ключей</li>
+    <li>Указание типа ключа <u-code-text>[key: string]</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+interface Styles {
+	[key: string]: string
+}
+
+const css: Styles  {
+	border '1px solid black',
+	marginTop: '2px',
+	borderRadius: '5px'
+}
+</v-code>
+</div><div id="typescript/interface/samples"><h2>Примеры</h2>
+
+<v-code lang="js" title="">
+// описание функции через интерфейс
+interface Foo {
+	(a: number, b: number): boolean;
+}
+</v-code>
+</div><div id="typescript/type/type"><h2>Type</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Type</u-text-define> - создание собственного типа</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примитив</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Login = string;
+type ID = string | number;
+
+const login: Login = 'admin';
+const id1: ID = 42
+const id2: ID = 'Hello'
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Объект</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Props = {
+	name: string;
+	onClick: (cn: string, isOpen?: boolean) => boolean;
+};
+
+const App = ({ name, onClick }: Props) => {
+	onClick('Hello '+name);
+}
+
+const Props = {
+	name: 'Tony',
+	onClick: (cn: string) => {
+		console.log(cn); // => "Hello Tony"
+		return true;
+	}
+}
+
+App(Props);
+</v-code>
+</div><div id="typescript/type/combine"><h2>Комбинация типов</h2>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Расширение типов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Props = {
+	header: string;
+} & TabsProps;
+
+type TabsProps = {
+	count: number;
+};
+
+const obj: Props = {
+	header: 'Hello',
+	count: 23,
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование одного типа в другом</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+type Props = {
+	header: string;
+	obj: TabsProps;
+};
+
+type TabsProps = {
+	count: number;
+};
+
+const obj: Props = {
+	header: 'Hello',
+	obj: {
+		count: 23
+	},
+}
+</v-code>
+
+</div><div id="typescript/enum/main"><!-- TODO:
+<f-search>TS -> <u>Enum</u></f-search>
+-->
+
+<h2>Основы</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Enum</u-text-define> - предназначен для описания набора числовых данных с помощью строковых констант</li>
+    <li>Позволяет лучше структурировать код, если присутстуют однотипные элементы</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Без значения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+enum Season {
+	Winter, // 0
+	Spring, // 1
+	<u-code>Summer</u-code>, // 2
+	Autumn  // 3
+};
+
+let a: Season = Season.Summer; // 2
+let b: Season = Season[2];     // "Summer"
+
+// Изменение значения
+a = Season.Autumn;
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Задание значения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+enum SocialMedia {
+	VK = 'VK',
+	FACEBOOK = 'FACEBOOK',
+	INSTAGRAM = 'INSTAGRAM'
+}
+
+const social = SocialMedia.INSTAGRAM // "INSTAGRAM"
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование как значение</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li>Enum можно удобнее использовать в типах как значение</li>
+</ul>
+
+<v-code lang="js" title="">
+emum E {
+    A = 'A',
+    B = 'B',
+}
+const O = {
+    A: 'A',
+    B: 'B',
+}
+
+interface QWE {
+    e: E;
+    o: (typeof O)[keyof typeof O];
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Ограничения</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two-code type="js;js" comment="Допустимо;Недопустимая вложенность">
+<template v-slot:first>
+export enum FormFieldEnum {
+    name = 'name',
+    age = 'age'
+}
+</template>
+<template v-slot:last>
+export enum FormFieldEnum {
+    filters = {
+        age = 'age'
+    }
+    name = 'name'
+}
+</template>
+</v-two-code>
+
+<!------------------------------------------------------------->
+<h4>Пример</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+enum FormFieldEnum {
+    filter = 'filter',
+    name = 'name',
+    age = 'age'
+}
+</v-code>
+
+<v-code lang="js" title="">
+const FormField = {
+    [FormFieldEnum.filter]: {
+        [FormFieldEnum.age]: 'age'
+    },
+    [FormFieldEnum.name]: 'name'
+}
+</v-code>
+</div><div id="typescript/function/main"><h2>Основы</h2>
+
+<ul class="list-point">
+    <li>Если функция ничего не принимает и не возвращает, то можно указать <u-code-text>voidFunction</u-code-text> - это готовый алиас у TS</li>
+    <li><u-code-text>voidFunction</u-code-text> тоже самое что <u-code-text>() => void</u-code-text></li>
+    <li>Если же тип есть, то его нужно описывать</li>
+</ul>
+
+<!------------------------------------------------------------->
+<h4>1. Функция НЕ возвращает значение</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li><u-code-text>void</u-code-text> - функция ничего не вернет</li>
+</ul>
+
+<v-code lang="js step" title="">
+const foo = (name: string): void => {
+	//
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>2. Функиция возвращает значение</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+// Возвращает number
+const foo = (name: string): number => {
+	return 1;
+}
+</v-code>
+
+<v-code lang="js step" title="">
+// Возвращает объект
+type TReturn = {
+	name: boolean;
+};
+
+export const foo = (): TReturn => {
+	return {
+		name: true,
+	};
+};}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Дополнительно</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+// Можно не использовать <em>_name</em> внутри foo()
+const foo = (_params: string) => {
+	//
+}
+</v-code>
+</div><div id="typescript/function/overload"><h2>Перегрузка функций</h2>
+
+<ul class="list-point">
+    <li>Можно встретить в библиотеках: <u>Lodash</u>, <u>rxjs</u></li>
+</ul>
+
+<v-code lang="js" title="">
+interface MyPosition {
+	x: number | undefined
+	y: number | undefined
+}
+interface MyPositionWithDefault extends MyPosition {
+	default: string
+}
+
+function position(): MyPosition
+function position(a: number): MyPositionWithDefault
+function position(a: number, b: number): MyPosition
+
+function position(a?: number, b?: number) {
+	if (!a && !b) {
+		return { x: undefined, y: undefined }
+	}
+
+	if (a && !b) {
+		return { x: a, y: undefined, default: a.toString() }
+	}
+	
+	return { x: a, y: b }
+}
+
+position()     // { x: undefined, y: undefined }
+position(1)    // { x: 1, y: undefined, default: '1' }
+position(1, 2) // { x: 1, y: 2 }
+</v-code>
+</div><div id="typescript/class/main"><h2>Основы</h2>
+
+<v-code lang="js" title="">
+class Typescript {
+	version: string
+
+	constructor(version: string) {
+		this.version = version
+	}
+
+	info(name: string) {
+		return `[${name}]: Typescript version is ${this.version}`
+	}
+}
+</v-code>
+
+<i>Аналогичные записи</i>
+<v-two-code type="js;js" comment="Короткий вариант;Длинный вариант">
+<template v-slot:first>
+class Car {
+	readonly numberOfWheels: number = 4
+	constructor(readonly model: string) {}
+}
+</template>
+<template v-slot:last>
+class Car {
+	readonly model: string
+	readonly numberOfWheels: number = 4
+
+	constructor(theModel: string) {
+		this.model = theModel
+	}
+}
+</template>
+</v-two-code>
+</div><div id="typescript/class/modificator"><h2>Модификаторы полей</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Виды модификаторов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><u-text-underline>protected</u-text-underline> - внутри класса и в наследниках</li>
+    <li><u-text-underline>public</u-text-underline> - внутри класса и для всех инстансов (<u>задан по умолчанию</u>)</li>
+    <li><u-text-underline>private</u-text-underline> - внутри класса</li>
+</ul>
+
+<v-code lang="js" title="">
+class Animal {
+	protected voice: string = ''
+	public color: string = 'black'
+
+	constructor() {
+		this.go()
+	}
+
+	private go() {
+		console.log('Go')
+	}
+}
+
+class Cat extends Animal {
+	public setVoice(voice: string): void {
+		this.voice = voice
+	}
+}
+
+const cat = new Cat()
+cat.setVoice('test')
+console.log(cat.color)
+// cat.voice
+</v-code></div><div id="typescript/class/abstract"><h2>Абстрактные классы</h2>
+
+<ul class="list-point">
+    <li>Описывают методы, которые будет реализованы у классов-наследников</li>
+	<li>Аналогия interface</li>
+</ul>
+
+<v-code lang="js" title="">
+abstract class Component {
+	abstract render(): void
+	abstract info(): string
+}
+
+class AppComponent extends Component {
+	render(): void {
+		console.log('Component on render')
+	}
+
+	info(): string {
+		return 'This is info';
+	}
+}
+</v-code>
+</div><div id="typescript/class/decorators"><h2>Декораторы</h2>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Информация</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<ul class="list-point">
+    <li><u-text-define>Декораторы</u-text-define> - являются инструментом декларативного программирования, они позволяют добавить к классам и их членам метаданные и тем самым изменить их поведение без изменения их кода</li>
+    <li>Декораторы представляют функции</li>
+    <li>Декораторы используют форму <u>@expression</u>, т.е. при использовании ставится символ <u>@</u> перед именем декоратора. Хотя по сути expression может быть любая функция. Эта функция будет вызвана в процессе выполнения программы, причем вызывающий код добавит аргументы с информацией о том объекте, который был задекорирован.</li>
+    <li>Важно, что декоратор - это лишь функция. При использовании, среда исполнения сначала вызовет функцию-декоратор, и только потом будет выполнен основной сценарий объекта (если код декоратора содержит этот вызов). При наличии нескольких декораторов, они будет вызваны по очереди, сверху вниз.</li>
+    <li>Декоратор для функции, свойства или параметра функции можно применить только внутри некоего класса. В настоящее время компилятор Typescript не позволит применить декоратор для функции, которая написана вне класса.</li>
+</ul>
+
+<b>К каким элементам можно добавить декораторы:</b>
+
+<ul class="list-point">
+    <li>Классы</li>
+    <li>Методы</li>
+    <li>Методы доступа (Геттеры и Сеттеры)</li>
+    <li>Свойства</li>
+    <li>Параметры</li>
+</ul>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Установка и настройка</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Декораторы являются экпериментальной функциональностью языка TypeScript (на 2021 год), поэтому при компиляции следует указывать параметр <u>experimentalDecorators</u> в файле <u>tsconfig.json</u></li>
+</ul>
+
+<v-code lang="json none" title="">
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "<u-code>experimentalDecorators</u-code>": true,
+    "target": "es2017",
+  },
+}
+</v-code>
+
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Использование</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+</div><div id="typescript/operators/keyof"><h2>keyof</h2>
+
+<ul class="list-point">
+    <li><u-text-define>keyof</u-text-define> - проходится по интерфейсу и формирует новый тип из ключей интерфейса</li>
+</ul>
+
+<v-code lang="js step" title="">
+interface Foo {
+	name: string
+	age: number
+}
+
+type FooKeys = <u-code-accent>keyof</u-code-accent> Foo; // => 'name' | 'age'
+
+const a: FooKeys = 'name';  // ✅ Correct
+const b: FooKeys = 'count'; // 🅾️ Error: Нет такого поля в ключах Foo
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-two><template v-slot:first>
+<ul class="list-point">
+    <li>Нужно обратиться к ключу объекта, используя строку</li>
+    <li>При обращении <u>obj[field]</u> возникает ошибка: "Type 'string' can't be used to index type 'IObj'"</li>
+    <li>Причём <u>obj['name']</u> работает корректно, т.к. нет конкретного указания, что 'name' строка</li>
+</ul>
+</template><template v-slot:last>
+<ul class="list-point">
+	<li>При использовании строки как ключа, она должа быть типа ключей объекта</li>
+	<li>Для этого можно использовать <u>keyof</u></li>
+</ul>
+</template></v-two>
+
+<v-two-code type="js step;js step" comment=";">
+<template v-slot:first>
+interface IObj {
+    name: string;
+    age: number;
+}
+
+const field: string = 'name';
+
+const obj: IObj = {
+    name: '',
+    age: 23
+}
+
+obj[field];  // 🅾️ Error
+obj['name']; // ✅ Correct
+</template>
+<template v-slot:last>
+interface IObj {
+    name: string;
+    age: number;
+}
+
+const field: <u-code-accent>keyof</u-code-accent> IObj = 'name';
+
+const obj: IObj = {
+    name: '',
+    age: 23
+}
+
+obj[field];  // ✅ Correct
+obj['name']; // ✅ Correct
+</template>
+</v-two-code>
+</div><div id="typescript/operators/typeof"><h2>typeof</h2>
+
+<ul class="list-point">
+    <li>TypeScript добавляет оператор <u-code-text>typeof</u-code-text>, который можно использовать в контексте типа для ссылки на тип переменной или свойства</li>
+</ul>
+
+<v-code lang="js" title="">
+const s = 'Hello';
+
+const n: typeof s;
+// const n: string;
+</v-code>
+</div><div id="typescript/operators/symbol-exclamation-mark"><h2>Символ !</h2>
+
+<ul class="list-point">
+    <li>Символ <u-code-text>!</u-code-text> говорит TS, что ты уверен, что там точно есть значение</li>
+    <li>Если <em>number | undefined</em>, то при подствновке <em>!</em> значение будет <em>number</em></li>
+    <li>Так лучше не делать</li>
+</ul>
+
+<v-code lang="js" title="">
+const { data } = application.data!;
+</v-code>
+</div><div id="typescript/methods/pick"><!-- TODO:
+<f-search>TS -> <u>Pick</u></f-search>
+-->
+
+<h2>Pick</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Pick</u-text-define> - позволяет выбрать указанные поля</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определение типа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="">
+type Pick&lt;T, K extends keyof T&gt; = {
+    [P in K]: T[P];
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример #1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+type Dog = {
+	id: number;
+	name: string;
+	weight: number;
+	age: number;
+}
+
+// взяли только "id" и "name"
+type Doggy = <u-code>Pick</u-code>&lt;Dog, 'id' | 'name' &gt;;
+
+// эквивалентно
+// type Doggy = {
+//     id: number;
+//     name: string;
+// }
+
+const obj: Doggy = {
+    id: 23,
+    name: 'Jack'
+}
+</v-code>
+</div><div id="typescript/methods/omit"><!-- TODO:
+<f-search>TS -> <u>Omit</u></f-search>
+-->
+
+<h2>Omit</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Omit</u-text-define> - вспомогательный тип Omit позволяет создавать новые типы на основе существующих методом исключения некоторых свойств из исходного типа</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определение типа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="">
+Omit&lt;Type, Keys&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// тип
+type Person = {
+    name: string;
+    age: number;
+    address: string;
+};
+
+// создаем новый тип без свойства "address"
+type NewPerson = Omit&lt;Person, "address"&gt;;
+
+// равносильно
+type NewPerson = {
+	name: string;
+	age: number;
+}
+
+// использование
+const person: NewPerson = {
+    name: 'Tony',
+    age: 23
+}
+</v-code>
+
+<v-code lang="js" title="">
+// исключение нескольких значений
+type NewPerson = Omit&lt;Person, "address" | "age"&gt;;
+</v-code>
+</div><div id="typescript/methods/exclude"><!-- TODO:
+<f-search>TS -> <u>Exclude</u></f-search>
+-->
+
+<h2>Exclude</h2>
+
+<v-code lang="js" title="">
+type User = {
+	_id: number
+	name: string
+	email: string
+	createdAt: Date
+}
+
+// Создать новый тип из существующего, не включая некоторые поля
+
+// Указываем, какие поля нужно не забирать (_id и createdAt)
+type UserKeysNoMeta1 = <u-code>Exclude</u-code>&lt;keyof User, '_id' | 'createdAt'&gt; // 'name' | 'email'
+// Указываем, какие поля нужно забрать (name, email)
+type UserKeysNoMeta2 = <u-code>Pick</u-code>&lt;User, 'name' | 'email'&gt; // 'name' | 'email'
+
+let u1: UserKeysNoMeta1 = 'name'
+// u1 = '_id'
+</v-code>
+</div><div id="typescript/methods/record"><!-- TODO:
+<f-search>TS -> <u>Record</u></f-search>
+-->
+
+<h2>Record</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Record</u-text-define> - позволяет создать новый тип из объединения. Значения в объединении используются как атрибуты нового типа</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определение типа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="">
+type Record&lt;K extends string, T&gt; = {
+    [P in K]: T;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!------------------------------------------------------------->
+<h4>Пример #1</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+type Dog = {
+  id: number;
+  name: string;
+}
+
+type Doggy = <u-code>Record</u-code><'prop1' | 'prop2' | 'prop3', Dog>;
+
+// эквивалентно
+// type Doggy = {
+//     prop1: Dog;
+//     prop2: Dog;
+//     prop3: Dog;
+// }
+
+const obj: Doggy = {
+    prop1: {
+        id: 23,
+        name: 'Jack'
+    },
+    prop2: {
+        id: 23,
+        name: 'Jack'
+    },
+    prop3: {
+        id: 23,
+        name: 'Jack'
+    }
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Пример #2</h4>
+<!------------------------------------------------------------->
+<ul class="list-point">
+    <li>Если я забуду кошку, то получу ошибку.</li>
+    <li>Если я добавлю кошку, которая не разрешена, я получу ошибку.</li>
+    <li>Если я позже изменю CatNames, я получу ошибку. Это особенно полезно, потому что CatNames, скорее всего, импортируется из другого файла и, вероятно, используется во многих местах.</li>
+</ul>
+
+<v-code lang="js" title="">
+type CatNames = "miffy" | "boris" | "mordred";
+
+type CatList = Record&lt;CatNames, {age: number}&gt;
+
+const cats:CatList = {
+    miffy: { age:99 },
+    boris: { age:16 },
+    mordred: { age:600 }
+}
+</v-code>
+</div><div id="typescript/methods/partial"><!-- TODO:
+<f-search>TS -> <u>Partial</u></f-search>
+-->
+
+<h2>Partial</h2>
+
+<ul class="list-point">
+    <li><u-text-define>Partial</u-text-define> - создает тип со всеми свойствами <u>Type</u>, установленными как <u>optional</u> (необязательное поле). Эта утилита вернет тип, представляющий все подмножества данного типа.</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Определение типа</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js border" title="">
+Partial&lt;Type&gt;
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Примеры</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+interface Foo {
+    name: string;
+    age: number;
+}
+
+type Bar = <u-code-accent>Partial</u-code-accent>&lt;Foo&gt;;
+
+// 🅾️ Error: Требуется обязательное поле "age"
+const obj1: Foo = {
+    name: 'Tony',
+}
+
+// ✅ Correct: Все поля необязательные
+const obj2: Bar = {
+    name: 'Tony',
+}
+</v-code>
+</div><div id="typescript/methods/merge"><!-- TODO:
+<f-search>TS -> <u>Merge</u></f-search>
+-->
+
+<h2>Merge</h2>
+
+<v-code lang="js" title="">
+type ApplicationUpdateDto = Merge<
+	Type1, Type2
+>;
+</v-code>
+</div><div id="typescript/methods/required"><!-- TODO:
+<f-search>TS -> <u>Required</u></f-search>
+-->
+
+<h2>Required</h2>
+
+<v-code lang="js" title="">
+export type Document = Required<
+	Type1 & {
+		id: string;
+	}
+>
+</v-code>
+</div><div id="typescript/react/types"><h2>Типы</h2>
+
+<v-code lang="js step" title="">
+// Для Input
+const handleChange = (event: React.<u-code>ChangeEvent</u-code>&lt;<u-code>HTMLInputElement</u-code>&gt;): void => {
+    const { value } = event.target;
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Нужно проверить</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+const handleClick = (event: React.SyntheticEvent): void => {
+    //
+}
+const handleClick = (event: SyntheticEvent&lt;EventTarget&gt;) => {
+    //
+}
+</v-code>
+
+<v-code lang="js" title="">
+type Props = {
+    tooltip: React.ReactElement;
+    navTab: React.HTMLAttributes&lt;HTMLButtonElement&gt;;
+}
+</v-code>
+
+<v-code lang="js" title="">
+const root: HTMLElement | null = document.querySelector(':root');
+</v-code>
+</div><div id="typescript/react/component"><h2>Component</h2>
+
+<ul class="list-point">
+    <li><u-text-define>VFC</u-text-define> - тип React для функционального компонента без children</li>
+</ul>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Props</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Пропсы описываются через <u>interface</u></li>
+    <li><u-code-text>React.FC&lt;&gt;</u-code-text> - функциоанальный компонент</li>
+</ul>
+
+<v-two-code type="js step;js step" comment="Есть props;Нет props">
+<template v-slot:first>
+export interface IAppProps {
+	title: string;
+	count: number;
+}
+
+const App: React.FC&lt;IAppProps&gt; = props =&gt; {
+	const { title, count } = props;
+	return ...;
+}
+
+const App: React.FC&lt;IAppProps&gt; = ({ title, count }) =&gt; {
+	return ...;
+}
+</template>
+<template v-slot:last>
+const App: React.FC = () => {
+	//
+};
+</template>
+</v-two-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>React Component</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js step" title="">
+interface IApp {
+	Component: React.ReactNode;     // Можно добавить как <u-code-text>&lt;&gt;{Component}&lt;&gt;</u-code-text>
+	Component: React.ComponentType; // Можно добавить как <u-code-text>&lt;Component /&gt;</u-code-text>
+	Component: React.FC&lt;T&gt;;         // Можно использовать для HOC при передаче FC
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Передача Component через props</h4>
+<!------------------------------------------------------------->
+<b>1. Вызываем &lt;Foo /&gt; и пробрасываем в props другой компонент</b>
+
+<v-code lang="js step" title="">
+export const App: React.FC = () =&gt; {
+  return &lt;<u-code-accent>Foo</u-code-accent> component={Bar} /&gt;;
+};
+</v-code>
+
+<b>2. Вызываем переданный компонент &lt;Bar /&gt;</b>
+<v-code lang="js step" title="">
+export interface IFooProps {
+  component: React.ComponentType&lt;<u-code>IBarProps</u-code>&gt;;
+}
+
+const <u-code-accent>Foo</u-code-accent>: React.FC&lt;IFooProps&gt; = props =&gt; {
+  return &lt;props.component data="Hello" /&gt;;
+};
+</v-code>
+
+<b>3. Простой компонент &lt;Bar /&gt;</b>
+<v-code lang="js step" title="">
+export interface <u-code>IBarProps</u-code> {
+  data: string;
+}
+
+const <u-code-accent>Bar</u-code-accent>: React.FC&lt;IBarProps&gt; = props =&gt; {
+  return &lt;h1&gt;{props.data}&lt;/h1&gt;;
+};
+</v-code>
+</div><div id="typescript/react/CSSProperties"><h2>CSSProperties</h2>
+
+<v-code lang="js" title="">
+const App = () => {
+    return (
+        &lt;Child style=<span v-pre>{{</span> top: 10, left: 10 }} /&gt;
+    )
+}
+</v-code>
+
+<v-code lang="js" title="">
+import { CSSProperties } from "react"
+
+interface IChildProps {
+    id: string
+    style?: <u-code>CSSProperties</u-code>
+}
+
+const Child: React.FC<IChildProps> = (props) => {
+    const { style } = props
+
+    return (
+        &lt;div style={style}&gt;&lt;/div&gt;
+    )
+}
+
+</v-code>
+</div><div id="typescript/react/useState"><h2>useState</h2>
+
+<v-code lang="js step" title="">
+import { useState } from 'react';
+
+const App = () => {
+	const [value, setValue] = useState&lt;number&gt;(23);
+	const [value, setValue] = useState&lt;number | string&gt;();
+	const [show, setShow]   = useState&lt;boolean&gt;(true);
+}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Callback</h4>
+<!------------------------------------------------------------->
+<v-code lang="js step" title="">
+interface IAppProps {
+    setValue: React.<u-code>Dispatch</u-code>&lt;React.<u-code>SetStateAction</u-code>&lt;string&gt;&gt;;
+}
+</v-code>
+</div><div id="typescript/react/useRef"><h2>useRef</h2>
+
+<v-code lang="js" title="">
+const ref = useRef&lt;HTMLButtonElement&gt;(null)
+const ref = useRef&lt;HTMLDivElement&gt;(null)
+const ref = useRef&lt;HTMLInputElement&gt;()
+const ref = useRef&lt;number&gt;()
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>HTMLInputElement</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import * as React from 'react'
+
+const App = () => {
+  const ref = React.useRef&lt;HTMLInputElement&gt;(null)
+
+  React.useEffect(() => {
+    if (ref.current) {
+      ref.current.focus()
+    }
+  }, [])
+
+  return &lt;input ref={ref} /&gt;
+}
+
+export default App
+</v-code>
+</div><div id="typescript/react/children"><h2>Children</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Базовый пример</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li>Обычно не требуется дополнительная типизация для <u>children</u> в <u>interface</u></li>
+    <li><u>children</u> просто достается из <u>props</u></li>
+</ul>
+
+<v-code lang="js step" title="">
+export interface IAppProps {
+	title: string;
+	count: number;
+}
+
+const App: React.FC&lt;IAppProps&gt; = props =&gt; {
+	const { title, count, <u-code>children</u-code> } = props;
+	return ...;
+}
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Возможное описание типов</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+inperface Props {
+	children: JSX.Element;
+	children: React.ReactNode;
+}
+</v-code>
+</div><div id="typescript/react/react-router"><h2>react-router</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>RouteComponentProps</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+import { RouteComponentProps } from 'react-router';
+history: RouteComponentProps['history'];
+
+import { useHistory } from 'react-router-dom';
+const history = useHistory();
+</v-code>
+</div><div id="typescript/react/setInterval"><h2>React useRef setInterval</h2>
+
+<v-code lang="js" title="">
+import { useEffect, useRef } from "react"
+
+const App = () => {
+  const refreshIntervalId = useRef&lt;ReturnType&lt;typeof setInterval&gt; | null&gt;(null)
+
+  useEffect(() => {
+    refreshIntervalId.current = setInterval(() => {
+      //
+    }, 1000)
+
+    return () => {
+      clearInterval(refreshIntervalId.current as NodeJS.Timeout)
+    }
+  }, [])
+
+  return ()
+}
+</v-code>
+</div><div id="typescript/react/services"><h2>Services</h2>
+
+<v-path>src/services/user/user.ts</v-path>
+
+<v-code lang="js" title="">
+export const get = async (id: string): Promise<IUserModel> => {}
+export const create = async (payload: any): Promise<any> => {}
+export const update = async (id: string, payload: any): Promise<any> => {}
+export const remove = async (id: string): Promise<void> => {}
+export const getList = async (params: any = {}): Promise<any> => {}
+</v-code>
+
+<v-path>src/services/user/types.ts</v-path>
+
+<h5>interfaces</h5>
+<ul class="list-point">
+    <li>IUserModel</li>
+    <li>ICreatePayload</li>
+    <li>IUserProperties</li>
+</ul>
+
+<h5>Responses</h5>
+<ul class="list-point">
+    <li>IGetResponse</li>
+    <li>ICreateResponse</li>
+    <li>IUpdateResponse</li>
+</ul>
+
+<h5>Params</h5>
+<ul class="list-point">
+    <li>IUserFilterParams</li>
+    <li>IUserSearchParams</li>
+</ul>
+</div><div id="typescript/react/samples"><h2>Примеры типизации</h2>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>...rest</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<ul class="list-point">
+    <li><b>Задача типизировать пропсы:</b></li>
+    <li>Есть компонент-обёртка</li>
+    <li>Непосредственно в компоненте нужен проп "label" - остальные пропы прокидывает дальше</li>
+    <li>Пробрасываемое количество пропов может быть любое</li>
+</ul>
+
+<v-code lang="js" title="">
+import React from 'react';
+
+type Props = {
+    label: string
+} &amp; Parameters&lt;typeof ComponentInput&gt;[0];
+
+const ComponentWrapper: React.FC&lt;Props&gt; = ({ label, ...rest }) =&gt; {
+    return (
+        &lt;&gt;
+            &lt;span&gt;{label}&lt;/span&gt;
+            &lt;ComponentTarget {...rest} /&gt;
+        &lt;/&gt;
+    );
+};
+</v-code>
+
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<h3>Расширение типа аргументов в методе</h3>
+<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<v-code lang="js" title="">
+// Расширили тип аргументов в методе
+// В пропе onChange указываем первоначальный тип
+
+export function App(props) {
+    const handleChange = (_activeKeys: string[], nodes: RichTreeNode<{ documentType: string }>[]) => {
+        //
+    };
+
+    return (
+        &lt;CheckboxGroup
+            onChange={handleChange as (activeKeys: string[], nodes: RichTreeNode[]) =&gt; void}
+        /&gt;
+    );
+}
+</v-code>
+</div><div id="typescript/samples/string-for-object-key"><h2>Передача строки для ключа объекта</h2>
+
+<!------------------------------------------------------------->
+<h4>Поля</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+interface IIcons {
+    [key: string]: IconDefenition;
+}
+
+const icon: IIcons = {
+    Icon1: faIcon1,
+    Icon2: faIcon2,
+}
+
+icon['Icon1']
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>Рефы</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+interface ITooltipRefs {
+  [key: string]: HTMLDivElement | null
+}
+
+const tooltipRefs: ITooltipRefs = {}
+</v-code>
+
+<!------------------------------------------------------------->
+<h4>as keyof</h4>
+<!------------------------------------------------------------->
+<v-code lang="js" title="">
+export const MAP_ARROW_CODES: IMapArrowCodes = {
+  ArrowUp: "⬆️",
+  ArrowDown: "⬇️",
+  ArrowRight: "➡️",
+  ArrowLeft: "⬅️",
+}
+
+export interface IMapArrowCodes {
+  ArrowUp: string
+  ArrowDown: string
+  ArrowRight: string
+  ArrowLeft: string
+}
+
+const currentValue = MAP_ARROW_CODES.ArrowUp
+
+MAP_ARROW_CODES[currentValue as keyof IMapArrowCodes]
+</v-code>
+</div><div id="typescript/samples/generics-typing"><h2>Типизация через Дженерики</h2>
+
+<ul class="list-point">
+    <li>Задача: Типизировать функцию customMap</li>
+</ul>
+
+<v-code lang="js" title="">
+function customMap&lt;T, Z&gt;(arr: T[], callback: (item: T, index?: number) => Z): Z[] {
+	return arr.map(callback);
+}
+
+console.log(
+	customMap([1, 2, 3, 4], (item) => {
+		// Тип возвращаемого значения неизвестен
+		return item + "3";
+	});
+)
+</v-code>
+</div><div id="typescript/samples/array-of-objects"><h2>Массив объектов</h2>
+
+<v-code lang="js" title="">
+// Объект с ключом "name"
+type FieldType = {
+	name: string;
+};
+</v-code>
+
+<v-code lang="js" title="">
+// Массив, состоящий из FieldType
+// Массив объектов
+type MyFields1 = FieldType[];
+// Массив объектов (аналогичная запись)
+type MyFields2 = Array&lt;FieldType&gt;;
+</v-code>
+
+<v-code lang="js" title="">
+// Результат: массив объектов
+const fields: MyFields2 = [
+	{ name: 'name' },
+	{ name: 'age' },
+];
+</v-code>
+</div><div id="typescript/samples/type-argument"><h2>Тип принимает агрумент</h2>
+
+<i>AllowedValues строка</i>
+<v-code lang="js" title="">
+// Объект с ключом "name" и разрешенными значениями "T"
+type FieldType&lt;T = string&gt; = {
+	name: T;
+};
+
+// Разрешенные значения для ключа "name"
+type AllowedValues = 'name' | 'age' | 'count';
+
+// Массив объектов
+type MyFields = FieldType&lt;AllowedValues&gt;[];
+
+// Результат: массив объетов с разрешенными значениями
+const fields: MyFields = [
+	{ name: 'name' },
+	{ name: 'age' },
+	// { name: 'date' }, // error
+];
+</v-code>
+
+<i>AllowedValues объект</i>
+<v-code lang="js" title="">
+type AllowedValues = {
+	id: string;
+	name?: string;
+};
+
+const fields: MyFields = [
+	{
+		name: {
+			id: '1',
+			name: 'Jack'
+		}
+	},
+];
+</v-code>
+
+</div><div id="typescript/other/guards"><h2>Guards</h2>
+
+<ul class="list-point">
+    <li>Вспомогательные конструкции, позволяющие работать с типами: <u-code-text>typeof</u-code-text>, <u-code-text>instanceof</u-code-text></li>
+</ul>
+
+<v-code lang="js" title="">
+function strip(x: string | number) {
+	if (typeof x === 'number') {
+		return x.toFixed(2)
+	}
+	return x.trim()
+}
+
+class MyResponse {
+	header = 'response header'
+	result = 'response result'
+}
+
+class MyError {
+	header = 'error header'
+	message = 'error message'
+}
+
+function handle(res: MyResponse | MyError) {
+	if (res instanceof MyResponse) {
+		return {
+			info: res.header + res.result
+		}
+	} else {
+		return {
+			info: res.header + res.message
+		}
+	}
+}
+</v-code>
+
+<v-code lang="js" title="">
+type AlertType = 'success' | 'danger' | 'warning'
+
+function setAlertType(type: AlertType) {
+	// ....
+}
+
+setAlertType('success')
+setAlertType('warning')
+
+// setAlertType('default')
+</v-code>
+</div></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <link rel="stylesheet" type="text/css" href="../src/css/starter.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/custom.css">
+            <link rel="stylesheet" type="text/css" href="../src/css/layout.css">
+
+            <!-- Libraries -->
+            <script src="../src/libs/highlight/highlight.pack.js"></script>
+            <script src="../src/libs/vue.js"></script>
+
+            <!-- Custom Elements -->
+            <script src="../src/components-web/custom-elements.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-web/custom-elements.css">
+
+            <!-- Vue.js Components -->
+            <script src="../src/components-vue/vue-components.js"></script>
+            <link rel="stylesheet" type="text/css" href="../src/components-vue/vue-components.css">
+
+            <!-- JavaScript -->
+            <script src="../src/js/init.js"></script>
+            <script src="../@modules/@links.js"></script>
+            <script src="../src/vue.js/build.js"></script>
+
+            <!-- Search -->
+            <script src="../search-data.js"></script>
+            <script src="../src/js/search.js"></script>
+        </body>
+    </html>
