@@ -111,7 +111,6 @@ const ARR_LINKS = [
   { page: "git", theme: "tech", title: search + accent + "Git" },
   { page: "git-managers", theme: "tech", title: search + "Git Repo" },
   { page: "typescript", theme: "tech", title: search + accent + "TypeScript" },
-  { page: "ide", theme: "tech", title: search + "IDE" },
   { page: "linters", theme: "tech", title: search + "Linters" },
   { page: "vite", theme: "tech", title: "Vite" },
   [],
