@@ -1,62 +1,34 @@
-/*
-THEME:
-- theory
-- primary | secondary | accent | actual
-- react | node | js | vue | html
-- tech
-*/
-
-const theory = "📑 ";
-const accent = "📌 ";
-const tech = "✈️ ";
-const search = `
-  <div
-    style="
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      margin-right: 5px;
-      background-color: #7256d1;
-      border-radius: 50%;
-      border: 2px solid #fff;
-    "
-  >
-  </div>
-`;
-
-// #2bd8ff
-
 const ARR_LINKS = [
   {
     page: "event-loop",
     theme: "accent",
-    title: search + accent + "Event Loop",
+    title: "Event Loop",
   },
   {
     page: "v8",
     theme: "accent",
-    title: search + accent + "V8 | Rendering | Optimize",
+    title: "V8 | Rendering | Optimize",
   },
-  { page: "js-task", theme: "primary ", title: search + "⚡️ Задачи" },
+  { page: "js-task", theme: "primary ", title: "⚡️ Задачи" },
   null,
-  { page: "js", theme: "js", title: accent + "JavaScript" },
-  { page: "js-object", theme: "js", title: search + "Object" },
+  { page: "js", theme: "js", title: "JavaScript" },
+  { page: "js-object", theme: "js", title: "Object" },
   { page: "js-array", theme: "js", title: "Array" },
   { page: "js-string", theme: "js", title: "String" },
   { page: "js-function", theme: "js", title: "Function" },
-  { page: "js-class", theme: "js", title: search + "Class" },
+  { page: "js-class", theme: "js", title: "Class" },
   null,
   { page: "js-async", theme: "js", title: "Async" },
-  { page: "js-promise", theme: "js", title: search + "Promise" },
+  { page: "js-promise", theme: "js", title: "Promise" },
   { page: "js-ajax", theme: "js", title: "Ajax" },
   { page: "axios", theme: "react", title: "Axios" },
   { page: "swr", theme: "react", title: "SWR" },
   { page: "tan-stack-query", theme: "react", title: "TanStack Query" },
-  { page: "network", theme: "primary", title: tech + "Сеть" },
-  { page: "auth", theme: "primary", title: tech + "Авторизация" },
+  { page: "network", theme: "primary", title: "Сеть" },
+  { page: "auth", theme: "primary", title: "Авторизация" },
   null,
   { page: "js-regexp", theme: "js", title: "RegExp" },
-  { page: "js-web-api", theme: "js", title: search + "Web API" },
+  { page: "js-web-api", theme: "js", title: "Web API" },
   null,
   { page: "canvas", theme: "secondary", title: "Canvas" },
   { page: "web-components", theme: "secondary", title: "Web Components" },
@@ -65,8 +37,8 @@ const ARR_LINKS = [
   { page: "ramda", theme: "primary", title: "Ramda" },
   [],
 
-  { page: "react-js", theme: "react", title: search + accent + "React" },
-  { page: "react-app", theme: "accent", title: accent + "React App" },
+  { page: "react-js", theme: "react", title: "React" },
+  { page: "react-app", theme: "accent", title: "React App" },
   { page: "react-hooks", theme: "react", title: "React Hooks" },
   { page: "react-api", theme: "react", title: "React API" },
   { page: "react-router", theme: "react", title: "React Router" },
@@ -74,59 +46,58 @@ const ARR_LINKS = [
   { page: "next-js", theme: "react", title: "Next.js" },
   { page: "react-native", theme: "actual", title: "React Native" },
   { page: "material-ui", theme: "react", title: "Material UI" },
-  { page: "reactflow", theme: "secondary", title: search + "React Flow" },
+  { page: "reactflow", theme: "secondary", title: "React Flow" },
   { page: "react-use", theme: "secondary", title: "React Use" },
   null,
   { page: "react-hook-form", theme: "actual", title: "React Hook Form" },
-  { page: "formik", theme: "react", title: search + "Formik" },
+  { page: "formik", theme: "react", title: "Formik" },
   { page: "yup", theme: "react", title: "Yup" },
   { page: "react-final-form", theme: "secondary", title: "React Final Form" },
   null,
-  { page: "redux", theme: "react", title: search + "Redux" },
-  { page: "react-redux", theme: "react", title: search + "React Redux" },
+  { page: "redux", theme: "react", title: "Redux" },
+  { page: "react-redux", theme: "react", title: "React Redux" },
   { page: "redux-toolkit", theme: "react", title: "Redux Toolkit" },
   { page: "redux-saga", theme: "react", title: "Redux Saga" },
   { page: "reselect", theme: "react", title: "Reselect" },
   { page: "zustand", theme: "react", title: "Zustand" },
   [],
 
-  { page: "vue-vuex", theme: "secondary", title: search + "Vuex" },
-  { page: "vue-router", theme: "secondary", title: search + "Vue Router" },
+  { page: "vue-vuex", theme: "secondary", title: "Vuex" },
+  { page: "vue-router", theme: "secondary", title: "Vue Router" },
   [],
 
-  { page: "node-js", theme: "node", title: search + "Node.js" },
-  { page: "node-js-express", theme: "node", title: search + "Express" },
-  { page: "nest-js", theme: "node", title: search + "Nest.js" },
-  { page: "mongodb", theme: "actual", title: "MongoDB" },
+  { page: "node-js", theme: "node", title: "Node.js" },
+  { page: "node-js-express", theme: "node", title: "Express" },
+  { page: "nest-js", theme: "node", title: "Nest.js" },
   [],
 
-  { page: "testing", theme: "primary", title: theory + "Тестирование" },
+  { page: "testing", theme: "primary", title: "Тестирование" },
   { page: "jest", theme: "primary", title: "Jest" },
-  { page: "enzyme", theme: "primary", title: search + "Enzyme + Jest" },
-  { page: "cypress", theme: "secondary", title: search + "Cypress" },
-  { page: "react-testing", theme: "primary", title: search + "React Testing" },
+  { page: "enzyme", theme: "primary", title: "Enzyme + Jest" },
+  { page: "cypress", theme: "secondary", title: "Cypress" },
+  { page: "react-testing", theme: "primary", title: "React Testing" },
   [],
 
-  { page: "git", theme: "tech", title: search + accent + "Git" },
-  { page: "git-managers", theme: "tech", title: search + "Git Repo" },
-  { page: "typescript", theme: "tech", title: search + accent + "TypeScript" },
-  { page: "linters", theme: "tech", title: search + "Linters" },
+  { page: "git", theme: "tech", title: "Git" },
+  { page: "git-managers", theme: "tech", title: "Git Repo" },
+  { page: "typescript", theme: "tech", title: "TypeScript" },
+  { page: "linters", theme: "tech", title: "Linters" },
   [],
 
-  { page: "webpack", theme: "primary", title: search + "Webpack" },
-  { page: "npm", theme: "primary", title: search + "NPM | Yarn" },
+  { page: "webpack", theme: "primary", title: "Webpack" },
+  { page: "npm", theme: "primary", title: "NPM | Yarn" },
   { page: "compilation", theme: "primary", title: "Compilation" },
-  { page: "blockchain", theme: "primary", title: search + "Blockchain" },
+  { page: "blockchain", theme: "primary", title: "Blockchain" },
   null,
   { page: "macos", theme: "primary", title: "MacOS" },
   { page: "linux", theme: "primary", title: "Linux" },
   null,
   { page: "heroku", theme: "secondary", title: "Heroku" },
-  { page: "english", theme: "theory", title: theory + "English" },
+  { page: "english", theme: "theory", title: "English" },
   [],
 
-  { page: "python", theme: "secondary", title: search + "Python" },
-  { page: "php", theme: "secondary", title: search + "PHP" },
+  { page: "python", theme: "secondary", title: "Python" },
+  { page: "php", theme: "secondary", title: "PHP" },
   [],
 
   { page: "wiki", theme: "primary", title: "Wiki" },
