@@ -2,26 +2,6 @@ root = "react-js/";
 
 ARR_MODULE = [
   {
-    title: "Реконсиляция",
-    accent: true,
-    themes: [
-      [
-        root + "reconciler/reconciliation",
-        emoji.theory + "Reconciliation Algorithm",
-      ],
-    ],
-  },
-  {
-    title: "Fiber",
-    accent: true,
-    themes: [
-      [root + "fiber/common", emoji.star + "Общее"],
-      [root + "fiber/planning", emoji.items + "1. Планирование"],
-      [root + "fiber/priorities", emoji.items + "2. Приоритизация"],
-      [root + "fiber/sample", "Пример"],
-    ],
-  },
-  {
     title: "Lifecycle",
     themes: [
       [root + "lifecycle/info", emoji.theory + "Информация"],
