@@ -91,9 +91,6 @@ const ARR_LINKS = [
   null,
   { page: "macos", theme: "primary", title: "MacOS" },
   { page: "linux", theme: "primary", title: "Linux" },
-  null,
-  { page: "heroku", theme: "secondary", title: "Heroku" },
-  { page: "english", theme: "theory", title: "English" },
   [],
 
   { page: "python", theme: "secondary", title: "Python" },
@@ -101,4 +98,5 @@ const ARR_LINKS = [
   [],
 
   { page: "wiki", theme: "primary", title: "Wiki" },
+  { page: "english", theme: "theory", title: "English" },
 ];

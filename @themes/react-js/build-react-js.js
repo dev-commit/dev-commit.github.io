@@ -4,7 +4,6 @@ ARR_MODULE = [
   {
     title: "Lifecycle",
     themes: [
-      [root + "lifecycle/info", emoji.theory + "Информация"],
       [root + "lifecycle/hook-constructor", setTheme(1, ["constructor"])],
       [
         root + "lifecycle/hook-get-derived-state-from-props",
