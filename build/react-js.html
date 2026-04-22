@@ -34,26 +34,6 @@
     <li>
         <a
             class="menu-link"
-            id="id__react-js/lifecycle/hook-constructor"
-            href="#react-js/lifecycle/hook-constructor"
-        >
-            <u-menu>constructor</u-menu>
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
-            id="id__react-js/lifecycle/hook-get-derived-state-from-props"
-            href="#react-js/lifecycle/hook-get-derived-state-from-props"
-        >
-            <u-menu>getDerivedStateFromProps</u-menu>
-        </a>
-    </li>
-
-    <li>
-        <a
-            class="menu-link"
             id="id__react-js/lifecycle/hook-should-component-update"
             href="#react-js/lifecycle/hook-should-component-update"
         >
@@ -392,39 +372,7 @@
                             </slot>
                         </ul>
                     </div>
-                    <div id="content"><div id="react-js/lifecycle/hook-constructor"><h2>React.Component.constructor()</h2>
-
-<div class="v-method-wrapper">
-    <v-method before="" method="constructor" after="" arg="(props)">
-   	вызывается при создании компонента
-    </v-method>
-
-	<v-method-arg arg="props">props</v-method-arg>
-</div>
-
-<ul class="list-point">
-    <li>Вы можете <u>не использовать</u> конструктор в React-компоненте, если вы не определяете состояние или не привязываете методы</li>
-    <li>Конструктор компонента React вызывается до того, как компонент будет примонтирован. В начале конструктора необходимо вызывать <u-code-text>super(props)</u-code-text>. Если это не сделать, <u-code-text>this.props</u-code-text> не будет определён. Это может привести к багам</li>
-    <li><u>Не использовать</u> <u-code-text>setState()</u-code-text> в constructor(). Начальное состояние сразу присваивается в конструкторе. Конструктор - единственное место, где можно напрямую изменять <u-code-text>this.state</u-code-text>. В остальных методах необходимо использовать <u-code-text>this.setState()</u-code-text></li>
-    <li><u>Не использовать</u> побочные эффекты или подписки в конструкторе. Вместо этого используйте <u-code-text>componentDidMount()</u-code-text></li>
-</ul>
-<ul class="list-point">
-	<b>Обычно используют для двух целей:</b>
-    <li>Инициализация внутреннего состояния через присвоение объекта <u-code-text>this.state</u-code-text></li>
-    <li>Привязка обработчиков событий к экземпляру</li>
-</ul>
-</div><div id="react-js/lifecycle/hook-get-derived-state-from-props"><h2>getDerivedStateFromProps()</h2>
-
-
-<div class="v-method-wrapper">
-    <v-method before="static " method="getDerivedStateFromProps" after="" arg="(props, state)">
-    вызывается непосредственно перед вызовом метода render, как при начальном монтировании, так и при последующих обновлениях. Он должен вернуть объект для обновления состояния или null, чтобы ничего не обновлять. Существует для редких случаев, <u-text-underline>когда состояние зависит от изменений в пропсах</u-text-underline>. Например, это подойдёт для реализации компонента &lt;Transition&gt;, который сравнивает свои предыдущие и следующие дочерние компоненты, чтобы решить, какой из них нужно анимировать. Метод запускается при каждом рендере, независимо от причины
-    </v-method>
-
-	<v-method-arg arg="props">props</v-method-arg>
-	<v-method-arg arg="state">state</v-method-arg>
-</div>
-</div><div id="react-js/lifecycle/hook-should-component-update"><h2>shouldComponentUpdate()</h2>
+                    <div id="content"><div id="react-js/lifecycle/hook-should-component-update"><h2>shouldComponentUpdate()</h2>
 
 <div class="v-method-wrapper">
     <v-method before="" method="shouldComponentUpdate" after="" arg="(nextProps, nextState)">

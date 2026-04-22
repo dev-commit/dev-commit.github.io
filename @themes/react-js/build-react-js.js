@@ -4,11 +4,6 @@ ARR_MODULE = [
   {
     title: "Lifecycle",
     themes: [
-      [root + "lifecycle/hook-constructor", setTheme(1, ["constructor"])],
-      [
-        root + "lifecycle/hook-get-derived-state-from-props",
-        setTheme(1, ["getDerivedStateFromProps"]),
-      ],
       [
         root + "lifecycle/hook-should-component-update",
         setTheme(1, ["shouldComponentUpdate"]),
