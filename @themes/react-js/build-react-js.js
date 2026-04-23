@@ -2,25 +2,6 @@ root = "react-js/";
 
 ARR_MODULE = [
   {
-    title: "Обработка и вывод данных",
-    themes: [
-      [
-        root + "processing-data-output/controlled-components",
-        "Controlled Components",
-      ],
-      [
-        root + "processing-data-output/uncontrolled-components",
-        "Uncontrolled Components",
-      ],
-      [
-        root + "processing-data-output/conditional-rendering",
-        "Условный рендеринг",
-      ],
-      [root + "processing-data-output/lists-and-keys", "Списки и ключи"],
-      [root + "processing-data-output/error-boundaries", "Предохранители"],
-    ],
-  },
-  {
     title: "Стилизация",
     accent: true,
     themes: [
