@@ -2,27 +2,6 @@ root = "react-js/";
 
 ARR_MODULE = [
   {
-    title: "Lifecycle",
-    themes: [
-      [
-        root + "lifecycle/hook-component-did-update",
-        setTheme(3, ["componentDidUpdate"]),
-      ],
-      [
-        root + "lifecycle/hook-component-will-unmount",
-        setTheme(3, ["componentWillUnmount"]),
-      ],
-      [
-        root + "lifecycle/hook-get-derived-state-from-error",
-        setTheme(6, ["getDerivedStateFromError"]),
-      ],
-      [
-        root + "lifecycle/hook-component-did-catch",
-        setTheme(6, ["componentDidCatch"]),
-      ],
-    ],
-  },
-  {
     title: "Паттерны",
     themes: [
       [root + "patterns/higher-order-components", "Higher-Order Component"],
