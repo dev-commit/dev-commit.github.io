@@ -2,18 +2,8 @@ root = "react-js/";
 
 ARR_MODULE = [
   {
-    title: "Паттерны",
-    themes: [
-      [root + "patterns/higher-order-components", "Higher-Order Component"],
-      [root + "patterns/render-props", "Render Props"],
-      [root + "patterns/element-props", "Свойства-элементы"],
-      [root + "patterns/lifting-state-up", "Подъём состояния"],
-    ],
-  },
-  {
     title: "Обработка и вывод данных",
     themes: [
-      [root + "processing-data-output/handling-events", "Обработка событий"],
       [
         root + "processing-data-output/controlled-components",
         "Controlled Components",
@@ -52,16 +42,12 @@ ARR_MODULE = [
   {
     title: "Прочее",
     themes: [
-      [root + "common/props", setTheme(1, ["props"])],
-      [root + "common/components", "Компоненты"],
       [root + "common/jsx", "JSX"],
       [root + "common/react-developer-tools", "React Developer Tools"],
-      [root + "common/component-class", emoji.code + "Структура на Class"],
-      [root + "common/samples", emoji.code + "Примеры"],
     ],
   },
   {
-    title: "React Plugins",
-    themes: [[root + "react-plugins/classnames", setTheme(2, ["classnames"])]],
+    title: "Libs",
+    themes: [[root + "libs/classnames", setTheme(2, ["classnames"])]],
   },
 ];
