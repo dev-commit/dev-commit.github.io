@@ -5,14 +5,6 @@ ARR_MODULE = [
     title: "Lifecycle",
     themes: [
       [
-        root + "lifecycle/hook-get-snapshot-before-update",
-        setTheme(1, ["getSnapshotBeforeUpdate"]),
-      ],
-      [
-        root + "lifecycle/hook-component-did-mount",
-        setTheme(3, ["componentDidMount"]),
-      ],
-      [
         root + "lifecycle/hook-component-did-update",
         setTheme(3, ["componentDidUpdate"]),
       ],
