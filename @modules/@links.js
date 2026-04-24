@@ -32,7 +32,6 @@ const ARR_LINKS = [
   { page: "web-components", theme: "secondary", title: "Web Components" },
   [],
 
-  { page: "react-app", theme: "accent", title: "React App" },
   { page: "react-hooks", theme: "react", title: "React Hooks" },
   { page: "react-api", theme: "react", title: "React API" },
   { page: "react-router", theme: "react", title: "React Router" },
@@ -49,10 +48,6 @@ const ARR_LINKS = [
   { page: "redux-toolkit", theme: "react", title: "Redux Toolkit" },
   { page: "redux-saga", theme: "react", title: "Redux Saga" },
   { page: "zustand", theme: "react", title: "Zustand" },
-  [],
-
-  { page: "vue-vuex", theme: "secondary", title: "Vuex" },
-  { page: "vue-router", theme: "secondary", title: "Vue Router" },
   [],
 
   { page: "node-js", theme: "node", title: "Node.js" },
