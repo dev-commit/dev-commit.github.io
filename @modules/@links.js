@@ -32,7 +32,6 @@ const ARR_LINKS = [
   { page: "web-components", theme: "secondary", title: "Web Components" },
   [],
 
-  { page: "react-hooks", theme: "react", title: "React Hooks" },
   { page: "react-api", theme: "react", title: "React API" },
   { page: "react-router", theme: "react", title: "React Router" },
   null,
