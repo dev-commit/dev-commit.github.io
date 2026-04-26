@@ -68,7 +68,6 @@ const ARR_LINKS = [
   { page: "webpack", theme: "primary", title: "Webpack" },
   { page: "compilation", theme: "primary", title: "Compilation" },
   { page: "blockchain", theme: "primary", title: "Blockchain" },
-  { page: "macos", theme: "primary", title: "MacOS" },
   { page: "python", theme: "secondary", title: "Python" },
   { page: "php", theme: "secondary", title: "PHP" },
   [],
