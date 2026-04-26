@@ -18,7 +18,6 @@ const ARR_LINKS = [
   { page: "js-function", theme: "js", title: "Function" },
   { page: "js-class", theme: "js", title: "Class" },
   null,
-  { page: "js-async", theme: "js", title: "Async" },
   { page: "js-promise", theme: "js", title: "Promise" },
   { page: "js-ajax", theme: "js", title: "Ajax" },
   { page: "axios", theme: "react", title: "Axios" },
