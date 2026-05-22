@@ -20,7 +20,6 @@ const ARR_LINKS = [
   null,
   { page: "js-promise", theme: "js", title: "Promise" },
   { page: "axios", theme: "react", title: "Axios" },
-  { page: "swr", theme: "react", title: "SWR" },
   { page: "network", theme: "primary", title: "Сеть" },
   { page: "auth", theme: "primary", title: "Авторизация" },
   null,
