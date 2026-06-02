@@ -1,10 +1,5 @@
 const ARR_LINKS = [
   {
-    page: "event-loop",
-    theme: "accent",
-    title: "Event Loop",
-  },
-  {
     page: "v8",
     theme: "accent",
     title: "V8 | Rendering | Optimize",
