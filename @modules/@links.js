@@ -1,11 +1,4 @@
 const ARR_LINKS = [
-  {
-    page: "v8",
-    theme: "accent",
-    title: "V8 | Rendering | Optimize",
-  },
-  { page: "js-task", theme: "primary ", title: "⚡️ Задачи" },
-  null,
   { page: "js", theme: "js", title: "JavaScript" },
   { page: "js-object", theme: "js", title: "Object" },
   { page: "js-array", theme: "js", title: "Array" },
@@ -63,7 +56,7 @@ const ARR_LINKS = [
   { page: "python", theme: "secondary", title: "Python" },
   { page: "php", theme: "secondary", title: "PHP" },
   [],
-
-  { page: "wiki", theme: "primary", title: "Wiki" },
+  { page: "js-task", theme: "primary ", title: "⚡️ Задачи" },
   { page: "english", theme: "theory", title: "English" },
+  { page: "wiki", theme: "primary", title: "Wiki" },
 ];
