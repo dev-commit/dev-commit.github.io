@@ -8,7 +8,6 @@ const ARR_LINKS = [
   null,
   { page: "js-promise", theme: "js", title: "Promise" },
   { page: "network", theme: "primary", title: "Сеть" },
-  { page: "auth", theme: "primary", title: "Авторизация" },
   null,
   { page: "js-regexp", theme: "js", title: "RegExp" },
   { page: "js-web-api", theme: "js", title: "Web API" },
