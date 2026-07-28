@@ -6,8 +6,6 @@ const ARR_LINKS = [
   { page: "js-function", theme: "js", title: "Function" },
   { page: "js-class", theme: "js", title: "Class" },
   null,
-  { page: "js-promise", theme: "js", title: "Promise" },
-  null,
   { page: "js-regexp", theme: "js", title: "RegExp" },
   { page: "js-web-api", theme: "js", title: "Web API" },
   { page: "canvas", theme: "secondary", title: "Canvas" },
@@ -55,5 +53,4 @@ const ARR_LINKS = [
   [],
   { page: "js-task", theme: "primary ", title: "⚡️ Задачи" },
   { page: "english", theme: "theory", title: "English" },
-  { page: "wiki", theme: "primary", title: "Wiki" },
 ];
