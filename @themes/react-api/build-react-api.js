@@ -2,15 +2,6 @@ root = "react-api/";
 
 ARR_MODULE = [
   {
-    title: "React",
-    themes: [
-      [root + "react/startTransition", setTheme(1, ["startTransition"])],
-      [root + "react/createContext", setTheme(1, ["createContext"])],
-      [root + "react/Fragment", setTheme(1, ["&lt;Fragment&gt;"])],
-      [root + "react/StrictMode", setTheme(1, ["&lt;StrictMode&gt;"])],
-    ],
-  },
-  {
     title: "ReactDOM",
     themes: [[root + "react-dom/createPortal", setTheme(1, ["createPortal"])]],
   },
