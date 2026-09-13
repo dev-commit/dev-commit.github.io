@@ -10,9 +10,6 @@ const ARR_LINKS = [
   { page: "js-web-api", theme: "js", title: "Web API" },
   { page: "canvas", theme: "secondary", title: "Canvas" },
   { page: "web-components", theme: "secondary", title: "Web Components" },
-  [],
-
-  { page: "react-router", theme: "react", title: "React Router" },
   null,
   { page: "next-js", theme: "react", title: "Next.js" },
   { page: "reactflow", theme: "secondary", title: "React Flow" },
