@@ -2,10 +2,6 @@ root = "js/";
 
 ARR_MODULE = [
   {
-    title: "Типизация",
-    themes: [[root + "typing/symbol", "Symbol (ES6)"]],
-  },
-  {
     title: "Всплытие и переменные",
     themes: [
       [root + "variables/hoisting", emoji.fire + "Всплытие"],
