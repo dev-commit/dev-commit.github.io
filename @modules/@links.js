@@ -1,5 +1,4 @@
 const ARR_LINKS = [
-  { page: "js", theme: "js", title: "JavaScript" },
   { page: "js-object", theme: "js", title: "Object" },
   { page: "js-array", theme: "js", title: "Array" },
   { page: "js-string", theme: "js", title: "String" },
