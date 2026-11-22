@@ -2,23 +2,8 @@ root = "js/";
 
 ARR_MODULE = [
   {
-    title: "Всплытие и переменные",
-    themes: [
-      [root + "variables/hoisting", emoji.fire + "Всплытие"],
-      [root + "variables/variables", setTheme(1, ["var", "let", "const"])],
-      [
-        root + "variables/variables-create",
-        emoji.theory + "Создание переменных",
-      ],
-    ],
-  },
-  {
     title: "Структуры данных",
     themes: [
-      [root + "data-structures/number", setTheme(1, ["Number"])],
-      [root + "data-structures/json", setTheme(1, ["JSON"])],
-      [root + "data-structures/iterators", setTheme(1, ["Iterators (ES6)"])],
-      [root + "data-structures/map", setTheme(1, ["Map", "WeakMap"])],
       [root + "data-structures/set", setTheme(1, ["Set", "WeakSet"])],
       [root + "data-structures/date-time", setTheme(1, ["Date"])],
     ],
