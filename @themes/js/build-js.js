@@ -2,13 +2,6 @@ root = "js/";
 
 ARR_MODULE = [
   {
-    title: "Структуры данных",
-    themes: [
-      [root + "data-structures/set", setTheme(1, ["Set", "WeakSet"])],
-      [root + "data-structures/date-time", setTheme(1, ["Date"])],
-    ],
-  },
-  {
     title: "ES6+",
     themes: [
       [
