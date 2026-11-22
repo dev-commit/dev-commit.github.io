@@ -46,6 +46,4 @@ const ARR_LINKS = [
   { page: "blockchain", theme: "primary", title: "Blockchain" },
   { page: "python", theme: "secondary", title: "Python" },
   { page: "php", theme: "secondary", title: "PHP" },
-  [],
-  { page: "english", theme: "theory", title: "English" },
 ];
