@@ -7,8 +7,6 @@ const ARR_LINKS = [
   null,
   { page: "js-regexp", theme: "js", title: "RegExp" },
   { page: "js-web-api", theme: "js", title: "Web API" },
-  { page: "canvas", theme: "secondary", title: "Canvas" },
-  { page: "web-components", theme: "secondary", title: "Web Components" },
   null,
   { page: "next-js", theme: "react", title: "Next.js" },
   { page: "reactflow", theme: "secondary", title: "React Flow" },
