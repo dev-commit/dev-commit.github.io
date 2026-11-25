@@ -21,7 +21,6 @@ const ARR_LINKS = [
   { page: "typescript", theme: "tech", title: "TypeScript" },
   { page: "linters", theme: "tech", title: "Linters" },
   { page: "git", theme: "tech", title: "Git" },
-  { page: "git-managers", theme: "tech", title: "Git Managers" },
   [],
   { page: "webpack", theme: "primary", title: "Webpack" },
   { page: "blockchain", theme: "primary", title: "Blockchain" },
