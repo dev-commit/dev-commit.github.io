@@ -4,7 +4,6 @@ const ARR_LINKS = [
   { page: "js-string", theme: "js", title: "✅ String" },
   { page: "js-function", theme: "js", title: "✅ Function" },
   { page: "js-class", theme: "js", title: "✅ Class" },
-  { page: "js-regexp", theme: "js", title: "✅ RegExp" },
   { page: "js-web-api", theme: "js", title: "✅ Web API" },
   [],
   { page: "formik", theme: "react", title: "Formik" },
