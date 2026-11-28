@@ -1,5 +1,4 @@
 const ARR_LINKS = [
-  { page: "js-task", theme: "js ", title: "✅ Задачи" },
   { page: "js-function", theme: "js", title: "✅ Function" },
   { page: "js-class", theme: "js", title: "✅ Class" },
   { page: "js-web-api", theme: "js", title: "✅ Web API" },
