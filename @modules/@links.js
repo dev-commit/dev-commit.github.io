@@ -21,7 +21,6 @@ const ARR_LINKS = [
   [],
   { page: "webpack", theme: "primary", title: "Webpack" },
   { page: "blockchain", theme: "primary", title: "Blockchain" },
-  { page: "compilation", theme: "primary", title: "✅ Общее" },
   [],
   { page: "node-js", theme: "node", title: "✅ Node.js" },
   { page: "node-js-express", theme: "node", title: "Express" },
